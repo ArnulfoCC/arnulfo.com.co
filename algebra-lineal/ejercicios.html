@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Banco de ejercicios — Álgebra Lineal</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ 04 - Álgebra Lineal / 4. Banco de ejercicios</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="banco-de-ejercicios--álgebra-lineal">Banco de ejercicios — Álgebra Lineal</h1>
+<p>Alrededor de 170 ejercicios organizados por escenario y en tres niveles: <strong>básico</strong>, <strong>intermedio</strong>
+y <strong>tipo examen</strong>. Al final: 5 preguntas de opción múltiple, 2 problemas de aplicación a datos y la
+sección completa de <strong>Soluciones</strong>.</p>
+<p><strong>Cómo usarlo:</strong></p>
+<ul>
+<li>Intenta cada ejercicio <strong>al menos 15 minutos</strong> antes de mirar la solución.</li>
+<li>Resuelve a mano y <strong>después</strong> verifica con NumPy o Excel.</li>
+<li>Anota en tu hoja de errores todo lo que falles: ese registro vale más que releer la teoría.</li>
+<li>Si un ejercicio te sale a la primera y sin dudar, no lo repitas. Repite los que fallaste.</li>
+</ul>
+<blockquote>
+<p>Todos los resultados fueron verificados computacionalmente.</p>
+</blockquote>
+<hr />
+<h1 id="parte-i--enunciados">PARTE I — ENUNCIADOS</h1>
+<span id="escenario-1--vectores-en-mathbbrn"></span><h2 id="escenario-1--vectores-en-math193">Escenario 1 — Vectores en \(\mathbb{R}^n\)</h2>
+<p>En los ejercicios 1.1 a 1.5 usa:
+\(u = (2,-3,1)\), \(v = (4,0,-2)\), \(w = (-1,5,3)\).</p>
+<h3 id="nivel-básico">Nivel básico</h3>
+<p><strong>1.1</strong> Calcula \(u + v\) y \(u - v\).</p>
+<p><strong>1.2</strong> Calcula \(3u\) y \(2u - 3v + w\).</p>
+<p><strong>1.3</strong> Calcula los tres productos punto: \(u \cdot v\), \(u \cdot w\), \(v \cdot w\).</p>
+<p><strong>1.4</strong> Calcula \(\|u\|\), \(\|v\|\) y \(\|w\|\).</p>
+<p><strong>1.5</strong> Halla el vector unitario en la dirección de \(u\).</p>
+<p><strong>1.6</strong> Halla la distancia entre los puntos \(A = (1,-2,3)\) y \(B = (4,2,-1)\).</p>
+<p><strong>1.7</strong> Sean \(c = (3,4)\) y \(d = (-4,3)\). Calcula \(c \cdot d\), \(\|c\|\) y \(\|d\|\). ¿Qué concluyes?</p>
+<p><strong>1.8</strong> Halla el ángulo entre \(e = (1,1)\) y \(f = (1,0)\).</p>
+<h3 id="nivel-intermedio">Nivel intermedio</h3>
+<p><strong>1.9</strong> Halla el ángulo entre \(u = (2,-3,1)\) y \(v = (4,0,-2)\), en grados con dos decimales.</p>
+<p><strong>1.10</strong> Calcula \(\text{proy}_v u\) con los vectores del 1.9.</p>
+<p><strong>1.11</strong> Calcula \(\text{proy}_u v\) con los mismos vectores y compara con el resultado anterior.
+Explica por qué son distintos.</p>
+<p><strong>1.12</strong> Halla el valor de \(k\) para que \((3, k, -2)\) y \((1, 4, 5)\) sean ortogonales.</p>
+<p><strong>1.13</strong> Halla los valores de \(k\) para que \((k, 2, -1)\) y \((3, k, 4)\) sean ortogonales.</p>
+<p><strong>1.14</strong> En \(\mathbb{R}^4\), sean \(g = (5,-1,2,3)\) y \(h = (2,4,-1,0)\). Calcula \(g \cdot h\), \(\|g\|\),
+\(\|h\|\) y el ángulo entre ellos.</p>
+<p><strong>1.15</strong> Verifica numéricamente la desigualdad de Cauchy-Schwarz para \(u = (2,-3,1)\) y
+\(v = (4,0,-2)\).</p>
+<h3 id="nivel-tipo-examen">Nivel tipo examen</h3>
+<p><strong>1.16</strong> ¿Es \((4,3,7)\) combinación lineal de \((1,2,3)\) y \((2,-1,1)\)? Si lo es, halla los
+coeficientes.</p>
+<p><strong>1.17</strong> ¿Es \((5,0,4)\) combinación lineal de \((1,2,3)\) y \((2,-1,1)\)? Justifica.</p>
+<p><strong>1.18</strong> Halla un vector no nulo ortogonal simultáneamente a \((1,2,-1)\) y \((2,-1,3)\).</p>
+<p><strong>1.19</strong> Con \(u = (1,2,2)\) y \(v = (2,-1,2)\), calcula \(\text{proy}_v u\) y verifica que
+\(u - \text{proy}_v u\) es ortogonal a \(v\).</p>
+<p><strong>1.20</strong> Una entrega parcial de un contrato de aseo comprende cuatro insumos, con cantidades
+\(q = (120,\; 85,\; 200,\; 45)\) y precios unitarios en pesos
+\(p = (35\,000;\; 52\,000;\; 18\,000;\; 96\,000)\). Expresa el valor total como un producto punto y
+calcúlalo.</p>
+<hr />
+<h2 id="escenario-2--matrices">Escenario 2 — Matrices</h2>
+<p>En los ejercicios de este escenario usa:</p>
+<p>\[A = \begin{pmatrix}2 & -1 \\ 3 & 4\end{pmatrix}, \quad
+B = \begin{pmatrix}1 & 0 \\ -2 & 5\end{pmatrix}, \quad
+C = \begin{pmatrix}1 & 2 & -1 \\ 0 & 3 & 2\end{pmatrix}\]</p>
+<p>\[D = \begin{pmatrix}1 & -2 & 0 \\ 3 & 1 & 4 \\ -1 & 2 & 2\end{pmatrix}, \quad
+E = \begin{pmatrix}2 & 0 & 1 \\ 1 & 3 & -1 \\ 0 & 4 & 2\end{pmatrix}\]</p>
+<span id="nivel-básico"></span><h3 id="nivel-básico_1">Nivel básico</h3>
+<p><strong>2.1</strong> Calcula \(A + B\).</p>
+<p><strong>2.2</strong> Calcula \(2A - 3B\).</p>
+<p><strong>2.3</strong> Calcula \(AB\).</p>
+<p><strong>2.4</strong> Calcula \(BA\) y compara con el resultado anterior.</p>
+<p><strong>2.5</strong> Calcula \(A^2\).</p>
+<p><strong>2.6</strong> Escribe \(C^T\).</p>
+<p><strong>2.7</strong> Sin hacer las cuentas, indica las dimensiones de: \(AC\), \(CC^T\), \(C^TC\), \(CA\) (si existe).</p>
+<p><strong>2.8</strong> Calcula la traza de \(D\).</p>
+<span id="nivel-intermedio"></span><h3 id="nivel-intermedio_1">Nivel intermedio</h3>
+<p><strong>2.9</strong> Calcula \(AC\).</p>
+<p><strong>2.10</strong> Calcula \(CC^T\) y \(C^TC\). ¿Qué observas sobre sus dimensiones y su simetría?</p>
+<p><strong>2.11</strong> Calcula \(DE\).</p>
+<p><strong>2.12</strong> Calcula \(ED\) y compáralo con \(DE\).</p>
+<p><strong>2.13</strong> Con \(C_2 = \begin{pmatrix}1&2\\3&4\end{pmatrix}\) y \(D_2 = \begin{pmatrix}0&-1\\2&5\end{pmatrix}\),
+verifica que \((C_2D_2)^T = D_2^TC_2^T\).</p>
+<p><strong>2.14</strong> Sea \(J = \begin{pmatrix}3 & -2 \\ 4 & -3\end{pmatrix}\). Calcula \(J^2\). ¿Qué observas?
+¿Cuánto vale \(J^{2026}\)?</p>
+<p><strong>2.15</strong> Sea \(H = \begin{pmatrix}2&0&0\\0&-3&0\\0&0&5\end{pmatrix}\). Calcula \(H^3\) y \(H^{-1}\).</p>
+<span id="nivel-tipo-examen"></span><h3 id="nivel-tipo-examen_1">Nivel tipo examen</h3>
+<p><strong>2.16</strong> Sean \(M = \begin{pmatrix}1&-1\\-1&1\end{pmatrix}\) y \(N = \begin{pmatrix}1&1\\1&1\end{pmatrix}\).
+Calcula \(MN\). ¿Qué propiedad de los números reales falla aquí?</p>
+<p><strong>2.17</strong> Sean \(K = \begin{pmatrix}1&1\\0&0\end{pmatrix}\) y \(L = \begin{pmatrix}0&0\\1&1\end{pmatrix}\).
+Calcula \(KL\) y \(LK\).</p>
+<p><strong>2.18</strong> Halla el valor de \(x\) para que \(\begin{pmatrix}x & 2 \\ 3 & 4\end{pmatrix}\) tenga
+determinante cero.</p>
+<p><strong>2.19</strong> Con las \(A\) y \(B\) del enunciado, calcula \((A+B)^2\) y \(A^2 + 2AB + B^2\). ¿Coinciden?
+Explica.</p>
+<p><strong>2.20</strong> Sea \(G = \begin{pmatrix}0&3&-1\\-3&0&2\\1&-2&0\end{pmatrix}\). Verifica que \(G^T = -G\) y
+explica por qué toda matriz antisimétrica tiene diagonal nula.</p>
+<hr />
+<h2 id="escenario-3--sistemas-lineales-gauss-y-gauss-jordan">Escenario 3 — Sistemas lineales, Gauss y Gauss-Jordan</h2>
+<span id="nivel-básico"></span><h3 id="nivel-básico_2">Nivel básico</h3>
+<p><strong>3.1</strong> Resuelve por Gauss-Jordan: \(\;x + y = 5,\quad 2x - y = 1\).</p>
+<p><strong>3.2</strong> Resuelve: \(\;3x + 2y = 7,\quad x - y = -1\).</p>
+<p><strong>3.3</strong> Clasifica y resuelve: \(\;2x + 3y = 12,\quad 4x + 6y = 24\).</p>
+<p><strong>3.4</strong> Clasifica: \(\;x + 2y = 3,\quad 2x + 4y = 7\).</p>
+<p><strong>3.5</strong> Escribe en forma matricial \(Ax = b\) y como matriz aumentada:</p>
+<p>\[3x - y + 2z = 4, \qquad x + 5y = -1, \qquad 2y - 7z = 0\]</p>
+<p><strong>3.6</strong> Una matriz aumentada quedó reducida así. Clasifica el sistema y da la solución si existe:</p>
+<p>\[\left(\begin{array}{ccc|c} 1&0&0&4 \\ 0&1&0&-2 \\ 0&0&1&5 \end{array}\right)\]</p>
+<p><strong>3.7</strong> ¿Cuáles de estas son operaciones elementales de fila válidas?
+(a) \(F_2 \leftarrow 3F_2\); (b) \(F_2 \leftarrow 0 \cdot F_2\); (c) \(F_1 \leftarrow F_1 - 4F_3\);
+(d) \(F_1 \leftarrow F_1 \cdot F_2\); (e) \(F_2 \leftrightarrow F_3\).</p>
+<p><strong>3.8</strong> Halla el rango de \(\begin{pmatrix}1&2&3\\2&4&6\\1&1&1\end{pmatrix}\).</p>
+<span id="nivel-intermedio"></span><h3 id="nivel-intermedio_2">Nivel intermedio</h3>
+<p><strong>3.9</strong> Resuelve por Gauss-Jordan:</p>
+<p>\[x + y + z = 6, \qquad 2x - y + z = 3, \qquad x + 2y - z = 2\]</p>
+<p><strong>3.10</strong> Resuelve:</p>
+<p>\[2x + y - z = 8, \qquad -3x - y + 2z = -11, \qquad -2x + y + 2z = -3\]</p>
+<p><strong>3.11</strong> Resuelve:</p>
+<p>\[x + 2y + 3z = 9, \qquad 2x - y + z = 8, \qquad 3x - z = 3\]</p>
+<p><strong>3.12</strong> Resuelve:</p>
+<p>\[x - 2y + z = 0, \qquad 2x + y - 3z = 5, \qquad 4x - 7y + z = -1\]</p>
+<p><strong>3.13</strong> Resuelve:</p>
+<p>\[x - y + 2z = 5, \qquad 3x + 2y + z = 10, \qquad 2x - 3y - 2z = -10\]</p>
+<p><strong>3.14</strong> Clasifica y resuelve si es posible:</p>
+<p>\[x + y + 2z = 4, \qquad 2x + 3y - z = 1, \qquad 3x + 4y + z = 6\]</p>
+<p><strong>3.15</strong> Halla la solución general (paramétrica) de:</p>
+<p>\[x + y - z = 2, \qquad 2x + 3y + z = 9, \qquad 3x + 4y = 11\]</p>
+<span id="nivel-tipo-examen"></span><h3 id="nivel-tipo-examen_2">Nivel tipo examen</h3>
+<p><strong>3.16</strong> ¿Para qué valor de \(k\) el siguiente sistema <strong>no</strong> tiene solución única?</p>
+<p>\[x + 2y - z = 3, \qquad 2x - y + 3z = 1, \qquad x + 7y + kz = 4\]</p>
+<p><strong>3.17</strong> ¿Para qué valor de \(k\) la matriz \(\begin{pmatrix}1&2\\3&k\end{pmatrix}\) es singular?
+¿Qué le pasa al sistema asociado en ese caso?</p>
+<p><strong>3.18</strong> Resuelve el sistema homogéneo y describe el conjunto solución:</p>
+<p>\[x + 2y - z = 0, \qquad 2x - y + 3z = 0, \qquad 3x + y + 2z = 0\]</p>
+<p><strong>3.19</strong> Resuelve, con cuatro incógnitas:</p>
+<p>\[x_1 + x_2 + x_3 + x_4 = 6, \qquad x_1 + 2x_2 + x_4 = 7, \qquad x_2 - x_3 + 2x_4 = 5\]</p>
+<p><strong>3.20</strong> Un sistema de 4 ecuaciones con 6 incógnitas tiene \(\text{rg}(A) = 3\) y
+\(\text{rg}([A|b]) = 3\). ¿Cuántas soluciones tiene y cuántos parámetros libres? Justifica con el
+teorema de Rouché-Frobenius.</p>
+<hr />
+<h2 id="escenario-4--inversa-y-determinantes">Escenario 4 — Inversa y determinantes</h2>
+<span id="nivel-básico"></span><h3 id="nivel-básico_3">Nivel básico</h3>
+<p><strong>4.1</strong> Calcula \(\det\begin{pmatrix}3&5\\2&4\end{pmatrix}\).</p>
+<p><strong>4.2</strong> Calcula \(\det\begin{pmatrix}-1&4\\3&-2\end{pmatrix}\).</p>
+<p><strong>4.3</strong> Calcula \(\det\begin{pmatrix}6&3\\8&4\end{pmatrix}\). ¿Es invertible?</p>
+<p><strong>4.4</strong> Halla la inversa de \(\begin{pmatrix}2&1\\5&3\end{pmatrix}\) y verifica.</p>
+<p><strong>4.5</strong> Halla la inversa de \(\begin{pmatrix}4&7\\2&6\end{pmatrix}\).</p>
+<p><strong>4.6</strong> Calcula \(\det\begin{pmatrix}3&0&0\\2&-1&0\\5&4&2\end{pmatrix}\) usando la propiedad de las
+triangulares.</p>
+<p><strong>4.7</strong> Calcula \(\det\begin{pmatrix}1&2&3\\4&5&6\\7&8&9\end{pmatrix}\) y explica el resultado.</p>
+<p><strong>4.8</strong> Calcula \(\det\begin{pmatrix}2&-1&3\\0&5&2\\1&-1&-2\end{pmatrix}\) por cofactores.</p>
+<span id="nivel-intermedio"></span><h3 id="nivel-intermedio_3">Nivel intermedio</h3>
+<p><strong>4.9</strong> Calcula \(\det\begin{pmatrix}1&2&-1\\2&-1&3\\1&1&2\end{pmatrix}\) por cofactores, desarrollando
+primero por la fila 1 y después por la fila 3. Verifica que coinciden.</p>
+<p><strong>4.10</strong> Halla la inversa de \(\begin{pmatrix}2&0&1\\1&3&-1\\0&4&2\end{pmatrix}\) por Gauss-Jordan.</p>
+<p><strong>4.11</strong> Halla la inversa de \(\begin{pmatrix}1&2&3\\0&1&4\\5&6&0\end{pmatrix}\).</p>
+<p><strong>4.12</strong> Si \(A\) es \(3\times3\) con \(\det(A) = -10\), calcula sin resolver nada:
+\(\det(A^T)\), \(\det(2A)\), \(\det(A^{-1})\), \(\det(A^2)\).</p>
+<p><strong>4.13</strong> Calcula \(\det\begin{pmatrix}1&0&2&-1\\3&0&0&5\\2&1&4&-3\\1&0&5&0\end{pmatrix}\) eligiendo bien
+la fila o columna de desarrollo.</p>
+<p><strong>4.14</strong> Resuelve por la regla de Cramer: \(\;3x + 2y = 0,\quad 5x - y = 13\).</p>
+<p><strong>4.15</strong> Resuelve por la regla de Cramer:</p>
+<p>\[2x - y + 3z = 9, \qquad x + 2y - z = 2, \qquad 3x + y + z = 8\]</p>
+<span id="nivel-tipo-examen"></span><h3 id="nivel-tipo-examen_3">Nivel tipo examen</h3>
+<p><strong>4.16</strong> Halla todos los valores de \(x\) tales que
+\(\det\begin{pmatrix}x&2&0\\1&x&1\\0&3&x\end{pmatrix} = 0\).</p>
+<p><strong>4.17</strong> Halla los valores de \(x\) tales que \(\det\begin{pmatrix}x-2&1\\3&x-4\end{pmatrix} = 0\).</p>
+<p><strong>4.18</strong> Resuelve la ecuación matricial \(AX = B\) con
+\(A = \begin{pmatrix}2&1\\5&3\end{pmatrix}\) y \(B = \begin{pmatrix}1&0\\2&1\end{pmatrix}\).</p>
+<p><strong>4.19</strong> Halla la inversa de \(\begin{pmatrix}1&2&-1\\2&-1&3\\1&1&2\end{pmatrix}\) por el <strong>método de
+la adjunta</strong>.</p>
+<p><strong>4.20</strong> Explica, usando el teorema de la matriz invertible, por qué \(\det(A) = 0\) implica que el
+sistema \(Ax = b\) nunca tiene solución única.</p>
+<hr />
+<h2 id="escenario-5--espacios-vectoriales">Escenario 5 — Espacios vectoriales</h2>
+<span id="nivel-básico"></span><h3 id="nivel-básico_4">Nivel básico</h3>
+<p><strong>5.1</strong> ¿Es \(W_1 = \{(x,y) \in \mathbb{R}^2 : x + y = 0\}\) subespacio de \(\mathbb{R}^2\)?
+¿Y \(W_2 = \{(x,y) : x + y = 1\}\)?</p>
+<p><strong>5.2</strong> ¿Es \((2,5,1)\) combinación lineal de \((1,2,-1)\) y \((0,1,3)\)? Si lo es, da los coeficientes.</p>
+<p><strong>5.3</strong> ¿Es \((1,0,0)\) combinación lineal de \((1,2,-1)\) y \((0,1,3)\)?</p>
+<p><strong>5.4</strong> Determina si \(\{(1,0,1), (0,1,1), (1,1,0)\}\) es linealmente independiente.</p>
+<p><strong>5.5</strong> Determina si \(\{(1,2), (3,6)\}\) es linealmente independiente. Si es dependiente, da la
+relación.</p>
+<p><strong>5.6</strong> Sin calcular nada, ¿puede un conjunto de 4 vectores de \(\mathbb{R}^3\) ser linealmente
+independiente? Justifica.</p>
+<p><strong>5.7</strong> ¿Es \(\{(1,2,3), (0,0,0), (4,5,6)\}\) linealmente independiente? Justifica en una línea.</p>
+<p><strong>5.8</strong> ¿Cuál es la dimensión de \(\mathbb{R}^4\)? Escribe su base canónica.</p>
+<span id="nivel-intermedio"></span><h3 id="nivel-intermedio_4">Nivel intermedio</h3>
+<p><strong>5.9</strong> Determina si \(\{(1,2,3), (2,-1,0), (0,5,6)\}\) es LI o LD. Si es LD, escribe la relación de
+dependencia explícita.</p>
+<p><strong>5.10</strong> Lo mismo para \(\{(1,-1,2), (2,1,3), (3,0,5)\}\).</p>
+<p><strong>5.11</strong> Lo mismo para \(\{(2,1,-1), (1,0,2), (3,1,1)\}\).</p>
+<p><strong>5.12</strong> Halla una base y la dimensión del espacio nulo de
+\(A = \begin{pmatrix}1&2&3\\2&4&6\\1&1&1\end{pmatrix}\). Verifica el teorema rango-nulidad.</p>
+<p><strong>5.13</strong> Para \(A = \begin{pmatrix}1&0&2&1\\0&1&-1&3\\2&1&3&5\end{pmatrix}\), halla el rango, una base
+del espacio nulo y una base del espacio columna.</p>
+<p><strong>5.14</strong> Para \(A = \begin{pmatrix}1&-2&0&3\\2&-4&1&5\\3&-6&1&8\end{pmatrix}\), halla el rango y la
+nulidad, y verifica el teorema.</p>
+<p><strong>5.15</strong> Halla una base y la dimensión del plano \(x + 2y - z = 0\) en \(\mathbb{R}^3\).</p>
+<span id="nivel-tipo-examen"></span><h3 id="nivel-tipo-examen_4">Nivel tipo examen</h3>
+<p><strong>5.16</strong> Halla las coordenadas de \(v = (2,3,5)\) en la base
+\(B = \{(1,1,0), (1,0,1), (0,1,1)\}\).</p>
+<p><strong>5.17</strong> Halla las coordenadas de \(v = (4,1,3)\) en la misma base \(B\).</p>
+<p><strong>5.18</strong> Para \(A = \begin{pmatrix}2&1&3\\1&-1&0\\3&0&3\end{pmatrix}\), halla el rango, una base del
+espacio columna y una base del espacio nulo.</p>
+<p><strong>5.19</strong> ¿Cuál es la dimensión del subespacio generado por
+\(\{(1,2,-1), (2,4,-2), (0,1,3)\}\)? Da una base.</p>
+<p><strong>5.20</strong> En una tabla de datos, la columna "valor con IVA" se obtiene multiplicando por 1,19 la
+columna "valor sin IVA". ¿Son esas dos columnas linealmente independientes? ¿Qué consecuencia tiene
+esto si ambas se incluyen como variables predictoras en una regresión?</p>
+<hr />
+<h2 id="escenario-6--transformaciones-lineales">Escenario 6 — Transformaciones lineales</h2>
+<span id="nivel-básico"></span><h3 id="nivel-básico_5">Nivel básico</h3>
+<p><strong>6.1</strong> ¿Es \(T(x,y) = (2x + y,\; x - 3y,\; 4y)\) una transformación lineal? Halla su matriz asociada.</p>
+<p><strong>6.2</strong> ¿Es \(T(x,y) = (x + 1,\; y)\) lineal? Justifica.</p>
+<p><strong>6.3</strong> ¿Es \(T(x,y) = (x^2,\; y)\) lineal? Justifica.</p>
+<p><strong>6.4</strong> Con la \(T\) del 6.1, calcula \(T(2,-1)\) de dos formas: directa y matricial.</p>
+<p><strong>6.5</strong> Una transformación lineal cumple \(T(1,0) = (2,-1)\) y \(T(0,1) = (3,4)\). Halla su matriz y
+calcula \(T(5,-2)\).</p>
+<p><strong>6.6</strong> Aplica la rotación de \(90°\) antihorario al vector \((3,2)\).</p>
+<p><strong>6.7</strong> Aplica la reflexión sobre la recta \(y = x\) al vector \((3,-2)\).</p>
+<p><strong>6.8</strong> Aplica el escalado de factores \((2,3)\) al vector \((1,2)\).</p>
+<span id="nivel-intermedio"></span><h3 id="nivel-intermedio_5">Nivel intermedio</h3>
+<p><strong>6.9</strong> Sea \(T(x,y,z) = (x + 2y - z,\; 2x + 4y - 2z)\). Halla su matriz, el núcleo (con base y
+dimensión) y la dimensión de la imagen. Verifica el teorema de la dimensión.</p>
+<p><strong>6.10</strong> Sea \(T(x,y,z) = (x - y + 2z,\; y + 3z)\). Halla su matriz, \(T(1,2,-1)\), una base del núcleo
+y la dimensión de la imagen.</p>
+<p><strong>6.11</strong> Sean \(R\) la rotación de \(90°\) y \(E\) el escalado \((2,3)\). Calcula las matrices de
+\(E \circ R\) y \(R \circ E\), y aplícalas ambas a \((1,2)\).</p>
+<p><strong>6.12</strong> Aplica la rotación de \(60°\) antihorario al vector \((2,0)\).</p>
+<p><strong>6.13</strong> La proyección ortogonal sobre la recta \(y = x\) tiene matriz
+\(P = \tfrac{1}{2}\begin{pmatrix}1&1\\1&1\end{pmatrix}\). Calcula \(P(4,2)\) y verifica que \(P^2 = P\).
+¿Por qué debía cumplirse?</p>
+<p><strong>6.14</strong> La cizalladura horizontal de factor 3 tiene matriz \(\begin{pmatrix}1&3\\0&1\end{pmatrix}\).
+Aplícala a \((2,1)\) y calcula su determinante. ¿Qué significa geométricamente?</p>
+<p><strong>6.15</strong> Sea \(T\) con matriz \(\begin{pmatrix}3&-1\\2&4\end{pmatrix}\). Calcula \(T(1,2)\) y el
+determinante. Si una figura tiene área 5, ¿cuál es el área de su imagen?</p>
+<span id="nivel-tipo-examen"></span><h3 id="nivel-tipo-examen_5">Nivel tipo examen</h3>
+<p><strong>6.16</strong> Con la \(T\) del 6.1, determina si es inyectiva y si es sobreyectiva. Justifica con núcleo e
+imagen.</p>
+<p><strong>6.17</strong> Sea \(T: \mathbb{R}^5 \to \mathbb{R}^3\) lineal con \(\dim\text{Im}(T) = 3\). ¿Cuál es la
+dimensión del núcleo? ¿Es \(T\) inyectiva? ¿Sobreyectiva?</p>
+<p><strong>6.18</strong> Halla la matriz de la transformación "reflejar sobre el eje \(x\) y luego rotar \(90°\)
+antihorario". Identifica geométricamente el resultado.</p>
+<p><strong>6.19</strong> Sea \(T\) con matriz \(\begin{pmatrix}1&2\\2&4\end{pmatrix}\). Calcula su determinante, su
+núcleo y su imagen. Describe geométricamente qué le hace al plano.</p>
+<p><strong>6.20</strong> Explica por qué toda transformación lineal cumple \(T(0) = 0\), y por qué esto sirve como
+prueba rápida de que una función <strong>no</strong> es lineal.</p>
+<hr />
+<h2 id="escenario-7--valores-y-vectores-propios">Escenario 7 — Valores y vectores propios</h2>
+<span id="nivel-básico"></span><h3 id="nivel-básico_6">Nivel básico</h3>
+<p><strong>7.1</strong> Halla el polinomio característico de \(A = \begin{pmatrix}4&1\\2&3\end{pmatrix}\).</p>
+<p><strong>7.2</strong> Halla los valores propios de la matriz del 7.1 y verifícalos con la traza y el determinante.</p>
+<p><strong>7.3</strong> Halla un vector propio para cada valor propio de la matriz del 7.1.</p>
+<p><strong>7.4</strong> Halla valores y vectores propios de \(\begin{pmatrix}3&1\\1&3\end{pmatrix}\). ¿Qué observas
+sobre los vectores propios?</p>
+<p><strong>7.5</strong> Halla valores y vectores propios de \(\begin{pmatrix}5&4\\1&2\end{pmatrix}\).</p>
+<p><strong>7.6</strong> Halla los valores y vectores propios de \(\begin{pmatrix}2&0\\0&3\end{pmatrix}\) sin hacer
+cuentas.</p>
+<p><strong>7.7</strong> Si una matriz \(2\times2\) tiene \(\text{tr}(A) = 9\) y \(\det(A) = 20\), halla sus valores
+propios.</p>
+<p><strong>7.8</strong> Halla los valores propios de \(\begin{pmatrix}1&2\\2&4\end{pmatrix}\). ¿Qué te dice el valor
+propio nulo?</p>
+<span id="nivel-intermedio"></span><h3 id="nivel-intermedio_6">Nivel intermedio</h3>
+<p><strong>7.9</strong> Halla valores y vectores propios de \(\begin{pmatrix}6&-2\\-2&9\end{pmatrix}\) y verifica que
+los vectores propios son ortogonales.</p>
+<p><strong>7.10</strong> Halla valores y vectores propios de \(\begin{pmatrix}0&1\\1&0\end{pmatrix}\) e interpreta
+geométricamente.</p>
+<p><strong>7.11</strong> Halla valores y vectores propios de \(\begin{pmatrix}7&-2\\3&2\end{pmatrix}\).</p>
+<p><strong>7.12</strong> Determina si \(\begin{pmatrix}2&-1\\1&4\end{pmatrix}\) es diagonalizable.</p>
+<p><strong>7.13</strong> Determina si \(\begin{pmatrix}2&1\\0&2\end{pmatrix}\) es diagonalizable.</p>
+<p><strong>7.14</strong> Diagonaliza \(A = \begin{pmatrix}4&1\\2&3\end{pmatrix}\): halla \(P\) y \(D\) y verifica
+\(AP = PD\).</p>
+<p><strong>7.15</strong> Usando la diagonalización anterior, calcula \(A^3\).</p>
+<span id="nivel-tipo-examen"></span><h3 id="nivel-tipo-examen_6">Nivel tipo examen</h3>
+<p><strong>7.16</strong> Halla los valores propios de \(\begin{pmatrix}2&0&0\\1&3&0\\-1&1&4\end{pmatrix}\).</p>
+<p><strong>7.17</strong> Halla los valores propios de \(\begin{pmatrix}4&0&1\\2&3&2\\1&0&4\end{pmatrix}\) y determina
+si es diagonalizable.</p>
+<p><strong>7.18</strong> Determina si \(\begin{pmatrix}2&1&0\\0&2&0\\0&0&3\end{pmatrix}\) es diagonalizable.</p>
+<p><strong>7.19</strong> Halla valores y vectores propios de \(\begin{pmatrix}-1&2\\3&4\end{pmatrix}\).</p>
+<p><strong>7.20</strong> Sea \(A\) simétrica de \(3\times3\) con valores propios \(8\), \(3\) y \(1\). ¿Es diagonalizable?
+¿Qué se puede afirmar sobre sus vectores propios? ¿Cuánto valen \(\text{tr}(A)\) y \(\det(A)\)?</p>
+<hr />
+<h2 id="escenario-8--aplicaciones-a-ciencia-de-datos">Escenario 8 — Aplicaciones a ciencia de datos</h2>
+<p>Para los ejercicios 8.1 a 8.8 usa los datos:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>\(x\)</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(y\)</td>
+<td>3</td>
+<td>4</td>
+<td>6</td>
+<td>7</td>
+<td>9</td>
+</tr>
+</tbody>
+</table></div>
+<span id="nivel-básico"></span><h3 id="nivel-básico_7">Nivel básico</h3>
+<p><strong>8.1</strong> Escribe la matriz de diseño \(X\) (con columna de unos) y el vector \(y\).</p>
+<p><strong>8.2</strong> Calcula \(X^TX\).</p>
+<p><strong>8.3</strong> Calcula \(X^Ty\).</p>
+<p><strong>8.4</strong> Calcula \((X^TX)^{-1}\).</p>
+<p><strong>8.5</strong> Calcula \(\hat\beta = (X^TX)^{-1}X^Ty\) y escribe la recta ajustada.</p>
+<p><strong>8.6</strong> Calcula los cinco valores ajustados \(\hat{y}_i\) y los residuos. Verifica que la suma de
+residuos es cero.</p>
+<p><strong>8.7</strong> Centra la variable \(x\) (resta su media) y escribe el vector centrado.</p>
+<p><strong>8.8</strong> Si una matriz de covarianza \(2\times2\) tiene traza 10, ¿cuál es la varianza total de las dos
+variables?</p>
+<span id="nivel-intermedio"></span><h3 id="nivel-intermedio_7">Nivel intermedio</h3>
+<p><strong>8.9</strong> Ajusta \(y = \beta_0 + \beta_1x\) a los datos \((1,2), (2,3), (3,5), (4,6)\).</p>
+<p><strong>8.10</strong> Ajusta la recta a los datos \((0,1), (1,3), (2,5), (3,8)\).</p>
+<p><strong>8.11</strong> Ajusta la recta a los datos \((2,5), (4,8), (6,12), (8,15)\).</p>
+<p><strong>8.12</strong> Calcula la matriz de covarianza muestral de los datos
+\((2,10), (4,8), (5,10), (6,10), (8,12)\).</p>
+<p><strong>8.13</strong> Para la matriz de covarianza \(S = \begin{pmatrix}5&2\\2&2\end{pmatrix}\), halla los valores
+y vectores propios y la proporción de varianza explicada por cada componente principal.</p>
+<p><strong>8.14</strong> Repite lo anterior para \(S = \begin{pmatrix}4&1\\1&4\end{pmatrix}\).</p>
+<p><strong>8.15</strong> Repite lo anterior para \(S = \begin{pmatrix}6&2\\2&3\end{pmatrix}\).</p>
+<span id="nivel-tipo-examen"></span><h3 id="nivel-tipo-examen_7">Nivel tipo examen</h3>
+<p><strong>8.16</strong> Un analista arma la matriz de diseño
+\(X = \begin{pmatrix}1&1&2\\1&2&4\\1&3&6\\1&4&8\end{pmatrix}\), donde la tercera columna es el doble
+de la segunda. Calcula \(X^TX\) y su determinante. ¿Qué problema tiene el modelo?</p>
+<p><strong>8.17</strong> Calcula el \(R^2\) de la regresión del ejercicio 8.5.</p>
+<p><strong>8.18</strong> Una imagen se representa como el conjunto de puntos \((1,2)\) y \((3,-4)\). Aplica la
+transformación \(\begin{pmatrix}2&0\\0&\tfrac12\end{pmatrix}\) y explica qué hace y qué le pasa al
+área.</p>
+<p><strong>8.19</strong> Explica, en términos de proyección ortogonal, por qué el vector de residuos de una
+regresión con intercepto suma cero.</p>
+<p><strong>8.20</strong> Un conjunto de datos tiene 5 variables y su matriz de covarianza tiene valores propios
+\(12\), \(6\), \(1{,}5\), \(0{,}3\) y \(0{,}2\). ¿Cuántas componentes principales hay que retener para
+explicar al menos el 90% de la varianza?</p>
+<hr />
+<h2 id="preguntas-de-opción-múltiple">Preguntas de opción múltiple</h2>
+<p><strong>OM.1</strong> Sea \(A\) una matriz de \(3\times4\) y \(B\) una matriz de \(4\times2\). ¿Cuál de las siguientes
+afirmaciones es correcta?</p>
+<ul>
+<li><strong>a)</strong> \(AB\) es de \(3\times2\) y \(BA\) es de \(4\times4\).</li>
+<li><strong>b)</strong> \(AB\) es de \(3\times2\) y \(BA\) no está definido.</li>
+<li><strong>c)</strong> \(AB\) no está definido y \(BA\) es de \(4\times4\).</li>
+<li><strong>d)</strong> Ambos productos son de \(3\times2\).</li>
+</ul>
+<p><strong>OM.2</strong> Un sistema de 3 ecuaciones con 3 incógnitas tiene \(\text{rg}(A) = 2\) y
+\(\text{rg}([A|b]) = 2\). El sistema:</p>
+<ul>
+<li><strong>a)</strong> No tiene solución.</li>
+<li><strong>b)</strong> Tiene solución única.</li>
+<li><strong>c)</strong> Tiene infinitas soluciones con 1 parámetro libre.</li>
+<li><strong>d)</strong> Tiene infinitas soluciones con 2 parámetros libres.</li>
+</ul>
+<p><strong>OM.3</strong> Si \(A\) es una matriz \(3\times3\) con \(\det(A) = 4\), entonces \(\det(3A)\) vale:</p>
+<ul>
+<li><strong>a)</strong> 12</li>
+<li><strong>b)</strong> 36</li>
+<li><strong>c)</strong> 108</li>
+<li><strong>d)</strong> 64</li>
+</ul>
+<p><strong>OM.4</strong> ¿Cuál de los siguientes conjuntos de \(\mathbb{R}^3\) <strong>no</strong> es un subespacio?</p>
+<ul>
+<li><strong>a)</strong> \(\{(x,y,z) : x + y + z = 0\}\)</li>
+<li><strong>b)</strong> \(\{(x,y,z) : x = 2y\}\)</li>
+<li><strong>c)</strong> \(\{(x,y,z) : x + y = 2\}\)</li>
+<li><strong>d)</strong> \(\{(x,y,z) : x = y = z\}\)</li>
+</ul>
+<p><strong>OM.5</strong> Si \(\lambda = 0\) es valor propio de una matriz cuadrada \(A\), entonces necesariamente:</p>
+<ul>
+<li><strong>a)</strong> \(A\) es la matriz nula.</li>
+<li><strong>b)</strong> \(A\) no es invertible.</li>
+<li><strong>c)</strong> \(A\) no es diagonalizable.</li>
+<li><strong>d)</strong> \(A\) es simétrica.</li>
+</ul>
+<hr />
+<h2 id="problemas-de-aplicación-a-datos">Problemas de aplicación a datos</h2>
+<p><strong>AP.1 — Reparto de un presupuesto contractual</strong></p>
+<p>El presupuesto anual de un contrato de servicios generales es de <strong>900 millones de pesos</strong>,
+distribuido en tres rubros: aseo (\(x\)), cafetería (\(y\)) e insumos (\(z\)). Los estudios del sector
+indican que:</p>
+<ul>
+<li>la suma de los tres rubros debe ser exactamente el presupuesto total;</li>
+<li>el doble de lo asignado a aseo, menos lo asignado a cafetería, debe ser 500 millones (relación de
+  intensidad de mano de obra);</li>
+<li>lo asignado a aseo debe ser exactamente el doble de lo asignado a insumos.</li>
+</ul>
+<p>Plantea el sistema en forma matricial \(Ax = b\), verifica que tiene solución única y hállala por
+Gauss-Jordan. Interpreta el resultado.</p>
+<p><strong>AP.2 — Mezcla de personal en tres contratos</strong></p>
+<p>Una división supervisa tres contratos. Se necesita asignar un total de <strong>100 personas</strong> entre ellos
+(\(x\), \(y\), \(z\)). Se sabe además que:</p>
+<ul>
+<li>el costo total mensual de supervisión es de <strong>310 unidades</strong>, y cada persona del contrato 1 cuesta
+  3 unidades, del contrato 2 cuesta 5 y del contrato 3 cuesta 2;</li>
+<li>el total de horas mensuales comprometidas es <strong>4.550</strong>, con 40 horas por persona en el contrato 1,
+  25 en el contrato 2 y 60 en el contrato 3.</li>
+</ul>
+<p>Plantea el sistema, resuélvelo y verifica la solución. ¿Es única?</p>
+<hr />
+<h1 id="parte-ii--soluciones">PARTE II — SOLUCIONES</h1>
+<h2 id="soluciones--escenario-1">Soluciones — Escenario 1</h2>
+<p><strong>1.1</strong> \(u + v = (2+4,\; -3+0,\; 1+(-2)) = \boxed{(6,-3,-1)}\)
+\(u - v = (2-4,\; -3-0,\; 1-(-2)) = \boxed{(-2,-3,3)}\)</p>
+<p><strong>1.2</strong> \(3u = (6,-9,3)\).
+\(2u = (4,-6,2)\); \(3v = (12,0,-6)\); \(2u - 3v = (-8,-6,8)\); sumando \(w = (-1,5,3)\):
+\(\boxed{2u - 3v + w = (-9,-1,11)}\)</p>
+<p><strong>1.3</strong>
+\(u \cdot v = (2)(4) + (-3)(0) + (1)(-2) = 8 + 0 - 2 = \boxed{6}\)
+\(u \cdot w = (2)(-1) + (-3)(5) + (1)(3) = -2 - 15 + 3 = \boxed{-14}\)
+\(v \cdot w = (4)(-1) + (0)(5) + (-2)(3) = -4 + 0 - 6 = \boxed{-10}\)</p>
+<p><strong>1.4</strong>
+\(\|u\| = \sqrt{4 + 9 + 1} = \sqrt{14} \approx 3{,}7417\)
+\(\|v\| = \sqrt{16 + 0 + 4} = \sqrt{20} = 2\sqrt{5} \approx 4{,}4721\)
+\(\|w\| = \sqrt{1 + 25 + 9} = \sqrt{35} \approx 5{,}9161\)</p>
+<p><strong>1.5</strong> $\hat{u} = \dfrac{1}{\sqrt{14}}(2,-3,1) = \left(\dfrac{2}{\sqrt{14}}, \dfrac{-3}{\sqrt{14}}, \dfrac{1}{\sqrt{14}}\right)
+\approx (0{,}5345;\; -0{,}8018;\; 0{,}2673)$.
+Comprobación: \(0{,}5345^2 + 0{,}8018^2 + 0{,}2673^2 \approx 1\) ✓</p>
+<p><strong>1.6</strong> \(B - A = (3, 4, -4)\), luego \(d = \sqrt{9 + 16 + 16} = \sqrt{41} \approx 6{,}4031\).</p>
+<p><strong>1.7</strong> \(c \cdot d = (3)(-4) + (4)(3) = -12 + 12 = 0\) → <strong>son ortogonales</strong>.
+\(\|c\| = \sqrt{9+16} = 5\), \(\|d\| = \sqrt{16+9} = 5\). Tienen la misma longitud y son
+perpendiculares: \(d\) es \(c\) rotado \(90°\).</p>
+<p><strong>1.8</strong> \(e \cdot f = 1\); \(\|e\| = \sqrt{2}\); \(\|f\| = 1\).
+\(\cos\theta = \dfrac{1}{\sqrt{2}} \Rightarrow \theta = \boxed{45°}\)</p>
+<p><strong>1.9</strong> \(\cos\theta = \dfrac{6}{\sqrt{14}\cdot 2\sqrt{5}} = \dfrac{6}{2\sqrt{70}} = \dfrac{3}{\sqrt{70}} = \dfrac{3\sqrt{70}}{70} \approx 0{,}3586\)
+\[\theta = \arccos(0{,}3586) \approx \boxed{68{,}99°}\]
+Es agudo, coherente con \(u \cdot v > 0\).</p>
+<p><strong>1.10</strong> \(v \cdot v = \|v\|^2 = 20\).
+\[\text{proy}_v u = \frac{6}{20}(4,0,-2) = \frac{3}{10}(4,0,-2) = \boxed{\left(\tfrac{6}{5},\; 0,\; -\tfrac{3}{5}\right)}\]</p>
+<p><strong>1.11</strong> \(u \cdot u = 14\).
+\[\text{proy}_u v = \frac{6}{14}(2,-3,1) = \frac{3}{7}(2,-3,1) = \boxed{\left(\tfrac{6}{7},\; -\tfrac{9}{7},\; \tfrac{3}{7}\right)}\]
+Son distintos porque la proyección tiene <strong>la dirección del vector sobre el que se proyecta</strong>. La
+primera apunta en la dirección de \(v\); la segunda, en la de \(u\). El escalar \(u\cdot v = 6\) es el
+mismo, pero se divide por normas distintas.</p>
+<p><strong>1.12</strong> \((3)(1) + (k)(4) + (-2)(5) = 3 + 4k - 10 = 4k - 7 = 0 \Rightarrow \boxed{k = \tfrac{7}{4}}\)</p>
+<p><strong>1.13</strong> \((k)(3) + (2)(k) + (-1)(4) = 3k + 2k - 4 = 5k - 4 = 0 \Rightarrow \boxed{k = \tfrac{4}{5}}\)</p>
+<p><strong>1.14</strong>
+\(g \cdot h = 10 - 4 - 2 + 0 = \boxed{4}\)
+\(\|g\| = \sqrt{25 + 1 + 4 + 9} = \sqrt{39} \approx 6{,}2450\)
+\(\|h\| = \sqrt{4 + 16 + 1 + 0} = \sqrt{21} \approx 4{,}5826\)
+\(\cos\theta = \dfrac{4}{\sqrt{39}\sqrt{21}} = \dfrac{4}{\sqrt{819}} \approx 0{,}1398 \Rightarrow \theta \approx \boxed{81{,}97°}\)
+Casi perpendiculares, aunque no puedas "verlos": el producto punto funciona igual en cualquier
+dimensión.</p>
+<p><strong>1.15</strong> \(|u \cdot v| = |6| = 6\) y \(\|u\|\,\|v\| = \sqrt{14}\cdot 2\sqrt{5} = 2\sqrt{70} \approx 16{,}7332\).
+Como \(6 \leq 16{,}73\), la desigualdad se cumple ✓ (con holgura: los vectores están lejos de ser
+paralelos).</p>
+<p><strong>1.16</strong> Buscamos \(a, b\) con \(a(1,2,3) + b(2,-1,1) = (4,3,7)\):</p>
+<p>\[\begin{cases} a + 2b = 4 \\ 2a - b = 3 \\ 3a + b = 7\end{cases}\]</p>
+<p>De la segunda: \(b = 2a - 3\). En la primera: \(a + 2(2a-3) = 4 \Rightarrow 5a = 10 \Rightarrow a = 2\),
+luego \(b = 1\).
+Verificación en la tercera: \(3(2) + 1 = 7\) ✓
+\[\boxed{(4,3,7) = 2(1,2,3) + 1(2,-1,1)}\]</p>
+<p><strong>1.17</strong> Con el mismo planteamiento:</p>
+<p>\[\begin{cases} a + 2b = 5 \\ 2a - b = 0 \\ 3a + b = 4\end{cases}\]</p>
+<p>De la segunda: \(b = 2a\). En la primera: \(a + 4a = 5 \Rightarrow a = 1\), \(b = 2\).
+Verificación en la tercera: \(3(1) + 2 = 5 \neq 4\) ✗</p>
+<p><strong>No es combinación lineal.</strong> El sistema es inconsistente.</p>
+<p><strong>1.18</strong> Sea \(x = (x_1,x_2,x_3)\) con</p>
+<p>\[\begin{cases} x_1 + 2x_2 - x_3 = 0 \\ 2x_1 - x_2 + 3x_3 = 0\end{cases}\]</p>
+<p>Multiplicando la primera por 2 y restando la segunda: \(5x_2 - 5x_3 = 0 \Rightarrow x_2 = x_3\).
+Sustituyendo en la primera: \(x_1 = x_3 - 2x_2 = x_3 - 2x_3 = -x_3\).</p>
+<p>Con \(x_3 = 1\): \(\boxed{x = (-1, 1, 1)}\) (o cualquier múltiplo, por ejemplo \((1,-1,-1)\)).</p>
+<p><strong>Verificación:</strong> \((-1,1,1)\cdot(1,2,-1) = -1 + 2 - 1 = 0\) ✓ y
+\((-1,1,1)\cdot(2,-1,3) = -2 - 1 + 3 = 0\) ✓</p>
+<p><strong>1.19</strong> \(u \cdot v = 2 - 2 + 4 = 4\); \(v \cdot v = 4 + 1 + 4 = 9\).</p>
+<p>\[\text{proy}_v u = \tfrac{4}{9}(2,-1,2) = \left(\tfrac{8}{9}, -\tfrac{4}{9}, \tfrac{8}{9}\right)\]</p>
+<p>\[u - \text{proy}_v u = \left(1 - \tfrac89,\; 2 + \tfrac49,\; 2 - \tfrac89\right) = \left(\tfrac19, \tfrac{22}{9}, \tfrac{10}{9}\right)\]</p>
+<p>\[\left(\tfrac19, \tfrac{22}{9}, \tfrac{10}{9}\right)\cdot(2,-1,2) = \tfrac{2}{9} - \tfrac{22}{9} + \tfrac{20}{9} = 0 \;\checkmark\]</p>
+<p><strong>1.20</strong> Valor total \(= q \cdot p\):</p>
+<p>\[120(35\,000) + 85(52\,000) + 200(18\,000) + 45(96\,000)\]
+\[= 4\,200\,000 + 4\,420\,000 + 3\,600\,000 + 4\,320\,000 = \boxed{\$16\,540\,000}\]</p>
+<p>En Excel: <code>=SUMAPRODUCTO(cantidades; precios)</code>. Es literalmente un producto punto.</p>
+<hr />
+<h2 id="soluciones--escenario-2">Soluciones — Escenario 2</h2>
+<p><strong>2.1</strong> \(A + B = \begin{pmatrix}2+1 & -1+0 \\ 3-2 & 4+5\end{pmatrix} = \begin{pmatrix}3 & -1 \\ 1 & 9\end{pmatrix}\)</p>
+<p><strong>2.2</strong> \(2A = \begin{pmatrix}4&-2\\6&8\end{pmatrix}\), \(3B = \begin{pmatrix}3&0\\-6&15\end{pmatrix}\)</p>
+<p>\[2A - 3B = \begin{pmatrix}1 & -2 \\ 12 & -7\end{pmatrix}\]</p>
+<p><strong>2.3</strong>
+\((AB)_{11} = 2(1) + (-1)(-2) = 4\); \((AB)_{12} = 2(0) + (-1)(5) = -5\)
+\((AB)_{21} = 3(1) + 4(-2) = -5\); \((AB)_{22} = 3(0) + 4(5) = 20\)</p>
+<p>\[AB = \begin{pmatrix}4 & -5 \\ -5 & 20\end{pmatrix}\]</p>
+<p><strong>2.4</strong>
+\((BA)_{11} = 1(2) + 0(3) = 2\); \((BA)_{12} = 1(-1) + 0(4) = -1\)
+\((BA)_{21} = -2(2) + 5(3) = 11\); \((BA)_{22} = -2(-1) + 5(4) = 22\)</p>
+<p>\[BA = \begin{pmatrix}2 & -1 \\ 11 & 22\end{pmatrix} \neq AB\]</p>
+<p><strong>El producto matricial no es conmutativo.</strong></p>
+<p><strong>2.5</strong>
+\((A^2)_{11} = 2(2) + (-1)(3) = 1\); \((A^2)_{12} = 2(-1) + (-1)(4) = -6\)
+\((A^2)_{21} = 3(2) + 4(3) = 18\); \((A^2)_{22} = 3(-1) + 4(4) = 13\)</p>
+<p>\[A^2 = \begin{pmatrix}1 & -6 \\ 18 & 13\end{pmatrix}\]</p>
+<p><strong>2.6</strong> \(C^T = \begin{pmatrix}1 & 0 \\ 2 & 3 \\ -1 & 2\end{pmatrix}\) (de \(2\times3\) pasa a \(3\times2\))</p>
+<p><strong>2.7</strong>
+\(AC\): \((2\times2)(2\times3) = 2\times3\) ✓
+\(CC^T\): \((2\times3)(3\times2) = 2\times2\) ✓
+\(C^TC\): \((3\times2)(2\times3) = 3\times3\) ✓
+\(CA\): \((2\times3)(2\times2)\) → \(3 \neq 2\), <strong>no está definido</strong>.</p>
+<p><strong>2.8</strong> \(\text{tr}(D) = 1 + 1 + 2 = 4\)</p>
+<p><strong>2.9</strong>
+Fila 1 de \(A\) = \((2,-1)\); fila 2 = \((3,4)\). Columnas de \(C\): \((1,0)\), \((2,3)\), \((-1,2)\).</p>
+<p>\[AC = \begin{pmatrix}2(1)+(-1)(0) & 2(2)+(-1)(3) & 2(-1)+(-1)(2) \\ 3(1)+4(0) & 3(2)+4(3) & 3(-1)+4(2)\end{pmatrix} = \begin{pmatrix}2 & 1 & -4 \\ 3 & 18 & 5\end{pmatrix}\]</p>
+<p><strong>2.10</strong>
+\[CC^T = \begin{pmatrix}1+4+1 & 0+6-2 \\ 0+6-2 & 0+9+4\end{pmatrix} = \begin{pmatrix}6 & 4 \\ 4 & 13\end{pmatrix}\]</p>
+<p>\[C^TC = \begin{pmatrix}1 & 2 & -1 \\ 2 & 13 & 4 \\ -1 & 4 & 5\end{pmatrix}\]</p>
+<p>Ambas son <strong>simétricas</strong>. No es casualidad: para cualquier \(M\), tanto \(MM^T\) como \(M^TM\) son
+simétricas, porque \((MM^T)^T = (M^T)^TM^T = MM^T\). Esta es la razón por la que la matriz de
+covarianza \(\frac{1}{n-1}X_c^TX_c\) siempre es simétrica.</p>
+<p><strong>2.11</strong>
+\[DE = \begin{pmatrix}0 & -6 & 3 \\ 7 & 19 & 10 \\ 0 & 14 & 1\end{pmatrix}\]</p>
+<p>Detalle de la primera fila (\(D\) fila 1 = \((1,-2,0)\)):</p>
+<ul>
+<li>col 1 de \(E\) = \((2,1,0)\): \(1(2) + (-2)(1) + 0(0) = 0\)</li>
+<li>col 2 = \((0,3,4)\): \(1(0) + (-2)(3) + 0(4) = -6\)</li>
+<li>col 3 = \((1,-1,2)\): \(1(1) + (-2)(-1) + 0(2) = 3\)</li>
+</ul>
+<p><strong>2.12</strong>
+\[ED = \begin{pmatrix}1 & -2 & 2 \\ 11 & -1 & 10 \\ 10 & 8 & 20\end{pmatrix} \neq DE\]</p>
+<p><strong>2.13</strong>
+\[C_2D_2 = \begin{pmatrix}0+4 & -1+10 \\ 0+8 & -3+20\end{pmatrix} = \begin{pmatrix}4 & 9 \\ 8 & 17\end{pmatrix}
+\Rightarrow (C_2D_2)^T = \begin{pmatrix}4 & 8 \\ 9 & 17\end{pmatrix}\]</p>
+<p>\[D_2^TC_2^T = \begin{pmatrix}0&2\\-1&5\end{pmatrix}\begin{pmatrix}1&3\\2&4\end{pmatrix} = \begin{pmatrix}0+4 & 0+8 \\ -1+10 & -3+20\end{pmatrix} = \begin{pmatrix}4 & 8 \\ 9 & 17\end{pmatrix} \;\checkmark\]</p>
+<p><strong>2.14</strong>
+\[J^2 = \begin{pmatrix}9-8 & -6+6 \\ 12-12 & -8+9\end{pmatrix} = \begin{pmatrix}1&0\\0&1\end{pmatrix} = I\]</p>
+<p>\(J\) es su propia inversa (<strong>matriz involutiva</strong>). Como \(J^2 = I\) y 2026 es par,
+\(J^{2026} = (J^2)^{1013} = I\).</p>
+<p><strong>2.15</strong>
+\[H^3 = \begin{pmatrix}2^3 & 0 & 0\\0&(-3)^3&0\\0&0&5^3\end{pmatrix} = \begin{pmatrix}8&0&0\\0&-27&0\\0&0&125\end{pmatrix}\]</p>
+<p>\[H^{-1} = \begin{pmatrix}\tfrac12&0&0\\0&-\tfrac13&0\\0&0&\tfrac15\end{pmatrix}\]</p>
+<p>En las matrices diagonales todo se hace <strong>entrada por entrada</strong>. Por eso interesa diagonalizar
+(Escenario 7).</p>
+<p><strong>2.16</strong>
+\[MN = \begin{pmatrix}1(1)+(-1)(1) & 1(1)+(-1)(1) \\ -1(1)+1(1) & -1(1)+1(1)\end{pmatrix} = \begin{pmatrix}0&0\\0&0\end{pmatrix}\]</p>
+<p>Falla la propiedad de los reales "si \(ab = 0\) entonces \(a = 0\) o \(b = 0\)". En matrices existen
+<strong>divisores de cero</strong>. Consecuencia práctica: <strong>no hay ley de cancelación</strong> (\(AB = AC\) no implica
+\(B = C\)).</p>
+<p><strong>2.17</strong>
+\[KL = \begin{pmatrix}0+1 & 0+1 \\ 0+0 & 0+0\end{pmatrix} = \begin{pmatrix}1&1\\0&0\end{pmatrix}, \qquad
+LK = \begin{pmatrix}0&0\\1&1\end{pmatrix}\]</p>
+<p>Otro ejemplo de no conmutatividad: \(KL = K\) y \(LK = L\).</p>
+<p><strong>2.18</strong> \(\det = 4x - 6 = 0 \Rightarrow \boxed{x = \tfrac{3}{2}}\)</p>
+<p><strong>2.19</strong> \(A + B = \begin{pmatrix}3&-1\\1&9\end{pmatrix}\)</p>
+<p>\[(A+B)^2 = \begin{pmatrix}9-1 & -3-9 \\ 3+9 & -1+81\end{pmatrix} = \begin{pmatrix}8 & -12 \\ 12 & 80\end{pmatrix}\]</p>
+<p>Por otro lado, con \(A^2 = \begin{pmatrix}1&-6\\18&13\end{pmatrix}\),
+\(AB = \begin{pmatrix}4&-5\\-5&20\end{pmatrix}\), \(B^2 = \begin{pmatrix}1&0\\-12&25\end{pmatrix}\):</p>
+<p>\[A^2 + 2AB + B^2 = \begin{pmatrix}1+8+1 & -6-10+0 \\ 18-10-12 & 13+40+25\end{pmatrix} = \begin{pmatrix}10 & -16 \\ -4 & 78\end{pmatrix}\]</p>
+<p><strong>No coinciden.</strong> La identidad correcta es</p>
+<p>\[(A+B)^2 = A^2 + AB + BA + B^2\]</p>
+<p>y solo se reduce a \(A^2 + 2AB + B^2\) si \(AB = BA\). Verificación:
+\(BA = \begin{pmatrix}2&-1\\11&22\end{pmatrix}\), y</p>
+<p>\[A^2 + AB + BA + B^2 = \begin{pmatrix}1+4+2+1 & -6-5-1+0 \\ 18-5+11-12 & 13+20+22+25\end{pmatrix} = \begin{pmatrix}8 & -12 \\ 12 & 80\end{pmatrix} \;\checkmark\]</p>
+<p><strong>2.20</strong>
+\[G^T = \begin{pmatrix}0&-3&1\\3&0&-2\\-1&2&0\end{pmatrix} = -G \;\checkmark\]</p>
+<p><strong>Diagonal nula:</strong> si \(A^T = -A\), comparando la entrada \((i,i)\) se tiene \(a_{ii} = -a_{ii}\), luego
+\(2a_{ii} = 0\) y \(a_{ii} = 0\) para todo \(i\).</p>
+<hr />
+<h2 id="soluciones--escenario-3">Soluciones — Escenario 3</h2>
+<p><strong>3.1</strong>
+\[\left(\begin{array}{cc|c}1&1&5\\2&-1&1\end{array}\right) \xrightarrow{F_2 \leftarrow F_2 - 2F_1}
+\left(\begin{array}{cc|c}1&1&5\\0&-3&-9\end{array}\right) \xrightarrow{F_2 \leftarrow -\frac13 F_2}
+\left(\begin{array}{cc|c}1&1&5\\0&1&3\end{array}\right)\]</p>
+<p>\[\xrightarrow{F_1 \leftarrow F_1 - F_2} \left(\begin{array}{cc|c}1&0&2\\0&1&3\end{array}\right)\]</p>
+<p>\(\boxed{(x,y) = (2,3)}\). Verificación: \(2+3 = 5\) ✓, \(4-3 = 1\) ✓</p>
+<p><strong>3.2</strong> De la segunda ecuación, \(x = y - 1\). Sustituyendo: $3(y-1) + 2y = 7 \Rightarrow 5y = 10
+\Rightarrow y = 2$, \(x = 1\).
+\(\boxed{(x,y) = (1,2)}\). Verificación: \(3+4 = 7\) ✓, \(1-2 = -1\) ✓</p>
+<p><strong>3.3</strong> La segunda ecuación es exactamente el doble de la primera. Reduciendo:</p>
+<p>\[\left(\begin{array}{cc|c}2&3&12\\4&6&24\end{array}\right) \to \left(\begin{array}{cc|c}1&\tfrac32&6\\0&0&0\end{array}\right)\]</p>
+<p>\(\text{rg}(A) = \text{rg}([A|b]) = 1 < 2\) → <strong>infinitas soluciones</strong>. Con \(y = t\):</p>
+<p>\[\boxed{(x,y) = \left(6 - \tfrac{3}{2}t,\; t\right), \quad t \in \mathbb{R}}\]</p>
+<p><strong>3.4</strong>
+\[\left(\begin{array}{cc|c}1&2&3\\2&4&7\end{array}\right) \xrightarrow{F_2 \leftarrow F_2 - 2F_1}
+\left(\begin{array}{cc|c}1&2&3\\0&0&1\end{array}\right)\]</p>
+<p>La segunda fila dice \(0 = 1\). \(\text{rg}(A) = 1 \neq 2 = \text{rg}([A|b])\) → <strong>inconsistente</strong>.</p>
+<p><strong>3.5</strong>
+\[A = \begin{pmatrix}3&-1&2\\1&5&0\\0&2&-7\end{pmatrix}, \quad x = \begin{pmatrix}x\\y\\z\end{pmatrix}, \quad b = \begin{pmatrix}4\\-1\\0\end{pmatrix}\]</p>
+<p>\[[A|b] = \left(\begin{array}{ccc|c}3&-1&2&4\\1&5&0&-1\\0&2&-7&0\end{array}\right)\]</p>
+<p><strong>3.6</strong> \(\text{rg}(A) = \text{rg}([A|b]) = 3 = n\) → <strong>consistente determinado</strong>.
+\(\boxed{(x,y,z) = (4,-2,5)}\)</p>
+<p><strong>3.7</strong> Válidas: <strong>(a)</strong>, <strong>(c)</strong> y <strong>(e)</strong>.</p>
+<ul>
+<li>(b) es inválida: multiplicar por \(c = 0\) destruye información (no es reversible).</li>
+<li>(d) es inválida: no existe la operación "multiplicar dos filas entre sí".</li>
+</ul>
+<p><strong>3.8</strong>
+\[\begin{pmatrix}1&2&3\\2&4&6\\1&1&1\end{pmatrix} \to \begin{pmatrix}1&0&-1\\0&1&2\\0&0&0\end{pmatrix}\]</p>
+<p>Hay 2 pivotes, luego \(\boxed{\text{rg}(A) = 2}\). (La fila 2 original era el doble de la fila 1: por
+eso se anula.)</p>
+<p><strong>3.9</strong>
+\[\left(\begin{array}{ccc|c}1&1&1&6\\2&-1&1&3\\1&2&-1&2\end{array}\right)
+\xrightarrow[F_3 \leftarrow F_3 - F_1]{F_2 \leftarrow F_2 - 2F_1}
+\left(\begin{array}{ccc|c}1&1&1&6\\0&-3&-1&-9\\0&1&-2&-4\end{array}\right)\]</p>
+<p>\[\xrightarrow{F_2 \leftrightarrow F_3} \left(\begin{array}{ccc|c}1&1&1&6\\0&1&-2&-4\\0&-3&-1&-9\end{array}\right)
+\xrightarrow[F_3 \leftarrow F_3 + 3F_2]{F_1 \leftarrow F_1 - F_2}
+\left(\begin{array}{ccc|c}1&0&3&10\\0&1&-2&-4\\0&0&-7&-21\end{array}\right)\]</p>
+<p>\[\xrightarrow{F_3 \leftarrow -\frac17 F_3} \left(\begin{array}{ccc|c}1&0&3&10\\0&1&-2&-4\\0&0&1&3\end{array}\right)
+\xrightarrow[F_2 \leftarrow F_2 + 2F_3]{F_1 \leftarrow F_1 - 3F_3}
+\left(\begin{array}{ccc|c}1&0&0&1\\0&1&0&2\\0&0&1&3\end{array}\right)\]</p>
+<p>\(\boxed{(x,y,z) = (1,2,3)}\)
+Verificación: \(1+2+3=6\) ✓ · \(2-2+3=3\) ✓ · \(1+4-3=2\) ✓</p>
+<p><strong>3.10</strong> \(\boxed{(x,y,z) = (2,3,-1)}\)
+Verificación: \(4+3+1=8\) ✓ · \(-6-3-2=-11\) ✓ · \(-4+3-2=-3\) ✓</p>
+<p><strong>3.11</strong> \(\boxed{(x,y,z) = (2,-1,3)}\)
+Verificación: \(2-2+9=9\) ✓ · \(4+1+3=8\) ✓ · \(6-3=3\) ✓</p>
+<p><strong>3.12</strong> \(\boxed{(x,y,z) = (3,2,1)}\)
+Verificación: \(3-4+1=0\) ✓ · \(6+2-3=5\) ✓ · \(12-14+1=-1\) ✓</p>
+<p><strong>3.13</strong> \(\boxed{(x,y,z) = (1,2,3)}\)
+Verificación: \(1-2+6=5\) ✓ · \(3+4+3=10\) ✓ · \(2-6-6=-10\) ✓</p>
+<p><strong>3.14</strong> Reduciendo se llega a</p>
+<p>\[\left(\begin{array}{ccc|c}1&0&7&0\\0&1&-5&0\\0&0&0&1\end{array}\right)\]</p>
+<p>Última fila: \(0 = 1\). <strong>Sistema inconsistente.</strong> \(\text{rg}(A) = 2 \neq 3 = \text{rg}([A|b])\).</p>
+<p>Observación: la tercera ecuación original es la suma de las dos primeras en el lado izquierdo
+(\(1+2=3\), \(1+3=4\), \(2-1=1\)), pero \(4+1 = 5 \neq 6\) en el derecho.</p>
+<p><strong>3.15</strong> Forma escalonada reducida:</p>
+<p>\[\left(\begin{array}{ccc|c}1&0&-4&-3\\0&1&3&5\\0&0&0&0\end{array}\right)\]</p>
+<p>\(\text{rg}(A) = \text{rg}([A|b]) = 2 < 3\) → infinitas soluciones con 1 parámetro. Con \(z = t\):</p>
+<p>\[\boxed{(x,y,z) = (4t - 3,\; 5 - 3t,\; t) = (-3,5,0) + t(4,-3,1)}\]</p>
+<p>Verificación con \(t = 1\), es decir \((1,2,1)\): \(1+2-1=2\) ✓ · \(2+6+1=9\) ✓ · \(3+8=11\) ✓</p>
+<p><strong>3.16</strong>
+\[\det\begin{pmatrix}1&2&-1\\2&-1&3\\1&7&k\end{pmatrix} = 1(-k - 21) - 2(2k - 3) + (-1)(14 + 1)\]
+\[= -k - 21 - 4k + 6 - 15 = -5k - 30 = -5(k + 6)\]</p>
+<p>El determinante se anula cuando \(\boxed{k = -6}\). Para ese valor, el sistema no tiene solución
+única (será inconsistente o indeterminado, según \(b\)).</p>
+<p><strong>3.17</strong> \(\det = k - 6 = 0 \Rightarrow \boxed{k = 6}\). Con \(k = 6\) las filas son proporcionales
+(\(F_2 = 3F_1\)), así que el sistema o es inconsistente o tiene infinitas soluciones, dependiendo
+del término independiente.</p>
+<p><strong>3.18</strong>
+\[\det\begin{pmatrix}1&2&-1\\2&-1&3\\3&1&2\end{pmatrix} = 1(-2-3) - 2(4-9) + (-1)(2+3) = -5 + 10 - 5 = 0\]</p>
+<p>Como el determinante es cero, hay soluciones <strong>no triviales</strong>. Reduciendo:</p>
+<p>\[\left(\begin{array}{ccc|c}1&2&-1&0\\2&-1&3&0\\3&1&2&0\end{array}\right) \to
+\left(\begin{array}{ccc|c}1&0&1&0\\0&1&-1&0\\0&0&0&0\end{array}\right)\]</p>
+<p>Con \(z = t\): \(x = -t\), \(y = t\).</p>
+<p>\[\boxed{\text{Solución} = \{t(-1,1,1) : t \in \mathbb{R}\}}\]</p>
+<p>Es una <strong>recta que pasa por el origen</strong>: el espacio nulo de \(A\), de dimensión 1.</p>
+<p><strong>3.19</strong> Forma escalonada reducida:</p>
+<p>\[\left(\begin{array}{cccc|c}1&0&2&0&3\\0&1&-1&0&1\\0&0&0&1&2\end{array}\right)\]</p>
+<p>Pivotes en las columnas 1, 2 y 4. La variable libre es \(x_3 = t\):</p>
+<p>\[\boxed{(x_1,x_2,x_3,x_4) = (3 - 2t,\; 1 + t,\; t,\; 2)}\]</p>
+<p>Verificación con \(t = 0\), es decir \((3,1,0,2)\): \(3+1+0+2 = 6\) ✓ · \(3+2+2 = 7\) ✓ · \(1-0+4 = 5\) ✓</p>
+<p><strong>3.20</strong> Como \(\text{rg}(A) = \text{rg}([A|b]) = 3\), el sistema es <strong>consistente</strong>. Como
+\(3 < 6 = n\), es <strong>indeterminado</strong>: tiene <strong>infinitas soluciones</strong> con \(6 - 3 = \boxed{3}\)
+parámetros libres. (Nota: el número de ecuaciones, 4, es irrelevante para el conteo de parámetros;
+lo que manda es el número de columnas.)</p>
+<hr />
+<h2 id="soluciones--escenario-4">Soluciones — Escenario 4</h2>
+<p><strong>4.1</strong> \(3(4) - 5(2) = 12 - 10 = \boxed{2}\)</p>
+<p><strong>4.2</strong> \((-1)(-2) - 4(3) = 2 - 12 = \boxed{-10}\)</p>
+<p><strong>4.3</strong> \(6(4) - 3(8) = 24 - 24 = \boxed{0}\) → <strong>no es invertible</strong> (la segunda fila es \(\tfrac43\) de
+la primera).</p>
+<p><strong>4.4</strong> \(\det = 2(3) - 1(5) = 1\)</p>
+<p>\[A^{-1} = \frac{1}{1}\begin{pmatrix}3 & -1 \\ -5 & 2\end{pmatrix} = \begin{pmatrix}3&-1\\-5&2\end{pmatrix}\]</p>
+<p>Verificación: \(\begin{pmatrix}2&1\\5&3\end{pmatrix}\begin{pmatrix}3&-1\\-5&2\end{pmatrix} = \begin{pmatrix}6-5 & -2+2 \\ 15-15 & -5+6\end{pmatrix} = I\) ✓</p>
+<p><strong>4.5</strong> \(\det = 4(6) - 7(2) = 10\)</p>
+<p>\[A^{-1} = \frac{1}{10}\begin{pmatrix}6&-7\\-2&4\end{pmatrix} = \begin{pmatrix}\tfrac35 & -\tfrac{7}{10} \\[2pt] -\tfrac15 & \tfrac25\end{pmatrix}\]</p>
+<p><strong>4.6</strong> Es triangular inferior: \(\det = 3 \times (-1) \times 2 = \boxed{-6}\)</p>
+<p><strong>4.7</strong> \(\det = 0\). Razón: \(F_2 - F_1 = (3,3,3)\) y \(F_3 - F_2 = (3,3,3)\), es decir
+\(F_3 = 2F_2 - F_1\). Las filas son linealmente dependientes.</p>
+<p><strong>4.8</strong> Desarrollando por la primera columna (que tiene un cero):</p>
+<p>\[\det = 2\begin{vmatrix}5&2\\-1&-2\end{vmatrix} - 0 + 1\begin{vmatrix}-1&3\\5&2\end{vmatrix}\]
+\[= 2(-10 + 2) + 1(-2 - 15) = 2(-8) - 17 = -16 - 17 = \boxed{-33}\]</p>
+<p><strong>4.9</strong> <strong>Por la fila 1:</strong></p>
+<p>\[C_{11} = +\begin{vmatrix}-1&3\\1&2\end{vmatrix} = -2 - 3 = -5\]
+\[C_{12} = -\begin{vmatrix}2&3\\1&2\end{vmatrix} = -(4-3) = -1\]
+\[C_{13} = +\begin{vmatrix}2&-1\\1&1\end{vmatrix} = 2+1 = 3\]</p>
+<p>\[\det = 1(-5) + 2(-1) + (-1)(3) = -5 - 2 - 3 = \boxed{-10}\]</p>
+<p><strong>Por la fila 3:</strong></p>
+<p>\[C_{31} = +\begin{vmatrix}2&-1\\-1&3\end{vmatrix} = 6 - 1 = 5\]
+\[C_{32} = -\begin{vmatrix}1&-1\\2&3\end{vmatrix} = -(3+2) = -5\]
+\[C_{33} = +\begin{vmatrix}1&2\\2&-1\end{vmatrix} = -1 - 4 = -5\]</p>
+<p>\[\det = 1(5) + 1(-5) + 2(-5) = 5 - 5 - 10 = -10 \;\checkmark\]</p>
+<p><strong>4.10</strong> \(\det = 24 \neq 0\). Reduciendo \([A|I]\):</p>
+<p>\[A^{-1} = \begin{pmatrix}\tfrac{5}{12} & \tfrac16 & -\tfrac18 \\[2pt] -\tfrac{1}{12} & \tfrac16 & \tfrac18 \\[2pt] \tfrac16 & -\tfrac13 & \tfrac14\end{pmatrix}
+= \frac{1}{24}\begin{pmatrix}10 & 4 & -3 \\ -2 & 4 & 3 \\ 4 & -8 & 6\end{pmatrix}\]</p>
+<p>Verificación de la primera fila del producto \(AA^{-1}\):
+\(2(\tfrac{5}{12}) + 0(-\tfrac1{12}) + 1(\tfrac16) = \tfrac{5}{6} + \tfrac16 = 1\) ✓
+\(2(\tfrac16) + 0(\tfrac16) + 1(-\tfrac13) = \tfrac13 - \tfrac13 = 0\) ✓
+\(2(-\tfrac18) + 0(\tfrac18) + 1(\tfrac14) = -\tfrac14 + \tfrac14 = 0\) ✓</p>
+<p><strong>4.11</strong> \(\det = 1\) (calcúlalo por la segunda fila o la primera columna). Como el determinante es
+1, la inversa sale con <strong>entradas enteras</strong>:</p>
+<p>\[A^{-1} = \begin{pmatrix}-24 & 18 & 5 \\ 20 & -15 & -4 \\ -5 & 4 & 1\end{pmatrix}\]</p>
+<p>Verificación de la primera fila de \(AA^{-1}\):
+\(1(-24) + 2(20) + 3(-5) = -24 + 40 - 15 = 1\) ✓
+\(1(18) + 2(-15) + 3(4) = 18 - 30 + 12 = 0\) ✓
+\(1(5) + 2(-4) + 3(1) = 5 - 8 + 3 = 0\) ✓</p>
+<p><strong>4.12</strong>
+\(\det(A^T) = \det(A) = \boxed{-10}\)
+\(\det(2A) = 2^3\det(A) = 8(-10) = \boxed{-80}\)
+\(\det(A^{-1}) = 1/\det(A) = \boxed{-\tfrac{1}{10}}\)
+\(\det(A^2) = \det(A)^2 = \boxed{100}\)</p>
+<p><strong>4.13</strong> La <strong>columna 2</strong> tiene tres ceros y un único elemento no nulo, \(a_{32} = 1\). Desarrollamos
+por ahí:</p>
+<p>\[\det = a_{32}C_{32} = 1 \cdot (-1)^{3+2} M_{32} = -M_{32}\]</p>
+<p>\(M_{32}\) es el determinante de la matriz que queda al quitar la fila 3 y la columna 2:</p>
+<p>\[M_{32} = \det\begin{pmatrix}1&2&-1\\3&0&5\\1&5&0\end{pmatrix}\]</p>
+<p>Desarrollando por la segunda fila:</p>
+<p>\[= -3\begin{vmatrix}2&-1\\5&0\end{vmatrix} + 0 - 5\begin{vmatrix}1&2\\1&5\end{vmatrix} = -3(0+5) - 5(5-2) = -15 - 15 = -30\]</p>
+<p>\[\det = -(-30) = \boxed{30}\]</p>
+<p><strong>4.14</strong> \(\det(A) = 3(-1) - 2(5) = -13\)</p>
+<p>\[\det(A_1) = \begin{vmatrix}0&2\\13&-1\end{vmatrix} = 0 - 26 = -26 \Rightarrow x = \frac{-26}{-13} = 2\]</p>
+<p>\[\det(A_2) = \begin{vmatrix}3&0\\5&13\end{vmatrix} = 39 - 0 = 39 \Rightarrow y = \frac{39}{-13} = -3\]</p>
+<p>\(\boxed{(x,y) = (2,-3)}\). Verificación: \(6 - 6 = 0\) ✓, \(10 + 3 = 13\) ✓</p>
+<p><strong>4.15</strong> \(\det(A) = -5\) (ver el Ejemplo resuelto 4.3 del archivo de resúmenes).</p>
+<p>\[\det(A_1) = -5 \Rightarrow x = 1, \qquad \det(A_2) = -10 \Rightarrow y = 2, \qquad \det(A_3) = -15 \Rightarrow z = 3\]</p>
+<p>\(\boxed{(x,y,z) = (1,2,3)}\)</p>
+<p><strong>4.16</strong> Desarrollando por la primera fila:</p>
+<p>\[\det = x\begin{vmatrix}x&1\\3&x\end{vmatrix} - 2\begin{vmatrix}1&1\\0&x\end{vmatrix} + 0 = x(x^2 - 3) - 2(x - 0) = x^3 - 3x - 2x = x^3 - 5x\]</p>
+<p>\[x^3 - 5x = x(x^2 - 5) = 0 \Rightarrow \boxed{x = 0,\; x = \sqrt5,\; x = -\sqrt5}\]</p>
+<p><strong>4.17</strong> \((x-2)(x-4) - 3 = x^2 - 6x + 8 - 3 = x^2 - 6x + 5 = (x-1)(x-5) = 0\)</p>
+<p>\[\boxed{x = 1 \text{ o } x = 5}\]</p>
+<p><strong>4.18</strong> \(X = A^{-1}B\). Del 4.4, \(A^{-1} = \begin{pmatrix}3&-1\\-5&2\end{pmatrix}\).</p>
+<p>\[X = \begin{pmatrix}3&-1\\-5&2\end{pmatrix}\begin{pmatrix}1&0\\2&1\end{pmatrix} = \begin{pmatrix}3-2 & 0-1 \\ -5+4 & 0+2\end{pmatrix} = \begin{pmatrix}1&-1\\-1&2\end{pmatrix}\]</p>
+<p>Verificación: \(\begin{pmatrix}2&1\\5&3\end{pmatrix}\begin{pmatrix}1&-1\\-1&2\end{pmatrix} = \begin{pmatrix}2-1 & -2+2 \\ 5-3 & -5+6\end{pmatrix} = \begin{pmatrix}1&0\\2&1\end{pmatrix} = B\) ✓</p>
+<p><strong>4.19</strong> \(\det(A) = -10\) (ejercicio 4.9). Matriz de cofactores completa:</p>
+<p>\[C = \begin{pmatrix}-5 & -1 & 3 \\ -5 & 3 & 1 \\ 5 & -5 & -5\end{pmatrix}\]</p>
+<p>(Fila 1 calculada en el 4.9; fila 2:
+\(C_{21} = -\begin{vmatrix}2&-1\\1&2\end{vmatrix} = -5\),
+\(C_{22} = +\begin{vmatrix}1&-1\\1&2\end{vmatrix} = 3\),
+\(C_{23} = -\begin{vmatrix}1&2\\1&1\end{vmatrix} = 1\);
+fila 3: los del 4.9 con el orden correcto: \(5, -5, -5\).)</p>
+<p>\[\text{adj}(A) = C^T = \begin{pmatrix}-5 & -5 & 5 \\ -1 & 3 & -5 \\ 3 & 1 & -5\end{pmatrix}\]</p>
+<p>\[A^{-1} = \frac{1}{-10}\begin{pmatrix}-5&-5&5\\-1&3&-5\\3&1&-5\end{pmatrix}
+= \begin{pmatrix}\tfrac12 & \tfrac12 & -\tfrac12 \\[2pt] \tfrac{1}{10} & -\tfrac{3}{10} & \tfrac12 \\[2pt] -\tfrac{3}{10} & -\tfrac{1}{10} & \tfrac12\end{pmatrix}\]</p>
+<p>Coincide con el resultado del Ejemplo resuelto 4.2 obtenido por Gauss-Jordan ✓</p>
+<p><strong>4.20</strong> Por el teorema de la matriz invertible, \(\det(A) = 0\) equivale a que \(A\) <strong>no</strong> es
+invertible, y también a que \(\text{rg}(A) < n\). Entonces la forma escalonada de \(A\) tiene al menos
+una fila nula, y en la matriz aumentada esa fila queda como \((0\;\cdots\;0 \mid c)\):</p>
+<ul>
+<li>si \(c \neq 0\), el sistema es <strong>inconsistente</strong>;</li>
+<li>si \(c = 0\), hay al menos una variable libre y el sistema es <strong>indeterminado</strong>.</li>
+</ul>
+<p>En ninguno de los dos casos hay solución única. Dicho de otro modo: si \(\det(A) = 0\), las columnas
+de \(A\) son linealmente dependientes y la transformación asociada "aplasta" el espacio, de modo que
+no se puede deshacer.</p>
+<hr />
+<h2 id="soluciones--escenario-5">Soluciones — Escenario 5</h2>
+<p><strong>5.1</strong> <strong>\(W_1\) sí es subespacio:</strong></p>
+<ul>
+<li>\((0,0)\): \(0 + 0 = 0\) ✓</li>
+<li>Suma: si \(x_1+y_1 = 0\) y \(x_2+y_2 = 0\), entonces \((x_1+x_2)+(y_1+y_2) = 0\) ✓</li>
+<li>Escalar: si \(x+y = 0\), entonces \(cx + cy = c(x+y) = 0\) ✓</li>
+</ul>
+<p><strong>\(W_2\) no es subespacio:</strong> \((0,0)\) no cumple \(0 + 0 = 1\). Basta con eso.</p>
+<p><strong>Regla general:</strong> ecuación homogénea (igualada a 0) → subespacio; con término independiente → no.</p>
+<p><strong>5.2</strong> Buscamos \(a, b\) con \(a(1,2,-1) + b(0,1,3) = (2,5,1)\):</p>
+<p>\[\begin{cases} a = 2 \\ 2a + b = 5 \\ -a + 3b = 1\end{cases}\]</p>
+<p>De la primera, \(a = 2\); de la segunda, \(b = 1\). Verificación en la tercera: \(-2 + 3 = 1\) ✓</p>
+<p>\[\boxed{(2,5,1) = 2(1,2,-1) + 1(0,1,3)}\]</p>
+<p><strong>5.3</strong> \(a(1,2,-1) + b(0,1,3) = (1,0,0)\) da \(a = 1\), luego \(2 + b = 0 \Rightarrow b = -2\), y en la
+tercera: \(-1 + 3(-2) = -7 \neq 0\) ✗ <strong>No es combinación lineal.</strong></p>
+<p><strong>5.4</strong>
+\[\det\begin{pmatrix}1&0&1\\0&1&1\\1&1&0\end{pmatrix} = 1(0-1) - 0 + 1(0-1) = -1 - 1 = -2 \neq 0\]</p>
+<p><strong>Linealmente independiente.</strong> (Los vectores están puestos como columnas; da lo mismo, porque
+\(\det(A^T) = \det(A)\).)</p>
+<p><strong>5.5</strong> \((3,6) = 3(1,2)\): uno es múltiplo del otro → <strong>linealmente dependiente</strong>.
+Relación: \(3v_1 - v_2 = 0\).</p>
+<p><strong>5.6</strong> <strong>No.</strong> En \(\mathbb{R}^3\), cualquier conjunto de más de 3 vectores es forzosamente LD,
+porque \(\dim\mathbb{R}^3 = 3\) y ningún conjunto LI puede tener más elementos que la dimensión del
+espacio.</p>
+<p><strong>5.7</strong> <strong>LD.</strong> Todo conjunto que contiene al vector cero es dependiente: basta tomar
+\(0\cdot v_1 + 1\cdot 0 + 0 \cdot v_3 = 0\), una combinación no trivial que da cero.</p>
+<p><strong>5.8</strong> \(\dim\mathbb{R}^4 = 4\). Base canónica:</p>
+<p>\[e_1 = (1,0,0,0),\quad e_2 = (0,1,0,0),\quad e_3 = (0,0,1,0),\quad e_4 = (0,0,0,1)\]</p>
+<p><strong>5.9</strong> Matriz con los vectores como columnas:</p>
+<p>\[\det\begin{pmatrix}1&2&0\\2&-1&5\\3&0&6\end{pmatrix} = 1(-6-0) - 2(12-15) + 0 = -6 + 6 = 0\]</p>
+<p><strong>LD.</strong> Resolviendo \(Ac = 0\), la forma reducida es \(\begin{pmatrix}1&0&2\\0&1&-1\\0&0&0\end{pmatrix}\),
+así que con \(c_3 = 1\): \(c_1 = -2\), \(c_2 = 1\).</p>
+<p>\[\boxed{-2v_1 + v_2 + v_3 = 0}, \quad\text{equivalentemente}\quad v_3 = 2v_1 - v_2\]</p>
+<p>Verificación: \(-2(1,2,3) + (2,-1,0) + (0,5,6) = (-2+2,\, -4-1+5,\, -6+0+6) = (0,0,0)\) ✓</p>
+<p><strong>5.10</strong>
+\[\det\begin{pmatrix}1&2&3\\-1&1&0\\2&3&5\end{pmatrix} = 1(5-0) - 2(-5-0) + 3(-3-2) = 5 + 10 - 15 = 0\]</p>
+<p><strong>LD.</strong> La relación es \(\boxed{-v_1 - v_2 + v_3 = 0}\), es decir \(v_3 = v_1 + v_2\).</p>
+<p>Verificación: \((1,-1,2) + (2,1,3) = (3,0,5)\) ✓</p>
+<p><strong>5.11</strong> Igualmente \(\det = 0\) y la relación es \(\boxed{-v_1 - v_2 + v_3 = 0}\), o sea
+\(v_3 = v_1 + v_2\).</p>
+<p>Verificación: \((2,1,-1) + (1,0,2) = (3,1,1)\) ✓</p>
+<p><strong>5.12</strong> Forma escalonada reducida de \(A\):</p>
+<p>\[\begin{pmatrix}1&0&-1\\0&1&2\\0&0&0\end{pmatrix}\]</p>
+<p>\(\text{rg}(A) = 2\). Con \(z = t\): \(x = t\), \(y = -2t\).</p>
+<p>\[N(A) = \text{gen}\{(1,-2,1)\}, \qquad \dim N(A) = 1\]</p>
+<p>Verificación: \(A(1,-2,1)^T = (1-4+3,\; 2-8+6,\; 1-2+1) = (0,0,0)\) ✓</p>
+<p><strong>Rango-nulidad:</strong> \(2 + 1 = 3 = n\) ✓</p>
+<p><strong>5.13</strong> Forma escalonada reducida:</p>
+<p>\[\begin{pmatrix}1&0&2&1\\0&1&-1&3\\0&0&0&0\end{pmatrix}\]</p>
+<p>\(\text{rg}(A) = 2\), nulidad \(= 4 - 2 = 2\).</p>
+<p><strong>Base del espacio nulo.</strong> Variables libres: \(x_3 = s\), \(x_4 = t\).
+\(x_1 = -2s - t\), \(x_2 = s - 3t\).</p>
+<p>\[\text{Base } N(A) = \{(-2,1,1,0),\; (-1,-3,0,1)\}\]</p>
+<p>Verificación del primero: \(1(-2)+0(1)+2(1)+1(0) = 0\) ✓ y \(0(-2)+1(1)+(-1)(1)+3(0) = 0\) ✓</p>
+<p><strong>Base del espacio columna:</strong> columnas pivote (1 y 2) <strong>de la matriz original</strong>:</p>
+<p>\[\text{Base } C(A) = \{(1,0,2),\; (0,1,1)\}, \qquad \dim C(A) = 2\]</p>
+<p><strong>5.14</strong> Forma escalonada reducida:</p>
+<p>\[\begin{pmatrix}1&-2&0&3\\0&0&1&-1\\0&0&0&0\end{pmatrix}\]</p>
+<p>\(\text{rg}(A) = 2\) (pivotes en columnas 1 y 3), nulidad \(= 4 - 2 = 2\).</p>
+<p>Variables libres \(x_2 = s\), \(x_4 = t\): \(x_1 = 2s - 3t\), \(x_3 = t\).</p>
+<p>\[\text{Base } N(A) = \{(2,1,0,0),\; (-3,0,1,1)\}\]</p>
+<p><strong>Rango-nulidad:</strong> \(2 + 2 = 4 = n\) ✓</p>
+<p><strong>5.15</strong> El plano es el conjunto solución de \(x + 2y - z = 0\), un sistema homogéneo de 1 ecuación
+con 3 incógnitas. Rango 1, luego nulidad \(= 3 - 1 = 2\).</p>
+<p>Con \(y = s\), \(z = t\): \(x = -2s + t\).</p>
+<p>\[\text{Base} = \{(-2,1,0),\; (1,0,1)\}, \qquad \dim = 2\]</p>
+<p>Verificación: \((-2) + 2(1) - 0 = 0\) ✓ y \(1 + 0 - 1 = 0\) ✓</p>
+<p><strong>5.16</strong> Resolvemos \(c_1(1,1,0) + c_2(1,0,1) + c_3(0,1,1) = (2,3,5)\):</p>
+<p>\[\begin{cases} c_1 + c_2 = 2 \\ c_1 + c_3 = 3 \\ c_2 + c_3 = 5\end{cases}\]</p>
+<p>Sumando las tres: \(2(c_1+c_2+c_3) = 10 \Rightarrow c_1+c_2+c_3 = 5\). Restando cada ecuación de esa
+suma: \(c_3 = 5 - 2 = 3\); \(c_2 = 5 - 3 = 2\); \(c_1 = 5 - 5 = 0\).</p>
+<p>\[\boxed{[v]_B = (0, 2, 3)}\]</p>
+<p>Verificación: \(0(1,1,0) + 2(1,0,1) + 3(0,1,1) = (2, 3, 5)\) ✓</p>
+<p><strong>5.17</strong> Mismo método con \((4,1,3)\):</p>
+<p>\[\begin{cases} c_1 + c_2 = 4 \\ c_1 + c_3 = 1 \\ c_2 + c_3 = 3\end{cases}\]</p>
+<p>Suma total: \(c_1+c_2+c_3 = 4\). Entonces \(c_3 = 4 - 4 = 0\), \(c_2 = 4 - 1 = 3\), \(c_1 = 4 - 3 = 1\).</p>
+<p>\[\boxed{[v]_B = (1, 3, 0)}\]</p>
+<p>Verificación: \(1(1,1,0) + 3(1,0,1) + 0(0,1,1) = (4, 1, 3)\) ✓</p>
+<p><strong>5.18</strong> Forma escalonada reducida de \(A\):</p>
+<p>\[\begin{pmatrix}1&0&1\\0&1&1\\0&0&0\end{pmatrix}\]</p>
+<p>\(\text{rg}(A) = 2\), nulidad \(= 1\).</p>
+<p><strong>Base de \(C(A)\)</strong> (columnas 1 y 2 de la original): \(\{(2,1,3),\; (1,-1,0)\}\)</p>
+<p><strong>Base de \(N(A)\):</strong> con \(z = t\), \(x = -t\), \(y = -t\) → \(\{(-1,-1,1)\}\)</p>
+<p>Verificación: \(A(-1,-1,1)^T = (-2-1+3,\; -1+1+0,\; -3+0+3) = (0,0,0)\) ✓</p>
+<p><strong>Rango-nulidad:</strong> \(2 + 1 = 3\) ✓</p>
+<p><strong>5.19</strong> Los dos primeros vectores son proporcionales: \((2,4,-2) = 2(1,2,-1)\). Entonces el conjunto
+generado por los tres es el mismo que el generado por \(\{(1,2,-1), (0,1,3)\}\), que son LI (no son
+múltiplos uno del otro).</p>
+<p>\[\dim = \boxed{2}, \qquad \text{base } \{(1,2,-1),\; (0,1,3)\}\]</p>
+<p><strong>5.20</strong> <strong>No son linealmente independientes.</strong> Si \(c_{\text{IVA}} = 1{,}19\,c_{\text{sin}}\),
+entonces \(1{,}19\,c_{\text{sin}} - c_{\text{IVA}} = 0\): hay una combinación lineal no trivial que da
+cero.</p>
+<p><strong>Consecuencia en regresión:</strong> si ambas se incluyen como predictoras, las columnas de la matriz de
+diseño \(X\) son linealmente dependientes, luego $\text{rg}(X) &lt; $ número de columnas y \(X^TX\) es
+<strong>singular</strong>. Como \(\hat\beta = (X^TX)^{-1}X^Ty\) requiere invertir \(X^TX\), <strong>el modelo no tiene
+solución única</strong>: hay infinitas combinaciones de coeficientes que producen exactamente las mismas
+predicciones. Esto es la <strong>multicolinealidad perfecta</strong>, y el software o bien arroja error, o bien
+elimina una de las dos variables automáticamente.</p>
+<p>La lección práctica: una variable que es transformación lineal exacta de otra <strong>no aporta
+información</strong>. Es la misma idea de "información redundante" que define la dependencia lineal.</p>
+<hr />
+<h2 id="soluciones--escenario-6">Soluciones — Escenario 6</h2>
+<p><strong>6.1</strong> <strong>Sí es lineal:</strong> cada componente es combinación lineal de \(x\) e \(y\), sin términos
+independientes ni potencias. (Chequeo: \(T(0,0) = (0,0,0)\) ✓)</p>
+<p>\[T(e_1) = T(1,0) = (2,1,0), \qquad T(e_2) = T(0,1) = (1,-3,4)\]</p>
+<p>\[A = \begin{pmatrix}2&1\\1&-3\\0&4\end{pmatrix} \quad (3\times2)\]</p>
+<p><strong>6.2</strong> <strong>No es lineal.</strong> \(T(0,0) = (1,0) \neq (0,0)\). (También falla la aditividad: \(T(u+v)\) suma
+un 1, mientras que \(T(u)+T(v)\) suma dos.)</p>
+<p><strong>6.3</strong> <strong>No es lineal.</strong> \(T(2,0) = (4,0)\), pero \(2T(1,0) = 2(1,0) = (2,0)\). Falla la homogeneidad.</p>
+<p><strong>6.4</strong> Directo: \(T(2,-1) = (2(2) + (-1),\; 2 - 3(-1),\; 4(-1)) = (3,\, 5,\, -4)\)</p>
+<p>Matricial:</p>
+<p>\[\begin{pmatrix}2&1\\1&-3\\0&4\end{pmatrix}\begin{pmatrix}2\\-1\end{pmatrix} = \begin{pmatrix}4-1\\2+3\\0-4\end{pmatrix} = \begin{pmatrix}3\\5\\-4\end{pmatrix} \;\checkmark\]</p>
+<p><strong>6.5</strong> Las columnas de la matriz son las imágenes de la base canónica:</p>
+<p>\[A = \begin{pmatrix}2 & 3 \\ -1 & 4\end{pmatrix}\]</p>
+<p>\[T(5,-2) = \begin{pmatrix}2&3\\-1&4\end{pmatrix}\begin{pmatrix}5\\-2\end{pmatrix} = \begin{pmatrix}10-6\\-5-8\end{pmatrix} = \boxed{(4,-13)}\]</p>
+<p><strong>6.6</strong> \(\begin{pmatrix}0&-1\\1&0\end{pmatrix}\begin{pmatrix}3\\2\end{pmatrix} = \begin{pmatrix}-2\\3\end{pmatrix}\)</p>
+<p><strong>6.7</strong> \(\begin{pmatrix}0&1\\1&0\end{pmatrix}\begin{pmatrix}3\\-2\end{pmatrix} = \begin{pmatrix}-2\\3\end{pmatrix}\)</p>
+<p>(La reflexión sobre \(y = x\) simplemente intercambia las coordenadas.)</p>
+<p><strong>6.8</strong> \(\begin{pmatrix}2&0\\0&3\end{pmatrix}\begin{pmatrix}1\\2\end{pmatrix} = \begin{pmatrix}2\\6\end{pmatrix}\)</p>
+<p><strong>6.9</strong>
+\[A = \begin{pmatrix}1&2&-1\\2&4&-2\end{pmatrix}\]</p>
+<p>La segunda fila es el doble de la primera, luego \(\text{rg}(A) = 1\) y \(\dim\text{Im}(T) = 1\).</p>
+<p><strong>Núcleo:</strong> \(x + 2y - z = 0\) (la segunda ecuación es redundante). Con \(y = s\), \(z = t\):
+\(x = -2s + t\).</p>
+<p>\[\text{Base } \ker(T) = \{(-2,1,0),\; (1,0,1)\}, \qquad \dim\ker(T) = 2\]</p>
+<p><strong>Teorema de la dimensión:</strong> \(2 + 1 = 3 = \dim\mathbb{R}^3\) ✓</p>
+<p><strong>6.10</strong>
+\[A = \begin{pmatrix}1&-1&2\\0&1&3\end{pmatrix}\]</p>
+<p>\[T(1,2,-1) = (1 - 2 - 2,\; 2 - 3) = \boxed{(-3, -1)}\]</p>
+<p><strong>Núcleo:</strong> de la segunda ecuación \(y = -3z\); sustituyendo en la primera:
+\(x + 3z + 2z = 0 \Rightarrow x = -5z\). Con \(z = 1\):</p>
+<p>\[\text{Base } \ker(T) = \{(-5,-3,1)\}, \qquad \dim\ker(T) = 1\]</p>
+<p>Verificación: \(-5 - (-3) + 2(1) = -5 + 3 + 2 = 0\) ✓ y \(-3 + 3 = 0\) ✓</p>
+<p>\(\text{rg}(A) = 2\), luego \(\dim\text{Im}(T) = 2\) (es todo \(\mathbb{R}^2\): \(T\) es sobreyectiva).</p>
+<p><strong>Teorema:</strong> \(1 + 2 = 3\) ✓</p>
+<p><strong>6.11</strong>
+\[ER = \begin{pmatrix}2&0\\0&3\end{pmatrix}\begin{pmatrix}0&-1\\1&0\end{pmatrix} = \begin{pmatrix}0&-2\\3&0\end{pmatrix}\]</p>
+<p>\[RE = \begin{pmatrix}0&-1\\1&0\end{pmatrix}\begin{pmatrix}2&0\\0&3\end{pmatrix} = \begin{pmatrix}0&-3\\2&0\end{pmatrix}\]</p>
+<p>\[ER\begin{pmatrix}1\\2\end{pmatrix} = \begin{pmatrix}-4\\3\end{pmatrix}, \qquad RE\begin{pmatrix}1\\2\end{pmatrix} = \begin{pmatrix}-6\\2\end{pmatrix}\]</p>
+<p>Distintos: rotar y luego estirar <strong>no</strong> es lo mismo que estirar y luego rotar.</p>
+<p><strong>6.12</strong> \(\cos 60° = \tfrac12\), \(\sin 60° = \tfrac{\sqrt3}{2}\):</p>
+<p>\[\begin{pmatrix}\tfrac12 & -\tfrac{\sqrt3}{2} \\[2pt] \tfrac{\sqrt3}{2} & \tfrac12\end{pmatrix}\begin{pmatrix}2\\0\end{pmatrix} = \begin{pmatrix}1\\\sqrt3\end{pmatrix} \approx (1;\ 1{,}732)\]</p>
+<p>Comprobación: la norma se conserva, \(\sqrt{1 + 3} = 2\) ✓ (las rotaciones no cambian longitudes).</p>
+<p><strong>6.13</strong>
+\[P\begin{pmatrix}4\\2\end{pmatrix} = \tfrac12\begin{pmatrix}4+2\\4+2\end{pmatrix} = \begin{pmatrix}3\\3\end{pmatrix}\]</p>
+<p>\[P^2 = \tfrac14\begin{pmatrix}1&1\\1&1\end{pmatrix}\begin{pmatrix}1&1\\1&1\end{pmatrix} = \tfrac14\begin{pmatrix}2&2\\2&2\end{pmatrix} = \tfrac12\begin{pmatrix}1&1\\1&1\end{pmatrix} = P \;\checkmark\]</p>
+<p><strong>Debía cumplirse:</strong> proyectar un vector que ya está sobre la recta lo deja igual. Las matrices con
+\(P^2 = P\) se llaman <strong>idempotentes</strong>, y toda matriz de proyección lo es. (En regresión, la matriz
+\(H = X(X^TX)^{-1}X^T\) tiene exactamente esta propiedad.)</p>
+<p><strong>6.14</strong>
+\[\begin{pmatrix}1&3\\0&1\end{pmatrix}\begin{pmatrix}2\\1\end{pmatrix} = \begin{pmatrix}5\\1\end{pmatrix}, \qquad \det = 1(1) - 3(0) = 1\]</p>
+<p>Determinante 1 significa que <strong>la transformación conserva el área</strong>. La cizalladura "inclina" las
+figuras (un cuadrado se vuelve un romboide) sin cambiar su superficie.</p>
+<p><strong>6.15</strong>
+\[T(1,2) = \begin{pmatrix}3&-1\\2&4\end{pmatrix}\begin{pmatrix}1\\2\end{pmatrix} = \begin{pmatrix}1\\10\end{pmatrix}\]</p>
+<p>\[\det = 3(4) - (-1)(2) = 12 + 2 = 14\]</p>
+<p>El área se multiplica por \(|\det| = 14\), así que la imagen de una figura de área 5 tiene área
+\(5 \times 14 = \boxed{70}\).</p>
+<p><strong>6.16</strong> Del 6.1, \(\text{rg}(A) = 2\) (las columnas \((2,1,0)\) y \((1,-3,4)\) no son múltiplos).</p>
+<ul>
+<li>\(\dim\ker(T) = 2 - 2 = 0\), luego \(\ker(T) = \{0\}\) y \(T\) <strong>es inyectiva</strong>.</li>
+<li>\(\dim\text{Im}(T) = 2 < 3 = \dim\mathbb{R}^3\), luego \(T\) <strong>no es sobreyectiva</strong>: la imagen es un
+  plano dentro de \(\mathbb{R}^3\).</li>
+</ul>
+<p><strong>6.17</strong> Por el teorema de la dimensión: \(\dim\ker(T) = 5 - 3 = \boxed{2}\).</p>
+<ul>
+<li><strong>No es inyectiva</strong> (\(\ker \neq \{0\}\)).</li>
+<li><strong>Sí es sobreyectiva</strong> (\(\dim\text{Im} = 3 = \dim\mathbb{R}^3\)).</li>
+</ul>
+<p>Regla general: una transformación de un espacio grande a uno pequeño nunca puede ser inyectiva.</p>
+<p><strong>6.18</strong> Primero reflexión, después rotación → la matriz de la rotación va <strong>a la izquierda</strong>:</p>
+<p>\[R_{90}\,\text{Ref}_x = \begin{pmatrix}0&-1\\1&0\end{pmatrix}\begin{pmatrix}1&0\\0&-1\end{pmatrix} = \begin{pmatrix}0&1\\1&0\end{pmatrix}\]</p>
+<p>El resultado es la <strong>reflexión sobre la recta \(y = x\)</strong>. Curiosamente, componer dos operaciones que
+no conmutan da otra reflexión. (En el orden contrario se obtiene \(\begin{pmatrix}0&-1\\-1&0\end{pmatrix}\),
+que es la reflexión sobre \(y = -x\).)</p>
+<p><strong>6.19</strong> \(\det = 1(4) - 2(2) = 0\).</p>
+<p><strong>Núcleo:</strong> \(x + 2y = 0 \Rightarrow x = -2y\). Base: \(\{(-2,1)\}\), dimensión 1.</p>
+<p><strong>Imagen:</strong> las columnas son \((1,2)\) y \((2,4) = 2(1,2)\), luego \(\text{Im}(T) = \text{gen}\{(1,2)\}\),
+dimensión 1.</p>
+<p><strong>Teorema:</strong> \(1 + 1 = 2\) ✓</p>
+<p><strong>Geometría:</strong> \(T\) <strong>aplasta todo el plano sobre la recta</strong> generada por \((1,2)\). Toda una recta
+(la generada por \((-2,1)\)) se colapsa al origen. Por eso \(\det = 0\): el área de cualquier figura se
+vuelve cero, y la transformación <strong>no se puede deshacer</strong> (no hay inversa).</p>
+<p><strong>6.20</strong> Tomando \(c = 0\) en la propiedad \(T(cu) = cT(u)\):</p>
+<p>\[T(0) = T(0 \cdot u) = 0 \cdot T(u) = 0\]</p>
+<p><strong>Como prueba rápida:</strong> si al evaluar la función en el vector cero el resultado no es el vector
+cero, la función <strong>no es lineal</strong> y no hay que verificar nada más. Es el filtro más barato del
+tema: descarta de un golpe todas las funciones con término independiente, del tipo
+\(T(x,y) = (x+3, y)\).</p>
+<hr />
+<h2 id="soluciones--escenario-7">Soluciones — Escenario 7</h2>
+<p><strong>7.1</strong>
+\[\det(A - \lambda I) = \begin{vmatrix}4-\lambda & 1 \\ 2 & 3-\lambda\end{vmatrix} = (4-\lambda)(3-\lambda) - 2 = \lambda^2 - 7\lambda + 10\]</p>
+<p><strong>7.2</strong> \(\lambda^2 - 7\lambda + 10 = (\lambda-5)(\lambda-2) = 0 \Rightarrow \boxed{\lambda_1 = 5,\ \lambda_2 = 2}\)</p>
+<p>Verificación: \(5 + 2 = 7 = \text{tr}(A)\) ✓ y \(5 \times 2 = 10 = \det(A)\) ✓</p>
+<p><strong>7.3</strong>
+<strong>\(\lambda = 5\):</strong> \((A - 5I) = \begin{pmatrix}-1&1\\2&-2\end{pmatrix}\); de \(-v_1 + v_2 = 0\) se
+obtiene \(v_2 = v_1\), luego \(v^{(1)} = (1,1)\).</p>
+<p>Verificación: \(A(1,1)^T = (5,5)^T = 5(1,1)^T\) ✓</p>
+<p><strong>\(\lambda = 2\):</strong> \((A - 2I) = \begin{pmatrix}2&1\\2&1\end{pmatrix}\); de \(2v_1 + v_2 = 0\) se obtiene
+\(v_2 = -2v_1\), luego \(v^{(2)} = (1,-2)\).</p>
+<p>Verificación: \(A(1,-2)^T = (4-2,\, 2-6)^T = (2,-4)^T = 2(1,-2)^T\) ✓</p>
+<p><strong>7.4</strong> \(\text{tr} = 6\), \(\det = 8\) → \(\lambda^2 - 6\lambda + 8 = 0 \Rightarrow \lambda = 4, 2\).</p>
+<ul>
+<li>\(\lambda = 4\): \(\begin{pmatrix}-1&1\\1&-1\end{pmatrix} \Rightarrow v = (1,1)\)</li>
+<li>\(\lambda = 2\): \(\begin{pmatrix}1&1\\1&1\end{pmatrix} \Rightarrow v = (-1,1)\)</li>
+</ul>
+<p><strong>Los vectores propios son ortogonales:</strong> \((1,1)\cdot(-1,1) = 0\) ✓ Es el <strong>teorema espectral</strong>: la
+matriz es simétrica.</p>
+<p><strong>7.5</strong> \(\text{tr} = 7\), \(\det = 10 - 4 = 6\) → \(\lambda^2 - 7\lambda + 6 = 0 \Rightarrow \lambda = 6, 1\).</p>
+<ul>
+<li>\(\lambda = 6\): \(\begin{pmatrix}-1&4\\1&-4\end{pmatrix} \Rightarrow -v_1 + 4v_2 = 0 \Rightarrow v = (4,1)\)</li>
+<li>\(\lambda = 1\): \(\begin{pmatrix}4&4\\1&1\end{pmatrix} \Rightarrow v_1 + v_2 = 0 \Rightarrow v = (-1,1)\)</li>
+</ul>
+<p>Verificación: \(A(4,1)^T = (20+4,\, 4+2)^T = (24,6)^T = 6(4,1)^T\) ✓</p>
+<p><strong>7.6</strong> Es diagonal: los valores propios son los elementos de la diagonal,
+\(\lambda_1 = 2\), \(\lambda_2 = 3\), con vectores propios \(e_1 = (1,0)\) y \(e_2 = (0,1)\).</p>
+<p><strong>7.7</strong> \(\lambda^2 - 9\lambda + 20 = 0 \Rightarrow (\lambda - 5)(\lambda - 4) = 0 \Rightarrow \boxed{\lambda = 5, 4}\)</p>
+<p><strong>7.8</strong> \(\text{tr} = 5\), \(\det = 4 - 4 = 0\) → $\lambda^2 - 5\lambda = \lambda(\lambda - 5) = 0
+\Rightarrow \lambda = 0, 5$.</p>
+<p>El valor propio \(\lambda = 0\) indica que <strong>la matriz es singular</strong> (\(\det = 0\), no invertible) y que
+su espacio nulo no es trivial: hay una dirección entera que la matriz aplasta al origen. En general,
+\(\det(A) = \prod \lambda_i\), así que \(\det = 0 \iff\) algún valor propio es cero.</p>
+<p><strong>7.9</strong> \(\text{tr} = 15\), \(\det = 54 - 4 = 50\) → $\lambda^2 - 15\lambda + 50 = 0
+\Rightarrow \lambda = 10, 5$.</p>
+<ul>
+<li>\(\lambda = 5\): \(\begin{pmatrix}1&-2\\-2&4\end{pmatrix} \Rightarrow v_1 = 2v_2 \Rightarrow v = (2,1)\)</li>
+<li>\(\lambda = 10\): \(\begin{pmatrix}-4&-2\\-2&-1\end{pmatrix} \Rightarrow 2v_1 + v_2 = 0 \Rightarrow v = (-1,2)\)</li>
+</ul>
+<p><strong>Ortogonalidad:</strong> \((2,1)\cdot(-1,2) = -2 + 2 = 0\) ✓ (matriz simétrica → teorema espectral)</p>
+<p><strong>7.10</strong> \(\text{tr} = 0\), \(\det = -1\) → \(\lambda^2 - 1 = 0 \Rightarrow \lambda = 1, -1\).</p>
+<ul>
+<li>\(\lambda = 1\): \(v = (1,1)\)</li>
+<li>\(\lambda = -1\): \(v = (-1,1)\)</li>
+</ul>
+<p><strong>Interpretación:</strong> la matriz \(\begin{pmatrix}0&1\\1&0\end{pmatrix}\) es la reflexión sobre la recta
+\(y = x\). Los vectores <strong>sobre</strong> esa recta quedan igual (\(\lambda = 1\)) y los <strong>perpendiculares</strong> a
+ella se invierten (\(\lambda = -1\)). El significado geométrico de los valores propios en estado puro.</p>
+<p><strong>7.11</strong> \(\text{tr} = 9\), \(\det = 14 + 6 = 20\) → $\lambda^2 - 9\lambda + 20 = 0
+\Rightarrow \lambda = 5, 4$.</p>
+<ul>
+<li>\(\lambda = 5\): \(\begin{pmatrix}2&-2\\3&-3\end{pmatrix} \Rightarrow v_1 = v_2 \Rightarrow v = (1,1)\)</li>
+<li>\(\lambda = 4\): \(\begin{pmatrix}3&-2\\3&-2\end{pmatrix} \Rightarrow 3v_1 = 2v_2 \Rightarrow v = (2,3)\)</li>
+</ul>
+<p>Verificación: \(A(2,3)^T = (14-6,\, 6+6)^T = (8,12)^T = 4(2,3)^T\) ✓</p>
+<p><strong>7.12</strong> \(\text{tr} = 6\), \(\det = 8 + 1 = 9\) → $\lambda^2 - 6\lambda + 9 = (\lambda-3)^2 = 0
+\Rightarrow \lambda = 3$ con <strong>multiplicidad algebraica 2</strong>.</p>
+<p>\[(A - 3I) = \begin{pmatrix}-1&-1\\1&1\end{pmatrix}\]</p>
+<p>Su rango es 1, luego la nulidad es \(2 - 1 = 1\): <strong>multiplicidad geométrica 1</strong>.</p>
+<p>Como \(1 < 2\), <strong>no es diagonalizable</strong>.</p>
+<p><strong>7.13</strong> \(\lambda = 2\) con multiplicidad algebraica 2. \((A - 2I) = \begin{pmatrix}0&1\\0&0\end{pmatrix}\)
+tiene rango 1, luego multiplicidad geométrica 1. <strong>No es diagonalizable.</strong></p>
+<p><strong>7.14</strong> De los ejercicios 7.2 y 7.3:</p>
+<p>\[P = \begin{pmatrix}1 & 1 \\ 1 & -2\end{pmatrix}, \qquad D = \begin{pmatrix}5&0\\0&2\end{pmatrix}\]</p>
+<p>\(\det(P) = -3 \neq 0\), luego las columnas son LI y \(A\) es diagonalizable.</p>
+<p><strong>Verificación por \(AP = PD\):</strong></p>
+<p>\[AP = \begin{pmatrix}4&1\\2&3\end{pmatrix}\begin{pmatrix}1&1\\1&-2\end{pmatrix} = \begin{pmatrix}5 & 2 \\ 5 & -4\end{pmatrix}\]</p>
+<p>\[PD = \begin{pmatrix}1&1\\1&-2\end{pmatrix}\begin{pmatrix}5&0\\0&2\end{pmatrix} = \begin{pmatrix}5 & 2 \\ 5 & -4\end{pmatrix} \;\checkmark\]</p>
+<p><strong>7.15</strong> \(A^3 = PD^3P^{-1}\) con \(D^3 = \begin{pmatrix}125&0\\0&8\end{pmatrix}\) y
+\(P^{-1} = \begin{pmatrix}\tfrac23 & \tfrac13 \\[2pt] \tfrac13 & -\tfrac13\end{pmatrix}\):</p>
+<p>\[PD^3 = \begin{pmatrix}125 & 8 \\ 125 & -16\end{pmatrix}\]</p>
+<p>\[A^3 = \begin{pmatrix}125&8\\125&-16\end{pmatrix}\begin{pmatrix}\tfrac23&\tfrac13\\[2pt]\tfrac13&-\tfrac13\end{pmatrix}
+= \begin{pmatrix}\tfrac{250}{3}+\tfrac83 & \tfrac{125}{3}-\tfrac83 \\[2pt] \tfrac{250}{3}-\tfrac{16}{3} & \tfrac{125}{3}+\tfrac{16}{3}\end{pmatrix}
+= \begin{pmatrix}86 & 39 \\ 78 & 47\end{pmatrix}\]</p>
+<p><strong>Comprobación directa:</strong> \(A^2 = \begin{pmatrix}18&7\\14&11\end{pmatrix}\), y
+\(A^3 = A^2A = \begin{pmatrix}72+14 & 18+21 \\ 56+22 & 14+33\end{pmatrix} = \begin{pmatrix}86&39\\78&47\end{pmatrix}\) ✓</p>
+<p><strong>7.16</strong> Es <strong>triangular inferior</strong>, así que los valores propios son los elementos de la diagonal:</p>
+<p>\[\boxed{\lambda = 2,\; 3,\; 4}\]</p>
+<p>(Formalmente: \(\det(A - \lambda I) = (2-\lambda)(3-\lambda)(4-\lambda)\), por ser triangular.)
+Como son tres valores distintos, la matriz <strong>es diagonalizable</strong>.</p>
+<p><strong>7.17</strong> Desarrollando \(\det(A - \lambda I)\) por la <strong>segunda columna</strong> (que tiene dos ceros):</p>
+<p>\[\det(A-\lambda I) = (3-\lambda)\begin{vmatrix}4-\lambda & 1 \\ 1 & 4-\lambda\end{vmatrix} = (3-\lambda)\big[(4-\lambda)^2 - 1\big]\]</p>
+<p>\[(4-\lambda)^2 - 1 = 0 \Rightarrow 4 - \lambda = \pm 1 \Rightarrow \lambda = 3 \text{ o } \lambda = 5\]</p>
+<p>\[\boxed{\lambda = 5 \text{ (simple)},\qquad \lambda = 3 \text{ (algebraica 2)}}\]</p>
+<p><strong>¿Diagonalizable?</strong> Para \(\lambda = 3\):</p>
+<p>\[A - 3I = \begin{pmatrix}1&0&1\\2&0&2\\1&0&1\end{pmatrix}\]</p>
+<p>Su rango es 1, luego la nulidad es \(3 - 1 = 2\): multiplicidad <strong>geométrica 2 = algebraica 2</strong> ✓</p>
+<p><strong>Sí es diagonalizable.</strong> (Ejemplo de que valores repetidos no impiden la diagonalización.)</p>
+<p><strong>7.18</strong> \(\det(A - \lambda I) = (2-\lambda)^2(3-\lambda)\), luego \(\lambda = 2\) (algebraica 2) y
+\(\lambda = 3\).</p>
+<p>Para \(\lambda = 2\):</p>
+<p>\[A - 2I = \begin{pmatrix}0&1&0\\0&0&0\\0&0&1\end{pmatrix}\]</p>
+<p>Rango 2, nulidad 1: multiplicidad <strong>geométrica 1 &lt; algebraica 2</strong>.</p>
+<p><strong>No es diagonalizable.</strong></p>
+<p><strong>7.19</strong> \(\text{tr} = 3\), \(\det = -4 - 6 = -10\) → $\lambda^2 - 3\lambda - 10 = 0
+\Rightarrow (\lambda-5)(\lambda+2) = 0 \Rightarrow \lambda = 5, -2$.</p>
+<ul>
+<li>\(\lambda = 5\): \(\begin{pmatrix}-6&2\\3&-1\end{pmatrix} \Rightarrow 3v_1 = v_2 \Rightarrow v = (1,3)\)</li>
+<li>\(\lambda = -2\): \(\begin{pmatrix}1&2\\3&6\end{pmatrix} \Rightarrow v_1 + 2v_2 = 0 \Rightarrow v = (-2,1)\)</li>
+</ul>
+<p>Verificación: \(A(1,3)^T = (-1+6,\; 3+12)^T = (5,15)^T = 5(1,3)^T\) ✓</p>
+<p>(Nota: aquí los vectores propios <strong>no</strong> son ortogonales, porque la matriz <strong>no</strong> es simétrica.)</p>
+<p><strong>7.20</strong></p>
+<ul>
+<li><strong>Sí es diagonalizable</strong>, por dos razones independientes: tiene 3 valores propios distintos, y
+  además toda matriz simétrica real es diagonalizable (teorema espectral).</li>
+<li>Sus vectores propios asociados a valores propios distintos son <strong>ortogonales entre sí</strong>; se puede
+  elegir una base <strong>ortonormal</strong> de vectores propios.</li>
+<li>\(\text{tr}(A) = 8 + 3 + 1 = \boxed{12}\) y \(\det(A) = 8 \times 3 \times 1 = \boxed{24}\).</li>
+</ul>
+<hr />
+<h2 id="soluciones--escenario-8">Soluciones — Escenario 8</h2>
+<p><strong>8.1</strong>
+\[X = \begin{pmatrix}1&1\\1&2\\1&3\\1&4\\1&5\end{pmatrix}, \qquad y = \begin{pmatrix}3\\4\\6\\7\\9\end{pmatrix}\]</p>
+<p>La primera columna de unos corresponde al intercepto \(\beta_0\).</p>
+<p><strong>8.2</strong>
+\[X^TX = \begin{pmatrix}n & \sum x_i \\ \sum x_i & \sum x_i^2\end{pmatrix} = \begin{pmatrix}5 & 15 \\ 15 & 55\end{pmatrix}\]</p>
+<p>(\(\sum x = 1+2+3+4+5 = 15\); \(\sum x^2 = 1+4+9+16+25 = 55\))</p>
+<p><strong>8.3</strong>
+\[X^Ty = \begin{pmatrix}\sum y_i \\ \sum x_iy_i\end{pmatrix} = \begin{pmatrix}29 \\ 102\end{pmatrix}\]</p>
+<p>(\(\sum y = 3+4+6+7+9 = 29\); \(\sum xy = 3+8+18+28+45 = 102\))</p>
+<p><strong>8.4</strong> \(\det(X^TX) = 5(55) - 15^2 = 275 - 225 = 50\)</p>
+<p>\[(X^TX)^{-1} = \frac{1}{50}\begin{pmatrix}55 & -15 \\ -15 & 5\end{pmatrix} = \begin{pmatrix}\tfrac{11}{10} & -\tfrac{3}{10} \\[2pt] -\tfrac{3}{10} & \tfrac{1}{10}\end{pmatrix}\]</p>
+<p><strong>8.5</strong>
+\[\hat\beta = \begin{pmatrix}\tfrac{11}{10} & -\tfrac{3}{10} \\[2pt] -\tfrac{3}{10} & \tfrac{1}{10}\end{pmatrix}\begin{pmatrix}29\\102\end{pmatrix}
+= \begin{pmatrix}\tfrac{319 - 306}{10} \\[2pt] \tfrac{-87 + 102}{10}\end{pmatrix} = \begin{pmatrix}1{,}3 \\ 1{,}5\end{pmatrix}\]</p>
+<p>\[\boxed{\hat{y} = 1{,}3 + 1{,}5\,x}\]</p>
+<p><strong>8.6</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>\(x\)</th>
+<th>\(y\)</th>
+<th>\(\hat{y}\)</th>
+<th>\(e = y - \hat{y}\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>3</td>
+<td>2,8</td>
+<td>0,2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>4</td>
+<td>4,3</td>
+<td>−0,3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>6</td>
+<td>5,8</td>
+<td>0,2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>7</td>
+<td>7,3</td>
+<td>−0,3</td>
+</tr>
+<tr>
+<td>5</td>
+<td>9</td>
+<td>8,8</td>
+<td>0,2</td>
+</tr>
+</tbody>
+</table></div>
+<p>\(\sum e_i = 0{,}2 - 0{,}3 + 0{,}2 - 0{,}3 + 0{,}2 = 0\) ✓</p>
+<p><strong>8.7</strong> \(\bar{x} = 15/5 = 3\), luego el vector centrado es \((-2,-1,0,1,2)\).
+Su suma es cero, como debe ser.</p>
+<p><strong>8.8</strong> La traza de la matriz de covarianza es la suma de las varianzas individuales, así que la
+<strong>varianza total es 10</strong>. (Y como la traza es la suma de los valores propios, también es la suma de
+las varianzas de las componentes principales: el PCA reparte los mismos 10, no crea ni destruye
+varianza.)</p>
+<p><strong>8.9</strong> \(n = 4\), \(\sum x = 10\), \(\sum x^2 = 30\), \(\sum y = 16\), \(\sum xy = 2+6+15+24 = 47\).</p>
+<p>\[X^TX = \begin{pmatrix}4&10\\10&30\end{pmatrix}, \quad X^Ty = \begin{pmatrix}16\\47\end{pmatrix}, \quad \det = 120 - 100 = 20\]</p>
+<p>\[\hat\beta = \frac{1}{20}\begin{pmatrix}30&-10\\-10&4\end{pmatrix}\begin{pmatrix}16\\47\end{pmatrix}
+= \frac{1}{20}\begin{pmatrix}480-470\\-160+188\end{pmatrix} = \frac{1}{20}\begin{pmatrix}10\\28\end{pmatrix} = \begin{pmatrix}0{,}5\\1{,}4\end{pmatrix}\]</p>
+<p>\[\boxed{\hat{y} = 0{,}5 + 1{,}4\,x}\]</p>
+<p>Residuos: \(0{,}1;\ -0{,}3;\ 0{,}3;\ -0{,}1\) (suman 0 ✓); SSE \(= 0{,}20\).</p>
+<p><strong>8.10</strong> \(n = 4\), \(\sum x = 6\), \(\sum x^2 = 14\), \(\sum y = 17\), \(\sum xy = 0+3+10+24 = 37\).</p>
+<p>\[X^TX = \begin{pmatrix}4&6\\6&14\end{pmatrix}, \quad \det = 56 - 36 = 20\]</p>
+<p>\[\hat\beta = \frac{1}{20}\begin{pmatrix}14&-6\\-6&4\end{pmatrix}\begin{pmatrix}17\\37\end{pmatrix}
+= \frac{1}{20}\begin{pmatrix}238-222\\-102+148\end{pmatrix} = \frac{1}{20}\begin{pmatrix}16\\46\end{pmatrix} = \begin{pmatrix}0{,}8\\2{,}3\end{pmatrix}\]</p>
+<p>\[\boxed{\hat{y} = 0{,}8 + 2{,}3\,x}\]</p>
+<p>Residuos: \(0{,}2;\ -0{,}1;\ -0{,}4;\ 0{,}3\) (suman 0 ✓)</p>
+<p><strong>8.11</strong> \(n = 4\), \(\sum x = 20\), \(\sum x^2 = 4+16+36+64 = 120\), \(\sum y = 40\),
+\(\sum xy = 10+32+72+120 = 234\).</p>
+<p>\[X^TX = \begin{pmatrix}4&20\\20&120\end{pmatrix}, \quad \det = 480 - 400 = 80\]</p>
+<p>\[\hat\beta = \frac{1}{80}\begin{pmatrix}120&-20\\-20&4\end{pmatrix}\begin{pmatrix}40\\234\end{pmatrix}
+= \frac{1}{80}\begin{pmatrix}4800-4680\\-800+936\end{pmatrix} = \frac{1}{80}\begin{pmatrix}120\\136\end{pmatrix} = \begin{pmatrix}1{,}5\\1{,}7\end{pmatrix}\]</p>
+<p>\[\boxed{\hat{y} = 1{,}5 + 1{,}7\,x}\]</p>
+<p><strong>8.12</strong> Medias: \(\bar{x} = \tfrac{2+4+5+6+8}{5} = 5\), \(\bar{y} = \tfrac{10+8+10+10+12}{5} = 10\).</p>
+<p>Desviaciones:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>\(x - \bar x\)</th>
+<th>−3</th>
+<th>−1</th>
+<th>0</th>
+<th>1</th>
+<th>3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(y - \bar y\)</td>
+<td>0</td>
+<td>−2</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+</tr>
+</tbody>
+</table></div>
+<p>\[S_{xx} = 9+1+0+1+9 = 20, \qquad S_{yy} = 0+4+0+0+4 = 8, \qquad S_{xy} = 0+2+0+0+6 = 8\]</p>
+<p>Dividiendo por \(n - 1 = 4\):</p>
+<p>\[\boxed{S = \begin{pmatrix}5 & 2 \\ 2 & 2\end{pmatrix}}\]</p>
+<p><strong>8.13</strong> \(\text{tr}(S) = 7\), \(\det(S) = 10 - 4 = 6\) → $\lambda^2 - 7\lambda + 6 = 0
+\Rightarrow \lambda_1 = 6$, \(\lambda_2 = 1\).</p>
+<ul>
+<li>\(\lambda = 6\): \(\begin{pmatrix}-1&2\\2&-4\end{pmatrix} \Rightarrow v_1 = 2v_2 \Rightarrow v^{(1)} = (2,1)\)</li>
+<li>\(\lambda = 1\): \(\begin{pmatrix}4&2\\2&1\end{pmatrix} \Rightarrow 2v_1 + v_2 = 0 \Rightarrow v^{(2)} = (1,-2)\)</li>
+</ul>
+<p>Ortogonales: \((2,1)\cdot(1,-2) = 0\) ✓</p>
+<p><strong>Varianza explicada:</strong> PC1 \(= \tfrac{6}{7} \approx \boxed{85{,}7\%}\); PC2 \(= \tfrac17 \approx 14{,}3\%\).</p>
+<p>Vector normalizado de PC1: \(\tfrac{1}{\sqrt5}(2,1) \approx (0{,}894;\ 0{,}447)\).</p>
+<p><strong>8.14</strong> \(\text{tr} = 8\), \(\det = 15\) → \(\lambda^2 - 8\lambda + 15 = 0 \Rightarrow \lambda = 5, 3\).</p>
+<ul>
+<li>\(\lambda = 5\): \(v = (1,1)\)</li>
+<li>\(\lambda = 3\): \(v = (-1,1)\)</li>
+</ul>
+<p><strong>Varianza explicada:</strong> PC1 \(= \tfrac58 = \boxed{62{,}5\%}\); PC2 \(= 37{,}5\%\).</p>
+<p>Aquí PC1 explica mucho menos que en el caso anterior: las variables están menos correlacionadas
+(la covarianza 1 es pequeña frente a las varianzas 4), así que reducir a una sola dimensión
+costaría más información.</p>
+<p><strong>8.15</strong> \(\text{tr} = 9\), \(\det = 18 - 4 = 14\) → $\lambda^2 - 9\lambda + 14 = 0
+\Rightarrow \lambda = 7, 2$.</p>
+<ul>
+<li>\(\lambda = 7\): \(\begin{pmatrix}-1&2\\2&-4\end{pmatrix} \Rightarrow v = (2,1)\)</li>
+<li>\(\lambda = 2\): \(\begin{pmatrix}4&2\\2&1\end{pmatrix} \Rightarrow v = (1,-2)\)</li>
+</ul>
+<p><strong>Varianza explicada:</strong> PC1 \(= \tfrac79 \approx \boxed{77{,}8\%}\); PC2 \(\approx 22{,}2\%\).</p>
+<p><strong>8.16</strong>
+\[X^TX = \begin{pmatrix}4 & 10 & 20 \\ 10 & 30 & 60 \\ 20 & 60 & 120\end{pmatrix}\]</p>
+<p>La tercera fila es el doble de la segunda, luego \(\boxed{\det(X^TX) = 0}\) y \(\text{rg}(X) = 2 < 3\).</p>
+<p><strong>Problema:</strong> hay <strong>multicolinealidad perfecta</strong>. Como \(X^TX\) es singular, no existe
+\((X^TX)^{-1}\) y las ecuaciones normales \(X^TX\beta = X^Ty\) tienen infinitas soluciones: no hay un
+\(\hat\beta\) único. En la práctica, el software arroja error o elimina una variable.</p>
+<p><strong>Solución:</strong> quitar una de las dos columnas dependientes. La tercera variable no aporta ninguna
+información que no esté ya en la segunda.</p>
+<p><strong>8.17</strong> Del 8.6: SSE \(= 0{,}2^2 + 0{,}3^2 + 0{,}2^2 + 0{,}3^2 + 0{,}2^2 = 0{,}04+0{,}09+0{,}04+0{,}09+0{,}04 = 0{,}30\).</p>
+<p>\(\bar{y} = 29/5 = 5{,}8\):</p>
+<p>\[\text{SST} = (3-5{,}8)^2 + (4-5{,}8)^2 + (6-5{,}8)^2 + (7-5{,}8)^2 + (9-5{,}8)^2\]
+\[= 7{,}84 + 3{,}24 + 0{,}04 + 1{,}44 + 10{,}24 = 22{,}80\]</p>
+<p>\[R^2 = 1 - \frac{0{,}30}{22{,}80} \approx \boxed{0{,}9868}\]</p>
+<p>El modelo explica el 98,7% de la variabilidad de \(y\).</p>
+<p><strong>8.18</strong>
+\[\begin{pmatrix}2&0\\0&\tfrac12\end{pmatrix}\begin{pmatrix}1\\2\end{pmatrix} = \begin{pmatrix}2\\1\end{pmatrix}, \qquad
+\begin{pmatrix}2&0\\0&\tfrac12\end{pmatrix}\begin{pmatrix}3\\-4\end{pmatrix} = \begin{pmatrix}6\\-2\end{pmatrix}\]</p>
+<p>La transformación <strong>estira al doble en horizontal y comprime a la mitad en vertical</strong>.</p>
+<p>\(\det = 2 \times \tfrac12 = 1\), así que <strong>el área se conserva</strong>: la imagen se deforma pero no cambia
+de superficie.</p>
+<p><strong>8.19</strong> El vector ajustado \(\hat{y} = X\hat\beta\) es la <strong>proyección ortogonal</strong> de \(y\) sobre el
+espacio columna \(C(X)\). Por definición de proyección ortogonal, el residuo \(e = y - \hat{y}\) es
+ortogonal a <strong>todo</strong> vector de \(C(X)\), en particular a cada columna de \(X\): \(X^Te = 0\).</p>
+<p>Cuando el modelo tiene intercepto, la primera columna de \(X\) es el vector de unos
+\(\mathbf{1} = (1,1,\ldots,1)\). Entonces:</p>
+<p>\[\mathbf{1}^Te = 0 \quad\Longleftrightarrow\quad \sum_{i} e_i = 0\]</p>
+<p>Es decir: <strong>la suma de los residuos es cero porque el vector de unos está en el espacio columna</strong>.
+Si quitas el intercepto, esa garantía desaparece y los residuos ya no tienen por qué sumar cero.</p>
+<p><strong>8.20</strong> Suma total de valores propios: \(12 + 6 + 1{,}5 + 0{,}3 + 0{,}2 = 20\).</p>
+<p>Varianza acumulada:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Componentes</th>
+<th>Suma</th>
+<th>Proporción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PC1</td>
+<td>12</td>
+<td>60%</td>
+</tr>
+<tr>
+<td>PC1 + PC2</td>
+<td>18</td>
+<td>90%</td>
+</tr>
+<tr>
+<td>PC1 + PC2 + PC3</td>
+<td>19,5</td>
+<td>97,5%</td>
+</tr>
+</tbody>
+</table></div>
+<p>Con <strong>2 componentes</strong> ya se alcanza exactamente el 90%.</p>
+<p>\[\boxed{\text{Hay que retener 2 componentes principales}}\]</p>
+<p>Se pasa de 5 variables a 2 perdiendo el 10% de la varianza. Esa es la utilidad práctica del PCA.</p>
+<hr />
+<h2 id="soluciones--opción-múltiple">Soluciones — Opción múltiple</h2>
+<p><strong>OM.1 → b)</strong> \(AB\) es de \(3\times2\) y \(BA\) no está definido.</p>
+<ul>
+<li>\(AB\): \((3\times4)(4\times2)\), las dimensiones internas coinciden (4 = 4) → resultado \(3\times2\) ✓</li>
+<li>\(BA\): \((4\times2)(3\times4)\), internas \(2 \neq 3\) → <strong>no definido</strong></li>
+</ul>
+<p><em>Por qué fallan las otras:</em> la <strong>a)</strong> supone que \(BA\) existe siempre (error clásico de asumir
+conmutatividad); la <strong>c)</strong> invierte la condición de compatibilidad; la <strong>d)</strong> ignora que el orden
+cambia las dimensiones.</p>
+<p><strong>OM.2 → c)</strong> Infinitas soluciones con 1 parámetro libre.</p>
+<p>Como \(\text{rg}(A) = \text{rg}([A|b]) = 2\), el sistema es <strong>consistente</strong>. Como \(2 < 3 = n\), es
+indeterminado, con \(n - \text{rg}(A) = 3 - 2 = 1\) parámetro libre.</p>
+<p><em>Por qué fallan las otras:</em> la <strong>a)</strong> exigiría \(\text{rg}(A) \neq \text{rg}([A|b])\); la <strong>b)</strong>
+exigiría rango 3; la <strong>d)</strong> confunde el número de parámetros con el rango.</p>
+<p><strong>OM.3 → c)</strong> 108.</p>
+<p>\(\det(cA) = c^n\det(A)\) con \(n = 3\): \(\det(3A) = 3^3 \times 4 = 27 \times 4 = 108\).</p>
+<p><em>Por qué fallan las otras:</em> la <strong>a)</strong> aplica \(c\det(A) = 3 \times 4\) (el error más frecuente: creer
+que el escalar sale multiplicando una sola vez); la <strong>b)</strong> usa \(c^2\) en vez de \(c^3\); la <strong>d)</strong>
+calcula \(\det(A)^3 = 64\).</p>
+<p><strong>OM.4 → c)</strong> \(\{(x,y,z) : x + y = 2\}\).</p>
+<p>No contiene al vector cero: \(0 + 0 = 0 \neq 2\). La ecuación no es homogénea.</p>
+<p><em>Por qué las otras sí lo son:</em> <strong>a)</strong>, <strong>b)</strong> y <strong>d)</strong> están definidas por ecuaciones lineales
+homogéneas (\(x+y+z=0\); \(x-2y=0\); \(x-y=0\) y \(y-z=0\)), y todo conjunto solución de un sistema
+homogéneo es un subespacio (es el espacio nulo de una matriz).</p>
+<p><strong>OM.5 → b)</strong> \(A\) no es invertible.</p>
+<p>Si \(\lambda = 0\) es valor propio, existe \(v \neq 0\) con \(Av = 0v = 0\), luego el espacio nulo no es
+trivial y \(A\) es singular. Equivalentemente, \(\det(A) = \prod\lambda_i = 0\).</p>
+<p><em>Por qué fallan las otras:</em> la <strong>a)</strong> es demasiado fuerte — \(\begin{pmatrix}1&2\\2&4\end{pmatrix}\)
+tiene \(\lambda = 0\) y no es nula; la <strong>c)</strong> es falsa — esa misma matriz tiene valores propios
+distintos (0 y 5) y <strong>sí</strong> es diagonalizable; la <strong>d)</strong> no tiene relación: \(\begin{pmatrix}1&1\\0&0\end{pmatrix}\)
+tiene \(\lambda = 0\) y no es simétrica.</p>
+<hr />
+<h2 id="soluciones--problemas-de-aplicación">Soluciones — Problemas de aplicación</h2>
+<h3 id="ap1--reparto-de-un-presupuesto-contractual">AP.1 — Reparto de un presupuesto contractual</h3>
+<p><strong>Planteamiento.</strong> Sean \(x\), \(y\), \(z\) los montos (en millones) de aseo, cafetería e insumos.</p>
+<p>\[
+\begin{cases}
+x + y + z = 900 & \text{(presupuesto total)} \\
+2x - y = 500 & \text{(relación de intensidad)} \\
+x - 2z = 0 & \text{(aseo = 2 × insumos)}
+\end{cases}
+\]</p>
+<p><strong>Forma matricial:</strong></p>
+<p>\[\underbrace{\begin{pmatrix}1&1&1\\2&-1&0\\1&0&-2\end{pmatrix}}_{A}
+\begin{pmatrix}x\\y\\z\end{pmatrix} = \begin{pmatrix}900\\500\\0\end{pmatrix}\]</p>
+<p><strong>Verificación de solución única.</strong> Determinante por la primera fila:</p>
+<p>\[\det(A) = 1\begin{vmatrix}-1&0\\0&-2\end{vmatrix} - 1\begin{vmatrix}2&0\\1&-2\end{vmatrix} + 1\begin{vmatrix}2&-1\\1&0\end{vmatrix}\]
+\[= 1(2) - 1(-4) + 1(1) = 2 + 4 + 1 = 7 \neq 0\]</p>
+<p>Solución única garantizada.</p>
+<p><strong>Gauss-Jordan:</strong></p>
+<p>\[\left(\begin{array}{ccc|c}1&1&1&900\\2&-1&0&500\\1&0&-2&0\end{array}\right)
+\xrightarrow[F_3 \leftarrow F_3 - F_1]{F_2 \leftarrow F_2 - 2F_1}
+\left(\begin{array}{ccc|c}1&1&1&900\\0&-3&-2&-1300\\0&-1&-3&-900\end{array}\right)\]</p>
+<p>\[\xrightarrow{F_2 \leftrightarrow F_3}
+\left(\begin{array}{ccc|c}1&1&1&900\\0&-1&-3&-900\\0&-3&-2&-1300\end{array}\right)
+\xrightarrow{F_2 \leftarrow -F_2}
+\left(\begin{array}{ccc|c}1&1&1&900\\0&1&3&900\\0&-3&-2&-1300\end{array}\right)\]</p>
+<p>\[\xrightarrow[F_3 \leftarrow F_3 + 3F_2]{F_1 \leftarrow F_1 - F_2}
+\left(\begin{array}{ccc|c}1&0&-2&0\\0&1&3&900\\0&0&7&1400\end{array}\right)
+\xrightarrow{F_3 \leftarrow \frac17 F_3}
+\left(\begin{array}{ccc|c}1&0&-2&0\\0&1&3&900\\0&0&1&200\end{array}\right)\]</p>
+<p>\[\xrightarrow[F_2 \leftarrow F_2 - 3F_3]{F_1 \leftarrow F_1 + 2F_3}
+\left(\begin{array}{ccc|c}1&0&0&400\\0&1&0&300\\0&0&1&200\end{array}\right)\]</p>
+<p><strong>Solución:</strong></p>
+<p>\[\boxed{x = 400,\qquad y = 300,\qquad z = 200}\]</p>
+<p><strong>Verificación:</strong></p>
+<ul>
+<li>\(400 + 300 + 200 = 900\) ✓</li>
+<li>\(2(400) - 300 = 800 - 300 = 500\) ✓</li>
+<li>\(400 - 2(200) = 0\) ✓</li>
+</ul>
+<p><strong>Interpretación.</strong> El presupuesto de 900 millones se distribuye así: <strong>aseo 400 millones
+(44,4%)</strong>, <strong>cafetería 300 millones (33,3%)</strong> e <strong>insumos 200 millones (22,2%)</strong>. Las tres
+condiciones son independientes entre sí (el determinante no es cero), así que definen una única
+distribución posible. Si el área técnica agregara una cuarta condición, lo más probable es que el
+sistema quedara <strong>inconsistente</strong>: cuatro restricciones sobre tres incógnitas rara vez son
+compatibles.</p>
+<p>Ese es exactamente el valor práctico del rango: te dice <strong>cuántas condiciones independientes</strong> hay
+realmente en un pliego de condiciones, más allá de cuántas estén escritas.</p>
+<h3 id="ap2--mezcla-de-personal-en-tres-contratos">AP.2 — Mezcla de personal en tres contratos</h3>
+<p><strong>Planteamiento.</strong> Sean \(x\), \(y\), \(z\) el número de personas en cada contrato.</p>
+<p>\[
+\begin{cases}
+x + y + z = 100 & \text{(total de personas)} \\
+3x + 5y + 2z = 310 & \text{(costo mensual)} \\
+40x + 25y + 60z = 4\,550 & \text{(horas comprometidas)}
+\end{cases}
+\]</p>
+<p>\[A = \begin{pmatrix}1&1&1\\3&5&2\\40&25&60\end{pmatrix}, \qquad b = \begin{pmatrix}100\\310\\4550\end{pmatrix}\]</p>
+<p><strong>Determinante</strong> (desarrollo por la primera fila):</p>
+<p>\[\det(A) = 1(5 \cdot 60 - 2 \cdot 25) - 1(3\cdot60 - 2\cdot40) + 1(3\cdot25 - 5\cdot40)\]
+\[= (300 - 50) - (180 - 80) + (75 - 200) = 250 - 100 - 125 = 25 \neq 0\]</p>
+<p><strong>Solución única.</strong></p>
+<p><strong>Gauss-Jordan:</strong></p>
+<p>\[\left(\begin{array}{ccc|c}1&1&1&100\\3&5&2&310\\40&25&60&4550\end{array}\right)
+\xrightarrow[F_3 \leftarrow F_3 - 40F_1]{F_2 \leftarrow F_2 - 3F_1}
+\left(\begin{array}{ccc|c}1&1&1&100\\0&2&-1&10\\0&-15&20&550\end{array}\right)\]</p>
+<p>\[\xrightarrow{F_2 \leftarrow \frac12 F_2}
+\left(\begin{array}{ccc|c}1&1&1&100\\0&1&-\tfrac12&5\\0&-15&20&550\end{array}\right)
+\xrightarrow[F_3 \leftarrow F_3 + 15F_2]{F_1 \leftarrow F_1 - F_2}
+\left(\begin{array}{ccc|c}1&0&\tfrac32&95\\0&1&-\tfrac12&5\\0&0&\tfrac{25}{2}&625\end{array}\right)\]</p>
+<p>\[\xrightarrow{F_3 \leftarrow \frac{2}{25}F_3}
+\left(\begin{array}{ccc|c}1&0&\tfrac32&95\\0&1&-\tfrac12&5\\0&0&1&50\end{array}\right)
+\xrightarrow[F_2 \leftarrow F_2 + \frac12 F_3]{F_1 \leftarrow F_1 - \frac32 F_3}
+\left(\begin{array}{ccc|c}1&0&0&20\\0&1&0&30\\0&0&1&50\end{array}\right)\]</p>
+<p><strong>Solución:</strong></p>
+<p>\[\boxed{x = 20,\qquad y = 30,\qquad z = 50}\]</p>
+<p><strong>Verificación:</strong></p>
+<ul>
+<li>Personas: \(20 + 30 + 50 = 100\) ✓</li>
+<li>Costo: \(3(20) + 5(30) + 2(50) = 60 + 150 + 100 = 310\) ✓</li>
+<li>Horas: \(40(20) + 25(30) + 60(50) = 800 + 750 + 3\,000 = 4\,550\) ✓</li>
+</ul>
+<p><strong>¿Es única?</strong> Sí. Como \(\det(A) = 25 \neq 0\), la matriz es invertible, \(\text{rg}(A) = 3 = n\), y por
+el teorema de Rouché-Frobenius el sistema es consistente determinado.</p>
+<p><strong>Interpretación.</strong> Hay exactamente una forma de repartir las 100 personas que satisfaga las tres
+restricciones simultáneamente: 20 en el contrato 1, 30 en el contrato 2 y 50 en el contrato 3. Las
+tres condiciones son <strong>independientes</strong> entre sí: ninguna se deduce de las otras dos, y por eso
+juntas determinan la respuesta.</p>
+<p>Si el determinante hubiera dado cero, habrían pasado dos cosas: o alguna condición sería
+redundante (y habría infinitas mezclas válidas, lo que daría espacio para optimizar por otro
+criterio), o las condiciones serían contradictorias entre sí (y no habría ninguna mezcla posible,
+señal de que el pliego está mal formulado).</p>
+</main>
+</body>
+</html>

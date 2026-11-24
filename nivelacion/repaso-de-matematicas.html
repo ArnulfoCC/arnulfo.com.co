@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3. Repaso de matemáticas</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ 00 - Nivelación (antes del 25 de agosto) / 3. Repaso de matemáticas</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="3-repaso-de-matemáticas">3. Repaso de matemáticas</h1>
+<p><strong>Material de apoyo de los días 3 a 11 del plan.</strong> No se lee de corrido: se abre la
+sección que el día indique, se rehacen los ejemplos <strong>en papel</strong> y se cierra.</p>
+<p>La numeración de secciones (§1 a §14) es la misma que usa la tabla de interpretación de
+<code>1. Diagnóstico inicial.md</code>.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Sección</th>
+<th>Tema</th>
+<th>Día del plan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>§1</td>
+<td>Fracciones</td>
+<td>3</td>
+</tr>
+<tr>
+<td>§2</td>
+<td>Porcentajes, razones y proporciones</td>
+<td>3</td>
+</tr>
+<tr>
+<td>§3</td>
+<td>Potencias y radicales</td>
+<td>5</td>
+</tr>
+<tr>
+<td>§4</td>
+<td>Productos notables</td>
+<td>5</td>
+</tr>
+<tr>
+<td>§5</td>
+<td>Factorización</td>
+<td>6</td>
+</tr>
+<tr>
+<td>§6</td>
+<td>Ecuaciones</td>
+<td>6 y 7</td>
+</tr>
+<tr>
+<td>§7</td>
+<td>Sistemas \(2\times2\)</td>
+<td>6</td>
+</tr>
+<tr>
+<td>§8</td>
+<td>Desigualdades</td>
+<td>7</td>
+</tr>
+<tr>
+<td>§9</td>
+<td>Valor absoluto</td>
+<td>7</td>
+</tr>
+<tr>
+<td>§10</td>
+<td>Funciones, dominio y rango</td>
+<td>8</td>
+</tr>
+<tr>
+<td>§11</td>
+<td>Familias de funciones</td>
+<td>8 y 9</td>
+</tr>
+<tr>
+<td>§12</td>
+<td>Trigonometría</td>
+<td>10 y 11</td>
+</tr>
+<tr>
+<td>§13</td>
+<td>Logaritmos y exponenciales</td>
+<td>9</td>
+</tr>
+<tr>
+<td>§14</td>
+<td>Lógica</td>
+<td>12</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="1-fracciones">§1 Fracciones</h2>
+<p>Todo el álgebra de Cálculo se apoya en esto. Una derivada de un cociente termina en una
+fracción compleja, y si las fracciones no son automáticas, el ejercicio se pierde ahí y
+no en la derivada.</p>
+<p><strong>Suma y resta.</strong> Se necesita denominador común (el mínimo común múltiplo):</p>
+<p>\[\frac{3}{4} + \frac{5}{6} = \frac{9}{12} + \frac{10}{12} = \frac{19}{12}\]</p>
+<p><strong>Multiplicación.</strong> Directo, numerador con numerador:</p>
+<p>\[\frac{2}{5}\cdot\frac{15}{8} = \frac{30}{40} = \frac{3}{4}\]</p>
+<p><strong>División.</strong> Se multiplica por el recíproco:</p>
+<p>\[\frac{2/3}{8/9} = \frac{2}{3}\cdot\frac{9}{8} = \frac{18}{24} = \frac{3}{4}\]</p>
+<p><strong>Fracción compleja.</strong> Se resuelve arriba, se resuelve abajo, y se divide:</p>
+<p>\[\frac{\;\dfrac{1}{x}+\dfrac{1}{2}\;}{\;\dfrac{3}{x}\;}
+= \frac{\dfrac{2+x}{2x}}{\dfrac{3}{x}}
+= \frac{2+x}{2x}\cdot\frac{x}{3} = \frac{2+x}{6}\]</p>
+<blockquote>
+<p><strong>La regla que más se viola.</strong> Solo se cancelan <strong>factores</strong>, nunca sumandos.
+\(\dfrac{x+3}{3}\) <strong>no</strong> es \(x\). En cambio \(\dfrac{3(x+1)}{3} = x+1\) sí, porque el 3
+multiplica a todo el paréntesis.</p>
+</blockquote>
+<hr />
+<h2 id="2-porcentajes-razones-y-proporciones">§2 Porcentajes, razones y proporciones</h2>
+<p>Este bloque ya lo dominas por trabajo; lo único que falta es ponerle el lenguaje
+académico y no confundir base con total.</p>
+<p><strong>Porcentaje de una cantidad:</strong> \(p\,\%\) de \(V\) es \(\dfrac{p}{100}\cdot V\).</p>
+<p><strong>Variación porcentual.</strong> La base es <strong>siempre el valor inicial</strong>:</p>
+<p>\[\text{variación} = \frac{V_f - V_i}{V_i}\cdot 100\]</p>
+<p>De \(\$80.000\) a \(\$92.000\): \(\frac{12.000}{80.000} = 0{,}15 = 15\,\%\).</p>
+<p><strong>Descontar un impuesto incluido.</strong> Se <strong>divide</strong>, no se resta:</p>
+<p>\[\text{base} = \frac{\text{total}}{1 + t}, \qquad
+\frac{297.500}{1{,}19} = 250.000\]</p>
+<p>Restar el 19 % de \(297.500\) daría \(240.975\), que está mal. Es el error de revisión de
+facturas más frecuente que existe.</p>
+<p><strong>Variaciones encadenadas.</strong> No se suman, se multiplican los factores. Dos meses con
+\(0{,}5\,\%\) y \(0{,}3\,\%\):</p>
+<p>\[(1{,}005)(1{,}003) - 1 = 0{,}008015 = 0{,}8015\,\%\]</p>
+<p>y no \(0{,}8\,\%\) exacto.</p>
+<p><strong>Proporcionalidad directa e inversa.</strong> Directa: \(y = kx\). Inversa: \(xy = k\). Cuatro
+operarios en 9 días dan \(k = 36\); seis operarios: \(6d = 36 \Rightarrow d = 6\) días. Si
+multiplicas en vez de dividir, la respuesta será mayor que 9 y eso ya te avisa que está
+mal: <strong>más gente no puede tardar más</strong>.</p>
+<p><strong>Reparto en razón \(3:5\)</strong> de \(\$1.200.000\): hay \(8\) partes de \(\$150.000\), luego
+\(\$450.000\) y \(\$750.000\).</p>
+<hr />
+<h2 id="3-potencias-y-radicales">§3 Potencias y radicales</h2>
+<h3 id="tabla-de-propiedades">Tabla de propiedades</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Propiedad</th>
+<th>Fórmula</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Producto de igual base</td>
+<td>\(a^m\cdot a^n = a^{m+n}\)</td>
+<td>\(2^{-3}\cdot2^{5}=2^{2}=4\)</td>
+</tr>
+<tr>
+<td>Cociente de igual base</td>
+<td>\(\dfrac{a^m}{a^n} = a^{m-n}\)</td>
+<td>\(\dfrac{x^7}{x^3}=x^4\)</td>
+</tr>
+<tr>
+<td>Potencia de potencia</td>
+<td>\((a^m)^n = a^{mn}\)</td>
+<td>\((x^3)^2 = x^6\)</td>
+</tr>
+<tr>
+<td>Potencia de un producto</td>
+<td>\((ab)^n = a^n b^n\)</td>
+<td>\((2x)^3 = 8x^3\)</td>
+</tr>
+<tr>
+<td>Potencia de un cociente</td>
+<td>\(\left(\dfrac{a}{b}\right)^n = \dfrac{a^n}{b^n}\)</td>
+<td>\(\left(\dfrac{x}{3}\right)^2=\dfrac{x^2}{9}\)</td>
+</tr>
+<tr>
+<td>Exponente cero</td>
+<td>\(a^0 = 1\) (con \(a\neq0\))</td>
+<td>\((5x)^0 = 1\)</td>
+</tr>
+<tr>
+<td>Exponente negativo</td>
+<td>\(a^{-n} = \dfrac{1}{a^n}\)</td>
+<td>\(3^{-2} = \dfrac{1}{9}\)</td>
+</tr>
+<tr>
+<td>Exponente fraccionario</td>
+<td>\(a^{m/n} = \sqrt[n]{a^m}\)</td>
+<td>\(8^{2/3} = \sqrt[3]{64} = 4\)</td>
+</tr>
+<tr>
+<td>Raíz de un producto</td>
+<td>\(\sqrt[n]{ab} = \sqrt[n]{a}\,\sqrt[n]{b}\)</td>
+<td>\(\sqrt{50} = 5\sqrt{2}\)</td>
+</tr>
+<tr>
+<td>Raíz de un cociente</td>
+<td>\(\sqrt[n]{\dfrac{a}{b}} = \dfrac{\sqrt[n]{a}}{\sqrt[n]{b}}\)</td>
+<td>\(\sqrt{\dfrac{9}{16}}=\dfrac{3}{4}\)</td>
+</tr>
+<tr>
+<td>Raíz de raíz</td>
+<td>\(\sqrt[m]{\sqrt[n]{a}} = \sqrt[mn]{a}\)</td>
+<td>\(\sqrt{\sqrt[3]{a}}=\sqrt[6]{a}\)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>No existe</strong> ninguna propiedad para \(\sqrt{a+b}\) ni para \((a+b)^n\) como suma de
+potencias. Esos dos inventos son los errores 1 y 2 de la lista final.</p>
+<p><strong>Ejemplo resuelto.</strong> Simplifica dejando exponentes positivos:</p>
+<p>\[\frac{(x^3y^2)^2}{x^2y} = \frac{x^6y^4}{x^2y} = x^{6-2}y^{4-1} = x^4y^3\]</p>
+<p><strong>Ejemplo con exponente negativo y fraccionario.</strong></p>
+<p>\[27^{-2/3} = \frac{1}{27^{2/3}} = \frac{1}{\left(\sqrt[3]{27}\right)^2} = \frac{1}{9}\]</p>
+<p><strong>Racionalización.</strong> Se multiplica por el conjugado:</p>
+<p>\[\frac{1}{\sqrt5 - 2}\cdot\frac{\sqrt5+2}{\sqrt5+2}
+= \frac{\sqrt5+2}{5-4} = \sqrt5 + 2\]</p>
+<hr />
+<h2 id="4-productos-notables">§4 Productos notables</h2>
+<p>Se aprenden de memoria. En Cálculo aparecen dentro de límites y derivadas y no hay
+tiempo de deducirlos.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Fórmula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cuadrado de una suma</td>
+<td>\((a+b)^2 = a^2 + 2ab + b^2\)</td>
+</tr>
+<tr>
+<td>Cuadrado de una diferencia</td>
+<td>\((a-b)^2 = a^2 - 2ab + b^2\)</td>
+</tr>
+<tr>
+<td>Suma por diferencia</td>
+<td>\((a+b)(a-b) = a^2 - b^2\)</td>
+</tr>
+<tr>
+<td>Cubo de una suma</td>
+<td>\((a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3\)</td>
+</tr>
+<tr>
+<td>Cubo de una diferencia</td>
+<td>\((a-b)^3 = a^3 - 3a^2b + 3ab^2 - b^3\)</td>
+</tr>
+<tr>
+<td>Binomios con término común</td>
+<td>\((x+a)(x+b) = x^2 + (a+b)x + ab\)</td>
+</tr>
+<tr>
+<td>Cuadrado de un trinomio</td>
+<td>\((a+b+c)^2 = a^2+b^2+c^2+2ab+2ac+2bc\)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Ejemplos.</strong></p>
+<p>\[(2x-3)^2 = 4x^2 - 12x + 9\]</p>
+<p>\[(x+2)^3 = x^3 + 6x^2 + 12x + 8\]</p>
+<p>\[(3x+5)(3x-5) = 9x^2 - 25\]</p>
+<p>El error clásico es escribir \((2x-3)^2 = 4x^2 + 9\). Comprueba siempre con un número:
+para \(x=1\), \((2-3)^2 = 1\), mientras que \(4+9=13\). Un solo valor de prueba detecta el 90 %
+de estos errores.</p>
+<hr />
+<h2 id="5-factorización">§5 Factorización</h2>
+<p>Es <strong>el</strong> tema crítico del repaso. Un límite indeterminado \(0/0\) en Cálculo se resuelve
+casi siempre factorizando y cancelando.</p>
+<p><strong>Árbol de decisión:</strong> primero factor común, siempre. Luego cuenta términos: dos términos
+→ diferencia de cuadrados o suma/diferencia de cubos; tres términos → trinomio; cuatro
+términos → agrupación.</p>
+<h3 id="los-ocho-casos">Los ocho casos</h3>
+<p><strong>1. Factor común.</strong></p>
+<p>\[6x^3 - 9x^2 = 3x^2(2x-3)\]</p>
+<p><strong>2. Agrupación (cuatro términos).</strong></p>
+<p>\[x^3 + 2x^2 + 3x + 6 = x^2(x+2) + 3(x+2) = (x+2)(x^2+3)\]</p>
+<p><strong>3. Diferencia de cuadrados.</strong></p>
+<p>\[9x^2 - 25 = (3x-5)(3x+5)\]</p>
+<p>La <strong>suma</strong> de cuadrados \(x^2+25\) <strong>no se factoriza</strong> en los reales.</p>
+<p><strong>4. Trinomio cuadrado perfecto.</strong></p>
+<p>\[4x^2 + 12x + 9 = (2x+3)^2\]</p>
+<p>Se reconoce porque el primero y el tercero son cuadrados perfectos y el del medio es el
+doble producto de sus raíces: \(2\cdot 2x\cdot 3 = 12x\).</p>
+<p><strong>5. Trinomio de la forma \(x^2+bx+c\).</strong> Dos números que sumen \(b\) y multipliquen \(c\):</p>
+<p>\[x^2 - 7x + 12 = (x-3)(x-4)\]</p>
+<p><strong>6. Trinomio de la forma \(ax^2+bx+c\).</strong> Dos números que multipliquen \(a\cdot c\) y sumen
+\(b\); con \(6x^2-x-2\): producto \(-12\), suma \(-1\), son \(-4\) y \(3\):</p>
+<p>\[6x^2 - x - 2 = 6x^2 - 4x + 3x - 2 = 2x(3x-2)+1(3x-2) = (3x-2)(2x+1)\]</p>
+<p><strong>7. Diferencia de cubos.</strong> \(a^3-b^3 = (a-b)(a^2+ab+b^2)\):</p>
+<p>\[x^3 - 8 = (x-2)(x^2+2x+4)\]</p>
+<p><strong>8. Suma de cubos.</strong> \(a^3+b^3 = (a+b)(a^2-ab+b^2)\):</p>
+<p>\[x^3 + 27 = (x+3)(x^2-3x+9)\]</p>
+<blockquote>
+<p><strong>Verificación obligatoria:</strong> toda factorización se comprueba expandiendo. Cuesta 20
+segundos y elimina el error por completo.</p>
+</blockquote>
+<hr />
+<h2 id="6-ecuaciones">§6 Ecuaciones</h2>
+<h3 id="lineales">Lineales</h3>
+<p>Se agrupa la incógnita a un lado y los números al otro:</p>
+<p>\[3(x-2) = 2x+7 \;\Rightarrow\; 3x-6 = 2x+7 \;\Rightarrow\; x = 13\]</p>
+<h3 id="cuadráticas">Cuadráticas</h3>
+<p>Forma general \(ax^2+bx+c=0\). <strong>Fórmula general:</strong></p>
+<p>\[x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}\]</p>
+<p>El <strong>discriminante</strong> \(\Delta = b^2-4ac\) decide todo antes de calcular:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>\(\Delta\)</th>
+<th>Soluciones reales</th>
+<th>Gráfica de la parábola</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(\Delta > 0\)</td>
+<td>dos distintas</td>
+<td>corta el eje \(x\) en dos puntos</td>
+</tr>
+<tr>
+<td>\(\Delta = 0\)</td>
+<td>una (doble)</td>
+<td>toca el eje \(x\) en un punto</td>
+</tr>
+<tr>
+<td>\(\Delta < 0\)</td>
+<td>ninguna real</td>
+<td>no toca el eje \(x\)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Ejemplo.</strong> \(2x^2-5x-3=0\). Aquí \(\Delta = 25 + 24 = 49\), luego</p>
+<p>\[x = \frac{5 \pm 7}{4} \;\Rightarrow\; x = 3 \;\text{ o }\; x = -\frac{1}{2}\]</p>
+<p>Si el trinomio factoriza fácil, factoriza: es más rápido que la fórmula.</p>
+<h3 id="racionales">Racionales</h3>
+<p>Se multiplica todo por el mínimo común denominador y <strong>se verifica al final</strong>, porque
+los valores que anulan un denominador quedan excluidos.</p>
+<p><strong>Con solución válida:</strong></p>
+<p>\[\frac{x}{x+1} = \frac{3}{x+1} - 1\]</p>
+<p>Multiplicando por \((x+1)\): \(\;x = 3 - (x+1) \Rightarrow 2x = 2 \Rightarrow x = 1\).
+Verificación: \(\frac{1}{2} = \frac{3}{2}-1\) ✓.</p>
+<p><strong>Con solución extraña (el caso que hay que reconocer):</strong></p>
+<p>\[\frac{x}{x-3} = 2 + \frac{3}{x-3}\]</p>
+<p>Multiplicando por \((x-3)\): \(\;x = 2(x-3)+3 = 2x-3 \Rightarrow x=3\). Pero \(x=3\) anula el
+denominador: <strong>la ecuación no tiene solución</strong>.</p>
+<h3 id="con-radicales">Con radicales</h3>
+<p>Se aísla el radical, se eleva al cuadrado y <strong>se verifica</strong>, porque elevar al cuadrado
+puede crear soluciones falsas.</p>
+<p>\[\sqrt{x+7} = x+1 \;\Rightarrow\; x+7 = x^2+2x+1 \;\Rightarrow\; x^2+x-6=0\]</p>
+<p>\[\Rightarrow\; x = 2 \;\text{ o }\; x = -3\]</p>
+<p>Verificando: \(x=2\) da \(\sqrt9 = 3\) ✓. \(x=-3\) da \(\sqrt4 = 2\) pero el lado derecho vale
+\(-2\): <strong>se descarta</strong>. Solución única: \(x=2\).</p>
+<hr />
+<span id="7-sistemas-2times2"></span><h2 id="7-sistemas-math155">§7 Sistemas \(2\times2\)</h2>
+<p>Es la base directa de Álgebra Lineal: Gauss-Jordan es exactamente esto generalizado a
+\(n\) ecuaciones. Tomemos:</p>
+<p>\[\begin{cases} 3x + 2y = 12 \\ 5x - y = 7 \end{cases}\]</p>
+<p><strong>Método 1 — Sustitución.</strong> De la segunda, \(y = 5x-7\). Se reemplaza en la primera:</p>
+<p>\[3x + 2(5x-7) = 12 \;\Rightarrow\; 13x = 26 \;\Rightarrow\; x = 2, \; y = 3\]</p>
+<p><strong>Método 2 — Igualación.</strong> Se despeja la misma variable en ambas:
+\(y = \frac{12-3x}{2}\) y \(y = 5x-7\). Se igualan:</p>
+<p>\[\frac{12-3x}{2} = 5x-7 \;\Rightarrow\; 12-3x = 10x-14 \;\Rightarrow\; x = 2\]</p>
+<p><strong>Método 3 — Eliminación (reducción).</strong> Se multiplica la segunda por 2 y se suman:</p>
+<p>\[\begin{aligned} 3x + 2y &= 12 \\ 10x - 2y &= 14 \end{aligned} \;\Longrightarrow\; 13x = 26 \;\Rightarrow\; x=2,\; y=3\]</p>
+<p><strong>Cuál usar.</strong> Eliminación cuando los coeficientes se prestan; sustitución cuando alguna
+variable ya está despejada. En Álgebra Lineal usarás casi siempre eliminación, porque es
+la que se convierte en operaciones de fila sobre una matriz.</p>
+<p><strong>Tipos de solución.</strong> Un sistema \(2\times2\) tiene solución única (rectas que se cortan),
+infinitas (rectas coincidentes) o ninguna (rectas paralelas). Si al eliminar te queda
+\(0=0\), hay infinitas; si te queda \(0=5\), no hay ninguna.</p>
+<hr />
+<h2 id="8-desigualdades">§8 Desigualdades</h2>
+<p>Se resuelven como las ecuaciones, con <strong>una sola diferencia crítica</strong>: al multiplicar o
+dividir por un número negativo, <strong>el sentido se invierte</strong>.</p>
+<p>\[-2x + 5 < 11 \;\Rightarrow\; -2x < 6 \;\Rightarrow\; x > -3 \;\Rightarrow\; (-3,\,+\infty)\]</p>
+<p><strong>Notación de intervalo:</strong> paréntesis para extremo excluido, corchete para incluido.
+El infinito <strong>siempre</strong> lleva paréntesis.</p>
+<p><strong>Cuadráticas.</strong> Se factoriza, se hallan las raíces, se marcan en la recta y se prueba el
+signo en cada intervalo:</p>
+<p>\[x^2 - x - 6 > 0 \;\Rightarrow\; (x-3)(x+2) > 0 \;\Rightarrow\; (-\infty,-2)\cup(3,+\infty)\]</p>
+<p><strong>Racionales.</strong> Igual, pero además se marcan los ceros del denominador, que <strong>siempre</strong>
+quedan excluidos:</p>
+<p>\[\frac{x-1}{x+2} \geq 0 \;\Rightarrow\; (-\infty,-2)\cup[1,+\infty)\]</p>
+<p>Nota que \(1\) entra (anula el numerador) y \(-2\) no (anula el denominador).</p>
+<blockquote>
+<p><strong>Nunca</strong> multipliques una desigualdad por una expresión con variable: no sabes su
+signo, y por tanto no sabes si el sentido cambia.</p>
+</blockquote>
+<hr />
+<h2 id="9-valor-absoluto">§9 Valor absoluto</h2>
+<p>\(|a|\) es la distancia de \(a\) a cero, así que nunca es negativo. Formalmente:</p>
+<p>\[|a| = \begin{cases} a & \text{si } a \geq 0 \\ -a & \text{si } a < 0\end{cases}\]</p>
+<p><strong>Ecuaciones.</strong> \(|u| = k\) con \(k>0\) abre dos casos: \(u=k\) o \(u=-k\).</p>
+<p>\[|2x-1| = 5 \;\Rightarrow\; 2x-1=5 \;\text{ o }\; 2x-1=-5 \;\Rightarrow\; x=3 \;\text{ o }\; x=-2\]</p>
+<p><strong>Desigualdad "menor que" → intervalo acotado (y):</strong></p>
+<p>\[|u| < k \;\Longleftrightarrow\; -k < u < k\]</p>
+<p>\[|x-3| < 5 \;\Rightarrow\; -5 < x-3 < 5 \;\Rightarrow\; -2 < x < 8\]</p>
+<p><strong>Desigualdad "mayor que" → unión de dos rayos (o):</strong></p>
+<p>\[|u| > k \;\Longleftrightarrow\; u > k \;\text{ o }\; u < -k\]</p>
+<p>\[|2x+1| \geq 7 \;\Rightarrow\; x \geq 3 \;\text{ o }\; x \leq -4\]</p>
+<p>Esta distinción entre "y" y "o" reaparece textualmente en la definición formal de límite
+en Cálculo. Vale la pena que quede firme ahora.</p>
+<hr />
+<h2 id="10-funciones-dominio-y-rango">§10 Funciones, dominio y rango</h2>
+<p>Una <strong>función</strong> \(f\) asigna a cada elemento del dominio <strong>exactamente un</strong> valor. En la
+gráfica se verifica con la prueba de la recta vertical: si una vertical corta la curva
+dos veces, no es función.</p>
+<ul>
+<li><strong>Dominio:</strong> todos los valores de entrada admisibles.</li>
+<li><strong>Rango (o recorrido):</strong> todos los valores de salida que efectivamente se producen.</li>
+</ul>
+<p><strong>Evaluación.</strong> Si \(f(x)=x^2-4x+1\), entonces \(f(3) = 9-12+1 = -2\). Y \(f(a+1)\) se obtiene
+reemplazando \(x\) por \((a+1)\) <strong>entre paréntesis</strong>, siempre.</p>
+<h3 id="tres-reglas-prácticas-para-hallar-el-dominio">Tres reglas prácticas para hallar el dominio</h3>
+<ol>
+<li><strong>Denominador \(\neq 0\).</strong> En \(g(x) = \dfrac{x+1}{x^2-9}\), se excluyen \(x=3\) y \(x=-3\):
+   dominio \(\mathbb{R}\setminus\{-3,3\}\).</li>
+<li><strong>Radicando de índice par \(\geq 0\).</strong> En \(f(x)=\sqrt{x-3}\), se exige \(x-3\geq0\):
+   dominio \([3,+\infty)\).</li>
+<li><strong>Argumento de logaritmo \(> 0\).</strong> En \(h(x)=\ln(x-2)\): dominio \((2,+\infty)\).</li>
+</ol>
+<p>Si no hay denominador, ni raíz par, ni logaritmo, el dominio son <strong>todos los reales</strong>.</p>
+<p><strong>Ejemplo combinado.</strong> \(\;f(x) = \dfrac{\sqrt{x-3}}{x-5}\) exige \(x\geq3\) <strong>y</strong> \(x\neq5\):</p>
+<p>\[\text{dominio} = [3,5)\cup(5,+\infty)\]</p>
+<p><strong>Rango.</strong> Para \(f(x)=x^2-4x+1\), el vértice está en \(x = -\frac{b}{2a} = 2\), y
+\(f(2) = -3\). Como abre hacia arriba, el rango es \([-3,+\infty)\).</p>
+<hr />
+<h2 id="11-familias-de-funciones">§11 Familias de funciones</h2>
+<p>Reconocer la forma antes de derivar ahorra la mitad del trabajo. Dibuja cada una a mano y
+solo después verifícala en Desmos.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Familia</th>
+<th>Fórmula</th>
+<th>Dominio</th>
+<th>Rango</th>
+<th>Forma</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lineal</td>
+<td>\(y = mx+b\)</td>
+<td>\(\mathbb{R}\)</td>
+<td>\(\mathbb{R}\) (si \(m\neq0\))</td>
+<td>recta; \(m\) es la pendiente</td>
+</tr>
+<tr>
+<td>Cuadrática</td>
+<td>\(y = ax^2+bx+c\)</td>
+<td>\(\mathbb{R}\)</td>
+<td>acotado por el vértice</td>
+<td>parábola; abre arriba si \(a>0\)</td>
+</tr>
+<tr>
+<td>Cúbica</td>
+<td>\(y = x^3\)</td>
+<td>\(\mathbb{R}\)</td>
+<td>\(\mathbb{R}\)</td>
+<td>creciente, con inflexión en el origen</td>
+</tr>
+<tr>
+<td>Racional</td>
+<td>\(y = \dfrac{1}{x}\)</td>
+<td>\(\mathbb{R}\setminus\{0\}\)</td>
+<td>\(\mathbb{R}\setminus\{0\}\)</td>
+<td>hipérbola; asíntotas \(x=0\) y \(y=0\)</td>
+</tr>
+<tr>
+<td>Raíz</td>
+<td>\(y = \sqrt{x}\)</td>
+<td>\([0,+\infty)\)</td>
+<td>\([0,+\infty)\)</td>
+<td>media parábola acostada</td>
+</tr>
+<tr>
+<td>Valor absoluto</td>
+<td>\(y = \lvert x\rvert\)</td>
+<td>\(\mathbb{R}\)</td>
+<td>\([0,+\infty)\)</td>
+<td>"V" con vértice en el origen</td>
+</tr>
+<tr>
+<td>Exponencial</td>
+<td>\(y = a^x\), \(a>1\)</td>
+<td>\(\mathbb{R}\)</td>
+<td>\((0,+\infty)\)</td>
+<td>crece cada vez más rápido; asíntota \(y=0\)</td>
+</tr>
+<tr>
+<td>Logarítmica</td>
+<td>\(y = \log_a x\), \(a>1\)</td>
+<td>\((0,+\infty)\)</td>
+<td>\(\mathbb{R}\)</td>
+<td>crece cada vez más lento; asíntota \(x=0\)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>La recta.</strong> Pendiente entre dos puntos:</p>
+<p>\[m = \frac{y_2-y_1}{x_2-x_1}\]</p>
+<p>Por \((2,5)\) y \((6,13)\): \(m = \frac{8}{4} = 2\), y con la forma punto-pendiente
+\(y-5 = 2(x-2)\) se llega a \(y = 2x+1\).</p>
+<p><strong>Transformaciones</strong> (valen para las ocho familias). Partiendo de \(y=f(x)\):</p>
+<ul>
+<li>\(f(x)+k\) sube \(k\) unidades; \(f(x)-k\) baja.</li>
+<li>\(f(x-h)\) desplaza \(h\) a la <strong>derecha</strong> (sí, el signo va al revés de lo que parece).</li>
+<li>\(-f(x)\) refleja respecto al eje \(x\); \(f(-x)\) respecto al eje \(y\).</li>
+<li>\(a\,f(x)\) con \(a>1\) estira verticalmente; con \(0<a<1\) comprime.</li>
+</ul>
+<p>Con estas cuatro reglas y las ocho formas base, dibujas cualquier función de primer
+semestre sin tabular un solo punto.</p>
+<p><strong>Exponencial y logarítmica son inversas.</strong> \(y=e^x\) y \(y=\ln x\) son reflejos mutuos
+respecto a la recta \(y=x\). Por eso \(e^{\ln 7} = 7\) y \(\ln(e^7) = 7\).</p>
+<hr />
+<h2 id="12-trigonometría">§12 Trigonometría</h2>
+<h3 id="el-círculo-unitario">El círculo unitario</h3>
+<p>Circunferencia de radio 1 centrada en el origen. Para un ángulo \(\theta\) medido desde el
+eje \(x\) positivo, el punto sobre la circunferencia es exactamente
+\((\cos\theta,\;\operatorname{sen}\theta)\).</p>
+<p>Entendido así, los signos por cuadrante <strong>se deducen</strong> y no se memorizan: en el segundo
+cuadrante \(x\) es negativa, luego el coseno es negativo; en el tercero ambas son
+negativas; en el cuarto solo el seno.</p>
+<p>\[\tan\theta = \frac{\operatorname{sen}\theta}{\cos\theta}\]</p>
+<h3 id="tabla-de-valores-exactos">Tabla de valores exactos</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Grados</th>
+<th>Radianes</th>
+<th>\(\operatorname{sen}\theta\)</th>
+<th>\(\cos\theta\)</th>
+<th>\(\tan\theta\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(0°\)</td>
+<td>\(0\)</td>
+<td>\(0\)</td>
+<td>\(1\)</td>
+<td>\(0\)</td>
+</tr>
+<tr>
+<td>\(30°\)</td>
+<td>\(\pi/6\)</td>
+<td>\(\tfrac{1}{2}\)</td>
+<td>\(\tfrac{\sqrt3}{2}\)</td>
+<td>\(\tfrac{\sqrt3}{3}\)</td>
+</tr>
+<tr>
+<td>\(45°\)</td>
+<td>\(\pi/4\)</td>
+<td>\(\tfrac{\sqrt2}{2}\)</td>
+<td>\(\tfrac{\sqrt2}{2}\)</td>
+<td>\(1\)</td>
+</tr>
+<tr>
+<td>\(60°\)</td>
+<td>\(\pi/3\)</td>
+<td>\(\tfrac{\sqrt3}{2}\)</td>
+<td>\(\tfrac{1}{2}\)</td>
+<td>\(\sqrt3\)</td>
+</tr>
+<tr>
+<td>\(90°\)</td>
+<td>\(\pi/2\)</td>
+<td>\(1\)</td>
+<td>\(0\)</td>
+<td>no definida</td>
+</tr>
+<tr>
+<td>\(120°\)</td>
+<td>\(2\pi/3\)</td>
+<td>\(\tfrac{\sqrt3}{2}\)</td>
+<td>\(-\tfrac{1}{2}\)</td>
+<td>\(-\sqrt3\)</td>
+</tr>
+<tr>
+<td>\(135°\)</td>
+<td>\(3\pi/4\)</td>
+<td>\(\tfrac{\sqrt2}{2}\)</td>
+<td>\(-\tfrac{\sqrt2}{2}\)</td>
+<td>\(-1\)</td>
+</tr>
+<tr>
+<td>\(150°\)</td>
+<td>\(5\pi/6\)</td>
+<td>\(\tfrac{1}{2}\)</td>
+<td>\(-\tfrac{\sqrt3}{2}\)</td>
+<td>\(-\tfrac{\sqrt3}{3}\)</td>
+</tr>
+<tr>
+<td>\(180°\)</td>
+<td>\(\pi\)</td>
+<td>\(0\)</td>
+<td>\(-1\)</td>
+<td>\(0\)</td>
+</tr>
+<tr>
+<td>\(210°\)</td>
+<td>\(7\pi/6\)</td>
+<td>\(-\tfrac{1}{2}\)</td>
+<td>\(-\tfrac{\sqrt3}{2}\)</td>
+<td>\(\tfrac{\sqrt3}{3}\)</td>
+</tr>
+<tr>
+<td>\(225°\)</td>
+<td>\(5\pi/4\)</td>
+<td>\(-\tfrac{\sqrt2}{2}\)</td>
+<td>\(-\tfrac{\sqrt2}{2}\)</td>
+<td>\(1\)</td>
+</tr>
+<tr>
+<td>\(240°\)</td>
+<td>\(4\pi/3\)</td>
+<td>\(-\tfrac{\sqrt3}{2}\)</td>
+<td>\(-\tfrac{1}{2}\)</td>
+<td>\(\sqrt3\)</td>
+</tr>
+<tr>
+<td>\(270°\)</td>
+<td>\(3\pi/2\)</td>
+<td>\(-1\)</td>
+<td>\(0\)</td>
+<td>no definida</td>
+</tr>
+<tr>
+<td>\(300°\)</td>
+<td>\(5\pi/3\)</td>
+<td>\(-\tfrac{\sqrt3}{2}\)</td>
+<td>\(\tfrac{1}{2}\)</td>
+<td>\(-\sqrt3\)</td>
+</tr>
+<tr>
+<td>\(315°\)</td>
+<td>\(7\pi/4\)</td>
+<td>\(-\tfrac{\sqrt2}{2}\)</td>
+<td>\(\tfrac{\sqrt2}{2}\)</td>
+<td>\(-1\)</td>
+</tr>
+<tr>
+<td>\(330°\)</td>
+<td>\(11\pi/6\)</td>
+<td>\(-\tfrac{1}{2}\)</td>
+<td>\(\tfrac{\sqrt3}{2}\)</td>
+<td>\(-\tfrac{\sqrt3}{3}\)</td>
+</tr>
+<tr>
+<td>\(360°\)</td>
+<td>\(2\pi\)</td>
+<td>\(0\)</td>
+<td>\(1\)</td>
+<td>\(0\)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Truco de memoria del primer cuadrante:</strong> los senos de \(0°,30°,45°,60°,90°\) son
+\(\frac{\sqrt0}{2},\frac{\sqrt1}{2},\frac{\sqrt2}{2},\frac{\sqrt3}{2},\frac{\sqrt4}{2}\).
+Los cosenos son la misma lista al revés.</p>
+<p><strong>Conversión.</strong> \(\;\text{radianes} = \text{grados}\cdot\dfrac{\pi}{180}\). En Cálculo casi
+todo se trabaja en radianes.</p>
+<h3 id="identidades-fundamentales">Identidades fundamentales</h3>
+<p><strong>Pitagóricas:</strong></p>
+<p>\[\operatorname{sen}^2\theta + \cos^2\theta = 1\]
+\[1 + \tan^2\theta = \sec^2\theta \qquad 1 + \cot^2\theta = \csc^2\theta\]</p>
+<p><strong>Recíprocas y de cociente:</strong></p>
+<p>\[\csc\theta = \frac{1}{\operatorname{sen}\theta},\quad
+\sec\theta = \frac{1}{\cos\theta},\quad
+\cot\theta = \frac{1}{\tan\theta} = \frac{\cos\theta}{\operatorname{sen}\theta}\]</p>
+<p><strong>Suma y resta de ángulos:</strong></p>
+<p>\[\operatorname{sen}(A\pm B) = \operatorname{sen}A\cos B \pm \cos A\operatorname{sen}B\]
+\[\cos(A\pm B) = \cos A\cos B \mp \operatorname{sen}A\operatorname{sen}B\]</p>
+<p><strong>Ángulo doble:</strong></p>
+<p>\[\operatorname{sen}2\theta = 2\operatorname{sen}\theta\cos\theta \qquad
+\cos 2\theta = \cos^2\theta - \operatorname{sen}^2\theta\]</p>
+<p><strong>Paridad:</strong> \(\;\operatorname{sen}(-\theta) = -\operatorname{sen}\theta\) (impar),
+\(\;\cos(-\theta) = \cos\theta\) (par).</p>
+<p><strong>Ejemplo.</strong> Si \(\operatorname{sen}\theta = \frac{3}{5}\) en el primer cuadrante, entonces
+\(\cos^2\theta = 1 - \frac{9}{25} = \frac{16}{25}\), luego \(\cos\theta = \frac{4}{5}\)
+(positivo por el cuadrante) y \(\tan\theta = \frac{3}{4}\).</p>
+<hr />
+<h2 id="13-logaritmos-y-exponenciales">§13 Logaritmos y exponenciales</h2>
+<p><strong>Definición.</strong> \(\;\log_a b = c \;\Longleftrightarrow\; a^c = b\), con \(a>0\), \(a\neq1\) y
+\(b>0\). Un logaritmo es simplemente "¿a qué exponente elevo la base?".</p>
+<p>\[\log_2 32 = 5 \quad\text{porque}\quad 2^5 = 32\]</p>
+<span id="tabla-de-propiedades"></span><h3 id="tabla-de-propiedades_1">Tabla de propiedades</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Propiedad</th>
+<th>Fórmula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Logaritmo de un producto</td>
+<td>\(\log_a(MN) = \log_a M + \log_a N\)</td>
+</tr>
+<tr>
+<td>Logaritmo de un cociente</td>
+<td>\(\log_a\!\left(\dfrac{M}{N}\right) = \log_a M - \log_a N\)</td>
+</tr>
+<tr>
+<td>Logaritmo de una potencia</td>
+<td>\(\log_a(M^p) = p\log_a M\)</td>
+</tr>
+<tr>
+<td>Logaritmo de la base</td>
+<td>\(\log_a a = 1\)</td>
+</tr>
+<tr>
+<td>Logaritmo de 1</td>
+<td>\(\log_a 1 = 0\)</td>
+</tr>
+<tr>
+<td>Cambio de base</td>
+<td>\(\log_a b = \dfrac{\log_c b}{\log_c a}\)</td>
+</tr>
+<tr>
+<td>Inversas</td>
+<td>\(a^{\log_a x} = x\) y \(\log_a(a^x) = x\)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>No existe</strong> propiedad para \(\log(M+N)\). Es el error 9 de la lista final.</p>
+<p><strong>Notación:</strong> \(\log x\) suele significar base 10; \(\ln x\) es base \(e \approx 2{,}71828\).</p>
+<p><strong>Practica la tabla en los dos sentidos.</strong> De izquierda a derecha se llama <em>expandir</em>; de
+derecha a izquierda, <em>condensar</em>. En Cálculo la derivación logarítmica exige expandir; la
+resolución de ecuaciones exige condensar.</p>
+<p><strong>Ecuación exponencial.</strong> Se iguala la base:</p>
+<p>\[2^{x+1} = 32 = 2^5 \;\Rightarrow\; x+1=5 \;\Rightarrow\; x=4\]</p>
+<p><strong>Ecuación logarítmica.</strong> Se condensa y se verifica el dominio:</p>
+<p>\[\log x + \log(x-3) = 1 \;\Rightarrow\; \log\big(x(x-3)\big) = 1 \;\Rightarrow\; x^2-3x=10\]</p>
+<p>\[\Rightarrow\; x^2-3x-10 = 0 \;\Rightarrow\; x=5 \;\text{ o }\; x=-2\]</p>
+<p>\(x=-2\) se descarta porque \(\log(-2)\) no existe. Solución: \(x=5\).</p>
+<p><strong>Aplicación.</strong> ¿En cuántos años se duplica un valor que crece 8 % anual?</p>
+<p>\[1{,}08^t = 2 \;\Rightarrow\; t = \frac{\ln 2}{\ln 1{,}08} \approx 9{,}01 \text{ años}\]</p>
+<p>Este es el mismo cálculo que hay detrás de una serie de IPC encadenada o de una
+proyección de valor de contrato: el logaritmo es la herramienta que despeja un exponente.</p>
+<hr />
+<h2 id="14-lógica">§14 Lógica</h2>
+<p>Base de Pensamiento Algorítmico (los condicionales) y de la argumentación en Cultura
+Política y Sociedad.</p>
+<p><strong>Proposición:</strong> enunciado del que se puede decir si es verdadero o falso.</p>
+<p><strong>Conectores:</strong> \(\lnot p\) (negación), \(p\land q\) (y), \(p\lor q\) (o inclusivo),
+\(p\Rightarrow q\) (si… entonces), \(p\Leftrightarrow q\) (si y solo si).</p>
+<p><strong>Tabla de verdad del condicional</strong> \(p \Rightarrow q\):</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>\(p\)</th>
+<th>\(q\)</th>
+<th>\(p\Rightarrow q\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+</tr>
+<tr>
+<td>V</td>
+<td>F</td>
+<td><strong>F</strong></td>
+</tr>
+<tr>
+<td>F</td>
+<td>V</td>
+<td>V</td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>V</td>
+</tr>
+</tbody>
+</table></div>
+<p>El condicional solo es falso cuando la premisa es verdadera y la conclusión falsa.</p>
+<p><strong>Contrarrecíproca.</strong> De \(p\Rightarrow q\), la contrarrecíproca es
+\(\lnot q \Rightarrow \lnot p\), y es <strong>lógicamente equivalente</strong>. La recíproca
+(\(q\Rightarrow p\)) <strong>no</strong> lo es.</p>
+<p>De <em>"si el contrato es CSF, requiere solicitud mensual de PAC"</em> se sigue <em>"si no requiere
+PAC mensual, no es CSF"</em>, pero <strong>no</strong> se sigue <em>"si requiere PAC mensual, es CSF"</em>.</p>
+<p><strong>Falacias que reaparecen en programación.</strong> De \(p\Rightarrow q\) y \(q\) <strong>no</strong> se deduce
+\(p\) (afirmar el consecuente). De \(p\Rightarrow q\) y \(\lnot p\) <strong>no</strong> se deduce \(\lnot q\)
+(negar el antecedente). Un <code>if</code> mal encadenado casi siempre es una de estas dos.</p>
+<p><strong>Negación de cuantificadores.</strong></p>
+<ul>
+<li>\(\lnot(\forall x:\ P(x)) \equiv \exists x:\ \lnot P(x)\) — la negación de "todos" es
+  "existe al menos uno que no".</li>
+<li>\(\lnot(\exists x:\ P(x)) \equiv \forall x:\ \lnot P(x)\).</li>
+</ul>
+<p>La negación de <em>"todos los contratos tienen póliza vigente"</em> es <em>"existe al menos un
+contrato sin póliza vigente"</em>, <strong>no</strong> <em>"ningún contrato tiene póliza"</em>.</p>
+<p><strong>Leyes de De Morgan.</strong> \(\lnot(p\land q)\equiv \lnot p \lor \lnot q\) y
+\(\lnot(p\lor q)\equiv \lnot p \land \lnot q\). Las vas a usar literalmente para simplificar
+condiciones en Python.</p>
+<hr />
+<h2 id="15-errores-frecuentes-de-álgebra-que-cuestan-puntos-en-cálculo">15 errores frecuentes de álgebra que cuestan puntos en Cálculo</h2>
+<p>Cada uno de estos aparece en exámenes reales, cada uno cuesta el ejercicio completo y
+cada uno se detecta probando con un número.</p>
+<ol>
+<li><strong>\((a+b)^2 = a^2+b^2\).</strong> Falso: falta \(2ab\). Con \(a=b=1\): \(4 \neq 2\).</li>
+<li><strong>\(\sqrt{a+b} = \sqrt a + \sqrt b\).</strong> Falso. Con \(a=9\) y \(b=16\): \(\sqrt{25}=5\),
+   pero \(3+4=7\).</li>
+<li><strong>Cancelar sumandos.</strong> \(\dfrac{x+3}{3} \neq x\). Solo se cancelan factores.</li>
+<li><strong>\(\dfrac{a}{b+c} = \dfrac{a}{b}+\dfrac{a}{c}\).</strong> Falso. La suma en el
+   <strong>denominador</strong> no se separa (en el numerador sí).</li>
+<li><strong>No invertir el sentido de la desigualdad</strong> al dividir por un negativo. De
+   \(-2x<6\) se sigue \(x>-3\), no \(x<-3\).</li>
+<li><strong>Perder una raíz</strong> al simplificar \(x^2 = 4\) como \(x=2\). Son \(x=\pm2\).</li>
+<li><strong>Dividir ambos lados por \(x\)</strong> en \(x^2 = 3x\). Se pierde la solución \(x=0\); hay que
+   factorizar: \(x(x-3)=0\).</li>
+<li><strong>No verificar las soluciones</strong> de ecuaciones racionales y con radical. Las raíces
+   extrañas son algebraicamente correctas y matemáticamente inválidas.</li>
+<li><strong>\(\log(a+b) = \log a + \log b\).</strong> Falso. La propiedad es del <strong>producto</strong>.</li>
+<li><strong>\(\dfrac{\operatorname{sen}x}{x} = \operatorname{sen}\).</strong> No se puede "cancelar" una
+    función con su argumento: \(\operatorname{sen}\) no es un factor.</li>
+<li><strong>Signo del exponente negativo.</strong> \(a^{-n}\) es \(\frac{1}{a^n}\), <strong>no</strong> \(-a^n\). Así,
+    \(2^{-3} = \frac18\), no \(-8\).</li>
+<li><strong>Distribuir mal el menos.</strong> \(-(x-3) = -x+3\), no \(-x-3\). Es el error más caro por
+    unidad de tiempo que existe.</li>
+<li><strong>Confundir \((-2)^2\) con \(-2^2\).</strong> El primero vale \(4\); el segundo, \(-4\): sin
+    paréntesis, el exponente actúa antes que el signo.</li>
+<li><strong>Olvidar restricciones del dominio</strong> al simplificar. En
+    \(\frac{x^2-9}{x-3} = x+3\) hay que conservar \(x\neq3\): la función original no existe
+    en 3, aunque la simplificada sí.</li>
+<li><strong>Sumar denominadores.</strong> \(\frac{1}{2}+\frac{1}{3} \neq \frac{2}{5}\). Es \(\frac56\).</li>
+</ol>
+<blockquote>
+<p><strong>Método de defensa universal:</strong> reemplaza un número cualquiera en tu paso anterior y
+en tu paso siguiente. Si no dan lo mismo, el error está entre esos dos renglones. Este
+hábito de 20 segundos te va a salvar más puntos que cualquier fórmula de esta guía.</p>
+</blockquote>
+</main>
+</body>
+</html>

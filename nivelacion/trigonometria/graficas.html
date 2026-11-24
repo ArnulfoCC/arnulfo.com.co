@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4. Gráficas y funciones inversas</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ 00 - Nivelación (antes del 25 de agosto)/Trigonometría a fondo / 4. Gráficas y funciones inversas</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="4-gráficas-y-funciones-inversas">4. Gráficas y funciones inversas</h1>
+<p>En los archivos 2 y 3 dejaste de ver la trigonometría como "cosas de triángulos" y empezaste a verla como funciones: el círculo unitario te dio \(\operatorname{sen}\theta\) y \(\cos\theta\) como coordenadas de un punto, y las identidades te dieron las reglas de manipulación. Ahora toca el paso que conecta todo eso con Cálculo Diferencial: <strong>ver esas funciones como curvas</strong> y entender sus inversas.</p>
+<p>Esto no es decoración. En el parcial de cálculo te van a pedir el dominio de \(\operatorname{arcsen}(2x-1)\), la derivada de \(\operatorname{arctan}(x^2)\), o que identifiques dónde una función trigonométrica es continua. Nada de eso sale si no tienes la gráfica en la cabeza.</p>
+<p><strong>Antes de seguir</strong>: abre <a href="https://www.desmos.com/calculator">Desmos</a> en otra pestaña. No puedo ponerte imágenes acá, así que voy a describir cada gráfica con palabras y tablas de puntos, pero necesitas verlas. Cada vez que aparezca un ejemplo, escríbelo en Desmos. Diez segundos por gráfica, y el concepto se te queda pegado.</p>
+<hr />
+<h2 id="1-las-gráficas-de-seno-y-coseno">1. Las gráficas de seno y coseno</h2>
+<h3 id="de-dónde-sale-la-forma-de-onda">De dónde sale la forma de onda</h3>
+<p>Piensa en el círculo unitario del archivo 2. Un punto \(P\) arranca en \((1,0)\) y da vueltas en sentido antihorario. El ángulo recorrido es \(x\) (en radianes) y la altura del punto es \(\operatorname{sen} x\).</p>
+<p>Ahora imagina que <strong>desenrollas</strong> el círculo sobre un eje horizontal: en el eje \(x\) pones el ángulo, en el eje \(y\) pones la altura. Eso es exactamente la gráfica del seno. La altura arranca en \(0\), sube hasta \(1\) cuando el punto está arriba del todo (\(x = \pi/2\)), vuelve a \(0\) cuando el punto está a la izquierda (\(x = \pi\)), baja a \(-1\) abajo del todo (\(x = 3\pi/2\)) y regresa a \(0\) al completar la vuelta (\(x = 2\pi\)). Y como el punto vuelve a dar vueltas indefinidamente, la curva se repite: eso es la <strong>periodicidad</strong>.</p>
+<p>El coseno es lo mismo pero midiendo la coordenada <strong>horizontal</strong> del punto. Arranca en \(1\) (el punto está a la derecha), baja a \(0\), luego a \(-1\), sube a \(0\) y vuelve a \(1\).</p>
+<span id="tabla-de-puntos-clave-y--operatornamesen-x"></span><h3 id="tabla-de-puntos-clave-math40">Tabla de puntos clave: \(y = \operatorname{sen} x\)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>\(x\)</th>
+<th>\(0\)</th>
+<th>\(\dfrac{\pi}{6}\)</th>
+<th>\(\dfrac{\pi}{4}\)</th>
+<th>\(\dfrac{\pi}{3}\)</th>
+<th>\(\dfrac{\pi}{2}\)</th>
+<th>\(\dfrac{2\pi}{3}\)</th>
+<th>\(\dfrac{3\pi}{4}\)</th>
+<th>\(\pi\)</th>
+<th>\(\dfrac{3\pi}{2}\)</th>
+<th>\(2\pi\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(\operatorname{sen} x\)</td>
+<td>\(0\)</td>
+<td>\(\dfrac{1}{2}\)</td>
+<td>\(\dfrac{\sqrt2}{2}\)</td>
+<td>\(\dfrac{\sqrt3}{2}\)</td>
+<td>\(1\)</td>
+<td>\(\dfrac{\sqrt3}{2}\)</td>
+<td>\(\dfrac{\sqrt2}{2}\)</td>
+<td>\(0\)</td>
+<td>\(-1\)</td>
+<td>\(0\)</td>
+</tr>
+</tbody>
+</table></div>
+<span id="tabla-de-puntos-clave-y--cos-x"></span><h3 id="tabla-de-puntos-clave-math63">Tabla de puntos clave: \(y = \cos x\)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>\(x\)</th>
+<th>\(0\)</th>
+<th>\(\dfrac{\pi}{6}\)</th>
+<th>\(\dfrac{\pi}{4}\)</th>
+<th>\(\dfrac{\pi}{3}\)</th>
+<th>\(\dfrac{\pi}{2}\)</th>
+<th>\(\dfrac{2\pi}{3}\)</th>
+<th>\(\dfrac{3\pi}{4}\)</th>
+<th>\(\pi\)</th>
+<th>\(\dfrac{3\pi}{2}\)</th>
+<th>\(2\pi\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(\cos x\)</td>
+<td>\(1\)</td>
+<td>\(\dfrac{\sqrt3}{2}\)</td>
+<td>\(\dfrac{\sqrt2}{2}\)</td>
+<td>\(\dfrac{1}{2}\)</td>
+<td>\(0\)</td>
+<td>\(-\dfrac{1}{2}\)</td>
+<td>\(-\dfrac{\sqrt2}{2}\)</td>
+<td>\(-1\)</td>
+<td>\(0\)</td>
+<td>\(1\)</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="ficha-técnica-comparada">Ficha técnica comparada</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Propiedad</th>
+<th>\(y = \operatorname{sen} x\)</th>
+<th>\(y = \cos x\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dominio</td>
+<td>\((-\infty, \infty)\)</td>
+<td>\((-\infty, \infty)\)</td>
+</tr>
+<tr>
+<td>Rango</td>
+<td>\([-1, 1]\)</td>
+<td>\([-1, 1]\)</td>
+</tr>
+<tr>
+<td>Periodo</td>
+<td>\(2\pi\)</td>
+<td>\(2\pi\)</td>
+</tr>
+<tr>
+<td>Ceros</td>
+<td>\(x = k\pi\), \(k \in \mathbb{Z}\)</td>
+<td>\(x = \dfrac{\pi}{2} + k\pi\)</td>
+</tr>
+<tr>
+<td>Máximos (\(y=1\))</td>
+<td>\(x = \dfrac{\pi}{2} + 2k\pi\)</td>
+<td>\(x = 2k\pi\)</td>
+</tr>
+<tr>
+<td>Mínimos (\(y=-1\))</td>
+<td>\(x = \dfrac{3\pi}{2} + 2k\pi\)</td>
+<td>\(x = \pi + 2k\pi\)</td>
+</tr>
+<tr>
+<td>Simetría</td>
+<td>Impar: \(\operatorname{sen}(-x) = -\operatorname{sen} x\)</td>
+<td>Par: \(\cos(-x) = \cos x\)</td>
+</tr>
+<tr>
+<td>Corte con eje \(y\)</td>
+<td>\((0,0)\)</td>
+<td>\((0,1)\)</td>
+</tr>
+<tr>
+<td>Continuidad</td>
+<td>En todo \(\mathbb{R}\)</td>
+<td>En todo \(\mathbb{R}\)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>El dato que más se usa</strong>: \(\cos x = \operatorname{sen}\!\left(x + \dfrac{\pi}{2}\right)\). Es decir, <strong>el coseno es el seno corrido \(\pi/2\) hacia la izquierda</strong>. Misma curva, distinto punto de partida. Por eso todo lo que aprendas de transformaciones del seno aplica igual al coseno.</p>
+<p>Una observación que te va a servir en cálculo: la gráfica del seno <strong>sube</strong> justo donde el coseno es positivo, y <strong>baja</strong> donde el coseno es negativo. Eso no es coincidencia: es un anticipo visual de que \(\dfrac{d}{dx}\operatorname{sen} x = \cos x\), que veremos en el archivo 5.</p>
+<hr />
+<span id="2-transformaciones-y--aoperatornamesenbx---c--d"></span><h2 id="2-transformaciones-math113">2. Transformaciones: \(y = A\operatorname{sen}(Bx - C) + D\)</h2>
+<p>Esta es la forma general. Cada letra hace una cosa distinta. Vamos una por una.</p>
+<span id="a--amplitud"></span><h3 id="math114--amplitud">\(A\) — amplitud</h3>
+<p>La <strong>amplitud</strong> es \(|A|\): qué tanto se estira la onda verticalmente. Sin transformar, la onda va de \(-1\) a \(1\); con \(A\), va de \(-|A|\) a \(|A|\).</p>
+<ul>
+<li>\(|A| > 1\): estiramiento vertical.</li>
+<li>\(0 < |A| < 1\): compresión vertical.</li>
+<li>\(A < 0\): <strong>reflexión respecto al eje horizontal</strong>. La onda se voltea: donde había máximo, ahora hay mínimo.</li>
+</ul>
+<p>Ojo: la amplitud siempre es positiva porque es \(|A|\). Si \(A = -3\), la amplitud es \(3\), no \(-3\).</p>
+<span id="b--frecuencia-y-periodo"></span><h3 id="math128--frecuencia-y-periodo">\(B\) — frecuencia y periodo</h3>
+<p>\[\text{Periodo} = \frac{2\pi}{|B|}\]</p>
+<p>\(B\) comprime o estira horizontalmente. Un \(B\) grande <strong>acelera</strong> la onda (más ciclos en el mismo espacio, periodo corto); un \(B\) pequeño la estira.</p>
+<p>El razonamiento: la función completa un ciclo cuando el argumento \(Bx - C\) recorre \(2\pi\). Si \(B\) multiplica a \(x\), basta con que \(x\) avance \(2\pi/|B|\) para que el argumento avance \(2\pi\).</p>
+<span id="c--desfase-desplazamiento-horizontal"></span><h3 id="math139--desfase-desplazamiento-horizontal">\(C\) — desfase (desplazamiento horizontal)</h3>
+<p>\[\text{Desfase} = \frac{C}{B}\]</p>
+<p>Y este es <strong>el error número uno</strong> de todo el tema. La gente ve \(\operatorname{sen}(2x - \pi)\) y dice "corrida \(\pi\) a la derecha". Falso. Hay que <strong>factorizar \(B\) primero</strong>:</p>
+<p>\[\operatorname{sen}(2x - \pi) = \operatorname{sen}\!\left(2\left(x - \frac{\pi}{2}\right)\right)\]</p>
+<p>El corrimiento real es \(\pi/2\), no \(\pi\). Regla mecánica: <strong>el desfase es \(C/B\), no \(C\).</strong></p>
+<p>Si \(C/B > 0\), la gráfica se corre a la <strong>derecha</strong>; si \(C/B < 0\), a la <strong>izquierda</strong>.</p>
+<span id="d--desplazamiento-vertical"></span><h3 id="math149--desplazamiento-vertical">\(D\) — desplazamiento vertical</h3>
+<p>La onda ya no oscila alrededor de \(y=0\) sino alrededor de la recta \(y = D\) (llamada <strong>eje de oscilación</strong> o línea media). El rango pasa a ser \([D - |A|, D + |A|]\).</p>
+<h3 id="cómo-graficar-en-5-pasos-el-método-que-sí-funciona">Cómo graficar en 5 pasos (el método que sí funciona)</h3>
+<ol>
+<li>Identifica \(A\), \(B\), \(C\), \(D\) (factorizando si hace falta para leer \(C\) bien).</li>
+<li>Traza la línea media \(y = D\) (punteada) y las rectas \(y = D \pm |A|\) (las cotas).</li>
+<li>Calcula dónde <strong>empieza el ciclo</strong>: resuelve \(Bx - C = 0 \Rightarrow x = C/B\).</li>
+<li>Calcula dónde <strong>termina</strong>: \(x = C/B + 2\pi/|B|\).</li>
+<li>Divide ese intervalo en <strong>cuatro partes iguales</strong>. Esos cinco puntos son los puntos clave del ciclo: para el seno con \(A>0\) el patrón es <strong>medio → arriba → medio → abajo → medio</strong>; con \(A<0\) se invierte.</li>
+</ol>
+<span id="ejemplo-resuelto-1-y--3operatornamesen2x---tfracpi2--1"></span><h3 id="ejemplo-resuelto-1-math164">Ejemplo resuelto 1: \(y = 3\operatorname{sen}(2x - \tfrac{\pi}{2}) + 1\)</h3>
+<p><strong>Parámetros.</strong> \(A = 3\), \(B = 2\), \(C = \pi/2\), \(D = 1\).</p>
+<ul>
+<li>Amplitud: \(|A| = 3\).</li>
+<li>Periodo: \(\dfrac{2\pi}{2} = \pi\).</li>
+<li>Desfase: \(\dfrac{C}{B} = \dfrac{\pi/2}{2} = \dfrac{\pi}{4}\) → corrida \(\pi/4\) a la <strong>derecha</strong>.</li>
+<li>Desplazamiento vertical: \(1\) hacia arriba. Línea media \(y=1\).</li>
+<li>Rango: \([1-3,\ 1+3] = [-2, 4]\).</li>
+</ul>
+<p><strong>Descripción de la gráfica.</strong> Una onda que oscila alrededor de \(y=1\), subiendo hasta \(4\) y bajando hasta \(-2\). Un ciclo completo va de \(x = \pi/4\) hasta \(x = \pi/4 + \pi = 5\pi/4\). Los cinco puntos clave (dividiendo en cuartos de \(\pi/4\)):</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>\(x\)</th>
+<th>\(\dfrac{\pi}{4}\)</th>
+<th>\(\dfrac{\pi}{2}\)</th>
+<th>\(\dfrac{3\pi}{4}\)</th>
+<th>\(\pi\)</th>
+<th>\(\dfrac{5\pi}{4}\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(y\)</td>
+<td>\(1\)</td>
+<td>\(4\)</td>
+<td>\(1\)</td>
+<td>\(-2\)</td>
+<td>\(1\)</td>
+</tr>
+<tr>
+<td>tipo</td>
+<td>medio (sube)</td>
+<td><strong>máximo</strong></td>
+<td>medio (baja)</td>
+<td><strong>mínimo</strong></td>
+<td>medio (sube)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Verificación rápida en \(x = \pi/2\): \(3\operatorname{sen}(\pi - \pi/2) + 1 = 3\operatorname{sen}(\pi/2) + 1 = 3 + 1 = 4\). ✔</p>
+<span id="ejemplo-resuelto-2-y---2coslefttfracx2--tfracpi3right---3"></span><h3 id="ejemplo-resuelto-2-math196">Ejemplo resuelto 2: \(y = -2\cos\!\left(\tfrac{x}{2} + \tfrac{\pi}{3}\right) - 3\)</h3>
+<p>Primero llevémoslo a la forma \(A\cos(Bx - C) + D\). Como el signo interno es \(+\), tenemos \(Bx - C = \tfrac{x}{2} + \tfrac{\pi}{3}\), o sea \(C = -\pi/3\).</p>
+<p><strong>Parámetros.</strong> \(A = -2\), \(B = \tfrac{1}{2}\), \(C = -\dfrac{\pi}{3}\), \(D = -3\).</p>
+<ul>
+<li>Amplitud: \(|-2| = 2\). <strong>Con reflexión</strong> porque \(A<0\).</li>
+<li>Periodo: \(\dfrac{2\pi}{1/2} = 4\pi\). Onda muy estirada.</li>
+<li>Desfase: \(\dfrac{C}{B} = \dfrac{-\pi/3}{1/2} = -\dfrac{2\pi}{3}\) → corrida \(\dfrac{2\pi}{3}\) a la <strong>izquierda</strong>.</li>
+<li>Línea media: \(y = -3\). Rango: \([-5, -1]\).</li>
+</ul>
+<p><strong>Descripción.</strong> Toda la gráfica vive <strong>debajo del eje \(x\)</strong>, entre \(y=-5\) y \(y=-1\). Como el coseno normalmente arranca en su máximo pero aquí está reflejado, el ciclo <strong>arranca en un mínimo</strong>. El ciclo va de \(x = -2\pi/3\) a \(x = -2\pi/3 + 4\pi = 10\pi/3\), y el cuarto de periodo es \(\pi\):</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>\(x\)</th>
+<th>\(-\dfrac{2\pi}{3}\)</th>
+<th>\(\dfrac{\pi}{3}\)</th>
+<th>\(\dfrac{4\pi}{3}\)</th>
+<th>\(\dfrac{7\pi}{3}\)</th>
+<th>\(\dfrac{10\pi}{3}\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(y\)</td>
+<td>\(-5\)</td>
+<td>\(-3\)</td>
+<td>\(-1\)</td>
+<td>\(-3\)</td>
+<td>\(-5\)</td>
+</tr>
+<tr>
+<td>tipo</td>
+<td><strong>mínimo</strong></td>
+<td>medio</td>
+<td><strong>máximo</strong></td>
+<td>medio</td>
+<td><strong>mínimo</strong></td>
+</tr>
+</tbody>
+</table></div>
+<span id="ejemplo-resuelto-3-y--4operatornamesenlefttfracpi3x---piright--2"></span><h3 id="ejemplo-resuelto-3-math230">Ejemplo resuelto 3: \(y = 4\operatorname{sen}\!\left(\tfrac{\pi}{3}x - \pi\right) + 2\)</h3>
+<p>Este tiene \(\pi\) dentro de \(B\), lo cual es típico en modelos de fenómenos periódicos (mareas, temperatura, corriente alterna) porque hace que el periodo sea un número "bonito".</p>
+<p><strong>Parámetros.</strong> \(A = 4\), \(B = \dfrac{\pi}{3}\), \(C = \pi\), \(D = 2\).</p>
+<ul>
+<li>Amplitud: \(4\).</li>
+<li>Periodo: \(\dfrac{2\pi}{\pi/3} = 2\pi \cdot \dfrac{3}{\pi} = 6\). <strong>Periodo 6, sin \(\pi\).</strong></li>
+<li>Desfase: \(\dfrac{C}{B} = \dfrac{\pi}{\pi/3} = 3\) → corrida \(3\) unidades a la derecha.</li>
+<li>Línea media \(y=2\), rango \([-2, 6]\).</li>
+</ul>
+<p><strong>Descripción.</strong> Onda que se repite cada 6 unidades, oscilando entre \(-2\) y \(6\) alrededor de \(y=2\), con el ciclo arrancando en \(x=3\). Cuarto de periodo: \(1.5\).</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>\(x\)</th>
+<th>\(3\)</th>
+<th>\(4.5\)</th>
+<th>\(6\)</th>
+<th>\(7.5\)</th>
+<th>\(9\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(y\)</td>
+<td>\(2\)</td>
+<td>\(6\)</td>
+<td>\(2\)</td>
+<td>\(-2\)</td>
+<td>\(2\)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Comprobación en \(x=4.5\): \(\tfrac{\pi}{3}(4.5) - \pi = 1.5\pi - \pi = \tfrac{\pi}{2}\), y \(4\operatorname{sen}(\pi/2)+2 = 6\). ✔</p>
+<hr />
+<h2 id="3-la-gráfica-de-la-tangente">3. La gráfica de la tangente</h2>
+<h3 id="por-qué-tiene-asíntotas-verticales">Por qué tiene asíntotas verticales</h3>
+<p>Por definición, \(\tan x = \dfrac{\operatorname{sen} x}{\cos x}\). Una fracción explota cuando el denominador se va a cero <strong>y el numerador no</strong>. Eso pasa exactamente donde \(\cos x = 0\), es decir en</p>
+<p>\[x = \frac{\pi}{2} + k\pi, \qquad k \in \mathbb{Z}\]</p>
+<p>y ahí, el numerador \(\operatorname{sen} x\) vale \(\pm 1\): no se cancela nada. Resultado: <strong>asíntota vertical</strong>. La gráfica se dispara a \(+\infty\) por un lado y viene de \(-\infty\) por el otro.</p>
+<p>Concretamente, cerca de \(x = \pi/2\):</p>
+<p>\[\lim_{x \to (\pi/2)^-} \tan x = +\infty, \qquad \lim_{x \to (\pi/2)^+} \tan x = -\infty\]</p>
+<span id="por-qué-el-periodo-es-pi-y-no-2pi"></span><h3 id="por-qué-el-periodo-es-math271-y-no-math272">Por qué el periodo es \(\pi\) y no \(2\pi\)</h3>
+<p>Aquí está la clave que casi nadie explica. Si avanzas medio giro, el punto del círculo unitario queda <strong>diametralmente opuesto</strong>: sus dos coordenadas cambian de signo.</p>
+<p>\[\operatorname{sen}(x+\pi) = -\operatorname{sen} x, \qquad \cos(x+\pi) = -\cos x\]</p>
+<p>Entonces:</p>
+<p>\[\tan(x+\pi) = \frac{-\operatorname{sen} x}{-\cos x} = \frac{\operatorname{sen} x}{\cos x} = \tan x\]</p>
+<p><strong>Los dos signos negativos se cancelan.</strong> Por eso la tangente ya se repite con \(\pi\), aunque seno y coseno necesiten \(2\pi\). Lo mismo le pasa a la cotangente.</p>
+<span id="ficha-de-y--tan-x"></span><h3 id="ficha-de-math275">Ficha de \(y = \tan x\)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Propiedad</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dominio</td>
+<td>\(\left\{x \in \mathbb{R} : x \neq \dfrac{\pi}{2} + k\pi\right\}\)</td>
+</tr>
+<tr>
+<td>Rango</td>
+<td>\((-\infty, \infty)\) — <strong>toma todos los valores reales</strong></td>
+</tr>
+<tr>
+<td>Periodo</td>
+<td>\(\pi\)</td>
+</tr>
+<tr>
+<td>Ceros</td>
+<td>\(x = k\pi\)</td>
+</tr>
+<tr>
+<td>Asíntotas verticales</td>
+<td>\(x = \dfrac{\pi}{2} + k\pi\)</td>
+</tr>
+<tr>
+<td>Máximos / mínimos</td>
+<td><strong>No tiene</strong></td>
+</tr>
+<tr>
+<td>Simetría</td>
+<td>Impar: \(\tan(-x) = -\tan x\)</td>
+</tr>
+<tr>
+<td>Comportamiento</td>
+<td>Siempre <strong>creciente</strong> en cada rama</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Forma visual</strong>: la rama central (en \((-\pi/2, \pi/2)\)) es una curva en forma de "S" muy estirada que sale del fondo de la asíntota izquierda, pasa por el origen con pendiente \(1\), y se dispara hacia arriba en la asíntota derecha. Esa rama se repite idéntica cada \(\pi\) unidades.</p>
+<p>Tabla de la rama central:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>\(x\)</th>
+<th>\(-\dfrac{\pi}{3}\)</th>
+<th>\(-\dfrac{\pi}{4}\)</th>
+<th>\(0\)</th>
+<th>\(\dfrac{\pi}{4}\)</th>
+<th>\(\dfrac{\pi}{3}\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(\tan x\)</td>
+<td>\(-\sqrt3\)</td>
+<td>\(-1\)</td>
+<td>\(0\)</td>
+<td>\(1\)</td>
+<td>\(\sqrt3\)</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="las-otras-tres-en-breve">Las otras tres, en breve</h3>
+<ul>
+<li><strong>\(y = \cot x = \dfrac{\cos x}{\operatorname{sen} x}\)</strong>: asíntotas donde \(\operatorname{sen} x = 0\), o sea en \(x = k\pi\). Periodo \(\pi\). Rango \(\mathbb{R}\). A diferencia de la tangente, es <strong>decreciente</strong> en cada rama.</li>
+<li><strong>\(y = \sec x = \dfrac{1}{\cos x}\)</strong>: asíntotas en \(x = \pi/2 + k\pi\) (igual que la tangente). Periodo \(2\pi\). <strong>Rango \((-\infty,-1] \cup [1,\infty)\)</strong>: nunca toma valores entre \(-1\) y \(1\), porque \(|\cos x| \le 1\) implica \(|\sec x| \ge 1\). Su gráfica son "copas" en forma de U y U invertida, apoyadas en los máximos y mínimos del coseno.</li>
+<li><strong>\(y = \csc x = \dfrac{1}{\operatorname{sen} x}\)</strong>: asíntotas en \(x = k\pi\). Periodo \(2\pi\). Mismo rango partido que la secante.</li>
+</ul>
+<p>Grafica \(y=\cos x\) y \(y=\sec x\) juntas en Desmos. Vas a ver que la secante "abraza" al coseno y despega hacia el infinito justo donde el coseno cruza cero.</p>
+<hr />
+<h2 id="4-funciones-trigonométricas-inversas">4. Funciones trigonométricas inversas</h2>
+<h3 id="el-problema-no-son-inyectivas">El problema: no son inyectivas</h3>
+<p>Para que una función tenga inversa, tiene que ser <strong>uno a uno</strong> (inyectiva): cada valor de salida debe venir de un único valor de entrada. Gráficamente, es la prueba de la recta horizontal.</p>
+<p>El seno falla catastróficamente. \(\operatorname{sen} x = \tfrac{1}{2}\) tiene <strong>infinitas</strong> soluciones: \(\pi/6\), \(5\pi/6\), \(\pi/6 + 2\pi\), \(13\pi/6\)... Si intentaras definir \(\operatorname{arcsen}(1/2)\), ¿cuál eliges? No hay respuesta única, entonces no hay función.</p>
+<p><strong>La solución convencional</strong>: recortar el dominio a un pedazo donde la función sí sea inyectiva y donde además cubra todo el rango. Ese pedazo se llama <strong>rama principal</strong>, y la elección es un acuerdo universal, no un descubrimiento.</p>
+<ul>
+<li>Para el <strong>seno</strong> se elige \(\left[-\dfrac{\pi}{2}, \dfrac{\pi}{2}\right]\): ahí el seno sube monótonamente de \(-1\) a \(1\).</li>
+<li>Para el <strong>coseno</strong> no sirve ese intervalo (el coseno baja y sube ahí). Se elige \([0, \pi]\), donde baja monótonamente de \(1\) a \(-1\).</li>
+<li>Para la <strong>tangente</strong> se elige la rama central \(\left(-\dfrac{\pi}{2}, \dfrac{\pi}{2}\right)\), abierta porque en los extremos hay asíntotas.</li>
+</ul>
+<h3 id="tabla-maestra-memorízala">Tabla maestra (memorízala)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Función</th>
+<th>Dominio (entrada)</th>
+<th>Rango (salida)</th>
+<th>Cuadrantes de salida</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(\operatorname{arcsen} x\)</td>
+<td>\([-1, 1]\)</td>
+<td>\(\left[-\dfrac{\pi}{2}, \dfrac{\pi}{2}\right]\)</td>
+<td>IV y I</td>
+</tr>
+<tr>
+<td>\(\arccos x\)</td>
+<td>\([-1, 1]\)</td>
+<td>\([0, \pi]\)</td>
+<td>I y II</td>
+</tr>
+<tr>
+<td>\(\operatorname{arctan} x\)</td>
+<td>\((-\infty, \infty)\)</td>
+<td>\(\left(-\dfrac{\pi}{2}, \dfrac{\pi}{2}\right)\)</td>
+<td>IV y I</td>
+</tr>
+</tbody>
+</table></div>
+<p>Tres consecuencias prácticas que valen puntos:</p>
+<ol>
+<li><strong>\(\operatorname{arcsen}(3)\) no existe.</strong> El dominio es \([-1,1]\). Si en un ejercicio te sale eso, te equivocaste antes.</li>
+<li><strong>\(\operatorname{arctan}\) acepta cualquier número real.</strong> Es la única de las tres sin restricción de entrada. Y tiene asíntotas horizontales en \(y = \pm\pi/2\).</li>
+<li><strong>\(\arccos\) nunca da negativo.</strong> Su salida está en \([0,\pi]\). Si calculas \(\arccos(-0.5)\) y te da un negativo, revisa: la respuesta es \(2\pi/3\), positiva.</li>
+</ol>
+<span id="la-distinción-crítica-operatornamearcsenoperatornamesen-x-vs-operatornamesenoperatornamearcsen-x"></span><h3 id="la-distinción-crítica-math345-vs-math346">La distinción crítica: \(\operatorname{arcsen}(\operatorname{sen} x)\) vs. \(\operatorname{sen}(\operatorname{arcsen} x)\)</h3>
+<p>Este es el punto que separa a quien entendió de quien memorizó.</p>
+<p><strong>Caso fácil — \(\operatorname{sen}(\operatorname{arcsen} x)\):</strong></p>
+<p>\[\operatorname{sen}(\operatorname{arcsen} x) = x \qquad \textbf{siempre que } x \in [-1,1]\]</p>
+<p>Funciona porque \(\operatorname{arcsen} x\) produce un ángulo, y el seno de ese ángulo es, por construcción, \(x\). El único cuidado es que \(x\) esté en \([-1,1]\); si no, la expresión ni siquiera está definida.</p>
+<p><strong>Caso peligroso — \(\operatorname{arcsen}(\operatorname{sen} x)\):</strong></p>
+<p>\[\operatorname{arcsen}(\operatorname{sen} x) = x \qquad \textbf{solo si } x \in \left[-\tfrac{\pi}{2}, \tfrac{\pi}{2}\right]\]</p>
+<p>Si \(x\) está fuera de la rama principal, el resultado es <strong>otro ángulo</strong> con el mismo seno. La función te devuelve el representante que vive en la rama principal, no el que tú metiste.</p>
+<p><strong>Ejemplos donde NO coincide:</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Expresión</th>
+<th>\(\operatorname{sen} x\)</th>
+<th>Resultado</th>
+<th>¿Igual a \(x\)?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(\operatorname{arcsen}\!\left(\operatorname{sen}\dfrac{\pi}{6}\right)\)</td>
+<td>\(\dfrac{1}{2}\)</td>
+<td>\(\dfrac{\pi}{6}\)</td>
+<td>Sí (\(\pi/6\) está en la rama)</td>
+</tr>
+<tr>
+<td>\(\operatorname{arcsen}\!\left(\operatorname{sen}\dfrac{5\pi}{6}\right)\)</td>
+<td>\(\dfrac{1}{2}\)</td>
+<td>\(\dfrac{\pi}{6}\)</td>
+<td><strong>No</strong></td>
+</tr>
+<tr>
+<td>\(\operatorname{arcsen}\!\left(\operatorname{sen}\dfrac{2\pi}{3}\right)\)</td>
+<td>\(\dfrac{\sqrt3}{2}\)</td>
+<td>\(\dfrac{\pi}{3}\)</td>
+<td><strong>No</strong></td>
+</tr>
+<tr>
+<td>\(\operatorname{arcsen}\!\left(\operatorname{sen}\dfrac{7\pi}{6}\right)\)</td>
+<td>\(-\dfrac{1}{2}\)</td>
+<td>\(-\dfrac{\pi}{6}\)</td>
+<td><strong>No</strong></td>
+</tr>
+<tr>
+<td>\(\operatorname{arcsen}\!\left(\operatorname{sen}\dfrac{11\pi}{6}\right)\)</td>
+<td>\(-\dfrac{1}{2}\)</td>
+<td>\(-\dfrac{\pi}{6}\)</td>
+<td><strong>No</strong></td>
+</tr>
+<tr>
+<td>\(\arccos\!\left(\cos\dfrac{5\pi}{3}\right)\)</td>
+<td>\(\cos = \dfrac{1}{2}\)</td>
+<td>\(\dfrac{\pi}{3}\)</td>
+<td><strong>No</strong></td>
+</tr>
+<tr>
+<td>\(\arccos\!\left(\cos\dfrac{4\pi}{3}\right)\)</td>
+<td>\(\cos = -\dfrac{1}{2}\)</td>
+<td>\(\dfrac{2\pi}{3}\)</td>
+<td><strong>No</strong></td>
+</tr>
+<tr>
+<td>\(\operatorname{arctan}\!\left(\tan\dfrac{3\pi}{4}\right)\)</td>
+<td>\(\tan = -1\)</td>
+<td>\(-\dfrac{\pi}{4}\)</td>
+<td><strong>No</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>El procedimiento correcto</strong> cuando te piden \(\operatorname{arcsen}(\operatorname{sen}\theta)\) con \(\theta\) fuera de la rama:</p>
+<ol>
+<li>Calcula el valor interior: \(\operatorname{sen}\theta\).</li>
+<li>Pregúntate: ¿qué ángulo <strong>dentro de \([-\pi/2, \pi/2]\)</strong> tiene ese mismo seno?</li>
+<li>Ese es tu resultado.</li>
+</ol>
+<p>No hagas la cancelación automática. Es la trampa más repetida en los parciales.</p>
+<hr />
+<h2 id="5-evaluar-expresiones-mixtas-con-el-triángulo-de-referencia">5. Evaluar expresiones mixtas con el triángulo de referencia</h2>
+<p>Ahora la técnica que vas a usar todo el semestre: evaluar cosas como \(\cos(\operatorname{arcsen}(3/5))\).</p>
+<p><strong>La idea</strong>: la parte interna, \(\operatorname{arcsen}(3/5)\), es un ángulo. No sabemos cuánto vale en radianes (no es un ángulo notable), pero <strong>sí sabemos su seno</strong>: vale \(3/5\). Entonces le damos un nombre, \(\theta\), dibujamos un triángulo rectángulo que cumpla esa condición, sacamos el lado que falta con Pitágoras, y leemos la razón que nos piden.</p>
+<p><strong>Los tres pasos:</strong></p>
+<ol>
+<li>Llama \(\theta\) a la expresión inversa y escribe qué razón conoces.</li>
+<li>Construye el triángulo rectángulo y completa el tercer lado con Pitágoras.</li>
+<li><strong>Ajusta el signo</strong> según el rango de la función inversa. Este paso se olvida y cuesta puntos.</li>
+</ol>
+<span id="ejemplo-1-cosleftoperatornamearcsendfrac35right"></span><h3 id="ejemplo-1-math390">Ejemplo 1: \(\cos\!\left(\operatorname{arcsen}\dfrac{3}{5}\right)\)</h3>
+<p>Sea \(\theta = \operatorname{arcsen}(3/5)\). Entonces \(\operatorname{sen}\theta = \dfrac{3}{5} = \dfrac{\text{opuesto}}{\text{hipotenusa}}\).</p>
+<p>Triángulo: cateto opuesto \(= 3\), hipotenusa \(= 5\). Cateto adyacente \(= \sqrt{25 - 9} = \sqrt{16} = 4\).</p>
+<p>Signo: como \(3/5 > 0\), el ángulo \(\theta\) está en \(\left(0, \pi/2\right)\) (primer cuadrante), donde el coseno es positivo.</p>
+<p>\[\cos\theta = \frac{4}{5}\]</p>
+<p>De paso, \(\tan\!\left(\operatorname{arcsen}\dfrac{3}{5}\right) = \dfrac{3}{4}\).</p>
+<span id="ejemplo-2-operatornamesenleftarccosleft-dfrac23rightright"></span><h3 id="ejemplo-2-math400">Ejemplo 2: \(\operatorname{sen}\!\left(\arccos\!\left(-\dfrac{2}{3}\right)\right)\)</h3>
+<p>Sea \(\theta = \arccos(-2/3)\), con \(\cos\theta = -\dfrac{2}{3}\).</p>
+<p>Rango de \(\arccos\): \([0,\pi]\). Como el coseno es negativo, \(\theta\) está en el <strong>segundo cuadrante</strong>. Y en el segundo cuadrante <strong>el seno es positivo</strong>.</p>
+<p>Triángulo de referencia: adyacente \(= 2\) (tomamos el valor absoluto), hipotenusa \(= 3\), opuesto \(= \sqrt{9-4} = \sqrt5\).</p>
+<p>\[\operatorname{sen}\theta = +\frac{\sqrt5}{3}\]</p>
+<p>Aquí el signo salió positivo. Si te hubieran pedido la tangente, sería \(-\dfrac{\sqrt5}{2}\) (negativa, porque en el segundo cuadrante la tangente es negativa).</p>
+<span id="ejemplo-3-cosleftoperatornamearctanleft-dfrac512rightright"></span><h3 id="ejemplo-3-math410">Ejemplo 3: \(\cos\!\left(\operatorname{arctan}\!\left(-\dfrac{5}{12}\right)\right)\)</h3>
+<p>Sea \(\theta = \operatorname{arctan}(-5/12)\), con \(\tan\theta = -\dfrac{5}{12}\).</p>
+<p>Rango de \(\operatorname{arctan}\): \(\left(-\pi/2, \pi/2\right)\). Como la tangente es negativa, \(\theta\) está en el <strong>cuarto cuadrante</strong>, donde <strong>el coseno es positivo</strong>.</p>
+<p>Triángulo: opuesto \(= 5\), adyacente \(= 12\), hipotenusa \(= \sqrt{25+144} = \sqrt{169} = 13\).</p>
+<p>\[\cos\theta = +\frac{12}{13}\]</p>
+<span id="ejemplo-4-secoperatornamearctan-x--con-variable"></span><h3 id="ejemplo-4-math419--con-variable">Ejemplo 4: \(\sec(\operatorname{arctan} x)\) — con variable</h3>
+<p>Este tipo aparece disfrazado en las derivadas de las inversas, así que vale la pena.</p>
+<p>Sea \(\theta = \operatorname{arctan} x\), con \(\tan\theta = \dfrac{x}{1}\).</p>
+<p>Triángulo: opuesto \(= x\), adyacente \(= 1\), hipotenusa \(= \sqrt{x^2+1}\).</p>
+<p>\[\sec\theta = \frac{\text{hipotenusa}}{\text{adyacente}} = \sqrt{x^2+1}\]</p>
+<p>Y como \(\theta \in (-\pi/2, \pi/2)\), el coseno siempre es positivo, así que la secante también: no hace falta valor absoluto. Resultado válido <strong>para todo \(x\) real</strong>.</p>
+<span id="ejemplo-5-operatornamesenleft2operatornamearcsendfrac35right--combinando-con-identidades"></span><h3 id="ejemplo-5-math427--combinando-con-identidades">Ejemplo 5: \(\operatorname{sen}\!\left(2\operatorname{arcsen}\dfrac{3}{5}\right)\) — combinando con identidades</h3>
+<p>Aquí primero usas la identidad de ángulo doble del archivo 3: \(\operatorname{sen}(2\theta) = 2\operatorname{sen}\theta\cos\theta\).</p>
+<p>Con \(\theta = \operatorname{arcsen}(3/5)\) ya sabemos del Ejemplo 1 que \(\operatorname{sen}\theta = 3/5\) y \(\cos\theta = 4/5\):</p>
+<p>\[\operatorname{sen}(2\theta) = 2 \cdot \frac{3}{5} \cdot \frac{4}{5} = \frac{24}{25} = 0{,}96\]</p>
+<span id="ejemplo-6-tanarccos-x-para-x--0"></span><h3 id="ejemplo-6-math432-para-math433">Ejemplo 6: \(\tan(\arccos x)\) para \(x > 0\)</h3>
+<p>Sea \(\theta = \arccos x\), con \(\cos\theta = \dfrac{x}{1}\): adyacente \(= x\), hipotenusa \(= 1\), opuesto \(= \sqrt{1-x^2}\).</p>
+<p>\[\tan\theta = \frac{\sqrt{1-x^2}}{x}\]</p>
+<p>Válido para \(0 < x \le 1\). (Para \(x<0\) la fórmula sigue siendo correcta, porque el numerador es positivo y el denominador negativo da tangente negativa, que es lo que corresponde al segundo cuadrante. Para \(x=0\) no está definida: \(\arccos 0 = \pi/2\) y ahí la tangente explota.)</p>
+<hr />
+<h2 id="6-errores-frecuentes">6. Errores frecuentes</h2>
+<ol>
+<li><strong>Confundir el desfase con \(C\).</strong> En \(y = \operatorname{sen}(3x - \pi)\) el corrimiento es \(\pi/3\), no \(\pi\). Factoriza \(B\) antes de leerlo: \(\operatorname{sen}(3(x - \pi/3))\).</li>
+<li><strong>Decir que el periodo de \(\tan x\) es \(2\pi\).</strong> Es \(\pi\). Y el de \(\sec x\) sí es \(2\pi\), aunque tenga las mismas asíntotas que la tangente. No los mezcles.</li>
+<li><strong>Escribir amplitud negativa.</strong> Si \(A = -4\), la amplitud es \(4\); el signo menos es una reflexión, no parte de la amplitud.</li>
+<li><strong>Creer que \(\operatorname{sen}^{-1} x = \dfrac{1}{\operatorname{sen} x}\).</strong> Falso. \(\operatorname{sen}^{-1} x\) es el arcoseno (la función inversa); \(\dfrac{1}{\operatorname{sen} x} = \csc x\). La notación es horrible pero es la que hay. Por eso en este módulo escribo \(\operatorname{arcsen}\): no se presta a confusión.</li>
+<li><strong>Cancelar \(\operatorname{arcsen}(\operatorname{sen} x) = x\) sin verificar el rango.</strong> Solo vale si \(x \in [-\pi/2, \pi/2]\).</li>
+<li><strong>Olvidar que \(\arccos\) nunca devuelve negativos.</strong> Si tu calculadora te da \(\arccos(-0.8) \approx 2{,}498\), está bien: está en \([0,\pi]\). Un resultado negativo ahí es error tuyo.</li>
+<li><strong>Evaluar \(\operatorname{arcsen}(2)\) o \(\arccos(-1{,}5)\).</strong> No existen. El dominio es \([-1,1]\).</li>
+<li><strong>No revisar el signo en las expresiones mixtas.</strong> El triángulo de referencia te da magnitudes; el rango de la función inversa te da el signo. Los dos pasos son obligatorios.</li>
+<li><strong>Confundir el rango de \(\sec\) y \(\csc\).</strong> No es \([-1,1]\): es \((-\infty,-1]\cup[1,\infty)\). Es el rango "al revés" del seno y el coseno.</li>
+<li><strong>Trabajar en grados sin darse cuenta.</strong> Si tu calculadora está en modo DEG, todos los ejercicios de cálculo te van a dar mal. Verifica que esté en RAD antes de cada sesión.</li>
+<li><strong>Pensar que \(\operatorname{sen}(x + \pi/2)\) corre la gráfica a la derecha.</strong> El signo \(+\) interno corre a la <strong>izquierda</strong>. El corrimiento es \(C/B\) con \(C = -\pi/2\), o sea negativo.</li>
+<li><strong>Decir que la tangente tiene máximos y mínimos.</strong> No los tiene: su rango es todo \(\mathbb{R}\). Tampoco tiene amplitud, por la misma razón.</li>
+</ol>
+<hr />
+<h2 id="7-autoevaluación-10-preguntas">7. Autoevaluación (10 preguntas)</h2>
+<p>Resuélvelas sin mirar las respuestas. Date unos 25 minutos.</p>
+<ol>
+<li>Para \(y = 5\operatorname{sen}(3x + \pi/4)\): identifica amplitud, periodo, desfase y desplazamiento vertical.</li>
+<li>¿Cuál es el rango de \(y = -3\cos(x) + 2\)?</li>
+<li>¿Dónde están las asíntotas verticales de \(y = \tan(2x)\)?</li>
+<li>Calcula \(\operatorname{arcsen}\!\left(\operatorname{sen}\dfrac{3\pi}{4}\right)\).</li>
+<li>Calcula \(\arccos\!\left(\cos\dfrac{7\pi}{4}\right)\).</li>
+<li>Evalúa \(\cos\!\left(\operatorname{arcsen}\!\left(-\dfrac{4}{5}\right)\right)\).</li>
+<li>Evalúa \(\csc(\operatorname{arctan} 2)\).</li>
+<li>Halla el dominio de \(f(x) = \operatorname{arcsen}(2x - 1)\).</li>
+<li>¿Cuántas soluciones tiene \(\operatorname{sen} x = 0{,}3\) en \([0, 2\pi]\)? ¿Y cuántas devuelve \(\operatorname{arcsen}(0{,}3)\)?</li>
+<li>Escribe la ecuación de una onda coseno con amplitud \(6\), periodo \(4\), corrida \(1\) unidad a la derecha y línea media \(y = -2\).</li>
+</ol>
+<hr />
+<h3 id="respuestas">Respuestas</h3>
+<p><strong>1.</strong> \(A=5\), \(B=3\), y como \(Bx - C = 3x + \pi/4\) entonces \(C = -\pi/4\), \(D=0\).
+Amplitud \(=5\). Periodo \(= \dfrac{2\pi}{3}\). Desfase \(= \dfrac{C}{B} = \dfrac{-\pi/4}{3} = -\dfrac{\pi}{12}\), o sea \(\dfrac{\pi}{12}\) a la <strong>izquierda</strong>. Sin desplazamiento vertical.</p>
+<p><strong>2.</strong> Amplitud \(3\), línea media \(y=2\). Rango \(= [2-3,\ 2+3] = [-1, 5]\).</p>
+<p><strong>3.</strong> Donde \(\cos(2x)=0\), es decir \(2x = \dfrac{\pi}{2} + k\pi\), o sea \(x = \dfrac{\pi}{4} + \dfrac{k\pi}{2}\). (El periodo de \(\tan(2x)\) es \(\pi/2\), y las asíntotas van cada \(\pi/2\): coherente.)</p>
+<p><strong>4.</strong> \(\operatorname{sen}\dfrac{3\pi}{4} = \dfrac{\sqrt2}{2}\). El ángulo en \([-\pi/2,\pi/2]\) con ese seno es \(\dfrac{\pi}{4}\). <strong>Respuesta: \(\dfrac{\pi}{4}\)</strong> (no \(3\pi/4\)).</p>
+<p><strong>5.</strong> \(\cos\dfrac{7\pi}{4} = \dfrac{\sqrt2}{2}\). El ángulo en \([0,\pi]\) con ese coseno es \(\dfrac{\pi}{4}\). <strong>Respuesta: \(\dfrac{\pi}{4}\).</strong></p>
+<p><strong>6.</strong> \(\theta = \operatorname{arcsen}(-4/5)\) está en \([-\pi/2, 0)\), cuarto cuadrante, donde el coseno es <strong>positivo</strong>. Triángulo \(3\)-\(4\)-\(5\): \(\cos\theta = \dfrac{3}{5}\).</p>
+<p><strong>7.</strong> \(\theta = \operatorname{arctan} 2\): opuesto \(2\), adyacente \(1\), hipotenusa \(\sqrt5\). \(\csc\theta = \dfrac{\sqrt5}{2} \approx 1{,}118\).</p>
+<p><strong>8.</strong> Se necesita \(-1 \le 2x-1 \le 1\). Sumando \(1\): \(0 \le 2x \le 2\). Dividiendo: \(\boxed{[0,1]}\).</p>
+<p><strong>9.</strong> La ecuación \(\operatorname{sen} x = 0{,}3\) tiene <strong>dos</strong> soluciones en \([0,2\pi]\) (una en el primer cuadrante y otra en el segundo). Pero \(\operatorname{arcsen}(0{,}3)\) devuelve <strong>una sola</strong>: la del primer cuadrante, \(\approx 0{,}3047\) rad. La otra es \(\pi - 0{,}3047 \approx 2{,}8369\). Esta diferencia entre "resolver la ecuación" y "aplicar la función inversa" es justo lo que evalúan en el parcial.</p>
+<p><strong>10.</strong> Amplitud \(6 \Rightarrow A=6\). Periodo \(4 \Rightarrow \dfrac{2\pi}{B}=4 \Rightarrow B = \dfrac{\pi}{2}\). Corrida \(1\) a la derecha \(\Rightarrow \dfrac{C}{B}=1 \Rightarrow C = \dfrac{\pi}{2}\). Línea media \(\Rightarrow D=-2\).</p>
+<p>\[y = 6\cos\!\left(\frac{\pi}{2}x - \frac{\pi}{2}\right) - 2 \quad \text{o, factorizado,} \quad y = 6\cos\!\left(\frac{\pi}{2}(x-1)\right) - 2\]</p>
+<hr />
+<p><strong>Siguiente paso</strong>: en el archivo 5 vas a ver que toda esta geometría de curvas se convierte en derivadas — y por qué la pendiente de la gráfica del seno es exactamente la altura de la gráfica del coseno. Es el archivo más importante del módulo.</p>
+</main>
+</body>
+</html>

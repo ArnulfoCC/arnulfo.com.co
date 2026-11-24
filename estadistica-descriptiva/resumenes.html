@@ -1,0 +1,2227 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resúmenes teóricos — Estadística Descriptiva</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ 06 - Estadística Descriptiva / 3. Resúmenes teóricos</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="resúmenes-teóricos--estadística-descriptiva">Resúmenes teóricos — Estadística Descriptiva</h1>
+<blockquote>
+<p><strong>Contenido esperado</strong>, reconstruido. <strong>Por verificar en el aula virtual.</strong>
+Todos los datos numéricos de este archivo son <strong>ficticios, con fines didácticos</strong>. No provienen del DANE, del SECOP ni de ningún registro real, aunque estén ambientados en situaciones del sector público colombiano para que el contexto te resulte familiar.</p>
+</blockquote>
+<p><strong>Cómo usar este archivo.</strong> No lo leas de corrido. Cada semana lee el escenario que toca, con lápiz y papel, rehaciendo los ejemplos resueltos. Al final hay tres secciones transversales que sí conviene leer completas: las tablas comparativas de decisión, la sección sobre gráficos engañosos y la de errores frecuentes.</p>
+<p><strong>Notación que se usa en todo el documento:</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Símbolo</th>
+<th>Significa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(N\)</td>
+<td>Tamaño de la <strong>población</strong></td>
+</tr>
+<tr>
+<td>\(n\)</td>
+<td>Tamaño de la <strong>muestra</strong></td>
+</tr>
+<tr>
+<td>\(x_i\)</td>
+<td>Dato \(i\)-ésimo, o marca de clase \(i\)-ésima si los datos están agrupados</td>
+</tr>
+<tr>
+<td>\(f_i\)</td>
+<td>Frecuencia absoluta de la clase \(i\)</td>
+</tr>
+<tr>
+<td>\(\mu\), \(\sigma^2\), \(\sigma\)</td>
+<td>Media, varianza y desviación <strong>poblacionales</strong> (parámetros)</td>
+</tr>
+<tr>
+<td>\(\bar{x}\), \(s^2\), \(s\)</td>
+<td>Media, varianza y desviación <strong>muestrales</strong> (estadísticos)</td>
+</tr>
+<tr>
+<td>\(k\)</td>
+<td>Número de clases</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h1 id="escenario-1--conceptos-fundamentales-variables-y-escalas">Escenario 1 — Conceptos fundamentales, variables y escalas</h1>
+<h2 id="11-descriptiva-vs-inferencial">1.1 Descriptiva vs. inferencial</h2>
+<p><strong>Estadística descriptiva:</strong> organiza, resume y presenta los datos <strong>que tienes</strong>, sin pretender decir nada sobre datos que no tienes. Todas sus conclusiones son sobre el conjunto observado.</p>
+<p><strong>Estadística inferencial:</strong> usa los datos de una muestra para hacer afirmaciones sobre una población que no observaste completa, cuantificando la incertidumbre de esas afirmaciones.</p>
+<p>Ejemplo del sector público:</p>
+<ul>
+<li><em>Descriptiva:</em> "De los 139 pagos radicados del contrato, el 62 % está en estado 'Enviado por proveedor'." Afirmación sobre esos 139 pagos y nada más.</li>
+<li><em>Inferencial:</em> "Con una muestra de 40 expedientes de pago, se estima que el tiempo promedio de trámite en la entidad está entre 42 y 50 días, con 95 % de confianza." Afirmación sobre <strong>todos</strong> los expedientes, hecha desde 40.</li>
+</ul>
+<p>Este curso es enteramente lo primero. Lo segundo es Estadística Predictiva.</p>
+<h2 id="12-población-muestra-y-unidad-estadística">1.2 Población, muestra y unidad estadística</h2>
+<p><strong>Población:</strong> el conjunto completo de elementos sobre los que quieres concluir. Se define con tres coordenadas: <strong>qué</strong> elementos, <strong>dónde</strong> y <strong>cuándo</strong>. "Los contratos de prestación de servicios de la DEAJ suscritos en 2026" es una población bien definida; "los contratos del Estado" no lo es.</p>
+<p><strong>Muestra:</strong> subconjunto de la población efectivamente observado.</p>
+<p><strong>Unidad estadística:</strong> el elemento individual que se mide. <strong>No es la variable.</strong> En "el valor de cada contrato", la unidad es <em>el contrato</em> y la variable es <em>el valor</em>.</p>
+<p><strong>Censo</strong> es observar la población completa; <strong>muestreo</strong> es observar una parte.</p>
+<p>Advertencia importante para tu caso: si estudias <strong>tus tres contratos supervisados</strong>, eso es un <strong>censo</strong> de tu portafolio, y las medidas que calcules son <strong>parámetros</strong> (\(\mu\), \(\sigma\)), no estadísticos. Si estudias 3 contratos para decir algo sobre los 400 de la entidad, es una <strong>muestra</strong> y calculas \(\bar{x}\) y \(s\). El mismo conjunto de números cambia de naturaleza según la pregunta. <strong>Esa es la distinción que más se pierde en los quices.</strong></p>
+<h2 id="13-parámetro-vs-estadístico">1.3 Parámetro vs. estadístico</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Población</th>
+<th>Muestra</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nombre genérico</td>
+<td><strong>Parámetro</strong></td>
+<td><strong>Estadístico</strong> (o estimador)</td>
+</tr>
+<tr>
+<td>Tamaño</td>
+<td>\(N\)</td>
+<td>\(n\)</td>
+</tr>
+<tr>
+<td>Media</td>
+<td>\(\mu\)</td>
+<td>\(\bar{x}\)</td>
+</tr>
+<tr>
+<td>Varianza</td>
+<td>\(\sigma^2\)</td>
+<td>\(s^2\)</td>
+</tr>
+<tr>
+<td>Desviación</td>
+<td>\(\sigma\)</td>
+<td>\(s\)</td>
+</tr>
+<tr>
+<td>Proporción</td>
+<td>\(P\) o \(\pi\)</td>
+<td>\(p\) o \(\hat{p}\)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Regla mnemotécnica: <strong>letras griegas para la población, latinas para la muestra</strong>. El parámetro es un número fijo y normalmente desconocido; el estadístico varía de muestra en muestra.</p>
+<h2 id="14-tipos-de-variable">1.4 Tipos de variable</h2>
+<pre><code>VARIABLE
+├── CUALITATIVA (categórica) — expresa cualidad, no cantidad
+│   ├── NOMINAL   — categorías sin orden natural
+│   │              Ej.: modalidad de selección, tipo de contrato, ciudad
+│   └── ORDINAL   — categorías con orden, sin distancia medible
+│                  Ej.: nivel de riesgo (bajo/medio/alto), estrato,
+│                       calificación de desempeño (deficiente/aceptable/excelente)
+│
+└── CUANTITATIVA (numérica) — expresa cantidad
+    ├── DISCRETA  — valores aislados, típicamente resultado de contar
+    │              Ej.: número de modificaciones de un contrato,
+    │                   número de oferentes, número de sedes
+    └── CONTINUA  — cualquier valor en un intervalo, resultado de medir
+                   Ej.: valor del contrato, días de trámite,
+                        porcentaje de ejecución
+</code></pre>
+<p><strong>Las dos trampas clásicas:</strong></p>
+<ol>
+<li><strong>Un número no hace cuantitativa a una variable.</strong> El número de un contrato (089, 123, 258), un NIT, un código UNSPSC o un número de radicado son <strong>cualitativos nominales</strong>: los dígitos son etiquetas. La prueba definitiva: si el promedio no tiene sentido, no es cuantitativa. El promedio de 089 y 258 es 173,5, y eso no significa nada.</li>
+<li><strong>El dinero es continuo, aunque el peso colombiano no tenga fracciones en la práctica.</strong> Cualquier variable que resulte de <em>medir</em> o de <em>valorar</em> se trata como continua, aunque la unidad mínima sea discreta.</li>
+</ol>
+<h2 id="15-escalas-de-medición">1.5 Escalas de medición</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Escala</th>
+<th>Qué permite</th>
+<th>Operaciones válidas</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Nominal</strong></td>
+<td>Clasificar</td>
+<td>\(=\), \(\neq\); moda</td>
+<td>Tipo de contrato, NIT</td>
+</tr>
+<tr>
+<td><strong>Ordinal</strong></td>
+<td>Clasificar y ordenar</td>
+<td>\(<\), \(>\); moda, mediana, percentiles</td>
+<td>Nivel de riesgo, estrato, escala de satisfacción</td>
+</tr>
+<tr>
+<td><strong>De intervalo</strong></td>
+<td>Ordenar y medir distancias; <strong>cero arbitrario</strong></td>
+<td>\(+\), \(-\); media, desviación. <strong>No razones</strong></td>
+<td>Temperatura en °C; año calendario</td>
+</tr>
+<tr>
+<td><strong>De razón</strong></td>
+<td>Todo lo anterior; <strong>cero absoluto</strong></td>
+<td>\(+,-,\times,\div\); todas las medidas</td>
+<td>Valor del contrato, días de trámite, número de sedes</td>
+</tr>
+</tbody>
+</table></div>
+<p>La diferencia entre intervalo y razón se prueba con una pregunta: <strong>¿el cero significa ausencia?</strong> Un contrato de $0 es un contrato sin valor: cero absoluto, escala de razón, y por eso tiene sentido decir "el contrato A vale el doble que el B". 20 °C no es "el doble de calor" que 10 °C, porque el 0 °C es una convención.</p>
+<p>Consecuencia práctica: <strong>en escala ordinal no se calcula media.</strong> Promediar "bajo=1, medio=2, alto=3" y reportar 2,3 es un abuso muy común. Lo correcto es reportar la mediana o la distribución de frecuencias.</p>
+<h2 id="16-fuentes-de-datos-y-nociones-de-muestreo">1.6 Fuentes de datos y nociones de muestreo</h2>
+<p><strong>Datos primarios:</strong> recolectados por ti para tu pregunta (encuesta, medición directa).
+<strong>Datos secundarios:</strong> recolectados por otro con otro propósito (boletines del DANE, SECOP II, registros administrativos de la entidad). Son más baratos, pero traen las definiciones y los sesgos de quien los recolectó. Antes de usar una serie ajena, lee su ficha metodológica: qué universo cubre, qué periodicidad tiene, si hubo cambio de base o de metodología.</p>
+<p><strong>Muestreo probabilístico</strong> (toda unidad tiene probabilidad conocida y no nula de ser elegida; permite inferencia):</p>
+<ul>
+<li><strong>Aleatorio simple:</strong> cada unidad con la misma probabilidad. Sortea \(n\) de \(N\).</li>
+<li><strong>Sistemático:</strong> se elige un arranque aleatorio y luego cada \(k\)-ésima unidad, con \(k = N/n\). Peligro: si la lista tiene una periodicidad que coincide con \(k\), el sesgo es grave.</li>
+<li><strong>Estratificado:</strong> se divide la población en estratos homogéneos (por ejemplo, por modalidad de contratación) y se muestrea dentro de cada uno. Mejora la precisión cuando los estratos son internamente parecidos y distintos entre sí.</li>
+<li><strong>Por conglomerados:</strong> se divide en grupos naturales (por ejemplo, seccionales), se sortean grupos completos y se observa todo dentro de ellos. Más barato, menos preciso.</li>
+</ul>
+<p><strong>Muestreo no probabilístico</strong> (por conveniencia, por cuotas, bola de nieve): útil para explorar, <strong>inválido para generalizar</strong>. Si alguien te presenta una conclusión sobre "los contratistas del país" a partir de los que respondieron un formulario voluntario, el problema no es el tamaño de la muestra: es el mecanismo de selección. Aumentar \(n\) no arregla un sesgo de selección.</p>
+<hr />
+<h1 id="escenario-2--organización-de-datos-tablas-de-frecuencia">Escenario 2 — Organización de datos: tablas de frecuencia</h1>
+<h2 id="21-las-cuatro-frecuencias">2.1 Las cuatro frecuencias</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Símbolo</th>
+<th>Nombre</th>
+<th>Fórmula</th>
+<th>Interpretación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(f_i\)</td>
+<td>Absoluta</td>
+<td>conteo</td>
+<td>Cuántos datos hay en la clase \(i\)</td>
+</tr>
+<tr>
+<td>\(h_i\)</td>
+<td>Relativa</td>
+<td>\(h_i = f_i/n\)</td>
+<td>Qué proporción del total</td>
+</tr>
+<tr>
+<td>\(F_i\)</td>
+<td>Absoluta acumulada</td>
+<td>\(F_i = \sum_{j\le i} f_j\)</td>
+<td>Cuántos hay <strong>hasta</strong> la clase \(i\)</td>
+</tr>
+<tr>
+<td>\(H_i\)</td>
+<td>Relativa acumulada</td>
+<td>\(H_i = F_i/n\)</td>
+<td>Qué proporción hay <strong>hasta</strong> la clase \(i\)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Verificaciones obligatorias:</strong> \(\sum f_i = n\), \(\sum h_i = 1\), \(F_k = n\), \(H_k = 1\). Si alguna falla, hay un error aritmético. Hazlas siempre antes de seguir.</p>
+<p>Las frecuencias acumuladas <strong>solo tienen sentido en variables ordinales o cuantitativas</strong>. Acumular categorías nominales (¿cuántos contratos hay "hasta" prestación de servicios?) no significa nada.</p>
+<h2 id="22-cuándo-agrupar-en-intervalos">2.2 Cuándo agrupar en intervalos</h2>
+<p>Si la variable es cuantitativa continua, o discreta con muchos valores distintos, la tabla de valores individuales es ilegible. Se agrupa en <strong>intervalos de clase</strong>.</p>
+<p><strong>Pasos:</strong></p>
+<ol>
+<li><strong>Rango:</strong> \(R = x_{\max} - x_{\min}\).</li>
+<li><strong>Número de clases</strong> por la regla de Sturges:</li>
+</ol>
+<p>\[k = 1 + 3{,}322 \log_{10}(n)\]</p>
+<p>Se redondea al entero más cercano. Sturges es una <strong>sugerencia</strong>, no una ley: con \(n\) muy grande subestima el número de clases, y una alternativa común es \(k \approx \sqrt{n}\).</p>
+<ol start="3">
+<li><strong>Amplitud:</strong> \(A = R/k\), redondeada <strong>hacia arriba</strong> a una cifra cómoda. Si \(A\) se redondea hacia abajo, el último dato queda fuera de la tabla.</li>
+<li><strong>Límites:</strong> empezar en \(x_{\min}\) o en un valor redondo por debajo, e ir sumando \(A\).</li>
+<li><strong>Marca de clase:</strong></li>
+</ol>
+<p>\[x_i = \frac{L_{i-1} + L_i}{2}\]</p>
+<p>Es el valor que <strong>representa</strong> a toda la clase. Al agrupar, se asume que todos los datos de una clase valen su marca de clase; ahí es donde se pierde información.</p>
+<p><strong>Convención de límites.</strong> Usa intervalos <strong>cerrados por la izquierda y abiertos por la derecha</strong>, \([L_{i-1}, L_i)\), salvo el último, que se cierra. Así ningún dato cae en dos clases. Escribir "20–30, 30–40" sin aclarar dónde va el 30 es un error de forma que cuesta puntos.</p>
+<h2 id="23-ejemplo-completamente-resuelto">2.3 Ejemplo completamente resuelto</h2>
+<blockquote>
+<p><strong>Datos ficticios con fines didácticos.</strong> Tiempo, en días calendario, entre la radicación y el pago efectivo de 40 expedientes de una entidad pública.</p>
+</blockquote>
+<pre><code>21  23  26  28  29  31  32  33  35  35
+36  37  38  39  39  41  42  43  44  45
+45  46  47  48  49  49  51  52  54  55
+57  58  59  61  63  66  68  72  75  78
+</code></pre>
+<p><strong>Paso 1 — Rango.</strong> \(x_{\min}=21\), \(x_{\max}=78\), entonces \(R = 78-21 = 57\).</p>
+<p><strong>Paso 2 — Número de clases.</strong></p>
+<p>\[k = 1 + 3{,}322 \log_{10}(40) = 1 + 3{,}322 \times 1{,}60206 = 6{,}32 \approx 6\]</p>
+<p><strong>Paso 3 — Amplitud.</strong> \(A = 57/6 = 9{,}5 \to\) se redondea hacia arriba a \(A = 10\).</p>
+<p><strong>Paso 4 — Límites.</strong> Se empieza en 20 (valor redondo por debajo del mínimo): \([20,30)\), \([30,40)\), \([40,50)\), \([50,60)\), \([60,70)\), \([70,80]\).</p>
+<p><strong>Paso 5 — Tabla completa.</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>\(i\)</th>
+<th>Clase</th>
+<th>\(x_i\)</th>
+<th>\(f_i\)</th>
+<th>\(h_i\)</th>
+<th>\(F_i\)</th>
+<th>\(H_i\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>[20, 30)</td>
+<td>25</td>
+<td>5</td>
+<td>0,125</td>
+<td>5</td>
+<td>0,125</td>
+</tr>
+<tr>
+<td>2</td>
+<td>[30, 40)</td>
+<td>35</td>
+<td>10</td>
+<td>0,250</td>
+<td>15</td>
+<td>0,375</td>
+</tr>
+<tr>
+<td>3</td>
+<td>[40, 50)</td>
+<td>45</td>
+<td>11</td>
+<td>0,275</td>
+<td>26</td>
+<td>0,650</td>
+</tr>
+<tr>
+<td>4</td>
+<td>[50, 60)</td>
+<td>55</td>
+<td>7</td>
+<td>0,175</td>
+<td>33</td>
+<td>0,825</td>
+</tr>
+<tr>
+<td>5</td>
+<td>[60, 70)</td>
+<td>65</td>
+<td>4</td>
+<td>0,100</td>
+<td>37</td>
+<td>0,925</td>
+</tr>
+<tr>
+<td>6</td>
+<td>[70, 80]</td>
+<td>75</td>
+<td>3</td>
+<td>0,075</td>
+<td>40</td>
+<td>1,000</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>40</strong></td>
+<td><strong>1,000</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Verificación:</strong> \(\sum f_i = 5+10+11+7+4+3 = 40 = n\) ✓ y \(H_6 = 1{,}000\) ✓.</p>
+<p><strong>Lectura de la tabla, sin recalcular nada:</strong></p>
+<ul>
+<li>El 27,5 % de los expedientes tardó entre 40 y 50 días: es la clase más frecuente (clase modal).</li>
+<li>El 65 % tardó menos de 50 días (\(H_3 = 0{,}650\)).</li>
+<li>El 17,5 % tardó 60 días o más (\(1 - H_4 = 1 - 0{,}825 = 0{,}175\)).</li>
+<li>Solo tres expedientes (7,5 %) superaron los 70 días.</li>
+</ul>
+<p>Esta tabla es la base de los escenarios 3, 4 y 5. Márcala.</p>
+<p><strong>En Excel.</strong> Escribe en una columna los límites superiores 29, 39, 49, 59, 69, 79 (o 30, 40, 50... si usas <code>&lt;</code>), selecciona seis celdas contiguas y escribe <code>=FRECUENCIA(datos; limites)</code>. En Excel 365 basta Enter; en versiones anteriores, <code>Ctrl+Shift+Enter</code>. Verifica que la suma dé 40.</p>
+<hr />
+<h1 id="escenario-3--representación-gráfica">Escenario 3 — Representación gráfica</h1>
+<h2 id="31-qué-gráfico-para-qué">3.1 Qué gráfico para qué</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Gráfico</th>
+<th>Variable</th>
+<th>Qué muestra</th>
+<th>Cuándo usarlo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Barras</strong></td>
+<td>Cualitativa o cuantitativa discreta</td>
+<td>Comparación entre categorías</td>
+<td>Casi siempre la mejor opción para categorías</td>
+</tr>
+<tr>
+<td><strong>Circular</strong></td>
+<td>Cualitativa</td>
+<td>Composición de un total</td>
+<td>Solo si las partes suman el 100 % y son 5 o menos</td>
+</tr>
+<tr>
+<td><strong>Histograma</strong></td>
+<td>Cuantitativa agrupada</td>
+<td>Forma de la distribución</td>
+<td>Es el gráfico central de este curso</td>
+</tr>
+<tr>
+<td><strong>Polígono de frecuencias</strong></td>
+<td>Cuantitativa agrupada</td>
+<td>Forma, y comparación entre dos distribuciones</td>
+<td>Cuando quieres superponer dos grupos</td>
+</tr>
+<tr>
+<td><strong>Ojiva</strong></td>
+<td>Cuantitativa agrupada</td>
+<td>Frecuencia <strong>acumulada</strong></td>
+<td>Para leer percentiles gráficamente</td>
+</tr>
+<tr>
+<td><strong>Tallo y hoja</strong></td>
+<td>Cuantitativa, \(n\) pequeño</td>
+<td>Forma <strong>sin perder el dato original</strong></td>
+<td>Conjuntos de 15 a 60 datos</td>
+</tr>
+<tr>
+<td><strong>Caja y bigotes</strong></td>
+<td>Cuantitativa</td>
+<td>Mediana, cuartiles, dispersión, atípicos</td>
+<td>Comparar varios grupos de un vistazo</td>
+</tr>
+<tr>
+<td><strong>Dispersión (XY)</strong></td>
+<td>Dos cuantitativas</td>
+<td>Relación entre variables</td>
+<td>Obligatorio antes de calcular una correlación</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Barras vs. histograma.</strong> En el gráfico de barras las barras están <strong>separadas</strong>, porque las categorías son discretas y no hay continuidad entre ellas. En el histograma están <strong>pegadas</strong>, porque los intervalos son contiguos y la variable es continua. No es estética: es información.</p>
+<h2 id="32-cómo-se-construyen-los-tres-del-ejemplo">3.2 Cómo se construyen los tres del ejemplo</h2>
+<p>Sobre la tabla del escenario 2:</p>
+<p><strong>Histograma.</strong> Eje horizontal: los intervalos, en escala continua de 20 a 80. Eje vertical: \(f_i\). Seis barras contiguas de alturas 5, 10, 11, 7, 4, 3. La silueta sube rápido, alcanza el máximo en \([40,50)\) y baja despacio: <strong>asimetría positiva</strong>, cola hacia la derecha. Es la forma típica de los tiempos de trámite y de casi todas las variables económicas.</p>
+<p><strong>Polígono de frecuencias.</strong> Se unen con segmentos los puntos \((x_i, f_i)\), es decir \((25,5)\), \((35,10)\), \((45,11)\), \((55,7)\), \((65,4)\), \((75,3)\). Para cerrarlo sobre el eje se agregan las marcas ficticias \((15,0)\) y \((85,0)\). El área bajo el polígono es igual al área del histograma.</p>
+<p><strong>Ojiva.</strong> Se grafican los puntos \((L_i, F_i)\) usando los <strong>límites superiores</strong>: \((30,5)\), \((40,15)\), \((50,26)\), \((60,33)\), \((70,37)\), \((80,40)\), partiendo de \((20,0)\). Es siempre creciente. Sirve para leer percentiles: para hallar la mediana, se busca en el eje vertical el valor 20 (que es \(n/2\)), se cruza hasta la curva y se baja al eje horizontal. El resultado está entre 40 y 50, coherente con la mediana agrupada de 44,5 días que se calcula en el escenario 4.</p>
+<p><strong>Tallo y hoja</strong> del mismo conjunto (tallo = decenas, hoja = unidades):</p>
+<pre><code>2 | 1 3 6 8 9
+3 | 1 2 3 5 5 6 7 8 9 9
+4 | 1 2 3 4 5 5 6 7 8 9 9
+5 | 1 2 4 5 7 8 9
+6 | 1 3 6 8
+7 | 2 5 8
+</code></pre>
+<p>Fíjate: tiene exactamente la misma silueta que el histograma, <strong>pero conserva los 40 datos originales</strong>. Puedes reconstruir el conjunto completo desde el diagrama; desde el histograma no.</p>
+<h2 id="33-diagrama-de-caja-y-bigotes">3.3 Diagrama de caja y bigotes</h2>
+<p>Se construye con cinco números: mínimo, \(Q_1\), mediana, \(Q_3\), máximo.</p>
+<ul>
+<li>La <strong>caja</strong> va de \(Q_1\) a \(Q_3\): contiene el 50 % central de los datos. Su longitud es el RIC.</li>
+<li>La <strong>línea interior</strong> es la mediana. Si no está en el centro de la caja, hay asimetría.</li>
+<li>Los <strong>bigotes</strong> llegan hasta el dato más extremo que <strong>todavía está dentro</strong> de \([Q_1 - 1{,}5\,RIC,\; Q_3 + 1{,}5\,RIC]\). No llegan hasta el límite: llegan hasta el último dato real antes del límite.</li>
+<li>Los datos fuera de esos límites se dibujan como <strong>puntos individuales</strong>: son los atípicos.</li>
+</ul>
+<p>Un error frecuente: creer que el bigote termina exactamente en \(Q_3 + 1{,}5\,RIC\). No. Ese es el umbral de decisión; el bigote termina en un dato observado.</p>
+<h2 id="34-cómo-mentir-y-cómo-no-mentir-con-gráficos">3.4 Cómo mentir y cómo no mentir con gráficos</h2>
+<p>Esta sección vale por sí sola. Es lo que separa a quien produce informes de quien los audita.</p>
+<h3 id="las-siete-formas-más-comunes-de-mentir">Las siete formas más comunes de mentir</h3>
+<p><strong>1. Truncar el eje vertical.</strong> Si el eje empieza en 95 en lugar de 0, una diferencia de 3 puntos parece un abismo. Es la técnica más usada en prensa y en presentaciones ejecutivas.
+<em>Cómo no mentir:</em> en gráficos de barras, <strong>el eje de frecuencias siempre empieza en cero</strong>, sin excepción, porque la barra comunica por su longitud. En gráficos de líneas de series de tiempo sí se admite truncar, porque lo que comunica es la pendiente, pero <strong>debe señalarse explícitamente</strong>.</p>
+<p><strong>2. Usar área o volumen para representar una magnitud lineal.</strong> Si un valor es el doble y dibujas un círculo con el doble de radio, el área es <strong>cuatro veces</strong> mayor. El lector percibe área, no radio.
+<em>Cómo no mentir:</em> usa longitudes (barras). Si insistes en burbujas, escala por área, no por radio.</p>
+<p><strong>3. Eje horizontal con espaciamiento no uniforme.</strong> Poner 2018, 2019, 2020, 2025 equiespaciados aplana los cinco años que faltan y falsea la tendencia.
+<em>Cómo no mentir:</em> el eje temporal debe ser proporcional al tiempo real.</p>
+<p><strong>4. Doble eje vertical.</strong> Dos series con escalas distintas en el mismo gráfico: moviendo las escalas puedes hacer que "coincidan" casi cualquier par de series y sugerir una relación que no existe.
+<em>Cómo no mentir:</em> dos gráficos apilados con el mismo eje horizontal, o un gráfico de dispersión si lo que quieres mostrar es la relación.</p>
+<p><strong>5. Elegir el punto de partida que le conviene al argumento.</strong> Empezar la serie justo en el mínimo histórico produce una tendencia espectacular.
+<em>Cómo no mentir:</em> muestra la serie completa disponible, o justifica el recorte con una razón metodológica (cambio de base, cambio normativo).</p>
+<p><strong>6. Circular con 12 porciones, o con porciones que no suman el total.</strong> El ojo humano compara ángulos muy mal. Y si las categorías no son excluyentes, el 100 % es falso.
+<em>Cómo no mentir:</em> barras ordenadas de mayor a menor. Casi siempre son mejores que un circular.</p>
+<p><strong>7. Confundir el porcentaje con los puntos porcentuales.</strong> Pasar de 4 % a 6 % es un aumento de <strong>2 puntos porcentuales</strong>, o del <strong>50 %</strong>. Ambas cifras son correctas y comunican cosas muy distintas. Titular "el desempleo subió 50 %" cuando pasó de 4 % a 6 % es técnicamente cierto y deliberadamente engañoso.</p>
+<h3 id="lista-de-verificación-antes-de-publicar-un-gráfico">Lista de verificación antes de publicar un gráfico</h3>
+<ul>
+<li>¿El eje de frecuencias empieza en cero, o expliqué por qué no?</li>
+<li>¿El tipo de gráfico corresponde al tipo de variable?</li>
+<li>¿Están rotulados los ejes, con unidades?</li>
+<li>¿Dice de dónde salieron los datos y a qué período corresponden?</li>
+<li>¿La escala temporal es uniforme?</li>
+<li>¿Puedo responder la pregunta del lector mirando solo el gráfico, sin leer el texto?</li>
+<li>¿Hay algo en el diseño (color, orden, tamaño) que dirija la atención hacia una conclusión que los datos no soportan?</li>
+</ul>
+<hr />
+<h1 id="escenario-4--medidas-de-tendencia-central">Escenario 4 — Medidas de tendencia central</h1>
+<h2 id="41-media-aritmética">4.1 Media aritmética</h2>
+<p><strong>Datos simples:</strong></p>
+<p>\[\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i \qquad\text{(muestral)} \qquad\qquad \mu = \frac{1}{N}\sum_{i=1}^{N} x_i \quad\text{(poblacional)}\]</p>
+<p><strong>Datos agrupados</strong> (donde \(x_i\) es la marca de clase y \(f_i\) su frecuencia):</p>
+<p>\[\bar{x} = \frac{\sum_{i=1}^{k} f_i x_i}{n}, \qquad n = \sum f_i\]</p>
+<p>Propiedades que se preguntan:</p>
+<ul>
+<li>\(\sum (x_i - \bar{x}) = 0\): las desviaciones respecto a la media se cancelan. Por eso hay que elevarlas al cuadrado para medir dispersión.</li>
+<li>Si a todos los datos se les suma una constante \(c\), la media aumenta en \(c\). Si se multiplican por \(c\), la media se multiplica por \(c\).</li>
+<li>La media minimiza \(\sum (x_i - a)^2\). La mediana minimiza \(\sum |x_i - a|\).</li>
+<li><strong>Es sensible a valores extremos.</strong> Un solo dato muy grande la arrastra.</li>
+</ul>
+<h2 id="42-media-ponderada">4.2 Media ponderada</h2>
+<p>\[\bar{x}_p = \frac{\sum w_i x_i}{\sum w_i}\]</p>
+<p>Se usa cuando cada dato representa un número distinto de unidades. La media aritmética simple es el caso particular en que todos los \(w_i\) son iguales.</p>
+<p><strong>Ejemplo resuelto — precio promedio de insumos.</strong> <em>(Datos ficticios con fines didácticos.)</em> Un contrato de aseo compró tres insumos:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Insumo</th>
+<th>Cantidad \(w_i\)</th>
+<th>Precio unitario \(x_i\)</th>
+<th>\(w_i x_i\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Detergente (litro)</td>
+<td>120</td>
+<td>$15.000</td>
+<td>1.800.000</td>
+</tr>
+<tr>
+<td>Papel higiénico (rollo)</td>
+<td>300</td>
+<td>$9.000</td>
+<td>2.700.000</td>
+</tr>
+<tr>
+<td>Bolsa industrial (unidad)</td>
+<td>80</td>
+<td>$42.000</td>
+<td>3.360.000</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>500</strong></td>
+<td></td>
+<td><strong>7.860.000</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>\[\bar{x}_p = \frac{7.860.000}{500} = 15.720\]</p>
+<p>El precio promedio <strong>ponderado</strong> por unidad comprada es de <strong>$15.720</strong>. El promedio simple de los tres precios sería \((15.000+9.000+42.000)/3 = 22.000\), un 40 % más alto, porque le da el mismo peso a la bolsa industrial (que se compró poco) que al papel (que se compró mucho). <strong>Reportar $22.000 como "precio promedio" en un estudio del sector sería un error grave.</strong></p>
+<h2 id="43-media-geométrica">4.3 Media geométrica</h2>
+<p>\[G = \sqrt[n]{x_1 \cdot x_2 \cdots x_n} = \left(\prod_{i=1}^{n} x_i\right)^{1/n}\]</p>
+<p>Se usa para promediar <strong>factores de crecimiento</strong>, no tasas. Si una serie crece a tasas \(r_1, \dots, r_n\), la tasa media anual es:</p>
+<p>\[\bar{r} = \sqrt[n]{(1+r_1)(1+r_2)\cdots(1+r_n)} - 1\]</p>
+<p><strong>Ejemplo resuelto — crecimiento del presupuesto.</strong> <em>(Datos ficticios con fines didácticos.)</em> El presupuesto de una dependencia varió así en cuatro años: \(+8\%\), \(+12\%\), \(-5\%\), \(+10\%\).</p>
+<p>Factores: \(1{,}08\); \(1{,}12\); \(0{,}95\); \(1{,}10\).</p>
+<p>\[1{,}08 \times 1{,}12 \times 0{,}95 \times 1{,}10 = 1{,}264032\]</p>
+<p>\[\bar{r} = 1{,}264032^{1/4} - 1 = 1{,}060326 - 1 = 0{,}060326 = \mathbf{6{,}03\,\%}\]</p>
+<p><strong>Verificación.</strong> Partiendo de 100 unidades: \(100 \to 108 \to 120{,}96 \to 114{,}912 \to \mathbf{126{,}4032}\). Y aplicando cuatro veces el 6,03 % anual: \(100 \times 1{,}060326^4 = 126{,}4032\) ✓.</p>
+<p>La media <strong>aritmética</strong> de las tasas daría \((8+12-5+10)/4 = 6{,}25\,\%\), y \(100 \times 1{,}0625^4 = 127{,}44 \ne 126{,}40\). <strong>La media aritmética de tasas de crecimiento siempre sobrestima</strong> (salvo que todas las tasas sean iguales). Este error aparece en informes reales con frecuencia.</p>
+<h2 id="44-mediana">4.4 Mediana</h2>
+<p>Valor que deja el 50 % de los datos por debajo y el 50 % por encima. Se calcula <strong>sobre los datos ordenados</strong>.</p>
+<p><strong>Datos simples:</strong></p>
+<p>\[Me = \begin{cases} x_{\left(\frac{n+1}{2}\right)} & \text{si } n \text{ es impar} \\[6pt] \dfrac{x_{\left(\frac{n}{2}\right)} + x_{\left(\frac{n}{2}+1\right)}}{2} & \text{si } n \text{ es par} \end{cases}\]</p>
+<p><strong>Datos agrupados</strong> (interpolación dentro de la clase mediana, que es la primera con \(F_i \ge n/2\)):</p>
+<p>\[Me = L_{i-1} + \frac{\frac{n}{2} - F_{i-1}}{f_i} \cdot A\]</p>
+<p>donde \(L_{i-1}\) es el límite inferior de la clase mediana, \(F_{i-1}\) la frecuencia acumulada de la clase anterior, \(f_i\) la frecuencia de la clase mediana y \(A\) su amplitud.</p>
+<h2 id="45-moda">4.5 Moda</h2>
+<p>Valor más frecuente. Es la <strong>única</strong> medida de tendencia central aplicable a variables nominales. Puede no existir (todos los datos distintos) o haber varias.</p>
+<p><strong>Datos agrupados</strong> (fórmula de Czuber), donde la clase modal es la de mayor \(f_i\):</p>
+<p>\[Mo = L_{i-1} + \frac{d_1}{d_1 + d_2}\cdot A, \qquad d_1 = f_i - f_{i-1}, \quad d_2 = f_i - f_{i+1}\]</p>
+<h2 id="46-ejemplo-resuelto--datos-simples-con-un-atípico">4.6 Ejemplo resuelto — datos simples con un atípico</h2>
+<blockquote>
+<p><strong>Datos ficticios con fines didácticos.</strong> Valor, en millones de pesos, de 12 contratos de mínima cuantía suscritos por una entidad.</p>
+</blockquote>
+<p>\[48,\; 52,\; 55,\; 60,\; 60,\; 63,\; 68,\; 72,\; 75,\; 80,\; 92,\; 145\]</p>
+<p><strong>Media.</strong> \(\sum x_i = 870\), con \(n = 12\):</p>
+<p>\[\bar{x} = \frac{870}{12} = 72{,}5 \text{ millones}\]</p>
+<p><strong>Mediana.</strong> \(n=12\) es par, así que se promedian los datos en las posiciones 6 y 7: \(x_{(6)} = 63\), \(x_{(7)} = 68\).</p>
+<p>\[Me = \frac{63 + 68}{2} = 65{,}5 \text{ millones}\]</p>
+<p><strong>Moda.</strong> El único valor repetido es 60. \(Mo = 60\) millones.</p>
+<p><strong>Interpretación.</strong> \(\bar{x} = 72{,}5 > Me = 65{,}5 > Mo = 60\): distribución <strong>asimétrica positiva</strong>. El contrato de 145 millones jala la media hacia arriba. Si el informe dice "el valor promedio de los contratos fue de 72,5 millones", es cierto pero engañoso: <strong>siete de los doce contratos (el 58 %) están por debajo de esa cifra</strong>. La mediana de 65,5 millones representa mejor al contrato típico.</p>
+<h2 id="47-ejemplo-resuelto--datos-agrupados">4.7 Ejemplo resuelto — datos agrupados</h2>
+<p>Sobre la tabla de los 40 tiempos de trámite del escenario 2:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Clase</th>
+<th>\(x_i\)</th>
+<th>\(f_i\)</th>
+<th>\(F_i\)</th>
+<th>\(f_i x_i\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[20, 30)</td>
+<td>25</td>
+<td>5</td>
+<td>5</td>
+<td>125</td>
+</tr>
+<tr>
+<td>[30, 40)</td>
+<td>35</td>
+<td>10</td>
+<td>15</td>
+<td>350</td>
+</tr>
+<tr>
+<td>[40, 50)</td>
+<td>45</td>
+<td>11</td>
+<td>26</td>
+<td>495</td>
+</tr>
+<tr>
+<td>[50, 60)</td>
+<td>55</td>
+<td>7</td>
+<td>33</td>
+<td>385</td>
+</tr>
+<tr>
+<td>[60, 70)</td>
+<td>65</td>
+<td>4</td>
+<td>37</td>
+<td>260</td>
+</tr>
+<tr>
+<td>[70, 80]</td>
+<td>75</td>
+<td>3</td>
+<td>40</td>
+<td>225</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>40</strong></td>
+<td></td>
+<td><strong>1.840</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Media agrupada:</strong></p>
+<p>\[\bar{x} = \frac{1.840}{40} = 46{,}0 \text{ días}\]</p>
+<p><em>(La media de los datos sin agrupar es 46,25 días. La diferencia de 0,25 días es la pérdida por agrupamiento: al asignar a todos los datos la marca de clase, se sacrifica precisión a cambio de legibilidad. Con esta tabla, la pérdida es de apenas 0,5 %.)</em></p>
+<p><strong>Mediana agrupada.</strong> \(n/2 = 20\). La primera clase con \(F_i \ge 20\) es \([40,50)\), con \(f_i = 11\), \(F_{i-1} = 15\), \(L_{i-1}=40\), \(A=10\):</p>
+<p>\[Me = 40 + \frac{20 - 15}{11}\times 10 = 40 + \frac{50}{11} = 40 + 4{,}5455 = \mathbf{44{,}55 \text{ días}}\]</p>
+<p><em>(La mediana real de los datos sin agrupar es 45 días.)</em></p>
+<p><strong>Moda agrupada.</strong> Clase modal \([40,50)\) con \(f_i = 11\); \(f_{i-1}=10\), \(f_{i+1}=7\). Entonces \(d_1 = 11-10 = 1\) y \(d_2 = 11-7 = 4\):</p>
+<p>\[Mo = 40 + \frac{1}{1+4}\times 10 = 40 + 2 = \mathbf{42 \text{ días}}\]</p>
+<p><strong>Interpretación conjunta.</strong> \(\bar{x} = 46{,}0 > Me = 44{,}55 > Mo = 42\): asimetría positiva, confirmada por la forma del histograma. La mayoría de los expedientes se resuelve en torno a los 42 días, pero una minoría que se demora mucho empuja el promedio hacia arriba. <strong>En un informe de gestión, reportar solo el promedio de 46 días oculta que la mitad se resuelve en menos de 45 y que hay una cola de casos de más de 70.</strong></p>
+<h2 id="48-cuándo-usar-cada-medida">4.8 Cuándo usar cada medida</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Situación</th>
+<th>Medida recomendada</th>
+<th>Por qué</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Variable nominal</td>
+<td><strong>Moda</strong></td>
+<td>Es la única definida</td>
+</tr>
+<tr>
+<td>Variable ordinal</td>
+<td><strong>Mediana</strong> (y moda)</td>
+<td>La media exige distancias medibles</td>
+</tr>
+<tr>
+<td>Cuantitativa, distribución simétrica, sin atípicos</td>
+<td><strong>Media</strong></td>
+<td>Usa toda la información y tiene mejores propiedades</td>
+</tr>
+<tr>
+<td>Cuantitativa, distribución asimétrica o con atípicos</td>
+<td><strong>Mediana</strong></td>
+<td>Robusta: no la mueve un dato extremo</td>
+</tr>
+<tr>
+<td>Salarios, valores de contratos, tiempos de trámite</td>
+<td><strong>Mediana</strong>, acompañada de la media</td>
+<td>Casi siempre son asimétricos a la derecha</td>
+</tr>
+<tr>
+<td>Promediar tasas de crecimiento</td>
+<td><strong>Media geométrica</strong></td>
+<td>La aritmética sobrestima</td>
+</tr>
+<tr>
+<td>Datos con pesos distintos</td>
+<td><strong>Media ponderada</strong></td>
+<td>El promedio simple ignora el tamaño</td>
+</tr>
+<tr>
+<td>Quieres el valor "más común"</td>
+<td><strong>Moda</strong></td>
+<td>Es lo que la palabra significa</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Regla práctica de informe:</strong> si \(\bar{x}\) y \(Me\) difieren en más de un 10 %, reporta las dos y explica la diferencia. Es honesto y demuestra criterio.</p>
+<hr />
+<h1 id="escenario-5--medidas-de-posición-y-de-dispersión">Escenario 5 — Medidas de posición y de dispersión</h1>
+<h2 id="51-medidas-de-posición">5.1 Medidas de posición</h2>
+<p>Generalizan la mediana: dividen el conjunto ordenado en partes iguales.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Medida</th>
+<th>Divide en</th>
+<th>Símbolos</th>
+<th>Equivalencias</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cuartiles</td>
+<td>4 partes</td>
+<td>\(Q_1, Q_2, Q_3\)</td>
+<td>\(Q_1=P_{25}\), \(Q_2=Me=D_5=P_{50}\), \(Q_3=P_{75}\)</td>
+</tr>
+<tr>
+<td>Deciles</td>
+<td>10 partes</td>
+<td>\(D_1 \dots D_9\)</td>
+<td>\(D_k = P_{10k}\)</td>
+</tr>
+<tr>
+<td>Percentiles</td>
+<td>100 partes</td>
+<td>\(P_1 \dots P_{99}\)</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Datos agrupados</strong> — fórmula única, cambiando la fracción:</p>
+<p>\[P_r = L_{i-1} + \frac{\frac{r\,n}{100} - F_{i-1}}{f_i}\cdot A\]</p>
+<p>Para cuartiles se usa \(\frac{k\,n}{4}\) y para deciles \(\frac{k\,n}{10}\). La clase es la primera cuyo \(F_i\) alcanza o supera esa posición.</p>
+<p><strong>Advertencia sobre datos simples.</strong> Para cuartiles de datos sin agrupar existen varios métodos de interpolación y <strong>no coinciden</strong>:</p>
+<ul>
+<li><strong>Método de Excel <code>CUARTIL.INC</code>:</strong> posición \(= 1 + (n-1)p\), interpolando entre los datos vecinos.</li>
+<li><strong>Método frecuente en textos:</strong> posición \(= n\,p\); si es entero, se promedian los datos en las posiciones \(np\) y \(np+1\); si no, se toma el dato de la posición siguiente al entero.</li>
+</ul>
+<p>No es que uno esté mal: son convenciones distintas. <strong>Usa la del curso en la evaluación y declara siempre cuál usaste.</strong> Más abajo se muestra el mismo conjunto con las dos.</p>
+<h2 id="52-medidas-de-dispersión">5.2 Medidas de dispersión</h2>
+<p><strong>Rango.</strong> \(R = x_{\max}-x_{\min}\). Usa solo dos datos; muy sensible a atípicos. Sirve como referencia rápida, no como medida seria.</p>
+<p><strong>Rango intercuartílico.</strong> \(RIC = Q_3 - Q_1\). Mide la amplitud del 50 % central. Robusto.</p>
+<p><strong>Varianza.</strong></p>
+<p>\[s^2 = \frac{\sum_{i=1}^{n}(x_i - \bar{x})^2}{n-1} \quad \text{(muestral)} \qquad\qquad \sigma^2 = \frac{\sum_{i=1}^{N}(x_i - \mu)^2}{N} \quad \text{(poblacional)}\]</p>
+<p>Para datos agrupados:</p>
+<p>\[s^2 = \frac{\sum_{i=1}^{k} f_i (x_i - \bar{x})^2}{n-1} \qquad\qquad \sigma^2 = \frac{\sum_{i=1}^{k} f_i (x_i - \mu)^2}{N}\]</p>
+<p>Fórmula abreviada, más cómoda para calculadora:</p>
+<p>\[s^2 = \frac{\sum x_i^2 - n\bar{x}^2}{n-1}\]</p>
+<p><strong>Desviación estándar.</strong> \(s = \sqrt{s^2}\), \(\sigma = \sqrt{\sigma^2}\). Está en las <strong>mismas unidades que los datos</strong>; la varianza está en unidades al cuadrado, que no se pueden interpretar (¿"días cuadrados"?). Por eso se reporta la desviación y no la varianza.</p>
+<p><strong>Coeficiente de variación.</strong></p>
+<p>\[CV = \frac{s}{\bar{x}} \times 100\,\%\]</p>
+<p>Adimensional. Permite comparar dispersión entre conjuntos con unidades o magnitudes distintas. <strong>No se usa si \(\bar{x}\) está cerca de cero o si hay valores negativos</strong>, porque se dispara o pierde sentido.</p>
+<span id="53-por-qué-n-1-la-explicación-corta"></span><h2 id="53-por-qué-math258-la-explicación-corta">5.3 Por qué \(n-1\): la explicación corta</h2>
+<p>La varianza mide la dispersión respecto a la media <strong>verdadera</strong> \(\mu\). Cuando solo tienes una muestra, no conoces \(\mu\) y usas \(\bar{x}\), que fue calculada <em>a partir de esos mismos datos</em>. Como \(\bar{x}\) es, por construcción, el valor que minimiza \(\sum (x_i - a)^2\), las desviaciones respecto a \(\bar{x}\) son <strong>sistemáticamente más pequeñas</strong> que respecto a \(\mu\). Dividir entre \(n\) subestimaría la varianza poblacional. Dividir entre \(n-1\) corrige exactamente ese sesgo.</p>
+<p>La otra forma de decirlo: al fijar \(\bar{x}\), solo \(n-1\) de las desviaciones son libres; la última queda determinada porque deben sumar cero. Se dice que hay \(n-1\) <strong>grados de libertad</strong>.</p>
+<p>Regla operativa para el examen:</p>
+<ul>
+<li>¿Los datos son <strong>todos</strong> los elementos de interés? → población → dividir entre \(n\) → <code>VAR.P</code>, <code>DESVEST.P</code>.</li>
+<li>¿Los datos son una <strong>parte</strong> desde la cual quieres concluir sobre el todo? → muestra → dividir entre \(n-1\) → <code>VAR.S</code>, <code>DESVEST.M</code>.</li>
+</ul>
+<h2 id="54-ejemplo-resuelto--dispersión-con-datos-simples">5.4 Ejemplo resuelto — dispersión con datos simples</h2>
+<p>Mismos 12 contratos (millones): \(48, 52, 55, 60, 60, 63, 68, 72, 75, 80, 92, 145\), con \(\bar{x} = 72{,}5\).</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>\(x_i\)</th>
+<th>\(x_i - \bar{x}\)</th>
+<th>\((x_i-\bar{x})^2\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>48</td>
+<td>−24,5</td>
+<td>600,25</td>
+</tr>
+<tr>
+<td>52</td>
+<td>−20,5</td>
+<td>420,25</td>
+</tr>
+<tr>
+<td>55</td>
+<td>−17,5</td>
+<td>306,25</td>
+</tr>
+<tr>
+<td>60</td>
+<td>−12,5</td>
+<td>156,25</td>
+</tr>
+<tr>
+<td>60</td>
+<td>−12,5</td>
+<td>156,25</td>
+</tr>
+<tr>
+<td>63</td>
+<td>−9,5</td>
+<td>90,25</td>
+</tr>
+<tr>
+<td>68</td>
+<td>−4,5</td>
+<td>20,25</td>
+</tr>
+<tr>
+<td>72</td>
+<td>−0,5</td>
+<td>0,25</td>
+</tr>
+<tr>
+<td>75</td>
+<td>2,5</td>
+<td>6,25</td>
+</tr>
+<tr>
+<td>80</td>
+<td>7,5</td>
+<td>56,25</td>
+</tr>
+<tr>
+<td>92</td>
+<td>19,5</td>
+<td>380,25</td>
+</tr>
+<tr>
+<td>145</td>
+<td>72,5</td>
+<td>5.256,25</td>
+</tr>
+<tr>
+<td><strong>Σ</strong></td>
+<td><strong>0,0</strong></td>
+<td><strong>7.449,00</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(La columna del medio suma exactamente cero: es la verificación de que \(\bar{x}\) está bien calculada.)</em></p>
+<p><strong>Varianza muestral:</strong> \(s^2 = \dfrac{7.449}{11} = 677{,}1818\) millones².
+<strong>Desviación estándar muestral:</strong> \(s = \sqrt{677{,}1818} = \mathbf{26{,}02}\) millones.</p>
+<p><strong>Varianza poblacional:</strong> \(\sigma^2 = \dfrac{7.449}{12} = 620{,}75\) millones².
+<strong>Desviación estándar poblacional:</strong> \(\sigma = \sqrt{620{,}75} = \mathbf{24{,}91}\) millones.</p>
+<p><em>(Diferencia de 1,11 millones entre ambas, un 4,5 %. Con \(n=12\) importa; con \(n=1.000\) sería despreciable. Pero la pregunta del examen no es cuánto difieren, sino cuál corresponde.)</em></p>
+<p><strong>Coeficiente de variación:</strong> \(CV = \dfrac{26{,}02}{72{,}5}\times 100 = \mathbf{35{,}89\,\%}\). Dispersión alta.</p>
+<p><strong>Rango:</strong> \(145 - 48 = 97\) millones.</p>
+<p><strong>Cuartiles (método <code>CUARTIL.INC</code> de Excel).</strong> Con \(n=12\):</p>
+<ul>
+<li>\(Q_1\): posición \(1 + 11(0{,}25) = 3{,}75\). Entre \(x_{(3)}=55\) y \(x_{(4)}=60\): \(55 + 0{,}75(60-55) = \mathbf{58{,}75}\).</li>
+<li>\(Q_2\): posición \(1 + 11(0{,}5) = 6{,}5\). Entre \(x_{(6)}=63\) y \(x_{(7)}=68\): \(\mathbf{65{,}5}\) ✓ (coincide con la mediana).</li>
+<li>\(Q_3\): posición \(1 + 11(0{,}75) = 9{,}25\). Entre \(x_{(9)}=75\) y \(x_{(10)}=80\): \(75 + 0{,}25(5) = \mathbf{76{,}25}\).</li>
+</ul>
+<p>\(RIC = 76{,}25 - 58{,}75 = 17{,}50\) millones.</p>
+<p><strong>Cuartiles (método \(n\cdot p\) de muchos textos).</strong> \(12 \times 0{,}25 = 3\), entero, así que \(Q_1 = (x_{(3)}+x_{(4)})/2 = (55+60)/2 = 57{,}5\). Y \(12\times 0{,}75 = 9\), entero, así que \(Q_3 = (x_{(9)}+x_{(10)})/2 = (75+80)/2 = 77{,}5\). Aquí \(RIC = 20\).</p>
+<p><strong>Detección de atípicos.</strong> Con el método de Excel:</p>
+<p>\[\text{Límite inferior} = Q_1 - 1{,}5\,RIC = 58{,}75 - 26{,}25 = 32{,}50\]
+\[\text{Límite superior} = Q_3 + 1{,}5\,RIC = 76{,}25 + 26{,}25 = 102{,}50\]</p>
+<p>El único dato fuera del intervalo \([32{,}50;\ 102{,}50]\) es <strong>145 millones</strong>: es un valor atípico.</p>
+<p>Con el otro método los límites son \(57{,}5 - 30 = 27{,}5\) y \(77{,}5 + 30 = 107{,}5\), y <strong>145 sigue siendo atípico</strong>. Buena noticia: cuando un dato es claramente extremo, el método de cuartiles no cambia la conclusión. Solo importa en los casos de frontera.</p>
+<p><strong>Qué hacer con el atípico.</strong> No se borra automáticamente. Se investiga:</p>
+<ul>
+<li>¿Es un <strong>error de digitación</strong>? (¿145 en vez de 14,5?) → se corrige.</li>
+<li>¿Es un dato <strong>legítimo pero de otra naturaleza</strong>? (¿un contrato que en realidad no es de mínima cuantía?) → se excluye, <strong>documentando la exclusión</strong>.</li>
+<li>¿Es un dato legítimo y del mismo tipo? → <strong>se conserva y se reporta</strong>, y se usa la mediana en lugar de la media.</li>
+</ul>
+<p>Borrar atípicos porque "dañan el análisis" es exactamente la clase de decisión que hace que un informe no resista una auditoría.</p>
+<h2 id="55-ejemplo-resuelto--dispersión-con-datos-agrupados">5.5 Ejemplo resuelto — dispersión con datos agrupados</h2>
+<p>Sobre los 40 tiempos de trámite, con \(\bar{x} = 46{,}0\) días:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Clase</th>
+<th>\(x_i\)</th>
+<th>\(f_i\)</th>
+<th>\(x_i - \bar{x}\)</th>
+<th>\((x_i-\bar{x})^2\)</th>
+<th>\(f_i(x_i-\bar{x})^2\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[20, 30)</td>
+<td>25</td>
+<td>5</td>
+<td>−21</td>
+<td>441</td>
+<td>2.205</td>
+</tr>
+<tr>
+<td>[30, 40)</td>
+<td>35</td>
+<td>10</td>
+<td>−11</td>
+<td>121</td>
+<td>1.210</td>
+</tr>
+<tr>
+<td>[40, 50)</td>
+<td>45</td>
+<td>11</td>
+<td>−1</td>
+<td>1</td>
+<td>11</td>
+</tr>
+<tr>
+<td>[50, 60)</td>
+<td>55</td>
+<td>7</td>
+<td>9</td>
+<td>81</td>
+<td>567</td>
+</tr>
+<tr>
+<td>[60, 70)</td>
+<td>65</td>
+<td>4</td>
+<td>19</td>
+<td>361</td>
+<td>1.444</td>
+</tr>
+<tr>
+<td>[70, 80]</td>
+<td>75</td>
+<td>3</td>
+<td>29</td>
+<td>841</td>
+<td>2.523</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>40</strong></td>
+<td></td>
+<td></td>
+<td><strong>7.960</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Varianza muestral:</strong> \(s^2 = \dfrac{7.960}{39} = 204{,}10\) días².
+<strong>Desviación estándar muestral:</strong> \(s = \sqrt{204{,}10} = \mathbf{14{,}29}\) días.</p>
+<p><strong>Varianza poblacional:</strong> \(\sigma^2 = \dfrac{7.960}{40} = 199{,}00\) días²; \(\sigma = \mathbf{14{,}11}\) días.</p>
+<p><em>(Con los 40 datos sin agrupar, \(s = 14{,}32\) días. El agrupamiento costó 0,03 días. Prácticamente nada.)</em></p>
+<p><strong>Coeficiente de variación:</strong> \(CV = \dfrac{14{,}29}{46{,}0}\times 100 = \mathbf{31{,}06\,\%}\).</p>
+<p><strong>Cuartiles agrupados.</strong></p>
+<ul>
+<li>
+<p>\(Q_1\): posición \(n/4 = 10\). Primera clase con \(F_i \ge 10\) es \([30,40)\), con \(F_{i-1}=5\), \(f_i=10\):
+\[Q_1 = 30 + \frac{10-5}{10}\times 10 = \mathbf{35{,}0 \text{ días}}\]</p>
+</li>
+<li>
+<p>\(Q_3\): posición \(3n/4 = 30\). Primera clase con \(F_i \ge 30\) es \([50,60)\), con \(F_{i-1}=26\), \(f_i=7\):
+\[Q_3 = 50 + \frac{30-26}{7}\times 10 = 50 + 5{,}7143 = \mathbf{55{,}71 \text{ días}}\]</p>
+</li>
+<li>
+<p>\(RIC = 55{,}71 - 35{,}00 = 20{,}71\) días.</p>
+</li>
+</ul>
+<p><strong>Decil 3.</strong> Posición \(3n/10 = 12\), clase \([30,40)\):
+\[D_3 = 30 + \frac{12-5}{10}\times 10 = \mathbf{37{,}0 \text{ días}}\]</p>
+<p><strong>Percentil 90.</strong> Posición \(90n/100 = 36\). Primera clase con \(F_i \ge 36\) es \([60,70)\), con \(F_{i-1}=33\), \(f_i=4\):
+\[P_{90} = 60 + \frac{36-33}{4}\times 10 = \mathbf{67{,}5 \text{ días}}\]</p>
+<p><strong>Interpretación institucional.</strong> El 25 % de los expedientes se resuelve en 35 días o menos; el 25 % más lento tarda más de 55,7 días; y el 10 % más lento supera los 67,5 días. <strong>Si el compromiso de servicio fuera "resolver en 60 días", el \(P_{90}\) dice que no se cumple para el decil superior.</strong> Ese es el tipo de frase que un percentil permite escribir y un promedio no.</p>
+<h2 id="56-cuándo-desviación-estándar-y-cuándo-coeficiente-de-variación">5.6 Cuándo desviación estándar y cuándo coeficiente de variación</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Situación</th>
+<th>Usa</th>
+<th>Por qué</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Describir la dispersión de <strong>un solo</strong> conjunto</td>
+<td><strong>Desviación estándar</strong></td>
+<td>Está en las unidades del dato; es interpretable</td>
+</tr>
+<tr>
+<td>Comparar dos conjuntos con las <strong>mismas unidades y medias parecidas</strong></td>
+<td><strong>Desviación estándar</strong></td>
+<td>La comparación directa es válida</td>
+</tr>
+<tr>
+<td>Comparar conjuntos con <strong>unidades distintas</strong> (pesos vs. días)</td>
+<td><strong>Coeficiente de variación</strong></td>
+<td>Es adimensional</td>
+</tr>
+<tr>
+<td>Comparar conjuntos con la misma unidad pero <strong>medias muy distintas</strong></td>
+<td><strong>Coeficiente de variación</strong></td>
+<td>Una desviación de $500.000 no significa lo mismo sobre una media de $2 millones que sobre una de $50 millones</td>
+</tr>
+<tr>
+<td>La media está cerca de cero, o hay datos negativos</td>
+<td><strong>Ninguno de los dos</strong>; usa RIC</td>
+<td>El CV se dispara y pierde sentido</td>
+</tr>
+<tr>
+<td>Hay atípicos y quieres una medida robusta</td>
+<td><strong>RIC</strong></td>
+<td>No lo afectan los extremos</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Ejemplo resuelto de comparación.</strong> <em>(Datos ficticios con fines didácticos.)</em> Salarios mensuales, en miles de pesos, de dos grupos de una misma dependencia:</p>
+<ul>
+<li><strong>Profesionales</strong> (\(n=8\)): 4.200, 4.500, 4.800, 5.100, 5.400, 5.700, 6.300, 8.000</li>
+<li><strong>Técnicos</strong> (\(n=8\)): 2.400, 2.500, 2.600, 2.700, 2.800, 2.900, 3.000, 3.100</li>
+</ul>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Profesionales</th>
+<th>Técnicos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(\sum x_i\)</td>
+<td>44.000</td>
+<td>22.000</td>
+</tr>
+<tr>
+<td>\(\bar{x}\)</td>
+<td>5.500</td>
+<td>2.750</td>
+</tr>
+<tr>
+<td>\(Me\)</td>
+<td>5.250</td>
+<td>2.750</td>
+</tr>
+<tr>
+<td>\(\sum(x_i-\bar{x})^2\)</td>
+<td>10.280.000</td>
+<td>420.000</td>
+</tr>
+<tr>
+<td>\(s\) (muestral)</td>
+<td>1.211,85</td>
+<td>244,95</td>
+</tr>
+<tr>
+<td>\(CV\)</td>
+<td><strong>22,03 %</strong></td>
+<td><strong>8,91 %</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Lectura.</strong> En valor absoluto, la desviación de los profesionales es casi cinco veces la de los técnicos. Pero eso era esperable: ganan el doble. El coeficiente de variación dice algo más fino: <strong>incluso en términos relativos, los salarios de los profesionales son 2,5 veces más dispersos</strong>. La razón se ve a simple vista: el dato de 8.000 estira la distribución. En los técnicos, media y mediana coinciden exactamente en 2.750, señal de simetría perfecta; en los profesionales, \(\bar{x}=5.500 > Me=5.250\), señal de asimetría positiva.</p>
+<hr />
+<h1 id="escenario-6--medidas-de-forma-chebyshev-y-estandarización">Escenario 6 — Medidas de forma, Chebyshev y estandarización</h1>
+<h2 id="61-asimetría">6.1 Asimetría</h2>
+<p>Mide si la distribución se estira más hacia un lado.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Relación entre medidas</th>
+<th>Aspecto</th>
+<th>Ejemplo típico</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Asimétrica positiva</strong> (a la derecha)</td>
+<td>\(Mo < Me < \bar{x}\)</td>
+<td>Cola larga a la derecha</td>
+<td>Salarios, valores de contratos, tiempos de trámite</td>
+</tr>
+<tr>
+<td><strong>Simétrica</strong></td>
+<td>\(Mo = Me = \bar{x}\)</td>
+<td>Campana</td>
+<td>Estaturas, errores de medición</td>
+</tr>
+<tr>
+<td><strong>Asimétrica negativa</strong> (a la izquierda)</td>
+<td>\(\bar{x} < Me < Mo\)</td>
+<td>Cola larga a la izquierda</td>
+<td>Edad de jubilación, notas cuando casi todos aprueban</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Coeficiente de asimetría de Pearson (segundo):</strong></p>
+<p>\[A_P = \frac{3(\bar{x} - Me)}{s}\]</p>
+<p>Interpretación: \(A_P > 0\) positiva, \(A_P < 0\) negativa, \(A_P \approx 0\) simétrica. Valores por encima de \(|1|\) indican asimetría marcada.</p>
+<p><strong>Coeficiente basado en el tercer momento (Fisher):</strong></p>
+<p>\[g_1 = \frac{\frac{1}{n}\sum (x_i - \bar{x})^3}{\sigma^3}\]</p>
+<p>Para datos agrupados, \(\sum f_i(x_i-\bar{x})^3\) en el numerador.</p>
+<p><strong>Advertencia práctica:</strong> Excel <code>COEFICIENTE.ASIMETRIA</code> usa una <strong>tercera</strong> fórmula, ajustada por tamaño de muestra:</p>
+<p>\[G_1 = \frac{n}{(n-1)(n-2)}\sum \left(\frac{x_i-\bar{x}}{s}\right)^3\]</p>
+<p>Las tres dan el mismo <strong>signo</strong> y magnitudes distintas. No te asustes cuando Excel no coincida con tu cálculo a mano: verifica primero que el signo sea el mismo.</p>
+<h2 id="62-curtosis">6.2 Curtosis</h2>
+<p>Mide el peso de las colas (cuánta probabilidad hay en los extremos) comparado con una distribución normal.</p>
+<p>\[g_2 = \frac{\frac{1}{n}\sum (x_i-\bar{x})^4}{\sigma^4} - 3\]</p>
+<p>El \(-3\) convierte la medida en <strong>exceso de curtosis</strong>, de modo que la normal valga 0.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Valor</th>
+<th>Nombre</th>
+<th>Significa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(g_2 > 0\)</td>
+<td><strong>Leptocúrtica</strong></td>
+<td>Colas pesadas, pico agudo. Más eventos extremos de lo normal</td>
+</tr>
+<tr>
+<td>\(g_2 = 0\)</td>
+<td><strong>Mesocúrtica</strong></td>
+<td>Como la normal</td>
+</tr>
+<tr>
+<td>\(g_2 < 0\)</td>
+<td><strong>Platicúrtica</strong></td>
+<td>Colas ligeras, forma achatada</td>
+</tr>
+</tbody>
+</table></div>
+<p>Excel <code>CURTOSIS</code> ya devuelve el <strong>exceso</strong>: si te da 3,16, la curtosis "bruta" es 6,16.</p>
+<p>En análisis de riesgo, curtosis alta significa que los eventos extremos (un sobrecosto enorme, una demora atípica) son más probables de lo que la campana sugeriría. Es la razón por la que en el sector financiero se desconfía de asumir normalidad.</p>
+<h2 id="63-ejemplo-resuelto--forma-de-la-distribución-de-contratos">6.3 Ejemplo resuelto — forma de la distribución de contratos</h2>
+<p>Mismos 12 contratos, con \(\bar{x}=72{,}5\), \(Me=65{,}5\), \(s=26{,}0227\), \(\sigma=24{,}9149\).</p>
+<p><strong>Asimetría de Pearson:</strong></p>
+<p>\[A_P = \frac{3(72{,}5 - 65{,}5)}{26{,}0227} = \frac{21}{26{,}0227} = \mathbf{0{,}807}\]</p>
+<p>Asimetría positiva marcada. Concuerda con \(Mo=60 < Me=65{,}5 < \bar{x}=72{,}5\).</p>
+<p><strong>Coeficiente de Fisher.</strong> Con \(\sum(x_i-\bar{x})^3 = 355.395\):</p>
+<p>\[g_1 = \frac{355.395/12}{24{,}9149^3} = \frac{29.616{,}25}{15.464{,}9} = \mathbf{1{,}915}\]</p>
+<p><strong>Curtosis.</strong> Con \(\sum(x_i-\bar{x})^4 = 28.464.039{,}75\):</p>
+<p>\[g_2 = \frac{28.464.039{,}75/12}{24{,}9149^4} - 3 = \frac{2.372.003{,}31}{385.306{,}3} - 3 = 6{,}156 - 3 = \mathbf{3{,}156}\]</p>
+<p>Fuertemente leptocúrtica: colas pesadas. Otra vez, el responsable es el contrato de 145 millones. En un conjunto de 12 datos, un solo valor extremo domina los momentos de tercer y cuarto orden, porque las desviaciones se elevan a la 3 y a la 4. <strong>Con \(n\) pequeño, asimetría y curtosis son medidas muy inestables. Reportarlas con dos decimales sobre 12 datos es dar una precisión que no existe.</strong></p>
+<p><em>(Excel, con su fórmula ajustada, devolvería 2,200 para la asimetría. Mismo signo, misma conclusión, distinto número.)</em></p>
+<h2 id="64-teorema-de-chebyshev">6.4 Teorema de Chebyshev</h2>
+<p><strong>Enunciado.</strong> Para <strong>cualquier</strong> distribución, sin importar su forma, y para todo \(k>1\), al menos la fracción \(1 - 1/k^2\) de los datos se encuentra dentro de \(k\) desviaciones estándar de la media:</p>
+<p>\[P\left(|x - \bar{x}| < k\,s\right) \ge 1 - \frac{1}{k^2}\]</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>\(k\)</th>
+<th>Cota mínima de Chebyshev</th>
+<th>Intervalo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1,5</td>
+<td>55,56 %</td>
+<td>\(\bar{x} \pm 1{,}5s\)</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>75,00 %</strong></td>
+<td>\(\bar{x} \pm 2s\)</td>
+</tr>
+<tr>
+<td>2,5</td>
+<td>84,00 %</td>
+<td>\(\bar{x} \pm 2{,}5s\)</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>88,89 %</strong></td>
+<td>\(\bar{x} \pm 3s\)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>93,75 %</td>
+<td>\(\bar{x} \pm 4s\)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Dos cosas que se preguntan y se fallan:</p>
+<ol>
+<li><strong>Es una cota inferior, no una estimación.</strong> Chebyshev dice "al menos el 75 %", no "el 75 %". El porcentaje real casi siempre es mayor.</li>
+<li><strong>Para \(k=1\) no dice nada</strong>, porque \(1 - 1/1 = 0\). Preguntar "¿cuánto garantiza Chebyshev dentro de una desviación?" tiene como respuesta: nada.</li>
+</ol>
+<h2 id="65-regla-empírica">6.5 Regla empírica</h2>
+<p>Si la distribución es <strong>aproximadamente normal</strong> (acampanada y simétrica):</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Intervalo</th>
+<th>Porcentaje aproximado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(\bar{x} \pm 1s\)</td>
+<td>≈ 68 %</td>
+</tr>
+<tr>
+<td>\(\bar{x} \pm 2s\)</td>
+<td>≈ 95 %</td>
+</tr>
+<tr>
+<td>\(\bar{x} \pm 3s\)</td>
+<td>≈ 99,7 %</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Chebyshev vs. regla empírica:</strong> Chebyshev vale siempre pero es flojo (75 % con \(k=2\)); la regla empírica es mucho más precisa (95 %) pero <strong>exige el supuesto de normalidad</strong>. Si te dan una distribución fuertemente asimétrica y aplicas la regla empírica, te equivocas.</p>
+<h2 id="66-ejemplo-resuelto--verificando-las-dos-reglas">6.6 Ejemplo resuelto — verificando las dos reglas</h2>
+<p>Sobre los 40 tiempos de trámite sin agrupar: \(\bar{x} = 46{,}25\) días, \(s = 14{,}32\) días.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>\(k\)</th>
+<th>Intervalo \(\bar{x} \pm k s\)</th>
+<th>Datos dentro</th>
+<th>% real</th>
+<th>Chebyshev garantiza</th>
+<th>Regla empírica predice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>[31,93 ; 60,57]</td>
+<td>27 de 40</td>
+<td><strong>67,5 %</strong></td>
+<td>—</td>
+<td>≈ 68 %</td>
+</tr>
+<tr>
+<td>2</td>
+<td>[17,61 ; 74,89]</td>
+<td>38 de 40</td>
+<td><strong>95,0 %</strong></td>
+<td>≥ 75 %</td>
+<td>≈ 95 %</td>
+</tr>
+<tr>
+<td>3</td>
+<td>[3,29 ; 89,21]</td>
+<td>40 de 40</td>
+<td><strong>100 %</strong></td>
+<td>≥ 88,89 %</td>
+<td>≈ 99,7 %</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Lectura.</strong> Los porcentajes reales (67,5 %, 95,0 %, 100 %) coinciden casi exactamente con la regla empírica, lo cual indica que esta distribución, pese a su asimetría moderada, es razonablemente acampanada. Y <strong>las tres cumplen la cota de Chebyshev con holgura</strong>, como tenía que ser: Chebyshev nunca se viola, porque es un teorema.</p>
+<h2 id="67-estandarización-y-puntaje-z">6.7 Estandarización y puntaje z</h2>
+<p>\[z_i = \frac{x_i - \bar{x}}{s} \qquad \text{(muestral)} \qquad\qquad z_i = \frac{x_i - \mu}{\sigma} \qquad \text{(poblacional)}\]</p>
+<p>El puntaje \(z\) dice <strong>a cuántas desviaciones estándar de la media está un dato</strong>. Propiedades:</p>
+<ul>
+<li>La variable estandarizada tiene media 0 y desviación estándar 1.</li>
+<li>\(z\) es adimensional: se cancelan las unidades.</li>
+<li>\(z > 0\): por encima del promedio. \(z < 0\): por debajo.</li>
+<li>\(|z| > 2\) suele considerarse inusual; \(|z| > 3\), muy inusual.</li>
+</ul>
+<p><strong>Para qué sirve en la práctica:</strong> comparar observaciones de distribuciones distintas, y preparar datos para algoritmos que miden distancias. En Machine Learning esto se llama <em>standard scaling</em> y es un paso obligatorio antes de k-NN, k-means, SVM o redes neuronales, porque sin él la variable con la escala más grande domina la distancia. <strong>Cuando llegues a esa materia, ya lo sabrás hacer a mano.</strong></p>
+<p><strong>Ejemplo 1 — el atípico.</strong> El contrato de 145 millones, en el conjunto con \(\bar{x}=72{,}5\) y \(s=26{,}02\):</p>
+<p>\[z = \frac{145 - 72{,}5}{26{,}02} = \mathbf{2{,}79}\]</p>
+<p>Está a 2,79 desviaciones estándar por encima del promedio. Coherente con haberlo marcado como atípico por el criterio de 1,5·RIC. El contrato de 48 millones tiene \(z = (48-72{,}5)/26{,}02 = -0{,}94\): por debajo, pero perfectamente normal.</p>
+<p><strong>Ejemplo 2 — comparar entre distribuciones.</strong> <em>(Datos ficticios con fines didácticos.)</em> Dos procesos distintos de una entidad:</p>
+<ul>
+<li><strong>Proceso A</strong> (pagos): \(\bar{x}=46{,}25\) días, \(s=14{,}32\). Un expediente tardó <strong>62 días</strong>.</li>
+<li><strong>Proceso B</strong> (liquidaciones): \(\bar{x}=90\) días, \(s=25\). Un expediente tardó <strong>118 días</strong>.</li>
+</ul>
+<p>¿Cuál se demoró más <em>en términos relativos a su propio proceso</em>?</p>
+<p>\[z_A = \frac{62-46{,}25}{14{,}32} = 1{,}10 \qquad\qquad z_B = \frac{118-90}{25} = 1{,}12\]</p>
+<p>En días absolutos, B se demoró casi el doble (118 vs. 62). Pero <strong>relativamente a su proceso, ambos están prácticamente igual de mal</strong>: 1,10 y 1,12 desviaciones por encima. Comparar los 118 con los 62 directamente no tiene sentido, porque son procesos con escalas distintas. Esto es exactamente lo que la estandarización resuelve.</p>
+<hr />
+<h1 id="escenario-7--análisis-bivariado">Escenario 7 — Análisis bivariado</h1>
+<h2 id="71-tablas-de-contingencia">7.1 Tablas de contingencia</h2>
+<p>Cruzan dos variables <strong>cualitativas</strong>. Contienen frecuencias conjuntas \(n_{ij}\), marginales de fila \(n_{i\cdot}\), marginales de columna \(n_{\cdot j}\) y el total \(n\).</p>
+<p><strong>Ejemplo resuelto.</strong> <em>(Datos ficticios con fines didácticos.)</em> 200 contratos de una entidad, cruzando tipo de contrato con estado:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>En ejecución</th>
+<th>Liquidado</th>
+<th>Con novedad</th>
+<th><strong>Total</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Prestación de servicios</strong></td>
+<td>50</td>
+<td>32</td>
+<td>8</td>
+<td><strong>90</strong></td>
+</tr>
+<tr>
+<td><strong>Suministro</strong></td>
+<td>34</td>
+<td>26</td>
+<td>10</td>
+<td><strong>70</strong></td>
+</tr>
+<tr>
+<td><strong>Obra</strong></td>
+<td>16</td>
+<td>12</td>
+<td>12</td>
+<td><strong>40</strong></td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>100</strong></td>
+<td><strong>70</strong></td>
+<td><strong>30</strong></td>
+<td><strong>200</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Perfiles fila</strong> (cada fila suma 100 %) — responden "dentro de cada tipo de contrato, ¿cómo se reparten los estados?":</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>En ejecución</th>
+<th>Liquidado</th>
+<th>Con novedad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prestación</td>
+<td>55,56 %</td>
+<td>35,56 %</td>
+<td><strong>8,89 %</strong></td>
+</tr>
+<tr>
+<td>Suministro</td>
+<td>48,57 %</td>
+<td>37,14 %</td>
+<td><strong>14,29 %</strong></td>
+</tr>
+<tr>
+<td>Obra</td>
+<td>40,00 %</td>
+<td>30,00 %</td>
+<td><strong>30,00 %</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Hallazgo.</strong> Los contratos de obra tienen novedades en el 30 % de los casos, más del triple que los de prestación de servicios (8,89 %). Ese es el tipo de afirmación que la tabla permite y que las frecuencias absolutas ocultan: en números crudos, prestación tiene 8 novedades y obra 12, cifras parecidas; pero prestación tiene 90 contratos y obra solo 40.</p>
+<p><strong>Independencia.</strong> Dos variables son estadísticamente independientes si el perfil fila es igual en todas las filas. La frecuencia <strong>esperada</strong> bajo independencia es:</p>
+<p>\[e_{ij} = \frac{n_{i\cdot}\times n_{\cdot j}}{n}\]</p>
+<p>Para la celda (Prestación, En ejecución): \(e_{11} = \dfrac{90 \times 100}{200} = 45\). Se observaron 50, es decir 5 más de lo esperado. Para (Obra, Con novedad): \(e_{33} = \dfrac{40\times 30}{200} = 6\), y se observaron 12, <strong>el doble</strong>. Esa desviación es la que sugiere que las variables no son independientes.</p>
+<p><em>(Cuantificar si esa desviación es estadísticamente significativa requiere la prueba chi-cuadrado, que es materia de Estadística Predictiva. Aquí solo se describe.)</em></p>
+<h2 id="72-covarianza">7.2 Covarianza</h2>
+<p>\[s_{xy} = \frac{\sum (x_i-\bar{x})(y_i-\bar{y})}{n-1} \quad\text{(muestral)} \qquad \sigma_{xy} = \frac{\sum (x_i-\mu_x)(y_i-\mu_y)}{N} \quad\text{(poblacional)}\]</p>
+<p>Signo positivo: cuando una sube, la otra tiende a subir. Signo negativo: se mueven en sentido contrario. Cero: no hay relación <strong>lineal</strong>.</p>
+<p><strong>Problema de la covarianza:</strong> su magnitud depende de las unidades. Si mides el valor en pesos en lugar de millones, la covarianza se multiplica por un millón sin que la relación haya cambiado. Por eso no se puede comparar entre pares de variables. La correlación resuelve esto.</p>
+<h2 id="73-correlación-de-pearson">7.3 Correlación de Pearson</h2>
+<p>\[r = \frac{s_{xy}}{s_x\, s_y} = \frac{\sum (x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum (x_i-\bar{x})^2}\ \sqrt{\sum(y_i-\bar{y})^2}}\]</p>
+<p>Propiedades:</p>
+<ul>
+<li>\(-1 \le r \le 1\). Adimensional.</li>
+<li>\(|r|=1\) significa relación lineal perfecta (todos los puntos sobre una recta).</li>
+<li>\(r=0\) significa que <strong>no hay relación lineal</strong>. Puede haber una relación no lineal perfecta con \(r=0\) (por ejemplo, una parábola simétrica).</li>
+<li>No cambia si se transforman linealmente las variables (cambiar de pesos a millones no altera \(r\)).</li>
+</ul>
+<p>Escala de interpretación de uso común (es una convención, no una ley):</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>\(|r|\)</th>
+<th>Interpretación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0,00 – 0,20</td>
+<td>Muy débil o nula</td>
+</tr>
+<tr>
+<td>0,20 – 0,40</td>
+<td>Débil</td>
+</tr>
+<tr>
+<td>0,40 – 0,60</td>
+<td>Moderada</td>
+</tr>
+<tr>
+<td>0,60 – 0,80</td>
+<td>Fuerte</td>
+</tr>
+<tr>
+<td>0,80 – 1,00</td>
+<td>Muy fuerte</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="74-regresión-lineal-simple-por-mínimos-cuadrados">7.4 Regresión lineal simple por mínimos cuadrados</h2>
+<p>Ajusta la recta \(\hat{y} = a + bx\) que <strong>minimiza la suma de cuadrados de los residuos</strong> \(\sum (y_i - \hat{y}_i)^2\). Las fórmulas resultantes:</p>
+<p>\[b = \frac{\sum (x_i-\bar{x})(y_i-\bar{y})}{\sum (x_i-\bar{x})^2} = \frac{S_{xy}}{S_{xx}} \qquad\qquad a = \bar{y} - b\,\bar{x}\]</p>
+<p>Consecuencia útil: <strong>la recta siempre pasa por el punto \((\bar{x}, \bar{y})\)</strong>. Es una verificación gratuita de tu cálculo.</p>
+<p>Relación entre \(b\) y \(r\): \(\;b = r\dfrac{s_y}{s_x}\).</p>
+<p><strong>Descomposición de la variabilidad:</strong></p>
+<p>\[\underbrace{\sum (y_i-\bar{y})^2}_{SCT} = \underbrace{\sum (\hat{y}_i-\bar{y})^2}_{SCR} + \underbrace{\sum (y_i-\hat{y}_i)^2}_{SCE}\]</p>
+<p>\[R^2 = \frac{SCR}{SCT} = 1 - \frac{SCE}{SCT}\]</p>
+<p>En regresión lineal <strong>simple</strong>, \(R^2 = r^2\). Interpretación: proporción de la variabilidad de \(y\) que el modelo explica.</p>
+<h2 id="75-ejemplo-completamente-resuelto">7.5 Ejemplo completamente resuelto</h2>
+<blockquote>
+<p><strong>Datos ficticios con fines didácticos.</strong> Diez contratos de aseo y cafetería. \(x\) = número de sedes atendidas; \(y\) = valor mensual facturado, en millones de pesos.</p>
+</blockquote>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>\(i\)</th>
+<th>\(x_i\)</th>
+<th>\(y_i\)</th>
+<th>\(x_i-\bar{x}\)</th>
+<th>\(y_i-\bar{y}\)</th>
+<th>\((x_i-\bar{x})(y_i-\bar{y})\)</th>
+<th>\((x_i-\bar{x})^2\)</th>
+<th>\((y_i-\bar{y})^2\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>4</td>
+<td>10</td>
+<td>−9</td>
+<td>−20</td>
+<td>180</td>
+<td>81</td>
+<td>400</td>
+</tr>
+<tr>
+<td>2</td>
+<td>6</td>
+<td>17</td>
+<td>−7</td>
+<td>−13</td>
+<td>91</td>
+<td>49</td>
+<td>169</td>
+</tr>
+<tr>
+<td>3</td>
+<td>8</td>
+<td>25</td>
+<td>−5</td>
+<td>−5</td>
+<td>25</td>
+<td>25</td>
+<td>25</td>
+</tr>
+<tr>
+<td>4</td>
+<td>10</td>
+<td>29</td>
+<td>−3</td>
+<td>−1</td>
+<td>3</td>
+<td>9</td>
+<td>1</td>
+</tr>
+<tr>
+<td>5</td>
+<td>12</td>
+<td>23</td>
+<td>−1</td>
+<td>−7</td>
+<td>7</td>
+<td>1</td>
+<td>49</td>
+</tr>
+<tr>
+<td>6</td>
+<td>14</td>
+<td>28</td>
+<td>1</td>
+<td>−2</td>
+<td>−2</td>
+<td>1</td>
+<td>4</td>
+</tr>
+<tr>
+<td>7</td>
+<td>16</td>
+<td>31</td>
+<td>3</td>
+<td>1</td>
+<td>3</td>
+<td>9</td>
+<td>1</td>
+</tr>
+<tr>
+<td>8</td>
+<td>18</td>
+<td>38</td>
+<td>5</td>
+<td>8</td>
+<td>40</td>
+<td>25</td>
+<td>64</td>
+</tr>
+<tr>
+<td>9</td>
+<td>20</td>
+<td>49</td>
+<td>7</td>
+<td>19</td>
+<td>133</td>
+<td>49</td>
+<td>361</td>
+</tr>
+<tr>
+<td>10</td>
+<td>22</td>
+<td>50</td>
+<td>9</td>
+<td>20</td>
+<td>180</td>
+<td>81</td>
+<td>400</td>
+</tr>
+<tr>
+<td><strong>Σ</strong></td>
+<td><strong>130</strong></td>
+<td><strong>300</strong></td>
+<td><strong>0</strong></td>
+<td><strong>0</strong></td>
+<td><strong>660</strong></td>
+<td><strong>330</strong></td>
+<td><strong>1.474</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Paso 1 — Medias.</strong> \(\bar{x} = 130/10 = 13\) sedes; \(\bar{y} = 300/10 = 30\) millones.</p>
+<p><strong>Paso 2 — Sumas de cuadrados.</strong> \(S_{xy}=660\), \(S_{xx}=330\), \(S_{yy}=1.474\).</p>
+<p><strong>Paso 3 — Covarianza.</strong></p>
+<p>\[s_{xy} = \frac{660}{9} = 73{,}33 \qquad \text{(poblacional: } \sigma_{xy}=660/10 = 66{,}0\text{)}\]</p>
+<p>Positiva: a más sedes, mayor facturación. Pero el número 73,33 no dice nada por sí solo.</p>
+<p><strong>Paso 4 — Desviaciones.</strong></p>
+<p>\[s_x = \sqrt{330/9} = 6{,}0553 \text{ sedes} \qquad s_y = \sqrt{1.474/9} = 12{,}7976 \text{ millones}\]</p>
+<p><strong>Paso 5 — Correlación.</strong></p>
+<p>\[r = \frac{660}{\sqrt{330 \times 1.474}} = \frac{660}{\sqrt{486.420}} = \frac{660}{697{,}44} = \mathbf{0{,}9463}\]</p>
+<p>Correlación positiva muy fuerte.</p>
+<p><strong>Paso 6 — Recta de regresión.</strong></p>
+<p>\[b = \frac{660}{330} = \mathbf{2{,}0} \qquad\qquad a = 30 - 2{,}0 \times 13 = \mathbf{4{,}0}\]</p>
+<p>\[\boxed{\hat{y} = 4 + 2x}\]</p>
+<p><em>Verificación:</em> en \(x=\bar{x}=13\), \(\hat{y} = 4+26 = 30 = \bar{y}\) ✓.</p>
+<p><strong>Paso 7 — Valores ajustados y residuos.</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>\(x_i\)</th>
+<th>\(y_i\)</th>
+<th>\(\hat{y}_i = 4+2x_i\)</th>
+<th>\(e_i = y_i-\hat{y}_i\)</th>
+<th>\(e_i^2\)</th>
+<th>\((\hat{y}_i-\bar{y})^2\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4</td>
+<td>10</td>
+<td>12</td>
+<td>−2</td>
+<td>4</td>
+<td>324</td>
+</tr>
+<tr>
+<td>6</td>
+<td>17</td>
+<td>16</td>
+<td>1</td>
+<td>1</td>
+<td>196</td>
+</tr>
+<tr>
+<td>8</td>
+<td>25</td>
+<td>20</td>
+<td>5</td>
+<td>25</td>
+<td>100</td>
+</tr>
+<tr>
+<td>10</td>
+<td>29</td>
+<td>24</td>
+<td>5</td>
+<td>25</td>
+<td>36</td>
+</tr>
+<tr>
+<td>12</td>
+<td>23</td>
+<td>28</td>
+<td>−5</td>
+<td>25</td>
+<td>4</td>
+</tr>
+<tr>
+<td>14</td>
+<td>28</td>
+<td>32</td>
+<td>−4</td>
+<td>16</td>
+<td>4</td>
+</tr>
+<tr>
+<td>16</td>
+<td>31</td>
+<td>36</td>
+<td>−5</td>
+<td>25</td>
+<td>36</td>
+</tr>
+<tr>
+<td>18</td>
+<td>38</td>
+<td>40</td>
+<td>−2</td>
+<td>4</td>
+<td>100</td>
+</tr>
+<tr>
+<td>20</td>
+<td>49</td>
+<td>44</td>
+<td>5</td>
+<td>25</td>
+<td>196</td>
+</tr>
+<tr>
+<td>22</td>
+<td>50</td>
+<td>48</td>
+<td>2</td>
+<td>4</td>
+<td>324</td>
+</tr>
+<tr>
+<td><strong>Σ</strong></td>
+<td></td>
+<td></td>
+<td><strong>0</strong></td>
+<td><strong>154</strong></td>
+<td><strong>1.320</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(Los residuos suman exactamente cero. Siempre. Si no te dan cero, hay un error.)</em></p>
+<p><strong>Paso 8 — Coeficiente de determinación.</strong></p>
+<p>\[SCT = 1.474 \qquad SCR = 1.320 \qquad SCE = 154 \qquad SCR + SCE = 1.474 \;✓\]</p>
+<p>\[R^2 = \frac{1.320}{1.474} = \mathbf{0{,}8955} = 89{,}55\,\%\]</p>
+<p>Verificación: \(r^2 = 0{,}9463^2 = 0{,}8955\) ✓.</p>
+<p><strong>Paso 9 — Interpretación (esto es lo que califican).</strong></p>
+<ul>
+<li><strong>Pendiente:</strong> por cada sede adicional atendida, el valor mensual facturado aumenta en promedio <strong>2 millones de pesos</strong>.</li>
+<li><strong>Intercepto:</strong> \(a = 4\) millones sería el valor facturado con <strong>cero sedes</strong>, lo cual <strong>no tiene sentido operativo</strong>. Aquí el intercepto es un artefacto matemático del ajuste, no un costo fijo interpretable. Además, \(x=0\) está fuera del rango observado (de 4 a 22 sedes). Decirlo es señal de criterio.</li>
+<li><strong>\(R^2\):</strong> el número de sedes explica el 89,55 % de la variabilidad del valor mensual facturado. El 10,45 % restante se debe a otros factores (área de cada sede, número de turnos, insumos, ubicación).</li>
+<li><strong>Predicción válida:</strong> para 15 sedes, \(\hat{y} = 4 + 2(15) = 34\) millones. 15 está dentro del rango observado: la predicción es defendible.</li>
+<li><strong>Predicción no válida:</strong> para 60 sedes, \(\hat{y} = 124\) millones. <strong>No lo reportes.</strong> Es extrapolación: nada garantiza que la relación siga siendo lineal fuera del rango de 4 a 22 sedes. Podría haber economías de escala.</li>
+</ul>
+<h2 id="76-qué-se-puede-y-qué-no-se-puede-concluir">7.6 Qué se puede y qué no se puede concluir</h2>
+<p>Esta es la pregunta de interpretación más frecuente del curso. Con \(r=0{,}9463\) y \(R^2 = 0{,}8955\):</p>
+<p><strong>Sí se puede concluir:</strong></p>
+<ul>
+<li>Existe una relación lineal positiva muy fuerte entre número de sedes y valor mensual facturado, <strong>en este conjunto de 10 contratos</strong>.</li>
+<li>Un modelo lineal describe bien los datos observados: explica cerca del 90 % de la variabilidad.</li>
+<li>La estimación de 2 millones por sede es una referencia razonable para el rango de 4 a 22 sedes.</li>
+</ul>
+<p><strong>No se puede concluir:</strong></p>
+<ul>
+<li><strong>Que más sedes <em>causen</em> mayor facturación.</strong> La correlación no establece causalidad. Aquí el mecanismo causal es plausible, pero eso lo aporta el conocimiento del negocio, no el \(r\). En otros casos la correlación se debe a una tercera variable que mueve a las dos, o a puro azar.</li>
+<li><strong>Que la relación se mantenga fuera del rango observado.</strong> Prohibido extrapolar.</li>
+<li><strong>Que el modelo sea "correcto".</strong> Un \(R^2\) alto es compatible con un patrón curvo mal ajustado. <strong>Grafica siempre los datos y los residuos</strong> antes de firmar.</li>
+<li><strong>Que esta relación valga para otras entidades, otros años u otro tipo de contrato.</strong> La muestra es de 10 contratos de aseo y cafetería.</li>
+<li><strong>Nada sobre contratos individuales.</strong> El modelo describe la tendencia promedio. El contrato 5 facturó 23 millones donde el modelo predecía 28: un residuo de −5 millones, el mayor del conjunto en valor absoluto junto con otros dos. Explicar <em>ese</em> caso requiere mirar el expediente, no la recta.</li>
+</ul>
+<hr />
+<h1 id="escenario-8--números-índice-y-series-de-tiempo">Escenario 8 — Números índice y series de tiempo</h1>
+<h2 id="81-índices-simples">8.1 Índices simples</h2>
+<p>\[I_{t/0} = \frac{x_t}{x_0}\times 100\]</p>
+<p>El período base vale 100. Un índice de 113,6 significa un aumento del 13,6 % respecto a la base.</p>
+<p><strong>Cambio de base:</strong> para pasar de base 0 a base \(m\), se divide toda la serie entre el valor del índice en \(m\) y se multiplica por 100:</p>
+<p>\[I_{t/m} = \frac{I_{t/0}}{I_{m/0}}\times 100\]</p>
+<h2 id="82-índices-compuestos-laspeyres-y-paasche">8.2 Índices compuestos: Laspeyres y Paasche</h2>
+<p>Cuando hay varios bienes, hay que ponderar. La diferencia entre los dos índices es <strong>qué cantidades se usan como ponderador</strong>.</p>
+<p><strong>Índice de Laspeyres</strong> (cantidades del período <strong>base</strong>):</p>
+<p>\[L = \frac{\sum p_t\, q_0}{\sum p_0\, q_0}\times 100\]</p>
+<p><strong>Índice de Paasche</strong> (cantidades del período <strong>actual</strong>):</p>
+<p>\[P = \frac{\sum p_t\, q_t}{\sum p_0\, q_t}\times 100\]</p>
+<p><strong>Índice de Fisher</strong> (media geométrica de ambos): \(F = \sqrt{L \times P}\).</p>
+<p><strong>Índice de valor:</strong> \(V = \dfrac{\sum p_t q_t}{\sum p_0 q_0}\times 100\). Recoge el efecto conjunto de precios y cantidades.</p>
+<p><strong>Por qué difieren.</strong> Laspeyres mantiene fija la canasta del período base y por tanto <strong>ignora la sustitución</strong>: cuando un bien se encarece, la gente compra menos de ese bien y más de otro, pero Laspeyres sigue ponderando con las cantidades viejas. Por eso <strong>tiende a sobrestimar</strong> el aumento de precios. Paasche, al usar las cantidades actuales, <strong>tiende a subestimarlo</strong>. La verdad está en medio, y esa es la lógica del índice de Fisher.</p>
+<p><strong>Dato relevante para tu trabajo:</strong> el IPC del DANE es, en su construcción, un índice de tipo <strong>Laspeyres</strong> con canasta fija actualizada periódicamente. Por eso importa tanto la actualización de la canasta y el cambio de base: una canasta desactualizada acumula sesgo de sustitución. Cuando en el análisis de inflación de la DEAJ se menciona un empalme o un cambio de base, esto es exactamente lo que está en juego.</p>
+<h2 id="83-ejemplo-completamente-resuelto-de-índices">8.3 Ejemplo completamente resuelto de índices</h2>
+<blockquote>
+<p><strong>Datos ficticios con fines didácticos.</strong> Tres insumos de un contrato de aseo, entre 2025 (base) y 2026.</p>
+</blockquote>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Insumo</th>
+<th>\(p_0\)</th>
+<th>\(q_0\)</th>
+<th>\(p_1\)</th>
+<th>\(q_1\)</th>
+<th>Var. precio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Detergente (litro)</td>
+<td>8.500</td>
+<td>1.200</td>
+<td>9.690</td>
+<td>900</td>
+<td>+14,0 %</td>
+</tr>
+<tr>
+<td>Papel higiénico (rollo)</td>
+<td>2.400</td>
+<td>5.000</td>
+<td>2.700</td>
+<td>6.500</td>
+<td>+12,5 %</td>
+</tr>
+<tr>
+<td>Bolsa industrial (und)</td>
+<td>900</td>
+<td>8.000</td>
+<td>1.035</td>
+<td>7.000</td>
+<td>+15,0 %</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Los cuatro productos cruzados:</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Insumo</th>
+<th>\(p_0q_0\)</th>
+<th>\(p_1q_0\)</th>
+<th>\(p_0q_1\)</th>
+<th>\(p_1q_1\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Detergente</td>
+<td>10.200.000</td>
+<td>11.628.000</td>
+<td>7.650.000</td>
+<td>8.721.000</td>
+</tr>
+<tr>
+<td>Papel</td>
+<td>12.000.000</td>
+<td>13.500.000</td>
+<td>15.600.000</td>
+<td>17.550.000</td>
+</tr>
+<tr>
+<td>Bolsa</td>
+<td>7.200.000</td>
+<td>8.280.000</td>
+<td>6.300.000</td>
+<td>7.245.000</td>
+</tr>
+<tr>
+<td><strong>Σ</strong></td>
+<td><strong>29.400.000</strong></td>
+<td><strong>33.408.000</strong></td>
+<td><strong>29.550.000</strong></td>
+<td><strong>33.516.000</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Laspeyres:</strong></p>
+<p>\[L = \frac{33.408.000}{29.400.000}\times 100 = \mathbf{113{,}63}\]</p>
+<p><strong>Paasche:</strong></p>
+<p>\[P = \frac{33.516.000}{29.550.000}\times 100 = \mathbf{113{,}42}\]</p>
+<p><strong>Fisher:</strong> \(F = \sqrt{113{,}63 \times 113{,}42} = \mathbf{113{,}53}\).</p>
+<p><strong>Índice de valor:</strong></p>
+<p>\[V = \frac{33.516.000}{29.400.000}\times 100 = \mathbf{114{,}00}\]</p>
+<p><strong>Interpretación.</strong></p>
+<ul>
+<li>Con la canasta de 2025, los precios subieron <strong>13,63 %</strong>. Con la canasta de 2026, <strong>13,42 %</strong>.</li>
+<li>\(L > P\), como suele ocurrir: la entidad <strong>redujo el consumo de detergente y bolsas (los insumos que más se encarecieron: +14 % y +15 %) y aumentó el de papel (+12,5 %, el que menos subió)</strong>. Ese desplazamiento hacia lo relativamente más barato es el efecto sustitución, y Laspeyres no lo captura.</li>
+<li>El gasto total subió 14,00 % (\(V=114\)), un poco más que los precios (13,63 %), lo que indica que el <strong>volumen</strong> total también aumentó ligeramente.</li>
+<li>Los tres precios subieron entre 12,5 % y 15 %, y los tres índices caen dentro de ese rango. <strong>Si un índice compuesto queda fuera del rango de las variaciones individuales, hay un error de cálculo.</strong> Es una verificación de sentido común que vale la pena hacer siempre.</li>
+</ul>
+<h2 id="84-series-de-tiempo">8.4 Series de tiempo</h2>
+<p><strong>Componentes</strong> (modelo clásico):</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Qué es</th>
+<th>Duración</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tendencia</strong> (\(T\))</td>
+<td>Movimiento de largo plazo</td>
+<td>Años</td>
+</tr>
+<tr>
+<td><strong>Ciclo</strong> (\(C\))</td>
+<td>Oscilaciones alrededor de la tendencia</td>
+<td>Varios años</td>
+</tr>
+<tr>
+<td><strong>Estacionalidad</strong> (\(E\))</td>
+<td>Patrón que se repite en el mismo período cada año</td>
+<td>Dentro del año</td>
+</tr>
+<tr>
+<td><strong>Irregular</strong> (\(I\))</td>
+<td>Lo que no explica nada de lo anterior</td>
+<td>Aleatorio</td>
+</tr>
+</tbody>
+</table></div>
+<p>Modelo aditivo \(Y = T + C + E + I\) (cuando la amplitud de las oscilaciones es constante) o multiplicativo \(Y = T\times C\times E\times I\) (cuando crece con el nivel de la serie).</p>
+<p>En el sector público colombiano la estacionalidad es evidente y conocida: la ejecución presupuestal se concentra en el último trimestre, y diciembre concentra radicaciones y liquidaciones. Cualquier comparación mes contra mes que ignore eso está mal hecha; por eso se comparan meses homólogos (diciembre contra diciembre) o se usan series desestacionalizadas.</p>
+<p><strong>Variaciones:</strong></p>
+<p>\[\text{Variación período a período} = \frac{Y_t - Y_{t-1}}{Y_{t-1}}\times 100\]</p>
+<p>\[\text{Variación anual (año corrido / doce meses)} = \frac{Y_t - Y_{t-12}}{Y_{t-12}}\times 100\]</p>
+<p><strong>Media móvil de orden \(k\):</strong> promedio de los \(k\) valores centrados en cada punto. Suaviza el componente irregular. Con \(k=3\) se pierde un dato en cada extremo; con \(k=12\), seis en cada extremo. <strong>A mayor \(k\), más suave la serie y más información de los extremos se pierde.</strong></p>
+<p><strong>Deflactación:</strong></p>
+<p>\[\text{Valor constante}_t = \frac{\text{Valor corriente}_t}{\text{IPC}_t / \text{IPC}_0}\]</p>
+<p>Y la relación entre las tres variaciones:</p>
+<p>\[1 + \text{var. real} = \frac{1 + \text{var. nominal}}{1 + \text{inflación}}\]</p>
+<h2 id="85-ejemplo-resuelto-de-serie-de-tiempo">8.5 Ejemplo resuelto de serie de tiempo</h2>
+<blockquote>
+<p><strong>Datos ficticios con fines didácticos.</strong> Valor mensual facturado por un contrato durante un año, en millones de pesos, con un índice de precios ficticio de base enero = 100.</p>
+</blockquote>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Mes</th>
+<th>Valor corriente</th>
+<th>Var. mensual</th>
+<th>Media móvil (3)</th>
+<th>IPC ficticio</th>
+<th>Valor constante</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ene</td>
+<td>620</td>
+<td>—</td>
+<td>—</td>
+<td>100,0</td>
+<td>620,00</td>
+</tr>
+<tr>
+<td>Feb</td>
+<td>640</td>
+<td>+3,23 %</td>
+<td>650,00</td>
+<td>100,9</td>
+<td>634,29</td>
+</tr>
+<tr>
+<td>Mar</td>
+<td>690</td>
+<td>+7,81 %</td>
+<td>663,33</td>
+<td>101,7</td>
+<td>678,47</td>
+</tr>
+<tr>
+<td>Abr</td>
+<td>660</td>
+<td>−4,35 %</td>
+<td>683,33</td>
+<td>102,4</td>
+<td>644,53</td>
+</tr>
+<tr>
+<td>May</td>
+<td>700</td>
+<td>+6,06 %</td>
+<td>696,67</td>
+<td>102,9</td>
+<td>680,27</td>
+</tr>
+<tr>
+<td>Jun</td>
+<td>730</td>
+<td>+4,29 %</td>
+<td>713,33</td>
+<td>103,3</td>
+<td>706,68</td>
+</tr>
+<tr>
+<td>Jul</td>
+<td>710</td>
+<td>−2,74 %</td>
+<td>733,33</td>
+<td>103,6</td>
+<td>685,33</td>
+</tr>
+<tr>
+<td>Ago</td>
+<td>760</td>
+<td>+7,04 %</td>
+<td>750,00</td>
+<td>104,0</td>
+<td>730,77</td>
+</tr>
+<tr>
+<td>Sep</td>
+<td>780</td>
+<td>+2,63 %</td>
+<td>763,33</td>
+<td>104,5</td>
+<td>746,41</td>
+</tr>
+<tr>
+<td>Oct</td>
+<td>750</td>
+<td>−3,85 %</td>
+<td>776,67</td>
+<td>105,0</td>
+<td>714,29</td>
+</tr>
+<tr>
+<td>Nov</td>
+<td>800</td>
+<td>+6,67 %</td>
+<td>803,33</td>
+<td>105,4</td>
+<td>759,01</td>
+</tr>
+<tr>
+<td>Dic</td>
+<td>860</td>
+<td>+7,50 %</td>
+<td>—</td>
+<td>106,0</td>
+<td>811,32</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Cómo se calculó una fila.</strong> Marzo: variación \(= (690-640)/640 = 7{,}81\,\%\). Media móvil \(= (640+690+660)/3 = 663{,}33\). Valor constante \(= 690/(101{,}7/100) = 678{,}47\).</p>
+<p><strong>Interpretación.</strong></p>
+<ul>
+<li><strong>Variación nominal enero–diciembre:</strong> \((860-620)/620 = \mathbf{38{,}71\,\%}\).</li>
+<li><strong>Inflación acumulada:</strong> \((106{,}0-100{,}0)/100 = \mathbf{6{,}00\,\%}\).</li>
+<li><strong>Variación real:</strong> \((811{,}32-620)/620 = \mathbf{30{,}86\,\%}\).</li>
+<li><strong>Verificación:</strong> \(\dfrac{1{,}3871}{1{,}0600} - 1 = 0{,}3086\) ✓.</li>
+</ul>
+<p><strong>Lectura institucional.</strong> El contrato facturó 38,71 % más en diciembre que en enero, pero <strong>casi 8 puntos porcentuales de ese aumento son inflación, no mayor actividad</strong>. El crecimiento real fue de 30,86 %. Reportar el 38,71 % como "aumento de la operación" sería inflar el resultado. Y ojo: <strong>38,71 % menos 6,00 % no da 30,86 %</strong>; la resta simple da 32,71 %, que es una aproximación, no el valor correcto. Con inflaciones pequeñas la aproximación es tolerable; con inflaciones altas, no.</p>
+<p>Además, la media móvil de 3 meses muestra una tendencia creciente sostenida (de 650 a 803), mientras que la serie original tiene tres caídas mensuales (abril, julio, octubre) que la media móvil suaviza. <strong>Esas caídas son ruido, no cambio de tendencia.</strong> Confundir una caída mensual con un cambio de tendencia es el error más frecuente al leer series de tiempo.</p>
+<hr />
+<h1 id="tablas-comparativas-de-decisión">Tablas comparativas de decisión</h1>
+<h2 id="qué-medida-de-tendencia-central-reporto">¿Qué medida de tendencia central reporto?</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Si...</th>
+<th>Reporta</th>
+<th>Y menciona</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>La variable es nominal</td>
+<td>Moda</td>
+<td>La distribución de frecuencias completa</td>
+</tr>
+<tr>
+<td>La variable es ordinal</td>
+<td>Mediana</td>
+<td>La moda</td>
+</tr>
+<tr>
+<td>Es cuantitativa y simétrica</td>
+<td>Media</td>
+<td>La desviación estándar</td>
+</tr>
+<tr>
+<td>Es cuantitativa y asimétrica</td>
+<td>Mediana</td>
+<td>La media, y explica la diferencia</td>
+</tr>
+<tr>
+<td>Hay atípicos confirmados</td>
+<td>Mediana</td>
+<td>Cuántos atípicos hay y de qué magnitud</td>
+</tr>
+<tr>
+<td>Promedias tasas de crecimiento</td>
+<td>Media geométrica</td>
+<td>Nunca la aritmética</td>
+</tr>
+<tr>
+<td>Los datos tienen pesos distintos</td>
+<td>Media ponderada</td>
+<td>El criterio de ponderación</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="desviación-estándar-o-coeficiente-de-variación">¿Desviación estándar o coeficiente de variación?</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Si...</th>
+<th>Usa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Describes un solo conjunto</td>
+<td>Desviación estándar</td>
+</tr>
+<tr>
+<td>Comparas conjuntos con la misma unidad y medias parecidas</td>
+<td>Desviación estándar</td>
+</tr>
+<tr>
+<td>Comparas conjuntos con unidades distintas</td>
+<td>Coeficiente de variación</td>
+</tr>
+<tr>
+<td>Comparas conjuntos con medias muy distintas</td>
+<td>Coeficiente de variación</td>
+</tr>
+<tr>
+<td>La media está cerca de cero o hay negativos</td>
+<td>RIC (ninguno de los dos sirve)</td>
+</tr>
+<tr>
+<td>Hay atípicos y quieres robustez</td>
+<td>RIC</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="chebyshev-o-regla-empírica">¿Chebyshev o regla empírica?</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Si...</th>
+<th>Usa</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No sabes nada sobre la forma</td>
+<td>Chebyshev</td>
+<td>Cota inferior, conservadora</td>
+</tr>
+<tr>
+<td>El histograma es acampanado y simétrico</td>
+<td>Regla empírica</td>
+<td>Estimación precisa</td>
+</tr>
+<tr>
+<td>La distribución es fuertemente asimétrica</td>
+<td>Chebyshev</td>
+<td>La regla empírica fallaría</td>
+</tr>
+<tr>
+<td>\(k = 1\)</td>
+<td>Ninguna cota de Chebyshev</td>
+<td>Chebyshev no dice nada para \(k \le 1\)</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="qué-gráfico">¿Qué gráfico?</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Tipo de dato</th>
+<th>Pregunta</th>
+<th>Gráfico</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Una cualitativa</td>
+<td>¿Cómo se reparten las categorías?</td>
+<td>Barras</td>
+</tr>
+<tr>
+<td>Una cualitativa</td>
+<td>¿Qué proporción del total?</td>
+<td>Circular (≤ 5 categorías)</td>
+</tr>
+<tr>
+<td>Una cuantitativa</td>
+<td>¿Qué forma tiene?</td>
+<td>Histograma</td>
+</tr>
+<tr>
+<td>Una cuantitativa</td>
+<td>¿Cuánto está por debajo de X?</td>
+<td>Ojiva</td>
+</tr>
+<tr>
+<td>Una cuantitativa, \(n\) pequeño</td>
+<td>Forma sin perder datos</td>
+<td>Tallo y hoja</td>
+</tr>
+<tr>
+<td>Una cuantitativa, varios grupos</td>
+<td>¿Cómo se comparan?</td>
+<td>Cajas y bigotes</td>
+</tr>
+<tr>
+<td>Dos cuantitativas</td>
+<td>¿Se relacionan?</td>
+<td>Dispersión</td>
+</tr>
+<tr>
+<td>Dos cualitativas</td>
+<td>¿Se asocian?</td>
+<td>Barras agrupadas + tabla de contingencia</td>
+</tr>
+<tr>
+<td>Una cuantitativa en el tiempo</td>
+<td>¿Cómo evolucionó?</td>
+<td>Líneas</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h1 id="errores-frecuentes">Errores frecuentes</h1>
+<h2 id="de-concepto">De concepto</h2>
+<ol>
+<li><strong>Confundir población con muestra</strong>, y por tanto parámetro con estadístico. Si el enunciado dice "los 40 expedientes de la entidad", es población. Si dice "una muestra de 40 expedientes", es muestra. Léelo dos veces.</li>
+<li><strong>Tratar un código numérico como variable cuantitativa.</strong> Un NIT, un número de contrato o un código UNSPSC son nominales. Prueba: si el promedio no significa nada, no es cuantitativa.</li>
+<li><strong>Calcular la media de una variable ordinal.</strong> "Riesgo promedio = 2,3" no significa nada. Reporta la mediana o la distribución.</li>
+<li><strong>Decir que \(r=0\) significa que no hay relación.</strong> Significa que no hay relación <strong>lineal</strong>. Puede haber una relación curva perfecta.</li>
+<li><strong>Interpretar el intercepto sin verificar que \(x=0\) tenga sentido</strong> y esté dentro del rango observado.</li>
+<li><strong>Afirmar causalidad desde una correlación.</strong> Es la falla más costosa profesionalmente.</li>
+<li><strong>Aplicar la regla empírica a una distribución claramente asimétrica.</strong></li>
+<li><strong>Creer que Chebyshev estima un porcentaje.</strong> Da una cota inferior.</li>
+</ol>
+<h2 id="de-cálculo">De cálculo</h2>
+<ol start="9">
+<li><strong>Usar \(n\) donde va \(n-1\)</strong>, o al revés. En Excel: <code>DESVEST.M</code> (muestra) vs. <code>DESVEST.P</code> (población).</li>
+<li><strong>Calcular la mediana sin ordenar los datos.</strong> Pasa más de lo que uno cree, sobre todo con listas largas.</li>
+<li><strong>Olvidar multiplicar por \(f_i\)</strong> en las fórmulas de datos agrupados. Da un número plausible pero incorrecto.</li>
+<li><strong>Redondear la amplitud hacia abajo</strong> en la construcción de intervalos: el dato máximo queda fuera.</li>
+<li><strong>Invertir el orden de argumentos en <code>PENDIENTE(y; x)</code>.</strong> Con \(x\) primero se obtiene la recta de \(x\) sobre \(y\), que es otra recta.</li>
+<li><strong>Promediar tasas de crecimiento con media aritmética.</strong> Sobrestima siempre.</li>
+<li><strong>Restar variaciones porcentuales para obtener la variación real.</strong> \(38{,}71 - 6{,}00 \ne 30{,}86\). Hay que dividir factores.</li>
+<li><strong>Interpolar en la clase equivocada</strong> al calcular mediana o cuartiles agrupados. La clase es la <strong>primera</strong> cuya frecuencia acumulada alcanza o supera la posición buscada.</li>
+<li><strong>Reportar la varianza en lugar de la desviación estándar.</strong> La varianza está en unidades al cuadrado y no se puede interpretar.</li>
+<li><strong>Confundir puntos porcentuales con porcentaje.</strong></li>
+</ol>
+<h2 id="de-presentación">De presentación</h2>
+<ol start="19">
+<li><strong>Truncar el eje vertical de un gráfico de barras.</strong></li>
+<li><strong>Dar más decimales de los que los datos soportan.</strong> Una asimetría de 1,915 sobre 12 datos sugiere una precisión que no existe. Dos decimales suelen ser suficientes; tres, casi nunca.</li>
+<li><strong>Reportar un número sin interpretarlo.</strong> "\(s = 14{,}32\)" no es una conclusión. "Los tiempos varían típicamente unos 14 días en torno a un promedio de 46, es decir un 31 % de variabilidad relativa" sí lo es.</li>
+<li><strong>No declarar la fuente, el período ni la unidad de los datos.</strong> En un informe institucional esto no es un detalle de estilo: es lo que hace verificable el documento.</li>
+<li><strong>Eliminar atípicos sin documentarlo.</strong> Si un dato se excluye, la exclusión y su justificación van en el informe.</li>
+</ol>
+</main>
+</body>
+</html>

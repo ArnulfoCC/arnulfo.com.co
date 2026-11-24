@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recursos — Estadística Descriptiva</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ 06 - Estadística Descriptiva / 5. Recursos</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="recursos--estadística-descriptiva">Recursos — Estadística Descriptiva</h1>
+<blockquote>
+<p><strong>Advertencia de verificación.</strong> Aquí se citan recursos <strong>a nivel de sitio, canal o institución</strong>, sin URLs específicas, ISBN ni números de página, porque esos detalles cambian y no puedo garantizarlos. Para cada recurso se indica <strong>cómo buscarlo</strong>. Si al buscarlo no aparece o cambió de nombre, no insistas: hay sustitutos equivalentes y en la última sección explico cómo evaluarlos.</p>
+<p>Lo primero, siempre: <strong>el material del aula virtual del Poli</strong>. Los recursos de esta lista son complemento, no reemplazo. Si el aula ofrece un texto guía, ese es el que manda para efectos de la evaluación (sobre todo en convenciones de cálculo de cuartiles, que difieren entre textos).</p>
+</blockquote>
+<hr />
+<h2 id="1-libros-y-textos-abiertos">1. Libros y textos abiertos</h2>
+<h3 id="openstax--introductory-statistics--introductory-business-statistics">OpenStax — <em>Introductory Statistics</em> / <em>Introductory Business Statistics</em></h3>
+<p><strong>Qué es.</strong> OpenStax es la iniciativa de libros de texto abiertos de la Universidad Rice. Sus libros de estadística introductoria son gratuitos, descargables en PDF, y cubren exactamente el temario de un primer curso: tipos de variable, tablas y gráficos, medidas de tendencia central y dispersión, posición, y correlación y regresión simple.</p>
+<p><strong>Para qué escenarios sirve.</strong> 1 a 7. Los capítulos iniciales (datos y muestreo; gráficos; medidas descriptivas) corresponden a los escenarios 1 a 6; el capítulo de regresión lineal corresponde al 7. Los números índice <strong>no</strong> suelen estar cubiertos: para el escenario 8 usa otras fuentes.</p>
+<p><strong>Cuánto toma.</strong> Un capítulo son 40 a 60 minutos de lectura, más los ejercicios. Como referencia de consulta puntual, 10 minutos.</p>
+<p><strong>Cómo buscarlo.</strong> Busca "OpenStax Introductory Statistics". El sitio de OpenStax (openstax.org) es el oficial. Está en inglés; hay versiones en español de algunos títulos, pero no de todos: verifica en el propio sitio.</p>
+<p><strong>Ventaja.</strong> Los ejercicios tienen solución y el rigor de las definiciones es alto. <strong>Desventaja:</strong> en inglés, y su convención de cuartiles puede no coincidir con la del curso.</p>
+<h3 id="textos-abiertos-en-español-de-universidades-latinoamericanas">Textos abiertos en español de universidades latinoamericanas</h3>
+<p><strong>Qué es.</strong> Varias universidades públicas de la región (mexicanas, argentinas, colombianas) publican apuntes y libros de estadística descriptiva en repositorios institucionales abiertos.</p>
+<p><strong>Para qué escenarios sirve.</strong> Todos, incluido el 8 (números índice), que en la tradición hispanoamericana sí suele estar en los cursos introductorios, a diferencia de los textos estadounidenses.</p>
+<p><strong>Cuánto toma.</strong> Variable.</p>
+<p><strong>Cómo buscarlo.</strong> Busca en Google Académico o en el buscador general: <code>"estadística descriptiva" apuntes universidad filetype:pdf</code>, o busca en repositorios institucionales concretos (por ejemplo, el repositorio de la Universidad Nacional de Colombia). <strong>No te quedes con el primer PDF que aparezca:</strong> verifica que tenga autor institucional identificable y que las fórmulas de datos agrupados coincidan con las del resumen teórico de esta carpeta.</p>
+<p><strong>Advertencia.</strong> La calidad es muy dispar. Un apunte sin autor ni institución no es una fuente; es un archivo.</p>
+<h3 id="manuales-metodológicos-del-dane">Manuales metodológicos del DANE</h3>
+<p><strong>Qué es.</strong> El DANE publica fichas metodológicas y manuales de sus operaciones estadísticas (IPC, GEIH, PIB, encuestas). No son libros de texto, pero explican <strong>cómo se construye</strong> un indicador real: definición de la población objetivo, diseño muestral, tratamiento de la no respuesta, ponderadores, construcción de índices.</p>
+<p><strong>Para qué escenarios sirve.</strong> Escenario 1 (población, muestra, muestreo, definiciones operativas) y escenario 8 (números índice, cambio de base, empalme de series). La ficha metodológica del IPC es la mejor explicación práctica de un índice de Laspeyres que vas a encontrar, y además es la que necesitas para tu trabajo.</p>
+<p><strong>Cuánto toma.</strong> 30 a 60 minutos por documento metodológico.</p>
+<p><strong>Cómo buscarlo.</strong> En el sitio del DANE (dane.gov.co), cada operación estadística tiene una sección de "Metodología" o "Ficha metodológica". Búscalo desde la página de la operación (IPC, GEIH, PIB), no desde el buscador general.</p>
+<p><strong>Por qué te conviene especialmente.</strong> Ya trabajas con estos boletines. Leer la metodología del IPC te sirve para la materia <strong>y</strong> para el análisis de inflación de la DEAJ. Es el recurso con doble retorno más claro de esta lista.</p>
+<hr />
+<h2 id="2-canales-de-youtube-en-español">2. Canales de YouTube en español</h2>
+<p>Los canales cambian de nombre, se archivan o dejan de publicar. Por eso los describo por <strong>tipo</strong> y por <strong>cómo buscarlos</strong>, y te doy el criterio para evaluar si un video sirve.</p>
+<h3 id="canales-de-matemáticas-y-estadística-en-español">Canales de matemáticas y estadística en español</h3>
+<p><strong>Qué buscar.</strong> Términos exactos por tema, no genéricos:</p>
+<ul>
+<li>"tabla de frecuencias datos agrupados ejemplo resuelto"</li>
+<li>"regla de Sturges intervalos de clase"</li>
+<li>"media mediana moda datos agrupados"</li>
+<li>"cuartiles datos agrupados fórmula"</li>
+<li>"varianza muestral y poblacional diferencia n-1"</li>
+<li>"coeficiente de correlación de Pearson ejemplo paso a paso"</li>
+<li>"regresión lineal mínimos cuadrados ejemplo a mano"</li>
+<li>"índice de Laspeyres y Paasche ejercicio resuelto"</li>
+</ul>
+<p><strong>Cuánto toma.</strong> Un video bueno de un tema puntual dura 8 a 15 minutos. Si dura 45, casi siempre es una clase grabada y rinde menos por minuto que leer.</p>
+<p><strong>Cómo evaluar un video antes de invertirle 15 minutos.</strong> Salta al minuto 3 y verifica tres cosas: (1) ¿escribe la fórmula completa antes de reemplazar? (2) ¿muestra la tabla intermedia? (3) ¿el ejemplo tiene números que puedas verificar? Si falla alguna, busca otro. Hay cientos.</p>
+<p><strong>Advertencia de convención.</strong> Muchos videos hispanohablantes usan el método de posición \(n\cdot p\) para cuartiles, mientras Excel usa \(1+(n-1)p\). Si tu resultado no coincide con el del video, verifica primero cuál método está usando antes de suponer que te equivocaste.</p>
+<h3 id="canales-institucionales-de-universidades">Canales institucionales de universidades</h3>
+<p><strong>Qué es.</strong> Varias universidades públicas de habla hispana publican sus clases grabadas de estadística descriptiva en canales institucionales.</p>
+<p><strong>Ventaja.</strong> Suelen seguir un programa completo en orden, lo que te permite acompañar el curso escenario por escenario en lugar de saltar entre videos sueltos.</p>
+<p><strong>Cómo buscarlo.</strong> Busca <code>"estadística descriptiva" curso completo universidad</code> y filtra por canales con nombre institucional y con listas de reproducción ordenadas.</p>
+<hr />
+<h2 id="3-fuentes-de-datos-reales-colombianos-para-practicar">3. Fuentes de datos reales colombianos para practicar</h2>
+<p>Esta es la sección que más te va a servir, porque <strong>puedes practicar con datos que ya conoces</strong>. La instrucción general: descarga un conjunto, tabúlalo, grafícalo, calcula las medidas y escribe tres frases de interpretación. Eso es un taller completo del curso hecho con datos reales.</p>
+<h3 id="dane--departamento-administrativo-nacional-de-estadística">DANE — Departamento Administrativo Nacional de Estadística</h3>
+<p><strong>Qué es.</strong> La fuente oficial de estadísticas de Colombia. Publica boletines técnicos y <strong>anexos estadísticos en Excel</strong> de IPC, PIB, mercado laboral (GEIH), pobreza, demografía y comercio.</p>
+<p><strong>Para qué escenarios sirve.</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Escenario</th>
+<th>Qué usar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Fichas metodológicas: población objetivo, unidad de observación, diseño muestral</td>
+</tr>
+<tr>
+<td>2 y 3</td>
+<td>Cualquier anexo con distribuciones por categoría: tabular y graficar</td>
+</tr>
+<tr>
+<td>4 y 5</td>
+<td>Series de IPC o de tasa de desempleo por ciudad: media, mediana, dispersión entre ciudades</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Distribución de salarios o de ingresos: asimetría evidente</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Dos series económicas: correlación (con la advertencia de correlación espuria por tendencia común)</td>
+</tr>
+<tr>
+<td><strong>8</strong></td>
+<td><strong>IPC</strong>: es literalmente un índice de Laspeyres. Cambio de base, variación mensual, anual y año corrido</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Cuánto toma.</strong> Descargar un anexo: 5 minutos. Un ejercicio completo sobre él: 45 a 60 minutos.</p>
+<p><strong>Cómo buscarlo.</strong> dane.gov.co → sección de estadísticas por tema → la operación que te interesa → "Anexos" o "Cuadros de salida". Los anexos vienen en <code>.xlsx</code>, listos para Excel.</p>
+<p><strong>Ventaja injusta que tienes.</strong> Ya descargas estos anexos para el análisis de inflación, de PIB y de empleo de la DEAJ. El mismo archivo te sirve para el taller del curso. Literalmente no tienes que buscar datos.</p>
+<h3 id="datosgovco--portal-de-datos-abiertos-de-colombia">datos.gov.co — Portal de Datos Abiertos de Colombia</h3>
+<p><strong>Qué es.</strong> El portal oficial de datos abiertos del Estado colombiano. Miles de conjuntos de datos publicados por entidades públicas, descargables en <code>.csv</code> y consultables por API.</p>
+<p><strong>Para qué escenarios sirve.</strong> 1 a 7. Es la mejor fuente para practicar <strong>clasificación de variables</strong> (escenario 1), porque cada conjunto tiene decenas de columnas de todos los tipos, y para <strong>tablas de contingencia</strong> (escenario 7), porque casi siempre hay varias columnas categóricas cruzables.</p>
+<p><strong>Cuánto toma.</strong> 10 minutos para encontrar y descargar un conjunto. 30 a 60 minutos para un ejercicio.</p>
+<p><strong>Cómo buscarlo.</strong> datos.gov.co, buscador interno por tema o por entidad. Los conjuntos del SECOP están publicados ahí.</p>
+<p><strong>Advertencia.</strong> Los conjuntos grandes (cientos de miles de filas) pueden ser incómodos en Excel. Para practicar, filtra a una entidad, un año o una modalidad antes de descargar, o usa la vista previa del portal para acotar. Un conjunto de 500 a 5.000 filas es ideal para esta materia.</p>
+<h3 id="secop-ii-a-través-de-datosgovco">SECOP II (a través de datos.gov.co)</h3>
+<p><strong>Qué es.</strong> Los datos de contratación pública están publicados como conjuntos de datos abiertos, con columnas de entidad, objeto, modalidad, valor, fechas, tipo de proveedor y estado.</p>
+<p><strong>Para qué escenarios sirve.</strong> Es el conjunto de datos <strong>perfecto</strong> para esta materia, porque combina todos los tipos de variable en una sola tabla:</p>
+<ul>
+<li>Modalidad de contratación → cualitativa nominal.</li>
+<li>Tipo de contrato → cualitativa nominal.</li>
+<li>Valor del contrato → cuantitativa continua, <strong>fuertemente asimétrica a la derecha y llena de atípicos</strong>. Ideal para los escenarios 4, 5 y 6.</li>
+<li>Número de modificaciones o adiciones → cuantitativa discreta.</li>
+<li>Plazo en días → cuantitativa.</li>
+<li>Departamento o entidad → cualitativa nominal, para tablas de contingencia.</li>
+</ul>
+<p><strong>Ejercicio recomendado.</strong> Descarga los contratos de una entidad en un año. Construye la tabla de frecuencias del valor con Sturges, grafica el histograma, calcula media y mediana (verás una diferencia enorme: es la distribución asimétrica de manual), identifica atípicos por 1,5·RIC, y cruza modalidad contra tipo de contrato en una tabla de contingencia con tabla dinámica. <strong>Eso cubre los escenarios 2, 3, 4, 5 y 7 con un solo archivo.</strong></p>
+<p><strong>Cuánto toma.</strong> 90 minutos el ejercicio completo. Es el mejor uso de 90 minutos que puedes hacer en esta materia.</p>
+<p><strong>Nota práctica.</strong> Ya tienes experiencia consultando el SECOP por API Socrata desde tu trabajo. Esa misma vía sirve para bajar un conjunto acotado sin lidiar con archivos gigantes.</p>
+<h3 id="banco-de-la-república">Banco de la República</h3>
+<p><strong>Qué es.</strong> El banco central publica series estadísticas de tasas de interés, tasa de cambio, agregados monetarios, inflación y expectativas.</p>
+<p><strong>Para qué escenarios sirve.</strong> Escenario 8, sobre todo. Las series de tasa de cambio y de inflación son el material natural para variación porcentual, medias móviles, números índice y deflactación.</p>
+<p><strong>Cuánto toma.</strong> 30 a 45 minutos por ejercicio de serie de tiempo.</p>
+<p><strong>Cómo buscarlo.</strong> El sitio del Banco de la República (banrep.gov.co) tiene una sección de estadísticas con series descargables. Busca "estadísticas" o "series estadísticas" desde la página principal.</p>
+<h3 id="otras-fuentes-útiles">Otras fuentes útiles</h3>
+<ul>
+<li><strong>Rama Judicial / Consejo Superior de la Judicatura:</strong> estadísticas de gestión judicial (ingresos, egresos, inventario de procesos). Son datos de conteo y de tiempos, ideales para los escenarios 2, 4 y 5, y con el contexto que mejor conoces.</li>
+<li><strong>Colombia Compra Eficiente:</strong> información agregada sobre acuerdos marco y tiendas virtuales.</li>
+<li><strong>Portal de la Función Pública / SIGEP:</strong> datos de empleo público.</li>
+</ul>
+<p><strong>Regla general al usar cualquiera de estas fuentes en un trabajo académico:</strong> cita la entidad, la operación estadística, el período y la fecha de consulta. Es exactamente la misma disciplina que ya aplicas en los estudios del sector.</p>
+<hr />
+<h2 id="4-herramientas">4. Herramientas</h2>
+<h3 id="excel--tu-herramienta-principal">Excel — tu herramienta principal</h3>
+<p><strong>Qué es.</strong> Ya lo manejas a nivel avanzado, así que aquí lo relevante es qué <strong>activar</strong> y qué <strong>evitar</strong>.</p>
+<p><strong>Activa esto antes de empezar el bloque:</strong></p>
+<ul>
+<li><strong>Herramientas para análisis</strong> (Archivo → Opciones → Complementos → Complementos de Excel → Herramientas para análisis). Agrega el menú "Análisis de datos" en la pestaña Datos, con las rutinas de <strong>Estadística descriptiva</strong>, <strong>Histograma</strong>, <strong>Media móvil</strong>, <strong>Regresión</strong> y <strong>Correlación</strong>. La rutina de Estadística descriptiva produce en un clic: media, error típico, mediana, moda, desviación estándar, varianza, curtosis, coeficiente de asimetría, rango, mínimo, máximo, suma y cuenta. <strong>Úsala para verificar, no para reemplazar el cálculo a mano mientras aprendes.</strong></li>
+</ul>
+<p><strong>Para qué escenarios sirve.</strong> Todos. Ver la sección "Excel para esta materia" en <code>1. Guía de estudio.md</code> para la lista completa de funciones.</p>
+<p><strong>Cuánto toma.</strong> Activar el complemento: 2 minutos. Montar tu plantilla de trabajo (bloque de detección de atípicos, tabla de frecuencias con <code>FRECUENCIA</code>, bloque de regresión): 45 minutos una sola vez, y te sirve todo el semestre y el resto de la carrera.</p>
+<p><strong>Evita:</strong> hacer los cálculos solo con las rutinas automáticas antes de entender la fórmula. En el examen no hay Excel.</p>
+<h3 id="geogebra">GeoGebra</h3>
+<p><strong>Qué es.</strong> Software matemático gratuito. Tiene una vista de <strong>hoja de cálculo con análisis estadístico integrado</strong> que genera histogramas, cajas y bigotes, y ajustes de regresión con muy pocos clics, y una vista de <strong>probabilidad</strong> útil más adelante.</p>
+<p><strong>Para qué escenarios sirve.</strong> 3 (visualización), 5 (cajas y bigotes) y 7 (dispersión con recta ajustada). Su ventaja sobre Excel es que la construcción del gráfico es más directa y visualmente más limpia para entender qué está pasando.</p>
+<p><strong>Cuánto toma.</strong> 20 minutos para aprender la vista de hoja de cálculo y análisis de una variable.</p>
+<p><strong>Cómo buscarlo.</strong> geogebra.org. Funciona en navegador, sin instalar. Busca "GeoGebra Calculadora Estadística" o entra a la suite de cálculo y activa la vista de hoja de cálculo.</p>
+<p><strong>Cuándo usarlo en vez de Excel.</strong> Cuando quieras <em>ver</em> qué pasa al mover un dato: GeoGebra actualiza el gráfico en vivo. Es especialmente útil para entender por qué la mediana no se mueve y la media sí cuando arrastras un valor extremo.</p>
+<h3 id="python-con-pandas--horizonte-para-el-próximo-semestre">Python con pandas — horizonte para el próximo semestre</h3>
+<p><strong>Qué es.</strong> Python es el lenguaje estándar en ciencia de datos. La biblioteca <strong>pandas</strong> maneja tablas, y <strong>matplotlib</strong> o <strong>seaborn</strong> producen gráficos.</p>
+<p><strong>Por qué te lo menciono ahora si nunca has programado.</strong> Porque conviene que sepas hacia dónde va esto, no porque lo necesites este semestre. Todo lo que haces a mano en esta materia tiene una línea equivalente:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Lo que haces en Excel</th>
+<th>Su equivalente en pandas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PROMEDIO</code>, <code>MEDIANA</code>, <code>DESVEST.M</code></td>
+<td><code>df['col'].mean()</code>, <code>.median()</code>, <code>.std()</code></td>
+</tr>
+<tr>
+<td>Rutina de Estadística descriptiva completa</td>
+<td><code>df.describe()</code> — una sola línea</td>
+</tr>
+<tr>
+<td>Tabla de frecuencias por categoría</td>
+<td><code>df['col'].value_counts()</code></td>
+</tr>
+<tr>
+<td><code>FRECUENCIA</code> con intervalos</td>
+<td><code>pd.cut(df['col'], bins=6).value_counts()</code></td>
+</tr>
+<tr>
+<td>Tabla de contingencia</td>
+<td><code>pd.crosstab(df['a'], df['b'])</code></td>
+</tr>
+<tr>
+<td><code>COEF.DE.CORREL</code></td>
+<td><code>df['x'].corr(df['y'])</code></td>
+</tr>
+<tr>
+<td>Histograma</td>
+<td><code>df['col'].hist()</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Para qué escenarios sirve.</strong> Ninguno de este curso, formalmente. Pero <strong>Pensamiento Algorítmico</strong> (Bloque A) te dará la base, y <strong>Análisis Descriptivo de Datos</strong> el semestre entrante te lo va a exigir.</p>
+<p><strong>Cuánto toma.</strong> No lo empieces ahora. Con seis materias y 10 a 15 horas semanales, meter Python en el Bloque B es cómo perder el examen final de Estadística Descriptiva. <strong>Después del 14 de diciembre</strong>, si te quedan dos semanas libres, dedícale 6 a 8 horas a hacer en pandas los mismos ejercicios que ya hiciste en Excel. Reconocer el resultado que ya conoces es la forma más rápida de aprender la sintaxis.</p>
+<p><strong>Cómo empezar cuando llegue el momento.</strong> Google Colab (colab.research.google.com) corre Python en el navegador, gratis, sin instalar nada. Es el punto de entrada con menos fricción.</p>
+<hr />
+<h2 id="5-cursos-abiertos">5. Cursos abiertos</h2>
+<h3 id="plataformas-de-mooc">Plataformas de MOOC</h3>
+<p><strong>Qué buscar.</strong> En Coursera, edX o similares, busca cursos introductorios de estadística descriptiva o de "análisis de datos" en español. Muchos permiten acceso al material sin pagar (modalidad de oyente); el pago es por el certificado.</p>
+<p><strong>Para qué escenarios sirve.</strong> Todos, pero con una advertencia importante: <strong>un MOOC completo cuesta entre 15 y 30 horas</strong>, que es más de lo que tienes disponible para toda la materia. <strong>No hagas un MOOC completo en paralelo al curso.</strong> Úsalo como fuente de módulos sueltos: si un tema no te entra, mira ese módulo específico y sal.</p>
+<p><strong>Cuánto toma.</strong> Módulo suelto: 20 a 40 minutos. Curso completo: 15 a 30 horas. <strong>No lo hagas.</strong></p>
+<p><strong>Cómo buscarlo.</strong> Busca directamente en la plataforma por "estadística descriptiva español" o "introducción al análisis de datos". Verifica que la institución que lo ofrece sea identificable.</p>
+<h3 id="recursos-de-práctica-interactiva">Recursos de práctica interactiva</h3>
+<p><strong>Qué buscar.</strong> Sitios de ejercicios de estadística con corrección automática. Son útiles para el escenario 1 (clasificación de variables) y para los cálculos rutinarios, porque la retroalimentación es inmediata.</p>
+<p><strong>Cuánto toma.</strong> Sesiones de 15 a 20 minutos.</p>
+<p><strong>Advertencia.</strong> No sustituyen resolver ejercicios completos a mano con la tabla intermedia. En el examen te van a pedir la tabla, no solo el número.</p>
+<hr />
+<h2 id="6-cómo-evaluar-un-recurso-que-no-está-en-esta-lista">6. Cómo evaluar un recurso que no está en esta lista</h2>
+<p>Vas a encontrar recursos que yo no conozco. Estos son los criterios:</p>
+<p><strong>Para un texto o apunte:</strong></p>
+<ol>
+<li>¿Tiene <strong>autor o institución identificable</strong>? Un PDF sin autoría no es una fuente.</li>
+<li>¿Distingue explícitamente <strong>muestral de poblacional</strong> (\(n-1\) vs. \(n\))? Si no lo hace, es superficial y te va a inducir errores.</li>
+<li>¿Da las fórmulas de <strong>datos agrupados</strong>, no solo las de datos simples? Muchos recursos en línea solo cubren datos simples, y la evaluación del Poli casi seguro pide agrupados.</li>
+<li>¿Los ejemplos tienen <strong>números verificables</strong>? Si no puedes reproducir el resultado, no lo uses.</li>
+</ol>
+<p><strong>Para un video:</strong></p>
+<ol>
+<li>¿Escribe la fórmula completa <strong>antes</strong> de reemplazar números?</li>
+<li>¿Muestra la <strong>tabla intermedia</strong> completa?</li>
+<li>¿Declara qué convención usa para cuartiles?</li>
+</ol>
+<p><strong>Bandera roja universal:</strong> cualquier recurso que diga "correlación implica causalidad", que use "media" para variables ordinales, o que aplique la regla empírica sin mencionar el supuesto de normalidad. Si comete uno de esos tres errores, ciérralo.</p>
+<hr />
+<h2 id="7-ruta-mínima-de-recursos">7. Ruta mínima de recursos</h2>
+<p>Si solo vas a usar tres cosas en las ocho semanas, que sean estas:</p>
+<ol>
+<li><strong>El aula virtual del Poli.</strong> Manda sobre todo lo demás, especialmente en convenciones de cálculo.</li>
+<li><strong>Un conjunto del SECOP II bajado de datos.gov.co</strong>, trabajado de principio a fin en Excel. Cubre los escenarios 2 a 7 con datos que ya entiendes.</li>
+<li><strong>El anexo estadístico del IPC del DANE</strong>, para el escenario 8. Es un índice de Laspeyres real y además es tu trabajo.</li>
+</ol>
+<p>Todo lo demás es opcional. Con 3 horas semanales, más recursos no es mejor: es dispersión.</p>
+</main>
+</body>
+</html>

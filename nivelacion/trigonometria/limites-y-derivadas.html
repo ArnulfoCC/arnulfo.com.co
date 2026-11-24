@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5. Límites y derivadas trigonométricas</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ 00 - Nivelación (antes del 25 de agosto)/Trigonometría a fondo / 5. Límites y derivadas trigonométricas</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="5-límites-y-derivadas-trigonométricas">5. Límites y derivadas trigonométricas</h1>
+<h2 id="1-por-qué-esto-importa">1. Por qué esto importa</h2>
+<p>Aquí es donde la trigonometría deja de ser un tema aparte y se convierte en Cálculo Diferencial. Todo lo que viste en los archivos 2, 3 y 4 —el círculo unitario, las identidades, las gráficas, las inversas— existía para poder llegar a esta línea:</p>
+<p>\[\frac{d}{dx}\operatorname{sen} x = \cos x\]</p>
+<p>Y esa fórmula, tan limpia, <strong>es verdad solo si trabajas en radianes</strong>. Si midieras los ángulos en grados, la derivada del seno sería</p>
+<p>\[\frac{d}{dx}\operatorname{sen}(x^\circ) = \frac{\pi}{180}\cos(x^\circ) \approx 0{,}01745\cos(x^\circ)\]</p>
+<p>Ese factor \(\pi/180\) te perseguiría en cada derivada, en cada regla de la cadena, en cada problema. Todo el cálculo estaría lleno de basura numérica. <strong>Esa es la razón real de que el cálculo use radianes</strong>: no es una manía de los profesores, es que el radián es la única unidad angular que hace que \(\lim_{x\to 0}\frac{\operatorname{sen} x}{x} = 1\), y de ese límite sale toda la maquinaria.</p>
+<p>Piénsalo así: el radián está definido de modo que <strong>el ángulo es igual a la longitud del arco</strong> en el círculo unitario. Y para ángulos chiquitos, el arco y su cuerda vertical (que es el seno) son casi lo mismo. Esa "casi igualdad" es literalmente el límite notable, y es lo que hace que las derivadas salgan sin constantes molestas.</p>
+<p><strong>Qué te van a preguntar en Cálculo Diferencial</strong>, casi con seguridad:</p>
+<ul>
+<li>Uno o dos límites que se reduzcan a los notables por manipulación algebraica.</li>
+<li>La deducción de \(\frac{d}{dx}\operatorname{sen} x\) desde la definición por límite (es un clásico de parcial teórico).</li>
+<li>Cuatro o cinco derivadas con regla de la cadena y trigonométricas encadenadas.</li>
+<li>Una derivación implícita con seno o coseno.</li>
+<li>Un problema de razones de cambio relacionadas donde la variable es un ángulo.</li>
+</ul>
+<p>Y esto no muere aquí: en Cálculo Integral (segundo semestre) estas derivadas se leen al revés, y en Ciencias de Datos aparecen en series de Fourier, en procesamiento de señales y en las funciones de activación periódicas de algunas redes neuronales. Aprenderlo bien ahora te ahorra tres semestres de sufrimiento.</p>
+<p>Este archivo es largo. Trabájalo en dos sesiones de dos horas: secciones 1 a 4 el primer día, 5 a 10 el segundo.</p>
+<hr />
+<h2 id="2-los-dos-límites-notables">2. Los dos límites notables</h2>
+<p>\[\boxed{\lim_{x\to 0}\frac{\operatorname{sen} x}{x} = 1} \qquad\qquad \boxed{\lim_{x\to 0}\frac{1-\cos x}{x} = 0}\]</p>
+<p>Estos dos son la base de todo. Memorízalos y entiéndelos.</p>
+<h3 id="de-dónde-sale-el-primero-el-arco-y-la-cuerda">De dónde sale el primero: el arco y la cuerda</h3>
+<p>Toma el círculo unitario y un ángulo \(x\) pequeño y positivo. Marca tres cantidades:</p>
+<ul>
+<li>La <strong>altura</strong> del punto sobre el eje horizontal: \(\operatorname{sen} x\).</li>
+<li>La <strong>longitud del arco</strong> desde \((1,0)\) hasta el punto: exactamente \(x\) (por definición de radián en el círculo unitario).</li>
+<li>La <strong>tangente</strong> trazada en \((1,0)\) hasta cortar el radio extendido: \(\tan x\).</li>
+</ul>
+<p>Geométricamente se cumple, para \(0 < x < \pi/2\):</p>
+<p>\[\operatorname{sen} x < x < \tan x\]</p>
+<p>La primera desigualdad dice que <strong>la cuerda vertical es más corta que el arco</strong> (el camino recto es más corto que el curvo). La segunda compara áreas de un sector circular contra un triángulo que lo contiene.</p>
+<p>Ahora divide todo entre \(\operatorname{sen} x\) (positivo, así que las desigualdades no se voltean):</p>
+<p>\[1 < \frac{x}{\operatorname{sen} x} < \frac{1}{\cos x}\]</p>
+<p>Invierte todo (esto sí voltea las desigualdades):</p>
+<p>\[\cos x < \frac{\operatorname{sen} x}{x} < 1\]</p>
+<p>Cuando \(x \to 0\), el extremo izquierdo \(\cos x \to 1\) y el derecho es constante en \(1\). Por el <strong>teorema del emparedado</strong>, lo del medio no tiene escapatoria: tiende a \(1\).</p>
+<p>La intuición en una frase: <strong>para ángulos muy pequeños, el arco y la altura son prácticamente iguales</strong>, entonces su cociente tiende a \(1\). Compruébalo: \(\operatorname{sen}(0{,}01) = 0{,}00999983...\), y el cociente da \(0{,}9999833\).</p>
+<h3 id="de-dónde-sale-el-segundo">De dónde sale el segundo</h3>
+<p>Este se deduce algebraicamente del primero, multiplicando por el conjugado:</p>
+<p>\[\frac{1-\cos x}{x}\cdot\frac{1+\cos x}{1+\cos x} = \frac{1-\cos^2 x}{x(1+\cos x)} = \frac{\operatorname{sen}^2 x}{x(1+\cos x)} = \frac{\operatorname{sen} x}{x}\cdot\frac{\operatorname{sen} x}{1+\cos x}\]</p>
+<p>Al tomar el límite: el primer factor \(\to 1\); el segundo \(\to \dfrac{0}{1+1} = 0\). Producto: \(1 \cdot 0 = 0\). ✔</p>
+<p><strong>Bono que vale oro</strong> (aparece más de lo que uno cree):</p>
+<p>\[\lim_{x\to 0}\frac{1-\cos x}{x^2} = \frac{1}{2}\]</p>
+<p>Con la misma manipulación: \(\dfrac{\operatorname{sen} x}{x}\cdot\dfrac{\operatorname{sen} x}{x}\cdot\dfrac{1}{1+\cos x} \to 1\cdot 1\cdot\dfrac{1}{2}\).</p>
+<h3 id="la-regla-general-que-resuelve-el-80-de-los-ejercicios">La regla general que resuelve el 80% de los ejercicios</h3>
+<p>\[\lim_{u\to 0}\frac{\operatorname{sen}(\square)}{\square} = 1 \quad \text{donde } \square \text{ es cualquier cosa que tienda a } 0\]</p>
+<p>Lo importante es que <strong>lo de adentro del seno y lo del denominador sean idénticos</strong>. Si no lo son, los fabricas multiplicando y dividiendo.</p>
+<span id="límite-1-displaystylelim_xto-0fracoperatornamesen5xx"></span><h3 id="límite-1-math99">Límite 1: \(\displaystyle\lim_{x\to 0}\frac{\operatorname{sen}(5x)}{x}\)</h3>
+<p>El argumento es \(5x\) pero el denominador es \(x\). No coinciden. Multiplico y divido por \(5\):</p>
+<p>\[\frac{\operatorname{sen}(5x)}{x} = 5\cdot\frac{\operatorname{sen}(5x)}{5x}\]</p>
+<p>Ahora sí coinciden. Cuando \(x\to0\), también \(5x\to0\), entonces:</p>
+<p>\[\lim_{x\to 0}\frac{\operatorname{sen}(5x)}{x} = 5 \cdot 1 = \boxed{5}\]</p>
+<p><strong>Atajo verificado</strong>: \(\lim_{x\to0}\dfrac{\operatorname{sen}(ax)}{x} = a\).</p>
+<span id="límite-2-displaystylelim_xto-0fracoperatornamesen3xoperatornamesen7x"></span><h3 id="límite-2-math106">Límite 2: \(\displaystyle\lim_{x\to 0}\frac{\operatorname{sen}(3x)}{\operatorname{sen}(7x)}\)</h3>
+<p>Arreglo arriba y abajo por separado, dividiendo todo entre \(x\):</p>
+<p>\[\frac{\operatorname{sen}(3x)}{\operatorname{sen}(7x)} = \frac{\dfrac{\operatorname{sen}(3x)}{x}}{\dfrac{\operatorname{sen}(7x)}{x}} = \frac{3\cdot\dfrac{\operatorname{sen}(3x)}{3x}}{7\cdot\dfrac{\operatorname{sen}(7x)}{7x}} \longrightarrow \frac{3\cdot 1}{7\cdot 1} = \boxed{\dfrac{3}{7}}\]</p>
+<span id="límite-3-displaystylelim_xto-0fractan-xx"></span><h3 id="límite-3-math108">Límite 3: \(\displaystyle\lim_{x\to 0}\frac{\tan x}{x}\)</h3>
+<p>Descompongo la tangente:</p>
+<p>\[\frac{\tan x}{x} = \frac{\operatorname{sen} x}{x\cos x} = \frac{\operatorname{sen} x}{x}\cdot\frac{1}{\cos x} \longrightarrow 1\cdot\frac{1}{1} = \boxed{1}\]</p>
+<span id="límite-4-displaystylelim_xto-0frac1-cos-xxoperatornamesen-x"></span><h3 id="límite-4-math109">Límite 4: \(\displaystyle\lim_{x\to 0}\frac{1-\cos x}{x\,\operatorname{sen} x}\)</h3>
+<p>Aquí no puedo usar directo el segundo notable porque el denominador tiene \(x\operatorname{sen} x\), no \(x\). Conjugado:</p>
+<p>\[\frac{1-\cos x}{x\operatorname{sen} x}\cdot\frac{1+\cos x}{1+\cos x} = \frac{\operatorname{sen}^2 x}{x\operatorname{sen} x(1+\cos x)} = \frac{\operatorname{sen} x}{x}\cdot\frac{1}{1+\cos x}\]</p>
+<p>\[\longrightarrow 1\cdot\frac{1}{2} = \boxed{\dfrac{1}{2}}\]</p>
+<span id="límite-5-displaystylelim_xto-0fracx21-cos2x"></span><h3 id="límite-5-math112">Límite 5: \(\displaystyle\lim_{x\to 0}\frac{x^2}{1-\cos(2x)}\)</h3>
+<p>Está invertido respecto a lo habitual. Uso la identidad \(1-\cos(2x) = 2\operatorname{sen}^2 x\) (del archivo 3):</p>
+<p>\[\frac{x^2}{2\operatorname{sen}^2 x} = \frac{1}{2}\left(\frac{x}{\operatorname{sen} x}\right)^2 \longrightarrow \frac{1}{2}(1)^2 = \boxed{\dfrac{1}{2}}\]</p>
+<p>(Si no te acuerdas de la identidad: usa \(\lim \frac{1-\cos u}{u^2} = \frac12\) con \(u=2x\), y sale \(\frac{1-\cos 2x}{4x^2}\to\frac12\), o sea \(\frac{1-\cos 2x}{x^2}\to 2\), y el recíproco es \(\frac12\).)</p>
+<span id="límite-6-displaystylelim_xto-0fracoperatornamesen-x---operatornamesen3xx"></span><h3 id="límite-6-math119">Límite 6: \(\displaystyle\lim_{x\to 0}\frac{\operatorname{sen} x - \operatorname{sen}(3x)}{x}\)</h3>
+<p>Separo la fracción, que es lo primero que hay que intentar siempre:</p>
+<p>\[\frac{\operatorname{sen} x}{x} - \frac{\operatorname{sen}(3x)}{x} \longrightarrow 1 - 3 = \boxed{-2}\]</p>
+<span id="límite-7-displaystylelim_xto-3fracoperatornamesenx2-9x-3"></span><h3 id="límite-7-math120">Límite 7: \(\displaystyle\lim_{x\to 3}\frac{\operatorname{sen}(x^2-9)}{x-3}\)</h3>
+<p><strong>Este no tiende a cero</strong>, tiende a \(3\). Pero el argumento del seno, \(x^2-9\), <strong>sí tiende a cero</strong>. Eso es lo que importa. Factorizo:</p>
+<p>\[\frac{\operatorname{sen}(x^2-9)}{x-3} = \frac{\operatorname{sen}(x^2-9)}{x^2-9}\cdot\frac{x^2-9}{x-3} = \frac{\operatorname{sen}(x^2-9)}{x^2-9}\cdot(x+3)\]</p>
+<p>Cuando \(x\to3\): el primer factor \(\to 1\) (porque su argumento \(\to 0\)) y el segundo \(\to 6\).</p>
+<p>\[= 1\cdot 6 = \boxed{6}\]</p>
+<span id="límite-8-displaystylelim_xto-pi2fraccos-xx-pi2"></span><h3 id="límite-8-math127">Límite 8: \(\displaystyle\lim_{x\to \pi/2}\frac{\cos x}{x-\pi/2}\)</h3>
+<p>Sustitución: sea \(u = x - \dfrac{\pi}{2}\), entonces \(x = u + \dfrac{\pi}{2}\) y \(u\to 0\). Uso la identidad de reducción \(\cos\!\left(u+\dfrac{\pi}{2}\right) = -\operatorname{sen} u\):</p>
+<p>\[\frac{\cos(u+\pi/2)}{u} = \frac{-\operatorname{sen} u}{u} \longrightarrow -1\]</p>
+<p>\[\boxed{-1}\]</p>
+<p><strong>La lección de los últimos dos</strong>: no necesitas que \(x\to0\). Necesitas que <strong>el argumento de la función trigonométrica</strong> tienda a \(0\). Cuando no es obvio, sustituye.</p>
+<hr />
+<h2 id="3-continuidad-de-las-funciones-trigonométricas">3. Continuidad de las funciones trigonométricas</h2>
+<p>Una función es continua en \(a\) si \(\lim_{x\to a} f(x) = f(a)\): sin huecos, sin saltos, sin explosiones.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Función</th>
+<th>¿Dónde es continua?</th>
+<th>¿Dónde falla y por qué?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(\operatorname{sen} x\)</td>
+<td>En todo \(\mathbb{R}\)</td>
+<td>Nunca falla</td>
+</tr>
+<tr>
+<td>\(\cos x\)</td>
+<td>En todo \(\mathbb{R}\)</td>
+<td>Nunca falla</td>
+</tr>
+<tr>
+<td>\(\tan x\)</td>
+<td>\(x \neq \dfrac{\pi}{2}+k\pi\)</td>
+<td>Discontinuidad <strong>infinita</strong> (asíntota) donde \(\cos x = 0\)</td>
+</tr>
+<tr>
+<td>\(\cot x\)</td>
+<td>\(x \neq k\pi\)</td>
+<td>Asíntota donde \(\operatorname{sen} x = 0\)</td>
+</tr>
+<tr>
+<td>\(\sec x\)</td>
+<td>\(x \neq \dfrac{\pi}{2}+k\pi\)</td>
+<td>Asíntota donde \(\cos x = 0\)</td>
+</tr>
+<tr>
+<td>\(\csc x\)</td>
+<td>\(x \neq k\pi\)</td>
+<td>Asíntota donde \(\operatorname{sen} x = 0\)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Seno y coseno son continuas en todos lados porque son cocientes... no, mejor: porque el punto sobre el círculo unitario se mueve sin saltos cuando el ángulo se mueve sin saltos. No hay ningún ángulo donde la altura del punto "brinque".</p>
+<p>Las otras cuatro son <strong>cocientes</strong>, y un cociente es continuo donde el denominador no se anula. Por eso sus discontinuidades están exactamente en los ceros de \(\operatorname{sen}\) o \(\cos\), y son <strong>discontinuidades infinitas</strong> (no removibles): no se arreglan redefiniendo un punto, porque la función se va a infinito.</p>
+<p>Consecuencia práctica: en cualquier punto donde una trigonométrica sea continua, <strong>puedes evaluar el límite por sustitución directa</strong>. Por ejemplo \(\lim_{x\to\pi/3}\cos x = \cos(\pi/3) = \frac12\), sin más. Solo tienes que trabajar cuando hay una indeterminación \(\frac00\).</p>
+<p>Y esto importa para las derivadas: <strong>derivable implica continua</strong>. Donde la tangente tiene asíntota, no es continua, y por tanto tampoco es derivable ahí. Su derivada \(\sec^2 x\) tampoco existe en esos puntos, lo cual es coherente.</p>
+<hr />
+<h2 id="4-las-derivadas-de-las-seis-funciones-trigonométricas">4. Las derivadas de las seis funciones trigonométricas</h2>
+<h3 id="tabla-completa">Tabla completa</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>\(f(x)\)</th>
+<th>\(f'(x)\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(\operatorname{sen} x\)</td>
+<td>\(\cos x\)</td>
+</tr>
+<tr>
+<td>\(\cos x\)</td>
+<td>\(-\operatorname{sen} x\)</td>
+</tr>
+<tr>
+<td>\(\tan x\)</td>
+<td>\(\sec^2 x\)</td>
+</tr>
+<tr>
+<td>\(\cot x\)</td>
+<td>\(-\csc^2 x\)</td>
+</tr>
+<tr>
+<td>\(\sec x\)</td>
+<td>\(\sec x \tan x\)</td>
+</tr>
+<tr>
+<td>\(\csc x\)</td>
+<td>\(-\csc x \cot x\)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>El truco mnemotécnico que funciona</strong>: las tres que empiezan por "co" (<strong>co</strong>seno, <strong>co</strong>tangente, <strong>co</strong>secante) llevan <strong>signo menos</strong>. Las otras tres, no. Con eso ya no vuelves a equivocarte de signo.</p>
+<p>Otra forma de verlo: \(\frac{d}{dx}\tan x = \sec^2 x\), y la "co-versión" es \(\frac{d}{dx}\cot x = -\csc^2 x\): se cambia cada función por su co-función y se agrega el menos. Igual con secante y cosecante.</p>
+<span id="deducción-de-fracddxoperatornamesen-x-desde-la-definición"></span><h3 id="deducción-de-math173-desde-la-definición">Deducción de \(\frac{d}{dx}\operatorname{sen} x\) desde la definición</h3>
+<p>Esto es lo que suelen pedir en el parcial teórico. Apréndete los cinco pasos.</p>
+<p><strong>Paso 0.</strong> La definición de derivada:</p>
+<p>\[f'(x) = \lim_{h\to 0}\frac{f(x+h)-f(x)}{h}\]</p>
+<p><strong>Paso 1.</strong> Sustituyo \(f(x)=\operatorname{sen} x\):</p>
+<p>\[f'(x) = \lim_{h\to 0}\frac{\operatorname{sen}(x+h) - \operatorname{sen} x}{h}\]</p>
+<p>Si intentara sustituir \(h=0\) directamente me da \(\frac{0}{0}\): indeterminado. Hay que trabajarlo.</p>
+<p><strong>Paso 2.</strong> Aplico la identidad de suma de ángulos del archivo 3:</p>
+<p>\[\operatorname{sen}(x+h) = \operatorname{sen} x\cos h + \cos x\operatorname{sen} h\]</p>
+<p>\[f'(x) = \lim_{h\to 0}\frac{\operatorname{sen} x\cos h + \cos x\operatorname{sen} h - \operatorname{sen} x}{h}\]</p>
+<p><strong>Paso 3.</strong> Agrupo los términos que tienen \(\operatorname{sen} x\):</p>
+<p>\[= \lim_{h\to 0}\frac{\operatorname{sen} x(\cos h - 1) + \cos x\operatorname{sen} h}{h}\]</p>
+<p>\[= \lim_{h\to 0}\left[\operatorname{sen} x\cdot\frac{\cos h - 1}{h} + \cos x\cdot\frac{\operatorname{sen} h}{h}\right]\]</p>
+<p>Fíjate en algo clave: <strong>\(\operatorname{sen} x\) y \(\cos x\) son constantes respecto a \(h\)</strong>. La variable del límite es \(h\), no \(x\). Por eso salen de los límites.</p>
+<p>\[= \operatorname{sen} x\cdot\lim_{h\to 0}\frac{\cos h - 1}{h} + \cos x\cdot\lim_{h\to 0}\frac{\operatorname{sen} h}{h}\]</p>
+<p><strong>Paso 4.</strong> Aquí entran los dos límites notables. El segundo es directo: vale \(1\). El primero es el segundo notable con el signo cambiado:</p>
+<p>\[\lim_{h\to 0}\frac{\cos h - 1}{h} = -\lim_{h\to 0}\frac{1-\cos h}{h} = -0 = 0\]</p>
+<p><strong>Paso 5.</strong> Reemplazo:</p>
+<p>\[f'(x) = \operatorname{sen} x\cdot 0 + \cos x\cdot 1 = \boxed{\cos x}\]</p>
+<p>Y ahí está: los dos límites notables existían para este momento.</p>
+<p>La del coseno sale igual, con \(\cos(x+h) = \cos x\cos h - \operatorname{sen} x\operatorname{sen} h\), y el término que sobrevive es \(-\operatorname{sen} x\). <strong>Ese menos viene del menos de la identidad de suma</strong>, no de ningún otro lado.</p>
+<p>Las otras cuatro salen de estas dos con la regla del cociente. Por ejemplo la tangente:</p>
+<p>\[\frac{d}{dx}\tan x = \frac{d}{dx}\frac{\operatorname{sen} x}{\cos x} = \frac{\cos x\cdot\cos x - \operatorname{sen} x\cdot(-\operatorname{sen} x)}{\cos^2 x} = \frac{\cos^2 x + \operatorname{sen}^2 x}{\cos^2 x} = \frac{1}{\cos^2 x} = \sec^2 x\]</p>
+<p>Nota cómo la identidad pitagórica colapsa el numerador a \(1\). Bonito.</p>
+<hr />
+<h2 id="5-regla-de-la-cadena-con-trigonométricas">5. Regla de la cadena con trigonométricas</h2>
+<p><strong>El corazón de este archivo.</strong> El 90% de las derivadas trigonométricas de un parcial son cadena.</p>
+<p>\[\frac{d}{dx}f(g(x)) = f'(g(x))\cdot g'(x)\]</p>
+<p>En trigonométricas, las versiones que usarás mil veces:</p>
+<p>\[\frac{d}{dx}\operatorname{sen}(u) = \cos(u)\cdot u' \qquad \frac{d}{dx}\cos(u) = -\operatorname{sen}(u)\cdot u' \qquad \frac{d}{dx}\tan(u) = \sec^2(u)\cdot u'\]</p>
+<p>La regla mental: <strong>deriva la de afuera dejando lo de adentro intacto, y multiplica por la derivada de lo de adentro</strong>. Ese "multiplica por la derivada de adentro" es lo que todo el mundo olvida.</p>
+<span id="ejemplo-1-básico-y--operatornamesen3x1"></span><h3 id="ejemplo-1-básico-math187">Ejemplo 1 (básico): \(y = \operatorname{sen}(3x+1)\)</h3>
+<p>Afuera: seno. Adentro: \(u = 3x+1\), con \(u' = 3\).</p>
+<p>\[y' = \cos(3x+1)\cdot 3 = \boxed{3\cos(3x+1)}\]</p>
+<span id="ejemplo-2-y--cosx23x"></span><h3 id="ejemplo-2-math190">Ejemplo 2: \(y = \cos(x^2+3x)\)</h3>
+<p>Adentro: \(u = x^2+3x\), \(u' = 2x+3\).</p>
+<p>\[y' = -\operatorname{sen}(x^2+3x)\cdot(2x+3) = \boxed{-(2x+3)\operatorname{sen}(x^2+3x)}\]</p>
+<p>Doble atención al signo: viene de la derivada del coseno, no del paréntesis.</p>
+<span id="ejemplo-3-y--tansqrtx"></span><h3 id="ejemplo-3-math193">Ejemplo 3: \(y = \tan(\sqrt{x})\)</h3>
+<p>Adentro: \(u=\sqrt x = x^{1/2}\), \(u' = \dfrac{1}{2\sqrt x}\).</p>
+<p>\[y' = \sec^2(\sqrt x)\cdot\frac{1}{2\sqrt x} = \boxed{\frac{\sec^2(\sqrt x)}{2\sqrt x}}\]</p>
+<span id="ejemplo-4-potencia-y--operatornamesen32x"></span><h3 id="ejemplo-4-potencia-math196">Ejemplo 4 (potencia): \(y = \operatorname{sen}^3(2x)\)</h3>
+<p><strong>Primero, la advertencia sobre la notación.</strong> \(\operatorname{sen}^3(2x)\) significa \(\left[\operatorname{sen}(2x)\right]^3\): se calcula el seno y <strong>después</strong> se eleva al cubo. <strong>No</strong> es \(\operatorname{sen}(2x)^3\) ni \(\operatorname{sen}(8x^3)\). Es una convención heredada, incómoda, pero universal. La única excepción venenosa es el exponente \(-1\): \(\operatorname{sen}^{-1}x\) <strong>no</strong> es \(\frac{1}{\operatorname{sen} x}\), sino el arcoseno. Por eso en este módulo escribo \(\operatorname{arcsen}\).</p>
+<p>Aquí hay <strong>cadena doble</strong>: potencia, luego seno, luego el \(2x\).</p>
+<ul>
+<li>Capa exterior: potencia \(3\). Derivada: \(3[\cdot]^2\).</li>
+<li>Capa media: seno de \(2x\). Derivada: \(\cos(2x)\).</li>
+<li>Capa interior: \(2x\). Derivada: \(2\).</li>
+</ul>
+<p>\[y' = 3\operatorname{sen}^2(2x)\cdot\cos(2x)\cdot 2 = \boxed{6\operatorname{sen}^2(2x)\cos(2x)}\]</p>
+<p>Comprobación en \(x=\pi/12\): \(\operatorname{sen}(\pi/6)=\frac12\), \(\cos(\pi/6)=\frac{\sqrt3}{2}\), entonces \(y' = 6\cdot\frac14\cdot\frac{\sqrt3}{2} = \frac{3\sqrt3}{4}\approx 1{,}299\). ✔</p>
+<span id="ejemplo-5-cadena-doble-pura-y--operatornamesencosx2"></span><h3 id="ejemplo-5-cadena-doble-pura-math216">Ejemplo 5 (cadena doble pura): \(y = \operatorname{sen}(\cos(x^2))\)</h3>
+<p>Tres capas. Se derivan de afuera hacia adentro, multiplicando todo:</p>
+<ol>
+<li>Seno de algo → \(\cos(\cos(x^2))\)</li>
+<li>Coseno de algo → \(\times\ \left(-\operatorname{sen}(x^2)\right)\)</li>
+<li>\(x^2\) → \(\times\ 2x\)</li>
+</ol>
+<p>\[y' = \cos(\cos(x^2))\cdot(-\operatorname{sen}(x^2))\cdot 2x = \boxed{-2x\operatorname{sen}(x^2)\cos(\cos(x^2))}\]</p>
+<p>Fíjate en el patrón: el argumento del coseno exterior es <strong>la función interna completa sin derivar</strong>, \(\cos(x^2)\). No se toca. Se copia tal cual.</p>
+<span id="ejemplo-6-producto--cadena-y--x2operatornamesen3x"></span><h3 id="ejemplo-6-producto--cadena-math222">Ejemplo 6 (producto + cadena): \(y = x^2\operatorname{sen}(3x)\)</h3>
+<p>Regla del producto primero, y dentro de ella la cadena:</p>
+<p>\[y' = \underbrace{2x}_{(x^2)'}\cdot\operatorname{sen}(3x) + x^2\cdot\underbrace{3\cos(3x)}_{[\operatorname{sen}(3x)]'}\]</p>
+<p>\[y' = \boxed{2x\operatorname{sen}(3x) + 3x^2\cos(3x)}\]</p>
+<p>Se puede factorizar: \(x\left(2\operatorname{sen}(3x)+3x\cos(3x)\right)\).</p>
+<span id="ejemplo-7-cociente-y--dfracoperatornamesen2x1cos2x"></span><h3 id="ejemplo-7-cociente-math224">Ejemplo 7 (cociente): \(y = \dfrac{\operatorname{sen}(2x)}{1+\cos(2x)}\)</h3>
+<p>Regla del cociente: \(\left(\dfrac{u}{v}\right)' = \dfrac{u'v - uv'}{v^2}\), con \(u=\operatorname{sen}(2x)\), \(v=1+\cos(2x)\).</p>
+<ul>
+<li>\(u' = 2\cos(2x)\)</li>
+<li>\(v' = -2\operatorname{sen}(2x)\)</li>
+</ul>
+<p>\[y' = \frac{2\cos(2x)\left[1+\cos(2x)\right] - \operatorname{sen}(2x)\left[-2\operatorname{sen}(2x)\right]}{\left[1+\cos(2x)\right]^2}\]</p>
+<p>\[= \frac{2\cos(2x) + 2\cos^2(2x) + 2\operatorname{sen}^2(2x)}{\left[1+\cos(2x)\right]^2}\]</p>
+<p>Uso \(\operatorname{sen}^2+\cos^2=1\) en los dos últimos términos del numerador:</p>
+<p>\[= \frac{2\cos(2x)+2}{\left[1+\cos(2x)\right]^2} = \frac{2\left[1+\cos(2x)\right]}{\left[1+\cos(2x)\right]^2} = \frac{2}{1+\cos(2x)}\]</p>
+<p>Y usando \(1+\cos(2x) = 2\cos^2 x\):</p>
+<p>\[y' = \frac{2}{2\cos^2 x} = \boxed{\sec^2 x}\]</p>
+<p><strong>Lo que este ejemplo enseña</strong>: la función original era \(\tan x\) disfrazada (identidad de ángulo mitad), y por eso su derivada es \(\sec^2 x\). Moraleja doble: <strong>simplifica antes de derivar cuando puedas</strong>, y <strong>simplifica después usando identidades</strong>, porque los resultados "feos" muchas veces colapsan.</p>
+<span id="ejemplo-8-raíz--cadena-y--sqrt1tan3x"></span><h3 id="ejemplo-8-raíz--cadena-math234">Ejemplo 8 (raíz + cadena): \(y = \sqrt{1+\tan(3x)}\)</h3>
+<p>Escribo la raíz como potencia: \(y = \left[1+\tan(3x)\right]^{1/2}\).</p>
+<ol>
+<li>Potencia \(\frac12\) → \(\frac12\left[1+\tan(3x)\right]^{-1/2}\)</li>
+<li>Derivada de adentro: \(\frac{d}{dx}\left[1+\tan(3x)\right] = 3\sec^2(3x)\)</li>
+</ol>
+<p>\[y' = \frac{1}{2}\left[1+\tan(3x)\right]^{-1/2}\cdot 3\sec^2(3x) = \boxed{\frac{3\sec^2(3x)}{2\sqrt{1+\tan(3x)}}}\]</p>
+<span id="ejemplo-9-extra-triple-cadena-y--operatornamesenoperatornamesenoperatornamesen-x"></span><h3 id="ejemplo-9-extra-triple-cadena-math239">Ejemplo 9 (extra, triple cadena): \(y = \operatorname{sen}(\operatorname{sen}(\operatorname{sen} x))\)</h3>
+<p>Se deriva capa por capa, sin miedo:</p>
+<p>\[y' = \cos(\operatorname{sen}(\operatorname{sen} x))\cdot\cos(\operatorname{sen} x)\cdot\cos x\]</p>
+<p>Tres factores para tres capas. El patrón siempre es el mismo, no importa cuántas haya.</p>
+<span id="ejemplo-10-extra-secante-con-potencia-y--sec4leftdfracx2right"></span><h3 id="ejemplo-10-extra-secante-con-potencia-math240">Ejemplo 10 (extra, secante con potencia): \(y = \sec^4\!\left(\dfrac{x}{2}\right)\)</h3>
+<p>\[y' = 4\sec^3\!\left(\frac{x}{2}\right)\cdot\sec\!\left(\frac{x}{2}\right)\tan\!\left(\frac{x}{2}\right)\cdot\frac{1}{2} = \boxed{2\sec^4\!\left(\frac{x}{2}\right)\tan\!\left(\frac{x}{2}\right)}\]</p>
+<hr />
+<h2 id="6-derivadas-de-las-funciones-trigonométricas-inversas">6. Derivadas de las funciones trigonométricas inversas</h2>
+<h3 id="tabla">Tabla</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>\(f(x)\)</th>
+<th>\(f'(x)\)</th>
+<th>Dominio de validez</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(\operatorname{arcsen} x\)</td>
+<td>\(\dfrac{1}{\sqrt{1-x^2}}\)</td>
+<td>\(-1<x<1\)</td>
+</tr>
+<tr>
+<td>\(\arccos x\)</td>
+<td>\(-\dfrac{1}{\sqrt{1-x^2}}\)</td>
+<td>\(-1<x<1\)</td>
+</tr>
+<tr>
+<td>\(\operatorname{arctan} x\)</td>
+<td>\(\dfrac{1}{1+x^2}\)</td>
+<td>todo \(\mathbb{R}\)</td>
+</tr>
+<tr>
+<td>\(\operatorname{arccot} x\)</td>
+<td>\(-\dfrac{1}{1+x^2}\)</td>
+<td>todo \(\mathbb{R}\)</td>
+</tr>
+<tr>
+<td>\(\operatorname{arcsec} x\)</td>
+<td>\(\dfrac{1}{|x|\sqrt{x^2-1}}\)</td>
+<td>\(|x|>1\)</td>
+</tr>
+<tr>
+<td>\(\operatorname{arccsc} x\)</td>
+<td>\(-\dfrac{1}{|x|\sqrt{x^2-1}}\)</td>
+<td>\(|x|>1\)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Otra vez el patrón "co": las tres co-funciones inversas llevan menos. De hecho \(\operatorname{arcsen} x + \arccos x = \dfrac{\pi}{2}\) para todo \(x\in[-1,1]\), y por eso sus derivadas son exactamente opuestas: la suma es constante, entonces la derivada de la suma es cero.</p>
+<p>Dato que sorprende: <strong>estas derivadas no tienen nada de trigonométrico</strong>. Son funciones algebraicas. Ese es el puente que en Cálculo Integral hará que aparezcan de la nada.</p>
+<span id="deducción-de-fracddxoperatornamearcsen-x-por-derivación-implícita"></span><h3 id="deducción-de-math263-por-derivación-implícita">Deducción de \(\frac{d}{dx}\operatorname{arcsen} x\) por derivación implícita</h3>
+<p><strong>Paso 1.</strong> Escribo \(y = \operatorname{arcsen} x\) y le aplico seno a ambos lados, que es la única forma de quitarme la inversa de encima:</p>
+<p>\[\operatorname{sen} y = x\]</p>
+<p>Válido porque \(y\in\left[-\frac\pi2,\frac\pi2\right]\), la rama principal.</p>
+<p><strong>Paso 2.</strong> Derivo ambos lados respecto a \(x\), recordando que \(y\) es función de \(x\) (por eso aparece \(\frac{dy}{dx}\) — eso es la cadena):</p>
+<p>\[\cos y\cdot\frac{dy}{dx} = 1\]</p>
+<p><strong>Paso 3.</strong> Despejo:</p>
+<p>\[\frac{dy}{dx} = \frac{1}{\cos y}\]</p>
+<p>Esto todavía no sirve: la respuesta está en términos de \(y\), y la quiero en términos de \(x\).</p>
+<p><strong>Paso 4.</strong> Uso la identidad pitagórica: \(\cos y = \pm\sqrt{1-\operatorname{sen}^2 y}\). Y como \(\operatorname{sen} y = x\):</p>
+<p>\[\cos y = \pm\sqrt{1-x^2}\]</p>
+<p><strong>Paso 5 — el paso que se olvida.</strong> ¿Cuál signo? Como \(y\in\left[-\frac\pi2,\frac\pi2\right]\) (primer y cuarto cuadrante), <strong>el coseno es positivo ahí</strong>. Se toma el signo \(+\):</p>
+<p>\[\frac{d}{dx}\operatorname{arcsen} x = \boxed{\frac{1}{\sqrt{1-x^2}}}\]</p>
+<p>Fíjate en la coherencia geométrica: la derivada es siempre positiva, y en efecto el arcoseno es creciente. Y cuando \(x\to\pm1\) la derivada se dispara a infinito, lo cual coincide con que la gráfica del arcoseno tiene tangentes verticales en sus extremos.</p>
+<h3 id="con-regla-de-la-cadena">Con regla de la cadena</h3>
+<p>\[\frac{d}{dx}\operatorname{arcsen}(u) = \frac{u'}{\sqrt{1-u^2}}\qquad \frac{d}{dx}\operatorname{arctan}(u) = \frac{u'}{1+u^2}\]</p>
+<p>Dos ejemplos rápidos, verificados:</p>
+<ul>
+<li>\(y = \operatorname{arcsen}(2x)\): \(\quad y' = \dfrac{2}{\sqrt{1-4x^2}}\)</li>
+<li>\(y = \operatorname{arctan}(x^2)\): \(\quad y' = \dfrac{2x}{1+x^4}\)</li>
+<li>\(y = \operatorname{arctan}(\operatorname{sen} x)\): \(\quad y' = \dfrac{\cos x}{1+\operatorname{sen}^2 x}\)</li>
+</ul>
+<hr />
+<h2 id="7-derivación-implícita-con-trigonométricas">7. Derivación implícita con trigonométricas</h2>
+<p>Cuando \(y\) no está despejada, derivas todo respecto a \(x\) tratando \(y\) como función de \(x\) (cada vez que derivas algo con \(y\), sale un \(y'\) multiplicando), y al final despejas \(y'\).</p>
+<span id="ejemplo-1-operatornamesenxy--y2cos-x"></span><h3 id="ejemplo-1-math290">Ejemplo 1: \(\operatorname{sen}(x+y) = y^2\cos x\)</h3>
+<p><strong>Derivo lado izquierdo.</strong> Cadena: la derivada de \((x+y)\) es \((1+y')\).</p>
+<p>\[\frac{d}{dx}\operatorname{sen}(x+y) = \cos(x+y)\cdot(1+y')\]</p>
+<p><strong>Derivo lado derecho.</strong> Producto entre \(y^2\) y \(\cos x\):</p>
+<p>\[\frac{d}{dx}\left[y^2\cos x\right] = 2y\,y'\cos x + y^2(-\operatorname{sen} x) = 2y\,y'\cos x - y^2\operatorname{sen} x\]</p>
+<p><strong>Igualo y expando:</strong></p>
+<p>\[\cos(x+y) + y'\cos(x+y) = 2y\,y'\cos x - y^2\operatorname{sen} x\]</p>
+<p><strong>Agrupo los \(y'\) a un lado:</strong></p>
+<p>\[y'\cos(x+y) - 2y\,y'\cos x = -y^2\operatorname{sen} x - \cos(x+y)\]</p>
+<p>\[y'\left[\cos(x+y) - 2y\cos x\right] = -\left[y^2\operatorname{sen} x + \cos(x+y)\right]\]</p>
+<p>\[\boxed{y' = \frac{y^2\operatorname{sen} x + \cos(x+y)}{2y\cos x - \cos(x+y)}}\]</p>
+<p>(Multipliqué numerador y denominador por \(-1\) para dejarlo más limpio.)</p>
+<span id="ejemplo-2-xcos-y--ycos-x--1"></span><h3 id="ejemplo-2-math297">Ejemplo 2: \(x\cos y + y\cos x = 1\)</h3>
+<p><strong>Derivo término por término.</strong> El primero es un producto donde el segundo factor requiere cadena:</p>
+<p>\[\frac{d}{dx}\left[x\cos y\right] = \cos y + x(-\operatorname{sen} y)y' = \cos y - x\operatorname{sen} y\cdot y'\]</p>
+<p>\[\frac{d}{dx}\left[y\cos x\right] = y'\cos x + y(-\operatorname{sen} x) = y'\cos x - y\operatorname{sen} x\]</p>
+<p>La derivada del lado derecho es \(0\) porque es constante.</p>
+<p>\[\cos y - x\operatorname{sen} y\cdot y' + y'\cos x - y\operatorname{sen} x = 0\]</p>
+<p><strong>Agrupo:</strong></p>
+<p>\[y'\left[\cos x - x\operatorname{sen} y\right] = y\operatorname{sen} x - \cos y\]</p>
+<p>\[\boxed{y' = \frac{y\operatorname{sen} x - \cos y}{\cos x - x\operatorname{sen} y}}\]</p>
+<p><strong>El error típico aquí</strong> es derivar \(\cos y\) como \(-\operatorname{sen} y\) y punto, olvidando el \(y'\). Regla: <strong>cada vez que toques una \(y\), aparece un \(y'\)</strong>.</p>
+<hr />
+<h2 id="8-aplicaciones">8. Aplicaciones</h2>
+<h3 id="81-razones-de-cambio-relacionadas-la-escalera-que-resbala">8.1 Razones de cambio relacionadas: la escalera que resbala</h3>
+<p><strong>Problema.</strong> Una escalera de \(5\) m está apoyada contra una pared vertical. La base se desliza alejándose de la pared a \(0{,}5\) m/s. ¿A qué razón cambia el ángulo \(\theta\) que forma la escalera con el suelo, en el instante en que la base está a \(3\) m de la pared?</p>
+<p><strong>Paso 1 — Variables.</strong> Sea \(x(t)\) la distancia de la base a la pared y \(\theta(t)\) el ángulo con el suelo. Dato: \(\dfrac{dx}{dt} = 0{,}5\) m/s. Incógnita: \(\dfrac{d\theta}{dt}\) cuando \(x=3\).</p>
+<p><strong>Paso 2 — Relación entre las variables.</strong> La escalera es la hipotenusa (constante, \(5\) m) y \(x\) es el cateto adyacente a \(\theta\):</p>
+<p>\[\cos\theta = \frac{x}{5}\]</p>
+<p><strong>Paso 3 — Derivo implícitamente respecto al tiempo.</strong> Ambas variables dependen de \(t\), así que ambas generan cadena:</p>
+<p>\[-\operatorname{sen}\theta\cdot\frac{d\theta}{dt} = \frac{1}{5}\cdot\frac{dx}{dt}\]</p>
+<p><strong>Paso 4 — Evalúo en el instante pedido.</strong> Cuando \(x=3\): el otro cateto (la altura) es \(\sqrt{25-9}=4\), entonces \(\operatorname{sen}\theta = \dfrac{4}{5}\).</p>
+<p>\[-\frac{4}{5}\cdot\frac{d\theta}{dt} = \frac{1}{5}\cdot 0{,}5 = 0{,}1\]</p>
+<p>\[\frac{d\theta}{dt} = -0{,}1\cdot\frac{5}{4} = \boxed{-0{,}125 \text{ rad/s}} = -\frac{1}{8}\text{ rad/s}\]</p>
+<p><strong>Interpretación.</strong> El signo negativo dice que el ángulo <strong>disminuye</strong>: la escalera se va acostando. Coherente con la física. En grados serían unos \(-7{,}16°/\text{s}\), pero <strong>el resultado del cálculo siempre sale en radianes por segundo</strong>, y así se reporta.</p>
+<p><strong>El error clásico</strong>: sustituir \(x=3\) <strong>antes</strong> de derivar. Si haces eso, \(\cos\theta = 3/5\) se vuelve constante y su derivada da cero: absurdo. <strong>Primero derivas la relación general, después sustituyes los valores del instante.</strong></p>
+<h3 id="82-optimización-con-un-ángulo-la-canaleta">8.2 Optimización con un ángulo: la canaleta</h3>
+<p><strong>Problema.</strong> Una lámina metálica de \(30\) cm de ancho se dobla en tres franjas iguales de \(10\) cm para formar una canaleta: la franja central queda horizontal (el fondo) y las dos laterales se levantan formando un ángulo \(\theta\) con la horizontal. ¿Qué ángulo maximiza el área de la sección transversal (y por tanto el caudal)?</p>
+<p><strong>Paso 1 — Modelo geométrico.</strong> La sección es un trapecio:</p>
+<ul>
+<li>Base menor (el fondo): \(10\) cm.</li>
+<li>Altura: cada lado levantado mide \(10\) y forma ángulo \(\theta\) con la horizontal, entonces la altura es \(h = 10\operatorname{sen}\theta\).</li>
+<li>Cada lado se abre horizontalmente \(10\cos\theta\), así que la base mayor es \(10 + 2(10\cos\theta)\).</li>
+</ul>
+<p><strong>Paso 2 — Función objetivo.</strong> Área del trapecio \(=\dfrac{(\text{base menor}+\text{base mayor})}{2}\cdot h\):</p>
+<p>\[A(\theta) = \frac{10 + (10+20\cos\theta)}{2}\cdot 10\operatorname{sen}\theta = (10+10\cos\theta)(10\operatorname{sen}\theta)\]</p>
+<p>\[A(\theta) = 100\operatorname{sen}\theta\,(1+\cos\theta), \qquad \theta\in\left(0,\frac{\pi}{2}\right]\]</p>
+<p><strong>Paso 3 — Derivo.</strong> Conviene expandir primero: \(A = 100\operatorname{sen}\theta + 100\operatorname{sen}\theta\cos\theta\). Y como \(2\operatorname{sen}\theta\cos\theta = \operatorname{sen}(2\theta)\), queda \(A = 100\operatorname{sen}\theta + 50\operatorname{sen}(2\theta)\).</p>
+<p>\[A'(\theta) = 100\cos\theta + 100\cos(2\theta)\]</p>
+<p><strong>Paso 4 — Puntos críticos.</strong> Igualo a cero y uso \(\cos(2\theta) = 2\cos^2\theta - 1\):</p>
+<p>\[100\cos\theta + 100(2\cos^2\theta - 1) = 0\]</p>
+<p>\[2\cos^2\theta + \cos\theta - 1 = 0\]</p>
+<p>Es una cuadrática en \(\cos\theta\). Factorizo:</p>
+<p>\[(2\cos\theta - 1)(\cos\theta + 1) = 0\]</p>
+<ul>
+<li>\(\cos\theta = \dfrac{1}{2} \Rightarrow \theta = \dfrac{\pi}{3} = 60°\) ✔</li>
+<li>\(\cos\theta = -1 \Rightarrow \theta = \pi\): <strong>se descarta</strong>, está fuera del intervalo físico.</li>
+</ul>
+<p><strong>Paso 5 — Confirmo que es máximo.</strong> Segunda derivada: \(A''(\theta) = -100\operatorname{sen}\theta - 200\operatorname{sen}(2\theta)\), y en \(\theta=\pi/3\):</p>
+<p>\[A''\!\left(\frac{\pi}{3}\right) = -100\cdot\frac{\sqrt3}{2} - 200\cdot\frac{\sqrt3}{2} = -150\sqrt3 \approx -259{,}8 < 0\]</p>
+<p>Negativa ⇒ <strong>máximo</strong>.</p>
+<p><strong>Paso 6 — Respuesta.</strong></p>
+<p>\[\theta = 60°, \qquad A_{\max} = 100\cdot\frac{\sqrt3}{2}\left(1+\frac12\right) = 75\sqrt3 \approx 129{,}9\ \text{cm}^2\]</p>
+<p>Comparación: con \(\theta=90°\) (lados verticales, la solución "intuitiva") el área es apenas \(100\) cm². Doblando a \(60°\) ganas casi un 30% de caudal. Eso es lo que aporta el cálculo.</p>
+<hr />
+<h2 id="9-errores-frecuentes-los-14-que-cuestan-puntos">9. Errores frecuentes (los 14 que cuestan puntos)</h2>
+<ol>
+<li><strong>Olvidar la regla de la cadena.</strong> Escribir \(\frac{d}{dx}\operatorname{sen}(3x) = \cos(3x)\). Falta el \(\times 3\). Es el error número uno, sin competencia.</li>
+<li><strong>Perder el signo menos del coseno.</strong> \(\frac{d}{dx}\cos x = -\operatorname{sen} x\). El menos está siempre. Regla de las "co": coseno, cotangente y cosecante llevan menos.</li>
+<li><strong>Confundir \(\operatorname{sen}^{-1}x\) con \(\dfrac{1}{\operatorname{sen} x}\).</strong> El primero es \(\operatorname{arcsen} x\) (derivada \(\frac{1}{\sqrt{1-x^2}}\)); el segundo es \(\csc x\) (derivada \(-\csc x\cot x\)). Nada que ver.</li>
+<li><strong>Malinterpretar \(\operatorname{sen}^2 x\).</strong> Es \((\operatorname{sen} x)^2\), no \(\operatorname{sen}(x^2)\). Sus derivadas son \(2\operatorname{sen} x\cos x\) y \(2x\cos(x^2)\): completamente distintas.</li>
+<li><strong>Derivar en grados.</strong> Si la calculadora está en modo DEG, todo sale mal por el factor \(\pi/180\). En cálculo, <strong>siempre radianes</strong>.</li>
+<li><strong>Escribir \(\frac{d}{dx}\tan x = \sec^2 x\cdot\tan x\)</strong> o mezclas parecidas. Es solo \(\sec^2 x\). La que lleva producto es la secante: \(\sec x\tan x\).</li>
+<li><strong>Derivar el argumento y dejarlo adentro.</strong> Escribir \(\frac{d}{dx}\operatorname{sen}(x^2) = \cos(2x)\). No: es \(\cos(x^2)\cdot 2x\). <strong>El argumento se copia intacto</strong> en la función derivada.</li>
+<li><strong>En derivación implícita, olvidar el \(y'\).</strong> \(\frac{d}{dx}\cos y = -\operatorname{sen} y\cdot y'\), no \(-\operatorname{sen} y\).</li>
+<li><strong>En razones relacionadas, sustituir antes de derivar.</strong> Los valores del instante entran <strong>después</strong> de derivar. Si sustituyes antes, conviertes variables en constantes y todo da cero.</li>
+<li><strong>Aplicar el límite notable sin verificar que el argumento tienda a cero.</strong> \(\lim_{x\to\pi}\frac{\operatorname{sen} x}{x}\) <strong>no</strong> es \(1\): es \(\frac{\operatorname{sen}\pi}{\pi} = 0\). El notable exige que <strong>lo de adentro</strong> tienda a \(0\).</li>
+<li><strong>Escribir \(\lim_{x\to0}\frac{\operatorname{sen}(5x)}{x} = 1\).</strong> Es \(5\). El notable requiere que numerador y denominador tengan el mismo argumento.</li>
+<li><strong>Confundir \(\lim\frac{1-\cos x}{x}=0\) con \(\lim\frac{1-\cos x}{x^2}=\frac12\).</strong> Cambia el exponente y cambia todo. Fíjate en el denominador antes de responder.</li>
+<li><strong>Olvidar el valor absoluto o el signo al deducir derivadas de inversas.</strong> En \(\cos y = \sqrt{1-x^2}\) el signo positivo se justifica por el rango de la rama principal. En \(\operatorname{arcsec}\) sí queda un \(|x|\).</li>
+<li><strong>Simplificar mal el resultado y perder puntos "de forma".</strong> Cuando aparezcan \(\operatorname{sen}^2+\cos^2\), \(1+\tan^2\) o \(1-\cos 2x\), aplica la identidad. Muchos resultados feos colapsan a algo elegante (como el Ejemplo 7 de la sección 5).</li>
+<li><strong>Creer que \(\tan x\) es derivable en todo \(\mathbb{R}\).</strong> No lo es en \(x=\frac\pi2+k\pi\): ahí ni siquiera es continua.</li>
+</ol>
+<hr />
+<h2 id="10-autoevaluación-15-preguntas">10. Autoevaluación (15 preguntas)</h2>
+<p>Sin calculadora ni apuntes. Calcula unos 50 minutos. Escribe cada paso.</p>
+<p><strong>Límites</strong></p>
+<ol>
+<li>\(\displaystyle\lim_{x\to0}\frac{\operatorname{sen}(7x)}{3x}\)</li>
+<li>\(\displaystyle\lim_{x\to0}\frac{1-\cos(3x)}{x^2}\)</li>
+<li>\(\displaystyle\lim_{x\to0}\frac{\tan(2x)}{\operatorname{sen}(5x)}\)</li>
+<li>\(\displaystyle\lim_{x\to0}\frac{x\operatorname{sen} x}{1-\cos x}\)</li>
+</ol>
+<p><strong>Derivadas</strong></p>
+<ol start="5">
+<li>\(y = \operatorname{sen}(5x^2)\)</li>
+<li>\(y = \cos^2(3x)\)</li>
+<li>\(y = \dfrac{\operatorname{sen} x}{x}\)</li>
+<li>\(y = \sec(x^2+1)\)</li>
+<li>\(y = \operatorname{arcsen}(2x)\)</li>
+<li>\(y = \operatorname{arctan}(x^2)\)</li>
+<li>\(y = \ln(\cos x)\)</li>
+<li>\(y = \operatorname{sen}(\tan x)\)</li>
+</ol>
+<p><strong>Aplicación y teoría</strong></p>
+<ol start="13">
+<li>Halla la ecuación de la recta tangente a \(y=\operatorname{sen}(2x)\) en \(x=\dfrac{\pi}{6}\).</li>
+<li>Halla los puntos críticos de \(f(x) = x + 2\cos x\) en \([0,2\pi]\) y clasifícalos.</li>
+<li>Enuncia el paso donde se usa la identidad de suma de ángulos en la deducción de \(\frac{d}{dx}\operatorname{sen} x\), y qué límite notable se aplica inmediatamente después.</li>
+</ol>
+<hr />
+<h3 id="respuestas">Respuestas</h3>
+<p><strong>1.</strong> \(\dfrac{\operatorname{sen}(7x)}{3x} = \dfrac{7}{3}\cdot\dfrac{\operatorname{sen}(7x)}{7x} \to \boxed{\dfrac{7}{3}}\)</p>
+<p><strong>2.</strong> Con \(u=3x\): \(\dfrac{1-\cos(3x)}{x^2} = 9\cdot\dfrac{1-\cos(3x)}{(3x)^2} \to 9\cdot\dfrac12 = \boxed{\dfrac92}\)</p>
+<p><strong>3.</strong> \(\dfrac{\tan(2x)}{\operatorname{sen}(5x)} = \dfrac{\operatorname{sen}(2x)}{\cos(2x)\operatorname{sen}(5x)}\). Divido arriba y abajo entre \(x\): \(\dfrac{2\cdot\frac{\operatorname{sen} 2x}{2x}}{\cos(2x)\cdot 5\cdot\frac{\operatorname{sen} 5x}{5x}} \to \dfrac{2\cdot1}{1\cdot5\cdot1} = \boxed{\dfrac{2}{5}}\)</p>
+<p><strong>4.</strong> Conjugado: \(\dfrac{x\operatorname{sen} x(1+\cos x)}{1-\cos^2x} = \dfrac{x\operatorname{sen} x(1+\cos x)}{\operatorname{sen}^2x} = \dfrac{x}{\operatorname{sen} x}(1+\cos x) \to 1\cdot 2 = \boxed{2}\)</p>
+<p><strong>5.</strong> \(y' = \cos(5x^2)\cdot 10x = \boxed{10x\cos(5x^2)}\)</p>
+<p><strong>6.</strong> \(\cos^2(3x) = [\cos(3x)]^2\). Cadena triple: \(y' = 2\cos(3x)\cdot(-\operatorname{sen}(3x))\cdot3 = \boxed{-6\operatorname{sen}(3x)\cos(3x)}\), que también es \(-3\operatorname{sen}(6x)\).</p>
+<p><strong>7.</strong> Cociente: \(y' = \dfrac{\cos x\cdot x - \operatorname{sen} x\cdot 1}{x^2} = \boxed{\dfrac{x\cos x - \operatorname{sen} x}{x^2}}\)</p>
+<p><strong>8.</strong> \(y' = \sec(x^2+1)\tan(x^2+1)\cdot 2x = \boxed{2x\sec(x^2+1)\tan(x^2+1)}\)</p>
+<p><strong>9.</strong> \(y' = \dfrac{2}{\sqrt{1-(2x)^2}} = \boxed{\dfrac{2}{\sqrt{1-4x^2}}}\)</p>
+<p><strong>10.</strong> \(y' = \dfrac{2x}{1+(x^2)^2} = \boxed{\dfrac{2x}{1+x^4}}\)</p>
+<p><strong>11.</strong> \(y' = \dfrac{1}{\cos x}\cdot(-\operatorname{sen} x) = \boxed{-\tan x}\)</p>
+<p><strong>12.</strong> \(y' = \cos(\tan x)\cdot\sec^2 x = \boxed{\sec^2 x\cos(\tan x)}\)</p>
+<p><strong>13.</strong> Punto: \(y\!\left(\frac\pi6\right) = \operatorname{sen}\!\left(\frac\pi3\right) = \dfrac{\sqrt3}{2}\). Pendiente: \(y' = 2\cos(2x)\), y \(y'\!\left(\frac\pi6\right) = 2\cos\!\left(\frac\pi3\right) = 2\cdot\frac12 = 1\).</p>
+<p>\[\boxed{y - \frac{\sqrt3}{2} = 1\cdot\left(x-\frac{\pi}{6}\right)} \quad\text{o}\quad y = x - \frac{\pi}{6}+\frac{\sqrt3}{2}\]</p>
+<p><strong>14.</strong> \(f'(x) = 1 - 2\operatorname{sen} x = 0 \Rightarrow \operatorname{sen} x = \dfrac12 \Rightarrow x = \dfrac{\pi}{6},\ \dfrac{5\pi}{6}\).
+\(f''(x) = -2\cos x\).
+En \(x=\frac\pi6\): \(f'' = -2\cdot\frac{\sqrt3}{2} = -\sqrt3 < 0 \Rightarrow\) <strong>máximo local</strong>.
+En \(x=\frac{5\pi}{6}\): \(f'' = -2\cdot\left(-\frac{\sqrt3}{2}\right) = \sqrt3 > 0 \Rightarrow\) <strong>mínimo local</strong>.</p>
+<p><strong>15.</strong> La identidad \(\operatorname{sen}(x+h) = \operatorname{sen} x\cos h + \cos x\operatorname{sen} h\) se usa en el <strong>Paso 2</strong>, justo después de plantear el cociente incremental, para separar \(x\) de \(h\). Después de agrupar los términos, se aplican los <strong>dos límites notables</strong>: \(\lim_{h\to0}\frac{\operatorname{sen} h}{h}=1\) (que sobrevive multiplicado por \(\cos x\)) y \(\lim_{h\to0}\frac{\cos h - 1}{h}=0\) (que anula el término con \(\operatorname{sen} x\)). Resultado: \(\cos x\).</p>
+<hr />
+<p><strong>Autodiagnóstico.</strong> Si sacaste 12 o más, estás listo para el primer parcial de Cálculo Diferencial en este tema. Entre 8 y 11, repite la sección 5 (regla de la cadena) y el banco de ejercicios del archivo 6. Por debajo de 8, vuelve a la sección 4 y rehaz la deducción del seno a mano hasta que te salga sin mirar.</p>
+<p>Y con esto cierras el tema: estas mismas derivadas, leídas al revés, son la puerta a Cálculo Integral del segundo semestre — pero eso queda fuera del alcance de este módulo.</p>
+</main>
+</body>
+</html>

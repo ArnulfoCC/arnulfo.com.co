@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Banco de ejercicios — Cálculo Diferencial</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ 05 - Cálculo Diferencial / 4. Banco de ejercicios</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="banco-de-ejercicios--cálculo-diferencial">Banco de ejercicios — Cálculo Diferencial</h1>
+<p><strong>Más de 200 ejercicios en tres niveles, con soluciones desarrolladas al final.</strong></p>
+<blockquote>
+<p><strong>Cómo usarlo.</strong> Los enunciados van primero, agrupados por escenario y nivel. Las soluciones están en la sección final, numeradas igual. <strong>Intenta el ejercicio completo antes de mirar la solución</strong>, aunque te tome 10 minutos y no llegues. El aprendizaje ocurre en el intento fallido, no en la lectura de la respuesta.</p>
+<p><strong>Niveles.</strong> <em>Básico:</em> aplicación directa de una regla. <em>Intermedio:</em> combina dos o más ideas. <em>Tipo examen:</em> redacción y dificultad parecidas a lo que probablemente aparezca en quices y examen final.</p>
+<p><strong>Meta de ritmo.</strong> Un básico debe salir en menos de 2 minutos; un intermedio, en 5; uno tipo examen, en 10 (los de optimización, en 20).</p>
+</blockquote>
+<hr />
+<h1 id="enunciados">ENUNCIADOS</h1>
+<hr />
+<h2 id="escenario-1--funciones">Escenario 1 — Funciones</h2>
+<h3 id="básico">Básico</h3>
+<p>Determina el dominio y escríbelo en notación de intervalos.</p>
+<p><strong>1.1</strong> \(f(x)=\sqrt{2x-6}\)
+<strong>1.2</strong> \(f(x)=\dfrac{1}{x^2-16}\)
+<strong>1.3</strong> \(f(x)=\ln(x+5)\)
+<strong>1.4</strong> \(f(x)=\sqrt{9-x^2}\)
+<strong>1.5</strong> \(f(x)=\dfrac{x-1}{x^2+x-6}\)
+<strong>1.6</strong> \(f(x)=\dfrac{\sqrt{x+3}}{x-1}\)
+<strong>1.7</strong> \(f(x)=\ln(4-x^2)\)
+<strong>1.8</strong> \(f(x)=\dfrac{1}{\sqrt{x-5}}\)
+<strong>1.9</strong> \(f(x)=\sqrt{x^2-x-6}\)
+<strong>1.10</strong> \(f(x)=\ln\left(\dfrac{x-1}{x+2}\right)\)</p>
+<h3 id="intermedio">Intermedio</h3>
+<p><strong>1.11</strong> Con \(f(x)=3x+2\) y \(g(x)=x^2-1\), halla \((f\circ g)(x)\) y \((g\circ f)(x)\). ¿Son iguales?
+<strong>1.12</strong> Con \(f(x)=\sqrt{x}\) y \(g(x)=x-4\), halla \((f\circ g)(x)\) y su dominio.
+<strong>1.13</strong> Con \(f(x)=\dfrac1x\) y \(g(x)=x+1\), halla \((f\circ g)(x)\), \((g\circ f)(x)\) y sus dominios.
+<strong>1.14</strong> Halla la inversa de \(f(x)=3x+2\) y verifica que \(f(f^{-1}(x))=x\).
+<strong>1.15</strong> Halla la inversa de \(f(x)=x^3-1\).
+<strong>1.16</strong> Halla la inversa de \(f(x)=\dfrac{2x-1}{x+3}\).
+<strong>1.17</strong> Halla la inversa de \(f(x)=e^x+4\) e indica su dominio.
+<strong>1.18</strong> Sea \(f(x)=\begin{cases}x+2,& x<0\\ x^2,& 0\le x\le 2\\ 6-x,& x>2\end{cases}\). Calcula \(f(-3)\), \(f(0)\), \(f(2)\), \(f(5)\) y bosqueja la gráfica.
+<strong>1.19</strong> Describe qué transformaciones llevan la gráfica de \(y=x^2\) a la de \(y=-2(x-3)^2+5\), en orden.
+<strong>1.20</strong> Si \(f(x)=x^2-4x\), escribe \(f\) en forma canónica (completando el cuadrado) y da el vértice y el rango.</p>
+<h3 id="tipo-examen">Tipo examen</h3>
+<p><strong>1.21</strong> Halla el dominio de \(h(x)=\dfrac{\ln(x-1)}{\sqrt{5-x}}\).
+<strong>1.22</strong> Sean \(f(x)=x^2+1\) y \(g(x)=\sqrt{x-3}\). Halla \((f\circ g)(x)\), \((g\circ f)(x)\) y el dominio de cada una.
+<strong>1.23</strong> Una función \(f\) tiene inversa. Si \(f(2)=7\) y \(f'(2)=3\), ¿cuánto vale \(f^{-1}(7)\)? (La derivada no se necesita para esta parte; es un distractor.)
+<strong>1.24</strong> Demuestra que \(f(x)=\dfrac{x}{x+1}\) es inyectiva en su dominio y halla \(f^{-1}\).
+<strong>1.25</strong> Sea \(f(x)=\sqrt{x+4}\) y \(g(x)=x^2-4\). ¿Es \(g\) la inversa de \(f\)? Justifica considerando dominios.
+<strong>1.26</strong> El costo de un servicio es $120.000 fijos más $8.000 por unidad. Escribe \(C(q)\), halla el costo promedio \(\bar C(q)=C(q)/q\) y determina su dominio en el contexto.</p>
+<hr />
+<h2 id="escenario-2--límites-noción-y-leyes">Escenario 2 — Límites: noción y leyes</h2>
+<span id="básico"></span><h3 id="básico_1">Básico</h3>
+<p>Calcula por sustitución directa.</p>
+<p><strong>2.1</strong> \(\displaystyle\lim_{x\to2}\left(2x^2-3x+1\right)\)
+<strong>2.2</strong> \(\displaystyle\lim_{x\to4}\dfrac{x+3}{x-1}\)
+<strong>2.3</strong> \(\displaystyle\lim_{x\to4}\sqrt{x^2+9}\)
+<strong>2.4</strong> \(\displaystyle\lim_{x\to\pi/6}\sin x\)
+<strong>2.5</strong> \(\displaystyle\lim_{x\to-1}\dfrac{x^2+1}{x+2}\)
+<strong>2.6</strong> \(\displaystyle\lim_{x\to0}\left(e^x+x\right)\)
+<strong>2.7</strong> \(\displaystyle\lim_{x\to1}\left(\ln x+x^2\right)\)
+<strong>2.8</strong> \(\displaystyle\lim_{x\to0}\dfrac{\cos x}{1+\sin x}\)
+<strong>2.9</strong> \(\displaystyle\lim_{x\to1}\dfrac{3x-1}{x^2+2}\)
+<strong>2.10</strong> \(\displaystyle\lim_{x\to2}\left(\sqrt{x+7}-x\right)\)</p>
+<span id="intermedio"></span><h3 id="intermedio_1">Intermedio</h3>
+<p>Calcula los límites laterales y decide si el límite existe.</p>
+<p><strong>2.11</strong> \(f(x)=\begin{cases}x^2,& x\le2\\ 3x-1,& x>2\end{cases}\) en \(x=2\).
+<strong>2.12</strong> \(f(x)=\begin{cases}x+1,& x<1\\ 2x,& x\ge1\end{cases}\) en \(x=1\).
+<strong>2.13</strong> \(f(x)=\dfrac{|x-3|}{x-3}\) en \(x=3\).
+<strong>2.14</strong> \(f(x)=\dfrac{1}{x-2}\) en \(x=2\).
+<strong>2.15</strong> \(f(x)=\begin{cases}x^2-1,& x<0\\ \sqrt{x+1},& x\ge0\end{cases}\) en \(x=0\).
+<strong>2.16</strong> \(f(x)=\dfrac{x-5}{|x-5|}\) en \(x=5\).
+<strong>2.17</strong> Si \(\lim_{x\to a}f(x)=3\) y \(\lim_{x\to a}g(x)=-2\), calcula \(\lim_{x\to a}\dfrac{2f(x)-g(x)}{f(x)g(x)}\).
+<strong>2.18</strong> Da un ejemplo de función donde \(\lim_{x\to1}f(x)=4\) pero \(f(1)=9\). ¿Es continua en 1?
+<strong>2.19</strong> Explica por qué \(\lim_{x\to0}\sin\!\left(\dfrac1x\right)\) no existe (argumento cualitativo).
+<strong>2.20</strong> Si \(\lim_{x\to2}\dfrac{f(x)-5}{x-2}=3\), ¿cuánto vale \(\lim_{x\to2}f(x)\)?</p>
+<span id="tipo-examen"></span><h3 id="tipo-examen_1">Tipo examen</h3>
+<p><strong>2.21</strong> Determina el valor de \(a\) para que \(\displaystyle\lim_{x\to1}f(x)\) exista, con \(f(x)=\begin{cases}ax+3,& x<1\\ x^2+2,& x\ge1\end{cases}\).
+<strong>2.22</strong> Traza una función que cumpla simultáneamente: \(\lim_{x\to2^-}f(x)=1\), \(\lim_{x\to2^+}f(x)=4\), \(f(2)=3\). Clasifica la discontinuidad.
+<strong>2.23</strong> Usa el teorema del emparedado para calcular \(\displaystyle\lim_{x\to0}x^2\sin\!\left(\dfrac1x\right)\).
+<strong>2.24</strong> Sea \(f(x)=\dfrac{x^2-4}{|x-2|}\). Calcula los límites laterales en \(x=2\) y decide si el límite existe.
+<strong>2.25</strong> Explica, con un ejemplo concreto, por qué la afirmación "si \(\lim_{x\to a}f(x)\) existe, entonces \(f(a)\) existe" es falsa.
+<strong>2.26</strong> Si \(f(x)\le g(x)\) para todo \(x\) cerca de \(a\), y \(\lim_{x\to a}f(x)=5\), ¿qué se puede afirmar de \(\lim_{x\to a}g(x)\) si existe?</p>
+<hr />
+<h2 id="escenario-3--indeterminaciones-infinito-y-asíntotas">Escenario 3 — Indeterminaciones, infinito y asíntotas</h2>
+<h3 id="básico--factorización">Básico — factorización</h3>
+<p><strong>3.1</strong> \(\displaystyle\lim_{x\to5}\dfrac{x^2-25}{x-5}\)
+<strong>3.2</strong> \(\displaystyle\lim_{x\to3}\dfrac{x^2-x-6}{x-3}\)
+<strong>3.3</strong> \(\displaystyle\lim_{x\to2}\dfrac{x^2-4}{x^2+x-6}\)
+<strong>3.4</strong> \(\displaystyle\lim_{x\to3}\dfrac{x^3-27}{x-3}\)
+<strong>3.5</strong> \(\displaystyle\lim_{x\to3}\dfrac{2x^2-5x-3}{x-3}\)
+<strong>3.6</strong> \(\displaystyle\lim_{x\to-1}\dfrac{x^3+1}{x+1}\)
+<strong>3.7</strong> \(\displaystyle\lim_{x\to2}\dfrac{x^4-16}{x-2}\)</p>
+<h3 id="básico--racionalización">Básico — racionalización</h3>
+<p><strong>3.8</strong> \(\displaystyle\lim_{x\to4}\dfrac{\sqrt{x}-2}{x-4}\)
+<strong>3.9</strong> \(\displaystyle\lim_{x\to0}\dfrac{\sqrt{x+9}-3}{x}\)
+<strong>3.10</strong> \(\displaystyle\lim_{x\to4}\dfrac{\sqrt{2x+1}-3}{x-4}\)
+<strong>3.11</strong> \(\displaystyle\lim_{x\to1}\dfrac{x-1}{\sqrt{x}-1}\)</p>
+<h3 id="básico--fracciones-complejas-y-trigonométricos">Básico — fracciones complejas y trigonométricos</h3>
+<p><strong>3.12</strong> \(\displaystyle\lim_{x\to5}\dfrac{\frac1x-\frac15}{x-5}\)
+<strong>3.13</strong> \(\displaystyle\lim_{x\to0}\dfrac{\frac{1}{x+2}-\frac12}{x}\)
+<strong>3.14</strong> \(\displaystyle\lim_{x\to0}\dfrac{\sin 7x}{x}\)
+<strong>3.15</strong> \(\displaystyle\lim_{x\to0}\dfrac{\sin x}{5x}\)
+<strong>3.16</strong> \(\displaystyle\lim_{x\to0}\dfrac{\tan 3x}{x}\)</p>
+<span id="intermedio"></span><h3 id="intermedio_2">Intermedio</h3>
+<p><strong>3.17</strong> \(\displaystyle\lim_{x\to0}\dfrac{1-\cos x}{x\sin x}\)
+<strong>3.18</strong> \(\displaystyle\lim_{x\to0}\dfrac{\sin 2x}{\sin 9x}\)
+<strong>3.19</strong> \(\displaystyle\lim_{x\to0}\dfrac{\sin x\cos x}{x}\)
+<strong>3.20</strong> \(\displaystyle\lim_{x\to0}\dfrac{x^2}{1-\cos x}\)
+<strong>3.21</strong> \(\displaystyle\lim_{x\to\infty}\dfrac{4x^2-3}{2x^2+x}\)
+<strong>3.22</strong> \(\displaystyle\lim_{x\to\infty}\dfrac{3x+5}{x^2-1}\)
+<strong>3.23</strong> \(\displaystyle\lim_{x\to\infty}\dfrac{x^3-2x}{5x^2+1}\)
+<strong>3.24</strong> \(\displaystyle\lim_{x\to\infty}\dfrac{\sqrt{4x^2+1}}{x+3}\) y \(\displaystyle\lim_{x\to-\infty}\dfrac{\sqrt{4x^2+1}}{x+3}\)
+<strong>3.25</strong> \(\displaystyle\lim_{x\to\infty}\left(\sqrt{x^2+5x}-x\right)\)
+<strong>3.26</strong> \(\displaystyle\lim_{x\to\infty}\dfrac{5x^2+2}{3-x^2}\)</p>
+<span id="tipo-examen"></span><h3 id="tipo-examen_2">Tipo examen</h3>
+<p><strong>3.27</strong> Halla todas las asíntotas de \(f(x)=\dfrac{2x^2-3x+1}{x^2-1}\) e indica si hay algún hueco.
+<strong>3.28</strong> Halla todas las asíntotas de \(f(x)=\dfrac{2x^2+3x-1}{x+1}\).
+<strong>3.29</strong> Halla todas las asíntotas de \(f(x)=\dfrac{x^2-4}{x+3}\).
+<strong>3.30</strong> Calcula \(\displaystyle\lim_{x\to\infty}\dfrac{x+\sin x}{x}\) y justifica el procedimiento.
+<strong>3.31</strong> Determina \(a\) y \(b\) para que \(\displaystyle\lim_{x\to2}\dfrac{x^2+ax+b}{x-2}\) exista y valga 7.</p>
+<hr />
+<h2 id="escenario-4--continuidad-y-derivada-por-definición">Escenario 4 — Continuidad y derivada por definición</h2>
+<h3 id="básico--continuidad">Básico — continuidad</h3>
+<p><strong>4.1</strong> ¿Es \(f(x)=\dfrac{x^2-9}{x-3}\) continua en \(x=3\)? Clasifica la discontinuidad.
+<strong>4.2</strong> ¿Es \(f(x)=\dfrac{1}{x-4}\) continua en \(x=4\)? Clasifica.
+<strong>4.3</strong> ¿Es \(f(x)=\dfrac{|x|}{x}\) continua en \(x=0\)? Clasifica.
+<strong>4.4</strong> Halla \(k\) para que \(f(x)=\begin{cases}x^2+1,& x\le1\\ kx+3,& x>1\end{cases}\) sea continua.
+<strong>4.5</strong> Halla \(k\) para que \(f(x)=\begin{cases}3x-1,& x<2\\ x^2+k,& x\ge2\end{cases}\) sea continua.
+<strong>4.6</strong> Halla \(k\) para que \(f(x)=\begin{cases}kx^2,& x\le2\\ x+3,& x>2\end{cases}\) sea continua.
+<strong>4.7</strong> Halla \(k\) para que \(f(x)=\begin{cases}\frac{\sin x}{x},& x\neq0\\ k,& x=0\end{cases}\) sea continua.
+<strong>4.8</strong> Halla \(k\) para que \(f(x)=\begin{cases}\frac{\sqrt{x+4}-2}{x},& x\neq0\\ k,& x=0\end{cases}\) sea continua.</p>
+<h3 id="básico--tvi">Básico — TVI</h3>
+<p><strong>4.9</strong> Prueba que \(x^3+x-3=0\) tiene una raíz en \((1,2)\).
+<strong>4.10</strong> Prueba que \(x^4-x-10=0\) tiene una raíz en \((1,2)\).
+<strong>4.11</strong> Prueba que \(\cos x=x\) tiene una solución en \((0,1)\).
+<strong>4.12</strong> Prueba que \(e^x+x=0\) tiene una raíz en \((-1,0)\).</p>
+<h3 id="intermedio--derivada-por-definición">Intermedio — derivada por definición</h3>
+<p>Calcula \(f'(x)\) usando \(f'(x)=\lim_{h\to0}\dfrac{f(x+h)-f(x)}{h}\).</p>
+<p><strong>4.13</strong> \(f(x)=3x+5\)
+<strong>4.14</strong> \(f(x)=x^2+4x\)
+<strong>4.15</strong> \(f(x)=5-x^2\)
+<strong>4.16</strong> \(f(x)=\dfrac{1}{x+1}\)
+<strong>4.17</strong> \(f(x)=x^3-x\)
+<strong>4.18</strong> \(f(x)=\dfrac2x\)
+<strong>4.19</strong> \(f(x)=\sqrt{x+3}\)
+<strong>4.20</strong> \(f(x)=\sqrt{2x}\)</p>
+<span id="tipo-examen"></span><h3 id="tipo-examen_3">Tipo examen</h3>
+<p><strong>4.21</strong> Sea \(f(x)=x^2-3x\). Halla la ecuación de la recta tangente en \(x=2\) usando la definición de derivada (sin reglas).
+<strong>4.22</strong> Explica por qué \(f(x)=|x-3|\) es continua pero no derivable en \(x=3\), calculando las derivadas laterales.
+<strong>4.23</strong> Sea \(f(x)=\begin{cases}x^2,& x\le1\\ 2x-1,& x>1\end{cases}\). ¿Es continua en \(x=1\)? ¿Es derivable en \(x=1\)? Justifica con derivadas laterales.
+<strong>4.24</strong> La posición de un móvil es \(s(t)=t^2-4t+3\) (metros, segundos). Halla la velocidad promedio en \([1,3]\) y la velocidad instantánea en \(t=3\) usando la definición.
+<strong>4.25</strong> Determina \(a\) y \(b\) para que \(f(x)=\begin{cases}ax+b,& x<2\\ x^2,& x\ge2\end{cases}\) sea derivable en \(x=2\).
+<strong>4.26</strong> ¿Es cierto que si \(f\) es continua en \(a\) entonces es derivable en \(a\)? Da un contraejemplo y explica la implicación correcta.</p>
+<hr />
+<h2 id="escenario-5--reglas-de-derivación">Escenario 5 — Reglas de derivación</h2>
+<span id="básico"></span><h3 id="básico_2">Básico</h3>
+<p>Deriva.</p>
+<p><strong>5.1</strong> \(f(x)=4x^5-3x^2+7\)
+<strong>5.2</strong> \(f(x)=2\sqrt{x}+\dfrac3x\)
+<strong>5.3</strong> \(f(x)=x^{2/3}-5x\)
+<strong>5.4</strong> \(f(x)=\dfrac{1}{x^4}+\sqrt[3]{x}\)
+<strong>5.5</strong> \(f(x)=7x^3-\dfrac{2}{x^2}+9\)
+<strong>5.6</strong> \(f(x)=5e^x-2\ln x+\dfrac{1}{\sqrt{x}}\)
+<strong>5.7</strong> \(f(x)=3\sin x-4\cos x\)
+<strong>5.8</strong> \(f(x)=\tan x+\sec x\)
+<strong>5.9</strong> \(f(x)=4^x+\log_3 x\)
+<strong>5.10</strong> \(f(x)=\dfrac{x^3+2x}{x}\) (simplifica primero)</p>
+<h3 id="intermedio--producto-y-cociente">Intermedio — producto y cociente</h3>
+<p><strong>5.11</strong> \(f(x)=(x^2+1)(x^3-2)\)
+<strong>5.12</strong> \(f(x)=x\cos x\)
+<strong>5.13</strong> \(f(x)=e^x\ln x\)
+<strong>5.14</strong> \(f(x)=\sqrt{x}\,\sin x\)
+<strong>5.15</strong> \(f(x)=x^3e^x\)
+<strong>5.16</strong> \(f(x)=\dfrac{3x-2}{x+5}\)
+<strong>5.17</strong> \(f(x)=\dfrac{x^2}{\sin x}\)
+<strong>5.18</strong> \(f(x)=\dfrac{\ln x}{x^2}\)
+<strong>5.19</strong> \(f(x)=\dfrac{1+\cos x}{1-\cos x}\)
+<strong>5.20</strong> \(f(x)=\dfrac{2x+1}{x^2+3}\)</p>
+<span id="tipo-examen"></span><h3 id="tipo-examen_4">Tipo examen</h3>
+<p><strong>5.21</strong> Deriva \(f(x)=x^2e^x\cos x\) (producto triple).
+<strong>5.22</strong> Halla la pendiente de la recta tangente a \(f(x)=\dfrac{x}{x^2+1}\) en \(x=1\).
+<strong>5.23</strong> Halla los puntos de \(f(x)=x^3-3x\) donde la tangente es horizontal.
+<strong>5.24</strong> Si \(f(x)=\dfrac{e^x}{x}\), halla \(f'(1)\).
+<strong>5.25</strong> Deriva \(f(x)=\dfrac{\sin x}{1+\cos x}\) y simplifica al máximo.
+<strong>5.26</strong> Un costo total es \(C(q)=0{,}01q^3-0{,}6q^2+13q+100\). Halla el costo marginal \(C'(q)\) y evalúalo en \(q=10\).</p>
+<hr />
+<h2 id="escenario-6--regla-de-la-cadena-implícita-y-orden-superior">Escenario 6 — Regla de la cadena, implícita y orden superior</h2>
+<h3 id="básico--cadena-simple">Básico — cadena simple</h3>
+<p><strong>6.1</strong> \(f(x)=(2x+5)^7\)
+<strong>6.2</strong> \(f(x)=\sin(4x)\)
+<strong>6.3</strong> \(f(x)=e^{3x^2}\)
+<strong>6.4</strong> \(f(x)=\ln(5x-1)\)
+<strong>6.5</strong> \(f(x)=\sqrt{x^2+9}\)
+<strong>6.6</strong> \(f(x)=\cos(x^3)\)
+<strong>6.7</strong> \(f(x)=(x^2-3x)^8\)
+<strong>6.8</strong> \(f(x)=\tan(2x)\)
+<strong>6.9</strong> \(f(x)=e^{\cos x}\)
+<strong>6.10</strong> \(f(x)=\ln(x^2+4)\)</p>
+<h3 id="intermedio--cadena-anidada-y-combinada">Intermedio — cadena anidada y combinada</h3>
+<p><strong>6.11</strong> \(f(x)=\sin^5 x\)
+<strong>6.12</strong> \(f(x)=\sqrt{\ln x}\)
+<strong>6.13</strong> \(f(x)=e^{\sqrt{x}}\)
+<strong>6.14</strong> \(f(x)=\left(\sin 2x+1\right)^3\)
+<strong>6.15</strong> \(f(x)=\ln(\sin x)\)
+<strong>6.16</strong> \(f(x)=\cos\left(e^{2x}\right)\)
+<strong>6.17</strong> \(f(x)=\sqrt{1+\sqrt{x}}\)
+<strong>6.18</strong> \(f(x)=\sin\left(\cos 3x\right)\)
+<strong>6.19</strong> \(f(x)=(1+\ln x)^6\)
+<strong>6.20</strong> \(f(x)=x^2\sqrt{4x+1}\)
+<strong>6.21</strong> \(f(x)=e^{2x}\cos 3x\)
+<strong>6.22</strong> \(f(x)=\dfrac{\sin(x^2)}{x}\)
+<strong>6.23</strong> \(f(x)=\dfrac{(2x+1)^3}{(x-1)^2}\)
+<strong>6.24</strong> \(f(x)=\ln\left(\dfrac{x^2\sqrt{x+1}}{x-3}\right)\) (descompón primero)</p>
+<h3 id="intermedio--implícita-y-orden-superior">Intermedio — implícita y orden superior</h3>
+<p>Halla \(\dfrac{dy}{dx}\).</p>
+<p><strong>6.25</strong> \(x^2+y^2=25\); evalúa en \((3,4)\).
+<strong>6.26</strong> \(x^2y+y^3=4\)
+<strong>6.27</strong> \(xy+\sin y=3\)
+<strong>6.28</strong> \(e^y+x^2=y\)
+<strong>6.29</strong> \(x^3+xy-y^2=0\)
+<strong>6.30</strong> \(\sqrt{x}+\sqrt{y}=9\)</p>
+<p>Calcula la derivada indicada.</p>
+<p><strong>6.31</strong> \(f(x)=x^4-2x^3+x\); halla \(f''\).
+<strong>6.32</strong> \(f(x)=\sin 3x\); halla \(f''\).
+<strong>6.33</strong> \(f(x)=e^{-2x}\); halla \(f'''\).
+<strong>6.34</strong> \(f(x)=\ln x\); halla \(f'''\).
+<strong>6.35</strong> \(f(x)=xe^x\); halla \(f''\).
+<strong>6.36</strong> \(f(x)=\dfrac1x\); halla \(f'''\).</p>
+<span id="tipo-examen"></span><h3 id="tipo-examen_5">Tipo examen</h3>
+<p><strong>6.37</strong> Deriva \(f(x)=\sin\left(\sqrt{x^2+1}\right)\).
+<strong>6.38</strong> Deriva \(f(x)=\ln\left(\cos(3x^2+1)\right)\) y simplifica.
+<strong>6.39</strong> Deriva \(f(x)=(3x^2+2)^4\sin(5x)\) y factoriza el resultado.
+<strong>6.40</strong> Halla la ecuación de la recta tangente a \(x^3+y^3=6xy\) en el punto \((3,3)\).
+<strong>6.41</strong> Halla la ecuación de la recta tangente a \(x^2+y^2=25\) en \((3,4)\) y verifica que es perpendicular al radio.
+<strong>6.42</strong> Si \(f(x)=e^{2x}\), halla una fórmula general para \(f^{(n)}(x)\).</p>
+<hr />
+<h2 id="escenario-7--aplicaciones-de-la-derivada">Escenario 7 — Aplicaciones de la derivada</h2>
+<h3 id="básico--tangente-normal-aproximación">Básico — tangente, normal, aproximación</h3>
+<p><strong>7.1</strong> Recta tangente a \(f(x)=x^2-4x+3\) en \(x=1\).
+<strong>7.2</strong> Recta tangente a \(f(x)=\sqrt{x}\) en \(x=4\); también la normal.
+<strong>7.3</strong> Recta tangente a \(f(x)=\dfrac1x\) en \(x=2\).
+<strong>7.4</strong> Recta tangente a \(f(x)=e^x\) en \(x=0\).
+<strong>7.5</strong> Recta tangente a \(f(x)=\ln x\) en \(x=1\).
+<strong>7.6</strong> Aproxima \(\sqrt{9{,}1}\) con linealización en \(a=9\).
+<strong>7.7</strong> Aproxima \(\sqrt[3]{26{,}99}\) con linealización en \(a=27\).
+<strong>7.8</strong> Aproxima \(e^{0{,}1}\) con linealización en \(a=0\) y compara con el valor real.
+<strong>7.9</strong> Un cubo de arista 20 cm se mide con error de \(\pm0{,}1\) cm. Estima el error en el volumen usando diferenciales.
+<strong>7.10</strong> Una esfera de radio 10 cm sufre un aumento de radio de 0,05 cm. Estima el aumento del área superficial (\(A=4\pi r^2\)).</p>
+<h3 id="intermedio--razones-relacionadas">Intermedio — razones relacionadas</h3>
+<p><strong>7.11</strong> Un globo esférico se infla a razón de 100 cm³/s. ¿A qué velocidad crece el radio cuando \(r=25\) cm?
+<strong>7.12</strong> El radio de un círculo crece a 2 cm/s. ¿A qué velocidad crece el área cuando \(r=10\) cm?
+<strong>7.13</strong> La arista de un cubo crece a 3 cm/s. ¿A qué velocidad crece el volumen cuando la arista mide 10 cm?
+<strong>7.14</strong> Una escalera de 13 m apoyada en un muro: la base se aleja a 0,5 m/s. ¿A qué velocidad baja el extremo superior cuando la base está a 5 m?
+<strong>7.15</strong> Un tanque cónico invertido tiene el radio igual a la mitad de la altura. Entra agua a 2 m³/min. ¿A qué velocidad sube el nivel cuando \(h=3\) m?
+<strong>7.16</strong> Dos autos parten del mismo punto: uno al norte a 60 km/h, otro al este a 80 km/h. ¿A qué velocidad se separan a las 2 horas?
+<strong>7.17</strong> Un farol de 6 m de alto ilumina a una persona de 1,8 m que se aleja a 1,2 m/s. ¿A qué velocidad crece su sombra? ¿Y la punta de la sombra?
+<strong>7.18</strong> El lado de un cuadrado crece a 4 cm/s. ¿A qué velocidad crece el área cuando el lado mide 15 cm?</p>
+<h3 id="intermedio--análisis-de-funciones">Intermedio — análisis de funciones</h3>
+<p>Para cada función: intervalos de crecimiento y decrecimiento, extremos locales, concavidad y puntos de inflexión.</p>
+<p><strong>7.19</strong> \(f(x)=x^3-6x^2+9x+1\)
+<strong>7.20</strong> \(f(x)=x^4-2x^2\)
+<strong>7.21</strong> \(f(x)=x^3-12x\)
+<strong>7.22</strong> \(f(x)=2x^3+3x^2-12x\)
+<strong>7.23</strong> \(f(x)=\dfrac{x}{x^2+4}\)
+<strong>7.24</strong> \(f(x)=xe^{-x}\)
+<strong>7.25</strong> \(f(x)=x^3+3x^2\)
+<strong>7.26</strong> \(f(x)=x^4-8x^2+3\)</p>
+<p>Extremos absolutos en el intervalo cerrado indicado.</p>
+<p><strong>7.27</strong> \(f(x)=x^3-3x^2+1\) en \([-1,3]\)
+<strong>7.28</strong> \(f(x)=x+\dfrac4x\) en \([1,5]\)
+<strong>7.29</strong> \(f(x)=\sin x+\cos x\) en \(\left[0,\frac{\pi}{2}\right]\)</p>
+<h3 id="intermedio--lhôpital">Intermedio — L'Hôpital</h3>
+<p><strong>7.30</strong> \(\displaystyle\lim_{x\to0}\dfrac{e^x-1}{x}\)
+<strong>7.31</strong> \(\displaystyle\lim_{x\to1}\dfrac{\ln x}{x-1}\)
+<strong>7.32</strong> \(\displaystyle\lim_{x\to0}\dfrac{\cos x-1}{x^2}\)
+<strong>7.33</strong> \(\displaystyle\lim_{x\to\infty}\dfrac{x^3}{e^x}\)
+<strong>7.34</strong> \(\displaystyle\lim_{x\to0}\dfrac{\sin x-x}{x^3}\)
+<strong>7.35</strong> \(\displaystyle\lim_{x\to0^+}x\ln x\)
+<strong>7.36</strong> \(\displaystyle\lim_{x\to0}\left(\dfrac1x-\dfrac{1}{\tan x}\right)\)
+<strong>7.37</strong> \(\displaystyle\lim_{x\to\infty}\left(1+\dfrac2x\right)^x\)
+<strong>7.38</strong> \(\displaystyle\lim_{x\to0}\dfrac{e^{2x}-1}{\sin 3x}\)
+<strong>7.39</strong> \(\displaystyle\lim_{x\to\infty}\dfrac{(\ln x)^2}{x}\)
+<strong>7.40</strong> \(\displaystyle\lim_{x\to0}\dfrac{\tan x-x}{x-\sin x}\)
+<strong>7.41</strong> \(\displaystyle\lim_{x\to0^+}x^{\sin x}\)</p>
+<h3 id="tipo-examen--optimización">Tipo examen — optimización</h3>
+<p><strong>7.42</strong> Halla dos números cuya suma sea 200 y cuyo producto sea máximo.
+<strong>7.43</strong> Se dispone de 100 m de cerca para un corral rectangular adosado a un muro (no se cerca ese lado). Halla las dimensiones de área máxima.
+<strong>7.44</strong> De una lámina cuadrada de 60 cm de lado se cortan cuadrados en las esquinas para formar una caja sin tapa. ¿Qué corte maximiza el volumen?
+<strong>7.45</strong> Halla las dimensiones de la lata cilíndrica de 1.000 cm³ que usa la mínima cantidad de material (con tapa y fondo).
+<strong>7.46</strong> Halla el rectángulo de área máxima inscrito en un semicírculo de radio 5, con la base sobre el diámetro.
+<strong>7.47</strong> El precio unitario de un servicio es \(p=50-0{,}1q\). Halla la cantidad \(q\) que maximiza el ingreso \(R=pq\).
+<strong>7.48</strong> Halla el punto de la parábola \(y=x^2\) más cercano al punto \((0,3)\).</p>
+<h3 id="tipo-examen--optimización-aplicada-a-contexto-institucional">Tipo examen — optimización aplicada a contexto institucional</h3>
+<p><strong>7.49 — Minimizar el costo anual de un contrato de suministro.</strong>
+La entidad requiere <strong>20.000 resmas de papel al año</strong>, con consumo uniforme. Cada orden de compra genera un costo administrativo fijo de <strong>$100.000</strong> (trámite, verificación de requisitos y recepción), independiente de la cantidad pedida. Mantener una resma en almacén cuesta <strong>$1.000 al año</strong>, y el inventario promedio equivale a la mitad del tamaño de cada pedido.</p>
+<p><strong>(a)</strong> Escribe el costo anual total \(C(q)\) en función del tamaño del pedido \(q\) e indica el dominio realista.
+<strong>(b)</strong> Halla el tamaño de pedido que minimiza el costo y <strong>justifica</strong> que es un mínimo.
+<strong>(c)</strong> ¿Cuántas órdenes de compra al año se generan y cuál es el costo anual mínimo?
+<strong>(d)</strong> Compara el costo de ordenar con el de almacenar en el óptimo. ¿Qué observas?</p>
+<p><strong>7.50 — Maximizar la cobertura con presupuesto fijo.</strong>
+La entidad dispone de <strong>$240.000.000</strong> para el cerramiento de un depósito de archivo <strong>rectangular</strong> que se adosará a un muro perimetral existente (ese lado no requiere cerramiento). El <strong>frente</strong>, que da a la vía y requiere malla reforzada con puerta vehicular, cuesta <strong>$3.000.000 por metro lineal</strong>; los <strong>dos laterales</strong> cuestan <strong>$1.000.000 por metro lineal</strong> cada uno.</p>
+<p><strong>(a)</strong> Si \(x\) es el largo del frente y \(y\) el de cada lateral, escribe la restricción presupuestal y la función de área a maximizar en una sola variable.
+<strong>(b)</strong> Halla las dimensiones que maximizan el área cubierta y <strong>justifica</strong> que es un máximo.
+<strong>(c)</strong> ¿Cuál es el área máxima y cuánto se gasta exactamente?
+<strong>(d)</strong> Si el frente costara lo mismo que los laterales ($1.000.000/m), ¿cambiarían las dimensiones óptimas? Calcula.</p>
+<hr />
+<h2 id="escenario-8--repaso-integrado-y-opción-múltiple">Escenario 8 — Repaso integrado y opción múltiple</h2>
+<h3 id="tipo-examen--mixtos">Tipo examen — mixtos</h3>
+<p><strong>8.1</strong> Calcula \(\displaystyle\lim_{x\to2}\dfrac{x^3-8}{x^2-4}\).
+<strong>8.2</strong> Deriva \(f(x)=\ln\left(\sqrt{x^2+1}\right)\) y simplifica.
+<strong>8.3</strong> Halla las asíntotas de \(f(x)=\dfrac{3x^2}{x^2-4}\).
+<strong>8.4</strong> Halla \(\dfrac{dy}{dx}\) si \(x^2+xy+y^2=7\), y evalúa en \((1,2)\).
+<strong>8.5</strong> Analiza completamente \(f(x)=x^3-3x^2-9x+5\) (críticos, extremos, concavidad, inflexión).
+<strong>8.6</strong> Calcula \(\displaystyle\lim_{x\to0}\dfrac{1-\cos 2x}{x\sin x}\).
+<strong>8.7</strong> Un móvil tiene posición \(s(t)=t^3-6t^2+9t\). Halla cuándo se detiene, la aceleración en esos instantes y la posición.
+<strong>8.8</strong> Deriva \(f(x)=\sqrt{\tan(x^3)}\).
+<strong>8.9</strong> Halla los extremos absolutos de \(f(x)=x^4-2x^2+3\) en \([-2,2]\).
+<strong>8.10</strong> Calcula \(\displaystyle\lim_{x\to\infty}\left(\dfrac{2x^2+3x}{\sqrt{x^4+1}}\right)\).
+<strong>8.11</strong> Halla \(k\) para que \(f(x)=\begin{cases}\frac{x^2-9}{x-3},& x\neq3\\ k,& x=3\end{cases}\) sea continua.
+<strong>8.12</strong> Deriva \(f(x)=e^{\sin(\ln x)}\).</p>
+<h3 id="opción-múltiple">Opción múltiple</h3>
+<p><strong>8.13</strong> \(\displaystyle\lim_{x\to4}\dfrac{x^2-16}{x-4}=\)</p>
+<ul>
+<li>A) \(0\)</li>
+<li>B) \(8\)</li>
+<li>C) No existe</li>
+<li>D) \(\infty\)</li>
+</ul>
+<p><strong>8.14</strong> \(\dfrac{d}{dx}\left[\sin(x^2)\right]=\)</p>
+<ul>
+<li>A) \(\cos(x^2)\)</li>
+<li>B) \(2x\cos(x^2)\)</li>
+<li>C) \(2x\cos(2x)\)</li>
+<li>D) \(\cos(2x)\)</li>
+</ul>
+<p><strong>8.15</strong> \(\displaystyle\lim_{x\to\infty}\dfrac{5x^3-2x}{3x^3+x^2}=\)</p>
+<ul>
+<li>A) \(0\)</li>
+<li>B) \(\infty\)</li>
+<li>C) \(\dfrac53\)</li>
+<li>D) \(-\dfrac23\)</li>
+</ul>
+<p><strong>8.16</strong> \(\dfrac{d}{dx}\left[\ln(3x)\right]=\)</p>
+<ul>
+<li>A) \(\dfrac{3}{x}\)</li>
+<li>B) \(\dfrac{1}{3x}\)</li>
+<li>C) \(\dfrac1x\)</li>
+<li>D) \(\dfrac{1}{\ln(3x)}\)</li>
+</ul>
+<p><strong>8.17</strong> Si \(f(x)=x^3-3x^2\), el punto de inflexión está en:</p>
+<ul>
+<li>A) \(x=0\)</li>
+<li>B) \(x=1\)</li>
+<li>C) \(x=2\)</li>
+<li>D) \(x=0\) y \(x=2\)</li>
+</ul>
+<hr />
+<h1 id="soluciones">SOLUCIONES</h1>
+<hr />
+<h2 id="soluciones--escenario-1">Soluciones — Escenario 1</h2>
+<p><strong>1.1</strong> Se necesita \(2x-6\ge0 \Rightarrow x\ge3\). Dominio: \([3,\infty)\).</p>
+<p><strong>1.2</strong> \(x^2-16\neq0 \Rightarrow x\neq\pm4\). Dominio: \((-\infty,-4)\cup(-4,4)\cup(4,\infty)\).</p>
+<p><strong>1.3</strong> \(x+5>0 \Rightarrow x>-5\). Dominio: \((-5,\infty)\). (Estricto: el logaritmo de 0 no existe.)</p>
+<p><strong>1.4</strong> \(9-x^2\ge0 \Rightarrow x^2\le9 \Rightarrow -3\le x\le3\). Dominio: \([-3,3]\).</p>
+<p><strong>1.5</strong> \(x^2+x-6=(x+3)(x-2)\neq0 \Rightarrow x\neq-3,\ x\neq2\). Dominio: \((-\infty,-3)\cup(-3,2)\cup(2,\infty)\).</p>
+<p><strong>1.6</strong> Dos condiciones: \(x+3\ge0\) (\(x\ge-3\)) <strong>y</strong> \(x\neq1\). Dominio: \([-3,1)\cup(1,\infty)\).</p>
+<p><strong>1.7</strong> \(4-x^2>0 \Rightarrow -2<x<2\). Dominio: \((-2,2)\).</p>
+<p><strong>1.8</strong> La raíz está en el denominador, así que además de \(x-5\ge0\) se necesita \(\sqrt{x-5}\neq0\): la condición se vuelve <strong>estricta</strong>, \(x>5\). Dominio: \((5,\infty)\).</p>
+<p><strong>1.9</strong> \(x^2-x-6=(x-3)(x+2)\ge0\). Parábola hacia arriba con raíces \(-2\) y \(3\): es no negativa fuera de las raíces. Dominio: \((-\infty,-2]\cup[3,\infty)\).</p>
+<p><strong>1.10</strong> \(\dfrac{x-1}{x+2}>0\). Signos: positivo cuando ambos son positivos (\(x>1\)) o ambos negativos (\(x<-2\)). Dominio: \((-\infty,-2)\cup(1,\infty)\).</p>
+<p><strong>1.11</strong> \((f\circ g)(x)=3(x^2-1)+2=3x^2-1\). \((g\circ f)(x)=(3x+2)^2-1=9x^2+12x+3\). <strong>No son iguales:</strong> la composición no es conmutativa.</p>
+<p><strong>1.12</strong> \((f\circ g)(x)=\sqrt{x-4}\). Dominio: \(x-4\ge0\), es decir \([4,\infty)\).</p>
+<p><strong>1.13</strong> \((f\circ g)(x)=\dfrac{1}{x+1}\), dominio \(x\neq-1\). \((g\circ f)(x)=\dfrac1x+1=\dfrac{x+1}{x}\), dominio \(x\neq0\).</p>
+<p><strong>1.14</strong> \(y=3x+2 \Rightarrow x=\dfrac{y-2}{3}\), así que \(f^{-1}(x)=\dfrac{x-2}{3}\). Verificación: \(f\left(\frac{x-2}{3}\right)=3\cdot\frac{x-2}{3}+2=x-2+2=x\) ✓</p>
+<p><strong>1.15</strong> \(y=x^3-1 \Rightarrow x^3=y+1 \Rightarrow x=\sqrt[3]{y+1}\). Luego \(f^{-1}(x)=\sqrt[3]{x+1}\).</p>
+<p><strong>1.16</strong> \(y=\dfrac{2x-1}{x+3} \Rightarrow y(x+3)=2x-1 \Rightarrow yx+3y=2x-1 \Rightarrow x(y-2)=-3y-1\)
+\[x=\dfrac{-3y-1}{y-2}=\dfrac{3y+1}{2-y} \Rightarrow f^{-1}(x)=\dfrac{3x+1}{2-x}\]</p>
+<p><strong>1.17</strong> \(y=e^x+4 \Rightarrow e^x=y-4 \Rightarrow x=\ln(y-4)\). Luego \(f^{-1}(x)=\ln(x-4)\), con dominio \(x>4\). (Coherente: el rango de \(f\) es \((4,\infty)\), y el rango de \(f\) es el dominio de \(f^{-1}\).)</p>
+<p><strong>1.18</strong> \(f(-3)=-3+2=-1\) (rama 1). \(f(0)=0^2=0\) (rama 2, porque \(0\le0\le2\)). \(f(2)=2^2=4\) (rama 2). \(f(5)=6-5=1\) (rama 3).
+La gráfica: recta ascendente que se acerca a la altura 2 por la izquierda de \(x=0\); parábola desde \((0,0)\) hasta \((2,4)\); recta descendente a partir de \((2,4)\).
+Comportamiento en los empalmes: en \(x=0\) hay <strong>salto</strong>, porque \(\lim_{x\to0^-}(x+2)=2\) pero \(f(0)=0\). En \(x=2\) <strong>sí es continua</strong>, porque \(f(2)=4\) y \(\lim_{x\to2^+}(6-x)=4\) coinciden.</p>
+<p><strong>1.19</strong> Partiendo de \(y=x^2\): (1) traslación horizontal 3 unidades a la <strong>derecha</strong> → \((x-3)^2\); (2) dilatación vertical por factor 2 → \(2(x-3)^2\); (3) reflexión respecto al eje \(x\) → \(-2(x-3)^2\); (4) traslación vertical 5 unidades hacia <strong>arriba</strong> → \(-2(x-3)^2+5\).</p>
+<p><strong>1.20</strong> \(x^2-4x=(x^2-4x+4)-4=(x-2)^2-4\). Vértice \((2,-4)\); abre hacia arriba; rango \([-4,\infty)\).</p>
+<p><strong>1.21</strong> Numerador: \(\ln(x-1)\) exige \(x>1\). Denominador: \(\sqrt{5-x}\) en el denominador exige \(5-x>0\), es decir \(x<5\) (estricto). Dominio: \((1,5)\).</p>
+<p><strong>1.22</strong> \((f\circ g)(x)=\left(\sqrt{x-3}\right)^2+1=x-3+1=x-2\), pero <strong>el dominio sigue siendo \([3,\infty)\)</strong>, porque hay que poder calcular \(g\) primero. Este es el punto del ejercicio: la simplificación no amplía el dominio.
+\((g\circ f)(x)=\sqrt{(x^2+1)-3}=\sqrt{x^2-2}\), con dominio \(x^2\ge2\), es decir \(\left(-\infty,-\sqrt2\right]\cup\left[\sqrt2,\infty\right)\).</p>
+<p><strong>1.23</strong> \(f^{-1}(7)=2\), por definición de inversa: si \(f(2)=7\), entonces \(f^{-1}(7)=2\). El dato \(f'(2)=3\) es irrelevante para esta pregunta (aunque sirve para saber que \(\left(f^{-1}\right)'(7)=1/3\)).</p>
+<p><strong>1.24</strong> Dominio: \(x\neq-1\). Inyectividad: si \(\dfrac{a}{a+1}=\dfrac{b}{b+1}\), entonces \(a(b+1)=b(a+1) \Rightarrow ab+a=ab+b \Rightarrow a=b\). Es inyectiva.
+Inversa: \(y=\dfrac{x}{x+1} \Rightarrow y(x+1)=x \Rightarrow yx+y=x \Rightarrow y=x(1-y) \Rightarrow x=\dfrac{y}{1-y}\). Luego \(f^{-1}(x)=\dfrac{x}{1-x}\).</p>
+<p><strong>1.25</strong> <strong>No exactamente.</strong> \(f(g(x))=\sqrt{x^2-4+4}=\sqrt{x^2}=|x|\), que es igual a \(x\) <strong>solo si \(x\ge0\)</strong>. Y \(g(f(x))=\left(\sqrt{x+4}\right)^2-4=x\), válido para \(x\ge-4\). Conclusión: \(g\) es inversa de \(f\) solo si se restringe el dominio de \(g\) a \([0,\infty)\). Este es el error clásico de olvidar que \(\sqrt{x^2}=|x|\).</p>
+<p><strong>1.26</strong> \(C(q)=120{.}000+8{.}000q\). Costo promedio: \(\bar C(q)=\dfrac{120{.}000}{q}+8{.}000\). Dominio en contexto: \(q>0\) y entero (no se producen fracciones de unidad). Nota: \(\bar C\) es decreciente y tiende a $8.000 cuando \(q\to\infty\): es la economía de escala, y \(y=8{.}000\) es una asíntota horizontal.</p>
+<hr />
+<h2 id="soluciones--escenario-2">Soluciones — Escenario 2</h2>
+<p><strong>2.1</strong> \(2(4)-3(2)+1=8-6+1=3\).
+<strong>2.2</strong> \(\dfrac{4+3}{4-1}=\dfrac73\).
+<strong>2.3</strong> \(\sqrt{16+9}=\sqrt{25}=5\).
+<strong>2.4</strong> \(\sin\dfrac{\pi}{6}=\dfrac12\).
+<strong>2.5</strong> \(\dfrac{1+1}{-1+2}=\dfrac21=2\).
+<strong>2.6</strong> \(e^0+0=1\).
+<strong>2.7</strong> \(\ln1+1=0+1=1\).
+<strong>2.8</strong> \(\dfrac{\cos0}{1+\sin0}=\dfrac{1}{1+0}=1\).
+<strong>2.9</strong> \(\dfrac{3-1}{1+2}=\dfrac23\).
+<strong>2.10</strong> \(\sqrt{9}-2=3-2=1\).</p>
+<p><strong>2.11</strong> Izquierda: \(\lim_{x\to2^-}x^2=4\). Derecha: \(\lim_{x\to2^+}(3x-1)=5\). <strong>Distintos ⟹ el límite no existe</strong> (discontinuidad de salto).</p>
+<p><strong>2.12</strong> Izquierda: \(\lim_{x\to1^-}(x+1)=2\). Derecha: \(\lim_{x\to1^+}2x=2\). <strong>Coinciden ⟹ el límite existe y vale 2.</strong> Además \(f(1)=2\), así que también es continua.</p>
+<p><strong>2.13</strong> Para \(x>3\), \(|x-3|=x-3\) y el cociente es 1. Para \(x<3\), \(|x-3|=-(x-3)\) y el cociente es \(-1\). Laterales: \(-1\) y \(1\). <strong>No existe.</strong></p>
+<p><strong>2.14</strong> \(\lim_{x\to2^-}\dfrac{1}{x-2}=-\infty\) (denominador negativo pequeño), \(\lim_{x\to2^+}=+\infty\). <strong>No existe</strong>; hay asíntota vertical en \(x=2\).</p>
+<p><strong>2.15</strong> Izquierda: \(\lim_{x\to0^-}(x^2-1)=-1\). Derecha: \(\lim_{x\to0^+}\sqrt{x+1}=1\). <strong>No existe</strong> (salto).</p>
+<p><strong>2.16</strong> Igual que 2.13 con signo invertido: laterales \(-1\) y \(1\). <strong>No existe.</strong></p>
+<p><strong>2.17</strong> \(\dfrac{2(3)-(-2)}{(3)(-2)}=\dfrac{6+2}{-6}=\dfrac{8}{-6}=-\dfrac43\).</p>
+<p><strong>2.18</strong> Por ejemplo \(f(x)=\begin{cases}x+3,& x\neq1\\ 9,& x=1\end{cases}\). El límite es 4 pero \(f(1)=9\). <strong>No es continua</strong> en 1 (falla la tercera condición); es una discontinuidad <strong>evitable</strong>: bastaría redefinir \(f(1)=4\).</p>
+<p><strong>2.19</strong> Cuando \(x\to0\), el argumento \(1/x\) crece sin cota, así que \(\sin(1/x)\) oscila infinitas veces entre \(-1\) y \(1\) en cualquier vecindad de 0, por pequeña que sea. No se acerca a ningún valor: el límite no existe. (Compara con 2.23, donde el factor \(x^2\) aplasta la oscilación.)</p>
+<p><strong>2.20</strong> Para que el cociente tenga límite finito (3) con denominador \(\to0\), el numerador debe tender a 0. Es decir, \(\lim_{x\to2}(f(x)-5)=0\), de donde \(\lim_{x\to2}f(x)=5\). (De paso: esa expresión es la definición de \(f'(2)=3\).)</p>
+<p><strong>2.21</strong> Izquierda: \(a(1)+3=a+3\). Derecha: \(1^2+2=3\). Para que exista el límite: \(a+3=3 \Rightarrow \boxed{a=0}\).</p>
+<p><strong>2.22</strong> La gráfica debe acercarse a 1 por la izquierda de 2, saltar, y acercarse a 4 por la derecha, con un punto aislado en \((2,3)\). Como los laterales son distintos (\(1\neq4\)), es una <strong>discontinuidad de salto (finita)</strong>, y <strong>no es evitable</strong>: no hay manera de redefinir \(f(2)\) que la arregle.</p>
+<p><strong>2.23</strong> Como \(-1\le\sin(1/x)\le1\) para todo \(x\neq0\), multiplicando por \(x^2\ge0\):
+\[-x^2\le x^2\sin\!\left(\frac1x\right)\le x^2\]
+Ambos extremos tienden a 0 cuando \(x\to0\). Por el teorema del emparedado, \(\displaystyle\lim_{x\to0}x^2\sin\!\left(\frac1x\right)=0\).</p>
+<p><strong>2.24</strong> \(\dfrac{x^2-4}{|x-2|}=\dfrac{(x-2)(x+2)}{|x-2|}\).
+Para \(x>2\): \(|x-2|=x-2\), queda \(x+2 \to 4\).
+Para \(x<2\): \(|x-2|=-(x-2)\), queda \(-(x+2) \to -4\).
+Laterales \(4\) y \(-4\): <strong>el límite no existe.</strong></p>
+<p><strong>2.25</strong> Contraejemplo: \(f(x)=\dfrac{x^2-4}{x-2}\). Se tiene \(\lim_{x\to2}f(x)=4\), pero \(f(2)\) <strong>no existe</strong> (división por cero). El límite describe el comportamiento alrededor del punto; el valor de la función en el punto es información independiente.</p>
+<p><strong>2.26</strong> \(\lim_{x\to a}g(x)\ge5\). (Las desigualdades <strong>no estrictas</strong> se preservan al tomar límites; las estrictas no: de \(f(x)<g(x)\) solo se concluye \(\lim f\le\lim g\).)</p>
+<hr />
+<h2 id="soluciones--escenario-3">Soluciones — Escenario 3</h2>
+<p><strong>3.1</strong> \(\dfrac{(x-5)(x+5)}{x-5}=x+5 \to 5+5=\boxed{10}\).</p>
+<p><strong>3.2</strong> \(\dfrac{(x-3)(x+2)}{x-3}=x+2 \to \boxed{5}\).</p>
+<p><strong>3.3</strong> \(\dfrac{(x-2)(x+2)}{(x+3)(x-2)}=\dfrac{x+2}{x+3} \to \dfrac{4}{5}=\boxed{\dfrac45}\).</p>
+<p><strong>3.4</strong> Diferencia de cubos: \(\dfrac{(x-3)(x^2+3x+9)}{x-3}=x^2+3x+9 \to 9+9+9=\boxed{27}\).</p>
+<p><strong>3.5</strong> \(2x^2-5x-3=(2x+1)(x-3)\), luego \(\dfrac{(2x+1)(x-3)}{x-3}=2x+1 \to \boxed{7}\).</p>
+<p><strong>3.6</strong> Suma de cubos: \(\dfrac{(x+1)(x^2-x+1)}{x+1}=x^2-x+1 \to 1+1+1=\boxed{3}\).</p>
+<p><strong>3.7</strong> \(x^4-16=(x^2-4)(x^2+4)=(x-2)(x+2)(x^2+4)\). Cancelando \((x-2)\): \((x+2)(x^2+4)\to 4\cdot8=\boxed{32}\).</p>
+<p><strong>3.8</strong> Multiplicando por el conjugado \(\sqrt{x}+2\):
+\[\frac{(\sqrt x-2)(\sqrt x+2)}{(x-4)(\sqrt x+2)}=\frac{x-4}{(x-4)(\sqrt x+2)}=\frac{1}{\sqrt x+2}\to\frac{1}{2+2}=\boxed{\frac14}\]</p>
+<p><strong>3.9</strong> \[\frac{\sqrt{x+9}-3}{x}\cdot\frac{\sqrt{x+9}+3}{\sqrt{x+9}+3}=\frac{(x+9)-9}{x(\sqrt{x+9}+3)}=\frac{1}{\sqrt{x+9}+3}\to\frac16 \implies \boxed{\frac16}\]</p>
+<p><strong>3.10</strong> \[\frac{(2x+1)-9}{(x-4)(\sqrt{2x+1}+3)}=\frac{2x-8}{(x-4)(\sqrt{2x+1}+3)}=\frac{2(x-4)}{(x-4)(\sqrt{2x+1}+3)}=\frac{2}{\sqrt{2x+1}+3}\to\frac{2}{6}=\boxed{\frac13}\]</p>
+<p><strong>3.11</strong> Aquí el conjugado va en el <strong>denominador</strong>. Multiplicando arriba y abajo por \(\sqrt x+1\):
+\[\frac{(x-1)(\sqrt x+1)}{(\sqrt x-1)(\sqrt x+1)}=\frac{(x-1)(\sqrt x+1)}{x-1}=\sqrt x+1\to\boxed{2}\]
+<em>Alternativa elegante:</em> \(x-1=(\sqrt x-1)(\sqrt x+1)\), y se cancela directo.</p>
+<p><strong>3.12</strong> \(\dfrac1x-\dfrac15=\dfrac{5-x}{5x}\). Entonces
+\[\frac{\frac{5-x}{5x}}{x-5}=\frac{5-x}{5x(x-5)}=\frac{-(x-5)}{5x(x-5)}=-\frac{1}{5x}\to-\frac{1}{25}=\boxed{-\frac{1}{25}}\]</p>
+<p><strong>3.13</strong> \(\dfrac{1}{x+2}-\dfrac12=\dfrac{2-(x+2)}{2(x+2)}=\dfrac{-x}{2(x+2)}\). Entonces
+\[\frac{-x}{2x(x+2)}=\frac{-1}{2(x+2)}\to\frac{-1}{4}=\boxed{-\frac14}\]</p>
+<p><strong>3.14</strong> \(\dfrac{\sin7x}{x}=7\cdot\dfrac{\sin7x}{7x}\to7\cdot1=\boxed{7}\).</p>
+<p><strong>3.15</strong> \(\dfrac{1}{5}\cdot\dfrac{\sin x}{x}\to\boxed{\dfrac15}\).</p>
+<p><strong>3.16</strong> \(\dfrac{\tan3x}{x}=3\cdot\dfrac{\tan3x}{3x}\to3\cdot1=\boxed{3}\) (usando \(\lim_{u\to0}\frac{\tan u}{u}=1\)).</p>
+<p><strong>3.17</strong> Multiplicando por el conjugado \(1+\cos x\):
+\[\frac{1-\cos x}{x\sin x}\cdot\frac{1+\cos x}{1+\cos x}=\frac{1-\cos^2x}{x\sin x(1+\cos x)}=\frac{\sin^2x}{x\sin x(1+\cos x)}=\frac{\sin x}{x}\cdot\frac{1}{1+\cos x}\]
+\[\to 1\cdot\frac{1}{1+1}=\boxed{\frac12}\]</p>
+<p><strong>3.18</strong> Se acomodan los dos argumentos:
+\[\frac{\sin2x}{\sin9x}=\frac{\frac{\sin2x}{2x}\cdot2x}{\frac{\sin9x}{9x}\cdot9x}\to\frac{1\cdot2}{1\cdot9}=\boxed{\frac29}\]</p>
+<p><strong>3.19</strong> \(\dfrac{\sin x}{x}\cdot\cos x\to1\cdot1=\boxed{1}\).</p>
+<p><strong>3.20</strong> Es el recíproco de \(\frac{1-\cos x}{x^2}=\frac12\), luego el límite es \(\boxed{2}\).
+<em>Desarrollo:</em> \(\dfrac{x^2}{1-\cos x}\cdot\dfrac{1+\cos x}{1+\cos x}=\dfrac{x^2(1+\cos x)}{\sin^2x}=\left(\dfrac{x}{\sin x}\right)^2(1+\cos x)\to1\cdot2=2\).</p>
+<p><strong>3.21</strong> Grados iguales: cociente de coeficientes principales \(\dfrac42=\boxed{2}\).</p>
+<p><strong>3.22</strong> Grado del numerador (1) menor que el del denominador (2): \(\boxed{0}\).</p>
+<p><strong>3.23</strong> Grado 3 sobre grado 2: crece sin cota. \(\boxed{+\infty}\) (y \(-\infty\) cuando \(x\to-\infty\)). Hay asíntota <strong>oblicua</strong>.</p>
+<p><strong>3.24</strong> Dividiendo por \(x\) y recordando \(\sqrt{x^2}=|x|\):
+\[\frac{\sqrt{4x^2+1}}{x+3}=\frac{|x|\sqrt{4+1/x^2}}{x(1+3/x)}\]
+Para \(x\to+\infty\), \(|x|=x\): el límite es \(\dfrac{\sqrt4}{1}=\boxed{2}\).
+Para \(x\to-\infty\), \(|x|=-x\): el límite es \(\boxed{-2}\).
+<strong>Hay dos asíntotas horizontales distintas</strong>, \(y=2\) y \(y=-2\).</p>
+<p><strong>3.25</strong> \[\left(\sqrt{x^2+5x}-x\right)\cdot\frac{\sqrt{x^2+5x}+x}{\sqrt{x^2+5x}+x}=\frac{5x}{\sqrt{x^2+5x}+x}=\frac{5}{\sqrt{1+5/x}+1}\to\frac{5}{2}=\boxed{\frac52}\]</p>
+<p><strong>3.26</strong> Grados iguales: \(\dfrac{5}{-1}=\boxed{-5}\).</p>
+<p><strong>3.27</strong> \(f(x)=\dfrac{2x^2-3x+1}{x^2-1}=\dfrac{(2x-1)(x-1)}{(x-1)(x+1)}=\dfrac{2x-1}{x+1}\) para \(x\neq1\).</p>
+<ul>
+<li><strong>Vertical:</strong> solo \(x=-1\) (allí el numerador simplificado vale \(-3\neq0\)).</li>
+<li><strong>Hueco</strong> en \(x=1\), de altura \(\dfrac{2(1)-1}{1+1}=\dfrac12\). En \(x=1\) <strong>no</strong> hay asíntota: hay una discontinuidad evitable.</li>
+<li><strong>Horizontal:</strong> \(y=2\) (grados iguales, \(\frac21\)).</li>
+</ul>
+<p><strong>3.28</strong> \(\dfrac{2x^2+3x-1}{x+1}\). Grado 2 sobre grado 1: hay oblicua. División: \(2x^2+3x-1=(x+1)(2x+1)-2\), luego
+\[f(x)=2x+1-\frac{2}{x+1}\]</p>
+<ul>
+<li><strong>Vertical:</strong> \(x=-1\).</li>
+<li><strong>Oblicua:</strong> \(y=2x+1\).</li>
+<li><strong>Horizontal:</strong> ninguna.</li>
+</ul>
+<p><strong>3.29</strong> \(\dfrac{x^2-4}{x+3}\). División: \(x^2-4=(x+3)(x-3)+5\), luego \(f(x)=x-3+\dfrac{5}{x+3}\).</p>
+<ul>
+<li><strong>Vertical:</strong> \(x=-3\).</li>
+<li><strong>Oblicua:</strong> \(y=x-3\).</li>
+</ul>
+<p><strong>3.30</strong> \(\dfrac{x+\sin x}{x}=1+\dfrac{\sin x}{x}\). Como \(|\sin x|\le1\), se tiene \(\left|\frac{\sin x}{x}\right|\le\frac{1}{|x|}\to0\). Por emparedado, \(\frac{\sin x}{x}\to0\) y el límite es \(\boxed{1}\).</p>
+<blockquote>
+<p>Ojo: <strong>no</strong> es el límite notable. Aquí \(x\to\infty\), no \(x\to0\); el resultado es 0, no 1.</p>
+</blockquote>
+<p><strong>3.31</strong> Para que el límite exista con denominador \(\to0\), el numerador debe anularse en \(x=2\):
+\[4+2a+b=0 \quad (i)\]
+Entonces \(x^2+ax+b=(x-2)(x-r)\) para algún \(r\), y el límite es \(\lim_{x\to2}(x-r)=2-r=7 \Rightarrow r=-5\).
+Así \(x^2+ax+b=(x-2)(x+5)=x^2+3x-10\), de donde \(\boxed{a=3,\ b=-10}\). Verifica (i): \(4+6-10=0\) ✓</p>
+<hr />
+<h2 id="soluciones--escenario-4">Soluciones — Escenario 4</h2>
+<p><strong>4.1</strong> \(f(3)\) no existe (división por cero), pero \(\lim_{x\to3}\frac{(x-3)(x+3)}{x-3}=6\). <strong>Discontinuidad evitable</strong>: redefiniendo \(f(3)=6\) queda continua.</p>
+<p><strong>4.2</strong> \(f(4)\) no existe y los laterales son \(-\infty\) y \(+\infty\). <strong>Discontinuidad infinita (asintótica).</strong> No se puede evitar.</p>
+<p><strong>4.3</strong> Laterales \(-1\) y \(1\), distintos. <strong>Discontinuidad de salto.</strong> No evitable.</p>
+<p><strong>4.4</strong> \(\lim_{x\to1^-}(x^2+1)=2\) y \(\lim_{x\to1^+}(kx+3)=k+3\). Igualando: \(k+3=2 \Rightarrow \boxed{k=-1}\).</p>
+<p><strong>4.5</strong> \(\lim_{x\to2^-}(3x-1)=5\) y \(f(2)=4+k\). Igualando: \(4+k=5 \Rightarrow \boxed{k=1}\).</p>
+<p><strong>4.6</strong> \(f(2)=4k\) y \(\lim_{x\to2^+}(x+3)=5\). Igualando: \(4k=5 \Rightarrow \boxed{k=\dfrac54}\).</p>
+<p><strong>4.7</strong> \(\lim_{x\to0}\dfrac{\sin x}{x}=1 \Rightarrow \boxed{k=1}\).</p>
+<p><strong>4.8</strong> \(\lim_{x\to0}\dfrac{\sqrt{x+4}-2}{x}=\dfrac14\) (racionalizando) \(\Rightarrow \boxed{k=\dfrac14}\).</p>
+<p><strong>4.9</strong> \(f(x)=x^3+x-3\) es continua (polinomio). \(f(1)=1+1-3=-1<0\) y \(f(2)=8+2-3=7>0\). Como 0 está entre \(-1\) y 7, el TVI garantiza un \(c\in(1,2)\) con \(f(c)=0\). (Numéricamente \(c\approx1{,}213\).)</p>
+<p><strong>4.10</strong> \(f(1)=1-1-10=-10<0\), \(f(2)=16-2-10=4>0\). Por TVI hay raíz en \((1,2)\). (\(c\approx1{,}856\).)</p>
+<p><strong>4.11</strong> Sea \(g(x)=\cos x-x\), continua. \(g(0)=1>0\) y \(g(1)=\cos1-1\approx-0{,}46<0\). Por TVI hay \(c\in(0,1)\) con \(g(c)=0\), es decir \(\cos c=c\). (\(c\approx0{,}739\).)</p>
+<p><strong>4.12</strong> \(f(x)=e^x+x\) es continua. \(f(-1)=e^{-1}-1\approx-0{,}632<0\) y \(f(0)=1>0\). Por TVI hay raíz en \((-1,0)\). (\(c\approx-0{,}567\).)</p>
+<p><strong>4.13</strong> \(\displaystyle\lim_{h\to0}\frac{3(x+h)+5-(3x+5)}{h}=\lim_{h\to0}\frac{3h}{h}=\boxed{3}\).</p>
+<p><strong>4.14</strong> \[\lim_{h\to0}\frac{(x+h)^2+4(x+h)-x^2-4x}{h}=\lim_{h\to0}\frac{2xh+h^2+4h}{h}=\lim_{h\to0}(2x+h+4)=\boxed{2x+4}\]</p>
+<p><strong>4.15</strong> \[\lim_{h\to0}\frac{5-(x+h)^2-(5-x^2)}{h}=\lim_{h\to0}\frac{-2xh-h^2}{h}=\lim_{h\to0}(-2x-h)=\boxed{-2x}\]</p>
+<p><strong>4.16</strong> \[\lim_{h\to0}\frac{\frac{1}{x+h+1}-\frac{1}{x+1}}{h}=\lim_{h\to0}\frac{(x+1)-(x+h+1)}{h(x+h+1)(x+1)}=\lim_{h\to0}\frac{-h}{h(x+h+1)(x+1)}=\boxed{-\frac{1}{(x+1)^2}}\]</p>
+<p><strong>4.17</strong> \((x+h)^3-(x+h)-x^3+x = 3x^2h+3xh^2+h^3-h\). Dividiendo por \(h\) y haciendo \(h\to0\):
+\[\boxed{3x^2-1}\]</p>
+<p><strong>4.18</strong> \[\lim_{h\to0}\frac{\frac{2}{x+h}-\frac2x}{h}=\lim_{h\to0}\frac{2x-2(x+h)}{hx(x+h)}=\lim_{h\to0}\frac{-2h}{hx(x+h)}=\boxed{-\frac{2}{x^2}}\]</p>
+<p><strong>4.19</strong> Racionalizando:
+\[\lim_{h\to0}\frac{\sqrt{x+h+3}-\sqrt{x+3}}{h}\cdot\frac{\sqrt{x+h+3}+\sqrt{x+3}}{\sqrt{x+h+3}+\sqrt{x+3}}=\lim_{h\to0}\frac{h}{h\left(\sqrt{x+h+3}+\sqrt{x+3}\right)}=\boxed{\frac{1}{2\sqrt{x+3}}}\]</p>
+<p><strong>4.20</strong> Análogamente: \(\dfrac{2h}{h\left(\sqrt{2x+2h}+\sqrt{2x}\right)}\to\dfrac{2}{2\sqrt{2x}}=\boxed{\dfrac{1}{\sqrt{2x}}}\). (Equivale a \(\dfrac{\sqrt2}{2\sqrt x}\).)</p>
+<p><strong>4.21</strong> \(f(2)=4-6=-2\). Derivada por definición en \(x=2\):
+\[f'(2)=\lim_{h\to0}\frac{(2+h)^2-3(2+h)-(-2)}{h}=\lim_{h\to0}\frac{4+4h+h^2-6-3h+2}{h}=\lim_{h\to0}\frac{h+h^2}{h}=\lim_{h\to0}(1+h)=1\]
+Tangente: \(y-(-2)=1(x-2) \Rightarrow \boxed{y=x-4}\).</p>
+<p><strong>4.22</strong> <strong>Continuidad:</strong> \(\lim_{x\to3}|x-3|=0=f(3)\) ✓.
+<strong>Derivadas laterales:</strong>
+\[f'_-(3)=\lim_{h\to0^-}\frac{|h|}{h}=-1, \qquad f'_+(3)=\lim_{h\to0^+}\frac{|h|}{h}=1\]
+Como \(-1\neq1\), el límite que define \(f'(3)\) no existe: <strong>no es derivable</strong>. Geométricamente, hay un pico y no una única recta tangente.</p>
+<p><strong>4.23</strong> <strong>Continua:</strong> \(\lim_{x\to1^-}x^2=1\), \(\lim_{x\to1^+}(2x-1)=1\), \(f(1)=1\) ✓.
+<strong>Derivadas laterales:</strong> por la izquierda \(f'=2x\to2\); por la derecha \(f'=2\to2\). <strong>Coinciden ⟹ es derivable</strong> en \(x=1\), con \(f'(1)=2\). (La recta \(2x-1\) es precisamente la tangente a \(x^2\) en \(x=1\): por eso el empalme es suave.)</p>
+<p><strong>4.24</strong> Velocidad promedio en \([1,3]\): \(\dfrac{s(3)-s(1)}{3-1}=\dfrac{(9-12+3)-(1-4+3)}{2}=\dfrac{0-0}{2}=0\) m/s.
+Velocidad instantánea en \(t=3\):
+\[s'(3)=\lim_{h\to0}\frac{(3+h)^2-4(3+h)+3-0}{h}=\lim_{h\to0}\frac{9+6h+h^2-12-4h+3}{h}=\lim_{h\to0}\frac{2h+h^2}{h}=2 \text{ m/s}\]
+Interesante: la velocidad promedio es 0 (vuelve al mismo punto) pero la instantánea no.</p>
+<p><strong>4.25</strong> Dos condiciones.
+<strong>Continuidad en 2:</strong> \(2a+b=4\).
+<strong>Derivabilidad en 2:</strong> por la izquierda \(f'=a\); por la derecha \(f'=2x\to4\). Luego \(a=4\).
+Sustituyendo: \(8+b=4 \Rightarrow b=-4\). Respuesta: \(\boxed{a=4,\ b=-4}\).</p>
+<p><strong>4.26</strong> <strong>Falso.</strong> Contraejemplo: \(f(x)=|x|\) es continua en 0 pero no derivable allí (ejercicio 4.22). La implicación correcta va en el otro sentido: <strong>derivable \(\Rightarrow\) continua</strong>, y su contrarrecíproca (<strong>no continua \(\Rightarrow\) no derivable</strong>) sí es útil: si detectas una discontinuidad, ni te molestes en derivar allí.</p>
+<hr />
+<h2 id="soluciones--escenario-5">Soluciones — Escenario 5</h2>
+<p><strong>5.1</strong> \(f'=20x^4-6x\).</p>
+<p><strong>5.2</strong> Reescribe: \(2x^{1/2}+3x^{-1}\). Entonces \(f'=x^{-1/2}-3x^{-2}=\dfrac{1}{\sqrt x}-\dfrac{3}{x^2}\).</p>
+<p><strong>5.3</strong> \(f'=\dfrac23x^{-1/3}-5=\dfrac{2}{3\sqrt[3]{x}}-5\).</p>
+<p><strong>5.4</strong> \(x^{-4}+x^{1/3}\) ⟹ \(f'=-4x^{-5}+\dfrac13x^{-2/3}=-\dfrac{4}{x^5}+\dfrac{1}{3\sqrt[3]{x^2}}\).</p>
+<p><strong>5.5</strong> \(7x^3-2x^{-2}+9\) ⟹ \(f'=21x^2+4x^{-3}=21x^2+\dfrac{4}{x^3}\).</p>
+<p><strong>5.6</strong> \(f'=5e^x-\dfrac2x-\dfrac12x^{-3/2}=5e^x-\dfrac2x-\dfrac{1}{2\sqrt{x^3}}\).</p>
+<p><strong>5.7</strong> \(f'=3\cos x+4\sin x\).</p>
+<p><strong>5.8</strong> \(f'=\sec^2x+\sec x\tan x\).</p>
+<p><strong>5.9</strong> \(f'=4^x\ln4+\dfrac{1}{x\ln3}\).</p>
+<p><strong>5.10</strong> Simplificando primero: \(f(x)=x^2+2\) (para \(x\neq0\)), luego \(f'=2x\). <em>Con la regla del cociente daría lo mismo, pero con cinco líneas más.</em></p>
+<p><strong>5.11</strong> Producto: \(f'=2x(x^3-2)+(x^2+1)(3x^2)=2x^4-4x+3x^4+3x^2=5x^4+3x^2-4x\).</p>
+<p><strong>5.12</strong> \(f'=1\cdot\cos x+x(-\sin x)=\cos x-x\sin x\).</p>
+<p><strong>5.13</strong> \(f'=e^x\ln x+e^x\cdot\dfrac1x=e^x\left(\ln x+\dfrac1x\right)\).</p>
+<p><strong>5.14</strong> \(f'=\dfrac{1}{2\sqrt x}\sin x+\sqrt x\cos x\).</p>
+<p><strong>5.15</strong> \(f'=3x^2e^x+x^3e^x=x^2e^x(3+x)\).</p>
+<p><strong>5.16</strong> \(f'=\dfrac{3(x+5)-(3x-2)(1)}{(x+5)^2}=\dfrac{3x+15-3x+2}{(x+5)^2}=\dfrac{17}{(x+5)^2}\).</p>
+<p><strong>5.17</strong> \(f'=\dfrac{2x\sin x-x^2\cos x}{\sin^2x}\).</p>
+<p><strong>5.18</strong> \(f'=\dfrac{\frac1x\cdot x^2-\ln x\cdot 2x}{x^4}=\dfrac{x-2x\ln x}{x^4}=\dfrac{1-2\ln x}{x^3}\).</p>
+<p><strong>5.19</strong> \[f'=\frac{(-\sin x)(1-\cos x)-(1+\cos x)(\sin x)}{(1-\cos x)^2}=\frac{-\sin x+\sin x\cos x-\sin x-\sin x\cos x}{(1-\cos x)^2}=\frac{-2\sin x}{(1-\cos x)^2}\]</p>
+<p><strong>5.20</strong> \(f'=\dfrac{2(x^2+3)-(2x+1)(2x)}{(x^2+3)^2}=\dfrac{2x^2+6-4x^2-2x}{(x^2+3)^2}=\dfrac{-2x^2-2x+6}{(x^2+3)^2}\).</p>
+<p><strong>5.21</strong> Producto triple, aplicando la regla dos veces:
+\[f'=2xe^x\cos x+x^2e^x\cos x-x^2e^x\sin x=xe^x\big[2\cos x+x\cos x-x\sin x\big]\]</p>
+<p><strong>5.22</strong> \(f'(x)=\dfrac{1(x^2+1)-x(2x)}{(x^2+1)^2}=\dfrac{1-x^2}{(x^2+1)^2}\). En \(x=1\): \(f'(1)=\dfrac{1-1}{4}=\boxed{0}\). (La tangente es horizontal: \(x=1\) es el máximo de la función.)</p>
+<p><strong>5.23</strong> \(f'=3x^2-3=3(x-1)(x+1)=0 \Rightarrow x=\pm1\). Puntos: \((1,-2)\) y \((-1,2)\).</p>
+<p><strong>5.24</strong> \(f'=\dfrac{e^x\cdot x-e^x\cdot1}{x^2}=\dfrac{e^x(x-1)}{x^2}\). En \(x=1\): \(f'(1)=\dfrac{e\cdot0}{1}=\boxed{0}\).</p>
+<p><strong>5.25</strong> \[f'=\frac{\cos x(1+\cos x)-\sin x(-\sin x)}{(1+\cos x)^2}=\frac{\cos x+\cos^2x+\sin^2x}{(1+\cos x)^2}=\frac{\cos x+1}{(1+\cos x)^2}=\boxed{\frac{1}{1+\cos x}}\]
+Usando \(\sin^2+\cos^2=1\). Muy típico de examen: la simplificación es el punto del ejercicio.</p>
+<p><strong>5.26</strong> \(C'(q)=0{,}03q^2-1{,}2q+13\). En \(q=10\): \(C'(10)=0{,}03(100)-12+13=3-12+13=\boxed{4}\).
+<strong>Interpretación:</strong> producir la unidad número 11 cuesta aproximadamente $4 adicionales. Eso <em>es</em> el costo marginal.</p>
+<hr />
+<h2 id="soluciones--escenario-6">Soluciones — Escenario 6</h2>
+<p><strong>6.1</strong> \(f'=7(2x+5)^6\cdot2=14(2x+5)^6\).
+<strong>6.2</strong> \(f'=4\cos(4x)\).
+<strong>6.3</strong> \(f'=e^{3x^2}\cdot6x=6xe^{3x^2}\).
+<strong>6.4</strong> \(f'=\dfrac{5}{5x-1}\).
+<strong>6.5</strong> \(f'=\dfrac{2x}{2\sqrt{x^2+9}}=\dfrac{x}{\sqrt{x^2+9}}\).
+<strong>6.6</strong> \(f'=-3x^2\sin(x^3)\).
+<strong>6.7</strong> \(f'=8(x^2-3x)^7(2x-3)\).
+<strong>6.8</strong> \(f'=2\sec^2(2x)\).
+<strong>6.9</strong> \(f'=-e^{\cos x}\sin x\).
+<strong>6.10</strong> \(f'=\dfrac{2x}{x^2+4}\).</p>
+<p><strong>6.11</strong> \(\sin^5x=(\sin x)^5\) ⟹ \(f'=5\sin^4x\cos x\).
+<strong>6.12</strong> \(f'=\dfrac{1}{2\sqrt{\ln x}}\cdot\dfrac1x=\dfrac{1}{2x\sqrt{\ln x}}\).
+<strong>6.13</strong> \(f'=e^{\sqrt x}\cdot\dfrac{1}{2\sqrt x}=\dfrac{e^{\sqrt x}}{2\sqrt x}\).
+<strong>6.14</strong> \(f'=3(\sin2x+1)^2\cdot2\cos2x=6\cos(2x)(\sin2x+1)^2\).
+<strong>6.15</strong> \(f'=\dfrac{\cos x}{\sin x}=\cot x\).
+<strong>6.16</strong> \(f'=-\sin\!\left(e^{2x}\right)\cdot2e^{2x}=-2e^{2x}\sin\!\left(e^{2x}\right)\).
+<strong>6.17</strong> Dos capas: \(f'=\dfrac{1}{2\sqrt{1+\sqrt x}}\cdot\dfrac{1}{2\sqrt x}=\dfrac{1}{4\sqrt x\sqrt{1+\sqrt x}}\).
+<strong>6.18</strong> \(f'=\cos(\cos3x)\cdot(-3\sin3x)=-3\sin(3x)\cos(\cos3x)\).
+<strong>6.19</strong> \(f'=6(1+\ln x)^5\cdot\dfrac1x=\dfrac{6(1+\ln x)^5}{x}\).</p>
+<p><strong>6.20</strong> Producto + cadena:
+\[f'=2x\sqrt{4x+1}+x^2\cdot\frac{4}{2\sqrt{4x+1}}=2x\sqrt{4x+1}+\frac{2x^2}{\sqrt{4x+1}}\]
+Sobre común denominador: \(\dfrac{2x(4x+1)+2x^2}{\sqrt{4x+1}}=\dfrac{10x^2+2x}{\sqrt{4x+1}}=\dfrac{2x(5x+1)}{\sqrt{4x+1}}\).</p>
+<p><strong>6.21</strong> \(f'=2e^{2x}\cos3x+e^{2x}(-3\sin3x)=e^{2x}\left(2\cos3x-3\sin3x\right)\).</p>
+<p><strong>6.22</strong> Cociente + cadena:
+\[f'=\frac{2x\cos(x^2)\cdot x-\sin(x^2)}{x^2}=2\cos(x^2)-\frac{\sin(x^2)}{x^2}\]</p>
+<p><strong>6.23</strong> \[f'=\frac{3(2x+1)^2\cdot2\cdot(x-1)^2-(2x+1)^3\cdot2(x-1)}{(x-1)^4}\]
+Factorizando \((2x+1)^2(x-1)\) en el numerador:
+\[=\frac{(2x+1)^2\big[6(x-1)-2(2x+1)\big]}{(x-1)^3}=\frac{(2x+1)^2(2x-8)}{(x-1)^3}=\frac{2(x-4)(2x+1)^2}{(x-1)^3}\]</p>
+<p><strong>6.24</strong> Descomponiendo primero: \(f(x)=2\ln x+\dfrac12\ln(x+1)-\ln(x-3)\). Entonces
+\[f'=\frac2x+\frac{1}{2(x+1)}-\frac{1}{x-3}\]
+<em>Compara con derivar directamente el cociente dentro del logaritmo: la descomposición ahorra media página.</em></p>
+<p><strong>6.25</strong> \(2x+2y\dfrac{dy}{dx}=0 \Rightarrow \dfrac{dy}{dx}=-\dfrac xy\). En \((3,4)\): \(-\dfrac34\).</p>
+<p><strong>6.26</strong> Derivando \(x^2y+y^3=4\) (producto en el primer término):
+\[2xy+x^2\frac{dy}{dx}+3y^2\frac{dy}{dx}=0 \Rightarrow \frac{dy}{dx}\left(x^2+3y^2\right)=-2xy \Rightarrow \frac{dy}{dx}=\frac{-2xy}{x^2+3y^2}\]</p>
+<p><strong>6.27</strong> \(y+x\dfrac{dy}{dx}+\cos y\dfrac{dy}{dx}=0 \Rightarrow \dfrac{dy}{dx}=\dfrac{-y}{x+\cos y}\).</p>
+<p><strong>6.28</strong> \(e^y\dfrac{dy}{dx}+2x=\dfrac{dy}{dx} \Rightarrow \dfrac{dy}{dx}\left(e^y-1\right)=-2x \Rightarrow \dfrac{dy}{dx}=\dfrac{2x}{1-e^y}\).</p>
+<p><strong>6.29</strong> \(3x^2+y+x\dfrac{dy}{dx}-2y\dfrac{dy}{dx}=0 \Rightarrow \dfrac{dy}{dx}(x-2y)=-3x^2-y \Rightarrow \dfrac{dy}{dx}=\dfrac{-3x^2-y}{x-2y}=\dfrac{3x^2+y}{2y-x}\).</p>
+<p><strong>6.30</strong> \(\dfrac{1}{2\sqrt x}+\dfrac{1}{2\sqrt y}\dfrac{dy}{dx}=0 \Rightarrow \dfrac{dy}{dx}=-\dfrac{\sqrt y}{\sqrt x}\).</p>
+<p><strong>6.31</strong> \(f'=4x^3-6x^2+1\); \(f''=12x^2-12x=12x(x-1)\).
+<strong>6.32</strong> \(f'=3\cos3x\); \(f''=-9\sin3x\).
+<strong>6.33</strong> \(f'=-2e^{-2x}\); \(f''=4e^{-2x}\); \(f'''=-8e^{-2x}\).
+<strong>6.34</strong> \(f'=x^{-1}\); \(f''=-x^{-2}\); \(f'''=2x^{-3}=\dfrac{2}{x^3}\).
+<strong>6.35</strong> \(f'=e^x+xe^x=(1+x)e^x\); \(f''=e^x+(1+x)e^x=(2+x)e^x\).
+<strong>6.36</strong> \(f'=-x^{-2}\); \(f''=2x^{-3}\); \(f'''=-6x^{-4}=-\dfrac{6}{x^4}\).</p>
+<p><strong>6.37</strong> Capas: seno → raíz → \(x^2+1\).
+\[f'=\cos\!\left(\sqrt{x^2+1}\right)\cdot\frac{1}{2\sqrt{x^2+1}}\cdot 2x=\boxed{\frac{x\cos\!\left(\sqrt{x^2+1}\right)}{\sqrt{x^2+1}}}\]</p>
+<p><strong>6.38</strong> \[f'=\frac{1}{\cos(3x^2+1)}\cdot\left[-\sin(3x^2+1)\right]\cdot6x=-6x\tan(3x^2+1)\]</p>
+<p><strong>6.39</strong> Producto donde cada factor pide cadena:
+\[f'=4(3x^2+2)^3(6x)\sin5x+(3x^2+2)^4(5\cos5x)\]
+\[=\boxed{(3x^2+2)^3\left[24x\sin5x+5(3x^2+2)\cos5x\right]}\]</p>
+<p><strong>6.40</strong> Derivando implícitamente:
+\[3x^2+3y^2\frac{dy}{dx}=6y+6x\frac{dy}{dx} \Rightarrow \frac{dy}{dx}\left(3y^2-6x\right)=6y-3x^2 \Rightarrow \frac{dy}{dx}=\frac{2y-x^2}{y^2-2x}\]
+En \((3,3)\): \(\dfrac{6-9}{9-6}=-1\). Tangente: \(y-3=-1(x-3) \Rightarrow \boxed{y=-x+6}\).</p>
+<p><strong>6.41</strong> \(\dfrac{dy}{dx}=-\dfrac xy\); en \((3,4)\) vale \(-\dfrac34\). Tangente: \(y-4=-\dfrac34(x-3) \Rightarrow y=-\dfrac34x+\dfrac{25}{4}\).
+El radio que va del origen a \((3,4)\) tiene pendiente \(\dfrac43\). Como \(-\dfrac34\cdot\dfrac43=-1\), <strong>la tangente es perpendicular al radio</strong> ✓ (propiedad conocida de la circunferencia; aquí se demuestra con cálculo).</p>
+<p><strong>6.42</strong> \(f'=2e^{2x}\), \(f''=4e^{2x}\), \(f'''=8e^{2x}\). Patrón: \(\boxed{f^{(n)}(x)=2^ne^{2x}}\).</p>
+<hr />
+<h2 id="soluciones--escenario-7">Soluciones — Escenario 7</h2>
+<p><strong>7.1</strong> \(f(1)=1-4+3=0\); \(f'=2x-4\), \(f'(1)=-2\). Tangente: \(y-0=-2(x-1) \Rightarrow y=-2x+2\).</p>
+<p><strong>7.2</strong> \(f(4)=2\); \(f'=\dfrac{1}{2\sqrt x}\), \(f'(4)=\dfrac14\). Tangente: \(y=\dfrac14x+1\). Normal: pendiente \(-4\), \(y-2=-4(x-4) \Rightarrow y=-4x+18\).</p>
+<p><strong>7.3</strong> \(f(2)=\dfrac12\); \(f'=-\dfrac{1}{x^2}\), \(f'(2)=-\dfrac14\). Tangente: \(y=-\dfrac14x+1\).</p>
+<p><strong>7.4</strong> \(f(0)=1\), \(f'(0)=1\). Tangente: \(y=x+1\). (Es la linealización de \(e^x\) en 0, base de la aproximación \(e^h\approx1+h\).)</p>
+<p><strong>7.5</strong> \(f(1)=0\), \(f'(1)=1\). Tangente: \(y=x-1\).</p>
+<p><strong>7.6</strong> \(f(x)=\sqrt x\), \(a=9\): \(f(9)=3\), \(f'(9)=\dfrac{1}{6}\). \(L(x)=3+\dfrac16(x-9)\).
+\[L(9{,}1)=3+\dfrac{0{,}1}{6}\approx3{,}016\overline{6}\]
+Valor real: \(3{,}0166206\ldots\) Error \(\approx4,6\times10^{-5}\).</p>
+<p><strong>7.7</strong> \(f(x)=x^{1/3}\), \(a=27\): \(f(27)=3\), \(f'(x)=\dfrac{1}{3x^{2/3}}\), \(f'(27)=\dfrac{1}{27}\). \(L(x)=3+\dfrac{x-27}{27}\).
+\[L(26{,}99)=3-\dfrac{0{,}01}{27}\approx2{,}99962963\]
+Valor real: \(2{,}99962958\ldots\)</p>
+<p><strong>7.8</strong> \(L(x)=1+x\), luego \(e^{0{,}1}\approx1{,}1\). Valor real: \(1{,}10517\ldots\) Error \(\approx0{,}0052\) (0,47 %). La aproximación lineal siempre subestima a \(e^x\) porque la exponencial es cóncava hacia arriba y queda por encima de su tangente.</p>
+<p><strong>7.9</strong> \(V=a^3\), \(dV=3a^2\,da=3(20)^2(0{,}1)=120\) cm³. (El cambio exacto es \(20{,}1^3-20^3=120{,}601\) cm³: la estimación es buena.)</p>
+<p><strong>7.10</strong> \(A=4\pi r^2\), \(dA=8\pi r\,dr=8\pi(10)(0{,}05)=4\pi\approx12{,}57\) cm².</p>
+<p><strong>7.11</strong> \(V=\dfrac43\pi r^3 \Rightarrow \dfrac{dV}{dt}=4\pi r^2\dfrac{dr}{dt}\). Con \(\dfrac{dV}{dt}=100\) y \(r=25\):
+\[100=4\pi(625)\frac{dr}{dt} \Rightarrow \frac{dr}{dt}=\frac{100}{2500\pi}=\boxed{\frac{1}{25\pi}\approx0{,}0127 \text{ cm/s}}\]</p>
+<p><strong>7.12</strong> \(A=\pi r^2 \Rightarrow \dfrac{dA}{dt}=2\pi r\dfrac{dr}{dt}=2\pi(10)(2)=\boxed{40\pi\approx125{,}66 \text{ cm}^2\text{/s}}\).</p>
+<p><strong>7.13</strong> \(V=a^3 \Rightarrow \dfrac{dV}{dt}=3a^2\dfrac{da}{dt}=3(100)(3)=\boxed{900 \text{ cm}^3\text{/s}}\).</p>
+<p><strong>7.14</strong> \(x^2+y^2=169\). Derivando: \(2x\dfrac{dx}{dt}+2y\dfrac{dy}{dt}=0 \Rightarrow \dfrac{dy}{dt}=-\dfrac xy\dfrac{dx}{dt}\).
+Con \(x=5\): \(y=\sqrt{169-25}=12\). Entonces \(\dfrac{dy}{dt}=-\dfrac{5}{12}(0{,}5)=\boxed{-\dfrac{5}{24}\approx-0{,}208 \text{ m/s}}\) (desciende).</p>
+<p><strong>7.15</strong> Radio \(r=\dfrac h2\), así que \(V=\dfrac13\pi\left(\dfrac h2\right)^2h=\dfrac{\pi h^3}{12}\).
+\[\frac{dV}{dt}=\frac{\pi h^2}{4}\cdot\frac{dh}{dt} \Rightarrow 2=\frac{\pi(9)}{4}\frac{dh}{dt} \Rightarrow \frac{dh}{dt}=\boxed{\frac{8}{9\pi}\approx0{,}283 \text{ m/min}}\]</p>
+<blockquote>
+<p>Nota: la sustitución de \(r=h/2\) se hace <strong>antes</strong> de derivar, porque es una relación geométrica permanente, no un valor instantáneo. Los valores instantáneos (\(h=3\)) sí entran después.</p>
+</blockquote>
+<p><strong>7.16</strong> A las 2 h: norte \(=120\) km, este \(=160\) km, distancia \(D=\sqrt{120^2+160^2}=200\) km.
+\(D^2=N^2+E^2 \Rightarrow 2D\dfrac{dD}{dt}=2N\dfrac{dN}{dt}+2E\dfrac{dE}{dt}\)
+\[\frac{dD}{dt}=\frac{120(60)+160(80)}{200}=\frac{7200+12800}{200}=\boxed{100 \text{ km/h}}\]</p>
+<p><strong>7.17</strong> Sea \(x\) la distancia de la persona al farol y \(s\) la longitud de la sombra. Por semejanza de triángulos:
+\[\frac{s}{1{,}8}=\frac{x+s}{6} \Rightarrow 6s=1{,}8x+1{,}8s \Rightarrow 4{,}2s=1{,}8x \Rightarrow s=\frac{3}{7}x\]
+\[\frac{ds}{dt}=\frac37\cdot1{,}2=\boxed{\frac{18}{35}\approx0{,}514 \text{ m/s}}\]
+La <strong>punta</strong> de la sombra está a \(x+s\) del farol, así que se mueve a \(\dfrac{dx}{dt}+\dfrac{ds}{dt}=1{,}2+0{,}514=\boxed{\dfrac{12}{7}\approx1{,}714 \text{ m/s}}\).</p>
+<blockquote>
+<p>Distinguir "la sombra crece" de "la punta se mueve" es el punto del problema y el error más frecuente.</p>
+</blockquote>
+<p><strong>7.18</strong> \(A=\ell^2 \Rightarrow \dfrac{dA}{dt}=2\ell\dfrac{d\ell}{dt}=2(15)(4)=\boxed{120 \text{ cm}^2\text{/s}}\).</p>
+<p><strong>7.19</strong> \(f'=3x^2-12x+9=3(x-1)(x-3)\). Críticos: \(x=1,3\).
+Crece en \((-\infty,1)\) y \((3,\infty)\); decrece en \((1,3)\).
+\(f''=6x-12=6(x-2)\): \(f''(1)=-6<0\) ⟹ <strong>máximo local</strong> en \((1,5)\); \(f''(3)=6>0\) ⟹ <strong>mínimo local</strong> en \((3,1)\).
+Cóncava abajo en \((-\infty,2)\), arriba en \((2,\infty)\). <strong>Inflexión</strong> en \((2,3)\).</p>
+<p><strong>7.20</strong> \(f'=4x^3-4x=4x(x-1)(x+1)\). Críticos: \(x=-1,0,1\).
+\(f''=12x^2-4\). \(f''(\pm1)=8>0\) ⟹ <strong>mínimos locales</strong> en \((-1,-1)\) y \((1,-1)\). \(f''(0)=-4<0\) ⟹ <strong>máximo local</strong> en \((0,0)\).
+Decrece en \((-\infty,-1)\) y \((0,1)\); crece en \((-1,0)\) y \((1,\infty)\).
+Inflexiones donde \(12x^2=4\), es decir \(x=\pm\dfrac{1}{\sqrt3}=\pm\dfrac{\sqrt3}{3}\), con \(f=-\dfrac59\).</p>
+<p><strong>7.21</strong> \(f'=3x^2-12=3(x-2)(x+2)\). \(f''=6x\).
+Máximo local en \((-2,16)\) (\(f''=-12<0\)); mínimo local en \((2,-16)\) (\(f''=12>0\)). Inflexión en \((0,0)\).
+Crece en \((-\infty,-2)\) y \((2,\infty)\); decrece en \((-2,2)\).</p>
+<p><strong>7.22</strong> \(f'=6x^2+6x-12=6(x-1)(x+2)\). \(f''=12x+6\).
+Máximo local en \((-2,20)\); mínimo local en \((1,-7)\). Inflexión en \(\left(-\dfrac12,\dfrac{13}{2}\right)\).</p>
+<p><strong>7.23</strong> \(f'=\dfrac{(x^2+4)-x(2x)}{(x^2+4)^2}=\dfrac{4-x^2}{(x^2+4)^2}=\dfrac{-(x-2)(x+2)}{(x^2+4)^2}\). Críticos \(x=\pm2\).
+El denominador es siempre positivo, así que el signo lo da \(4-x^2\): positivo en \((-2,2)\), negativo fuera. Entonces <strong>mínimo local</strong> en \(\left(-2,-\frac14\right)\) y <strong>máximo local</strong> en \(\left(2,\frac14\right)\).
+\(f''=\dfrac{2x(x^2-12)}{(x^2+4)^3}\): inflexiones en \(x=0\) y \(x=\pm2\sqrt3\). Asíntota horizontal \(y=0\).</p>
+<p><strong>7.24</strong> \(f'=e^{-x}-xe^{-x}=e^{-x}(1-x)\). Crítico \(x=1\). Como \(e^{-x}>0\) siempre, el signo lo da \((1-x)\): crece en \((-\infty,1)\), decrece en \((1,\infty)\). <strong>Máximo local (y absoluto)</strong> en \(\left(1,e^{-1}\right)\approx(1;0{,}368)\).
+\(f''=e^{-x}(x-2)\): inflexión en \(\left(2,2e^{-2}\right)\). Cóncava abajo en \((-\infty,2)\), arriba en \((2,\infty)\).</p>
+<p><strong>7.25</strong> \(f'=3x^2+6x=3x(x+2)\). Máximo local en \((-2,4)\), mínimo local en \((0,0)\). \(f''=6x+6\): inflexión en \((-1,2)\).</p>
+<p><strong>7.26</strong> \(f'=4x^3-16x=4x(x-2)(x+2)\). Mínimos locales en \((-2,-13)\) y \((2,-13)\); máximo local en \((0,3)\).
+\(f''=12x^2-16\): inflexiones en \(x=\pm\dfrac{2}{\sqrt3}=\pm\dfrac{2\sqrt3}{3}\), con \(f=-\dfrac{53}{9}\approx-5{,}89\).</p>
+<p><strong>7.27</strong> \(f'=3x^2-6x=3x(x-2)\): críticos \(x=0\) y \(x=2\), ambos en \([-1,3]\).
+Evaluando en críticos y extremos: \(f(-1)=-3\), \(f(0)=1\), \(f(2)=-3\), \(f(3)=1\).
+<strong>Máximo absoluto \(=1\)</strong> (en \(x=0\) y \(x=3\)); <strong>mínimo absoluto \(=-3\)</strong> (en \(x=-1\) y \(x=2\)).</p>
+<p><strong>7.28</strong> \(f'=1-\dfrac{4}{x^2}=0 \Rightarrow x^2=4 \Rightarrow x=2\) (el \(-2\) está fuera del intervalo).
+\(f(1)=5\), \(f(2)=4\), \(f(5)=5{,}8\).
+<strong>Mínimo absoluto \(=4\)</strong> en \(x=2\); <strong>máximo absoluto \(=5{,}8\)</strong> en \(x=5\).</p>
+<p><strong>7.29</strong> \(f'=\cos x-\sin x=0 \Rightarrow \tan x=1 \Rightarrow x=\dfrac{\pi}{4}\).
+\(f(0)=1\), \(f\!\left(\frac\pi4\right)=\sqrt2\approx1{,}414\), \(f\!\left(\frac\pi2\right)=1\).
+<strong>Máximo absoluto \(=\sqrt2\)</strong> en \(x=\frac\pi4\); <strong>mínimo absoluto \(=1\)</strong> en los dos extremos.</p>
+<p><strong>7.30</strong> \(\frac00\). L'H: \(\displaystyle\lim\frac{e^x}{1}=\boxed{1}\).
+<strong>7.31</strong> \(\frac00\). L'H: \(\displaystyle\lim\frac{1/x}{1}=\boxed{1}\).
+<strong>7.32</strong> \(\frac00\). L'H: \(\displaystyle\lim\frac{-\sin x}{2x}=-\frac12\lim\frac{\sin x}{x}=\boxed{-\frac12}\).
+<strong>7.33</strong> \(\frac\infty\infty\). Tres aplicaciones: \(\dfrac{3x^2}{e^x}\to\dfrac{6x}{e^x}\to\dfrac{6}{e^x}=\boxed{0}\). <em>La exponencial le gana a cualquier potencia.</em>
+<strong>7.34</strong> \(\frac00\), tres veces: \(\dfrac{\cos x-1}{3x^2}\to\dfrac{-\sin x}{6x}\to\dfrac{-\cos x}{6}=\boxed{-\dfrac16}\).
+<strong>7.35</strong> Es \(0\cdot(-\infty)\). Se reescribe: \(\displaystyle\lim_{x\to0^+}\frac{\ln x}{1/x}\), que es \(\frac{-\infty}{\infty}\). L'H: \(\dfrac{1/x}{-1/x^2}=-x\to\boxed{0}\).
+<strong>7.36</strong> Es \(\infty-\infty\). Combinando: \(\dfrac{\tan x-x}{x\tan x}\), que es \(\frac00\). Usando \(\lim\frac{\tan x-x}{x^3}=\frac13\) y $x\tan x\sim x^2$, el cociente se comporta como \(\frac{x^3/3}{x^2}=\frac x3\to\boxed{0}\).
+<strong>7.37</strong> Es \(1^\infty\). Sea \(L\) el límite; entonces \(\ln L=\displaystyle\lim_{x\to\infty}x\ln\!\left(1+\frac2x\right)=\lim\frac{\ln(1+2/x)}{1/x}\). Por L'H (derivando arriba y abajo respecto a \(x\)): \(\dfrac{\frac{-2/x^2}{1+2/x}}{-1/x^2}=\dfrac{2}{1+2/x}\to2\). Luego \(L=\boxed{e^2}\).
+<strong>7.38</strong> \(\frac00\). L'H: \(\dfrac{2e^{2x}}{3\cos3x}\to\dfrac{2}{3}=\boxed{\dfrac23}\).
+<strong>7.39</strong> \(\frac\infty\infty\). L'H: \(\dfrac{2\ln x\cdot\frac1x}{1}=\dfrac{2\ln x}{x}\), otra vez \(\frac\infty\infty\); L'H de nuevo: \(\dfrac{2/x}{1}\to\boxed{0}\).
+<strong>7.40</strong> \(\frac00\). L'H: \(\dfrac{\sec^2x-1}{1-\cos x}\), sigue \(\frac00\). L'H: \(\dfrac{2\sec^2x\tan x}{\sin x}\). Como \(\tan x=\frac{\sin x}{\cos x}\), esto es \(\dfrac{2\sec^2x}{\cos x}=2\sec^3x\to2\cdot1=\boxed{2}\).
+<strong>7.41</strong> Es \(0^0\). \(\ln L=\displaystyle\lim_{x\to0^+}\sin x\ln x=\lim\frac{\ln x}{1/\sin x}\). Aplicando L'H o notando que \(\sin x\approx x\) y \(x\ln x\to0\), resulta \(\ln L=0\), luego \(L=\boxed{1}\).</p>
+<p><strong>7.42</strong> Objetivo \(P=xy\) con restricción \(x+y=200\), es decir \(y=200-x\).
+\[P(x)=x(200-x)=200x-x^2, \qquad P'=200-2x=0 \Rightarrow x=100\]
+\(P''=-2<0\) ⟹ máximo. Los números son \(\boxed{100 \text{ y } 100}\), con producto \(10.000\).</p>
+<p><strong>7.43</strong> Sea \(x\) el lado paralelo al muro y \(y\) cada lado perpendicular. Cerca: \(x+2y=100 \Rightarrow x=100-2y\).
+\[A(y)=y(100-2y), \qquad A'=100-4y=0 \Rightarrow y=25\]
+\(A''=-4<0\) ⟹ máximo. Dimensiones: \(\boxed{y=25 \text{ m},\ x=50 \text{ m}}\), área \(1.250\) m².</p>
+<p><strong>7.44</strong> Si el corte es \(x\), la base mide \((60-2x)\) y la altura \(x\):
+\[V(x)=x(60-2x)^2, \qquad 0<x<30\]
+\[V'=(60-2x)^2+x\cdot2(60-2x)(-2)=(60-2x)\big[(60-2x)-4x\big]=(60-2x)(60-6x)\]
+Críticos: \(x=30\) (rechazado: da volumen 0) y \(x=10\).
+\(V''(10)=-240<0\) ⟹ máximo. Corte de \(\boxed{10 \text{ cm}}\), con \(V=10(40)^2=16.000\) cm³.</p>
+<p><strong>7.45</strong> \(V=\pi r^2h=1000 \Rightarrow h=\dfrac{1000}{\pi r^2}\). Área total (con tapa y fondo):
+\[A=2\pi r^2+2\pi rh=2\pi r^2+2\pi r\cdot\frac{1000}{\pi r^2}=2\pi r^2+\frac{2000}{r}\]
+\[A'=4\pi r-\frac{2000}{r^2}=0 \Rightarrow r^3=\frac{500}{\pi} \Rightarrow r=\sqrt[3]{\frac{500}{\pi}}\approx5{,}42 \text{ cm}\]
+\(A''=4\pi+\dfrac{4000}{r^3}>0\) ⟹ mínimo. Entonces \(h=\dfrac{1000}{\pi r^2}\approx10{,}84\) cm.
+<strong>Resultado notable: \(h=2r\)</strong> — la lata óptima es tan alta como ancha. Área mínima \(\approx553{,}58\) cm².</p>
+<p><strong>7.46</strong> Con la base sobre el diámetro y media base \(x\), la altura es \(\sqrt{25-x^2}\):
+\[A(x)=2x\sqrt{25-x^2}, \qquad 0<x<5\]
+\[A'=2\sqrt{25-x^2}+2x\cdot\frac{-x}{\sqrt{25-x^2}}=\frac{2(25-x^2)-2x^2}{\sqrt{25-x^2}}=\frac{2(25-2x^2)}{\sqrt{25-x^2}}\]
+\(A'=0 \Rightarrow x^2=\dfrac{25}{2} \Rightarrow x=\dfrac{5}{\sqrt2}=\dfrac{5\sqrt2}{2}\approx3{,}54\).
+Altura: \(\sqrt{25-12{,}5}=\dfrac{5}{\sqrt2}\). Base completa: \(2x=5\sqrt2\approx7{,}07\).
+<strong>Área máxima \(=25\)</strong> unidades cuadradas.</p>
+<p><strong>7.47</strong> \(R(q)=q(50-0{,}1q)=50q-0{,}1q^2\). \(R'=50-0{,}2q=0 \Rightarrow q=250\). \(R''=-0{,}2<0\) ⟹ máximo.
+Ingreso máximo: \(R(250)=6.250\), con precio \(p=50-25=25\).</p>
+<p><strong>7.48</strong> Minimizar la distancia equivale a minimizar su cuadrado (evita la raíz y no cambia el mínimo):
+\[D^2(x)=x^2+\left(x^2-3\right)^2=x^4-5x^2+9\]
+\[\frac{d}{dx}D^2=4x^3-10x=2x\left(2x^2-5\right)=0 \Rightarrow x=0 \text{ o } x=\pm\sqrt{\frac52}\]
+Evaluando: en \(x=0\), \(D^2=9\); en \(x=\pm\sqrt{5/2}\), \(D^2=\frac{25}{4}-\frac{25}{2}+9=\frac{11}{4}=2{,}75\). Menor.
+Puntos más cercanos: \(\left(\pm\sqrt{\dfrac52},\ \dfrac52\right)\approx(\pm1{,}58;\ 2{,}5)\), a distancia \(\sqrt{2{,}75}\approx1{,}66\).</p>
+<blockquote>
+<p>El punto \(x=0\) es un <strong>máximo local de la distancia restringida</strong> en ese entorno, no el mínimo. Por eso hay que evaluar todos los críticos y no quedarse con el primero.</p>
+</blockquote>
+<h3 id="749--minimizar-el-costo-anual-de-un-contrato-de-suministro">7.49 — Minimizar el costo anual de un contrato de suministro</h3>
+<p><strong>(a) Función objetivo.</strong> Sea \(q\) el tamaño de cada pedido (resmas por orden).</p>
+<ul>
+<li>Órdenes al año: \(\dfrac{20{.}000}{q}\). Costo de ordenar: \(100{.}000\cdot\dfrac{20{.}000}{q}=\dfrac{2\times10^{9}}{q}\).</li>
+<li>Inventario promedio: \(\dfrac q2\). Costo de almacenar: \(1{.}000\cdot\dfrac q2=500q\).</li>
+</ul>
+<p>\[\boxed{C(q)=\frac{2\times10^{9}}{q}+500q}, \qquad q\in(0,\ 20{.}000]\]</p>
+<p>El dominio excluye \(q=0\) (no se puede pedir cero y abastecerse) y no supera 20.000 (no tiene sentido pedir más que el consumo anual).</p>
+<p><strong>(b) Minimización.</strong>
+\[C'(q)=-\frac{2\times10^{9}}{q^{2}}+500=0 \implies q^{2}=\frac{2\times10^{9}}{500}=4\times10^{6} \implies q=2{.}000\]</p>
+<p>Se descarta \(q=-2.000\) por estar fuera del dominio.</p>
+<p><strong>Justificación de que es mínimo:</strong>
+\[C''(q)=\frac{4\times10^{9}}{q^{3}}>0 \quad\text{para todo } q>0\]
+La función es cóncava hacia arriba en todo el dominio, así que el único crítico es un <strong>mínimo absoluto</strong>, no solo local.</p>
+<p><strong>(c)</strong> Órdenes al año: \(\dfrac{20{.}000}{2{.}000}=10\).
+\[C(2{.}000)=\frac{2\times10^{9}}{2{.}000}+500(2{.}000)=1{.}000{.}000+1{.}000{.}000=\$2{.}000{.}000\]</p>
+<p><strong>Respuesta:</strong> pedidos de <strong>2.000 resmas</strong>, <strong>10 órdenes al año</strong>, costo anual mínimo de <strong>$2.000.000</strong>.</p>
+<p><em>Comprobación:</em> \(C(1.000)=\$2.500.000\) y \(C(4.000)=\$2.500.000\); ambos mayores. ✓</p>
+<p><strong>(d)</strong> En el óptimo, el costo de ordenar ($1.000.000) <strong>es exactamente igual</strong> al de almacenar ($1.000.000). No es casualidad: es una propiedad general de este modelo (el conocido lote económico de pedido). Un buen resultado de optimización casi siempre revela una simetría así, y sirve de verificación rápida.</p>
+<h3 id="750--maximizar-la-cobertura-con-presupuesto-fijo">7.50 — Maximizar la cobertura con presupuesto fijo</h3>
+<p><strong>(a) Restricción y objetivo.</strong> Sea \(x\) el largo del frente (m) y \(y\) el de cada lateral (m). El lado que da al muro no se cerca.</p>
+<p>Costo, en millones de pesos:
+\[3x+2y=240 \implies y=\frac{240-3x}{2}=120-\frac{3x}{2}\]</p>
+<p>Área a maximizar:
+\[A(x)=xy=x\left(120-\frac{3x}{2}\right)=120x-\frac{3}{2}x^{2}, \qquad 0<x<80\]</p>
+<p>(El límite \(x<80\) sale de exigir \(y>0\): \(240-3x>0\).)</p>
+<p><strong>(b) Maximización.</strong>
+\[A'(x)=120-3x=0 \implies x=40\]</p>
+<p><strong>Justificación:</strong> \(A''(x)=-3<0\) para todo \(x\). La función es cóncava hacia abajo en todo el dominio, así que \(x=40\) es <strong>máximo absoluto</strong>.</p>
+<p>Entonces \(y=120-\dfrac{3(40)}{2}=120-60=60\).</p>
+<p><strong>Dimensiones óptimas: frente de 40 m, laterales de 60 m cada uno.</strong></p>
+<p><strong>(c)</strong> Área máxima: \(A=40\times60=\boxed{2.400 \text{ m}^2}\).
+Gasto: \(3(40)+2(60)=120+120=240\) millones. <strong>Se ejecuta el presupuesto completo, $240.000.000.</strong> ✓</p>
+<p><em>Comprobación:</em> con \(x=30\), \(A=2.250\) m²; con \(x=50\), \(A=2.250\) m². Ambos menores. ✓</p>
+<p><em>Observa el patrón:</em> igual que en 7.49, en el óptimo el gasto en el frente ($120 millones) <strong>iguala</strong> al gasto en los laterales ($120 millones). Es la misma estructura de equilibrio.</p>
+<p><strong>(d)</strong> Si el frente costara $1.000.000/m, la restricción sería \(x+2y=240\), de donde \(y=\dfrac{240-x}{2}\) y
+\[A(x)=x\cdot\frac{240-x}{2}=120x-\frac{x^{2}}{2}, \qquad A'=120-x=0 \Rightarrow x=120\]
+Entonces \(y=60\) y \(A=120\times60=7{.}200\) m². \(A''=-1<0\) ⟹ máximo.</p>
+<p><strong>Conclusión:</strong> sí cambian. Con el frente más barato conviene alargarlo (de 40 a 120 m) y el área máxima <strong>triplica</strong> (de 2.400 a 7.200 m²) con el mismo presupuesto. La lección de gestión es directa: <strong>el precio relativo de los insumos cambia el diseño óptimo, no solo el costo total.</strong></p>
+<hr />
+<h2 id="soluciones--escenario-8">Soluciones — Escenario 8</h2>
+<p><strong>8.1</strong> \(\dfrac{x^3-8}{x^2-4}=\dfrac{(x-2)(x^2+2x+4)}{(x-2)(x+2)}=\dfrac{x^2+2x+4}{x+2}\to\dfrac{12}{4}=\boxed{3}\).</p>
+<p><strong>8.2</strong> Descomponiendo: \(f(x)=\ln\left(x^2+1\right)^{1/2}=\dfrac12\ln\left(x^2+1\right)\). Entonces
+\[f'=\frac12\cdot\frac{2x}{x^2+1}=\boxed{\frac{x}{x^2+1}}\]</p>
+<p><strong>8.3</strong> \(f(x)=\dfrac{3x^2}{x^2-4}=\dfrac{3x^2}{(x-2)(x+2)}\).
+Verticales: \(x=2\) y \(x=-2\) (el numerador no se anula allí). Horizontal: grados iguales, \(y=\dfrac31=3\). No hay oblicua.</p>
+<p><strong>8.4</strong> Derivando implícitamente \(x^2+xy+y^2=7\):
+\[2x+y+x\frac{dy}{dx}+2y\frac{dy}{dx}=0 \Rightarrow \frac{dy}{dx}(x+2y)=-2x-y \Rightarrow \frac{dy}{dx}=\frac{-2x-y}{x+2y}\]
+En \((1,2)\): \(\dfrac{-2-2}{1+4}=\boxed{-\dfrac45}\). (Verifica que el punto está en la curva: \(1+2+4=7\) ✓.)</p>
+<p><strong>8.5</strong> \(f'=3x^2-6x-9=3(x-3)(x+1)\). Críticos: \(x=-1\), \(x=3\).
+Crece en \((-\infty,-1)\) y \((3,\infty)\); decrece en \((-1,3)\).
+\(f''=6x-6\): \(f''(-1)=-12<0\) ⟹ <strong>máximo local \((-1,10)\)</strong>; \(f''(3)=12>0\) ⟹ <strong>mínimo local \((3,-22)\)</strong>.
+Cóncava abajo en \((-\infty,1)\), arriba en \((1,\infty)\). <strong>Inflexión en \((1,-6)\).</strong></p>
+<p><strong>8.6</strong> Usando \(1-\cos2x=2\sin^2x\):
+\[\frac{2\sin^2x}{x\sin x}=\frac{2\sin x}{x}\to\boxed{2}\]</p>
+<p><strong>8.7</strong> \(v(t)=3t^2-12t+9=3(t-1)(t-3)\): se detiene en \(t=1\) y \(t=3\) s.
+\(a(t)=6t-12\): \(a(1)=-6\) m/s², \(a(3)=6\) m/s².
+Posiciones: \(s(1)=1-6+9=4\) m; \(s(3)=27-54+27=0\) m.
+Interpretación: en \(t=1\) alcanza el punto más alejado (\(4\) m) y regresa; en \(t=3\) vuelve al origen y se devuelve.</p>
+<p><strong>8.8</strong> Capas: raíz → tangente → \(x^3\).
+\[f'=\frac{1}{2\sqrt{\tan(x^3)}}\cdot\sec^2(x^3)\cdot3x^2=\boxed{\frac{3x^2\sec^2(x^3)}{2\sqrt{\tan(x^3)}}}\]</p>
+<p><strong>8.9</strong> \(f'=4x^3-4x=4x(x-1)(x+1)\): críticos \(x=-1,0,1\), todos en \([-2,2]\).
+\(f(-2)=16-8+3=11\); \(f(-1)=1-2+3=2\); \(f(0)=3\); \(f(1)=2\); \(f(2)=11\).
+<strong>Máximo absoluto \(=11\)</strong> (en \(x=\pm2\)); <strong>mínimo absoluto \(=2\)</strong> (en \(x=\pm1\)).</p>
+<p><strong>8.10</strong> Dividiendo por \(x^2\) (que es la potencia dominante, ya que \(\sqrt{x^4}=x^2\) para \(x>0\)):
+\[\frac{2x^2+3x}{\sqrt{x^4+1}}=\frac{2+\frac3x}{\sqrt{1+\frac{1}{x^4}}}\to\frac{2}{1}=\boxed{2}\]</p>
+<p><strong>8.11</strong> \(\displaystyle\lim_{x\to3}\frac{(x-3)(x+3)}{x-3}=6 \Rightarrow \boxed{k=6}\).</p>
+<p><strong>8.12</strong> Capas: exponencial → seno → logaritmo.
+\[f'=e^{\sin(\ln x)}\cdot\cos(\ln x)\cdot\frac1x=\boxed{\frac{e^{\sin(\ln x)}\cos(\ln x)}{x}}\]</p>
+<h3 id="soluciones-de-opción-múltiple">Soluciones de opción múltiple</h3>
+<p><strong>8.13 — Respuesta: B) \(8\).</strong>
+\(\dfrac{(x-4)(x+4)}{x-4}=x+4\to8\).
+<em>Distractores:</em> A) \(0\) tienta a quien sustituye el numerador y se queda ahí. C) "No existe" tienta a quien ve \(\frac00\) y concluye que el límite no existe (confunde indeterminación con inexistencia). D) \(\infty\) tienta a quien ve denominador \(\to0\) sin notar que el numerador también se anula.</p>
+<p><strong>8.14 — Respuesta: B) \(2x\cos(x^2)\).</strong>
+Regla de la cadena: derivada de afuera \(\cos(x^2)\), por la interna \(2x\).
+<em>Distractores:</em> A) es el error clásico de olvidar el factor interno. C) y D) confunden el argumento \(x^2\) con \(2x\) (derivan el argumento y lo meten dentro del coseno, que no es lo que hace la cadena).</p>
+<p><strong>8.15 — Respuesta: C) \(\dfrac53\).</strong>
+Grados iguales (3 y 3): cociente de coeficientes principales, \(\frac53\).
+<em>Distractores:</em> A) \(0\) es la respuesta si el grado del numerador fuera menor. B) \(\infty\) lo es si fuera mayor. D) \(-\frac23\) resulta de tomar los términos de menor grado (\(-2x\) y \(x^2\)... y además mal), un error de despiste frecuente.</p>
+<p><strong>8.16 — Respuesta: C) \(\dfrac1x\).</strong>
+Por cadena: \(\dfrac{1}{3x}\cdot3=\dfrac1x\). Alternativamente, \(\ln(3x)=\ln3+\ln x\), y la constante desaparece al derivar.
+<em>Distractores:</em> A) invierte numerador y denominador del resultado de la cadena. B) es el error de olvidar multiplicar por la derivada interna (3). D) confunde derivar con invertir.</p>
+<p><strong>8.17 — Respuesta: B) \(x=1\).</strong>
+\(f'=3x^2-6x\); \(f''=6x-6=0 \Rightarrow x=1\), y \(f''\) <strong>cambia de signo</strong> allí (de \(-\) a \(+\)): sí es inflexión.
+<em>Distractores:</em> A) \(x=0\) y C) \(x=2\) son los <strong>puntos críticos</strong> (\(f'=0\)), no los de inflexión: es la confusión más común entre primera y segunda derivada. D) los junta a ambos.</p>
+<hr />
+<h2 id="registro-de-práctica">Registro de práctica</h2>
+<p>Lleva la cuenta. Ver el avance en números es lo que sostiene la disciplina cuando se acumula el trabajo.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Escenario</th>
+<th>Ejercicios hechos</th>
+<th>Correctos a la primera</th>
+<th>Fecha de cierre</th>
+<th>¿Cumplí el criterio de avance?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 · Funciones</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2 · Límites</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3 · Indeterminaciones</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4 · Continuidad y derivada</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5 · Reglas de derivación</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6 · Regla de la cadena</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7 · Aplicaciones</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8 · Repaso integrado</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</main>
+</body>
+</html>

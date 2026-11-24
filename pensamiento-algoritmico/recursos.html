@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recursos — Pensamiento Algorítmico</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ 03 - Pensamiento Algorítmico / 5. Recursos</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="recursos--pensamiento-algorítmico">Recursos — Pensamiento Algorítmico</h1>
+<p>Recursos <strong>gratuitos</strong> y de fuentes confiables. Están agrupados por tipo y, para cada uno, se indica qué es, <strong>para qué escenario sirve</strong> y <strong>cuánto toma</strong>.</p>
+<blockquote>
+<p>⚠️ <strong>Sobre los enlaces.</strong> Aquí se citan <strong>sitios y canales</strong>, no URL específicas de videos ni listas de reproducción: esas cambian, se borran y se renumeran. Lo que se da es el nombre exacto y <strong>cómo buscarlo</strong>, para que llegues al recurso vigente el día que lo necesites. Si un recurso no aparece con esa búsqueda, es que cambió de nombre o ya no existe: no pierdas tiempo, busca otro con la misma descripción.</p>
+<p>⚠️ <strong>Prioridad absoluta: el material del aula virtual.</strong> Todo lo de esta lista es refuerzo. Lo que evalúa el Poli es lo que está en el aula.</p>
+</blockquote>
+<hr />
+<h2 id="1-herramientas-instálalas-antes-del-25-de-agosto">1. Herramientas (instálalas antes del 25 de agosto)</h2>
+<h3 id="pseint--intérprete-de-pseudocódigo-en-español">PSeInt — intérprete de pseudocódigo en español</h3>
+<ul>
+<li><strong>Qué es:</strong> software libre y gratuito que permite escribir pseudocódigo <strong>en español</strong>, ejecutarlo, ver los valores de las variables paso a paso y generar automáticamente el diagrama de flujo. Es el estándar de facto en los cursos de algoritmia de universidades hispanohablantes, incluidas las colombianas.</li>
+<li><strong>Dónde:</strong> proyecto alojado en <strong>SourceForge</strong>, buscando <code>PSeInt</code>. Hay también un sitio del proyecto mantenido por su autor (Pablo Novara). Descarga siempre desde la página oficial del proyecto, nunca de agregadores de descargas.</li>
+<li><strong>Para qué escenarios:</strong> <strong>3 a 8</strong> (todos los prácticos). Es tu herramienta principal del curso.</li>
+<li><strong>Cuánto toma:</strong> 20 minutos instalarlo y hacer el primer algoritmo. Luego es de uso diario.</li>
+<li><strong>Lo más valioso:</strong> la <strong>ejecución paso a paso</strong>, que muestra el valor de cada variable en cada línea. Es una prueba de escritorio automática, y es lo que hace que los ciclos del escenario 6 "hagan clic".</li>
+<li><strong>Ojo:</strong> si tu equipo institucional no permite instalar programas, busca la versión <strong>portable</strong> en la misma página de descargas.</li>
+</ul>
+<h3 id="google-colab--python-sin-instalar-nada">Google Colab — Python sin instalar nada</h3>
+<ul>
+<li><strong>Qué es:</strong> cuadernos de Python que se ejecutan en los servidores de Google desde el navegador. No requiere instalación, funciona igual en cualquier equipo y guarda todo en tu Google Drive.</li>
+<li><strong>Dónde:</strong> <code>colab.research.google.com</code>, con tu cuenta de Google.</li>
+<li><strong>Para qué escenarios:</strong> desde el <strong>1</strong> (para que la herramienta esté lista) y en serio desde el <strong>4</strong> en adelante. Imprescindible en el <strong>8</strong>.</li>
+<li><strong>Cuánto toma:</strong> 15 minutos para el primer cuaderno. Es la herramienta que vas a usar el resto de la carrera, así que la inversión rinde.</li>
+<li><strong>Alternativas si Colab no te sirve:</strong> <code>replit.com</code> (editor en línea, requiere registro) o <code>programiz.com/python-programming/online-compiler</code> (ejecuta código Python simple sin registro). Para el curso, Colab es suficiente.</li>
+</ul>
+<h3 id="drawio--diagramsnet--diagramas-de-flujo">draw.io / diagrams.net — diagramas de flujo</h3>
+<ul>
+<li><strong>Qué es:</strong> editor de diagramas gratuito, sin registro, con la biblioteca completa de símbolos de diagrama de flujo. Exporta a PNG y PDF.</li>
+<li><strong>Dónde:</strong> <code>app.diagrams.net</code> (draw.io y diagrams.net son el mismo producto). También hay versión de escritorio descargable.</li>
+<li><strong>Para qué escenarios:</strong> <strong>3</strong> principalmente, y para cualquier entregable que pida diagrama.</li>
+<li><strong>Cuánto toma:</strong> 15 minutos aprender lo básico. Un diagrama sencillo, 10 minutos.</li>
+<li><strong>Truco:</strong> en el buscador de formas de la izquierda escribe <code>flowchart</code> y aparecen todos los símbolos estándar.</li>
+<li><strong>Alternativa:</strong> PSeInt genera el diagrama solo a partir del pseudocódigo. Usa draw.io cuando el entregable exija que lo hagas tú.</li>
+</ul>
+<h3 id="python-tutor--visualizador-de-ejecución">Python Tutor — visualizador de ejecución</h3>
+<ul>
+<li><strong>Qué es:</strong> herramienta web que ejecuta código Python <strong>paso a paso</strong>, dibujando en pantalla las variables, las listas y las llamadas a funciones. Es el equivalente en Python del paso a paso de PSeInt, y es extraordinariamente útil para entender el alcance de variables y el paso de parámetros.</li>
+<li><strong>Dónde:</strong> busca <code>Python Tutor</code> (sitio <code>pythontutor.com</code>).</li>
+<li><strong>Para qué escenarios:</strong> <strong>6, 7 y 8</strong>. Especialmente para entender ciclos, índices de arreglos y qué pasa dentro de una función.</li>
+<li><strong>Cuánto toma:</strong> 5 minutos aprenderla. Pega tu código, dale a visualizar y avanza con la flecha.</li>
+</ul>
+<hr />
+<h2 id="2-canales-de-youtube-en-español">2. Canales de YouTube en español</h2>
+<p>Todos son gratuitos. Búscalos por el nombre exacto del canal en YouTube.</p>
+<h3 id="píldoras-informáticas">Píldoras Informáticas</h3>
+<ul>
+<li><strong>Qué es:</strong> canal español con cursos completos y muy ordenados. Tiene un <strong>curso de PSeInt</strong> desde cero y también curso de Python. El estilo es pausado, explica cada línea.</li>
+<li><strong>Para qué escenarios:</strong> <strong>3 a 7</strong> con el curso de PSeInt.</li>
+<li><strong>Cuánto toma:</strong> videos de 10–20 minutos. El curso completo de PSeInt son unas 8–12 horas; tú no necesitas todo, solo los capítulos del escenario en que vayas.</li>
+<li><strong>Cómo usarlo:</strong> no lo veas de corrido. Ve el video del tema de la semana, páusalo y escribe el código tú mismo.</li>
+</ul>
+<h3 id="programación-ats">Programación ATS</h3>
+<ul>
+<li><strong>Qué es:</strong> canal latinoamericano muy extenso, con series de algoritmos, PSeInt, diagramas de flujo y Python. Videos cortos y directos al ejercicio.</li>
+<li><strong>Para qué escenarios:</strong> <strong>2 a 8</strong>. Muy bueno para ver <strong>ejercicios resueltos</strong> cuando un tipo de problema no te sale.</li>
+<li><strong>Cuánto toma:</strong> videos de 5–15 minutos. Ideal para una sesión corta entre semana.</li>
+</ul>
+<h3 id="mouredev-by-brais-moure">MoureDev by Brais Moure</h3>
+<ul>
+<li><strong>Qué es:</strong> canal español enfocado en programación moderna. Tiene un <strong>curso de Python desde cero</strong> muy bien producido y actualizado, y un "reto de programación" con ejercicios semanales.</li>
+<li><strong>Para qué escenarios:</strong> <strong>4 a 8</strong>, y como puente hacia Programación de Computadores del segundo semestre.</li>
+<li><strong>Cuánto toma:</strong> el curso de Python desde cero está pensado para verse en unas 4–8 horas.</li>
+</ul>
+<h3 id="holamundo-hola-mundo">HolaMundo (Hola Mundo)</h3>
+<ul>
+<li><strong>Qué es:</strong> canal en español con explicaciones conceptuales claras sobre programación, lógica y estructuras de datos. Bueno para el "por qué", no solo para el "cómo".</li>
+<li><strong>Para qué escenarios:</strong> <strong>1, 6, 7 y 8</strong>, sobre todo para complejidad y estructuras de datos.</li>
+<li><strong>Cuánto toma:</strong> videos de 10–25 minutos.</li>
+</ul>
+<h3 id="cómo-encontrar-más-si-necesitas-otra-voz">Cómo encontrar más, si necesitas otra voz</h3>
+<p>Busca en YouTube exactamente estas frases:</p>
+<ul>
+<li><code>curso PSeInt desde cero</code></li>
+<li><code>pseudocódigo y diagramas de flujo ejercicios resueltos</code></li>
+<li><code>tablas de verdad lógica proposicional explicación</code></li>
+<li><code>ciclos while for PSeInt ejemplos</code></li>
+<li><code>arreglos vectores PSeInt</code></li>
+<li><code>curso Python desde cero español</code></li>
+</ul>
+<p><strong>Criterio para escoger un video:</strong> que muestre el código escribiéndose y ejecutándose, no diapositivas. Y que dure menos de 25 minutos. Los videos de dos horas se abandonan.</p>
+<hr />
+<h2 id="3-cursos-abiertos-y-plataformas-interactivas">3. Cursos abiertos y plataformas interactivas</h2>
+<h3 id="freecodecamp-en-español">freeCodeCamp (en español)</h3>
+<ul>
+<li><strong>Qué es:</strong> organización sin ánimo de lucro con currículo gratuito de programación. Tiene contenido en español y un canal de YouTube en español con cursos completos de varias horas.</li>
+<li><strong>Para qué escenarios:</strong> <strong>4 a 8</strong>, sección de Python.</li>
+<li><strong>Cuánto toma:</strong> los cursos son largos (4–12 horas). Tómalos por partes, no de corrido.</li>
+<li><strong>Dónde:</strong> <code>freecodecamp.org</code> y su canal de YouTube en español.</li>
+</ul>
+<h3 id="programa-python-de-la-universidad-de-michigan-python-for-everybody-dr-chuck">Programa Python de la Universidad de Michigan ("Python for Everybody", Dr. Chuck)</h3>
+<ul>
+<li><strong>Qué es:</strong> el curso introductorio de Python más usado del mundo. <strong>Tiene subtítulos y materiales traducidos al español</strong>, y el libro es de acceso abierto y descargable gratis. Está pensado para gente sin experiencia previa en programación, con énfasis en datos, que es justo tu carrera.</li>
+<li><strong>Para qué escenarios:</strong> complemento del <strong>4 al 8</strong> y preparación para <strong>Programación de Computadores</strong> del segundo semestre.</li>
+<li><strong>Cuánto toma:</strong> los primeros cinco capítulos (variables, condicionales, ciclos, funciones) son unas 10–15 horas. Con hacer esos cinco vas sobrado para el escenario 8.</li>
+<li><strong>Cómo llegar:</strong> busca <code>Python for Everybody</code> o <code>py4e</code>. El sitio del curso ofrece el libro en varios idiomas y todos los videos gratis; la versión en Coursera es la misma, con certificado de pago opcional.</li>
+</ul>
+<h3 id="w3schools--sección-de-python">W3Schools — sección de Python</h3>
+<ul>
+<li><strong>Qué es:</strong> referencia de consulta rápida con ejemplos ejecutables en el navegador. No es un curso, es un diccionario.</li>
+<li><strong>Para qué escenarios:</strong> <strong>4 a 8</strong>, cuando necesites recordar la sintaxis exacta de algo.</li>
+<li><strong>Cuánto toma:</strong> consultas de 2 minutos.</li>
+<li><strong>Dónde:</strong> <code>w3schools.com</code>, sección Python.</li>
+</ul>
+<h3 id="documentación-oficial-de-python-tutorial-en-español">Documentación oficial de Python (tutorial en español)</h3>
+<ul>
+<li><strong>Qué es:</strong> el tutorial oficial del lenguaje. La documentación de Python está traducida parcialmente al español.</li>
+<li><strong>Para qué escenarios:</strong> <strong>8</strong> y siguientes semestres. Es densa para arrancar, pero es la fuente autorizada.</li>
+<li><strong>Cuánto toma:</strong> consulta puntual.</li>
+<li><strong>Dónde:</strong> <code>docs.python.org</code>, y en el selector de idioma escoge español.</li>
+</ul>
+<hr />
+<h2 id="4-libros-y-materiales-abiertos">4. Libros y materiales abiertos</h2>
+<blockquote>
+<p>No cito ISBN porque no puedo verificarlos. Todos estos se buscan por título y autor.</p>
+</blockquote>
+<h3 id="fundamentos-de-programación-algoritmos-estructuras-de-datos-y-objetos--luis-joyanes-aguilar">"Fundamentos de programación: algoritmos, estructuras de datos y objetos" — Luis Joyanes Aguilar</h3>
+<ul>
+<li><strong>Qué es:</strong> el libro de texto clásico en español para cursos de introducción a la programación. Es <strong>el</strong> referente en las universidades hispanohablantes para pseudocódigo, diagramas de flujo y estructuras de control. No es de acceso abierto, pero <strong>es muy probable que esté en la biblioteca digital del Politécnico</strong> (revisa el catálogo del aula virtual: muchas universidades tienen suscripción a McGraw-Hill).</li>
+<li><strong>Para qué escenarios:</strong> <strong>1 a 8</strong>. Es prácticamente el temario completo de la materia.</li>
+<li><strong>Cuánto toma:</strong> consulta por capítulos. Los capítulos de estructuras de control y de arreglos son los que más te sirven.</li>
+<li><strong>Cómo conseguirlo:</strong> primero, biblioteca digital del Poli. Si no, existen ediciones y "libros de problemas resueltos" del mismo autor que circulan legalmente en repositorios universitarios.</li>
+</ul>
+<h3 id="python-para-todos--charles-severance-traducción-de-python-for-everybody">"Python para todos" — Charles Severance (traducción de <em>Python for Everybody</em>)</h3>
+<ul>
+<li><strong>Qué es:</strong> libro de <strong>acceso abierto y descarga gratuita legal</strong>, con licencia libre. Versión en español disponible desde el sitio del curso <code>py4e</code>.</li>
+<li><strong>Para qué escenarios:</strong> <strong>4 a 8</strong>.</li>
+<li><strong>Cuánto toma:</strong> los capítulos 1 a 5 (unas 80 páginas) cubren todo lo que necesitas del curso.</li>
+<li><strong>Cómo conseguirlo:</strong> busca <code>Python para todos Severance PDF</code> o entra a <code>py4e.com</code> y busca la sección de libro / <em>book</em>.</li>
+</ul>
+<h3 id="repositorios-institucionales-colombianos">Repositorios institucionales colombianos</h3>
+<ul>
+<li><strong>Qué es:</strong> muchas universidades colombianas publican en acceso abierto sus <strong>guías y cartillas de algoritmia y programación</strong>, generalmente en PDF y en español, con ejercicios resueltos en pseudocódigo.</li>
+<li><strong>Para qué escenarios:</strong> <strong>1 a 8</strong>.</li>
+<li><strong>Cuánto toma:</strong> 20 minutos encontrar una buena, y luego es material de consulta.</li>
+<li><strong>Cómo buscarlo:</strong> en un buscador, <code>guía de algoritmos y programación pseudocódigo PDF repositorio universidad</code> o busca en <code>repositorio.unal.edu.co</code>, <code>repository.udistrital.edu.co</code> y catálogos similares. También el portal <strong>Colombia Aprende</strong> publica materiales de fundamentos de programación.</li>
+</ul>
+<hr />
+<h2 id="5-sitios-de-práctica-con-ejercicios">5. Sitios de práctica con ejercicios</h2>
+<p>La teoría no basta: hay que hacer volumen. Estos sitios te dan ejercicios con verificación automática.</p>
+<h3 id="ejercicios-de-pseint-del-propio-programa">Ejercicios de PSeInt del propio programa</h3>
+<ul>
+<li><strong>Qué es:</strong> PSeInt trae <strong>ejemplos incluidos</strong> y un modo de ejercicios guiados en su menú de ayuda.</li>
+<li><strong>Para qué escenarios:</strong> <strong>3 a 7</strong>.</li>
+<li><strong>Cuánto toma:</strong> 10 minutos por ejercicio. Es lo primero que debes agotar.</li>
+</ul>
+<h3 id="hackerrank--pista-de-python">HackerRank — pista de Python</h3>
+<ul>
+<li><strong>Qué es:</strong> plataforma de ejercicios con verificación automática. La sección <strong>Python → Introduction / Basic Data Types / Strings</strong> es de dificultad "Easy" y encaja perfecto con los escenarios 4 a 7.</li>
+<li><strong>Para qué escenarios:</strong> <strong>4 a 8</strong>.</li>
+<li><strong>Cuánto toma:</strong> 10–20 minutos por ejercicio. Haz 2 o 3 por semana.</li>
+<li><strong>Dónde:</strong> <code>hackerrank.com</code>, requiere registro gratuito. Está en inglés, pero los enunciados de nivel fácil son cortos y con ejemplos.</li>
+</ul>
+<h3 id="exercism--track-de-python">Exercism — track de Python</h3>
+<ul>
+<li><strong>Qué es:</strong> plataforma gratuita, sin ánimo de lucro, con ejercicios progresivos y <strong>mentoría humana voluntaria</strong> que revisa tu código y te da retroalimentación. Eso último es raro y muy valioso cuando estás empezando.</li>
+<li><strong>Para qué escenarios:</strong> <strong>6 a 8</strong> y en adelante.</li>
+<li><strong>Cuánto toma:</strong> 20–40 minutos por ejercicio incluyendo la retroalimentación.</li>
+<li><strong>Dónde:</strong> <code>exercism.org</code>, registro gratuito. En inglés.</li>
+</ul>
+<h3 id="proyecto-euler">Proyecto Euler</h3>
+<ul>
+<li><strong>Qué es:</strong> colección de problemas matemáticos que se resuelven programando. Los primeros 10 son perfectos para practicar ciclos y condicionales.</li>
+<li><strong>Para qué escenarios:</strong> <strong>6 y 7</strong>. Especialmente bueno para ti, que estás cómodo con matemáticas.</li>
+<li><strong>Cuánto toma:</strong> los primeros problemas, 15–30 minutos cada uno.</li>
+<li><strong>Dónde:</strong> <code>projecteuler.net</code>. Hay traducciones de los enunciados al español en la propia página.</li>
+</ul>
+<h3 id="codingbat--python">CodingBat — Python</h3>
+<ul>
+<li><strong>Qué es:</strong> ejercicios muy cortos, de una función cada uno, con verificación instantánea. Sin registro obligatorio.</li>
+<li><strong>Para qué escenarios:</strong> <strong>5, 6 y 8</strong> (condicionales, ciclos, funciones).</li>
+<li><strong>Cuánto toma:</strong> 5 minutos por ejercicio. Perfecto para una sesión corta de 25 minutos: haces 4 o 5.</li>
+<li><strong>Dónde:</strong> <code>codingbat.com</code>, sección Python. En inglés, pero los enunciados son de dos líneas.</li>
+</ul>
+<hr />
+<h2 id="6-cómo-pedir-ayuda-cuando-estés-atascado">6. Cómo pedir ayuda cuando estés atascado</h2>
+<p>Esto también es un recurso, y es el que más rinde:</p>
+<ol>
+<li><strong>El foro del aula virtual y el docente.</strong> Es el canal correcto y el que conoce el criterio de evaluación. Úsalo sin pena: la pregunta "básica" que crees que solo tú tienes, la tiene media clase.</li>
+<li><strong>Redacta la pregunta bien.</strong> Incluye: qué querías que hiciera, qué hizo, el mensaje de error completo y el código. La mitad de las veces, escribir eso te muestra el error.</li>
+<li><strong>Stack Overflow en español</strong> (<code>es.stackoverflow.com</code>): antes de preguntar, busca el mensaje de error entre comillas. Casi siempre ya está resuelto.</li>
+<li><strong>Asistentes de IA:</strong> son útiles, pero con una regla estricta que ya está en el <code>README.md</code>: <strong>pídeles que te expliquen, no que te resuelvan.</strong> Un buen uso es "explícame por qué este código da este error" o "hazme tres ejercicios de ciclos con la respuesta aparte". Un mal uso es pegar el enunciado del taller y entregar lo que salga: eso te cuesta la materia siguiente y, dependiendo del reglamento del Poli, puede constituir falta académica. Verifica qué dice el reglamento estudiantil sobre el uso de IA.</li>
+</ol>
+<hr />
+<h2 id="7-ruta-mínima-si-el-tiempo-se-aprieta">7. Ruta mínima si el tiempo se aprieta</h2>
+<p>Si en alguna semana solo tienes una hora para toda la materia, este es el orden de lo que <strong>sí</strong> hay que hacer:</p>
+<ol>
+<li>El material del <strong>aula virtual</strong> del escenario (40 % del tiempo).</li>
+<li>La sección correspondiente de <code>3. Resúmenes teóricos.md</code> (20 %).</li>
+<li><strong>Dos ejercicios</strong> del banco, resueltos en PSeInt (40 %).</li>
+</ol>
+<p>Los videos, los libros y las plataformas de práctica son lo primero que se sacrifica. Lo que <strong>nunca</strong> se sacrifica es escribir código con tus propias manos: sin eso, la materia no se aprende, solo se lee.</p>
+<hr />
+<p><em>Contenido esperado, reconstruido. Los recursos externos son sugerencias verificables por búsqueda: si alguno cambió o desapareció, reemplázalo por otro con la misma descripción. Prioridad siempre al material del aula virtual.</em></p>
+</main>
+</body>
+</html>

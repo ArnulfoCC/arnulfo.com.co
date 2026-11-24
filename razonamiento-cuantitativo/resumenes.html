@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resúmenes teóricos — Razonamiento Cuantitativo</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ 01 - Razonamiento Cuantitativo / 3. Resúmenes teóricos</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="resúmenes-teóricos--razonamiento-cuantitativo">Resúmenes teóricos — Razonamiento Cuantitativo</h1>
+<blockquote>
+<p>⚠️ <strong>Contenido esperado, por verificar en el aula virtual.</strong> Estos apuntes reconstruyen los temas que típicamente cubre un curso de razonamiento cuantitativo de primer semestre. No reemplazan el material oficial: complétalos con las lecturas del aula.</p>
+<p><strong>Sobre las cifras:</strong> los ejemplos usan contextos del sector público colombiano porque son los que manejas a diario. Cuando aparece un valor de IPC, de salario mínimo o de un índice, <strong>es ilustrativo</strong> salvo que diga lo contrario: sirve para que el procedimiento quede claro, no como dato oficial. Para cifras reales, consulta el DANE.</p>
+</blockquote>
+<hr />
+<h2 id="escenario-1--interpretación-y-representación-de-información-cuantitativa">Escenario 1 — Interpretación y representación de información cuantitativa</h2>
+<h3 id="11-el-vocabulario-mínimo">1.1 El vocabulario mínimo</h3>
+<p>Antes de calcular cualquier cosa hay que saber <strong>qué</strong> se está midiendo.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Término</th>
+<th>Definición</th>
+<th>Ejemplo en tu contexto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Población</td>
+<td>Conjunto completo de elementos de interés</td>
+<td>Todos los contratos vigentes de la DEAJ</td>
+</tr>
+<tr>
+<td>Unidad de observación</td>
+<td>El elemento del que se toma el dato</td>
+<td>Un contrato</td>
+</tr>
+<tr>
+<td>Variable</td>
+<td>Característica que varía entre unidades</td>
+<td>Valor del contrato, tipo de supervisión, estado</td>
+</tr>
+<tr>
+<td>Valor</td>
+<td>El dato concreto de una unidad</td>
+<td>\(8.263.759.012,55\)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Las variables se clasifican en <strong>cualitativas</strong> (categorías: tipo de contrato, estado) y <strong>cuantitativas</strong> (números: valor, número de eventos). Las cuantitativas se subdividen en <strong>discretas</strong> (se cuentan: número de pagos) y <strong>continuas</strong> (se miden: porcentaje de ejecución).</p>
+<h3 id="12-escalas-de-medición">1.2 Escalas de medición</h3>
+<p>Esta es la parte que se olvida y que después cuesta puntos. Cada escala permite unas operaciones y prohíbe otras.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Escala</th>
+<th>¿Qué permite?</th>
+<th>¿Qué NO permite?</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Nominal</strong></td>
+<td>Clasificar, contar frecuencias</td>
+<td>Ordenar, restar, promediar</td>
+<td>Tipo de contrato (AFCJ, compartida)</td>
+</tr>
+<tr>
+<td><strong>Ordinal</strong></td>
+<td>Clasificar y ordenar</td>
+<td>Restar, promediar (la distancia entre niveles no es igual)</td>
+<td>Etapa del contrato (1 Planeación … 5 Novedades)</td>
+</tr>
+<tr>
+<td><strong>De intervalo</strong></td>
+<td>Ordenar y restar</td>
+<td>Dividir (no hay cero absoluto)</td>
+<td>Temperatura en °C; año calendario</td>
+</tr>
+<tr>
+<td><strong>De razón</strong></td>
+<td>Todo, incluido dividir</td>
+<td>—</td>
+<td>Valor en pesos, número de eventos</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Error frecuente #1:</strong> promediar una variable ordinal. Si las etapas de un contrato van de 1 a 5, "la etapa promedio del portafolio es 3,3" no significa nada: la distancia entre la etapa 2 y la 3 no es la misma que entre la 4 y la 5.</p>
+<p><strong>Error frecuente #2:</strong> decir que 30 °C es "el doble de calor" que 15 °C. La escala Celsius es de intervalo, no de razón; el cociente no tiene sentido físico. En cambio, \(2.000.000\) de pesos <strong>sí</strong> es el doble de \(1.000.000\): los pesos están en escala de razón.</p>
+<h3 id="13-frecuencias">1.3 Frecuencias</h3>
+<p>Sobre una tabla de datos se construyen tres columnas:</p>
+<ul>
+<li><strong>Frecuencia absoluta</strong> \(f_i\): cuántas unidades hay en la categoría.</li>
+<li><strong>Frecuencia relativa</strong> \(h_i = \dfrac{f_i}{n}\), con \(n\) el total. Se expresa como decimal o como porcentaje.</li>
+<li><strong>Frecuencia acumulada</strong> \(F_i\): la suma de las frecuencias hasta esa categoría (solo tiene sentido en variables ordinales o cuantitativas).</li>
+</ul>
+<p>Propiedad de control: \(\sum f_i = n\) y \(\sum h_i = 1\) (o 100 %). Si tu tabla no cierra en 100 %, o hay redondeo, o hay un error. Distingue cuál.</p>
+<h3 id="14-tablas-de-doble-entrada">1.4 Tablas de doble entrada</h3>
+<p>Una tabla de contingencia cruza dos variables. Ejemplo ilustrativo: 190 garantías revisadas, cruzando <em>resultado del concepto</em> con <em>tipo de amparo revisado</em>.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Aprobada</th>
+<th>Devuelta</th>
+<th><strong>Total fila</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cumplimiento</td>
+<td>45</td>
+<td>75</td>
+<td><strong>120</strong></td>
+</tr>
+<tr>
+<td>RCE</td>
+<td>30</td>
+<td>40</td>
+<td><strong>70</strong></td>
+</tr>
+<tr>
+<td><strong>Total columna</strong></td>
+<td><strong>75</strong></td>
+<td><strong>115</strong></td>
+<td><strong>190</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>De aquí salen tres porcentajes distintos, y confundirlos es <em>el</em> error de la materia:</p>
+<ul>
+<li>Porcentaje <strong>sobre el total general</strong>: \(\dfrac{45}{190}=23{,}7\%\) de todas las garantías fueron de cumplimiento y aprobadas.</li>
+<li>Porcentaje <strong>sobre la fila</strong>: \(\dfrac{45}{120}=37{,}5\%\) de las garantías de cumplimiento fueron aprobadas.</li>
+<li>Porcentaje <strong>sobre la columna</strong>: \(\dfrac{45}{75}=60{,}0\%\) de las aprobadas eran de cumplimiento.</li>
+</ul>
+<p>Los tres son correctos y los tres dicen cosas diferentes. <strong>Antes de dividir, escribe cuál es el denominador.</strong></p>
+<h3 id="15-elección-del-gráfico">1.5 Elección del gráfico</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Lo que quieres mostrar</th>
+<th>Gráfico adecuado</th>
+<th>Gráfico inadecuado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Composición de un total</td>
+<td>Circular, barras apiladas</td>
+<td>Líneas</td>
+</tr>
+<tr>
+<td>Comparación entre categorías</td>
+<td>Barras</td>
+<td>Circular con muchas porciones</td>
+</tr>
+<tr>
+<td>Evolución en el tiempo</td>
+<td>Líneas</td>
+<td>Circular</td>
+</tr>
+<tr>
+<td>Relación entre dos variables</td>
+<td>Dispersión</td>
+<td>Barras</td>
+</tr>
+<tr>
+<td>Distribución de una variable continua</td>
+<td>Histograma</td>
+<td>Barras separadas (no es lo mismo)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Todo gráfico debe traer: título, ejes rotulados <strong>con unidad</strong>, escala legible, fuente y período. Si falta la unidad, el gráfico no es interpretable, por bonito que sea.</p>
+<hr />
+<h2 id="escenario-2--razones-proporciones-tasas-y-porcentajes">Escenario 2 — Razones, proporciones, tasas y porcentajes</h2>
+<h3 id="21-las-tres-formas-del-mismo-número">2.1 Las tres formas del mismo número</h3>
+<p>\[\frac{3}{4} = 0{,}75 = 75\%\]</p>
+<p>Conversión: fracción → decimal, se divide; decimal → porcentaje, se multiplica por 100; porcentaje → decimal, se divide entre 100. Parece trivial. La mitad de los errores del curso nacen aquí, porque en un problema largo se olvida dividir entre 100.</p>
+<h3 id="22-razón-proporción-y-tasa">2.2 Razón, proporción y tasa</h3>
+<ul>
+<li><strong>Razón:</strong> cociente entre dos cantidades de la misma naturaleza. "Por cada 3 contratos AFCJ hay 1 de supervisión compartida" → razón \(3:1\).</li>
+<li><strong>Proporción:</strong> igualdad entre dos razones, \(\dfrac{a}{b}=\dfrac{c}{d}\). De ahí la propiedad fundamental: \(a\cdot d = b\cdot c\), que es la regla de tres.</li>
+<li><strong>Tasa:</strong> cociente entre cantidades de <strong>distinta</strong> naturaleza, con unidad compuesta. Pesos por evento, casos por cada 100.000 habitantes, km/h.</li>
+</ul>
+<p><strong>Error frecuente:</strong> llamar "tasa" a una proporción. La tasa de desempleo (%) es técnicamente una proporción; el uso institucional la llama tasa. En el examen, fíjate en las unidades: si la unidad es compuesta (algo <em>por</em> algo distinto), es tasa.</p>
+<h3 id="23-regla-de-tres">2.3 Regla de tres</h3>
+<p><strong>Directa</strong> (si una sube, la otra sube en la misma proporción):</p>
+<p>\[\frac{a}{b}=\frac{c}{x} \Rightarrow x = \frac{b\cdot c}{a}\]</p>
+<p><strong>Inversa</strong> (si una sube, la otra baja; el producto es constante):</p>
+<p>\[a\cdot b = c\cdot x \Rightarrow x = \frac{a\cdot b}{c}\]</p>
+<p>Cómo decidir cuál: pregúntate <em>"si duplico la primera cantidad, ¿la segunda se duplica o se reduce a la mitad?"</em>. Si se duplica, directa. Si se reduce, inversa.</p>
+<p>Ejemplo de inversa: 9 integrantes del equipo de trabajo tardan 12 días en depurar los 139 pagos pendientes. ¿Cuánto tardarían 6? \(9\times 12 = 6\times x \Rightarrow x = 18\) días. (Supuesto implícito: todos rinden igual y el trabajo es divisible. En la vida real ese supuesto rara vez se cumple — mencionarlo es exactamente el tipo de razonamiento crítico que evalúa el escenario 7.)</p>
+<h3 id="24-la-base-de-un-porcentaje">2.4 La base de un porcentaje</h3>
+<p>\[\text{parte} = \text{base}\times \frac{p}{100} \qquad\qquad p = \frac{\text{parte}}{\text{base}}\times 100 \qquad\qquad \text{base} = \frac{\text{parte}}{p/100}\]</p>
+<p><strong>El problema inverso.</strong> Si un valor aumentó \(r\) y quedó en \(V_f\), el valor original <strong>no</strong> es \(V_f\) menos ese porcentaje:</p>
+<p>\[V_f = V_0(1+r) \quad\Longrightarrow\quad V_0 = \frac{V_f}{1+r}\]</p>
+<p><em>Ejemplo.</em> Un ítem aparece facturado en \(\$2.380.000\) con IVA del 19 % incluido. La base gravable no es \(2.380.000 - 19\% = 1.927.800\). Es:</p>
+<p>\[V_0 = \frac{2.380.000}{1{,}19} = \$2.000.000\]</p>
+<p>Verificación: \(2.000.000\times 1{,}19 = 2.380.000\). ✓</p>
+<h3 id="25-ejemplo-integrado-la-comisión-de-intermediación">2.5 Ejemplo integrado: la comisión de intermediación</h3>
+<p>Este es el ejemplo más útil que vas a ver en el curso, porque es tu trabajo escrito en lenguaje matemático.</p>
+<p>Regla: la comisión de intermediación del 8,37 % se calcula <strong>sobre la base antes de impuestos</strong>, y el resultado <strong>ya incluye</strong> el IVA de la comisión.</p>
+<p>Ítem facturado con IVA incluido por \(\$2.380.000\):</p>
+<ol>
+<li>Base antes de impuestos: \(2.380.000 / 1{,}19 = \$2.000.000\).</li>
+<li>Comisión: \(2.000.000 \times 0{,}0837 = \$167.400\).</li>
+<li>Ese valor <strong>no</strong> se multiplica otra vez por 1,19: la tasa ya lo contempla.</li>
+</ol>
+<p>Si el ítem fuera un reembolso sin IVA de \(\$2.000.000\), la base es directa y la comisión es la misma: \(\$167.400\).</p>
+<p><strong>Lo que este ejemplo enseña:</strong> el 90 % del trabajo de un problema de porcentajes está en decidir <strong>cuál es la base</strong>. La multiplicación es lo fácil.</p>
+<h3 id="26-porcentajes-que-no-se-pueden-sumar">2.6 Porcentajes que no se pueden sumar</h3>
+<p>Dos porcentajes solo se suman si comparten la misma base. Si el 40 % de los contratos del portafolio están en ejecución y el 25 % de los pagos están rechazados, sumar 65 % no significa nada: las bases son distintas (contratos y pagos).</p>
+<p>Cuando las bases son distintas pero se quiere un global, se usa <strong>promedio ponderado</strong>:</p>
+<p>\[\bar{x} = \frac{\sum w_i x_i}{\sum w_i}\]</p>
+<p><em>Ejemplo.</em> Contrato A: ejecución 90 % sobre un valor de \(\$26.450\) millones. Contrato B: ejecución 40 % sobre \(\$8.264\) millones. La ejecución promedio del portafolio <strong>no</strong> es \((90+40)/2 = 65\%\), sino:</p>
+<p>\[\bar{x} = \frac{0{,}90(26.450)+0{,}40(8.264)}{26.450+8.264} = \frac{23.805+3.306}{34.714} = 78{,}1\%\]</p>
+<hr />
+<h2 id="escenario-3--variación-porcentual-puntos-porcentuales-índices-y-deflactores">Escenario 3 — Variación porcentual, puntos porcentuales, índices y deflactores</h2>
+<p>Este es el escenario más denso y el más rentable. Léelo dos veces.</p>
+<h3 id="31-variación-porcentual">3.1 Variación porcentual</h3>
+<p>\[\Delta\% = \frac{V_f - V_0}{V_0}\times 100\]</p>
+<p>El denominador es <strong>siempre el valor inicial</strong>. Equivalentemente, se trabaja con el <strong>factor de cambio</strong> \(1+r\):</p>
+<ul>
+<li>Subir 15 % → multiplicar por \(1{,}15\).</li>
+<li>Bajar 15 % → multiplicar por \(0{,}85\).</li>
+</ul>
+<h3 id="32-variaciones-encadenadas">3.2 Variaciones encadenadas</h3>
+<p>Dos variaciones sucesivas <strong>no se suman</strong>: se multiplican los factores.</p>
+<p>\[1+r_{\text{total}} = (1+r_1)(1+r_2)\]</p>
+<p><em>Ejemplo.</em> Un valor de referencia sube 5 % un año y 3 % al siguiente. La variación acumulada es:</p>
+<p>\[(1{,}05)(1{,}03) - 1 = 1{,}0815 - 1 = 0{,}0815 = 8{,}15\%\]</p>
+<p>no 8 %. La diferencia de 0,15 puntos parece pequeña; sobre \(\$8.263.759.012\) son casi \(\$12\) millones.</p>
+<p><strong>Asimetría.</strong> Bajar 50 % y luego subir 50 % <strong>no</strong> devuelve al punto de partida: \((0{,}50)(1{,}50)=0{,}75\), es decir, se pierde 25 %. Para volver al valor original después de una caída del 50 % hay que subir 100 %.</p>
+<h3 id="33-porcentaje-vs-punto-porcentual">3.3 Porcentaje vs. punto porcentual</h3>
+<p>La distinción más evaluada del curso, y la que más se equivoca en la prensa.</p>
+<p>Si la tasa de desempleo pasa de 8 % a 10 %:</p>
+<ul>
+<li><strong>Diferencia en puntos porcentuales:</strong> \(10 - 8 = 2\) <strong>p.p.</strong> (resta aritmética).</li>
+<li><strong>Variación porcentual:</strong> \(\dfrac{10-8}{8}\times 100 = 25\%\) (cambio relativo).</li>
+</ul>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Enunciado</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"El desempleo subió 2 puntos porcentuales"</td>
+<td>Pasó de 8 % a 10 %</td>
+</tr>
+<tr>
+<td>"El desempleo subió 2 %"</td>
+<td>Pasó de 8 % a 8,16 %</td>
+</tr>
+<tr>
+<td>"El desempleo subió 25 %"</td>
+<td>Pasó de 8 % a 10 %</td>
+</tr>
+</tbody>
+</table></div>
+<p>Regla práctica: <strong>cuando restas dos porcentajes, el resultado está en puntos porcentuales.</strong> Cuando divides, está en porcentaje.</p>
+<h3 id="34-números-índice">3.4 Números índice</h3>
+<p>Un índice expresa una serie respecto de un período base al que se le asigna el valor 100:</p>
+<p>\[I_t = \frac{V_t}{V_{\text{base}}}\times 100\]</p>
+<p><em>Ejemplo ilustrativo.</em> Presupuesto de la entidad: 2023 = \(\$400\) mil millones (base), 2024 = \(\$460\), 2025 = \(\$506\).</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Año</th>
+<th>Valor</th>
+<th>Índice (2023 = 100)</th>
+<th>Cálculo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2023</td>
+<td>400</td>
+<td>100,0</td>
+<td>\(400/400\times100\)</td>
+</tr>
+<tr>
+<td>2024</td>
+<td>460</td>
+<td>115,0</td>
+<td>\(460/400\times100\)</td>
+</tr>
+<tr>
+<td>2025</td>
+<td>506</td>
+<td>126,5</td>
+<td>\(506/400\times100\)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Lectura: en 2025 el presupuesto es 26,5 % mayor que en 2023.</p>
+<p><strong>Cambio de base.</strong> Para pasar la base a 2024, se divide toda la serie por el índice de 2024 y se multiplica por 100: \(I^{2024}_{2025} = \dfrac{126{,}5}{115{,}0}\times 100 = 110{,}0\). Es decir, 2025 fue 10 % mayor que 2024. Verifica: \(506/460 = 1{,}10\). ✓</p>
+<p><strong>Cuidado:</strong> los índices <strong>no se suman ni se promedian</strong> entre sí. Un índice es una razón, no una cantidad.</p>
+<h3 id="35-deflactar-pesos-corrientes-y-pesos-constantes">3.5 Deflactar: pesos corrientes y pesos constantes</h3>
+<p><strong>Pesos corrientes</strong> = valores tal como se registraron en su año. <strong>Pesos constantes</strong> = valores llevados al poder adquisitivo de un año de referencia, eliminando el efecto de la inflación.</p>
+<p>\[V^{\text{constante}}_t = V^{\text{corriente}}_t \times \frac{IPC_{\text{base}}}{IPC_t}\]</p>
+<p><em>Ejemplo.</em> Un rubro costó \(\$120.000.000\) en un año cuyo IPC fue 112,5, con base 100 en el año de referencia. En pesos del año base:</p>
+<p>\[120.000.000\times\frac{100}{112{,}5} = \$106.666.666{,}67\]</p>
+<p>Interpretación: aunque nominalmente se gastaron 120 millones, en poder adquisitivo del año base equivalen a 106,7 millones. <strong>El aumento nominal del 20 % fue solo del 6,7 % en términos reales.</strong></p>
+<p><strong>Control de sentido:</strong> al deflactar hacia atrás (llevar un valor reciente a pesos de un año anterior), el resultado debe ser <strong>menor</strong> que el nominal, porque el dinero antiguo valía más. Si te da mayor, invertiste la fracción.</p>
+<h3 id="36-variación-nominal-vs-variación-real">3.6 Variación nominal vs. variación real</h3>
+<p>\[1+r_{\text{real}} = \frac{1+r_{\text{nominal}}}{1+\pi} \qquad\Longrightarrow\qquad r_{\text{real}} = \frac{1+r_{\text{nominal}}}{1+\pi}-1\]</p>
+<p>donde \(\pi\) es la inflación del período.</p>
+<p><em>Ejemplo.</em> Un valor contractual se reajustó 11,5 % en un año en que la inflación fue 5,2 %:</p>
+<p>\[r_{\text{real}} = \frac{1{,}115}{1{,}052}-1 = 0{,}0599 = 5{,}99\%\]</p>
+<p>La aproximación por resta (\(11{,}5 - 5{,}2 = 6{,}3\%\)) es cómoda pero <strong>inexacta</strong>, y el error crece con la inflación. En un examen que pida precisión, usa la fórmula del cociente.</p>
+<h3 id="37-errores-frecuentes-del-escenario-3">3.7 Errores frecuentes del escenario 3</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Error</th>
+<th>Por qué está mal</th>
+<th>Cómo evitarlo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sumar variaciones sucesivas</td>
+<td>Cada variación se aplica sobre una base distinta</td>
+<td>Multiplica factores \((1+r)\)</td>
+</tr>
+<tr>
+<td>Decir "subió 2 %" cuando son 2 p.p.</td>
+<td>Confunde diferencia con cambio relativo</td>
+<td>Si restaste, son p.p.</td>
+</tr>
+<tr>
+<td>Multiplicar por \(IPC_t/IPC_{base}\) al deflactar</td>
+<td>Infla en vez de deflactar</td>
+<td>Verifica el sentido del resultado</td>
+</tr>
+<tr>
+<td>Restar inflación de la variación nominal</td>
+<td>Aproximación, no identidad</td>
+<td>Usa el cociente de factores</td>
+</tr>
+<tr>
+<td>Promediar índices</td>
+<td>Un índice es una razón</td>
+<td>Recalcula desde los valores originales</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="escenario-4--unidades-notación-científica-y-funciones-lineales">Escenario 4 — Unidades, notación científica y funciones lineales</h2>
+<h3 id="41-análisis-dimensional">4.1 Análisis dimensional</h3>
+<p>Un factor de conversión es una fracción que vale 1: \(\dfrac{1.000\ \text{m}}{1\ \text{km}} = 1\). Multiplicar por 1 no cambia el valor, solo la unidad. Se encadenan factores hasta que <strong>las unidades no deseadas se cancelen</strong>.</p>
+<p>\[72\ \frac{\text{km}}{\text{h}}\times\frac{1.000\ \text{m}}{1\ \text{km}}\times\frac{1\ \text{h}}{3.600\ \text{s}} = 20\ \frac{\text{m}}{\text{s}}\]</p>
+<p>La regla de oro: <strong>escribe siempre las unidades y táchalas.</strong> Si al final te queda la unidad correcta, el planteamiento está bien; si te queda km²/h, te equivocaste, sin necesidad de revisar la aritmética.</p>
+<h3 id="42-notación-científica">4.2 Notación científica</h3>
+<p>Todo número se escribe como \(a\times 10^n\) con \(1\le|a|<10\).</p>
+<p>\[8.263.759.012{,}55 \approx 8{,}26\times 10^{9}\]</p>
+<p>Operaciones:</p>
+<ul>
+<li>Producto: \((a\times10^m)(b\times10^n) = ab\times10^{m+n}\)</li>
+<li>Cociente: \(\dfrac{a\times10^m}{b\times10^n} = \dfrac{a}{b}\times10^{m-n}\)</li>
+</ul>
+<p><em>Ejemplo.</em> Un contrato de \(8{,}26\times10^9\) pesos repartido entre \(5{,}2\times10^7\) atenciones:</p>
+<p>\[\frac{8{,}26\times10^9}{5{,}2\times10^7} = 1{,}59\times10^2 \approx \$159 \text{ por atención}\]</p>
+<p><strong>Orden de magnitud</strong> es la potencia de 10 dominante. Sirve para el control de sentido: un presupuesto de aseo de una entidad está en el orden de \(10^9\) pesos. Si tu cálculo da \(10^{12}\), no publiques: revisa.</p>
+<h3 id="43-función-lineal-y-función-afín">4.3 Función lineal y función afín</h3>
+<p>\[y = mx + b\]</p>
+<ul>
+<li>\(m\) = <strong>pendiente</strong> = tasa de cambio = cuánto cambia \(y\) por cada unidad que cambia \(x\). Unidad: [unidad de \(y\)] / [unidad de \(x\)].</li>
+<li>\(b\) = <strong>intercepto</strong> = valor de \(y\) cuando \(x=0\). En costos, el componente fijo.</li>
+<li>Si \(b=0\) es función <strong>lineal</strong> pura (proporcionalidad directa); si \(b\ne 0\) es <strong>afín</strong>.</li>
+</ul>
+<p>\[m = \frac{y_2-y_1}{x_2-x_1}\]</p>
+<p><em>Ejemplo contextualizado.</em> El costo mensual de un componente contractual es de \(\$3.000.000\) cuando se realizan 25 eventos y de \(\$4.200.000\) cuando se realizan 40.</p>
+<p>\[m = \frac{4.200.000-3.000.000}{40-25} = \frac{1.200.000}{15} = 80.000 \ \frac{\text{pesos}}{\text{evento}}\]</p>
+<p>\[b = 3.000.000 - 80.000(25) = \$1.000.000\]</p>
+<p>\[C(x) = 80.000x + 1.000.000\]</p>
+<p><strong>Interpretación en palabras (esto es lo que califican):</strong> hay un costo fijo de un millón de pesos al mes que se paga aunque no se realice ningún evento, y cada evento adicional cuesta ochenta mil pesos.</p>
+<p><strong>Ojo con el costo unitario.</strong> El costo <em>promedio</em> por evento no es constante:</p>
+<p>\[\bar{C}(x)=\frac{80.000x+1.000.000}{x} = 80.000 + \frac{1.000.000}{x}\]</p>
+<p>Con 25 eventos, \(\$120.000\) por evento; con 100 eventos, \(\$90.000\). El costo marginal es constante, el medio no. Confundirlos es error de examen.</p>
+<h3 id="44-punto-de-equilibrio">4.4 Punto de equilibrio</h3>
+<p>Se igualan dos funciones y se despeja.</p>
+<p><em>Ejemplo.</em> Plan A: cuota fija de \(\$1.000.000\) más \(\$30.000\) por evento. Plan B: \(\$80.000\) por evento, sin cuota.</p>
+<p>\[1.000.000 + 30.000x = 80.000x \Rightarrow 1.000.000 = 50.000x \Rightarrow x = 20\]</p>
+<p>Con menos de 20 eventos conviene el plan B; con más de 20, el plan A. <strong>La respuesta completa no es "20": es la recomendación con su condición.</strong></p>
+<hr />
+<h2 id="escenario-5--funciones-exponenciales-y-crecimiento">Escenario 5 — Funciones exponenciales y crecimiento</h2>
+<h3 id="51-lineal-vs-exponencial">5.1 Lineal vs. exponencial</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Lineal</th>
+<th>Exponencial</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Regla</td>
+<td>Se <strong>suma</strong> una cantidad fija</td>
+<td>Se <strong>multiplica</strong> por un factor fijo</td>
+</tr>
+<tr>
+<td>Modelo</td>
+<td>\(y = y_0 + mt\)</td>
+<td>\(y = y_0(1+r)^t\)</td>
+</tr>
+<tr>
+<td>Diferencias sucesivas</td>
+<td>Constantes</td>
+<td>Crecientes</td>
+</tr>
+<tr>
+<td>Cocientes sucesivos</td>
+<td>Decrecientes</td>
+<td>Constantes</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Cómo distinguirlos con datos:</strong> calcula las diferencias entre valores consecutivos. Si son constantes, es lineal. Calcula los cocientes. Si son constantes, es exponencial.</p>
+<h3 id="52-el-modelo-exponencial">5.2 El modelo exponencial</h3>
+<p>\[y(t) = y_0(1+r)^t\]</p>
+<ul>
+<li>\(y_0\): valor inicial. \(r\): tasa por período (en decimal). \(t\): número de períodos.</li>
+<li>Si \(r<0\) hay decrecimiento: \(y(t)=y_0(1-d)^t\).</li>
+</ul>
+<p><em>Ejemplo.</em> Un contrato de \(\$8.263.759.012{,}55\) ajustado anualmente por una inflación del 5 % durante 4 años:</p>
+<p>\[8.263.759.012{,}55\times(1{,}05)^4 = 8.263.759.012{,}55\times 1{,}21550625 \approx \$10.044.626.000\]</p>
+<p>El incremento acumulado es 21,55 %, <strong>no</strong> \(5\times4 = 20\%\). La diferencia (1,55 puntos) sobre esta base son unos \(\$128\) millones. En horizontes de 10 o 20 años la brecha se vuelve enorme: ese es todo el punto del escenario.</p>
+<h3 id="53-logaritmos-para-qué-sirven-aquí">5.3 Logaritmos: para qué sirven aquí</h3>
+<p>El logaritmo es la operación que <strong>despeja el exponente</strong>. Si \(a^x = b\), entonces:</p>
+<p>\[x = \log_a b = \frac{\ln b}{\ln a}\]</p>
+<p>Propiedades que necesitas (solo estas tres):</p>
+<p>\[\ln(AB)=\ln A + \ln B \qquad \ln\left(\frac{A}{B}\right)=\ln A - \ln B \qquad \ln(A^n) = n\ln A\]</p>
+<p><em>Ejemplo — tiempo de duplicación.</em> ¿En cuántos años se duplica un valor que crece 5 % anual?</p>
+<p>\[2 = (1{,}05)^t \Rightarrow \ln 2 = t\ln(1{,}05) \Rightarrow t = \frac{0{,}6931}{0{,}04879} = 14{,}21 \text{ años}\]</p>
+<p><strong>Regla del 70</strong> (aproximación mental): \(t \approx \dfrac{70}{r\%} = \dfrac{70}{5} = 14\) años. Muy cerca del valor exacto, y sirve para el control de sentido en un examen cronometrado.</p>
+<h3 id="54-errores-frecuentes">5.4 Errores frecuentes</h3>
+<ul>
+<li>Usar \(r\) en porcentaje sin dividir entre 100: \((1+5)^t\) en vez de \((1{,}05)^t\). Resultado absurdo, fácil de detectar por orden de magnitud.</li>
+<li>Confundir \(y_0(1+r)^t\) con \(y_0(1+rt)\): la segunda es interés <strong>simple</strong>, no exponencial.</li>
+<li>Multiplicar la tasa por el número de períodos y aplicarla de una vez.</li>
+</ul>
+<hr />
+<h2 id="escenario-6--matemáticas-financieras">Escenario 6 — Matemáticas financieras</h2>
+<h3 id="61-el-principio-central">6.1 El principio central</h3>
+<p><strong>Un peso hoy no vale lo mismo que un peso dentro de un año.</strong> De ahí se deriva la regla operativa: <strong>nunca sumes dineros ubicados en fechas distintas.</strong> Primero se llevan todos a una misma fecha (la <em>fecha focal</em>), luego se suman.</p>
+<p>Herramienta obligatoria: el <strong>diagrama de flujo de caja</strong>, una línea de tiempo con flechas hacia arriba (ingresos) y hacia abajo (egresos). Dibujarlo toma 30 segundos y elimina la mayoría de los errores.</p>
+<h3 id="62-interés-simple-vs-compuesto">6.2 Interés simple vs. compuesto</h3>
+<p><strong>Simple</strong> — los intereses se calculan siempre sobre el capital inicial y no generan intereses:</p>
+<p>\[I = P\cdot i\cdot n \qquad\qquad F = P(1+i\,n)\]</p>
+<p><strong>Compuesto</strong> — los intereses se capitalizan y generan intereses:</p>
+<p>\[F = P(1+i)^n\]</p>
+<p><em>Comparación.</em> \(P = \$1.000.000\), \(i = 1{,}5\%\) mensual, \(n = 6\) meses.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Modalidad</th>
+<th>Cálculo</th>
+<th>Monto final</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simple</td>
+<td>\(1.000.000(1+0{,}015\times6)\)</td>
+<td>\(\$1.090.000\)</td>
+</tr>
+<tr>
+<td>Compuesto</td>
+<td>\(1.000.000(1{,}015)^6\)</td>
+<td>\(\$1.093.443{,}26\)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Diferencia: \(\$3.443{,}26\) en seis meses. En 60 meses la diferencia es de cientos de miles. <strong>El interés compuesto es el modelo exponencial del escenario 5 con otro nombre.</strong></p>
+<h3 id="63-valor-presente">6.3 Valor presente</h3>
+<p>Despejando \(P\) de la fórmula de interés compuesto:</p>
+<p>\[P = \frac{F}{(1+i)^n} = F(1+i)^{-n}\]</p>
+<p><em>Ejemplo.</em> Una adición de \(\$657.751.724{,}72\) que se pagará dentro de 3 meses, con una tasa de oportunidad del 1 % mensual, vale hoy:</p>
+<p>\[P = \frac{657.751.724{,}72}{(1{,}01)^3} = \frac{657.751.724{,}72}{1{,}030301} = \$638.407.343{,}80\]</p>
+<p>Diferencia: unos \(\$19{,}3\) millones. Ese es el costo financiero real de aplazar un pago tres meses, y es exactamente el razonamiento que hay detrás de una vigencia futura.</p>
+<h3 id="64-tasas-nominal-periódica-y-efectiva">6.4 Tasas: nominal, periódica y efectiva</h3>
+<ul>
+<li><strong>Tasa nominal \(j\)</strong>: se anuncia anual pero se capitaliza \(m\) veces al año. No se usa directamente en las fórmulas.</li>
+<li><strong>Tasa periódica</strong> \(i = \dfrac{j}{m}\): la que sí entra en las fórmulas.</li>
+<li><strong>Tasa efectiva anual (EA)</strong>: el rendimiento real de un año.</li>
+</ul>
+<p>\[i_{ea} = \left(1+\frac{j}{m}\right)^m - 1\]</p>
+<p><em>Ejemplo.</em> Una tasa nominal del 24 % anual capitalizable mensualmente:</p>
+<p>\[i = \frac{0{,}24}{12}=0{,}02 \text{ mensual}\qquad i_{ea} = (1{,}02)^{12}-1 = 0{,}2682 = 26{,}82\%\ \text{EA}\]</p>
+<p><strong>No son lo mismo.</strong> 24 % nominal mes vencido equivale a 26,82 % efectivo anual. Comparar dos alternativas usando tasas nominales con distinta capitalización es un error clásico: <strong>para comparar, siempre lleva todo a EA.</strong></p>
+<h3 id="65-anualidades-series-uniformes">6.5 Anualidades (series uniformes)</h3>
+<p>Serie de \(n\) pagos iguales de valor \(A\), al final de cada período, con tasa \(i\) por período.</p>
+<p><strong>Valor presente:</strong></p>
+<p>\[P = A\cdot\frac{1-(1+i)^{-n}}{i}\]</p>
+<p><strong>Valor futuro:</strong></p>
+<p>\[F = A\cdot\frac{(1+i)^{n}-1}{i}\]</p>
+<p><em>Ejemplo.</em> 24 pagos mensuales de \(\$500.000\) con \(i = 1{,}2\%\) mensual.</p>
+<p>\[P = 500.000\cdot\frac{1-(1{,}012)^{-24}}{0{,}012} = \$10.372.999{,}57\]</p>
+<p>\[F = 500.000\cdot\frac{(1{,}012)^{24}-1}{0{,}012} = \$13.811.366{,}82\]</p>
+<p>Control de sentido: la suma simple de los pagos es \(24\times500.000 = \$12.000.000\). El valor presente debe ser <strong>menor</strong> (\(10{,}37\) M ✓) y el valor futuro <strong>mayor</strong> (\(13{,}81\) M ✓). Si te da al revés, revisa el signo del exponente.</p>
+<h3 id="66-tabla-resumen-de-fórmulas-del-escenario-6">6.6 Tabla resumen de fórmulas del escenario 6</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Quiero hallar</th>
+<th>Teniendo</th>
+<th>Fórmula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Monto futuro, un pago</td>
+<td>\(P, i, n\)</td>
+<td>\(F=P(1+i)^n\)</td>
+</tr>
+<tr>
+<td>Valor presente, un pago</td>
+<td>\(F, i, n\)</td>
+<td>\(P=F(1+i)^{-n}\)</td>
+</tr>
+<tr>
+<td>Tasa</td>
+<td>\(P, F, n\)</td>
+<td>\(i=\left(F/P\right)^{1/n}-1\)</td>
+</tr>
+<tr>
+<td>Períodos</td>
+<td>\(P, F, i\)</td>
+<td>\(n=\dfrac{\ln(F/P)}{\ln(1+i)}\)</td>
+</tr>
+<tr>
+<td>VP de una serie</td>
+<td>\(A, i, n\)</td>
+<td>\(P=A\dfrac{1-(1+i)^{-n}}{i}\)</td>
+</tr>
+<tr>
+<td>VF de una serie</td>
+<td>\(A, i, n\)</td>
+<td>\(F=A\dfrac{(1+i)^n-1}{i}\)</td>
+</tr>
+<tr>
+<td>Efectiva anual</td>
+<td>\(j, m\)</td>
+<td>\(i_{ea}=(1+j/m)^m-1\)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Esta tabla es tu formulario. Cópiala a mano.</p>
+<hr />
+<h2 id="escenario-7--conteo-probabilidad-y-lectura-crítica">Escenario 7 — Conteo, probabilidad y lectura crítica</h2>
+<h3 id="71-conteo">7.1 Conteo</h3>
+<p><strong>Principio multiplicativo:</strong> si una tarea tiene \(k\) etapas con \(n_1, n_2,\dots,n_k\) opciones, el total es \(n_1\times n_2\times\cdots\times n_k\).</p>
+<p><strong>Permutación</strong> (importa el orden) de \(k\) elementos tomados de \(n\):</p>
+<p>\[P(n,k)=\frac{n!}{(n-k)!}\]</p>
+<p><strong>Combinación</strong> (no importa el orden):</p>
+<p>\[C(n,k)=\binom{n}{k}=\frac{n!}{k!\,(n-k)!}\]</p>
+<p><em>Ejemplo.</em> De 8 profesionales de la División:</p>
+<ul>
+<li>Elegir un comité de 3 (sin cargos): \(C(8,3)=\dfrac{8!}{3!5!}=56\) formas.</li>
+<li>Elegir presidente, secretario y vocal: \(P(8,3)=8\times7\times6=336\) formas.</li>
+</ul>
+<p><strong>Pregunta que decide cuál usar:</strong> <em>¿cambiar el orden produce un resultado distinto?</em> Si sí, permutación. Si no, combinación.</p>
+<h3 id="72-probabilidad-elemental">7.2 Probabilidad elemental</h3>
+<p>\[P(A)=\frac{\text{casos favorables}}{\text{casos posibles}},\qquad 0\le P(A)\le 1\]</p>
+<ul>
+<li>Complemento: \(P(A^c)=1-P(A)\). Útil cuando "al menos uno" aparece en el enunciado: casi siempre es más fácil calcular "ninguno" y restar.</li>
+<li>Unión: \(P(A\cup B)=P(A)+P(B)-P(A\cap B)\).</li>
+<li>Condicional: \(P(A\mid B)=\dfrac{P(A\cap B)}{P(B)}\).</li>
+<li>Independencia: \(A\) y \(B\) son independientes si \(P(A\cap B)=P(A)P(B)\).</li>
+</ul>
+<p><strong>La condicional en una tabla de doble entrada</strong> es simplemente <em>cambiar el denominador</em>. Volviendo a la tabla del escenario 1: \(P(\text{aprobada}\mid\text{cumplimiento}) = 45/120 = 37{,}5\%\), mientras que \(P(\text{cumplimiento}\mid\text{aprobada}) = 45/75 = 60{,}0\%\). <strong>No son la misma pregunta.</strong> Invertir una condicional es una de las falacias más comunes en interpretación de datos.</p>
+<h3 id="73-falacias-cuantitativas">7.3 Falacias cuantitativas</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Falacia</th>
+<th>En qué consiste</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Correlación ⇒ causalidad</strong></td>
+<td>Suponer que porque dos variables se mueven juntas, una causa la otra</td>
+<td>"Los contratos con más supervisiones tienen más hallazgos" → tal vez se supervisan más <em>porque</em> son más riesgosos</td>
+</tr>
+<tr>
+<td><strong>Variable de confusión</strong></td>
+<td>Una tercera variable explica ambas</td>
+<td>Helados y ahogamientos suben juntos: la causa común es el verano</td>
+</tr>
+<tr>
+<td><strong>Sesgo de selección</strong></td>
+<td>La muestra no representa la población</td>
+<td>Encuestar la satisfacción solo entre quienes siguen usando el servicio</td>
+</tr>
+<tr>
+<td><strong>Sesgo de supervivencia</strong></td>
+<td>Solo se observan los casos que "sobrevivieron"</td>
+<td>Estudiar solo los contratos liquidados con éxito</td>
+</tr>
+<tr>
+<td><strong>Eje truncado</strong></td>
+<td>Un eje \(y\) que no empieza en cero magnifica diferencias</td>
+<td>Una barra que parece el doble cuando la diferencia es del 3 %</td>
+</tr>
+<tr>
+<td><strong>Cherry-picking del período</strong></td>
+<td>Escoger las fechas que favorecen la conclusión</td>
+<td>Medir la variación desde el mes de menor valor</td>
+</tr>
+<tr>
+<td><strong>Base engañosa</strong></td>
+<td>Un porcentaje grande sobre una base minúscula</td>
+<td>"Aumentó 300 %": de 1 caso a 4</td>
+</tr>
+<tr>
+<td><strong>Áreas vs. longitudes</strong></td>
+<td>Duplicar el ancho y el alto de un ícono cuadruplica el área</td>
+<td>Infografías con figuras escaladas en dos dimensiones</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="74-la-paradoja-de-simpson">7.4 La paradoja de Simpson</h3>
+<p>Una tendencia presente en cada subgrupo <strong>se invierte</strong> al juntarlos. Ocurre cuando los grupos tienen tamaños muy desiguales.</p>
+<p><em>Ejemplo con datos ilustrativos.</em> Tasa de aprobación de garantías por dos revisores:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Revisor 1</th>
+<th>Revisor 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contratos simples</td>
+<td>9 / 10 = <strong>90 %</strong></td>
+<td>80 / 100 = <strong>80 %</strong></td>
+</tr>
+<tr>
+<td>Contratos complejos</td>
+<td>30 / 90 = <strong>33,3 %</strong></td>
+<td>2 / 10 = <strong>20 %</strong></td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td>39 / 100 = <strong>39 %</strong></td>
+<td>82 / 110 = <strong>74,5 %</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>El Revisor 1 aprueba en mayor proporción <strong>en cada uno de los dos tipos de contrato</strong>, y sin embargo su tasa global es mucho menor. La explicación: al Revisor 1 le asignaron casi puros contratos complejos (90 de 100), donde la aprobación es baja para todos.</p>
+<p><strong>Moraleja operativa:</strong> un promedio global puede contradecir todos sus componentes. Antes de comparar dos grupos con un solo número, pregunta <strong>si la composición interna es comparable</strong>. En ciencia de datos esto aparece cada vez que agregas por una dimensión y descartas otra.</p>
+<h3 id="75-checklist-para-leer-cualquier-cifra">7.5 Checklist para leer cualquier cifra</h3>
+<ol>
+<li>¿Cuál es la <strong>base</strong> del porcentaje?</li>
+<li>¿Cuál es el <strong>período</strong> y por qué se escogió ese?</li>
+<li>¿La comparación es entre grupos <strong>comparables</strong>?</li>
+<li>¿El eje del gráfico <strong>empieza en cero</strong>?</li>
+<li>¿Es un dato de <strong>muestra</strong> o de censo? ¿Cómo se seleccionó?</li>
+<li>¿La afirmación es de <strong>asociación</strong> o de <strong>causa</strong>? ¿El diseño soporta la causa?</li>
+<li>¿La <strong>unidad</strong> y la <strong>fuente</strong> están explícitas?</li>
+</ol>
+<hr />
+<h2 id="escenario-8--integración">Escenario 8 — Integración</h2>
+<p>No hay contenido nuevo. Lo que hay es un método para atacar un problema en contexto:</p>
+<ol>
+<li><strong>Lee dos veces.</strong> La primera para entender la situación, la segunda para extraer datos.</li>
+<li><strong>Escribe los datos con su unidad y su base.</strong> Literalmente, en una columna.</li>
+<li><strong>Identifica la incógnita</strong> y la unidad en que debe salir.</li>
+<li><strong>Estima</strong> el orden de magnitud de la respuesta antes de calcular.</li>
+<li><strong>Escoge la herramienta:</strong> ¿es proporción, variación, modelo lineal, exponencial, financiero, probabilístico?</li>
+<li><strong>Plantea la expresión completa</strong> antes de tocar la calculadora.</li>
+<li><strong>Calcula.</strong></li>
+<li><strong>Verifica</strong> contra la estimación del paso 4 y contra las unidades.</li>
+<li><strong>Responde con una frase completa</strong>, con unidad y base explícitas.</li>
+</ol>
+<p>Los pasos 4 y 8 son los que la gente se salta, y son los que evitan entregar una respuesta absurda.</p>
+<h3 id="errores-que-más-cuestan-puntos-en-el-examen-final">Errores que más cuestan puntos en el examen final</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Error</th>
+<th>Antídoto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Usar la base equivocada en un porcentaje</td>
+<td>Escribir la base antes de dividir</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Confundir % con puntos porcentuales</td>
+<td>"Si resté, son p.p."</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Sumar variaciones porcentuales sucesivas</td>
+<td>Multiplicar factores \((1+r)\)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Sumar dineros de fechas distintas</td>
+<td>Dibujar el flujo de caja</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Confundir tasa nominal con efectiva</td>
+<td>Llevar todo a EA antes de comparar</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Invertir una probabilidad condicional</td>
+<td>Identificar el denominador en la tabla</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Interpretar correlación como causalidad</td>
+<td>Buscar la variable de confusión</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Olvidar la unidad en la respuesta</td>
+<td>Responder con frase completa</td>
+</tr>
+</tbody>
+</table></div>
+</main>
+</body>
+</html>

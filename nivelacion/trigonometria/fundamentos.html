@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2. Fundamentos y círculo unitario</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ 00 - Nivelación (antes del 25 de agosto)/Trigonometría a fondo / 2. Fundamentos y círculo unitario</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="2-fundamentos-y-círculo-unitario">2. Fundamentos y círculo unitario</h1>
+<p><strong>Módulo "Trigonometría a fondo" — archivo 2 de 8.</strong></p>
+<p>Este es el archivo que hay que leer primero y con calma. Todo lo que viene después
+(identidades, gráficas, límites, derivadas) se apoya en una sola imagen mental que se
+instala aquí. Si esa imagen queda, el resto es consecuencia. Si no queda, vas a estar
+memorizando fórmulas sueltas durante todo el semestre y se te van a olvidar en el peor
+momento.</p>
+<blockquote>
+<p><strong>Notación que usa todo el módulo.</strong> Escribo el seno como \(\operatorname{sen}\), a la
+colombiana, no <code>sin</code>. Las seis funciones son \(\operatorname{sen}\), \(\cos\), \(\tan\),
+\(\cot\), \(\sec\) y \(\csc\). Escribo \(\operatorname{sen}^2 x\) como abreviatura de
+\((\operatorname{sen} x)^2\). <strong>Ojo con esto en Python:</strong> <code>numpy</code> y <code>math</code> usan <code>sin</code>,
+y trabajan <strong>en radianes</strong>. Es la misma función, solo cambia el nombre.</p>
+</blockquote>
+<p><strong>Cómo trabajar este archivo.</strong> No lo leas de corrido como una novela. Cada tabla que
+aparezca, la reconstruyes tú en papel antes de mirar la respuesta. La autoevaluación del
+final es el filtro: si no pasas 10 de 12, vuelve a la sección que falló. No sigas al
+archivo 3 sin eso.</p>
+<hr />
+<h2 id="1-por-qué-la-trigonometría-no-es-memorizar-tablas">§1. Por qué la trigonometría no es memorizar tablas</h2>
+<p>Casi todo el mundo que le tiene miedo a la trigonometría aprendió lo mismo: una lista de
+valores raros (\(\tfrac{1}{2}\), \(\tfrac{\sqrt2}{2}\), \(\tfrac{\sqrt3}{2}\)) pegados a unos
+ángulos raros (30°, 45°, 60°), más un montón de identidades que aparecen de la nada. Así
+presentado es un directorio telefónico, y nadie recuerda un directorio telefónico.</p>
+<p>La realidad es mucho más simple, y cabe en una frase:</p>
+<blockquote>
+<p><strong>Seno y coseno son las coordenadas de un punto que gira sobre una circunferencia de
+radio 1.</strong></p>
+</blockquote>
+<p>Eso es todo. No hay nada más. Ponte una circunferencia de radio \(1\) centrada en el origen
+del plano — se llama <strong>círculo unitario</strong> —, párate en el punto \((1,0)\) y empieza a
+caminar sobre el borde en sentido antihorario. En cada instante estás en un punto \(P\). Ese
+punto tiene dos coordenadas. Pues bien:</p>
+<p>\[P = (\cos\theta,\ \operatorname{sen}\theta)\]</p>
+<p>donde \(\theta\) es el ángulo que has girado. El <strong>coseno es la coordenada horizontal</strong> y el
+<strong>seno es la coordenada vertical</strong>. Punto.</p>
+<p>Mira todo lo que se cae de esa sola definición, sin memorizar absolutamente nada:</p>
+<ul>
+<li><strong>Por qué el seno y el coseno viven entre \(-1\) y \(1\).</strong> Porque el punto está sobre una
+  circunferencia de radio 1; no puede alejarse más de 1 del origen en ninguna dirección.
+  Si en un examen te da \(\operatorname{sen}\theta = 1{,}4\), te equivocaste. Es imposible,
+  como una probabilidad de \(1{,}4\).</li>
+<li><strong>Por qué \(\operatorname{sen}^2\theta + \cos^2\theta = 1\).</strong> Porque el punto está a
+  distancia 1 del origen y eso es Pitágoras: \(x^2 + y^2 = 1^2\). La identidad más famosa de
+  la trigonometría no es una fórmula que se memoriza, es el teorema de Pitágoras
+  disfrazado.</li>
+<li><strong>Por qué son periódicas.</strong> Porque después de dar una vuelta completa vuelves al mismo
+  punto. El punto no sabe cuántas vueltas llevas: solo sabe dónde está.</li>
+<li><strong>Por qué hay signos distintos en cada cuadrante.</strong> Porque en el segundo cuadrante la
+  coordenada horizontal es negativa y la vertical positiva. No es una regla arbitraria: es
+  el plano cartesiano de siempre.</li>
+<li><strong>Por qué \(\cos 0 = 1\) y \(\operatorname{sen} 0 = 0\).</strong> Porque arrancaste en \((1,0)\).</li>
+</ul>
+<p>Ninguna de esas cinco cosas hay que aprendérsela. Se <strong>ven</strong> en el dibujo.</p>
+<p><strong>Consecuencia práctica.</strong> Cada vez que en este módulo te encuentres perdido, dibuja el
+círculo. Un círculo, los dos ejes, y el punto donde estás. En serio: dibújalo. La mayoría
+de los errores de trigonometría en cálculo son errores de signo, y un signo se resuelve
+mirando en qué cuadrante cayó el punto, no recordando una regla.</p>
+<p><strong>Y una advertencia sobre el triángulo.</strong> Seguramente aprendiste seno y coseno con el
+triángulo rectángulo ("cateto opuesto sobre hipotenusa"). Esa definición es correcta pero
+es <strong>más pequeña</strong>: solo funciona para ángulos entre 0° y 90°, porque un triángulo
+rectángulo no tiene ángulos de 120° ni de \(-40\)°. La definición del círculo unitario
+funciona para <strong>cualquier</strong> ángulo, positivo, negativo o de mil vueltas, y coincide con la
+del triángulo cuando el ángulo es agudo. Por eso en cálculo se usa la del círculo. La del
+triángulo es el caso particular; la del círculo es la general.</p>
+<hr />
+<h2 id="2-ángulos-grados-y-radianes">§2. Ángulos: grados y radianes</h2>
+<h3 id="qué-es-un-ángulo-aquí">Qué es un ángulo aquí</h3>
+<p>Un ángulo mide <strong>rotación</strong>. En trigonometría se mide desde el semieje \(x\) positivo (el
+"lado inicial"), y se cuenta <strong>positivo en sentido antihorario</strong> y <strong>negativo en sentido
+horario</strong>. Esa convención es puro acuerdo, pero es universal: respétala.</p>
+<h3 id="grados">Grados</h3>
+<p>Una vuelta completa son \(360°\). El número 360 es una herencia babilónica, sin ninguna
+razón matemática: lo escogieron porque 360 tiene muchos divisores (2, 3, 4, 5, 6, 8, 9,
+10, 12, 15, 18…) y eso hacía cómodo repartir el círculo. Es una unidad <strong>cultural</strong>, como
+el pie o la libra.</p>
+<h3 id="radianes">Radianes</h3>
+<p>El radián sí tiene una razón matemática. Se define así:</p>
+<blockquote>
+<p><strong>Un radián es el ángulo que abarca un arco de longitud igual al radio.</strong></p>
+</blockquote>
+<p>Si tienes una circunferencia de radio \(r\) y recorres sobre ella un arco de longitud \(s\),
+el ángulo barrido en radianes es</p>
+<p>\[\theta = \frac{s}{r} \qquad\Longleftrightarrow\qquad s = r\,\theta\]</p>
+<p>Fíjate en lo que eso significa: el radián <strong>no tiene unidades</strong>. Es una longitud dividida
+por otra longitud, metros sobre metros. Es un número puro. Por eso puedes sumarlo,
+elevarlo al cuadrado y meterlo en una serie de potencias sin que las unidades protesten.</p>
+<p>Como la circunferencia completa mide \(2\pi r\), una vuelta entera son $\frac{2\pi r}{r} =
+2\pi$ radianes. De ahí sale la equivalencia madre:</p>
+<p>\[2\pi \text{ rad} = 360° \qquad\Longleftrightarrow\qquad \pi \text{ rad} = 180°\]</p>
+<p>Y de paso, en el círculo unitario (\(r = 1\)) el arco recorrido <strong>es</strong> el ángulo:
+\(s = \theta\). El ángulo en radianes es literalmente la distancia que caminaste sobre el
+borde. Esa es la razón profunda de por qué el radián es la unidad natural.</p>
+<p>Para tener la escala en la cabeza: \(1\) rad \(\approx 57{,}2958°\). O sea, un radián es un
+poco menos de 60°.</p>
+<h3 id="por-qué-el-cálculo-exige-radianes">Por qué el cálculo exige radianes</h3>
+<p>Esto anticípalo ahora aunque se desarrolle en el archivo 5. Cuando derives, vas a
+encontrar que</p>
+<p>\[\frac{d}{dx}\operatorname{sen} x = \cos x\]</p>
+<p>Limpio, sin constantes pegadas. <strong>Eso solo es cierto si \(x\) está en radianes.</strong> Si midieras
+en grados, la derivada del seno sería \(\frac{\pi}{180}\cos x\), y esa constante fea
+\(\frac{\pi}{180} \approx 0{,}01745\) se te arrastraría por toda la asignatura, ensuciando
+cada regla de la cadena y cada integral.</p>
+<p>La razón de fondo es un límite que vas a ver en el archivo 5:</p>
+<p>\[\lim_{x\to 0}\frac{\operatorname{sen} x}{x} = 1\]</p>
+<p>Ese "1" tan cómodo solo aparece en radianes. En grados el límite da \(\frac{\pi}{180}\). Y
+como la derivada del seno se construye a partir de ese límite, la limpieza de toda la
+trigonometría del cálculo depende de la unidad. No lo desarrollo aquí; solo quédate con la
+conclusión operativa:</p>
+<blockquote>
+<p><strong>A partir de ahora, ángulo significa radianes.</strong> Los grados son para comunicarse con
+humanos y para la geometría de triángulos; los radianes son para hacer cálculo. Si un
+ejercicio de cálculo dice "45°", conviértelo a \(\pi/4\) antes de derivar.</p>
+</blockquote>
+<p>Lo mismo aplica en Python: <code>math.sin(90)</code> <strong>no</strong> da 1, da \(0{,}894\), porque interpreta el
+90 como radianes. Da 1 solo si escribes <code>math.sin(math.pi/2)</code>. Ese error te va a pasar al
+menos una vez cuando empieces a programar; ojalá sea en un ejercicio y no en un parcial.</p>
+<h3 id="conversión-en-los-dos-sentidos">Conversión en los dos sentidos</h3>
+<p>De la equivalencia \(\pi \text{ rad} = 180°\) salen los dos factores. No los memorices como
+fórmulas: constrúyelos multiplicando por una fracción que valga 1.</p>
+<p>\[\text{grados} \longrightarrow \text{radianes}: \quad \theta_{\text{rad}} = \theta_{\text{grados}} \cdot \frac{\pi}{180°}\]</p>
+<p>\[\text{radianes} \longrightarrow \text{grados}: \quad \theta_{\text{grados}} = \theta_{\text{rad}} \cdot \frac{180°}{\pi}\]</p>
+<p><strong>Truco para no equivocarte de dirección:</strong> mira dónde queda el \(\pi\). Si vas <strong>hacia</strong>
+radianes, el resultado debe tener \(\pi\), así que el \(\pi\) va arriba. Si vas <strong>hacia</strong>
+grados, el resultado no debe tener \(\pi\), así que el \(\pi\) va abajo para que se cancele con
+el que traías.</p>
+<p>Ejemplos:</p>
+<ul>
+<li>\(210° = 210 \cdot \dfrac{\pi}{180} = \dfrac{210\pi}{180} = \dfrac{7\pi}{6}\)</li>
+<li>\(\dfrac{5\pi}{4} = \dfrac{5\pi}{4}\cdot\dfrac{180}{\pi} = \dfrac{5\cdot 180}{4} = 225°\)</li>
+<li>\(135° = \dfrac{135\pi}{180} = \dfrac{3\pi}{4}\)</li>
+</ul>
+<p>Tabla de las conversiones que vale la pena tener automáticas:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Grados</th>
+<th>0°</th>
+<th>30°</th>
+<th>45°</th>
+<th>60°</th>
+<th>90°</th>
+<th>120°</th>
+<th>135°</th>
+<th>150°</th>
+<th>180°</th>
+<th>270°</th>
+<th>360°</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Radianes</td>
+<td>\(0\)</td>
+<td>\(\dfrac{\pi}{6}\)</td>
+<td>\(\dfrac{\pi}{4}\)</td>
+<td>\(\dfrac{\pi}{3}\)</td>
+<td>\(\dfrac{\pi}{2}\)</td>
+<td>\(\dfrac{2\pi}{3}\)</td>
+<td>\(\dfrac{3\pi}{4}\)</td>
+<td>\(\dfrac{5\pi}{6}\)</td>
+<td>\(\pi\)</td>
+<td>\(\dfrac{3\pi}{2}\)</td>
+<td>\(2\pi\)</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="ángulos-coterminales">Ángulos coterminales</h3>
+<p>Dos ángulos son <strong>coterminales</strong> si terminan en el mismo punto del círculo, es decir, si
+difieren en un número entero de vueltas. En radianes:</p>
+<p>\[\theta \quad\text{y}\quad \theta + 2k\pi, \qquad k \in \mathbb{Z}\]</p>
+<p>En grados: \(\theta\) y \(\theta + 360k\).</p>
+<p>Como el seno y el coseno solo dependen de <strong>dónde caes</strong>, no de cómo llegaste, dos ángulos
+coterminales tienen exactamente los mismos valores en las seis funciones. Esto es la base
+de la periodicidad.</p>
+<p>Para encontrar el coterminal más simple, suma o resta vueltas hasta caer en \([0, 2\pi)\) o
+en \([0°, 360°)\):</p>
+<ul>
+<li>\(405° - 360° = 45°\)</li>
+<li>\(-100° + 360° = 260°\)</li>
+<li>\(\dfrac{17\pi}{4} - 4\pi = \dfrac{17\pi - 16\pi}{4} = \dfrac{\pi}{4}\) (equivale a 45°)</li>
+</ul>
+<h3 id="ángulo-de-referencia">Ángulo de referencia</h3>
+<p>El <strong>ángulo de referencia</strong> \(\theta'\) es el ángulo <strong>agudo y positivo</strong> que forma el lado
+terminal con el <strong>eje \(x\)</strong> (nunca con el eje \(y\)). Es la herramienta que reduce cualquier
+ángulo del planeta a uno del primer cuadrante.</p>
+<p>Cómo se calcula, según dónde caiga \(\theta\) (ya reducido a \([0°, 360°)\)):</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Cuadrante</th>
+<th>En grados</th>
+<th>En radianes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>I</td>
+<td>\(\theta' = \theta\)</td>
+<td>\(\theta' = \theta\)</td>
+</tr>
+<tr>
+<td>II</td>
+<td>\(\theta' = 180° - \theta\)</td>
+<td>\(\theta' = \pi - \theta\)</td>
+</tr>
+<tr>
+<td>III</td>
+<td>\(\theta' = \theta - 180°\)</td>
+<td>\(\theta' = \theta - \pi\)</td>
+</tr>
+<tr>
+<td>IV</td>
+<td>\(\theta' = 360° - \theta\)</td>
+<td>\(\theta' = 2\pi - \theta\)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Ejemplos: la referencia de \(210°\) es \(210 - 180 = 30°\); la de \(\frac{5\pi}{6}\) es
+\(\pi - \frac{5\pi}{6} = \frac{\pi}{6}\); la de \(300°\) es \(360 - 300 = 60°\).</p>
+<p><strong>Para qué sirve.</strong> Esta es la regla operativa más rentable de todo el archivo:</p>
+<blockquote>
+<p>El <strong>valor absoluto</strong> de cualquier función trigonométrica en \(\theta\) es igual a su valor
+en el ángulo de referencia \(\theta'\). El <strong>signo</strong> lo pone el cuadrante.</p>
+</blockquote>
+<p>O sea que para calcular \(\operatorname{sen}(210°)\) haces dos cosas separadas: el valor,
+\(\operatorname{sen}(30°) = \frac{1}{2}\); y el signo, 210° está en el tercer cuadrante donde
+el seno (coordenada vertical) es negativo. Resultado:
+\(\operatorname{sen}(210°) = -\frac{1}{2}\).</p>
+<p>Con esto solo necesitas conocer de verdad los valores de 0°, 30°, 45°, 60° y 90°. Los otros
+doce salen de estos cinco más un signo.</p>
+<hr />
+<h2 id="3-razones-trigonométricas-en-el-triángulo-rectángulo">§3. Razones trigonométricas en el triángulo rectángulo</h2>
+<p>Aunque la definición general es la del círculo, la del triángulo sigue siendo la más útil
+para resolver problemas de geometría, y es la que da los nombres. En un triángulo
+rectángulo, fijado un ángulo agudo \(\theta\), los tres lados se llaman <strong>hipotenusa</strong>
+(el lado largo, opuesto al ángulo recto), <strong>cateto opuesto</strong> a \(\theta\) y <strong>cateto
+adyacente</strong> a \(\theta\).</p>
+<p>\[\operatorname{sen}\theta = \frac{\text{opuesto}}{\text{hipotenusa}} \qquad
+\cos\theta = \frac{\text{adyacente}}{\text{hipotenusa}} \qquad
+\tan\theta = \frac{\text{opuesto}}{\text{adyacente}}\]</p>
+<p>La mnemotecnia clásica en español es <strong>SOH-CAH-TOA</strong>: <strong>S</strong>eno = <strong>O</strong>puesto/<strong>H</strong>ipotenusa,
+<strong>C</strong>oseno = <strong>A</strong>dyacente/<strong>H</strong>ipotenusa, <strong>T</strong>angente = <strong>O</strong>puesto/<strong>A</strong>dyacente.</p>
+<p>Las otras tres son simplemente los recíprocos, y aquí está el único punto donde la gente se
+enreda, porque los nombres <strong>no</strong> se emparejan como uno esperaría:</p>
+<p>\[\csc\theta = \frac{1}{\operatorname{sen}\theta} \qquad
+\sec\theta = \frac{1}{\cos\theta} \qquad
+\cot\theta = \frac{1}{\tan\theta}\]</p>
+<blockquote>
+<p><strong>El emparejamiento cruzado.</strong> Cosecante va con <strong>seno</strong> (no con coseno) y secante va con
+<strong>coseno</strong> (no con seno). La forma de recordarlo: mira la <strong>tercera letra</strong>.
+Co<strong>s</strong>ecante \(\to\) <strong>s</strong>eno. Se<strong>c</strong>ante \(\to\) <strong>c</strong>oseno. Suena tonto pero funciona y no
+falla nunca.</p>
+</blockquote>
+<p>También conviene tener presente que la tangente y la cotangente se escriben en términos de
+seno y coseno:</p>
+<p>\[\tan\theta = \frac{\operatorname{sen}\theta}{\cos\theta} \qquad\qquad
+\cot\theta = \frac{\cos\theta}{\operatorname{sen}\theta}\]</p>
+<p>Esto último no es un dato adicional, es una consecuencia. En el círculo unitario el opuesto
+es \(y = \operatorname{sen}\theta\), el adyacente es \(x = \cos\theta\) y la hipotenusa es
+\(1\); entonces \(\tan\theta = y/x\). <strong>La tangente es la pendiente</strong> de la recta que va del
+origen al punto. Guarda esa idea: cuando en cálculo veas que la derivada da la pendiente de
+la tangente, no es coincidencia de nombres.</p>
+<p>Y de ahí sale también por qué \(\tan(\pi/2)\) <strong>no existe</strong>: en \(\pi/2\) el punto es \((0,1)\),
+la recta es vertical y una recta vertical no tiene pendiente. No es que "dé infinito
+porque sí": es que no hay número que responda.</p>
+<p><strong>Ejemplo rápido.</strong> Un triángulo rectángulo de catetos 5 y 12. La hipotenusa es
+\(\sqrt{25+144} = \sqrt{169} = 13\). Para el ángulo \(\theta\) opuesto al cateto 5:
+\(\operatorname{sen}\theta = \frac{5}{13}\), \(\cos\theta = \frac{12}{13}\),
+\(\tan\theta = \frac{5}{12}\), y por tanto \(\csc\theta = \frac{13}{5}\),
+\(\sec\theta = \frac{13}{12}\), \(\cot\theta = \frac{12}{5}\).</p>
+<hr />
+<h2 id="4-el-círculo-unitario-a-fondo">§4. El círculo unitario a fondo</h2>
+<h3 id="la-definición-formal">La definición formal</h3>
+<p>Sea \(\theta\) un ángulo en posición estándar (vértice en el origen, lado inicial en el
+semieje \(x\) positivo). Su lado terminal corta al círculo unitario en un único punto \(P\).
+Entonces, <strong>por definición</strong>:</p>
+<p>\[\cos\theta = x_P \qquad\qquad \operatorname{sen}\theta = y_P\]</p>
+<p>Y las otras cuatro se construyen a partir de estas dos. Nada más.</p>
+<h3 id="signos-por-cuadrante">Signos por cuadrante</h3>
+<p>Como son coordenadas, los signos son los del plano cartesiano de toda la vida:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Cuadrante</th>
+<th>Rango</th>
+<th>\(x=\cos\)</th>
+<th>\(y=\operatorname{sen}\)</th>
+<th>\(\tan = y/x\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>I</td>
+<td>\(0\) a \(\pi/2\)</td>
+<td>\(+\)</td>
+<td>\(+\)</td>
+<td>\(+\)</td>
+</tr>
+<tr>
+<td>II</td>
+<td>\(\pi/2\) a \(\pi\)</td>
+<td>\(-\)</td>
+<td>\(+\)</td>
+<td>\(-\)</td>
+</tr>
+<tr>
+<td>III</td>
+<td>\(\pi\) a \(3\pi/2\)</td>
+<td>\(-\)</td>
+<td>\(-\)</td>
+<td>\(+\)</td>
+</tr>
+<tr>
+<td>IV</td>
+<td>\(3\pi/2\) a \(2\pi\)</td>
+<td>\(+\)</td>
+<td>\(-\)</td>
+<td>\(-\)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Regla mnemotécnica.</strong> La más usada en Colombia es <strong>"Todos Sacan Tres Cuatros"</strong>,
+recorriendo los cuadrantes I, II, III y IV en orden y quedándote con la inicial:</p>
+<ul>
+<li><strong>T</strong>odos (cuadrante I): <strong>todas</strong> las funciones son positivas.</li>
+<li><strong>S</strong>acan (cuadrante II): solo el <strong>seno</strong> (y su recíproca, cosecante) es positivo.</li>
+<li><strong>T</strong>res (cuadrante III): solo la <strong>tangente</strong> (y cotangente) es positiva.</li>
+<li><strong>C</strong>uatros (cuadrante IV): solo el <strong>coseno</strong> (y secante) es positivo.</li>
+</ul>
+<p>Sirve, pero prefiero que uses el razonamiento directo, que no se olvida: <em>¿la coordenada
+vertical de ese punto es positiva o negativa?</em> Si el punto está arriba del eje \(x\), el seno
+es positivo. Si está a la izquierda del eje \(y\), el coseno es negativo. La tangente es el
+cociente, así que su signo es el producto de los otros dos: positiva cuando seno y coseno
+tienen el mismo signo (cuadrantes I y III), negativa cuando difieren (II y IV).</p>
+<h3 id="tabla-completa-de-valores-exactos">Tabla completa de valores exactos</h3>
+<p>Esta es la tabla. Está verificada símbolo por símbolo. Los ángulos donde la tangente no
+existe están marcados <strong>ND</strong> (no definida), porque ahí el coseno vale 0 y no se puede
+dividir.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Grados</th>
+<th>Radianes</th>
+<th>\(\operatorname{sen}\theta\)</th>
+<th>\(\cos\theta\)</th>
+<th>\(\tan\theta\)</th>
+<th>Cuadrante</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0°</td>
+<td>\(0\)</td>
+<td>\(0\)</td>
+<td>\(1\)</td>
+<td>\(0\)</td>
+<td>eje</td>
+</tr>
+<tr>
+<td>30°</td>
+<td>\(\dfrac{\pi}{6}\)</td>
+<td>\(\dfrac{1}{2}\)</td>
+<td>\(\dfrac{\sqrt3}{2}\)</td>
+<td>\(\dfrac{\sqrt3}{3}\)</td>
+<td>I</td>
+</tr>
+<tr>
+<td>45°</td>
+<td>\(\dfrac{\pi}{4}\)</td>
+<td>\(\dfrac{\sqrt2}{2}\)</td>
+<td>\(\dfrac{\sqrt2}{2}\)</td>
+<td>\(1\)</td>
+<td>I</td>
+</tr>
+<tr>
+<td>60°</td>
+<td>\(\dfrac{\pi}{3}\)</td>
+<td>\(\dfrac{\sqrt3}{2}\)</td>
+<td>\(\dfrac{1}{2}\)</td>
+<td>\(\sqrt3\)</td>
+<td>I</td>
+</tr>
+<tr>
+<td>90°</td>
+<td>\(\dfrac{\pi}{2}\)</td>
+<td>\(1\)</td>
+<td>\(0\)</td>
+<td>ND</td>
+<td>eje</td>
+</tr>
+<tr>
+<td>120°</td>
+<td>\(\dfrac{2\pi}{3}\)</td>
+<td>\(\dfrac{\sqrt3}{2}\)</td>
+<td>\(-\dfrac{1}{2}\)</td>
+<td>\(-\sqrt3\)</td>
+<td>II</td>
+</tr>
+<tr>
+<td>135°</td>
+<td>\(\dfrac{3\pi}{4}\)</td>
+<td>\(\dfrac{\sqrt2}{2}\)</td>
+<td>\(-\dfrac{\sqrt2}{2}\)</td>
+<td>\(-1\)</td>
+<td>II</td>
+</tr>
+<tr>
+<td>150°</td>
+<td>\(\dfrac{5\pi}{6}\)</td>
+<td>\(\dfrac{1}{2}\)</td>
+<td>\(-\dfrac{\sqrt3}{2}\)</td>
+<td>\(-\dfrac{\sqrt3}{3}\)</td>
+<td>II</td>
+</tr>
+<tr>
+<td>180°</td>
+<td>\(\pi\)</td>
+<td>\(0\)</td>
+<td>\(-1\)</td>
+<td>\(0\)</td>
+<td>eje</td>
+</tr>
+<tr>
+<td>210°</td>
+<td>\(\dfrac{7\pi}{6}\)</td>
+<td>\(-\dfrac{1}{2}\)</td>
+<td>\(-\dfrac{\sqrt3}{2}\)</td>
+<td>\(\dfrac{\sqrt3}{3}\)</td>
+<td>III</td>
+</tr>
+<tr>
+<td>225°</td>
+<td>\(\dfrac{5\pi}{4}\)</td>
+<td>\(-\dfrac{\sqrt2}{2}\)</td>
+<td>\(-\dfrac{\sqrt2}{2}\)</td>
+<td>\(1\)</td>
+<td>III</td>
+</tr>
+<tr>
+<td>240°</td>
+<td>\(\dfrac{4\pi}{3}\)</td>
+<td>\(-\dfrac{\sqrt3}{2}\)</td>
+<td>\(-\dfrac{1}{2}\)</td>
+<td>\(\sqrt3\)</td>
+<td>III</td>
+</tr>
+<tr>
+<td>270°</td>
+<td>\(\dfrac{3\pi}{2}\)</td>
+<td>\(-1\)</td>
+<td>\(0\)</td>
+<td>ND</td>
+<td>eje</td>
+</tr>
+<tr>
+<td>300°</td>
+<td>\(\dfrac{5\pi}{3}\)</td>
+<td>\(-\dfrac{\sqrt3}{2}\)</td>
+<td>\(\dfrac{1}{2}\)</td>
+<td>\(-\sqrt3\)</td>
+<td>IV</td>
+</tr>
+<tr>
+<td>315°</td>
+<td>\(\dfrac{7\pi}{4}\)</td>
+<td>\(-\dfrac{\sqrt2}{2}\)</td>
+<td>\(\dfrac{\sqrt2}{2}\)</td>
+<td>\(-1\)</td>
+<td>IV</td>
+</tr>
+<tr>
+<td>330°</td>
+<td>\(\dfrac{11\pi}{6}\)</td>
+<td>\(-\dfrac{1}{2}\)</td>
+<td>\(\dfrac{\sqrt3}{2}\)</td>
+<td>\(-\dfrac{\sqrt3}{3}\)</td>
+<td>IV</td>
+</tr>
+<tr>
+<td>360°</td>
+<td>\(2\pi\)</td>
+<td>\(0\)</td>
+<td>\(1\)</td>
+<td>\(0\)</td>
+<td>eje</td>
+</tr>
+</tbody>
+</table></div>
+<p>Nota sobre \(\frac{\sqrt3}{3}\): es exactamente lo mismo que \(\frac{1}{\sqrt3}\), solo que
+racionalizado. Ambas formas son correctas; en Colombia se suele exigir la racionalizada.</p>
+<h3 id="el-truco-para-reconstruir-la-tabla-en-20-segundos">El truco para reconstruir la tabla en 20 segundos</h3>
+<p>No memorices esa tabla. <strong>Constrúyela.</strong> Escribe los cinco ángulos del primer cuadrante en
+orden y debajo, para el seno, los numeradores \(0, 1, 2, 3, 4\) dentro de una raíz, todos
+sobre 2:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>\(\theta\)</th>
+<th>0°</th>
+<th>30°</th>
+<th>45°</th>
+<th>60°</th>
+<th>90°</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(\operatorname{sen}\theta\)</td>
+<td>\(\dfrac{\sqrt0}{2}\)</td>
+<td>\(\dfrac{\sqrt1}{2}\)</td>
+<td>\(\dfrac{\sqrt2}{2}\)</td>
+<td>\(\dfrac{\sqrt3}{2}\)</td>
+<td>\(\dfrac{\sqrt4}{2}\)</td>
+</tr>
+<tr>
+<td>simplificado</td>
+<td>\(0\)</td>
+<td>\(\dfrac{1}{2}\)</td>
+<td>\(\dfrac{\sqrt2}{2}\)</td>
+<td>\(\dfrac{\sqrt3}{2}\)</td>
+<td>\(1\)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Y para el coseno, <strong>la misma fila leída al revés</strong>:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>\(\theta\)</th>
+<th>0°</th>
+<th>30°</th>
+<th>45°</th>
+<th>60°</th>
+<th>90°</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(\cos\theta\)</td>
+<td>\(\dfrac{\sqrt4}{2}\)</td>
+<td>\(\dfrac{\sqrt3}{2}\)</td>
+<td>\(\dfrac{\sqrt2}{2}\)</td>
+<td>\(\dfrac{\sqrt1}{2}\)</td>
+<td>\(\dfrac{\sqrt0}{2}\)</td>
+</tr>
+<tr>
+<td>simplificado</td>
+<td>\(1\)</td>
+<td>\(\dfrac{\sqrt3}{2}\)</td>
+<td>\(\dfrac{\sqrt2}{2}\)</td>
+<td>\(\dfrac{1}{2}\)</td>
+<td>\(0\)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Eso es todo lo que hay que recordar: <strong>la secuencia $\frac{\sqrt0}{2}, \frac{\sqrt1}{2},
+\frac{\sqrt2}{2}, \frac{\sqrt3}{2}, \frac{\sqrt4}{2}$, subiendo para el seno y bajando para
+el coseno.</strong> Cinco símbolos, un patrón, cero memoria bruta.</p>
+<p>¿Y por qué al revés para el coseno? Porque el coseno de un ángulo es el seno de su
+complementario, y al recorrer \(0° \to 90°\) el complementario recorre \(90° \to 0°\). La
+simetría de la tabla no es casualidad, es esa relación (la vas a formalizar en el archivo 3).</p>
+<p>La tangente <strong>no se memoriza jamás</strong>: se divide. $\tan 30° = \frac{1/2}{\sqrt3/2} =
+\frac{1}{\sqrt3} = \frac{\sqrt3}{3}$.</p>
+<p>Y para los otros tres cuadrantes: ángulo de referencia + signo del cuadrante, como en §2.
+Con la secuencia de las raíces, la regla de los signos y el ángulo de referencia
+reconstruyes las 17 filas de la tabla grande en menos de un minuto, en cualquier examen,
+sin haber memorizado nada.</p>
+<p><strong>Procedimiento completo, en un ejemplo.</strong> Calcular \(\cos\left(\frac{7\pi}{6}\right)\):</p>
+<ol>
+<li>¿Dónde cae? \(\frac{7\pi}{6}\) es \(210°\), un poco pasado de \(180°\): <strong>tercer cuadrante</strong>.</li>
+<li>Referencia: \(\frac{7\pi}{6} - \pi = \frac{\pi}{6}\), o sea \(30°\).</li>
+<li>Valor sin signo: \(\cos\frac{\pi}{6} = \frac{\sqrt3}{2}\) (secuencia de raíces, bajando).</li>
+<li>Signo: en el tercer cuadrante la coordenada horizontal es negativa, luego coseno
+   negativo.</li>
+<li>Respuesta: \(-\dfrac{\sqrt3}{2}\).</li>
+</ol>
+<hr />
+<h2 id="5-ángulos-negativos-y-periodicidad">§5. Ángulos negativos y periodicidad</h2>
+<h3 id="paridad">Paridad</h3>
+<p>Un ángulo negativo es un giro horario. Girar \(-\theta\) te lleva al punto <strong>espejo</strong> de
+girar \(+\theta\) respecto del eje \(x\): la coordenada horizontal es la misma, la vertical se
+voltea. De ahí, mirando el dibujo:</p>
+<p>\[\cos(-\theta) = \cos\theta \qquad \operatorname{sen}(-\theta) = -\operatorname{sen}\theta
+\qquad \tan(-\theta) = -\tan\theta\]</p>
+<p>En el lenguaje de funciones que ya manejas:</p>
+<ul>
+<li><strong>El coseno es una función par</strong> (simétrica respecto al eje \(y\)).</li>
+<li><strong>El seno es una función impar</strong> (simétrica respecto al origen).</li>
+<li><strong>La tangente es impar</strong>, porque es cociente de impar sobre par.</li>
+</ul>
+<p>Por herencia: secante es par; cosecante y cotangente son impares.</p>
+<p>Ejemplos: \(\cos(-\frac{\pi}{3}) = \cos\frac{\pi}{3} = \frac{1}{2}\);
+\(\operatorname{sen}(-\frac{\pi}{3}) = -\frac{\sqrt3}{2}\); \(\tan(-\frac{\pi}{4}) = -1\).</p>
+<p>Esto ahorra trabajo constantemente: en cuanto veas un ángulo negativo, sácalo del seno con
+un signo menos por delante, o simplemente bórralo del coseno.</p>
+<h3 id="periodicidad">Periodicidad</h3>
+<p>Dar una vuelta completa devuelve al mismo punto, así que seno y coseno se repiten cada
+\(2\pi\):</p>
+<p>\[\operatorname{sen}(\theta + 2\pi) = \operatorname{sen}\theta \qquad\qquad
+\cos(\theta + 2\pi) = \cos\theta\]</p>
+<p>La tangente es distinta y esto <strong>sí</strong> sorprende a mucha gente: su periodo es \(\pi\), no
+\(2\pi\). La razón se ve en el círculo: al girar media vuelta, el punto \((x,y)\) se convierte
+en \((-x,-y)\); los dos signos se cancelan en el cociente \(y/x\) y la tangente queda igual.
+Geométricamente: una recta y su prolongación tienen la misma pendiente.</p>
+<p>\[\tan(\theta + \pi) = \tan\theta\]</p>
+<p>Resumen de periodos:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Función</th>
+<th>Periodo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(\operatorname{sen}\), \(\cos\)</td>
+<td>\(2\pi\)</td>
+</tr>
+<tr>
+<td>\(\sec\), \(\csc\)</td>
+<td>\(2\pi\)</td>
+</tr>
+<tr>
+<td>\(\tan\), \(\cot\)</td>
+<td>\(\pi\)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Esa diferencia de periodo entre tangente y las demás es la causa número uno de errores al
+resolver ecuaciones trigonométricas: la solución general lleva \(+2k\pi\) para seno y coseno,
+pero \(+k\pi\) para tangente. Lo vas a trabajar en detalle en el archivo 3.</p>
+<p><strong>Un puente con tu carrera.</strong> La periodicidad es la razón por la que el seno y el coseno
+aparecen en ciencia de datos cuando hay series de tiempo: cualquier fenómeno que se repite
+(la carga de radicados por mes, el tráfico de un portal por hora del día, la estacionalidad
+de una demanda) se modela con términos \(\operatorname{sen}(\omega t)\) y \(\cos(\omega t)\).
+No lo desarrollo, pero que sepas que la trigonometría no se acaba en el triángulo: se acaba
+siendo la herramienta estándar para describir lo que se repite.</p>
+<hr />
+<h2 id="6-los-dos-triángulos-notables">§6. Los dos triángulos notables</h2>
+<p>De aquí salen físicamente los valores de la tabla. Vale la pena deducirlos una vez para no
+sentir que caen del cielo.</p>
+<h3 id="el-triángulo-45-45-90">El triángulo 45-45-90</h3>
+<p>Toma un <strong>cuadrado de lado 1</strong> y córtalo por la diagonal. Te quedan dos triángulos
+rectángulos con los dos catetos iguales a 1. Como los ángulos no rectos son iguales y suman
+90°, cada uno mide 45°. La hipotenusa, por Pitágoras:</p>
+<p>\[h = \sqrt{1^2 + 1^2} = \sqrt2\]</p>
+<p>Lados en proporción \(\;1 : 1 : \sqrt2\;\). Entonces:</p>
+<p>\[\operatorname{sen} 45° = \frac{1}{\sqrt2} = \frac{\sqrt2}{2}, \qquad
+\cos 45° = \frac{\sqrt2}{2}, \qquad \tan 45° = \frac{1}{1} = 1\]</p>
+<p>Que seno y coseno den lo mismo era previsible: el triángulo es simétrico, los dos catetos
+son intercambiables. Y que la tangente dé exactamente 1 significa que la recta de 45° tiene
+pendiente 1, cosa que ya sabías del álgebra.</p>
+<h3 id="el-triángulo-30-60-90">El triángulo 30-60-90</h3>
+<p>Toma un <strong>triángulo equilátero de lado 2</strong> (con lado 2 en vez de 1 para no arrastrar
+fracciones) y bájale la altura desde un vértice. Esa altura parte el triángulo en dos
+mitades iguales y hace tres cosas: parte el ángulo de 60° en dos de 30°, parte el lado
+opuesto en dos de longitud 1, y forma un ángulo recto.</p>
+<p>Te queda un triángulo rectángulo con hipotenusa 2, cateto corto 1 y ángulos de 30°, 60° y
+90°. La altura, por Pitágoras:</p>
+<p>\[a = \sqrt{2^2 - 1^2} = \sqrt{4-1} = \sqrt3\]</p>
+<p>Lados en proporción \(\;1 : \sqrt3 : 2\;\), donde el 1 se opone al ángulo de 30°, el
+\(\sqrt3\) al de 60° y el 2 es la hipotenusa. De ahí, directo:</p>
+<p>\[\operatorname{sen}30° = \frac{1}{2}, \quad \cos30° = \frac{\sqrt3}{2}, \quad
+\tan30° = \frac{1}{\sqrt3} = \frac{\sqrt3}{3}\]</p>
+<p>\[\operatorname{sen}60° = \frac{\sqrt3}{2}, \quad \cos60° = \frac{1}{2}, \quad
+\tan60° = \sqrt3\]</p>
+<p><strong>Cómo no confundir 30° con 60°.</strong> Es el error más común de todos. Piénsalo así: el lado
+más corto se opone siempre al ángulo más pequeño. Como 30° es el ángulo chiquito, su seno
+(opuesto/hipotenusa) usa el lado corto y da el valor <strong>pequeño</strong>, \(\frac{1}{2}\). Y
+\(\frac{1}{2} = 0{,}5\) mientras \(\frac{\sqrt3}{2} \approx 0{,}866\): si dudas, evalúa
+mentalmente y quédate con el que tenga sentido. El seno crece de 0 a 1 mientras el ángulo
+va de 0° a 90°, así que \(\operatorname{sen}30°\) tiene que ser menor que
+\(\operatorname{sen}60°\). Siempre.</p>
+<hr />
+<h2 id="7-errores-frecuentes">§7. Errores frecuentes</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>El error</th>
+<th>La corrección</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Escribir \(\operatorname{sen}(a+b) = \operatorname{sen}a + \operatorname{sen}b\).</td>
+<td><strong>Falso.</strong> El seno no es lineal. Contraejemplo: \(\operatorname{sen}(30°+60°) = \operatorname{sen}90° = 1\), pero \(\operatorname{sen}30° + \operatorname{sen}60° = \frac12 + \frac{\sqrt3}{2} \approx 1{,}366\). Hay una fórmula (archivo 3) y no es esa.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Escribir \(\cos(2\theta) = 2\cos\theta\).</td>
+<td><strong>Falso.</strong> \(\cos 60° = \frac12\), pero \(2\cos 30° = \sqrt3 \approx 1{,}73\), que ni siquiera cabe en \([-1,1]\). El "2" está adentro del ángulo, no multiplicando.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Calcular en la calculadora (o en Python) con el modo equivocado.</td>
+<td><code>math.sin(90)</code> da \(0{,}894\), no 1, porque lee radianes. Verifica siempre con un valor conocido: si \(\operatorname{sen}(90)\) no te da 1, estás en radianes. En cálculo, <strong>usa radianes</strong>.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Confundir \(\operatorname{sen}^{-1}x\) con \(\dfrac{1}{\operatorname{sen}x}\).</td>
+<td>\(\operatorname{sen}^{-1}\) es la <strong>función inversa</strong> (arcoseno). El recíproco es \(\csc x\). Son cosas distintas: en \(x=0{,}5\) rad, \(\csc \approx 2{,}086\) y \(\arcsen(0{,}5) \approx 0{,}524\).</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Emparejar mal las recíprocas: creer que \(\sec = 1/\operatorname{sen}\).</td>
+<td>Cruzado: \(\sec = 1/\cos\) y \(\csc = 1/\operatorname{sen}\). Truco de la tercera letra: co<strong>s</strong>ecante \(\to\) <strong>s</strong>eno, se<strong>c</strong>ante \(\to\) <strong>c</strong>oseno.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Dar \(\operatorname{sen}\theta = 1{,}2\) o \(\cos\theta = -3\) como respuesta.</td>
+<td><strong>Imposible.</strong> Son coordenadas de un punto del círculo de radio 1: siempre en \([-1,1]\). Si te sale eso, hay un error algebraico atrás. (En cambio \(\sec\) y \(\csc\) sí pueden valer más de 1 en valor absoluto.)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Medir el ángulo de referencia contra el eje \(y\).</td>
+<td>El ángulo de referencia <strong>siempre</strong> se mide contra el eje \(x\). La referencia de 210° es 30°, no 60°.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Suponer que el periodo de la tangente es \(2\pi\).</td>
+<td>Es \(\pi\). En ecuaciones esto significa \(+k\pi\), no \(+2k\pi\), y omitirlo te hace perder la mitad de las soluciones.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Escribir \(\tan 90° = \infty\) como si fuera un número.</td>
+<td>\(\tan(\pi/2)\) <strong>no está definida</strong>: ahí \(\cos = 0\). Se dice que la función tiene una asíntota, no que "vale infinito". Lo mismo con \(\sec\) y \(\csc\) donde su recíproca se anula.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Escribir \(\sqrt{\operatorname{sen}^2 x} = \operatorname{sen}x\).</td>
+<td>Es \(|\operatorname{sen}x|\). En \(x = 4\) rad, \(\operatorname{sen}4 \approx -0{,}757\) pero \(\sqrt{\operatorname{sen}^2 4} \approx +0{,}757\). Esto muerde en cálculo cuando simplificas raíces.</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Intercambiar los valores de 30° y 60°.</td>
+<td>El seno crece con el ángulo en el primer cuadrante: \(\operatorname{sen}30° = \frac12 < \operatorname{sen}60° = \frac{\sqrt3}{2}\). El valor pequeño va con el ángulo pequeño.</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Leer \(\operatorname{sen}^2 x\) como \(\operatorname{sen}(x^2)\).</td>
+<td>\(\operatorname{sen}^2 x = (\operatorname{sen}x)^2\): primero el seno, después el cuadrado. \(\operatorname{sen}(x^2)\) es otra cosa completamente distinta y en cálculo se derivan diferente.</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="8-autoevaluación-12-preguntas">§8. Autoevaluación (12 preguntas)</h2>
+<p>Papel y lápiz, sin calculadora, sin mirar la tabla. Máximo 25 minutos. Las respuestas están
+al final.</p>
+<ol>
+<li>Convierte a radianes, en forma exacta con \(\pi\): (a) \(210°\), (b) \(135°\).</li>
+<li>Convierte a grados: (a) \(\dfrac{5\pi}{4}\), (b) \(\dfrac{2\pi}{3}\).</li>
+<li>Halla el ángulo coterminal en \([0°, 360°)\) de: (a) \(405°\), (b) \(-100°\). Y el
+   coterminal en \([0, 2\pi)\) de \(\dfrac{17\pi}{4}\).</li>
+<li>Halla el ángulo de referencia de: (a) \(210°\), (b) \(\dfrac{5\pi}{6}\), (c) \(300°\).</li>
+<li>Calcula el valor exacto de \(\operatorname{sen}\left(\dfrac{11\pi}{6}\right)\), indicando
+   cuadrante y ángulo de referencia.</li>
+<li>Calcula el valor exacto de \(\cos\left(\dfrac{3\pi}{4}\right)\).</li>
+<li>Calcula el valor exacto de \(\tan\left(\dfrac{4\pi}{3}\right)\).</li>
+<li>Si \(\cos\theta = -\dfrac{3}{5}\) y \(\theta\) está en el segundo cuadrante, halla
+   \(\operatorname{sen}\theta\), \(\tan\theta\) y \(\csc\theta\).</li>
+<li>Calcula \(\sec\left(\dfrac{\pi}{3}\right)\) y \(\csc\left(\dfrac{\pi}{3}\right)\)
+   (racionaliza).</li>
+<li>¿En qué cuadrantes es negativo el seno? ¿Y en cuáles es positiva la tangente?</li>
+<li>Usando paridad, calcula \(\cos\left(-\dfrac{\pi}{3}\right)\),
+    \(\operatorname{sen}\left(-\dfrac{\pi}{3}\right)\) y \(\tan\left(-\dfrac{\pi}{4}\right)\).</li>
+<li>Calcula \(\csc\left(\dfrac{7\pi}{6}\right)\) y \(\cot\left(\dfrac{7\pi}{6}\right)\).</li>
+</ol>
+<hr />
+<h3 id="respuestas">Respuestas</h3>
+<ol>
+<li>(a) \(210 \cdot \frac{\pi}{180} = \dfrac{7\pi}{6}\). (b) $135 \cdot \frac{\pi}{180} =
+   \dfrac{3\pi}{4}$.</li>
+<li>(a) \(\frac{5\pi}{4}\cdot\frac{180}{\pi} = 225°\). (b)
+   \(\frac{2\pi}{3}\cdot\frac{180}{\pi} = 120°\).</li>
+<li>(a) \(405 - 360 = 45°\). (b) \(-100 + 360 = 260°\). (c) $\frac{17\pi}{4} - 4\pi =
+   \dfrac{\pi}{4}$ (equivale a \(45°\)).</li>
+<li>(a) \(210 - 180 = 30°\) (cuadrante III). (b) \(\pi - \frac{5\pi}{6} = \dfrac{\pi}{6}\)
+   (cuadrante II). (c) \(360 - 300 = 60°\) (cuadrante IV).</li>
+<li>\(\frac{11\pi}{6} = 330°\), <strong>cuadrante IV</strong>, referencia \(30°\). Valor:
+   \(\operatorname{sen}30° = \frac12\); en el IV el seno es negativo. Respuesta:
+   \(\boxed{-\dfrac{1}{2}}\).</li>
+<li>\(\frac{3\pi}{4} = 135°\), <strong>cuadrante II</strong>, referencia \(45°\).
+   \(\cos 45° = \frac{\sqrt2}{2}\) y en el II el coseno es negativo:
+   \(\boxed{-\dfrac{\sqrt2}{2}}\).</li>
+<li>\(\frac{4\pi}{3} = 240°\), <strong>cuadrante III</strong>, referencia \(60°\). \(\tan 60° = \sqrt3\) y en
+   el III la tangente es positiva: \(\boxed{\sqrt3}\).</li>
+<li>Por la identidad pitagórica, $\operatorname{sen}^2\theta = 1 - \frac{9}{25} =
+   \frac{16}{25}$, luego \(\operatorname{sen}\theta = \pm\frac45\). En el cuadrante II el
+   seno es <strong>positivo</strong>: \(\operatorname{sen}\theta = \dfrac{4}{5}\). Entonces
+   \(\tan\theta = \frac{4/5}{-3/5} = -\dfrac{4}{3}\) y \(\csc\theta = \dfrac{5}{4}\).</li>
+<li>\(\sec\frac{\pi}{3} = \frac{1}{\cos(\pi/3)} = \frac{1}{1/2} = 2\).
+   \(\csc\frac{\pi}{3} = \frac{1}{\sqrt3/2} = \frac{2}{\sqrt3} = \dfrac{2\sqrt3}{3}\).</li>
+<li>El seno (coordenada \(y\)) es negativo en los cuadrantes <strong>III y IV</strong>. La tangente es
+    positiva donde seno y coseno tienen el mismo signo: cuadrantes <strong>I y III</strong>.</li>
+<li>Coseno par: \(\cos(-\frac{\pi}{3}) = \cos\frac{\pi}{3} = \dfrac{1}{2}\). Seno impar:
+    \(\operatorname{sen}(-\frac{\pi}{3}) = -\dfrac{\sqrt3}{2}\). Tangente impar:
+    \(\tan(-\frac{\pi}{4}) = -1\).</li>
+<li>\(\frac{7\pi}{6} = 210°\), cuadrante III, referencia \(30°\). Ahí
+    \(\operatorname{sen} = -\frac12\) y \(\cos = -\frac{\sqrt3}{2}\). Entonces
+    \(\csc = \frac{1}{-1/2} = \boxed{-2}\) y $\cot = \frac{\cos}{\operatorname{sen}} =
+    \frac{-\sqrt3/2}{-1/2} = \boxed{\sqrt3}$.</li>
+</ol>
+<hr />
+<p><strong>Criterio.</strong> 10 o más correctas: sigue al archivo 3. Entre 7 y 9: repite §4 y §5 y vuelve
+a hacer la autoevaluación mañana. Menos de 7: rehaz el archivo completo dibujando el
+círculo unitario a mano en cada pregunta. No es tiempo perdido; es el único archivo del
+módulo que no se puede saltar.</p>
+<p><em>Todos los valores numéricos y todas las tablas de este archivo fueron verificados
+simbólicamente con SymPy.</em></p>
+</main>
+</body>
+</html>

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recursos — Álgebra Lineal</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ 04 - Álgebra Lineal / 5. Recursos</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="recursos--álgebra-lineal">Recursos — Álgebra Lineal</h1>
+<p>Recursos gratuitos y confiables, organizados por tipo. Para cada uno: <strong>qué es</strong>, <strong>para qué
+escenario sirve</strong> y <strong>cuánto toma</strong>.</p>
+<blockquote>
+<p><strong>Nota sobre enlaces.</strong> Cito a nivel de sitio o de canal, no de video ni de página específica: las
+URLs profundas cambian y no quiero mandarte a un enlace roto. Cuando no doy dirección exacta, doy
+el término de búsqueda. <strong>Verifica siempre que el recurso corresponda a lo que buscas antes de
+invertirle tiempo.</strong></p>
+</blockquote>
+<hr />
+<h2 id="1-lo-indispensable-la-intuición-visual">1. Lo indispensable: la intuición visual</h2>
+<h3 id="essence-of-linear-algebra--3blue1brown">🔴 "Essence of Linear Algebra" — 3Blue1Brown</h3>
+<p><strong>Qué es.</strong> Una serie de unos 15 videos cortos, del canal de YouTube <strong>3Blue1Brown</strong> (Grant
+Sanderson), que explica el álgebra lineal a través de animaciones. No hace cuentas: te muestra <strong>qué
+significa</strong> cada operación. Cuando ves que una matriz "es" una transformación del espacio y que el
+determinante "es" cuánto se estira el área, todo lo demás deja de ser arbitrario.</p>
+<p>Está en inglés, pero <strong>tiene subtítulos en español</strong> (autogenerados y, en varios videos, revisados).
+También existen doblajes al español publicados por el propio canal en su cuenta en español.</p>
+<p><strong>Dónde.</strong> YouTube, canal <code>3Blue1Brown</code>. Busca la lista de reproducción "Essence of Linear Algebra"
+o, en español, "La esencia del álgebra lineal".</p>
+<p><strong>Para qué escenarios:</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Video (por tema)</th>
+<th>Escenario</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vectores, ¿qué son realmente?</td>
+<td>E1</td>
+</tr>
+<tr>
+<td>Combinaciones lineales, span y vectores base</td>
+<td>E1, E5</td>
+</tr>
+<tr>
+<td>Transformaciones lineales y matrices</td>
+<td>E2, E6</td>
+</tr>
+<tr>
+<td>Multiplicación de matrices como composición</td>
+<td>E2, E6</td>
+</tr>
+<tr>
+<td>El determinante</td>
+<td>E4</td>
+</tr>
+<tr>
+<td>Sistemas de ecuaciones y matrices inversas</td>
+<td>E3, E4</td>
+</tr>
+<tr>
+<td>Espacio nulo y rango</td>
+<td>E3, E5</td>
+</tr>
+<tr>
+<td>Cambio de base</td>
+<td>E5</td>
+</tr>
+<tr>
+<td>Vectores y valores propios</td>
+<td>E7</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Cuánto toma.</strong> Cada video dura entre 8 y 17 minutos. La serie completa, unas <strong>3 horas</strong>. Vista de
+a un video por semana antes de estudiar el tema, no te cuesta tiempo extra: te lo ahorra.</p>
+<p><strong>Cómo usarla.</strong> El video <strong>antes</strong> de leer la teoría, no después. La secuencia que funciona es:
+video (intuición) → resumen teórico (definiciones) → ejercicios (mecánica). Al revés, memorizas
+procedimientos sin entenderlos.</p>
+<hr />
+<h2 id="2-libros-abiertos-y-gratuitos">2. Libros abiertos y gratuitos</h2>
+<h3 id="a-first-course-in-linear-algebra--robert-a-beezer">"A First Course in Linear Algebra" — Robert A. Beezer</h3>
+<p><strong>Qué es.</strong> Un libro completo de álgebra lineal, de licencia abierta, disponible gratis en línea en
+formato HTML y PDF. Muy sistemático, con definiciones numeradas, teoremas demostrados y cientos de
+ejercicios con solución. Está en inglés.</p>
+<p><strong>Dónde.</strong> Búscalo como "A First Course in Linear Algebra Beezer". El sitio del autor lo aloja
+públicamente.</p>
+<p><strong>Para qué escenarios.</strong> Todos, pero especialmente E3, E4 y E5: su tratamiento de sistemas,
+independencia lineal y espacios nulos es muy claro.</p>
+<p><strong>Cuánto toma.</strong> Un capítulo, entre 45 min y 1,5 h de lectura activa. Úsalo como <strong>segunda opinión</strong>
+cuando algo del aula no te cuadre, no como texto principal.</p>
+<h3 id="linear-algebra--jim-hefferon">"Linear Algebra" — Jim Hefferon</h3>
+<p><strong>Qué es.</strong> Otro libro abierto y gratuito, más informal en el tono que el de Beezer y con muchos
+ejemplos de aplicación. Incluye respuestas a los ejercicios en un archivo aparte. En inglés.</p>
+<p><strong>Dónde.</strong> Búscalo como "Hefferon Linear Algebra free textbook".</p>
+<p><strong>Para qué escenarios.</strong> E5 y E6: la parte de espacios vectoriales y transformaciones lineales es
+particularmente pedagógica.</p>
+<p><strong>Cuánto toma.</strong> Similar al anterior.</p>
+<h3 id="libretexts-mathematics">LibreTexts Mathematics</h3>
+<p><strong>Qué es.</strong> Una biblioteca abierta de textos universitarios de matemáticas, mantenida por un
+consorcio de universidades. Tiene varios libros de álgebra lineal en su estantería y <strong>una parte
+del contenido está traducida al español</strong> (estantería "Español"). Formato web, navegable por
+secciones cortas.</p>
+<p><strong>Dónde.</strong> <code>math.libretexts.org</code>. En el buscador interno, "álgebra lineal" o "linear algebra".</p>
+<p><strong>Para qué escenarios.</strong> Todos. Es útil para consultas puntuales: buscas "espacio nulo" y llegas a
+una sección de dos páginas, no a un capítulo de cuarenta.</p>
+<p><strong>Cuánto toma.</strong> 10–20 min por sección. Es el recurso de "no entiendo este concepto puntual".</p>
+<h3 id="sobre-los-libros-clásicos">Sobre los libros clásicos</h3>
+<p>Los textos de referencia del área —el de <strong>Gilbert Strang</strong> (<em>Introduction to Linear Algebra</em>), el
+de <strong>David C. Lay</strong> (<em>Álgebra lineal y sus aplicaciones</em>, muy usado en programas colombianos) y el
+de <strong>Stanley Grossman</strong>— son excelentes, pero <strong>no son de acceso libre</strong>. Dos caminos legítimos:</p>
+<ol>
+<li><strong>La biblioteca virtual del Politécnico Grancolombiano.</strong> Los programas virtuales suelen tener
+   convenio con bases como e-Libro o similares. Entra al aula, busca la sección de biblioteca y
+   consulta el catálogo. Si el syllabus oficial menciona un texto guía, casi siempre está ahí.</li>
+<li><strong>El material del aula.</strong> El Poli produce sus propios módulos de lectura por escenario. Ese es
+   tu texto principal; lo demás es apoyo.</li>
+</ol>
+<p>No compro ni recomiendo comprar nada: con lo abierto y el material del aula te alcanza.</p>
+<hr />
+<h2 id="3-video-en-español">3. Video en español</h2>
+<h3 id="canales-generalistas-de-matemáticas">Canales generalistas de matemáticas</h3>
+<p>Hay varios canales colombianos y latinoamericanos que cubren álgebra lineal a nivel universitario
+con ejercicios resueltos paso a paso. Los más consolidados y fáciles de encontrar:</p>
+<ul>
+<li><strong>Matemáticas profe Alex</strong> — explicaciones muy detalladas, ritmo pausado, buen material de
+  matrices, determinantes y sistemas de ecuaciones. Útil para E2, E3 y E4.</li>
+<li><strong>julioprofe</strong> — canal colombiano clásico, fuerte en sistemas de ecuaciones, determinantes y
+  regla de Cramer. Muy directo al ejercicio. Útil para E3 y E4.</li>
+<li><strong>Math2me</strong> — cobertura amplia de álgebra lineal con videos cortos y organizados en listas.
+  Útil para E1, E2 y E5.</li>
+</ul>
+<p><strong>Cómo buscar.</strong> En YouTube, combina el nombre del canal con el tema exacto: por ejemplo
+"julioprofe regla de Cramer" o "Math2me independencia lineal". Verifica que el video sea del canal
+que buscas: hay muchas recopilaciones de terceros con audio malo.</p>
+<p><strong>Cuánto toma.</strong> Videos de 8 a 25 min. Usa uno o dos por tema, <strong>solo cuando te trabes con un
+procedimiento</strong>, no como sustituto de resolver ejercicios.</p>
+<h3 id="khan-academy-en-español">Khan Academy (en español)</h3>
+<p><strong>Qué es.</strong> Plataforma gratuita con cursos completos, videos cortos y ejercicios interactivos con
+retroalimentación inmediata. Tiene una unidad de álgebra lineal (parcialmente traducida al español;
+lo que no está traducido tiene subtítulos).</p>
+<p><strong>Dónde.</strong> <code>es.khanacademy.org</code>, sección de matemáticas.</p>
+<p><strong>Para qué escenarios.</strong> E1, E2, E3 y E4 principalmente. Su fuerte son los ejercicios interactivos:
+te dice al instante si te equivocaste, que es exactamente lo que necesitas para la mecánica de
+Gauss-Jordan.</p>
+<p><strong>Cuánto toma.</strong> Sesiones de 20–30 min. Muy buen complemento para la semana 11 (Escenario 3), donde
+lo que necesitas es volumen de práctica corregida.</p>
+<hr />
+<h2 id="4-herramientas-de-verificación">4. Herramientas de verificación</h2>
+<p><strong>Regla de oro:</strong> resuelve a mano primero, verifica después. Estas herramientas son para el
+<strong>después</strong>.</p>
+<h3 id="calculadoras-matriciales-en-línea">Calculadoras matriciales en línea</h3>
+<p><strong>Qué son.</strong> Sitios web donde pegas una matriz y obtienes determinante, inversa, rango, forma
+escalonada reducida y valores propios, en muchos casos <strong>mostrando los pasos</strong>.</p>
+<p><strong>Cuáles.</strong></p>
+<ul>
+<li><strong>Matrix Calculator</strong> (<code>matrixcalc.org</code>) — gratuito, sin registro, muestra el desarrollo paso a
+  paso de la eliminación de Gauss y del cálculo del determinante. Es probablemente el más útil para
+  esta materia, porque puedes comparar tu procedimiento con el suyo, fila por fila, y encontrar
+  exactamente <strong>dónde</strong> te equivocaste.</li>
+<li><strong>Symbolab</strong> (<code>symbolab.com</code>) — resuelve sistemas y operaciones matriciales con pasos. Parte del
+  contenido detallado exige cuenta.</li>
+</ul>
+<p><strong>Para qué escenarios.</strong> E2, E3, E4, E5, E7. Todo lo operativo.</p>
+<p><strong>Cuánto toma.</strong> Segundos por verificación.</p>
+<p><strong>Advertencia.</strong> Si te acostumbras a resolver con estas herramientas en vez de verificar con ellas,
+el quiz cronometrado del Escenario 3 te va a doler. Úsalas como el chulo verde de OneDrive: para
+confirmar que algo ya está bien, no para hacer el trabajo.</p>
+<h3 id="wolframalpha">WolframAlpha</h3>
+<p><strong>Qué es.</strong> Motor de cálculo simbólico. Escribes en lenguaje casi natural y responde. Ejemplos de
+consultas útiles:</p>
+<ul>
+<li><code>eigenvalues {{4,1},{2,3}}</code></li>
+<li><code>inverse {{1,2,-1},{2,-1,3},{1,1,2}}</code></li>
+<li><code>row reduce {{1,2,-1,3},{2,-1,3,6},{1,1,2,5}}</code></li>
+<li><code>determinant {{2,-1,3},{0,5,2},{1,-1,-2}}</code></li>
+</ul>
+<p><strong>Dónde.</strong> <code>wolframalpha.com</code>. La versión gratuita da el resultado; los pasos detallados requieren
+suscripción (que <strong>no</strong> necesitas: para los pasos usa matrixcalc).</p>
+<p><strong>Para qué escenarios.</strong> Todos, sobre todo E4 y E7 (determinantes y valores propios, donde un error
+de signo es fácil y costoso).</p>
+<p><strong>Cuánto toma.</strong> Segundos.</p>
+<h3 id="geogebra">GeoGebra</h3>
+<p><strong>Qué es.</strong> Software libre de matemáticas dinámicas, con versión web y de escritorio. Para álgebra
+lineal sirve especialmente su vista 3D y la calculadora matricial (comandos como <code>Determinante</code>,
+<code>Inversa</code>, <code>MatrizEscalonadaReducida</code>, <code>ValoresPropios</code>).</p>
+<p><strong>Dónde.</strong> <code>geogebra.org</code>.</p>
+<p><strong>Para qué escenarios.</strong> <strong>E1 y E6, sobre todo.</strong> Es el mejor recurso para <em>ver</em> qué pasa: dibuja
+dos vectores en 3D y mira el ángulo; aplica una matriz a un cuadrado y observa cómo se deforma;
+grafica un plano definido por una ecuación homogénea y comprueba que sus vectores base están
+encima. También ayuda en E5 para visualizar subespacios de \(\mathbb{R}^3\) (rectas y planos por el
+origen).</p>
+<p><strong>Cuánto toma.</strong> 30 min para aprender lo básico. Después, 5 min por visualización.</p>
+<h3 id="numpy-en-google-colab">NumPy en Google Colab</h3>
+<p><strong>Qué es.</strong> Google Colab es un entorno de Python que corre <strong>en el navegador</strong>, gratis, sin instalar
+nada. NumPy es la librería estándar de cálculo numérico de Python: es la herramienta con la que vas
+a trabajar el resto de la carrera.</p>
+<p><strong>Dónde.</strong> <code>colab.research.google.com</code>. Entra con tu cuenta de Google y crea un cuaderno nuevo.</p>
+<p><strong>Por qué te sirve especialmente.</strong> Nunca has programado, y este es un punto de entrada mucho más
+amable que empezar con instalación de entornos. Además mata dos pájaros: verificas Álgebra Lineal y
+practicas lo de Pensamiento Algorítmico.</p>
+<p><strong>Guía de arranque — cópiala y córrela tal cual:</strong></p>
+<pre><code class="language-python">import numpy as np
+
+# Una matriz es una &quot;tabla&quot;: lista de filas
+A = np.array([[1, 2, -1],
+              [2, -1, 3],
+              [1, 1, 2]])
+b = np.array([3, 6, 5])
+
+print(&quot;Determinante:&quot;, np.linalg.det(A))          # -10 (aprox -9.9999...)
+print(&quot;Rango:&quot;, np.linalg.matrix_rank(A))          # 3
+print(&quot;Inversa:\n&quot;, np.linalg.inv(A))
+print(&quot;Solución de Ax = b:&quot;, np.linalg.solve(A, b))  # [2. 1. 1.]
+
+# Producto matricial: se usa @ , NO *
+B = np.array([[2, 0, 1],
+              [1, 3, -1],
+              [0, 4, 2]])
+print(&quot;A @ B:\n&quot;, A @ B)
+
+# Transpuesta
+print(&quot;A traspuesta:\n&quot;, A.T)
+
+# Valores y vectores propios
+C = np.array([[4, 1],
+              [2, 3]])
+valores, vectores = np.linalg.eig(C)
+print(&quot;Valores propios:&quot;, valores)                 # [5. 2.]
+print(&quot;Vectores propios (por columnas):\n&quot;, vectores)
+
+# Vectores: producto punto y norma
+u = np.array([1, 2, 2])
+v = np.array([2, -1, 2])
+print(&quot;u · v =&quot;, np.dot(u, v))                     # 4
+print(&quot;||u|| =&quot;, np.linalg.norm(u))                # 3.0
+
+# Mínimos cuadrados (regresión)
+X = np.array([[1, 1], [1, 2], [1, 3], [1, 4], [1, 5]])
+y = np.array([3, 4, 6, 7, 9])
+beta, *_ = np.linalg.lstsq(X, y, rcond=None)
+print(&quot;Coeficientes:&quot;, beta)                       # [1.3 1.5]
+</code></pre>
+<p><strong>Tres advertencias importantes:</strong></p>
+<ol>
+<li>En NumPy, <code>*</code> multiplica <strong>elemento a elemento</strong>, no es el producto matricial. Para el producto
+   matricial se usa <code>@</code> (o <code>np.matmul</code>). Este es el error número uno de quien viene de Excel.</li>
+<li>NumPy trabaja con <strong>decimales de punto flotante</strong>: <code>np.linalg.det(A)</code> puede devolver
+   <code>-9.999999999999998</code> en vez de <code>-10</code>. No es un error tuyo ni de la librería: es redondeo binario.
+   Si necesitas fracciones exactas, usa <code>sympy</code> (también viene instalado en Colab).</li>
+<li>Los vectores propios que devuelve <code>np.linalg.eig</code> vienen <strong>normalizados</strong> (de longitud 1) y
+   <strong>por columnas</strong>. Si a mano te dio \((1,1)\) y NumPy te da \((0{,}707;\ 0{,}707)\), es el mismo
+   vector: uno es múltiplo del otro. Cualquier múltiplo no nulo de un vector propio es también
+   vector propio.</li>
+</ol>
+<p><strong>Para qué escenarios.</strong> Todos, pero es imprescindible en E8, donde el objetivo mismo es aplicar
+esto a datos.</p>
+<p><strong>Cuánto toma.</strong> 1 hora la primera vez (crear la cuenta, correr el bloque de arriba, entender qué
+hace cada línea). Después, minutos por verificación.</p>
+<h3 id="excel--tu-herramienta-de-siempre">Excel — tu herramienta de siempre</h3>
+<p>No la subestimes: Excel hace álgebra matricial nativamente y tú ya lo dominas.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Función</th>
+<th>Qué hace</th>
+<th>Escenario</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>=SUMAPRODUCTO(a; b)</code></td>
+<td>Producto punto</td>
+<td>E1</td>
+</tr>
+<tr>
+<td><code>=MMULT(A; B)</code></td>
+<td>Producto matricial</td>
+<td>E2</td>
+</tr>
+<tr>
+<td><code>=TRANSPONER(A)</code></td>
+<td>Transpuesta</td>
+<td>E2</td>
+</tr>
+<tr>
+<td><code>=MDETERM(A)</code></td>
+<td>Determinante</td>
+<td>E4</td>
+</tr>
+<tr>
+<td><code>=MINVERSA(A)</code></td>
+<td>Inversa</td>
+<td>E4</td>
+</tr>
+<tr>
+<td><code>=ESTIMACION.LINEAL(y; x)</code></td>
+<td>Regresión por mínimos cuadrados</td>
+<td>E8</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Nota técnica.</strong> En versiones antiguas de Excel, las funciones matriciales exigen seleccionar el
+rango de salida completo y confirmar con <strong>Ctrl + Shift + Enter</strong>. En Excel 365 con matrices
+dinámicas basta con Enter y el resultado se derrama solo.</p>
+<p><strong>Ventaja pedagógica.</strong> Verificar en Excel es más revelador que verificar en NumPy, porque <strong>ves la
+tabla</strong>. Cuando calculas \(AB\) con <code>MMULT</code> y comparas celda por celda con tu resultado a mano,
+encuentras el error exacto. Es el mismo método con el que cotejas una factura contra un concepto
+técnico: comparación línea por línea.</p>
+<hr />
+<h2 id="5-cursos-abiertos-completos">5. Cursos abiertos completos</h2>
+<h3 id="mit-opencourseware--1806-linear-algebra-gilbert-strang">MIT OpenCourseWare — 18.06 Linear Algebra (Gilbert Strang)</h3>
+<p><strong>Qué es.</strong> El curso completo de álgebra lineal del MIT, publicado gratuitamente: videos de todas
+las clases, notas, tareas y exámenes con solución. Lo dicta Gilbert Strang, probablemente el
+profesor más conocido del área. En inglés, con transcripciones (que puedes traducir).</p>
+<p><strong>Dónde.</strong> <code>ocw.mit.edu</code>. Busca el curso con el código <strong>18.06</strong>.</p>
+<p><strong>Para qué escenarios.</strong> Todos, pero es especialmente valioso para E3 y E5: el enfoque de Strang
+—entender una matriz por sus <strong>cuatro subespacios fundamentales</strong>— hace que el rango, el espacio
+nulo y el espacio columna dejen de ser definiciones sueltas y se vuelvan un solo cuadro coherente.</p>
+<p><strong>Cuánto toma.</strong> Cada clase dura unos 45–50 min. El curso completo son más de 30 horas: <strong>no lo
+hagas entero</strong>, no tienes tiempo. Úsalo quirúrgicamente: si el Escenario 5 no te entra, mira la
+clase sobre espacio columna y espacio nulo, y ya.</p>
+<p><strong>Advertencia de alcance.</strong> Es un curso de un semestre completo del MIT, más profundo que lo que
+necesitas. No lo tomes como estándar de lo que "deberías" saber: tu referencia es el material del
+aula.</p>
+<hr />
+<h2 id="6-ruta-recomendada-por-escenario">6. Ruta recomendada por escenario</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Esc</th>
+<th>Tema</th>
+<th>Recurso primario</th>
+<th>Verificación</th>
+<th>Tiempo extra</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td>Vectores</td>
+<td>3B1B videos 1–2 · GeoGebra 3D</td>
+<td>Excel <code>SUMAPRODUCTO</code></td>
+<td>30 min</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>Matrices</td>
+<td>3B1B videos 3–4 · Math2me</td>
+<td>Excel <code>MMULT</code></td>
+<td>30 min</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>Gauss-Jordan</td>
+<td>Khan Academy (ejercicios) · julioprofe</td>
+<td><strong>matrixcalc.org paso a paso</strong></td>
+<td><strong>1 h</strong></td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td>Inversa y determinantes</td>
+<td>3B1B video del determinante · julioprofe (Cramer)</td>
+<td>WolframAlpha · Excel <code>MDETERM</code></td>
+<td>45 min</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>Espacios vectoriales</td>
+<td>3B1B (span, base, rango) · MIT 18.06 · LibreTexts</td>
+<td>NumPy <code>matrix_rank</code></td>
+<td><strong>1 h</strong></td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td>Transformaciones</td>
+<td>3B1B (transformaciones y composición) · GeoGebra</td>
+<td>GeoGebra visual</td>
+<td>30 min</td>
+</tr>
+<tr>
+<td><strong>7</strong></td>
+<td>Valores propios</td>
+<td><strong>3B1B video de eigenvectores</strong> · Math2me</td>
+<td>NumPy <code>np.linalg.eig</code></td>
+<td>45 min</td>
+</tr>
+<tr>
+<td><strong>8</strong></td>
+<td>Aplicaciones</td>
+<td>Colab + NumPy</td>
+<td>Excel <code>ESTIMACION.LINEAL</code></td>
+<td>45 min</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Total de tiempo extra en el bloque: unas 5–6 horas</strong>, repartidas en 8 semanas. Es tiempo bien
+gastado: los videos de intuición reducen el tiempo que necesitas para los ejercicios.</p>
+<hr />
+<h2 id="7-cómo-evaluar-un-recurso-que-encuentres-por-tu-cuenta">7. Cómo evaluar un recurso que encuentres por tu cuenta</h2>
+<p>Vas a toparte con material que no está en esta lista. Tres filtros rápidos:</p>
+<ol>
+<li><strong>¿Coincide la notación?</strong> Si el video usa vectores fila donde el aula usa vectores columna, o
+   llama "matriz adjunta" a algo distinto, te va a confundir más de lo que te ayuda. La notación de
+   álgebra lineal varía entre textos, sobre todo en la adjunta y en el orden de \(P\) y \(D\) en la
+   diagonalización.</li>
+<li><strong>¿Verifica sus propios resultados?</strong> Un recurso serio comprueba que \(AA^{-1} = I\) o que la
+   solución satisface el sistema. Si nunca verifica nada, desconfía.</li>
+<li><strong>¿Es de nivel universitario o de bachillerato?</strong> Mucho material en español de "matrices" es de
+   secundaria y no llega a espacios vectoriales ni a valores propios. Si el canal no tiene videos de
+   independencia lineal ni de diagonalización, probablemente no te va a servir de la mitad del curso
+   en adelante.</li>
+</ol>
+<p><strong>Y la regla que aplica a todo:</strong> un recurso no sustituye resolver ejercicios. Ver a alguien
+resolver una eliminación de Gauss es como ver a alguien revisar una póliza: parece fácil hasta que
+te toca a ti con el reloj corriendo.</p>
+</main>
+</body>
+</html>

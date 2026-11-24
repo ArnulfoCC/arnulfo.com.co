@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guía de estudio — Estadística Descriptiva</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ 06 - Estadística Descriptiva / 1. Guía de estudio</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="guía-de-estudio--estadística-descriptiva">Guía de estudio — Estadística Descriptiva</h1>
+<blockquote>
+<p><strong>Contenido esperado</strong>, reconstruido a partir de programas equivalentes. <strong>Por verificar en el aula virtual.</strong>
+Ventana asignada: Bloque B, 20 de octubre – 14 de diciembre de 2026 (supuesto de planeación).</p>
+</blockquote>
+<p>Cada escenario equivale a una semana. Para cada uno encontrarás: tema, objetivos, conceptos clave, qué practicar en Excel, entregable esperado y un <strong>criterio de "listo para avanzar"</strong> que puedes verificar tú mismo, sin profesor.</p>
+<hr />
+<h2 id="escenario-1--conceptos-fundamentales-variables-y-escalas">Escenario 1 — Conceptos fundamentales, variables y escalas</h2>
+<p><strong>Tema.</strong> Qué es la estadística descriptiva y en qué se diferencia de la inferencial. Población, muestra, unidad estadística, variable. Parámetro vs. estadístico. Tipos de variable y escalas de medición. Fuentes de datos y nociones de muestreo.</p>
+<p><strong>Objetivos.</strong></p>
+<ul>
+<li>Distinguir descripción de inferencia en un enunciado concreto.</li>
+<li>Identificar población, muestra, unidad estadística y variable en cualquier situación descrita en palabras.</li>
+<li>Clasificar una variable como cualitativa (nominal / ordinal) o cuantitativa (discreta / continua) y asignarle su escala de medición (nominal, ordinal, de intervalo, de razón).</li>
+<li>Reconocer los tipos básicos de muestreo probabilístico y por qué el no probabilístico limita las conclusiones.</li>
+</ul>
+<p><strong>Conceptos clave.</strong></p>
+<ul>
+<li>Población vs. muestra; censo vs. muestreo.</li>
+<li>Unidad estadística (el <em>quién</em> u <em>objeto</em> que se mide) frente a la variable (el <em>qué</em> se mide).</li>
+<li>Parámetro (\(\mu\), \(\sigma\), \(N\), \(P\)) vs. estadístico (\(\bar{x}\), \(s\), \(n\), \(p\)).</li>
+<li>Cualitativa nominal / ordinal; cuantitativa discreta / continua.</li>
+<li>Escalas: nominal, ordinal, de intervalo, de razón. Qué operación admite cada una.</li>
+<li>Datos primarios vs. secundarios; registros administrativos.</li>
+<li>Muestreo aleatorio simple, sistemático, estratificado, por conglomerados; muestreo por conveniencia y su sesgo.</li>
+</ul>
+<p><strong>Qué practicar en Excel.</strong></p>
+<ul>
+<li>Abrir un archivo <code>.csv</code> descargado de una fuente pública y <strong>clasificar cada columna</strong> por tipo de variable y escala en una fila auxiliar.</li>
+<li>Usar <code>CONTARA</code>, <code>CONTAR</code> y <code>CONTAR.SI</code> para ver cuántos registros tiene la tabla y cuántos valores distintos toma una columna cualitativa. Si una columna tiene 4 valores distintos y 5.000 filas, es cualitativa; si tiene 4.800 valores distintos, es cuantitativa continua.</li>
+<li>Usar <code>Datos → Quitar duplicados</code> sobre una copia de una columna para ver su conjunto de categorías.</li>
+</ul>
+<p><strong>Entregable esperado.</strong> Foro o taller de reconocimiento: descripción de un conjunto de datos identificando población, muestra, unidad, variables y sus escalas.</p>
+<p><strong>Listo para avanzar si...</strong> tomas una tabla cualquiera de tu trabajo (por ejemplo, la matriz de seguimiento de contratos) y, sin dudar más de cinco segundos por columna, dices qué tipo y escala tiene cada una — <strong>y justificas por qué el número de un contrato, siendo dígitos, es una variable nominal y no cuantitativa.</strong></p>
+<hr />
+<h2 id="escenario-2--organización-de-datos-tablas-de-frecuencia">Escenario 2 — Organización de datos: tablas de frecuencia</h2>
+<p><strong>Tema.</strong> Frecuencia absoluta, relativa, acumulada y relativa acumulada. Agrupación en intervalos de clase. Regla de Sturges, amplitud y marca de clase.</p>
+<p><strong>Objetivos.</strong></p>
+<ul>
+<li>Construir una tabla de frecuencias completa para variables cualitativas y cuantitativas discretas.</li>
+<li>Decidir cuándo agrupar en intervalos y construirlos correctamente (número de clases, amplitud, límites, marca de clase).</li>
+<li>Leer una tabla de frecuencias acumuladas y responder preguntas del tipo "¿qué porcentaje está por debajo de...?".</li>
+</ul>
+<p><strong>Conceptos clave.</strong></p>
+<ul>
+<li>\(f_i\) (absoluta), \(h_i = f_i/n\) (relativa), \(F_i\) (absoluta acumulada), \(H_i\) (relativa acumulada).</li>
+<li>\(\sum f_i = n\) y \(\sum h_i = 1\). Verificación obligatoria.</li>
+<li>Regla de Sturges: \(k = 1 + 3{,}322 \log_{10}(n)\).</li>
+<li>Amplitud \(A = R/k\) con \(R = x_{\max} - x_{\min}\); redondeo hacia arriba.</li>
+<li>Marca de clase \(x_i = (L_{i-1} + L_i)/2\).</li>
+<li>Intervalos cerrados por la izquierda y abiertos por la derecha, \([L_{i-1}, L_i)\), para que no haya solapamiento.</li>
+<li>Pérdida de información al agrupar: la media agrupada no es idéntica a la media real.</li>
+</ul>
+<p><strong>Qué practicar en Excel.</strong></p>
+<ul>
+<li><code>FRECUENCIA</code> como fórmula matricial sobre un vector de límites superiores: es la función central de este escenario.</li>
+<li>Alternativa moderna: <strong>tabla dinámica</strong> con la variable en Filas y <code>Agrupar</code> para crear los intervalos automáticamente.</li>
+<li><code>CONTAR.SI.CONJUNTO</code> para contar manualmente cada intervalo y verificar <code>FRECUENCIA</code>.</li>
+<li><code>MIN</code>, <code>MAX</code>, <code>CONTAR</code>, <code>LOG10</code> para calcular \(R\), \(n\) y \(k\) de Sturges dentro de la hoja, no con calculadora.</li>
+<li><code>REDONDEAR.MAS</code> para la amplitud.</li>
+</ul>
+<p><strong>Entregable esperado.</strong> <em>Actividad de puntos evaluables – Escenario 2</em>: tabla de frecuencias completa a partir de un conjunto de datos suministrado.</p>
+<p><strong>Listo para avanzar si...</strong> te dan 40 números sueltos y produces, en menos de 15 minutos y sin ayuda, una tabla con seis columnas (\([L_{i-1},L_i)\), \(x_i\), \(f_i\), \(h_i\), \(F_i\), \(H_i\)) que cumple \(\sum f_i = n\), \(H_k = 1\) y en la que puedes decir sin recalcular qué porcentaje de los datos está por debajo del límite superior de la tercera clase.</p>
+<hr />
+<h2 id="escenario-3--representación-gráfica">Escenario 3 — Representación gráfica</h2>
+<p><strong>Tema.</strong> Barras, circular, histograma, polígono de frecuencias, ojiva, tallo y hoja, caja y bigotes, dispersión. Criterios de buena visualización.</p>
+<p><strong>Objetivos.</strong></p>
+<ul>
+<li>Elegir el gráfico correcto según el tipo de variable y la pregunta.</li>
+<li>Construir un histograma y una ojiva a partir de la tabla del escenario 2.</li>
+<li>Leer un diagrama de caja y bigotes: mediana, cuartiles, bigotes, atípicos.</li>
+<li>Detectar gráficos engañosos: eje truncado, doble eje, área vs. longitud, escalas no uniformes.</li>
+</ul>
+<p><strong>Conceptos clave.</strong></p>
+<ul>
+<li>Cualitativa → barras o circular. Cuantitativa agrupada → histograma (barras pegadas). Frecuencia acumulada → ojiva.</li>
+<li>El histograma tiene barras contiguas porque la variable es continua; el de barras las tiene separadas porque las categorías son discretas.</li>
+<li>El polígono de frecuencias une las marcas de clase; se cierra en las marcas ficticias anterior y posterior.</li>
+<li>La ojiva se grafica sobre los <strong>límites superiores</strong>, no sobre las marcas de clase.</li>
+<li>Tallo y hoja: conserva el dato original, a diferencia del histograma.</li>
+<li>Caja y bigotes: caja de \(Q_1\) a \(Q_3\), línea en la mediana, bigotes hasta el dato más extremo dentro de \(1{,}5\cdot RIC\).</li>
+<li>Regla de Tufte aplicada: el eje de frecuencias <strong>empieza en cero</strong>; el circular solo si las categorías son excluyentes y suman el total; máximo cinco o seis porciones.</li>
+</ul>
+<p><strong>Qué practicar en Excel.</strong></p>
+<ul>
+<li>Insertar → Gráfico de columnas agrupadas para variables cualitativas.</li>
+<li>Insertar → <strong>Histograma</strong> (Excel 2016 en adelante lo trae nativo, con control de ancho de contenedor); comparar con el histograma construido a mano desde <code>FRECUENCIA</code>.</li>
+<li>Insertar → <strong>Gráfico de cajas y bigotes</strong> (nativo desde Excel 2016) y verificar que la caja coincide con <code>CUARTIL.INC</code>.</li>
+<li>Gráfico de dispersión (XY) para dos variables cuantitativas. <strong>Nunca de líneas</strong> para datos que no son serie de tiempo.</li>
+<li>Ejercicio deliberado: hacer el mismo gráfico dos veces, uno con eje desde cero y otro con eje truncado, y guardar ambos como evidencia de cómo cambia el mensaje.</li>
+</ul>
+<p><strong>Entregable esperado.</strong> <em>Quiz – Escenario 3</em> y taller de gráficos con datos suministrados.</p>
+<p><strong>Listo para avanzar si...</strong> dado un conjunto de datos puedes decir en 30 segundos cuál de los ocho gráficos aplica y por qué los otros siete no, y si al ver un gráfico de prensa detectas el eje truncado sin que nadie te lo señale.</p>
+<hr />
+<h2 id="escenario-4--medidas-de-tendencia-central">Escenario 4 — Medidas de tendencia central</h2>
+<p><strong>Tema.</strong> Media aritmética, media ponderada, media geométrica, mediana y moda, para datos simples y agrupados.</p>
+<p><strong>Objetivos.</strong></p>
+<ul>
+<li>Calcular las cinco medidas para datos sin agrupar y para datos agrupados en intervalos.</li>
+<li>Elegir la medida correcta según la forma de la distribución y la presencia de atípicos.</li>
+<li>Aplicar la media ponderada cuando los datos tienen pesos distintos y la geométrica cuando se promedian tasas de crecimiento.</li>
+</ul>
+<p><strong>Conceptos clave.</strong></p>
+<ul>
+<li>Media aritmética: sensible a valores extremos; es el "centro de gravedad" y cumple \(\sum (x_i - \bar{x}) = 0\).</li>
+<li>Media ponderada: cuando cada dato representa un número distinto de unidades.</li>
+<li>Media geométrica: <strong>la única correcta para promediar factores de crecimiento</strong>. Promediar tasas con media aritmética sobrestima.</li>
+<li>Mediana: robusta ante atípicos; posición \(\frac{n+1}{2}\) para \(n\) impar, promedio de los centrales para \(n\) par.</li>
+<li>Moda: única medida aplicable a variables nominales. Puede no existir o ser múltiple.</li>
+<li>Fórmulas de datos agrupados para mediana (interpolación en la clase mediana) y moda (fórmula de Czuber).</li>
+<li>Relación empírica entre las tres según la asimetría.</li>
+</ul>
+<p><strong>Qué practicar en Excel.</strong></p>
+<ul>
+<li><code>PROMEDIO</code>, <code>MEDIANA</code>, <code>MODA.UNO</code> (y <code>MODA.VARIOS</code> si sospechas multimodalidad).</li>
+<li><code>SUMAPRODUCTO(pesos; valores)/SUMA(pesos)</code> para la media ponderada. Es más limpio que una columna auxiliar.</li>
+<li><code>MEDIA.GEOM</code> sobre la columna de <strong>factores</strong> (\(1+r\)), nunca sobre las tasas.</li>
+<li><code>PROMEDIO.SI</code> y <code>PROMEDIO.SI.CONJUNTO</code> para medias por categoría.</li>
+<li>Tabla dinámica con "Promedio" en lugar de "Suma" en el campo de valores.</li>
+<li>Construir con <code>SUMAPRODUCTO(f; x)/SUMA(f)</code> la media de datos agrupados y compararla contra el <code>PROMEDIO</code> de los datos originales: ver la magnitud de la pérdida por agrupamiento.</li>
+</ul>
+<p><strong>Entregable esperado.</strong> Taller con cálculo de las tres medidas y justificación de cuál reportar.</p>
+<p><strong>Listo para avanzar si...</strong> dado un conjunto con un valor extremo evidente, calculas media y mediana, explicas por qué difieren y <strong>argumentas cuál reportarías en un informe institucional</strong>, sabiendo que reportar la media en un conjunto asimétrico es técnicamente correcto pero comunicativamente engañoso.</p>
+<hr />
+<h2 id="escenario-5--medidas-de-posición-y-de-dispersión">Escenario 5 — Medidas de posición y de dispersión</h2>
+<p><strong>Tema.</strong> Cuartiles, deciles, percentiles. Rango, rango intercuartílico, varianza, desviación estándar, coeficiente de variación. Muestral vs. poblacional. Valores atípicos por el criterio de 1,5·RIC.</p>
+<p><strong>Objetivos.</strong></p>
+<ul>
+<li>Calcular cuartiles, deciles y percentiles para datos simples y agrupados.</li>
+<li>Calcular varianza y desviación estándar distinguiendo la versión muestral de la poblacional.</li>
+<li>Comparar la dispersión de dos conjuntos con medias o unidades distintas mediante el coeficiente de variación.</li>
+<li>Identificar valores atípicos y decidir qué hacer con ellos.</li>
+</ul>
+<p><strong>Conceptos clave.</strong></p>
+<ul>
+<li>\(Q_1, Q_2, Q_3\); \(D_1\) a \(D_9\); \(P_1\) a \(P_{99}\). Equivalencias: \(Q_1 = P_{25}\), $Q_2 = D_5 = P_{50} = $ mediana.</li>
+<li><strong>Existen varios métodos de interpolación para los cuartiles.</strong> Excel <code>CUARTIL.INC</code> usa posición \(1+(n-1)p\); muchos textos usan \(n\cdot p\). Dan resultados distintos con \(n\) pequeño. No es un error: es una convención.</li>
+<li>Rango: solo usa dos datos, muy sensible.</li>
+<li>\(RIC = Q_3 - Q_1\): mide la dispersión del 50 % central, robusta.</li>
+<li>Varianza muestral divide entre \(n-1\); poblacional entre \(n\).</li>
+<li>Desviación estándar: en las <strong>mismas unidades</strong> que los datos. La varianza no.</li>
+<li>Coeficiente de variación \(CV = s/\bar{x}\): adimensional, permite comparar. <strong>Inútil si \(\bar{x}\) está cerca de cero o si hay valores negativos.</strong></li>
+<li>Criterio de atípicos: fuera de \([Q_1 - 1{,}5\,RIC,\; Q_3 + 1{,}5\,RIC]\).</li>
+</ul>
+<p><strong>Qué practicar en Excel.</strong></p>
+<ul>
+<li><code>CUARTIL.INC(rango; k)</code> con \(k = 1,2,3\); <code>PERCENTIL.INC(rango; p)</code> con \(p\) entre 0 y 1. Para deciles, <code>PERCENTIL.INC(rango; 0,3)</code> es \(D_3\).</li>
+<li><code>CUARTIL.EXC</code> y <code>PERCENTIL.EXC</code> existen y dan otro resultado: pruébalas una vez para entender la diferencia y luego usa siempre <code>INC</code> salvo indicación contraria.</li>
+<li><code>VAR.S</code> y <code>DESVEST.M</code> (muestra) frente a <code>VAR.P</code> y <code>DESVEST.P</code> (población). <strong>Calcula las cuatro sobre el mismo rango y observa la diferencia.</strong></li>
+<li><code>MAX-MIN</code> para el rango; <code>CUARTIL.INC(r;3)-CUARTIL.INC(r;1)</code> para el RIC.</li>
+<li>Montar un bloque de celdas que calcule \(Q_1\), \(Q_3\), \(RIC\), límite inferior, límite superior, y una columna con <code>SI(O(x&lt;lim_inf; x&gt;lim_sup);"ATÍPICO";"")</code>. Ese bloque te sirve el resto de la carrera.</li>
+</ul>
+<p><strong>Entregable esperado.</strong> <em>Actividad de puntos evaluables – Escenario 5</em>.</p>
+<p><strong>Listo para avanzar si...</strong> puedes explicar en una frase por qué la varianza muestral divide entre \(n-1\) y por qué el coeficiente de variación permite comparar el gasto de dos contratos de tamaños muy distintos, y si tu bloque de detección de atípicos en Excel marca correctamente el dato extremo de un conjunto que armaste tú mismo.</p>
+<hr />
+<h2 id="escenario-6--medidas-de-forma-chebyshev-y-estandarización">Escenario 6 — Medidas de forma, Chebyshev y estandarización</h2>
+<p><strong>Tema.</strong> Asimetría y curtosis. Teorema de Chebyshev y regla empírica. Estandarización y puntaje \(z\).</p>
+<p><strong>Objetivos.</strong></p>
+<ul>
+<li>Cuantificar e interpretar la asimetría de una distribución.</li>
+<li>Interpretar la curtosis como medida de peso de las colas.</li>
+<li>Aplicar Chebyshev (cualquier distribución) y la regla empírica (distribución aproximadamente normal).</li>
+<li>Estandarizar valores y usar el puntaje \(z\) para comparar observaciones de conjuntos distintos.</li>
+</ul>
+<p><strong>Conceptos clave.</strong></p>
+<ul>
+<li>Asimetría positiva (cola a la derecha): \(\bar{x} > Me > Mo\). Es el caso típico de datos económicos: valores de contratos, salarios, tiempos de trámite.</li>
+<li>Coeficiente de asimetría de Pearson y coeficiente basado en el tercer momento. <strong>Excel usa una tercera fórmula, la ajustada por tamaño de muestra.</strong> Los tres dan signos iguales y magnitudes distintas.</li>
+<li>Curtosis: exceso de curtosis \(> 0\) leptocúrtica (colas pesadas), \(< 0\) platicúrtica, \(= 0\) mesocúrtica.</li>
+<li>Chebyshev: al menos \(1 - 1/k^2\) de los datos está dentro de \(k\) desviaciones estándar, <strong>para cualquier distribución</strong>, con \(k>1\). Es una cota, no una estimación.</li>
+<li>Regla empírica: aproximadamente 68 % – 95 % – 99,7 % dentro de 1, 2 y 3 desviaciones, <strong>solo si la distribución es aproximadamente normal</strong>.</li>
+<li>\(z = (x - \bar{x})/s\): cuántas desviaciones estándar por encima o por debajo de la media. Media 0, desviación 1.</li>
+</ul>
+<p><strong>Qué practicar en Excel.</strong></p>
+<ul>
+<li><code>COEFICIENTE.ASIMETRIA</code> y <code>CURTOSIS</code>. Compara el resultado con la fórmula de Pearson calculada a mano: no coincidirán exactamente, y saber por qué es parte del aprendizaje.</li>
+<li><code>NORMALIZACION(x; media; desv)</code> calcula el puntaje \(z\) directamente. También <code>(x-PROMEDIO(r))/DESVEST.M(r)</code>.</li>
+<li>Contar cuántos datos caen dentro de \(\bar{x} \pm s\), \(\bar{x} \pm 2s\) y \(\bar{x} \pm 3s\) con <code>CONTAR.SI.CONJUNTO</code>, y comparar los porcentajes contra 68/95/99,7. Es el ejercicio más revelador del escenario.</li>
+</ul>
+<p><strong>Entregable esperado.</strong> <em>Quiz – Escenario 6</em>.</p>
+<p><strong>Listo para avanzar si...</strong> dado un conjunto puedes decir si es asimétrico y hacia dónde <strong>sin graficarlo</strong>, solo comparando media y mediana; y si explicas por qué Chebyshev garantiza 75 % dentro de dos desviaciones mientras la regla empírica dice 95 %, sin que eso sea una contradicción.</p>
+<hr />
+<h2 id="escenario-7--análisis-bivariado-correlación-y-regresión">Escenario 7 — Análisis bivariado: correlación y regresión</h2>
+<p><strong>Tema.</strong> Tablas de contingencia. Covarianza. Coeficiente de correlación de Pearson. Regresión lineal simple por mínimos cuadrados. Coeficiente de determinación.</p>
+<p><strong>Objetivos.</strong></p>
+<ul>
+<li>Construir e interpretar una tabla de contingencia con perfiles fila y columna.</li>
+<li>Calcular e interpretar covarianza y correlación entre dos variables cuantitativas.</li>
+<li>Estimar la recta de regresión por mínimos cuadrados e interpretar pendiente e intercepto <strong>en el contexto del problema</strong>.</li>
+<li>Interpretar \(R^2\) y reconocer sus límites.</li>
+</ul>
+<p><strong>Conceptos clave.</strong></p>
+<ul>
+<li>Tabla de contingencia: frecuencias conjuntas, marginales, perfiles fila y perfiles columna. Independencia estadística.</li>
+<li>Covarianza: signo informativo, magnitud no comparable porque depende de las unidades.</li>
+<li>Correlación de Pearson \(r \in [-1,1]\): adimensional. <strong>Mide relación lineal únicamente.</strong></li>
+<li>Recta \(\hat{y} = a + bx\); \(b\) es el cambio esperado en \(y\) por unidad de \(x\); \(a\) es el valor ajustado en \(x=0\), que muchas veces <strong>no tiene sentido físico</strong>.</li>
+<li>Descomposición \(SCT = SCR + SCE\) y \(R^2 = SCR/SCT\). En regresión simple, \(R^2 = r^2\).</li>
+<li>Residuo \(e_i = y_i - \hat{y}_i\); los residuos suman cero.</li>
+<li>Correlación ≠ causalidad. Extrapolación fuera del rango de \(x\) observado: prohibida.</li>
+</ul>
+<p><strong>Qué practicar en Excel.</strong></p>
+<ul>
+<li>Tabla dinámica con dos variables cualitativas (una en Filas, otra en Columnas) → tabla de contingencia en un minuto. Luego <code>Mostrar valores como → % del total de fila</code> para los perfiles.</li>
+<li><code>COEF.DE.CORREL(rango_y; rango_x)</code> y <code>PEARSON</code> (son la misma función).</li>
+<li><code>COVARIANZA.M</code> (muestral, \(n-1\)) y <code>COVARIANZA.P</code> (poblacional, \(n\)).</li>
+<li><code>PENDIENTE(conocido_y; conocido_x)</code> y <code>INTERSECCION.EJE(conocido_y; conocido_x)</code>. <strong>Ojo al orden: \(y\) primero.</strong> Es el error más común.</li>
+<li><code>COEFICIENTE.R2(conocido_y; conocido_x)</code> para el \(R^2\).</li>
+<li><code>PRONOSTICO.LINEAL(x; conocido_y; conocido_x)</code> para predecir.</li>
+<li>En el gráfico de dispersión: clic derecho sobre los puntos → <strong>Agregar línea de tendencia</strong> → marcar "Presentar ecuación" y "Presentar el valor R cuadrado". Verifica que coincida con <code>PENDIENTE</code> e <code>INTERSECCION.EJE</code>.</li>
+</ul>
+<p><strong>Entregable esperado.</strong> Taller de regresión con datos suministrados e interpretación escrita.</p>
+<p><strong>Listo para avanzar si...</strong> dado un \(r = 0{,}95\) escribes tres frases: qué <strong>sí</strong> se puede concluir, qué <strong>no</strong> se puede concluir, y qué gráfico pedirías antes de firmar la conclusión.</p>
+<hr />
+<h2 id="escenario-8--números-índice-series-de-tiempo-y-cierre">Escenario 8 — Números índice, series de tiempo y cierre</h2>
+<p><strong>Tema.</strong> Números índice simples y compuestos. Índices de Laspeyres y Paasche. Series de tiempo: componentes, variación porcentual, medias móviles, deflactación. Integración de todo el curso.</p>
+<p><strong>Objetivos.</strong></p>
+<ul>
+<li>Construir índices simples con base fija y cambiar de base.</li>
+<li>Calcular e interpretar los índices de Laspeyres y Paasche y explicar por qué difieren.</li>
+<li>Descomponer conceptualmente una serie de tiempo y suavizarla con medias móviles.</li>
+<li>Deflactar una serie de valores corrientes a valores constantes.</li>
+<li>Resolver un problema integrador que combine tabla, gráficos, medidas y regresión.</li>
+</ul>
+<p><strong>Conceptos clave.</strong></p>
+<ul>
+<li>Índice simple \(I_{t/0} = (x_t/x_0)\cdot 100\). Cambio de base y empalme de series.</li>
+<li>Laspeyres: pondera con <strong>cantidades del período base</strong> \(q_0\). Es la lógica del IPC.</li>
+<li>Paasche: pondera con <strong>cantidades del período actual</strong> \(q_t\).</li>
+<li>Laspeyres tiende a sobrestimar y Paasche a subestimar la variación de precios, por el efecto sustitución. Fisher es su media geométrica.</li>
+<li>Índice de valor $= $ índice de precios \(\times\) índice de cantidad.</li>
+<li>Componentes de una serie: tendencia, ciclo, estacionalidad, irregular.</li>
+<li>Variación porcentual mensual, anual y acumulada. <strong>Puntos porcentuales ≠ porcentaje.</strong></li>
+<li>Media móvil de orden \(k\): suaviza, pero pierde datos en los extremos.</li>
+<li>Deflactar: valor constante \(=\) valor corriente \(/ (\text{IPC}_t/\text{IPC}_0)\).</li>
+</ul>
+<p><strong>Qué practicar en Excel.</strong></p>
+<ul>
+<li>Construir una columna de índice base fija con referencia absoluta: <code>=B2/$B$2*100</code>. El <code>$</code> es el punto del ejercicio.</li>
+<li><code>SUMAPRODUCTO(p1;q0)/SUMAPRODUCTO(p0;q0)*100</code> para Laspeyres en una sola celda. Cambiar <code>q0</code> por <code>q1</code> da Paasche. Elegante y verificable.</li>
+<li>Media móvil con <code>PROMEDIO(B2:B4)</code> arrastrado, o con Datos → Análisis de datos → Media móvil.</li>
+<li>Variación porcentual <code>=(B3-B2)/B2</code> con formato de porcentaje.</li>
+<li>Gráfico de líneas para la serie original y la suavizada en el mismo eje.</li>
+</ul>
+<p><strong>Entregable esperado.</strong> <em>Examen final – Escenario 8</em>, acumulativo sobre los ocho escenarios.</p>
+<p><strong>Listo para avanzar si...</strong> puedes explicar por qué el IPC es un índice de Laspeyres y qué implica eso para la medición de la inflación, y si resuelves de principio a fin un problema que pida tabla de frecuencias, histograma, media, mediana, desviación estándar, atípicos y una regresión, en menos de 90 minutos.</p>
+<hr />
+<h2 id="excel-para-esta-materia">Excel para esta materia</h2>
+<p>Tú ya manejas Excel avanzado, así que esto no es un tutorial: es la <strong>lista exacta</strong> de funciones que el curso te va a exigir y el criterio de cuándo usar cada una.</p>
+<h3 id="tendencia-central">Tendencia central</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Función</th>
+<th>Qué hace</th>
+<th>Cuándo usarla</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PROMEDIO(rango)</code></td>
+<td>Media aritmética</td>
+<td>Datos sin agrupar, distribución razonablemente simétrica</td>
+</tr>
+<tr>
+<td><code>SUMAPRODUCTO(pesos;valores)/SUMA(pesos)</code></td>
+<td>Media ponderada</td>
+<td>Cada dato representa un número distinto de unidades; también sirve para la media de datos agrupados usando \(f_i\) y \(x_i\)</td>
+</tr>
+<tr>
+<td><code>MEDIA.GEOM(rango)</code></td>
+<td>Media geométrica</td>
+<td><strong>Solo sobre factores \((1+r)\)</strong>, para promediar crecimientos</td>
+</tr>
+<tr>
+<td><code>MEDIANA(rango)</code></td>
+<td>Mediana</td>
+<td>Distribución asimétrica o con atípicos</td>
+</tr>
+<tr>
+<td><code>MODA.UNO(rango)</code></td>
+<td>Moda</td>
+<td>Variables cualitativas o discretas. Devuelve error si no hay repeticiones</td>
+</tr>
+<tr>
+<td><code>MODA.VARIOS(rango)</code></td>
+<td>Todas las modas</td>
+<td>Cuando sospechas bimodalidad</td>
+</tr>
+<tr>
+<td><code>PROMEDIO.SI.CONJUNTO</code></td>
+<td>Media condicionada</td>
+<td>Comparar el promedio por categoría</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="dispersión--la-tabla-que-hay-que-memorizar">Dispersión — la tabla que hay que memorizar</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Muestra (divide entre \(n-1\))</th>
+<th>Población (divide entre \(n\))</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Varianza</strong></td>
+<td><code>VAR.S(rango)</code></td>
+<td><code>VAR.P(rango)</code></td>
+</tr>
+<tr>
+<td><strong>Desviación estándar</strong></td>
+<td><code>DESVEST.M(rango)</code></td>
+<td><code>DESVEST.P(rango)</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>Regla mnemotécnica: <strong>M de Muestra, P de Población</strong>. Y <code>VAR.S</code> porque en inglés muestra es <em>sample</em>. Es la única inconsistencia de nombres del grupo, y por eso es la que se olvida.</p>
+<p>Coeficiente de variación: no existe función. <code>=DESVEST.M(rango)/PROMEDIO(rango)</code> con formato de porcentaje.</p>
+<h3 id="posición">Posición</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Función</th>
+<th>Qué hace</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CUARTIL.INC(rango; k)</code></td>
+<td>Cuartil \(k\) (\(k=0..4\)), método inclusivo, posición \(1+(n-1)p\)</td>
+</tr>
+<tr>
+<td><code>CUARTIL.EXC(rango; k)</code></td>
+<td>Método exclusivo, posición \((n+1)p\). Da otro número</td>
+</tr>
+<tr>
+<td><code>PERCENTIL.INC(rango; p)</code></td>
+<td>Percentil, \(p\) entre 0 y 1. <code>PERCENTIL.INC(r;0,3)</code> es \(D_3\)</td>
+</tr>
+<tr>
+<td><code>JERARQUIA.MEDIA(x; rango)</code></td>
+<td>Posición del dato dentro del conjunto</td>
+</tr>
+<tr>
+<td><code>K.ESIMO.MAYOR</code> / <code>K.ESIMO.MENOR</code></td>
+<td>El \(k\)-ésimo dato ordenado</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Advertencia:</strong> si el texto guía del curso usa el método de posición \(n\cdot p\), <code>CUARTIL.INC</code> no coincidirá. En la evaluación, usa el método del curso; en el trabajo, el de Excel. Declara siempre cuál usaste.</p>
+<h3 id="tablas-y-frecuencias">Tablas y frecuencias</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Herramienta</th>
+<th>Cuándo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>FRECUENCIA(datos; grupos)</code></td>
+<td>Tabla de frecuencias por intervalos. En Excel 365 se escribe normal; en versiones anteriores hay que confirmar con <code>Ctrl+Shift+Enter</code></td>
+</tr>
+<tr>
+<td><code>CONTAR.SI</code> / <code>CONTAR.SI.CONJUNTO</code></td>
+<td>Frecuencias por categoría o por intervalo, con control total sobre los límites</td>
+</tr>
+<tr>
+<td><strong>Tabla dinámica</strong></td>
+<td>Tablas de contingencia, frecuencias por categoría, y agrupación automática de valores numéricos en intervalos. Es lo más rápido para conjuntos grandes</td>
+</tr>
+<tr>
+<td><code>CONTARA</code> / <code>CONTAR</code></td>
+<td>\(n\) total; <code>CONTARA</code> cuenta también texto</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="forma-y-estandarización">Forma y estandarización</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Función</th>
+<th>Qué hace</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>COEFICIENTE.ASIMETRIA(rango)</code></td>
+<td>Asimetría, fórmula ajustada por tamaño de muestra</td>
+</tr>
+<tr>
+<td><code>CURTOSIS(rango)</code></td>
+<td><strong>Exceso</strong> de curtosis (ya le restó 3)</td>
+</tr>
+<tr>
+<td><code>NORMALIZACION(x; media; desv)</code></td>
+<td>Puntaje \(z\)</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="bivariado">Bivariado</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Función</th>
+<th>Qué hace</th>
+<th>Trampa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>COEF.DE.CORREL(y; x)</code></td>
+<td>Correlación de Pearson</td>
+<td>El orden no importa aquí</td>
+</tr>
+<tr>
+<td><code>COVARIANZA.M(y; x)</code> / <code>COVARIANZA.P(y; x)</code></td>
+<td>Covarianza muestral / poblacional</td>
+<td>Recuerda cuál divide entre \(n-1\)</td>
+</tr>
+<tr>
+<td><code>PENDIENTE(conocido_y; conocido_x)</code></td>
+<td>\(b\) de la recta</td>
+<td><strong>\(y\) va primero.</strong> Invertirlo da otra recta</td>
+</tr>
+<tr>
+<td><code>INTERSECCION.EJE(conocido_y; conocido_x)</code></td>
+<td>\(a\) de la recta</td>
+<td>Mismo orden</td>
+</tr>
+<tr>
+<td><code>COEFICIENTE.R2(conocido_y; conocido_x)</code></td>
+<td>\(R^2\)</td>
+<td>En regresión simple es \(r^2\)</td>
+</tr>
+<tr>
+<td><code>PRONOSTICO.LINEAL(x; conocido_y; conocido_x)</code></td>
+<td>Predicción</td>
+<td>No extrapoles fuera del rango observado</td>
+</tr>
+<tr>
+<td><code>ESTIMACION.LINEAL</code></td>
+<td>Devuelve varios estadísticos de la regresión</td>
+<td>Es matricial; útil pero no indispensable en este curso</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="complementos-y-opciones-útiles">Complementos y opciones útiles</h3>
+<ul>
+<li><strong>Análisis de datos</strong> (Archivo → Opciones → Complementos → Herramientas para análisis): trae "Estadística descriptiva", que produce media, mediana, moda, desviación, varianza, curtosis, asimetría, rango, mínimo, máximo, suma y cuenta <strong>en un solo clic</strong>. Úsalo para <em>verificar</em>, nunca para reemplazar el cálculo a mano mientras estás aprendiendo.</li>
+<li><strong>Histograma</strong> y <strong>Cajas y bigotes</strong> son gráficos nativos desde Excel 2016.</li>
+<li>Nota sobre LibreOffice: si abres el archivo allá, los nombres de función cambian y el comportamiento de comparación de códigos numéricos escritos como texto es distinto. Ya conoces ese problema del <code>SUMIFS</code>; aquí aparece igual con <code>CONTAR.SI</code> sobre códigos. Si vas a compartir el taller, entrégalo en <code>.xlsx</code> y con una columna de clasificación explícita.</li>
+</ul>
+<hr />
+<h2 id="mapa-de-dependencias-entre-escenarios">Mapa de dependencias entre escenarios</h2>
+<p>Qué necesitas tener firme antes de entrar a cada escenario:</p>
+<pre><code>E1  Conceptos, variables, escalas
+     │
+     ├──&gt; E2  Tablas de frecuencia  ────────────────┐
+     │         (necesita: tipo de variable de E1)   │
+     │                                              │
+     ├──&gt; E3  Gráficos                              │
+     │         (necesita: tabla de E2)              │
+     │                                              │
+     └──&gt; E4  Tendencia central  &lt;──────────────────┘
+               (necesita: tabla agrupada de E2)
+                     │
+                     ▼
+              E5  Posición y dispersión
+                    (necesita: media de E4, tabla de E2)
+                     │
+                     ├──&gt; E6  Forma, Chebyshev, z
+                     │         (necesita: media de E4 y desv. de E5)
+                     │
+                     └──&gt; E7  Bivariado: r, regresión
+                               (necesita: media y desv. de E4-E5)
+                                     │
+                                     ▼
+                              E8  Índices y series + EXAMEN
+                                    (necesita: TODO)
+</code></pre>
+<p>Lectura práctica de este mapa:</p>
+<ul>
+<li><strong>E2 es el cuello de botella del primer bloque.</strong> Los escenarios 3 y 4 dependen de él. Si te atrasas en E2, se te caen tres semanas.</li>
+<li><strong>E5 es el cuello de botella del segundo bloque.</strong> La desviación estándar aparece en E6 (Chebyshev, \(z\)) y en E7 (correlación). Si no dominas \(s\), no entiendes ni el \(z\) ni el \(r\).</li>
+<li><strong>E6 y E7 son independientes entre sí.</strong> Si una semana se te cae, puedes hacerlos en el orden que quieras. Los demás no admiten reordenamiento.</li>
+<li><strong>E8 no introduce casi nada nuevo conceptualmente</strong> (los índices son porcentajes ponderados), pero es donde se evalúa todo lo anterior. La semana del escenario 8 debe ser de <strong>repaso</strong>, no de aprendizaje.</li>
+<li>Si tuvieras que sacrificar profundidad en algún punto, sacrifica curtosis (E6) y tallo y hoja (E3): son los conceptos con menor carga hacia adelante. <strong>Nunca</strong> sacrifiques la distinción muestral/poblacional (E5) ni la interpretación de la regresión (E7): son las que más pesan en el resto de la carrera.</li>
+</ul>
+</main>
+</body>
+</html>

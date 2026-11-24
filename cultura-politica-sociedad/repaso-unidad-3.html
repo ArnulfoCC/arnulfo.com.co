@@ -1,0 +1,871 @@
+<!doctype html><html lang="es"><head>
+<meta name="robots" content="noindex, nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;font:14px system-ui;background:#fafafa}img{max-width:100%}[hidden]{display:none!important}</style><title>Ecosistemas digitales y ciudadanía</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  color-scheme: light;
+  --bg:#f4f7f6; --surface:#ffffff; --surface2:#e9eeed; --surface3:#dee5e4;
+  --line:#d2dad9; --line2:#bcc7c5;
+  --ink:#13201f; --ink2:#485a58; --ink3:#748583;
+  --accent:#0d6259; --accent2:#0a4a43; --accent-soft:#d9eae7;
+  --warm:#9d5117; --warm-soft:#f6e7d9;
+  --ok:#1d6538; --ok-soft:#dcecdf;
+  --bad:#9e2a26; --bad-soft:#f6e0de;
+  --sh:0 1px 2px rgba(19,32,31,.06), 0 6px 18px rgba(19,32,31,.05);
+  --display:"Newsreader", Georgia, "Times New Roman", serif;
+  --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "Courier New", monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --bg:#0d1413; --surface:#141d1c; --surface2:#1b2524; --surface3:#233030;
+    --line:#2a3736; --line2:#3a4a48;
+    --ink:#e7edeb; --ink2:#a8b8b5; --ink3:#7b8b89;
+    --accent:#4fc4b3; --accent2:#7ad6c8; --accent-soft:#11302d;
+    --warm:#dfa267; --warm-soft:#33220f;
+    --ok:#56c281; --ok-soft:#12291a;
+    --bad:#ef8480; --bad-soft:#331615;
+    --sh:0 1px 2px rgba(0,0,0,.4), 0 6px 18px rgba(0,0,0,.3);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --bg:#0d1413; --surface:#141d1c; --surface2:#1b2524; --surface3:#233030;
+  --line:#2a3736; --line2:#3a4a48;
+  --ink:#e7edeb; --ink2:#a8b8b5; --ink3:#7b8b89;
+  --accent:#4fc4b3; --accent2:#7ad6c8; --accent-soft:#11302d;
+  --warm:#dfa267; --warm-soft:#33220f;
+  --ok:#56c281; --ok-soft:#12291a;
+  --bad:#ef8480; --bad-soft:#331615;
+  --sh:0 1px 2px rgba(0,0,0,.4), 0 6px 18px rgba(0,0,0,.3);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--body); font-size:16px; line-height:1.6;
+  -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:820px; margin:0 auto; padding-inline:18px; padding-block:0 72px}
+h1,h2,h3,h4{font-family:var(--display); font-weight:600; text-wrap:balance; margin:0}
+p{margin:0}
+a{color:var(--accent); text-decoration-thickness:1px; text-underline-offset:2px}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:3px}
+
+/* ---------- header ---------- */
+header.top{padding-block:40px 20px; border-bottom:1px solid var(--line)}
+.eyebrow{font-family:var(--mono); font-size:11.5px; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--ink3); margin-bottom:12px}
+h1{font-size:clamp(30px,6.4vw,44px); line-height:1.08; letter-spacing:-.015em}
+.sub{margin-top:12px; color:var(--ink2); font-size:15.5px; max-width:60ch}
+.strip{display:flex; flex-wrap:wrap; gap:8px; margin-top:20px}
+.chip{display:inline-flex; align-items:baseline; gap:7px; background:var(--surface);
+  border:1px solid var(--line); border-radius:999px; padding:5px 12px; font-size:13px; color:var(--ink2)}
+.chip b{font-family:var(--mono); font-size:12.5px; color:var(--ink); font-weight:500}
+.chip.hot{background:var(--warm-soft); border-color:var(--warm); color:var(--warm)}
+.chip.hot b{color:var(--warm)}
+
+/* ---------- nav ---------- */
+nav{position:sticky; top:env(safe-area-inset-top, 0px); z-index:20;
+  background:color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter:blur(8px); border-bottom:1px solid var(--line);
+  margin-inline:-18px; padding-inline:18px}
+.tabs{display:flex; gap:2px; overflow-x:auto; scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{appearance:none; background:none; border:0; border-bottom:2px solid transparent;
+  font-family:var(--body); font-size:14px; font-weight:500; color:var(--ink3);
+  padding:14px 12px; cursor:pointer; white-space:nowrap}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{color:var(--accent); border-bottom-color:var(--accent)}
+.tab .n{font-family:var(--mono); font-size:11px; color:var(--ink3); margin-left:5px}
+
+/* ---------- generic blocks ---------- */
+section.pane{padding-top:30px}
+.lead{color:var(--ink2); font-size:15px; max-width:64ch; margin-bottom:24px}
+.block{background:var(--surface); border:1px solid var(--line); border-radius:10px;
+  padding:20px 20px 22px; margin-bottom:16px; box-shadow:var(--sh)}
+.block > h3{font-size:20px; letter-spacing:-.01em; margin-bottom:4px}
+.block .tag{font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--accent); margin-bottom:8px}
+.block p + p{margin-top:12px}
+.block p{font-size:15px; color:var(--ink2)}
+.block strong{color:var(--ink); font-weight:600}
+h2.sec{font-size:15px; font-family:var(--body); font-weight:600; letter-spacing:.02em;
+  color:var(--ink3); text-transform:uppercase; margin:34px 0 14px}
+h2.sec:first-of-type{margin-top:0}
+
+blockquote{margin:14px 0 0; padding:12px 16px; background:var(--surface2);
+  border-left:3px solid var(--warm); border-radius:0 6px 6px 0;
+  font-family:var(--display); font-size:16px; font-style:italic; color:var(--ink)}
+blockquote cite{display:block; margin-top:7px; font-family:var(--mono); font-size:11.5px;
+  font-style:normal; color:var(--ink3); letter-spacing:.03em}
+
+.tblwrap{overflow-x:auto; margin-top:14px; border:1px solid var(--line); border-radius:8px}
+table{border-collapse:collapse; width:100%; font-size:14px; min-width:460px}
+th,td{text-align:left; padding:9px 12px; border-bottom:1px solid var(--line); vertical-align:top}
+th{background:var(--surface2); font-weight:600; font-size:12.5px; letter-spacing:.03em;
+  text-transform:uppercase; color:var(--ink2)}
+tr:last-child td{border-bottom:0}
+td strong{color:var(--ink)}
+
+ul.plain{margin:12px 0 0; padding-left:20px; font-size:15px; color:var(--ink2)}
+ul.plain li{margin-bottom:6px}
+ul.plain li::marker{color:var(--accent)}
+
+.note{margin-top:16px; padding:12px 14px; border-radius:8px; background:var(--warm-soft);
+  border:1px solid color-mix(in srgb, var(--warm) 35%, transparent);
+  font-size:14px; color:var(--ink)}
+.note b{color:var(--warm)}
+
+/* ---------- toolbar ---------- */
+.bar{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:18px}
+.btn{appearance:none; font-family:var(--body); font-size:13.5px; font-weight:500;
+  background:var(--surface); color:var(--ink); border:1px solid var(--line2);
+  border-radius:7px; padding:8px 13px; cursor:pointer}
+.btn:hover{border-color:var(--accent); color:var(--accent)}
+.btn.solid{background:var(--accent); border-color:var(--accent); color:#fff}
+:root[data-theme="dark"] .btn.solid, :root:not([data-theme="light"]) .btn.solid{color:#08211e}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]) .btn.solid{color:#fff}}
+.btn.solid:hover{background:var(--accent2); border-color:var(--accent2)}
+.count{font-family:var(--mono); font-size:12.5px; color:var(--ink3); margin-left:auto}
+
+/* ---------- flashcards ---------- */
+.cards{display:grid; grid-template-columns:repeat(auto-fill, minmax(238px,1fr)); gap:12px}
+.card{background:var(--surface); border:1px solid var(--line); border-radius:10px;
+  padding:0; box-shadow:var(--sh); display:flex; flex-direction:column; overflow:hidden}
+.card .front{padding:16px 16px 14px; flex:1 0 auto}
+.card .dom{font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--ink3); margin-bottom:7px}
+.card .term{font-family:var(--display); font-size:19px; font-weight:600; line-height:1.2}
+.card .back{padding:0 16px; max-height:0; overflow:hidden; font-size:14px; color:var(--ink2);
+  border-top:1px solid transparent; transition:max-height .22s ease, padding .22s ease}
+.card.open .back{max-height:460px; padding:13px 16px 15px; border-top-color:var(--line);
+  background:var(--surface2)}
+.card .back em{font-family:var(--display); font-style:italic; color:var(--ink)}
+.card .acts{display:flex; border-top:1px solid var(--line)}
+.card .acts button{flex:1; appearance:none; background:none; border:0; border-right:1px solid var(--line);
+  font-family:var(--body); font-size:12.5px; color:var(--ink3); padding:9px 6px; cursor:pointer}
+.card .acts button:last-child{border-right:0}
+.card .acts button:hover{background:var(--surface3); color:var(--ink)}
+.card.marked{border-color:var(--warm)}
+.card.marked .acts .mk{color:var(--warm); font-weight:500}
+@media (prefers-reduced-motion: reduce){.card .back{transition:none}}
+
+/* ---------- citas ---------- */
+.q{background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--accent);
+  border-radius:0 9px 9px 0; padding:15px 17px; margin-bottom:11px; box-shadow:var(--sh)}
+.q .txt{font-family:var(--display); font-size:16.5px; font-style:italic; line-height:1.5}
+.q .rev{margin-top:11px}
+.q .who{display:none; margin-top:11px; padding-top:11px; border-top:1px dashed var(--line2);
+  font-size:14px; color:var(--ink2)}
+.q.open .who{display:block}
+.q.open .rev{display:none}
+.q .who .src{font-family:var(--mono); font-size:13px; color:var(--accent); font-weight:500}
+.q .who .use{display:block; margin-top:6px; color:var(--ink3); font-size:13.5px}
+.mini{appearance:none; background:var(--accent-soft); border:1px solid transparent;
+  color:var(--accent); font-family:var(--body); font-size:12.5px; font-weight:500;
+  border-radius:6px; padding:5px 11px; cursor:pointer}
+.mini:hover{border-color:var(--accent)}
+
+/* ---------- quiz ---------- */
+.qz{background:var(--surface); border:1px solid var(--line); border-radius:10px;
+  padding:18px 18px 16px; margin-bottom:14px; box-shadow:var(--sh)}
+.qz .num{font-family:var(--mono); font-size:11.5px; color:var(--ink3); letter-spacing:.06em}
+.qz .stem{font-size:15.5px; font-weight:500; margin-top:6px; color:var(--ink)}
+.opts{display:flex; flex-direction:column; gap:7px; margin-top:13px}
+.opt{display:flex; gap:10px; align-items:flex-start; text-align:left; width:100%;
+  appearance:none; font-family:var(--body); font-size:14.5px; line-height:1.45;
+  background:var(--surface2); border:1px solid var(--line); border-radius:8px;
+  padding:10px 12px; cursor:pointer; color:var(--ink)}
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt:disabled{cursor:default}
+.opt .ltr{font-family:var(--mono); font-size:12.5px; color:var(--ink3); flex:0 0 auto; padding-top:1px}
+.opt.right{background:var(--ok-soft); border-color:var(--ok)}
+.opt.right .ltr{color:var(--ok)}
+.opt.wrong{background:var(--bad-soft); border-color:var(--bad)}
+.opt.wrong .ltr{color:var(--bad)}
+.why{display:none; margin-top:12px; padding:11px 13px; border-radius:8px;
+  background:var(--surface2); border:1px solid var(--line); font-size:14px; color:var(--ink2)}
+.why.on{display:block}
+.why .verdict{font-weight:600; font-family:var(--body)}
+.why .verdict.y{color:var(--ok)}
+.why .verdict.n{color:var(--bad)}
+.score{position:sticky; bottom:0; background:var(--surface); border:1px solid var(--line2);
+  border-radius:10px; padding:13px 16px; margin-top:20px; box-shadow:var(--sh);
+  display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+  font-family:var(--mono); font-size:13.5px}
+.score b{font-size:20px; color:var(--accent); font-weight:500}
+.score .lbl{font-family:var(--body); color:var(--ink2); font-size:14px}
+
+/* ---------- aplicación ---------- */
+.ap{background:var(--surface); border:1px solid var(--line); border-radius:10px;
+  padding:18px; margin-bottom:14px; box-shadow:var(--sh)}
+.ap .ask{font-size:15.5px; font-weight:500; color:var(--ink)}
+.ap .hint{font-size:14px; color:var(--ink3); margin-top:8px}
+.ap .model{display:none; margin-top:14px; padding:14px; border-radius:8px;
+  background:var(--accent-soft); border:1px solid color-mix(in srgb, var(--accent) 30%, transparent)}
+.ap.open .model{display:block}
+.ap .model h4{font-family:var(--body); font-size:12px; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--accent); margin-bottom:9px}
+.ap .model ol{margin:0; padding-left:19px; font-size:14.5px; color:var(--ink2)}
+.ap .model ol li{margin-bottom:7px}
+.ap .model ol li::marker{color:var(--accent); font-family:var(--mono); font-size:12px}
+.ap .acts{margin-top:13px}
+
+footer{margin-top:44px; padding-top:20px; border-top:1px solid var(--line);
+  font-size:13px; color:var(--ink3)}
+footer p + p{margin-top:8px}
+
+@media (max-width:460px){
+  .cards{grid-template-columns:1fr}
+  .block{padding:17px}
+}
+</style>
+
+<div class="wrap">
+
+<header class="top">
+  <div class="eyebrow">Cultura, Política y Sociedad · Unidad 3</div>
+  <h1>Ecosistemas digitales y ciudadanía</h1>
+  <p class="sub">Relaciones, dinámicas, construcción, expresión e impactos en el contexto
+  profesional. Material de repaso activo: la teoría condensada, y cuatro formas de
+  autoevaluarse antes del cierre.</p>
+  <div class="strip">
+    <span class="chip hot">Cierra <b>mar 6 oct, 23:55</b></span>
+    <span class="chip">Puntos <b>100</b></span>
+    <span class="chip">Peso <b>20 %</b></span>
+    <span class="chip">Probable <b>cuestionario</b></span>
+  </div>
+</header>
+
+<nav>
+  <div class="tabs" role="tablist" aria-label="Modos de estudio">
+    <button class="tab" role="tab" aria-selected="true" data-p="repaso">Repaso</button>
+    <button class="tab" role="tab" aria-selected="false" data-p="tarjetas">Tarjetas<span class="n">25</span></button>
+    <button class="tab" role="tab" aria-selected="false" data-p="citas">Citas<span class="n">12</span></button>
+    <button class="tab" role="tab" aria-selected="false" data-p="quiz">Cuestionario<span class="n">22</span></button>
+    <button class="tab" role="tab" aria-selected="false" data-p="aplica">Aplicación<span class="n">6</span></button>
+  </div>
+</nav>
+
+<!-- ============ REPASO ============ -->
+<section class="pane" id="p-repaso" role="tabpanel">
+  <p class="lead">La unidad tiene un hilo: las sociedades digitales cambiaron quién puede hablar;
+  eso abre participación y abre problemas; para ejercer ciudadanía hace falta pensamiento crítico
+  y lenguajes diversos; y para investigar una realidad hay que ir a escucharla. La entrevista es
+  el instrumento con el que se cierra ese hilo.</p>
+
+  <h2 class="sec">1 · Sociedades digitales</h2>
+  <div class="block">
+    <div class="tag">La ruptura</div>
+    <h3>De la comunicación de masas a la autocomunicación</h3>
+    <p><strong>Antes:</strong> el modelo de comunicación estaba en manos de las empresas de medios
+    (TV, radio, prensa, revistas). La comunicación no era masiva: era limitada y unidireccional.
+    <strong>Después</strong> de la expansión de Internet en los años noventa: una red distribuida,
+    sin polos que controlen el flujo.</p>
+    <blockquote>La creación de un sistema de comunicación dentro de una arquitectura de red
+    distribuida, sin polos que controlen el flujo de comunicación, ha provocado una reestructuración
+    de este sistema, pasando del modelo de comunicación de masas representado por los medios
+    tradicionales.<cite>Camargo y Tavares, 2020, p. 54</cite></blockquote>
+    <p>El resultado es la <strong>autocomunicación de masas</strong>: cada usuario de la red cumple
+    un papel activo en la <strong>producción, circulación y consumo</strong> de información. Esa
+    tríada es lo que hay que recordar.</p>
+  </div>
+
+  <h2 class="sec">2 · Las cuatro problemáticas</h2>
+  <div class="block">
+    <h3>Lo que la digitalización trajo consigo</h3>
+    <p>La lectura nombra exactamente cuatro. Si una pregunta ofrece una quinta —ciberseguridad,
+    adicción al juego, monopolio— esa es la distractora.</p>
+    <div class="tblwrap"><table>
+      <thead><tr><th>Problemática</th><th>Definición de la lectura</th><th>Factores</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Brecha digital</strong></td><td>Desigualdad en el <strong>acceso</strong> y en la <strong>alfabetización</strong> para el uso de tecnologías; exclusión por desconocimiento, accesibilidad o usabilidad</td><td>Económicos, sociales, geográficos y culturales</td></tr>
+        <tr><td><strong>Uso excesivo</strong></td><td>Pérdida de control por la incorporación de la tecnología a todos los ámbitos de la vida; aparecen diagnósticos asociados</td><td>—</td></tr>
+        <tr><td><strong>Desinformación</strong></td><td>Información falsa difundida <strong>sin filtro de veracidad</strong> por canales digitales no regulados</td><td>—</td></tr>
+        <tr><td><strong>Privacidad</strong></td><td>Derecho a <strong>conocer y controlar</strong> la información que el ciudadano digital comparte</td><td>—</td></tr>
+      </tbody>
+    </table></div>
+    <div class="note"><b>El puente con Ciencias de Datos.</b> La brecha digital es un problema de
+    cobertura de la muestra: quién queda fuera de los datos. La privacidad es tratamiento de datos
+    personales. La desinformación es calidad de fuentes. Las tres son problemas técnicos que esta
+    unidad plantea como problemas ciudadanos.</div>
+  </div>
+
+  <h2 class="sec">3 · Competencias MIL</h2>
+  <div class="block">
+    <div class="tag">UNESCO</div>
+    <h3>Alfabetización mediática e informacional</h3>
+    <p><strong>MIL = <em>Media Information Literacy</em></strong>. Antes se llamaba Alianza Mundial
+    para la Alfabetización Mediática e Informacional. Nació del trabajo de las divisiones de
+    Comunicación e Información de la UNESCO.</p>
+    <blockquote>MIL empodera ciudadanos para entender las funciones de los medios y otros
+    proveedores de información, para evaluar críticamente su contenido, y tomar decisiones
+    informadas, como usuarios y productores de contenido mediático e informativo.<cite>UNESCO, 2017, en Lau y Le-Voci-Sayad, 2020, p. 41</cite></blockquote>
+    <p>La lectura las presenta como <strong>elementos vitales para ejercer los derechos humanos
+    según el artículo 1º de la Declaración Universal de Derechos Humanos</strong>. Ese detalle
+    —artículo 1º— es del tipo que se pregunta.</p>
+  </div>
+
+  <h2 class="sec">4 · Participación ciudadana digital</h2>
+  <div class="block">
+    <div class="tag">El enfoque</div>
+    <h3>Ciudadano, no súbdito</h3>
+    <p>La lectura adopta el <strong>enfoque sociopolítico-humano</strong> (Freites). Incorpora las
+    contradicciones y los conflictos sociales como inherentes al ser humano y a las estructuras de
+    poder, pero:</p>
+    <blockquote>pone en el centro del poder (y, por tanto, de las decisiones) al ser humano en su
+    condición de ciudadano y no de súbdito, que comprende, interviene y modifica a través de su
+    participación el hecho político.<cite>Moreno y Ziritt Trejo, 2019, p. 31</cite></blockquote>
+    <p>Y sobre las redes: no son herramientas para intercambiar mensajes, sino
+    <strong>auténticos medios</strong> para la comunicación, la interacción y la participación
+    global (García, Del-Hoyo y Fernández, en Moreno y Ziritt, 2019, p. 31).</p>
+    <div class="tblwrap"><table>
+      <thead><tr><th>Mecanismo</th><th>Qué es</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Presupuesto participativo</strong></td><td>“El proceso por el cual los ciudadanos contribuyen en las decisiones del presupuesto del gobierno” (DNP, s.f.)</td></tr>
+        <tr><td><strong>Presupuesto participativo electrónico</strong></td><td>Mecanismo <strong>jurídicamente reconocido</strong>: derecho de <strong>voz</strong> (proponer iniciativas con inversión pública), derecho al <strong>voto</strong> (elegir entre planes y programas) y <strong>justicia social</strong> mediante plataformas en línea. Se plantea frente a contextos de corrupción</td></tr>
+        <tr><td><strong>Consultas en línea</strong></td><td>Gobiernos y organizaciones recogen opiniones sobre proyectos, políticas o temas en debate</td></tr>
+        <tr><td><strong>Gobierno abierto</strong></td><td>Divulgación de datos y de políticas públicas por medios digitales</td></tr>
+      </tbody>
+    </table></div>
+    <p>Los escenarios pueden ser <strong>públicos o privados</strong>, y en ambos se plantean
+    consultas, opiniones, deliberaciones, <strong>consensos y disensos</strong>.</p>
+  </div>
+
+  <h2 class="sec">5 · Pensamiento crítico</h2>
+  <div class="block">
+    <h3>Cuatro habilidades, en ese orden</h3>
+    <p>El pensamiento crítico aparece aquí no como habilidad suelta sino como
+    <strong>herramienta para la toma de decisiones informadas</strong> en un contexto de abundancia
+    de información. Las habilidades que nombra la lectura:</p>
+    <ul class="plain">
+      <li>Analizar la información de manera crítica.</li>
+      <li>Evaluar y verificar los argumentos presentados.</li>
+      <li>Tomarse el tiempo para leer, corroborar, analizar y comprender.</li>
+      <li>Compartir información de manera responsable.</li>
+    </ul>
+    <p>Sirven para <strong>identificar la validez y la falacia</strong> en medios, instituciones,
+    personas, perfiles y plataformas.</p>
+  </div>
+
+  <h2 class="sec">6 · Ciudadanías diversas y lenguajes diversos</h2>
+  <div class="block">
+    <h3>Por qué la igualdad formal no alcanza</h3>
+    <p>Las <strong>ciudadanías diversas</strong> amplían y reconocen la diversidad de género, etnia,
+    religión, orientación sexual y otros grupos históricamente invisibilizados. El problema de la
+    mirada homogénea es que supone un conjunto de derechos y deberes iguales para todos
+    “independientemente de sus diferencias”, cuando las necesidades y prioridades
+    <strong>son diversas y particulares</strong>.</p>
+    <blockquote>un ejercicio que permite pensar en formas de acción que superen mecanismos de
+    opresión y estén en la vía del fortalecimiento de los sujetos desde lo comunal<cite>Duque, 2022, p. 42 — sobre el lenguaje</cite></blockquote>
+    <blockquote>(…) la performance en el sentido más tradicional del término se ha caracterizado por
+    la utilización de los cuerpos de les artistas para enfrentar al poder y las normativas
+    sociales<cite>Boselli et al., 2022, p. 381</cite></blockquote>
+    <p><strong>Expresiones culturales juveniles como participación:</strong> arte, literatura,
+    música, grafiti, medios digitales. En América Latina: movimientos de memoria, feministas,
+    ambientalistas, de hip hop e indígenas.</p>
+  </div>
+
+  <h2 class="sec">7 · Lectura de realidades e inmersión social</h2>
+  <div class="block">
+    <div class="tag">La base metodológica del PIF</div>
+    <h3>Por qué se entrevista y no se encuesta</h3>
+    <p>Beltrán critica la mirada positivista, que trata:</p>
+    <blockquote>la realidad social como extrínseca, enfrentándola como científicos y no como
+    ciudadanos; consecuentemente, la realidad se concibe como consistente en datos que han de ser
+    verificados sin mayor implicación de la actividad científica en la organización racional de la
+    actividad humana<cite>Beltrán, 1985, p. 19</cite></blockquote>
+    <p>Y propone la alternativa. Esta es la cita más útil de toda la unidad:</p>
+    <blockquote>La realidad social es una realidad con significados compartidos,
+    intersubjetivamente y expresados en el lenguaje; significados que no son simplemente creencias
+    o valores subjetivos, sino elementos constitutivos de la realidad social<cite>Beltrán, 1985, p. 38</cite></blockquote>
+    <p>Si los significados son constitutivos de la realidad, entonces hay que ir a buscarlos donde
+    están: en el lenguaje de la gente. De ahí la entrevista. <strong>Formas de acercamiento</strong>
+    que nombra la lectura: entrevistas, conversaciones, grupos focales, fotografías, videos,
+    documentales — siempre de manera <strong>ética y respetuosa</strong>.</p>
+    <p>Una <strong>inmersión</strong> es la experiencia que permite vivir la realidad de forma “más
+    completa y envolvente”, con potencial para <strong>transformar prejuicios, comprender
+    conflictos, revisar ideas preconcebidas o verificar hipótesis</strong>.</p>
+  </div>
+
+  <h2 class="sec">8 · Las dos lecturas complementarias</h2>
+  <div class="block">
+    <div class="tag">Insúa Lintridis, 2011</div>
+    <h3>Ciudadanía y derechos culturales</h3>
+    <p>Artículo sobre la construcción de tejido social desde el arte contemporáneo en la Ciudad de
+    México. Sus palabras clave incluyen <strong>elitización</strong> —el término en español para
+    gentrificación—, derechos culturales, tejido social, urbanismo y megalópolis.</p>
+    <p>Tres pasos: <strong>descentrar la mirada</strong> (el conocimiento sobre ciudadanía no se
+    produce sólo en el Norte); el <strong>arte contemporáneo como productor de tejido social</strong>
+    (articula redes entre vecinos, colectivos y espacios independientes); y el riesgo que viene con
+    eso: <strong>ese mismo arte encarece el barrio y desplaza a quien lo habitaba</strong>. Cierra
+    con una pregunta, no con una receta: ¿cómo articular redes y entramados para dotar y cambiar la
+    estructura social? Propone <strong>discursos ascendentes</strong> —que suben del barrio a la
+    institución— y <strong>derechos culturales</strong> exigibles.</p>
+    <div class="note"><b>Para San Felipe.</b> El barrio es el caso del que habla el artículo: un
+    sector residencial convertido en distrito de galerías, donde la llegada del arte es el mecanismo
+    mismo de la elitización. Es la referencia que respalda su problema sin salirse de la
+    bibliografía del curso.</div>
+  </div>
+  <div class="block">
+    <div class="tag">CLACSO, 2023 · Poder digital</div>
+    <h3>Tres capítulos, no el libro completo</h3>
+    <div class="tblwrap"><table>
+      <thead><tr><th>Capítulo</th><th>Tesis</th><th>Para qué sirve</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Birch</strong><br>pp. 31-52</td><td>Las grandes tecnológicas ya no compiten <em>en</em> mercados: <strong>se convierten en</strong> el mercado. Controlan la información que el mercado necesita y fijan las reglas desde dentro (<em>mechanism design</em>, <strong>enclaves de datos</strong>)</td><td>Contradice a Camargo y Tavares: el monopolio no desapareció, cambió de dueño. Es un párrafo argumentativo completo</td></tr>
+        <tr><td><strong>Jung</strong><br>pp. 153-178</td><td>“La nube” oculta infraestructura material: minas, energía, agua, basura electrónica. El capitalismo digital es <strong>extractivo</strong> y reproduce la geografía colonial</td><td>Conecta la Unidad 3 con la dimensión ambiental y los ODS. Digitalizar no es automáticamente sostenible</td></tr>
+        <tr><td><strong>Kavada y otras</strong><br>pp. 221-246</td><td>Cinco frentes de acción ciudadana: presión legal y regulatoria, organización de trabajadores, campañas de consumidores, alternativas tecnológicas y coaliciones</td><td>Es la sección de propuesta de cualquier entrega. Evita el cierre derrotista</td></tr>
+      </tbody>
+    </table></div>
+    <p>Dato de Birch que conviene recordar: en <strong>Project Bernanke</strong>, Google cambió sus
+    subastas de publicidad de segundo a tercer precio y se quedó con cerca del <strong>40 %</strong>
+    del ingreso que debía llegar a los medios.</p>
+  </div>
+
+  <h2 class="sec">9 · La entrevista semiestructurada</h2>
+  <div class="block">
+    <div class="tag">El instrumento de la Entrega 2</div>
+    <h3>Una guía flexible, no un formulario</h3>
+    <blockquote>Una entrevista semiestructurada es una guía de preguntas flexible, con la cual
+    podemos orientarnos en una conversación con otra persona, de la que nos interesa obtener cierta
+    información.<cite>Material de trabajo · Unidad 3</cite></blockquote>
+    <div class="tblwrap"><table>
+      <thead><tr><th>Cuestionario</th><th>Entrevista semiestructurada</th></tr></thead>
+      <tbody>
+        <tr><td>Se aplica</td><td>Se conversa</td></tr>
+        <tr><td>Las preguntas son el instrumento</td><td>Las preguntas son <strong>una guía</strong></td></tr>
+        <tr><td>Se sigue al pie de la letra</td><td>Se amplía, se reformula, se piden ejemplos</td></tr>
+        <tr><td>El investigador manda</td><td><strong>El entrevistado es protagonista</strong></td></tr>
+      </tbody>
+    </table></div>
+    <p><strong>Lo no negociable:</strong> el consentimiento informado, que especifica que la
+    información se usará con <strong>fines netamente académicos</strong> y que el origen es
+    confidencial. Si la persona no quiere firmar, ser grabada o fotografiada, se explica la
+    situación en el documento: <strong>también es válido</strong>.</p>
+    <p><strong>El formato pide 13 apartados</strong>, y tres merecen atención: el
+    <strong>perfil</strong> debe demostrar con experiencia, estudios y logros que la persona es
+    realmente experta; el <strong>objetivo</strong> arranca con verbo (“indagar sobre…”,
+    “profundizar en…”); y las <strong>reflexiones</strong> cierran con la pregunta por la
+    articulación entre teoría y práctica del experto.</p>
+    <div class="note"><b>Y después, el foro.</b> Se adjunta el formato diligenciado con el nombre
+    del entrevistado, su perfil y el objetivo; y hay que <b>comentar a dos compañeros</b>. El
+    comentario es parte de la nota, no un extra.</div>
+  </div>
+</section>
+
+<!-- ============ TARJETAS ============ -->
+<section class="pane" id="p-tarjetas" role="tabpanel" hidden>
+  <p class="lead">Lea el término, formule la definición en voz alta, y sólo entonces revele. Marque
+  con “Repasar” lo que falle: el filtro deja únicamente esas.</p>
+  <div class="bar">
+    <button class="btn solid" id="tc-all">Revelar todas</button>
+    <button class="btn" id="tc-none">Ocultar todas</button>
+    <button class="btn" id="tc-shuf">Mezclar</button>
+    <button class="btn" id="tc-filt">Solo marcadas</button>
+    <span class="count" id="tc-count"></span>
+  </div>
+  <div class="cards" id="cards"></div>
+</section>
+
+<!-- ============ CITAS ============ -->
+<section class="pane" id="p-citas" role="tabpanel" hidden>
+  <p class="lead">Asociar la cita con su autor es lo que más se pregunta, y lo que después le
+  permite citar sin buscar. Lea la cita, diga el apellido y la página, y compruebe.</p>
+  <div class="bar">
+    <button class="btn solid" id="ct-none">Ocultar todas</button>
+    <button class="btn" id="ct-all">Revelar todas</button>
+  </div>
+  <div id="citas"></div>
+</section>
+
+<!-- ============ QUIZ ============ -->
+<section class="pane" id="p-quiz" role="tabpanel" hidden>
+  <p class="lead">Veintidós preguntas de selección múltiple sobre la lectura fundamental, el
+  material de trabajo y las dos lecturas complementarias. Cada opción explica por qué es correcta
+  o por qué no: eso es lo que hace que sirva.</p>
+  <div class="bar">
+    <button class="btn" id="qz-reset">Reiniciar</button>
+  </div>
+  <div id="quiz"></div>
+  <div class="score" id="score">
+    <span class="lbl">Aciertos</span><b id="sc-n">0</b>
+    <span class="lbl">de <span id="sc-d">0</span> respondidas · 22 en total</span>
+    <span class="count" id="sc-pct"></span>
+  </div>
+</section>
+
+<!-- ============ APLICACIÓN ============ -->
+<section class="pane" id="p-aplica" role="tabpanel" hidden>
+  <p class="lead">Estas no se responden con memoria. Escriba la respuesta —en papel o en un
+  documento— y después compárela con lo que debería contener. Son el puente entre el repaso y el
+  PIF de San Felipe.</p>
+  <div id="aplica"></div>
+</section>
+
+<footer>
+  <p>Fuentes: <em>Lectura fundamental · Unidad 3</em> y <em>Material de trabajo · Unidad 3</em>
+  (Politécnico Grancolombiano), Insúa Lintridis (2011) e <em>Estado de poder 2023: Poder
+  digital</em> (CLACSO/TNI/FUHEM).</p>
+  <p>Las citas con página son textuales de los materiales oficiales y se pueden usar en las
+  entregas. Para citar textualmente a Jung o a Kavada hay que abrir el PDF de CLACSO en la página
+  indicada: esas frases no están transcritas aquí.</p>
+</footer>
+
+</div>
+
+<script>
+/* ---------------- datos ---------------- */
+const CARDS = [
+ ["Sociedades digitales","Autocomunicación de masas","Forma de comunicación en red en la que <em>cada usuario juega un papel activo en la producción, circulación y consumo</em> de información. Surge de la arquitectura de red distribuida, sin polos que controlen el flujo."],
+ ["Sociedades digitales","Brecha digital","Desigualdad en el <em>acceso</em> y en la <em>alfabetización</em> para el uso de tecnologías: exclusión de grupos poblacionales por desconocimiento, accesibilidad o usabilidad. Inciden factores económicos, sociales, geográficos y culturales."],
+ ["Sociedades digitales","Uso excesivo de tecnologías","Pérdida de control sobre la tecnología al incorporarse a todos los ámbitos de la vida, hasta el punto de que aparecen diagnósticos asociados a ese uso."],
+ ["Sociedades digitales","Desinformación","Información falsa difundida <em>sin filtro de veracidad</em> a través de múltiples canales digitales no regulados."],
+ ["Sociedades digitales","Privacidad","Reflexión sobre el <em>derecho a conocer y controlar</em> la información que los ciudadanos digitales comparten."],
+ ["UNESCO","Competencias MIL","<em>Media Information Literacy</em>: alfabetización mediática e informacional. Empodera para entender las funciones de los medios, evaluar críticamente su contenido y tomar decisiones informadas como usuarios <em>y productores</em>. Son elementos vitales para ejercer los derechos humanos según el artículo 1º de la DUDH."],
+ ["Participación","Enfoque sociopolítico-humano","Enfoque de Freites que incorpora contradicciones y conflictos como inherentes al ser humano y a las estructuras de poder, y <em>pone en el centro del poder al ser humano en su condición de ciudadano y no de súbdito</em>."],
+ ["Participación","Presupuesto participativo","“El proceso por el cual los ciudadanos contribuyen en las decisiones del presupuesto del gobierno” (DNP, s.f.)."],
+ ["Participación","Presupuesto participativo electrónico","Mecanismo <em>jurídicamente reconocido</em> con tres componentes: derecho de <em>voz</em> (proponer iniciativas con inversión pública), derecho al <em>voto</em> (elegir entre planes y programas) y <em>justicia social</em> mediante plataformas en línea. Se plantea frente a la corrupción."],
+ ["Participación","Consultas en línea","Mecanismo por el cual gobiernos y organizaciones recogen opiniones y comentarios sobre proyectos específicos, propuestas de políticas o temas en debate."],
+ ["Participación","Gobierno abierto","Divulgación de datos y de políticas públicas a través de herramientas digitales."],
+ ["Participación","Escenarios públicos y privados","Los dos tipos de espacios digitales de participación. En ambos se plantean consultas, opiniones, deliberaciones, <em>consensos y disensos</em>."],
+ ["Ciudadanía","Ciudadanías diversas","Ampliación y reconocimiento de la diversidad de género, etnia, religión, orientación sexual y otros grupos históricamente invisibilizados, frente a la mirada homogénea que supone derechos iguales “independientemente de sus diferencias”."],
+ ["Ciudadanía","El lenguaje como artilugio","Según Duque (2022, p. 42), un ejercicio que permite <em>pensar formas de acción que superen mecanismos de opresión</em> y fortalezcan a los sujetos desde lo comunal."],
+ ["Ciudadanía","Performance","Según Boselli et al. (2022, p. 381), en su sentido más tradicional se ha caracterizado por <em>la utilización de los cuerpos de les artistas para enfrentar al poder y las normativas sociales</em>."],
+ ["Ciudadanía","Expresiones culturales juveniles","Arte, literatura, música, grafiti y medios digitales como formas de participación. En América Latina: movimientos de memoria, feministas, ambientalistas, de hip hop e indígenas."],
+ ["Pensamiento crítico","Las cuatro habilidades","Analizar la información críticamente · evaluar y verificar los argumentos · tomarse el tiempo para leer, corroborar, analizar y comprender · compartir información de manera responsable."],
+ ["Método","Inmersión en la realidad","Experiencia que permite vivir la realidad de forma “más completa y envolvente”, con potencial para <em>transformar prejuicios, comprender conflictos, revisar ideas preconcebidas o verificar hipótesis</em>."],
+ ["Método","Entrevista semiestructurada","<em>Guía de preguntas flexible</em> con la cual nos orientamos en una conversación con otra persona de la que interesa obtener cierta información. Las preguntas no se aplican literalmente: se amplían y se reformulan."],
+ ["Método","Consentimiento informado","Documento que garantiza que el origen de la información es confidencial y que ésta se usará con <em>fines netamente académicos</em>. Si no se firma, hay que explicar la situación."],
+ ["Método","Objetivo de la entrevista","Apartado del formato que se construye con verbos como “indagar sobre…” o “profundizar en…”, y cuyo complemento depende del problema que trabaja el equipo."],
+ ["Insúa, 2011","Elitización","El término que usa el artículo para la <em>gentrificación</em>: el encarecimiento de un sector urbano y el desplazamiento de quienes lo habitaban. Aparece como palabra clave junto a ciudadanía y derechos culturales."],
+ ["Insúa, 2011","Discursos ascendentes","Estrategia frente a la elitización: discursos que suben <em>desde el barrio hacia la institución</em>, y no al contrario. Van junto a los derechos culturales entendidos como exigibles."],
+ ["CLACSO, 2023","Enclaves de datos","Concepto de Birch: la información queda encerrada dentro de la plataforma y nadie más puede verla, de modo que la empresa <em>se convierte en</em> el mercado en lugar de competir en él."],
+ ["CLACSO, 2023","Extractivismo digital","Tesis de Jung: “la nube” es una metáfora que oculta minas, energía, agua y basura electrónica. Lo digital no es inmaterial: reproduce la geografía colonial."]
+];
+
+const CITAS = [
+ ["La creación de un sistema de comunicación dentro de una arquitectura de red distribuida, sin polos que controlen el flujo de comunicación, ha provocado una reestructuración de este sistema.","Camargo y Tavares, 2020, p. 54","Abre cualquier párrafo sobre el cambio de modelo comunicativo."],
+ ["MIL empodera ciudadanos para entender las funciones de los medios y otros proveedores de información, para evaluar críticamente su contenido, y tomar decisiones informadas, como usuarios y productores de contenido mediático e informativo.","UNESCO, 2017, en Lau y Le-Voci-Sayad, 2020, p. 41","Para justificar por qué la alfabetización mediática es un asunto de derechos."],
+ ["Elementos vitales para ejercer los derechos humanos según el artículo 1º de la Declaración Universal de Derechos Humanos.","UNESCO, 2017, en Oliveira, 2020, p. 23","El detalle del artículo 1º es el que se pregunta."],
+ ["Pone en el centro del poder (y, por tanto, de las decisiones) al ser humano en su condición de ciudadano y no de súbdito, que comprende, interviene y modifica a través de su participación el hecho político.","Moreno y Ziritt Trejo, 2019, p. 31","La definición del enfoque que adopta toda la unidad."],
+ ["Las redes sociales no deben entenderse como simples herramientas tecnológicas para el intercambio de mensajes, sino como auténticos medios para la comunicación, la interacción y la participación global.","García, Del-Hoyo y Fernández, en Moreno y Ziritt, 2019, p. 31","Para sostener que una red social es un escenario de participación, no un canal."],
+ ["Un ejercicio que permite pensar en formas de acción que superen mecanismos de opresión y estén en la vía del fortalecimiento de los sujetos desde lo comunal.","Duque, 2022, p. 42","Sobre el lenguaje como constructor de comunidad."],
+ ["(…) la performance en el sentido más tradicional del término se ha caracterizado por la utilización de los cuerpos de les artistas para enfrentar al poder y las normativas sociales.","Boselli et al., 2022, p. 381","Para hablar de artivismo y expresiones culturales como participación."],
+ ["La realidad social como extrínseca, enfrentándola como científicos y no como ciudadanos; consecuentemente, la realidad se concibe como consistente en datos que han de ser verificados sin mayor implicación de la actividad científica en la organización racional de la actividad humana.","Beltrán, 1985, p. 19","La crítica al positivismo. Va antes de la cita de la p. 38."],
+ ["La realidad social es una realidad con significados compartidos, intersubjetivamente y expresados en el lenguaje; significados que no son simplemente creencias o valores subjetivos, sino elementos constitutivos de la realidad social.","Beltrán, 1985, p. 38","La cita más útil de la unidad: justifica metodológicamente la entrevista frente a la encuesta."],
+ ["Mientras para los originarios de las áreas rurales la actividad agrícola es el eje fundamental de su mundo, para los avecindados constituye una perturbación al orden deseado.","Méndez, 2011, p. 133","Para hablar de perspectivas en conflicto sobre un mismo territorio. Traducible a vecinos antiguos y nuevos de un barrio."],
+ ["El arte de vanguardia puede conectar con las necesidades profundas de la gente, encontrar de nuevo la ilusión colectiva. El reto del activismo es cómo volver a enganchar la masa de la población.","Muñoz, 2023","Aparece dos veces en la lectura, en los recuadros “Para reflexionar”. Buena para cerrar un texto."],
+ ["El proceso por el cual los ciudadanos contribuyen en las decisiones del presupuesto del gobierno.","DNP, s.f.","Definición oficial colombiana de presupuesto participativo."]
+];
+
+const QUIZ = [
+ {s:"Según Camargo y Tavares (2020), el cambio central que introdujo la arquitectura de red distribuida fue:",
+  o:[["La desaparición de la televisión, la radio y la prensa escrita como medios.",0,"La lectura no afirma que los medios tradicionales desaparecieran, sino que dejaron de monopolizar el modelo comunicativo."],
+     ["La reestructuración del sistema de comunicación: se pasó del modelo de masas a una red sin polos que controlen el flujo.",1,"Es la formulación textual de la cita de la p. 54."],
+     ["El aumento del control estatal sobre la circulación de información.",0,"El argumento va en dirección contraria: la red distribuida debilita los polos de control, no los refuerza."],
+     ["La sustitución del trabajo periodístico por sistemas automáticos.",0,"No aparece en la lectura; es un tema de otras discusiones sobre tecnología."]]},
+ {s:"“Autocomunicación” en la lectura significa que:",
+  o:[["Las personas se comunican consigo mismas a través de dispositivos.",0,"Es una lectura literal del prefijo, no el concepto. No tiene que ver con comunicación intrapersonal."],
+     ["Cada usuario de la red cumple un papel activo en la producción, circulación y consumo de información.",1,"Esa tríada —producción, circulación, consumo— es exactamente como la enuncia la lectura."],
+     ["Los medios tradicionales automatizaron sus redacciones.",0,"No es el sentido del término ni aparece así en el texto."],
+     ["La comunicación dejó de ser masiva y volvió a ser limitada.",0,"Es al revés: la red permite una forma masiva de comunicación a partir de la autocomunicación."]]},
+ {s:"La brecha digital se define en la lectura como desigualdad en:",
+  o:[["El acceso a los dispositivos, únicamente.",0,"Incompleto, y es la distractora más frecuente: la definición tiene dos componentes."],
+     ["El acceso y la alfabetización para el uso de tecnologías.",1,"Los dos componentes. La exclusión puede darse por desconocimiento, accesibilidad o usabilidad."],
+     ["La velocidad de conexión entre zonas urbanas y rurales.",0,"Es un indicador posible de la brecha, no su definición."],
+     ["El nivel de ingresos de los hogares conectados.",0,"Lo económico es uno de los factores que inciden, no la definición."]]},
+ {s:"¿Cuál de las siguientes NO es una de las problemáticas de las sociedades digitales que nombra la lectura?",
+  o:[["Uso excesivo de las tecnologías digitales.",0,"Sí está: la lectura menciona incluso la aparición de diagnósticos asociados."],
+     ["Desinformación.",0,"Sí está: información falsa difundida sin filtro de veracidad."],
+     ["Concentración monopólica de las grandes empresas tecnológicas.",1,"No está en la lectura fundamental. Es el tema de Birch en el libro de CLACSO, que es lectura complementaria."],
+     ["Privacidad de los usuarios.",0,"Sí está: el derecho a conocer y controlar la información que se comparte."]]},
+ {s:"La lectura caracteriza la desinformación como información falsa difundida:",
+  o:[["Por medios tradicionales con intención política.",0,"La lectura la ubica en los canales digitales, no en los medios tradicionales."],
+     ["Sin filtro de veracidad, por canales digitales no regulados.",1,"Los dos rasgos que da el texto: ausencia de filtro y falta de regulación del canal."],
+     ["Por algoritmos de recomendación diseñados para ello.",0,"El texto no atribuye la desinformación al diseño algorítmico."],
+     ["Únicamente en periodos electorales.",0,"No hay tal restricción temporal en la definición."]]},
+ {s:"Las competencias MIL corresponden a:",
+  o:[["Alfabetización mediática e informacional, promovida por la UNESCO.",1,"<em>Media Information Literacy</em>. Antes se llamaba Alianza Mundial para la Alfabetización Mediática e Informacional."],
+     ["Medición de Impacto Laboral de la digitalización.",0,"No existe en el texto."],
+     ["Un estándar técnico de interoperabilidad de datos.",0,"MIL no es un estándar técnico sino un marco de competencias ciudadanas."],
+     ["Una certificación en manejo de herramientas de oficina.",0,"Las MIL no se refieren al manejo instrumental de software."]]},
+ {s:"Según UNESCO (2017), las competencias MIL se presentan como:",
+  o:[["Un requisito para el empleo en la economía digital.",0,"La lectura no las enmarca en empleabilidad."],
+     ["Elementos vitales para ejercer los derechos humanos según el artículo 1º de la Declaración Universal de Derechos Humanos.",1,"La lectura cita el artículo 1º de forma explícita. Ese número es el detalle evaluable."],
+     ["Un indicador de desarrollo incluido en los ODS.",0,"No se plantea como indicador de los ODS en esta lectura."],
+     ["Una recomendación no vinculante para los sistemas educativos.",0,"El texto las presenta con más fuerza que eso: como vitales para ejercer derechos."]]},
+ {s:"El enfoque sociopolítico-humano de la participación ciudadana (Freites, en Moreno y Ziritt Trejo, 2019) se caracteriza por:",
+  o:[["Eliminar el conflicto del debate político mediante el consenso técnico.",0,"Al contrario: incorpora las contradicciones y los conflictos como inherentes al ser humano y a las estructuras de poder."],
+     ["Poner en el centro del poder al ser humano en su condición de ciudadano y no de súbdito.",1,"Es la formulación textual. La oposición ciudadano/súbdito es el núcleo del enfoque."],
+     ["Subordinar la decisión ciudadana a la experticia del funcionario.",0,"Es lo contrario de un enfoque que exige un rol activo en la toma de decisiones colectivas."],
+     ["Limitar la participación a los mecanismos previstos en la ley.",0,"El enfoque es más amplio que el catálogo legal de mecanismos."]]},
+ {s:"¿Qué distingue al presupuesto participativo electrónico de otros mecanismos digitales?",
+  o:[["Es voluntario y depende de la iniciativa de cada alcaldía.",0,"La lectura lo describe justamente como un mecanismo reconocido jurídicamente."],
+     ["Es un mecanismo jurídicamente reconocido con derecho de voz, derecho al voto y un componente de justicia social.",1,"Los tres elementos que enumera la lectura, sobre plataformas digitales dedicadas a la asignación de recursos."],
+     ["Sustituye al concejo municipal en la aprobación del presupuesto.",0,"No sustituye la institucionalidad: la ciudadanía contribuye a las decisiones."],
+     ["Solo aplica a proyectos de infraestructura.",0,"No hay tal limitación en el texto."]]},
+ {s:"Según el DNP, el presupuesto participativo es:",
+  o:[["Un ejercicio pedagógico de simulación presupuestal en colegios.",0,"No corresponde a la definición citada."],
+     ["El proceso por el cual los ciudadanos contribuyen en las decisiones del presupuesto del gobierno.",1,"Es la definición textual que trae la lectura."],
+     ["La destinación obligatoria de un porcentaje del presupuesto a proyectos comunitarios.",0,"Confunde el mecanismo con una regla de destinación de recursos."],
+     ["La rendición de cuentas anual de la ejecución presupuestal.",0,"La rendición de cuentas es posterior a la decisión; el presupuesto participativo es sobre la decisión misma."]]},
+ {s:"El problema de la “mirada homogénea” sobre la ciudadanía es que:",
+  o:[["Supone derechos y deberes iguales independientemente de las diferencias, cuando las necesidades y prioridades son diversas y particulares.",1,"Es el argumento central del apartado de ciudadanías diversas."],
+     ["Niega la existencia de derechos universales.",0,"Es lo contrario: la mirada homogénea afirma la universalidad formal; lo que se le critica es que ignora la diferencia."],
+     ["Concede privilegios a grupos históricamente invisibilizados.",0,"El texto no plantea privilegios, sino reconocimiento de necesidades diversas."],
+     ["Impide la participación digital de los adultos mayores.",0,"Eso sería un caso de brecha digital, no el problema de la mirada homogénea."]]},
+ {s:"Boselli et al. (2022) caracterizan la performance, en su sentido más tradicional, por:",
+  o:[["La utilización de los cuerpos de les artistas para enfrentar al poder y las normativas sociales.",1,"Es la cita textual de la p. 381. El cuerpo es el elemento clave."],
+     ["El uso de plataformas digitales para difundir arte político.",0,"El sentido tradicional que describe la cita es corporal y presencial."],
+     ["La intervención de espacios públicos con grafiti y murales.",0,"El grafiti aparece en la lectura, pero no como definición de performance."],
+     ["La representación teatral de conflictos históricos.",0,"La cita no habla de representación teatral sino del cuerpo del artista frente al poder."]]},
+ {s:"Duque (2022) entiende el lenguaje como un ejercicio que permite:",
+  o:[["Estandarizar la comunicación institucional.",0,"Va en dirección opuesta a lo comunal que plantea el autor."],
+     ["Pensar formas de acción que superen mecanismos de opresión y fortalezcan a los sujetos desde lo comunal.",1,"Cita textual de la p. 42. Lo comunal es la palabra que hay que retener."],
+     ["Medir el nivel de alfabetización de una población.",0,"No es el sentido del planteamiento."],
+     ["Traducir saberes técnicos a lenguaje ciudadano.",0,"Es una función posible del lenguaje, pero no lo que dice la cita."]]},
+ {s:"¿Cuál de estas NO figura entre las habilidades del pensamiento crítico que enumera la lectura?",
+  o:[["Analizar la información de manera crítica.",0,"Sí figura; es la primera."],
+     ["Evaluar y verificar los argumentos presentados.",0,"Sí figura."],
+     ["Producir contenido propio para las redes sociales.",1,"No está en la lista. La lectura habla de compartir información de manera responsable, que no es lo mismo que producir contenido."],
+     ["Tomarse el tiempo para leer, corroborar, analizar y comprender.",0,"Sí figura, y es la que más insiste en el tiempo como condición."]]},
+ {s:"La crítica de Beltrán (1985) al positivismo sostiene que éste concibe la realidad social como:",
+  o:[["Una construcción intersubjetiva imposible de estudiar.",0,"Eso es casi lo contrario: la construcción intersubjetiva es la alternativa que Beltrán propone."],
+     ["Extrínseca, enfrentada como científicos y no como ciudadanos, hecha de datos que solo han de ser verificados.",1,"Es la cita de la p. 19. Las palabras clave son “extrínseca” y “científicos y no ciudadanos”."],
+     ["Un conjunto de significados compartidos expresados en el lenguaje.",0,"Esa es la definición alternativa de la p. 38, no la crítica."],
+     ["Un objeto que solo puede abordarse con métodos cualitativos.",0,"Beltrán no reduce el asunto a una técnica; discute el estatuto de la realidad social."]]},
+ {s:"La cita de Beltrán que justifica metodológicamente hacer una entrevista y no una encuesta afirma que la realidad social:",
+  o:[["Es demasiado compleja para ser medida con instrumentos estandarizados.",0,"Suena razonable, pero no es lo que dice la cita: el argumento no es de complejidad sino de naturaleza."],
+     ["Está hecha de significados compartidos, expresados en el lenguaje, que son elementos constitutivos de esa realidad.",1,"Cita de la p. 38. Si los significados constituyen la realidad, hay que ir a buscarlos en el lenguaje de la gente: eso es la entrevista."],
+     ["Requiere métodos científicos con metodologías infalibles.",0,"Es justamente la posición que el texto rechaza."],
+     ["Debe estudiarse sin implicación del investigador.",0,"Es la posición positivista que se critica en la p. 19."]]},
+ {s:"La diferencia fundamental entre un cuestionario y una entrevista semiestructurada es que en la entrevista:",
+  o:[["Las preguntas son abiertas y el cuestionario solo admite preguntas cerradas.",0,"Es una diferencia frecuente pero no la que el material señala como fundamental; un cuestionario también puede tener preguntas abiertas."],
+     ["Se entabla una conversación y las preguntas constituyen una guía para orientarla.",1,"Es exactamente como lo formula el material de trabajo. Ambos tienen preguntas básicas; lo que cambia es la conversación."],
+     ["No se requiere consentimiento informado.",0,"Al contrario: el material insiste en el consentimiento precisamente para la entrevista."],
+     ["Se aplica a expertos y el cuestionario a la población general.",0,"El tipo de interlocutor no es lo que define la técnica."]]},
+ {s:"Sobre las preguntas de la guía, el material de trabajo recomienda:",
+  o:[["Aplicarlas de manera literal para garantizar comparabilidad.",0,"El material dice lo contrario: “las preguntas no se aplican de manera literal”."],
+     ["Incluir preguntas abiertas y poder ampliarlas, reformularlas y pedir más información.",1,"Las dos recomendaciones del recuadro de tips: apertura y flexibilidad en el momento."],
+     ["Limitarlas a diez para no extender el encuentro.",0,"No hay un número indicado."],
+     ["Enviarlas por escrito y recibir las respuestas por correo.",0,"Eso eliminaría la conversación, que es el rasgo definitorio de la técnica."]]},
+ {s:"En el formato de entrevista, el apartado “Perfil del entrevistado/a” debe:",
+  o:[["Registrar los datos de contacto y la organización a la que pertenece.",0,"La organización tiene su propio apartado; el perfil es otra cosa."],
+     ["Demostrar, con experiencia, estudios y logros, que la persona realmente es experta en el tema.",1,"El material lo dice así: lo que busca el apartado es demostrar la experticia."],
+     ["Describir la relación previa del grupo con la persona entrevistada.",0,"Eso va en el apartado de introducción, sobre las gestiones previas."],
+     ["Resumir las respuestas más relevantes que dio.",0,"Las respuestas van en la guía y en las reflexiones."]]},
+ {s:"El consentimiento informado, según el material de trabajo, debe especificar que:",
+  o:[["La entidad entrevistada aprueba la publicación del trabajo.",0,"No se trata de una aprobación institucional del trabajo."],
+     ["La información será usada con fines netamente académicos y su origen será confidencial.",1,"Las dos garantías del recuadro “Importante”. Si la persona no firma, se explica la situación y también es válido."],
+     ["El entrevistado renuncia a revisar el documento final.",0,"No aparece nada semejante."],
+     ["El grupo puede difundir las grabaciones en redes sociales.",0,"Sería contrario al carácter académico y confidencial del uso."]]},
+ {s:"La tesis de Kean Birch en “Ya no hay mercados” (CLACSO, 2023) sostiene que las grandes tecnológicas:",
+  o:[["Compiten en mercados cada vez más eficientes gracias a los datos.",0,"Es la posición que el capítulo discute, no la que defiende."],
+     ["Ya no compiten en mercados: se convierten en el mercado, porque controlan la información y fijan las reglas del intercambio desde dentro.",1,"De ahí los conceptos de <em>mechanism design</em> y enclaves de datos, y el caso Project Bernanke."],
+     ["Deben ser nacionalizadas para garantizar el acceso a la información.",0,"El capítulo diagnostica el poder de mercado; no propone esa medida."],
+     ["Perdieron poder frente a las plataformas descentralizadas.",0,"Los datos del capítulo apuntan en sentido contrario: alta concentración."]]},
+ {s:"Cuando Maximilian Jung afirma que el capitalismo digital “es una mina, no una nube”, quiere decir que:",
+  o:[["Los datos son el nuevo petróleo y hay que extraerlos con más eficiencia.",0,"Es una metáfora distinta y con otra intención: el capítulo critica el extractivismo, no propone optimizarlo."],
+     ["Lo digital depende de infraestructura material y extractiva —minerales, energía, agua, basura electrónica— que la metáfora de la nube oculta.",1,"Es la tesis del capítulo, y es lo que conecta la Unidad 3 con la dimensión ambiental y los ODS."],
+     ["La minería de criptomonedas es el principal consumo energético del sector.",0,"El capítulo va más allá de las criptomonedas: habla de toda la cadena material."],
+     ["El almacenamiento en la nube es más contaminante que el almacenamiento local.",0,"No es una comparación entre formas de almacenamiento, sino una crítica a la inmaterialidad aparente."]]}
+];
+
+const APLICA = [
+ {q:"Aplique el concepto de brecha digital a San Felipe. ¿Quién quedaría fuera si el distrito organizara su participación ciudadana solo por medios digitales?",
+  h:"No se queda en “los adultos mayores no usan internet”. Use los dos componentes de la definición y los cuatro factores.",
+  m:["Nombrar los dos componentes: acceso <em>y</em> alfabetización. No es lo mismo tener datos en el celular que saber inscribirse en una consulta en línea.",
+     "Identificar a quién excluye cada uno en el barrio: vecinos antiguos, arrendatarios, comerciantes informales, personas mayores.",
+     "Cruzarlo con los cuatro factores que nombra la lectura: económicos, sociales, geográficos y culturales.",
+     "Cerrar con la consecuencia política: si la consulta es solo digital, el resultado sobrerrepresenta a quien llegó al barrio con la galería, no a quien lo hizo."]},
+ {q:"Redacte el párrafo metodológico de su PIF que justifica hacer entrevistas y no encuestas, usando a Beltrán (1985).",
+  h:"Estructura de párrafo sánguche: su voz, la cita textual en APA, su voz con el análisis.",
+  m:["Abrir con su propia afirmación: el problema de San Felipe no se agota en cifras de arriendos o predial.",
+     "Insertar la cita textual de Beltrán (1985, p. 38) sobre los significados compartidos expresados en el lenguaje, entre comillas y con la referencia entre paréntesis.",
+     "Cerrar con su análisis: si los significados son constitutivos de la realidad social, el instrumento tiene que ir al lenguaje de los habitantes; de ahí la entrevista semiestructurada.",
+     "Opcional, para sumar: contrastar con la crítica al positivismo de la p. 19, que explica por qué una encuesta trataría el barrio como objeto extrínseco."]},
+ {q:"Construya un párrafo argumentativo que contraste la lectura fundamental con el capítulo de Birch. ¿Se democratizó la comunicación o cambió de dueño el monopolio?",
+  h:"Este es el ejercicio de mayor valor de la unidad, porque pone dos fuentes oficiales en tensión y no repite ninguna.",
+  m:["Presentar la tesis de la lectura fundamental con la cita de Camargo y Tavares (2020, p. 54): la red distribuida rompió el modelo de masas.",
+     "Presentar la objeción de Birch: el control no desapareció, se desplazó de las empresas de medios a las plataformas, que ahora son el mercado.",
+     "No resolver la tensión de forma simplista: ambas son ciertas en niveles distintos —se democratizó la <em>emisión</em>, se concentró la <em>infraestructura</em>—.",
+     "Aterrizar: para la participación ciudadana digital eso significa que el escenario de deliberación es propiedad privada, con reglas que el ciudadano no fija."]},
+ {q:"Con Insúa Lintridis (2011), explique por qué el arte contemporáneo puede ser a la vez constructor de tejido social y causa de elitización en un barrio.",
+  h:"La clave es que no son dos procesos opuestos sino el mismo proceso en dos momentos.",
+  m:["Primer momento: el arte articula redes entre vecinos, colectivos y espacios independientes; produce tejido social donde no había.",
+     "Segundo momento: ese mismo prestigio simbólico atrae inversión, sube el valor del suelo y desplaza a quienes construyeron el tejido.",
+     "Nombrar el término del artículo —elitización— y no solo “gentrificación”, porque es el que usa la fuente.",
+     "Cerrar con las dos estrategias que propone la autora: discursos ascendentes y derechos culturales exigibles, y decir qué significarían en San Felipe."]},
+ {q:"Formule el objetivo de su entrevista y el perfil del experto que va a entrevistar, tal como los pide el formato.",
+  h:"El objetivo arranca con verbo. El perfil tiene que poder sustentarse por escrito.",
+  m:["Objetivo con verbo inicial: “Indagar sobre…” o “Profundizar en…”, seguido del aspecto concreto del problema de San Felipe que el experto puede aclarar.",
+     "Perfil con los tres elementos que pide el formato: experiencia en el campo, estudios y logros verificables.",
+     "Escoger un perfil sustentable: Secretaría de Cultura, Instituto Distrital de Patrimonio, gestión del Distrito Creativo, Planeación Distrital (uso del suelo) o la JAC de Barrios Unidos.",
+     "Separar roles: el vecino de toda la vida es fuente primaria valiosa, pero este formato exige alguien cuyo perfil profesional se pueda documentar."]},
+ {q:"Con el capítulo de Jung, argumente por qué digitalizar un servicio público no equivale automáticamente a hacerlo sostenible.",
+  h:"Conecta la Unidad 3 con la dimensión ambiental de la Unidad 1 y con los ODS. Es un argumento contraintuitivo, y eso lo hace bueno.",
+  m:["Partir del supuesto corriente: lo digital se presenta como limpio, inmaterial, “sin papel”.",
+     "Introducir la tesis de Jung: detrás hay minas, energía, agua para enfriar centros de datos y basura electrónica.",
+     "Señalar la asimetría geográfica: los minerales y los residuos quedan en el Sur, los servicios y las ganancias en el Norte.",
+     "Concluir sin caer en el rechazo de la tecnología: la pregunta correcta no es si digitalizar, sino a costa de quién y con qué contabilidad ambiental."]}
+];
+
+/* ---------------- almacenamiento seguro ---------------- */
+const store = {
+  get(k, d){ try{ const v = localStorage.getItem(k); return v===null? d : JSON.parse(v); }catch(e){ return d; } },
+  set(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+};
+
+/* ---------------- tabs ---------------- */
+const tabs = [...document.querySelectorAll('.tab')];
+const panes = {};
+tabs.forEach(t => panes[t.dataset.p] = document.getElementById('p-'+t.dataset.p));
+function show(name){
+  tabs.forEach(t => t.setAttribute('aria-selected', String(t.dataset.p===name)));
+  Object.entries(panes).forEach(([k,el]) => el.hidden = (k!==name));
+  store.set('u3.tab', name);
+}
+tabs.forEach(t => t.addEventListener('click', () => show(t.dataset.p)));
+
+/* ---------------- tarjetas ---------------- */
+const cardsEl = document.getElementById('cards');
+let marked = store.get('u3.marked', []);
+let order = CARDS.map((_,i)=>i);
+let onlyMarked = false;
+
+function esc(s){ return s; }
+function renderCards(){
+  const list = onlyMarked ? order.filter(i => marked.includes(i)) : order;
+  cardsEl.innerHTML = '';
+  if(!list.length){
+    cardsEl.innerHTML = '<p class="lead" style="margin:0">No hay tarjetas marcadas. Marque las que falle con el botón “Repasar”.</p>';
+  }
+  list.forEach(i => {
+    const [dom, term, back] = CARDS[i];
+    const el = document.createElement('div');
+    el.className = 'card' + (marked.includes(i) ? ' marked' : '');
+    el.innerHTML =
+      '<div class="front"><div class="dom">'+dom+'</div><div class="term">'+term+'</div></div>'+
+      '<div class="back">'+back+'</div>'+
+      '<div class="acts"><button type="button" class="rv">Revelar</button>'+
+      '<button type="button" class="mk">'+(marked.includes(i)?'✓ Marcada':'Repasar')+'</button></div>';
+    el.querySelector('.rv').addEventListener('click', () => {
+      el.classList.toggle('open');
+      el.querySelector('.rv').textContent = el.classList.contains('open') ? 'Ocultar' : 'Revelar';
+    });
+    el.querySelector('.mk').addEventListener('click', () => {
+      marked = marked.includes(i) ? marked.filter(x=>x!==i) : marked.concat(i);
+      store.set('u3.marked', marked);
+      renderCards();
+    });
+    cardsEl.appendChild(el);
+  });
+  document.getElementById('tc-count').textContent =
+    list.length + ' en pantalla · ' + marked.length + ' marcadas';
+}
+document.getElementById('tc-all').addEventListener('click', () => {
+  cardsEl.querySelectorAll('.card').forEach(c => { c.classList.add('open'); c.querySelector('.rv').textContent='Ocultar'; });
+});
+document.getElementById('tc-none').addEventListener('click', () => {
+  cardsEl.querySelectorAll('.card').forEach(c => { c.classList.remove('open'); c.querySelector('.rv').textContent='Revelar'; });
+});
+document.getElementById('tc-shuf').addEventListener('click', () => {
+  for(let i=order.length-1;i>0;i--){ const j = Math.floor(Math.random()*(i+1)); [order[i],order[j]]=[order[j],order[i]]; }
+  renderCards();
+});
+document.getElementById('tc-filt').addEventListener('click', (e) => {
+  onlyMarked = !onlyMarked;
+  e.currentTarget.textContent = onlyMarked ? 'Ver todas' : 'Solo marcadas';
+  renderCards();
+});
+renderCards();
+
+/* ---------------- citas ---------------- */
+const citasEl = document.getElementById('citas');
+CITAS.forEach(([txt, src, use]) => {
+  const el = document.createElement('div');
+  el.className = 'q';
+  el.innerHTML = '<div class="txt">“'+txt+'”</div>'+
+    '<div class="rev"><button type="button" class="mini">¿Quién lo dice?</button></div>'+
+    '<div class="who"><span class="src">'+src+'</span><span class="use">'+use+'</span></div>';
+  el.querySelector('.mini').addEventListener('click', () => el.classList.add('open'));
+  citasEl.appendChild(el);
+});
+document.getElementById('ct-all').addEventListener('click', () =>
+  citasEl.querySelectorAll('.q').forEach(q => q.classList.add('open')));
+document.getElementById('ct-none').addEventListener('click', () =>
+  citasEl.querySelectorAll('.q').forEach(q => q.classList.remove('open')));
+
+/* ---------------- quiz ---------------- */
+const quizEl = document.getElementById('quiz');
+const LT = ['a','b','c','d','e'];
+let right = 0, done = 0;
+function paintScore(){
+  document.getElementById('sc-n').textContent = right;
+  document.getElementById('sc-d').textContent = done;
+  document.getElementById('sc-pct').textContent = done ? Math.round(right/done*100)+' %' : '';
+}
+function buildQuiz(){
+  quizEl.innerHTML = ''; right = 0; done = 0; paintScore();
+  QUIZ.forEach((item, qi) => {
+    const box = document.createElement('div');
+    box.className = 'qz';
+    box.innerHTML = '<div class="num">Pregunta '+(qi+1)+' de '+QUIZ.length+'</div>'+
+      '<div class="stem">'+item.s+'</div><div class="opts"></div><div class="why"></div>';
+    const opts = box.querySelector('.opts');
+    const why  = box.querySelector('.why');
+    item.o.forEach((opt, oi) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'opt';
+      b.innerHTML = '<span class="ltr">'+LT[oi]+'</span><span>'+opt[0]+'</span>';
+      b.addEventListener('click', () => {
+        if(box.dataset.answered) return;
+        box.dataset.answered = '1'; done++;
+        const ok = opt[1] === 1;
+        if(ok) right++;
+        opts.querySelectorAll('.opt').forEach((btn, k) => {
+          btn.disabled = true;
+          if(item.o[k][1] === 1) btn.classList.add('right');
+        });
+        if(!ok) b.classList.add('wrong');
+        why.innerHTML = '<span class="verdict '+(ok?'y':'n')+'">'+(ok?'Correcta. ':'Incorrecta. ')+'</span>'+
+          opt[2] + (ok ? '' : '<br><br><b>La correcta es '+LT[item.o.findIndex(x=>x[1]===1)]+':</b> '+
+          item.o.find(x=>x[1]===1)[2]);
+        why.classList.add('on');
+        paintScore();
+      });
+      opts.appendChild(b);
+    });
+    quizEl.appendChild(box);
+  });
+}
+document.getElementById('qz-reset').addEventListener('click', buildQuiz);
+buildQuiz();
+
+/* ---------------- aplicación ---------------- */
+const apEl = document.getElementById('aplica');
+APLICA.forEach((a, i) => {
+  const el = document.createElement('div');
+  el.className = 'ap';
+  el.innerHTML = '<div class="num" style="font-family:var(--mono);font-size:11.5px;color:var(--ink3);letter-spacing:.06em">Caso '+(i+1)+'</div>'+
+    '<div class="ask" style="margin-top:6px">'+a.q+'</div>'+
+    '<div class="hint">'+a.h+'</div>'+
+    '<div class="acts"><button type="button" class="mini">Ver qué debe contener</button></div>'+
+    '<div class="model"><h4>La respuesta debería incluir</h4><ol>'+
+      a.m.map(x=>'<li>'+x+'</li>').join('')+'</ol></div>';
+  el.querySelector('.mini').addEventListener('click', () => {
+    el.classList.add('open');
+    el.querySelector('.acts').hidden = true;
+  });
+  apEl.appendChild(el);
+});
+
+/* ---------------- restaurar pestaña ---------------- */
+const saved = store.get('u3.tab', 'repaso');
+show(tabs.some(t=>t.dataset.p===saved) ? saved : 'repaso');
+</script>
+<a href="/" class="ac-home" style="position:fixed;right:14px;bottom:14px;z-index:9999;font:600 13px/1 -apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:9px 13px;border-radius:20px;background:#1a6fd4;color:#fff;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">&#8962; Inicio</a>
+</body></html>

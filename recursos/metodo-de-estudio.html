@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Método de estudio</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ _Recursos comunes / Método de estudio</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="método-de-estudio">Método de estudio</h1>
+<p>Manual operativo para cursar el primer semestre de Ciencias de Datos (Politécnico Grancolombiano, virtual) trabajando tiempo completo.</p>
+<p>No es un texto de motivación. Es un procedimiento: qué hacer, cuándo, y qué hacer cuando se te dañe el plan.</p>
+<hr />
+<h2 id="1-el-diagnóstico-honesto">1. El diagnóstico honesto</h2>
+<p>Tienes entre 10 y 15 horas semanales para <strong>tres asignaturas simultáneas</strong>, no para una. Eso significa entre 3 y 5 horas por asignatura por semana, en un formato virtual asincrónico donde nadie te va a llamar a preguntarte por qué no entraste.</p>
+<p>Dos consecuencias inmediatas:</p>
+<ul>
+<li>No te alcanza para leer todo dos veces. Tienes que leer una vez y <strong>recuperar</strong> muchas veces. Son cosas distintas y la segunda es la que produce nota.</li>
+<li>No te alcanza para estudiar "cuando tengas tiempo". El tiempo no aparece; se separa antes. Un bloque de estudio que no está en el calendario ya está perdido.</li>
+</ul>
+<p>El semestre son 16 semanas partidas en dos bloques de 8. Cada bloque es un semestre comprimido: en 8 semanas se abre, se evalúa dos veces y se cierra una asignatura. Un atraso de dos semanas en un bloque de ocho es un cuarto del curso. Por eso el protocolo de recuperación (sección 8) importa más que cualquier técnica de subrayado.</p>
+<hr />
+<h2 id="2-repaso-espaciado-y-práctica-de-recuperación">2. Repaso espaciado y práctica de recuperación</h2>
+<p>Estos son los dos únicos principios de aprendizaje que necesitas dominar. Todo lo demás es logística.</p>
+<h3 id="práctica-de-recuperación">Práctica de recuperación</h3>
+<p><strong>Definición:</strong> en vez de volver a mirar el material, intentas producirlo de memoria, con el material cerrado, y solo después verificas.</p>
+<p><strong>Por qué funciona:</strong> cuando releés, tu cerebro reconoce el texto y confunde el reconocimiento con el conocimiento. Es la sensación de "sí, esto ya lo sé" que se evapora en el quiz. Cuando en cambio te obligas a recuperar el dato sin ayuda, el intento mismo —incluso cuando falla— hace más estable el recuerdo, y además te entrega un diagnóstico verdadero de lo que no sabes. La relectura te da una foto optimista; la recuperación te da la foto real.</p>
+<p>Traducción práctica:</p>
+<ul>
+<li>Cierras el PDF, tomas una hoja y escribes de memoria: definición, fórmula, cuándo se usa, un ejemplo.</li>
+<li>Abres el PDF y marcas en rojo lo que fallaste. <strong>Lo rojo es tu plan de estudio del día siguiente.</strong></li>
+<li>Los ejercicios cuentan como recuperación solo si intentas resolverlos antes de mirar la solución. Un ejercicio leído con la solución al lado es una relectura disfrazada.</li>
+</ul>
+<p>Formatos que sirven en tu caso: tarjetas pregunta/respuesta, prueba de escritorio a mano de un algoritmo, rehacer una derivada en papel sin el ejemplo, explicarle en voz alta a nadie qué es un valor propio.</p>
+<h3 id="repaso-espaciado">Repaso espaciado</h3>
+<p><strong>Definición:</strong> distribuyes los repasos en el tiempo en lugar de amontonarlos, y aumentas el intervalo cada vez que aciertas.</p>
+<p><strong>Por qué funciona:</strong> el olvido no es lineal; caes fuerte en las primeras horas y luego más despacio. Si repasas justo antes de olvidar, el esfuerzo de recuperar es alto y el recuerdo se refuerza. Si repasas cuando todavía está fresco, no cuesta nada y por eso no consolida nada. La dificultad moderada es el ingrediente activo.</p>
+<p>Calendario de repaso que puedes sostener con tu carga:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Repaso</th>
+<th>Cuándo</th>
+<th>Duración</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>El mismo día, al cerrar la sesión</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Al día siguiente</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>3</td>
+<td>A los 3 días</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>4</td>
+<td>A los 7 días</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>5</td>
+<td>En la semana de repaso previa al examen final</td>
+<td>20 min</td>
+</tr>
+</tbody>
+</table></div>
+<p>Cinco repasos suman una hora por tema. Releer el capítulo cinco veces te cuesta cinco horas y rinde menos.</p>
+<blockquote>
+<p>Advertencia sobre fuentes: estos dos principios están ampliamente documentados en la literatura de psicología cognitiva y en manuales de aprendizaje. No te voy a dar autores ni años porque no quiero pasarte una cita inventada. Si quieres verificarlos, búscalos por su nombre en inglés —<em>retrieval practice</em>, <em>spaced repetition</em>, <em>testing effect</em>— en Google Académico o en la biblioteca virtual del Poli, que tiene acceso a bases de datos académicas desde el portal del estudiante.</p>
+</blockquote>
+<hr />
+<h2 id="3-sesión-corta-diaria-contra-maratón-del-domingo">3. Sesión corta diaria contra maratón del domingo</h2>
+<p>La maratón dominical es tentadora porque cabe en la agenda de un adulto que trabaja. Pierde por cuatro razones, todas verificables en tu propia experiencia en pocas semanas:</p>
+<ol>
+<li><strong>No hay espaciado.</strong> Cinco horas seguidas son un solo repaso. Cinco sesiones de una hora son cinco. Mismo costo, cinco veces el efecto.</li>
+<li><strong>La atención se degrada.</strong> Las últimas dos horas de un bloque largo se gastan releyendo lo que ya leíste en las primeras dos.</li>
+<li><strong>Un domingo malo borra la semana.</strong> Si te llaman de la oficina, si hay un cumpleaños, si te enfermas, tu semana académica queda en cero. Con sesiones diarias, un día perdido cuesta un día.</li>
+<li><strong>Los cursos virtuales no se dejan estudiar de una.</strong> Hay foros con fechas de corte, quices con ventana de apertura, entregas con hora límite. Si solo entras los domingos, te vas a estrellar contra un cierre de miércoles.</li>
+</ol>
+<p><strong>Regla operativa:</strong> 60 a 90 minutos de lunes a viernes, un bloque de 2 a 3 horas el sábado, domingo libre o de repaso liviano. Eso da entre 8 y 11 horas de núcleo, más el margen del sábado para llegar a 13 o 15 en semanas de entrega.</p>
+<p>Y una regla de emergencia: <strong>el mínimo no negociable son 25 minutos.</strong> Un día en que no puedas más, haces 25 minutos de tarjetas o de un ejercicio. No es simbólico: mantiene la cadena y evita el costo de reentrar en frío.</p>
+<hr />
+<h2 id="4-tomar-notas-en-un-curso-virtual-asincrónico">4. Tomar notas en un curso virtual asincrónico</h2>
+<p>En virtual asincrónico el material está siempre disponible, y eso es una trampa: como puedes volver cuando quieras, no procesas nada la primera vez. La nota existe para forzar el procesamiento.</p>
+<p>Reglas:</p>
+<ul>
+<li><strong>Una nota por escenario, no por video.</strong> El escenario es la unidad de evaluación; que sea también la unidad de apunte.</li>
+<li><strong>No transcribas.</strong> Si tu nota se parece a la diapositiva, no sirvió. La nota es tu reformulación.</li>
+<li><strong>Pausa y anticipa.</strong> Antes de ver la solución de un ejemplo en video, pausa e intenta el paso siguiente. Es recuperación gratis.</li>
+<li><strong>Marca los huecos con una etiqueta fija.</strong> Yo uso <code>??</code>. Al final de la semana busco <code>??</code> en todas las notas y eso es lo que llevo al foro o a la tutoría.</li>
+<li><strong>Anota el número del ejercicio, no el ejercicio.</strong> El enunciado ya está en la plataforma; tu nota guarda el <em>método</em>, no el dato.</li>
+<li><strong>Velocidad de video:</strong> 1,25× para exposición conceptual, 1× o menos para derivaciones y para código en vivo. No subas la velocidad en clases de procedimiento.</li>
+<li><strong>Descarga los PDF de cada escenario apenas abre.</strong> Las plataformas cambian y el acceso a los materiales puede cerrarse al terminar el bloque. Guárdalos en la carpeta de la asignatura.</li>
+</ul>
+<p>La plantilla Cornell adaptada está en la sección 11.</p>
+<hr />
+<h2 id="5-foros-nota-alta-con-horas-bajas">5. Foros: nota alta con horas bajas</h2>
+<p>Los foros suelen valer una fracción real de la nota y consumen tiempo desproporcionado si los trabajas mal. El error clásico es entrar tarde, leer 40 respuestas y escribir un ensayo.</p>
+<p>Protocolo de 45 minutos por foro:</p>
+<ol>
+<li><strong>Día 1 (10 min).</strong> Lee la consigna y anota exactamente qué se pide: ¿un aporte y dos respuestas? ¿referencia obligatoria? ¿extensión? La rúbrica del foro es la lista de chequeo de tu nota; casi nadie la lee.</li>
+<li><strong>Día 1 (20 min).</strong> Publica <strong>temprano</strong>. Publicar primero tiene tres ventajas: no te contaminas con lo que ya dijeron, tu aporte es el que más se cita, y te quedan días para responder sin correr.</li>
+<li><strong>Días 3 a 5 (15 min).</strong> Vuelve y responde a dos compañeros. Una respuesta que suma no es "excelente aporte, compañero": es <em>añadir un dato, contradecir con argumento o hacer una pregunta concreta</em>. Tres a cinco líneas bastan.</li>
+</ol>
+<p>Estructura de aporte que funciona en cualquier asignatura y te toma 20 minutos:</p>
+<ul>
+<li>Una frase que responde directamente la pregunta.</li>
+<li>Dos o tres frases de sustento (dato, fórmula, norma, ejemplo).</li>
+<li><strong>Un ejemplo tuyo del trabajo.</strong> Aquí tienes una ventaja enorme sobre un estudiante de 18 años: puedes ilustrar variación porcentual con la adición de un contrato, ética de datos con habeas data en expedientes, o estadística descriptiva con una serie de IPC. Eso lo califican alto y a ti no te cuesta investigar.</li>
+<li>Cierre con una pregunta abierta al grupo (te consigue respuestas que luego puedes contra-responder).</li>
+</ul>
+<p>Cuida dos cosas: cita cuando uses una fuente, y no publiques lo mismo en tres foros. Ambas cosas se notan.</p>
+<hr />
+<h2 id="6-quices-en-línea-con-tiempo-límite">6. Quices en línea con tiempo límite</h2>
+<p>Un quiz cronometrado no mide lo que sabes; mide lo que puedes recuperar rápido. Por eso las tarjetas del punto 2 son la preparación real.</p>
+<p><strong>Antes (la semana previa):</strong></p>
+<ul>
+<li>Haz dos rondas de recuperación de las fórmulas y definiciones del bloque evaluado.</li>
+<li>Escribe <strong>una hoja de ruta de una sola página</strong> con fórmulas, casos y errores típicos. Aunque el quiz sea a libro cerrado, hacerla es en sí un ejercicio de síntesis. Si es a libro abierto, esa hoja vale más que todos los PDF juntos, porque en 60 minutos no alcanzas a buscar en 200 páginas.</li>
+<li>Resuelve un simulacro <strong>con cronómetro</strong>. Sin cronómetro no estás ensayando la condición real.</li>
+</ul>
+<p><strong>El día:</strong></p>
+<ul>
+<li>Verifica antes de abrir: batería, internet estable, navegador actualizado, celular en silencio. Muchos quices <strong>no permiten reingreso</strong> o descuentan el tiempo transcurrido aunque se te caiga la conexión. Ten a mano el plan B (datos del celular).</li>
+<li>Ten lista calculadora, papel y lápiz, y la hoja de ruta.</li>
+<li>Lee cuántas preguntas hay y divide el tiempo. Si son 20 preguntas en 60 minutos, tu presupuesto es 3 minutos; a los 3 minutos marcas y sigues.</li>
+<li><strong>Nunca dejes una pregunta en blanco</strong> si no hay penalización por error.</li>
+<li><strong>No lo abras el último día.</strong> Las plataformas se congestionan en la fecha de cierre y el soporte no responde a las 11 de la noche.</li>
+</ul>
+<p><strong>Después:</strong> revisa la retroalimentación el mismo día, mientras recuerdas por qué respondiste lo que respondiste. Ese es el momento de mayor rendimiento del repaso.</p>
+<hr />
+<h2 id="7-la-semana-de-exámenes-finales">7. La semana de exámenes finales</h2>
+<p>El examen final vale 40 % y suele cubrir todo el curso. Como tienes tres asignaturas por bloque, vas a tener tres finales apretados.</p>
+<p>Plan de 10 días:</p>
+<ul>
+<li><strong>Días 10 a 8:</strong> una pasada de recuperación por asignatura sobre las hojas de ruta que ya construiste. Sin material nuevo. Detectas huecos y los listas.</li>
+<li><strong>Días 7 a 4:</strong> ataques quirúrgicos a los huecos. Solo lo rojo. Aquí sí puedes volver al material fuente, pero apuntado a un tema específico.</li>
+<li><strong>Días 3 a 2:</strong> simulacros completos con cronómetro, uno por asignatura, en el horario en que planeas presentar.</li>
+<li><strong>Día 1:</strong> repaso liviano de hojas de ruta, logística (equipos, ventanas de presentación, respaldo de internet) y dormir. Estudiar hasta la madrugada te cuesta más en el examen de lo que te gana.</li>
+</ul>
+<p><strong>Orden de estudio:</strong> empieza por la asignatura con la nota más baja acumulada, no por la que más te gusta. Y calcula antes qué necesitas: si llegas con 25 de 60 puntos, sabes exactamente cuánto del 40 % necesitas y dónde poner las horas.</p>
+<p>En el trabajo: bloquea esos días en el calendario laboral con anticipación y evita comprometerte con radicaciones o cierres en esa ventana.</p>
+<hr />
+<h2 id="8-protocolo-de-triage-te-atrasaste-una-semana">8. Protocolo de triage: te atrasaste una semana</h2>
+<p>Va a pasar. Lo importante es que no se convierta en tres.</p>
+<p><strong>Regla número uno: no empieces por el principio.</strong> El instinto es "me pongo al día desde donde quedé". Con eso llegas a la semana siguiente atrasado igual, pero además desmoralizado.</p>
+<p>Ejecuta esto en 30 minutos, sentado, con el calendario abierto:</p>
+<ol>
+<li><strong>Inventario (10 min).</strong> Lista todo lo pendiente en tres columnas: <em>qué es</em>, <em>cuánto vale en nota</em>, <em>cuándo cierra</em>. Incluye lo de las tres asignaturas.</li>
+<li><strong>Clasifica cada ítem:</strong>
+   - <strong>A — Califica y todavía se puede entregar.</strong> Prioridad absoluta. Se hace primero aunque quede a medias.
+   - <strong>B — Califica pero ya cerró.</strong> Duele; se deja ir. Escribe al docente por el canal oficial de la plataforma explicando y preguntando si hay apertura extemporánea. Una sola vez, sin drama, y sigues.
+   - <strong>C — No califica pero es prerrequisito conceptual</strong> (por ejemplo, límites antes de derivadas, o ciclos antes de arreglos). Se recupera en versión comprimida.
+   - <strong>D — No califica y no es prerrequisito.</strong> Se salta. Definitivamente. No lo vas a hacer después y está bien.</li>
+<li><strong>Ejecuta en este orden:</strong> A → C → B. Nunca en orden cronológico.</li>
+<li><strong>Compresión de la C:</strong> no revisites el escenario completo. Ve al resumen, haz tres ejercicios y sigue. Un tema recuperado al 60 % hoy vale más que uno al 100 % la otra semana.</li>
+<li><strong>No recuperes en fin de semana doble.</strong> Añade 30 minutos diarios durante dos semanas. Recuperar con maratón te vuelve a atrasar por agotamiento.</li>
+<li><strong>Escribe la causa en la bitácora.</strong> Si la causa se repite (siempre los martes, siempre en cierre de mes), no es mala suerte: es un defecto del plan y hay que cambiar el horario, no la voluntad.</li>
+</ol>
+<hr />
+<h2 id="9-repartir-10-15-horas-entre-tres-asignaturas">9. Repartir 10-15 horas entre tres asignaturas</h2>
+<p>Reparte por <strong>créditos y por dificultad</strong>, no por gusto.</p>
+<p><strong>Bloque A (25 ago – 19 oct), 9 créditos:</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Asignatura</th>
+<th>Créditos</th>
+<th>Horas/semana</th>
+<th>Nota</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cálculo Diferencial</td>
+<td>4</td>
+<td>5 – 6</td>
+<td>La más pesada y la más acumulativa. Es la que se cae si algo se cae.</td>
+</tr>
+<tr>
+<td>Razonamiento Cuantitativo</td>
+<td>3</td>
+<td>3 – 4</td>
+<td>Tu terreno. Porcentajes, índices, tasas: ya los usas. Puedes bajar a 2,5 h si vas bien.</td>
+</tr>
+<tr>
+<td>Pensamiento Algorítmico</td>
+<td>2</td>
+<td>3 – 4</td>
+<td>Menos créditos, pero es tu primer contacto con programar. <strong>No la trates según los créditos.</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Bloque B (20 oct – 14 dic), 9 créditos:</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Asignatura</th>
+<th>Créditos</th>
+<th>Horas/semana</th>
+<th>Nota</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Álgebra Lineal</td>
+<td>3</td>
+<td>4 – 5</td>
+<td>Abstracta al principio; cede con práctica de recuperación.</td>
+</tr>
+<tr>
+<td>Estadística Descriptiva</td>
+<td>3</td>
+<td>3 – 4</td>
+<td>Muy cercana a lo que ya haces con IPC, PIB y empleo.</td>
+</tr>
+<tr>
+<td>Cultura Política y Sociedad</td>
+<td>3</td>
+<td>3</td>
+<td>Lectura y foros. Se administra bien en ratos cortos y en audio.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Tres reglas de reparto:</p>
+<ul>
+<li><strong>Todas las asignaturas, todas las semanas.</strong> Nunca "esta semana solo cálculo". Una asignatura abandonada una semana en un bloque de ocho pierde un octavo del curso.</li>
+<li><strong>La materia dura va en tu mejor franja horaria.</strong> Cálculo y Álgebra a primera hora o el sábado en la mañana; lectura y foros en la noche o en trayectos.</li>
+<li><strong>Rota el orden.</strong> Si siempre empiezas por la misma, esa se lleva la energía y las otras el cansancio.</li>
+</ul>
+<p>Horario base sugerido (ajústalo, no lo copies):</p>
+<ul>
+<li>Lunes a viernes, 5:30–7:00 a. m. o 8:00–9:30 p. m.: un bloque de 60-90 min, una asignatura por día, la dura dos veces.</li>
+<li>Sábado 8:00–11:00 a. m.: entregas, quices, ejercicios largos.</li>
+<li>Domingo: repaso de 30 min o nada. El descanso también sostiene el semestre.</li>
+</ul>
+<hr />
+<h2 id="10-blindar-el-estudio-contra-los-picos-del-sector-público">10. Blindar el estudio contra los picos del sector público</h2>
+<p>Tú sabes cuándo se te va a dañar la semana. Esa es una ventaja: los picos del sector público son <strong>previsibles</strong>, y lo previsible se planea.</p>
+<p>Picos conocidos en tu función:</p>
+<ul>
+<li><strong>Primeros 15 días de cada mes:</strong> solicitud de PAC de los contratos CSF. Es un plazo duro y recurrente.</li>
+<li><strong>Trámite de pagos y radicaciones:</strong> picos de varios días cuando se acumulan expedientes.</li>
+<li><strong>Vencimientos de garantías y modificaciones contractuales:</strong> aparecen con poco aviso y tienen plazos cortos.</li>
+<li><strong>Cierre de vigencia (noviembre–diciembre):</strong> el peor. Coincide exactamente con el cierre del Bloque B y con los exámenes finales del 14 de diciembre.</li>
+<li><strong>Cierres de mes y de trimestre:</strong> informes, boletines, seguimiento.</li>
+</ul>
+<p>Cómo blindarlo:</p>
+<ol>
+<li><strong>Adelanta contra el calendario, no contra el ánimo.</strong> Marca los picos en el calendario académico <strong>hoy</strong>, antes de que empiecen las clases. En la semana anterior a un pico conocido, sube a 15 horas y deja adelantados foros y lecturas.</li>
+<li><strong>Semana de pico = modo mínimo declarado.</strong> Defines de antemano qué es lo mínimo: entregas calificables y 25 minutos diarios de tarjetas. Nada más. Es una decisión previa, no una rendición.</li>
+<li><strong>Nunca dejes una entrega para el día del pico.</strong> Si el foro cierra el 12 y el PAC se radica en los primeros 15 días, el foro se hace el 5.</li>
+<li><strong>Diciembre requiere decisión temprana.</strong> El cierre de vigencia y el final del semestre chocan de frente. Alternativas: pedir vacaciones o compensatorios para la semana del 7 al 14 de diciembre; o adelantar todo lo adelantable en octubre y noviembre. Decídelo en septiembre, no en diciembre.</li>
+<li><strong>Usa los tiempos muertos institucionales.</strong> Esperas de reunión, trayectos, tiempos de espera: audio de las lecturas de Cultura Política, tarjetas en el celular. Ahí caben 2 o 3 horas semanales que no le quitas a nadie.</li>
+<li><strong>Avisa en la oficina.</strong> No pidas trato especial; simplemente que se sepa que estudias y que hay dos semanas al semestre (las de finales) donde no puedes quedarte hasta tarde. Anunciado con un mes de anticipación, casi siempre se respeta.</li>
+</ol>
+<hr />
+<h2 id="11-plantilla-de-bitácora-semanal">11. Plantilla de bitácora semanal</h2>
+<p>Copia esto cada lunes en <code>_Recursos comunes/bitacora/AAAA-Sxx.md</code> y ciérralo el domingo. Toma 10 minutos y es lo que te permite hacer el triage de la sección 8 con datos en vez de con memoria.</p>
+<pre><code class="language-markdown"># Semana XX — del DD/MM al DD/MM de 2026
+
+**Bloque:** A / B
+**Horas planeadas:** __  **Horas reales:** __
+
+## Estado por asignatura
+
+| Asignatura | Escenario | Planeado | Hecho | Horas | Estado |
+|---|---|---|---|---|---|
+| Cálculo Diferencial |  |  |  |  | 🟢 / 🟡 / 🔴 |
+| Razonamiento Cuantitativo |  |  |  |  | 🟢 / 🟡 / 🔴 |
+| Pensamiento Algorítmico |  |  |  |  | 🟢 / 🟡 / 🔴 |
+
+🟢 al día · 🟡 atrasado menos de una semana · 🔴 atrasado una semana o más
+
+## Entregas y fechas
+
+| Qué | Asignatura | Vence | % nota | Estado |
+|---|---|---|---|---|
+|  |  |  |  | Pendiente / Entregado / Calificado |
+
+## Repasos espaciados hechos
+
+- [ ] Repaso día+1:
+- [ ] Repaso día+3:
+- [ ] Repaso día+7:
+
+## Huecos detectados (los `??` de mis notas)
+
+1.
+2.
+
+## Notas obtenidas esta semana
+
+| Actividad | Asignatura | Nota | Sobre | Observación del docente |
+|---|---|---|---|---|
+
+## Riesgo laboral de la próxima semana
+
+- Pico previsto:
+- Ajuste al plan:
+
+## Cierre
+
+- Lo que funcionó:
+- Lo que no funcionó:
+- **Una sola cosa que cambio la próxima semana:**
+</code></pre>
+<hr />
+<h2 id="12-plantilla-de-nota-de-clase-cornell-en-markdown">12. Plantilla de nota de clase (Cornell en Markdown)</h2>
+<p>El método Cornell divide la hoja en tres zonas: preguntas a la izquierda, contenido a la derecha, resumen abajo. En Markdown se traduce así. Un archivo por escenario: <code>01 - Razonamiento Cuantitativo/notas/E03-indices.md</code>.</p>
+<pre><code class="language-markdown"># [Asignatura] · Escenario X — [Tema]
+
+**Fecha:** DD/MM/2026 · **Tiempo invertido:** __ min
+**Fuente:** [cartilla / videocápsula / lectura complementaria / foro]
+
+---
+
+## 1. Preguntas de recuperación
+&lt;!-- Se escriben DESPUÉS de estudiar. Son las preguntas que el material responde.
+     Para repasar: tapo la sección 2 y contesto solo con esto. --&gt;
+
+1. ¿…?
+2. ¿…?
+3. ¿…?
+
+---
+
+## 2. Contenido
+&lt;!-- Con mis palabras. Si se parece a la diapositiva, no sirve. --&gt;
+
+### Idea central
+
+### Definiciones
+
+- **Término:** definición en una línea.
+
+### Fórmulas / procedimientos
+
+&gt; Fórmula — qué significa cada símbolo — cuándo se aplica — cuándo NO.
+
+### Ejemplo resuelto (paso a paso, con mi razonamiento)
+
+### Errores típicos que debo evitar
+
+- 
+
+---
+
+## 3. Dudas `??`
+&lt;!-- Al final de la semana busco &quot;??&quot; en todas las notas y esto va al foro. --&gt;
+
+- ??
+
+---
+
+## 4. Resumen en tres frases
+&lt;!-- Sin mirar arriba. Si no puedo, no estudié: releí. --&gt;
+
+1.
+2.
+3.
+
+---
+
+## 5. Conexión con mi trabajo
+&lt;!-- Opcional pero rentable: alimenta foros y fija el concepto. --&gt;
+
+- 
+
+---
+
+## 6. Control de repasos
+
+| Repaso | Fecha objetivo | Hecho | ¿Lo recordé? |
+|---|---|---|---|
+| +1 día |  | [ ] | Sí / Parcial / No |
+| +3 días |  | [ ] | Sí / Parcial / No |
+| +7 días |  | [ ] | Sí / Parcial / No |
+| Prefinal |  | [ ] | Sí / Parcial / No |
+</code></pre>
+<hr />
+<h2 id="13-los-cinco-hábitos-que-sostienen-todo-lo-anterior">13. Los cinco hábitos que sostienen todo lo anterior</h2>
+<ol>
+<li><strong>El calendario manda.</strong> Toda entrega, quiz y foro entra al calendario el día que abre el escenario, con alarma 48 horas antes.</li>
+<li><strong>Recuperación antes que relectura.</strong> Siempre. Si en una sesión no cerraste el material ni una vez, esa sesión rindió la mitad.</li>
+<li><strong>Cadena diaria.</strong> 25 minutos mínimo. La cadena vale más que la duración.</li>
+<li><strong>Bitácora los domingos.</strong> Diez minutos. Es tu sistema de alerta temprana.</li>
+<li><strong>Una sola mejora por semana.</strong> No rediseñes el método completo cada vez que algo falla. Cambia una cosa, mídela, sigue.</li>
+</ol>
+<p>Y el criterio de fondo: en un semestre de 16 semanas trabajando tiempo completo, <strong>el objetivo no es estudiar perfecto, es no quebrarse</strong>. Un plan del 80 % sostenido 16 semanas le gana por goleada a un plan del 100 % que se rompe en la sexta.</p>
+</main>
+</body>
+</html>

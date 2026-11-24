@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>6. Banco de ejercicios</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ 00 - Nivelación (antes del 25 de agosto)/Trigonometría a fondo / 6. Banco de ejercicios</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="6-banco-de-ejercicios">6. Banco de ejercicios</h1>
+<p><strong>Módulo: Trigonometría a fondo — Nivelación previa a Cálculo Diferencial</strong></p>
+<p>103 ejercicios numerados, 8 preguntas de opción múltiple y un simulacro de 15 preguntas. Todos los enunciados van primero; las soluciones paso a paso están al final del archivo.</p>
+<p><strong>Regla de uso:</strong> resuelve en papel, sin mirar. Solo después baja a la solución. Si te equivocaste, no pases al siguiente hasta entender en qué paso se rompió.</p>
+<hr />
+<h2 id="calendario-qué-sección-va-en-qué-día">Calendario: qué sección va en qué día</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: center;">Día</th>
+<th style="text-align: left;">Fecha</th>
+<th style="text-align: left;">Contenido del banco</th>
+<th style="text-align: left;">Ejercicios</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">mar 12 ago</td>
+<td style="text-align: left;">Sección A — nivel 🟢 y 🟡</td>
+<td style="text-align: left;">A1–A14</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">mié 13 ago</td>
+<td style="text-align: left;">Sección A — nivel 🔴 + repaso círculo unitario</td>
+<td style="text-align: left;">A15–A18</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">jue 14 ago</td>
+<td style="text-align: left;">Sección B — 🟢 (simplificación, reducción, valores exactos)</td>
+<td style="text-align: left;">B1–B8</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">vie 15 ago</td>
+<td style="text-align: left;">Sección B — 🟡 demostraciones e identidades</td>
+<td style="text-align: left;">B9–B16</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">sáb 16 ago</td>
+<td style="text-align: left;">Sección B — 🟡🔴 ecuaciones</td>
+<td style="text-align: left;">B17–B23</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;">dom 17 ago</td>
+<td style="text-align: left;">Sección B — 🔴 leyes de senos y cosenos</td>
+<td style="text-align: left;">B24–B25</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;">lun 18 ago</td>
+<td style="text-align: left;">Sección C — gráficas y transformaciones</td>
+<td style="text-align: left;">C1–C7</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;">mar 19 ago</td>
+<td style="text-align: left;">Sección C — funciones inversas</td>
+<td style="text-align: left;">C8–C15</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;">mié 20 ago</td>
+<td style="text-align: left;">Sección D — límites notables y continuidad</td>
+<td style="text-align: left;">D1–D8</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: left;">jue 21 ago</td>
+<td style="text-align: left;">Sección D — derivadas con regla de la cadena</td>
+<td style="text-align: left;">D9–D26</td>
+</tr>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: left;">vie 22 ago</td>
+<td style="text-align: left;">Sección D — derivadas inversas, implícitas y aplicaciones</td>
+<td style="text-align: left;">D27–D35</td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td style="text-align: left;">sáb 23 ago</td>
+<td style="text-align: left;"><strong>SIMULACRO (90 min)</strong> + Sección E</td>
+<td style="text-align: left;">Simulacro, E1–E10</td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td style="text-align: left;">dom 24 ago</td>
+<td style="text-align: left;">Opción múltiple + repaso de los errores del simulacro</td>
+<td style="text-align: left;">OM1–OM8</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Leyenda de niveles:</strong> 🟢 básico · 🟡 intermedio · 🔴 tipo examen</p>
+<hr />
+<h1 id="enunciados">ENUNCIADOS</h1>
+<hr />
+<h2 id="sección-a--fundamentos-y-círculo-unitario">Sección A — Fundamentos y círculo unitario</h2>
+<p><em>(18 ejercicios — corresponde al Archivo 2)</em></p>
+<h3 id="básico">🟢 Básico</h3>
+<p><strong>A1.</strong> Convierte a radianes, en forma exacta: \(30^\circ\), \(135^\circ\), \(225^\circ\), \(300^\circ\), \(15^\circ\).</p>
+<p><strong>A2.</strong> Convierte a grados: \(\dfrac{\pi}{5}\), \(\dfrac{3\pi}{10}\), \(\dfrac{7\pi}{9}\), \(\dfrac{11\pi}{12}\), \(\dfrac{5\pi}{8}\).</p>
+<p><strong>A3.</strong> Para cada ángulo indica el cuadrante y el ángulo de referencia: \(210^\circ\), \(315^\circ\), \(120^\circ\), \(-150^\circ\), \(660^\circ\).</p>
+<p><strong>A4.</strong> Halla los valores exactos de \(\operatorname{sen}\dfrac{7\pi}{6}\), \(\cos\dfrac{7\pi}{6}\) y \(\tan\dfrac{7\pi}{6}\).</p>
+<p><strong>A5.</strong> Un triángulo rectángulo tiene catetos \(5\) y \(12\). Escribe las seis razones trigonométricas del ángulo agudo \(\theta\) <strong>opuesto al cateto de longitud 5</strong>.</p>
+<p><strong>A6.</strong> Escribe el signo (\(+\) o \(-\)) de las seis razones trigonométricas cuando \(\theta\) está en el tercer cuadrante.</p>
+<p><strong>A7.</strong> Evalúa usando paridad y periodicidad: \(\operatorname{sen}\left(-\dfrac{\pi}{3}\right)\), \(\cos\dfrac{7\pi}{3}\), \(\tan\left(-\dfrac{5\pi}{4}\right)\).</p>
+<h3 id="intermedio">🟡 Intermedio</h3>
+<p><strong>A8.</strong> Si \(\operatorname{sen}\theta = \dfrac{3}{5}\) y \(\theta\) está en el segundo cuadrante, halla las otras cinco razones.</p>
+<p><strong>A9.</strong> Si \(\tan\theta = -\dfrac{5}{12}\) y \(\theta\) está en el cuarto cuadrante, halla las otras cinco razones.</p>
+<p><strong>A10.</strong> Un sector circular tiene radio \(r = 6\) cm y ángulo central \(\theta = \dfrac{2\pi}{3}\). Halla la longitud del arco y el área del sector.</p>
+<p><strong>A11.</strong> Un sector circular tiene radio \(r = 10\) cm y ángulo central \(54^\circ\). Halla la longitud del arco y el área del sector, en forma exacta.</p>
+<p><strong>A12.</strong> Sin calculadora, halla: \(\sec\dfrac{11\pi}{6}\), \(\csc\dfrac{5\pi}{4}\), \(\cot\dfrac{2\pi}{3}\).</p>
+<p><strong>A13.</strong> Reduce a un ángulo del intervalo \([0, 2\pi)\) y evalúa: \(\cos\left(-\dfrac{13\pi}{6}\right)\), \(\operatorname{sen}\dfrac{8\pi}{3}\), \(\tan\left(-\dfrac{11\pi}{3}\right)\).</p>
+<p><strong>A14.</strong> El punto \((-8, 15)\) está sobre el lado terminal de un ángulo \(\theta\) en posición normal. Halla las seis razones trigonométricas de \(\theta\).</p>
+<h3 id="tipo-examen">🔴 Tipo examen</h3>
+<p><strong>A15.</strong> Halla <strong>todos</strong> los valores de \(\theta \in [0, 2\pi)\) tales que \(\cos\theta = -\dfrac{\sqrt{2}}{2}\), razonando únicamente con el círculo unitario (sin usar \(\arccos\)).</p>
+<p><strong>A16.</strong> Desde un punto en el suelo, a \(40\) m de la base de una torre, el ángulo de elevación de la cima es \(58^\circ\). Halla la altura de la torre, redondeada a dos decimales.</p>
+<p><strong>A17.</strong> Explica por qué la identidad \(\operatorname{sen}^2\theta + \cos^2\theta = 1\) se deduce directamente de la definición del círculo unitario, y úsala para hallar \(\cos\theta\) si \(\operatorname{sen}\theta = -\dfrac{7}{25}\) y \(\theta\) está en el tercer cuadrante.</p>
+<p><strong>A18.</strong> Un ángulo mide exactamente \(5\) radianes. Determina en qué cuadrante está, calcula su ángulo de referencia (a tres decimales) y decide el signo de \(\operatorname{sen} 5\), \(\cos 5\) y \(\tan 5\).</p>
+<hr />
+<h2 id="sección-b--identidades-ecuaciones-y-triángulos">Sección B — Identidades, ecuaciones y triángulos</h2>
+<p><em>(25 ejercicios — corresponde al Archivo 3)</em></p>
+<span id="básico"></span><h3 id="básico_1">🟢 Básico</h3>
+<p><strong>B1.</strong> Simplifica a una sola función: \((1 - \cos^2 x)\csc x\).</p>
+<p><strong>B2.</strong> Simplifica: \((\sec^2 x - 1)\cot^2 x\).</p>
+<p><strong>B3.</strong> Simplifica usando identidades de reducción: \(\operatorname{sen}\left(\dfrac{\pi}{2} - x\right)\sec x\).</p>
+<p><strong>B4.</strong> Simplifica: \(\cos(\pi - x) + \cos x\).</p>
+<p><strong>B5.</strong> Halla el valor exacto de \(\cos\dfrac{\pi}{12}\) usando \(\dfrac{\pi}{12} = \dfrac{\pi}{3} - \dfrac{\pi}{4}\).</p>
+<p><strong>B6.</strong> Halla el valor exacto de \(\operatorname{sen}\dfrac{5\pi}{12}\).</p>
+<p><strong>B7.</strong> Halla el valor exacto de \(\tan\dfrac{7\pi}{12}\).</p>
+<p><strong>B8.</strong> Resuelve en \([0, 2\pi)\): \(\;2\operatorname{sen} x - 1 = 0\).</p>
+<span id="intermedio"></span><h3 id="intermedio_1">🟡 Intermedio</h3>
+<p><strong>B9.</strong> Demuestra que \((\operatorname{sen} x + \cos x)^2 - 1 = \operatorname{sen} 2x\).</p>
+<p><strong>B10.</strong> Demuestra que \(\dfrac{1 - \cos x}{\operatorname{sen} x} = \dfrac{\operatorname{sen} x}{1 + \cos x}\).</p>
+<p><strong>B11.</strong> Demuestra que \(\tan x + \cot x = \sec x \csc x\).</p>
+<p><strong>B12.</strong> Demuestra que \(\dfrac{\cos x}{1 - \operatorname{sen} x} = \dfrac{1 + \operatorname{sen} x}{\cos x}\).</p>
+<p><strong>B13.</strong> Demuestra que \(\csc x - \operatorname{sen} x = \cos x \cot x\).</p>
+<p><strong>B14.</strong> Si \(\operatorname{sen} A = \dfrac{3}{5}\) con \(A\) en el segundo cuadrante, halla \(\operatorname{sen} 2A\), \(\cos 2A\) y \(\tan 2A\).</p>
+<p><strong>B15.</strong> Si \(\cos t = -\dfrac{3}{5}\) con \(t\) en el tercer cuadrante, halla \(\operatorname{sen}\dfrac{t}{2}\), \(\cos\dfrac{t}{2}\) y \(\tan\dfrac{t}{2}\).</p>
+<p><strong>B16.</strong> Si \(\operatorname{sen} A = \dfrac{3}{5}\) con \(A\) en QII y \(\cos B = \dfrac{5}{13}\) con \(B\) en QIV, halla \(\operatorname{sen}(A+B)\), \(\cos(A-B)\) y \(\tan(A+B)\).</p>
+<p><strong>B17.</strong> Resuelve en \([0, 2\pi)\): \(\;2\operatorname{sen}^2 x - \operatorname{sen} x - 1 = 0\).</p>
+<p><strong>B18.</strong> Resuelve en \([0, 2\pi)\): \(\;\operatorname{sen} 2x = \operatorname{sen} x\).</p>
+<span id="tipo-examen"></span><h3 id="tipo-examen_1">🔴 Tipo examen</h3>
+<p><strong>B19.</strong> Demuestra que \(\operatorname{sen} 3x = 3\operatorname{sen} x - 4\operatorname{sen}^3 x\).</p>
+<p><strong>B20.</strong> Demuestra que \(\dfrac{1 - \tan^2 x}{1 + \tan^2 x} = \cos 2x\).</p>
+<p><strong>B21.</strong> Demuestra que \(\operatorname{sen}(x+y)\operatorname{sen}(x-y) = \operatorname{sen}^2 x - \operatorname{sen}^2 y\).</p>
+<p><strong>B22.</strong> Resuelve en \([0, 2\pi)\): \(\;2\cos^2 x + 3\operatorname{sen} x - 3 = 0\).</p>
+<p><strong>B23.</strong> (a) Resuelve en \([0, 2\pi)\): \(\;\operatorname{sen} 2x + \cos x = 0\). (b) Escribe la <strong>solución general</strong> de \(\tan 2x = 1\).</p>
+<p><strong>B24.</strong> En un triángulo, \(a = 7\), \(b = 9\) y el ángulo entre ellos es \(C = 60^\circ\). Halla \(c\), los ángulos \(A\) y \(B\) (a dos decimales) y el área exacta del triángulo.</p>
+<p><strong>B25.</strong> (Caso ambiguo) En un triángulo, \(a = 8\), \(b = 12\) y \(A = 35^\circ\). Determina cuántas soluciones existen y halla todas, redondeando a dos decimales.</p>
+<hr />
+<h2 id="sección-c--gráficas-y-funciones-inversas">Sección C — Gráficas y funciones inversas</h2>
+<p><em>(15 ejercicios — corresponde al Archivo 4)</em></p>
+<span id="básico"></span><h3 id="básico_2">🟢 Básico</h3>
+<p><strong>C1.</strong> Para \(y = 3\operatorname{sen}(2x - \pi) - 1\): halla amplitud, periodo, desfase, desplazamiento vertical y rango.</p>
+<p><strong>C2.</strong> Para \(y = -2\operatorname{sen}\left(\dfrac{x}{2} - \dfrac{\pi}{2}\right)\): halla amplitud, periodo, desfase y rango.</p>
+<p><strong>C3.</strong> Para \(y = 4\operatorname{sen}(3x - \dfrac{\pi}{4}) + 2\): halla amplitud, periodo, desfase, desplazamiento vertical y rango.</p>
+<p><strong>C4.</strong> Halla todas las asíntotas verticales de \(y = \tan 2x\).</p>
+<p><strong>C5.</strong> Escribe el dominio y el rango de \(\operatorname{arcsen} x\), \(\arccos x\) y \(\arctan x\).</p>
+<span id="intermedio"></span><h3 id="intermedio_2">🟡 Intermedio</h3>
+<p><strong>C6.</strong> Halla las asíntotas verticales de \(y = \sec\left(x - \dfrac{\pi}{3}\right)\).</p>
+<p><strong>C7.</strong> Halla las asíntotas verticales de \(y = \cot\dfrac{x}{2}\).</p>
+<p><strong>C8.</strong> Evalúa exactamente: \(\operatorname{arcsen}\left(-\dfrac{1}{2}\right)\), \(\arccos\left(-\dfrac{\sqrt{3}}{2}\right)\), \(\arctan(-\sqrt{3})\).</p>
+<p><strong>C9.</strong> Evalúa exactamente: \(\operatorname{arcsen}\left(\operatorname{sen}\dfrac{5\pi}{6}\right)\), \(\arccos\left(\cos\dfrac{7\pi}{4}\right)\), \(\arctan\left(\tan\dfrac{3\pi}{4}\right)\).</p>
+<p><strong>C10.</strong> Escribe como expresión algebraica en \(x\): \(\cos(\operatorname{arcsen} x)\), \(\tan(\arccos x)\), \(\sec(\arctan x)\).</p>
+<span id="tipo-examen"></span><h3 id="tipo-examen_2">🔴 Tipo examen</h3>
+<p><strong>C11.</strong> Para \(f(x) = 3\operatorname{sen}\left(2x - \dfrac{\pi}{3}\right) + 1\): halla el valor máximo y el mínimo, el primer \(x > 0\) donde ocurre cada uno, y \(f(0)\) exacto.</p>
+<p><strong>C12.</strong> Escribe la ecuación de una función seno con amplitud \(5\), periodo \(\dfrac{\pi}{2}\), desfase \(\dfrac{\pi}{8}\) hacia la derecha y desplazamiento vertical \(-3\).</p>
+<p><strong>C13.</strong> Evalúa exactamente usando triángulo de referencia: \(\operatorname{sen}\left(\arccos\dfrac{3}{5}\right)\), \(\cos(\arctan 2)\), \(\tan\left(\operatorname{arcsen}\left(-\dfrac{1}{3}\right)\right)\).</p>
+<p><strong>C14.</strong> Evalúa exactamente: \(\cos\left(\operatorname{arcsen}\dfrac{4}{5} + \arctan\dfrac{3}{4}\right)\).</p>
+<p><strong>C15.</strong> Evalúa exactamente: \(\operatorname{sen}\left(2\operatorname{arcsen}\dfrac{3}{5}\right)\).</p>
+<hr />
+<h2 id="sección-d--límites-y-derivadas-trigonométricas">Sección D — Límites y derivadas trigonométricas</h2>
+<p><em>(35 ejercicios — corresponde al Archivo 5)</em></p>
+<h3 id="básico--límites-y-continuidad">🟢 Básico — límites y continuidad</h3>
+<p><strong>D1.</strong> \(\displaystyle\lim_{x\to 0}\frac{\operatorname{sen} 7x}{x}\)</p>
+<p><strong>D2.</strong> \(\displaystyle\lim_{x\to 0}\frac{\operatorname{sen} 3x}{\operatorname{sen} 5x}\)</p>
+<p><strong>D3.</strong> \(\displaystyle\lim_{x\to 0}\frac{1-\cos x}{x^2}\)</p>
+<p><strong>D4.</strong> \(\displaystyle\lim_{x\to 0}\frac{\tan 4x}{3x}\)</p>
+<p><strong>D5.</strong> \(\displaystyle\lim_{x\to 0}\frac{1-\cos 4x}{x\operatorname{sen} 2x}\)</p>
+<p><strong>D6.</strong> \(\displaystyle\lim_{x\to 0}\frac{\operatorname{sen} 5x}{\tan 2x}\)</p>
+<p><strong>D7.</strong> Halla el valor de \(k\) que hace continua en \(x = 0\) a
+\[f(x)=\begin{cases}\dfrac{\operatorname{sen} 3x}{x}, & x\neq 0\\[2mm] k, & x = 0\end{cases}\]</p>
+<p><strong>D8.</strong> Calcula \(\displaystyle\lim_{x\to 0}\frac{1-\cos x}{\operatorname{sen} x}\) y \(\displaystyle\lim_{x\to \infty} x\operatorname{sen}\frac{1}{x}\).</p>
+<h3 id="derivadas-indica-en-cada-una-dónde-usaste-la-regla-de-la-cadena">🟢🟡 Derivadas (indica en cada una dónde usaste la regla de la cadena)</h3>
+<p><strong>D9.</strong> \(y = \operatorname{sen} 3x\)</p>
+<p><strong>D10.</strong> \(y = \cos(x^2)\)</p>
+<p><strong>D11.</strong> \(y = \tan 5x\)</p>
+<p><strong>D12.</strong> \(y = \operatorname{sen}^3 x\)</p>
+<p><strong>D13.</strong> \(y = x^2\cos x\)</p>
+<p><strong>D14.</strong> \(y = \dfrac{\operatorname{sen} x}{x}\)</p>
+<p><strong>D15.</strong> \(y = \sec 4x\)</p>
+<p><strong>D16.</strong> \(y = \cot(x^3)\)</p>
+<p><strong>D17.</strong> \(y = \csc(2x+1)\)</p>
+<p><strong>D18.</strong> \(y = \sqrt{\tan x}\)</p>
+<p><strong>D19.</strong> \(y = \operatorname{sen}(\cos x)\)</p>
+<p><strong>D20.</strong> \(y = \tan^4 x\)</p>
+<p><strong>D21.</strong> \(y = \cos\sqrt{x}\)</p>
+<p><strong>D22.</strong> \(y = \operatorname{sen}^5(2x)\)</p>
+<h3 id="derivadas">🟡🔴 Derivadas</h3>
+<p><strong>D23.</strong> \(y = \dfrac{\cos 3x}{1+\operatorname{sen} 3x}\)</p>
+<p><strong>D24.</strong> \(y = x\tan x - \sec x\)</p>
+<p><strong>D25.</strong> \(y = \sqrt{1+\operatorname{sen}^2 x}\)</p>
+<p><strong>D26.</strong> \(y = \operatorname{sen} 3x\cos 2x\)</p>
+<p><strong>D27.</strong> \(y = \operatorname{arcsen}(2x)\)</p>
+<p><strong>D28.</strong> \(y = \arccos(x^2)\)</p>
+<p><strong>D29.</strong> \(y = \arctan\sqrt{x}\)</p>
+<h3 id="derivación-implícita">🔴 Derivación implícita</h3>
+<p><strong>D30.</strong> Halla \(\dfrac{dy}{dx}\) si \(\operatorname{sen}(xy) = x^2\).</p>
+<p><strong>D31.</strong> Halla \(\dfrac{dy}{dx}\) si \(\cos y + xy = 1\).</p>
+<p><strong>D32.</strong> Halla \(\dfrac{dy}{dx}\) si \(\tan(x+y) = x\), y simplifica el resultado a una sola función trigonométrica.</p>
+<h3 id="aplicaciones">🔴 Aplicaciones</h3>
+<p><strong>D33.</strong> Una escalera de \(10\) m se apoya en una pared. La base se aleja de la pared a razón de \(0{,}5\) m/s. Si \(\theta\) es el ángulo que la escalera forma con el suelo, halla \(\dfrac{d\theta}{dt}\) en el instante en que \(\theta = \dfrac{\pi}{3}\).</p>
+<p><strong>D34.</strong> Un globo asciende verticalmente a \(8\) m/s desde un punto situado a \(150\) m de un observador. Si \(\theta\) es el ángulo de elevación, halla \(\dfrac{d\theta}{dt}\) cuando \(\theta = \dfrac{\pi}{4}\).</p>
+<p><strong>D35.</strong> Un triángulo isósceles tiene dos lados de longitud \(6\) que forman un ángulo \(\theta\). Halla el valor de \(\theta \in (0,\pi)\) que maximiza el área y calcula el área máxima.</p>
+<hr />
+<h2 id="sección-e--integración-de-temas">Sección E — Integración de temas</h2>
+<p><em>(10 ejercicios tipo examen — mezclan varias secciones)</em></p>
+<p><strong>E1.</strong> Halla la ecuación de la recta tangente a \(y = \operatorname{sen} x + \cos x\) en \(x = \dfrac{\pi}{4}\). Interpreta el resultado.</p>
+<p><strong>E2.</strong> Halla la ecuación de la recta tangente a \(y = x\operatorname{sen} x\) en \(x = \pi\).</p>
+<p><strong>E3.</strong> Halla \(y''\) para \(y = \operatorname{sen}(x^2)\).</p>
+<p><strong>E4.</strong> Deriva \(f(x) = \operatorname{sen}^2 x\cos 3x\).</p>
+<p><strong>E5.</strong> Deriva \(y = x\operatorname{arcsen} x + \sqrt{1-x^2}\) y simplifica al máximo.</p>
+<p><strong>E6.</strong> Calcula \(\displaystyle\lim_{x\to 0}\frac{1-\cos 3x}{x^2}\) y define \(g(0)\) para que \(g(x) = \dfrac{1-\cos 3x}{x^2}\) sea continua en \(0\).</p>
+<p><strong>E7.</strong> Un canal se forma doblando los bordes de una lámina de \(30\) cm en tres tramos iguales de \(10\) cm, con los lados inclinados un ángulo \(\theta\) respecto de la vertical del fondo. El área de la sección transversal es \(A(\theta) = 100\operatorname{sen}\theta\,(1+\cos\theta)\). Halla el \(\theta \in (0, \pi/2)\) que maximiza \(A\) y el área máxima exacta.</p>
+<p><strong>E8.</strong> Dos pasillos de anchos \(3\) m y \(4\) m se cruzan en ángulo recto. La longitud de la varilla más larga que pasa por la esquina es el <strong>mínimo</strong> de \(L(\theta) = 3\csc\theta + 4\sec\theta\) para \(\theta\in(0,\pi/2)\). Halla ese mínimo en forma exacta y aproximada.</p>
+<p><strong>E9.</strong> Sea \(f(x) = 2\cos^2 x - \cos x - 1\) en \([0, 2\pi)\). (a) Halla sus ceros. (b) Halla sus puntos críticos.</p>
+<p><strong>E10.</strong> Un triángulo tiene lados \(5\), \(8\) y \(11\). Halla su ángulo mayor (a dos decimales) y su área exacta.</p>
+<hr />
+<h2 id="preguntas-de-opción-múltiple">Preguntas de opción múltiple</h2>
+<p><em>(8 preguntas — una sola opción correcta)</em></p>
+<p><strong>OM1.</strong> La derivada de \(y = \operatorname{sen} 3x\) es:</p>
+<ul>
+<li><strong>(a)</strong> \(\cos 3x\)</li>
+<li><strong>(b)</strong> \(3\cos 3x\)</li>
+<li><strong>(c)</strong> \(3\cos x\)</li>
+<li><strong>(d)</strong> \(-3\cos 3x\)</li>
+</ul>
+<p><strong>OM2.</strong> La derivada de \(y = \cos^2 x\) es:</p>
+<ul>
+<li><strong>(a)</strong> \(-2\cos x\)</li>
+<li><strong>(b)</strong> \(2\cos x\operatorname{sen} x\)</li>
+<li><strong>(c)</strong> \(-\operatorname{sen} 2x\)</li>
+<li><strong>(d)</strong> \(-2\operatorname{sen} x\)</li>
+</ul>
+<p><strong>OM3.</strong> \(\displaystyle\lim_{x\to 0}\frac{\operatorname{sen} 5x}{3x}\) vale:</p>
+<ul>
+<li><strong>(a)</strong> \(1\)</li>
+<li><strong>(b)</strong> \(\dfrac{3}{5}\)</li>
+<li><strong>(c)</strong> \(\dfrac{5}{3}\)</li>
+<li><strong>(d)</strong> \(0\)</li>
+</ul>
+<p><strong>OM4.</strong> La derivada de \(y = \arctan(3x)\) es:</p>
+<ul>
+<li><strong>(a)</strong> \(\dfrac{3}{1+9x^2}\)</li>
+<li><strong>(b)</strong> \(\dfrac{1}{1+9x^2}\)</li>
+<li><strong>(c)</strong> \(\dfrac{3}{1+3x^2}\)</li>
+<li><strong>(d)</strong> \(\dfrac{3}{\sqrt{1-9x^2}}\)</li>
+</ul>
+<p><strong>OM5.</strong> La derivada de \(y = \tan(x^2)\) es:</p>
+<ul>
+<li><strong>(a)</strong> \(\sec^2(x^2)\)</li>
+<li><strong>(b)</strong> \(2x\sec^2(x^2)\)</li>
+<li><strong>(c)</strong> \(2x\sec^2(2x)\)</li>
+<li><strong>(d)</strong> \(2x\tan(x^2)\sec(x^2)\)</li>
+</ul>
+<p><strong>OM6.</strong> \(\arccos\left(-\dfrac{1}{2}\right)\) vale:</p>
+<ul>
+<li><strong>(a)</strong> \(-\dfrac{\pi}{3}\)</li>
+<li><strong>(b)</strong> \(\dfrac{\pi}{3}\)</li>
+<li><strong>(c)</strong> \(\dfrac{2\pi}{3}\)</li>
+<li><strong>(d)</strong> \(\dfrac{4\pi}{3}\)</li>
+</ul>
+<p><strong>OM7.</strong> El periodo de \(y = 2\operatorname{sen}(3x - \pi)\) es:</p>
+<ul>
+<li><strong>(a)</strong> \(2\pi\)</li>
+<li><strong>(b)</strong> \(\dfrac{2\pi}{3}\)</li>
+<li><strong>(c)</strong> \(6\pi\)</li>
+<li><strong>(d)</strong> \(\dfrac{\pi}{3}\)</li>
+</ul>
+<p><strong>OM8.</strong> \(\displaystyle\lim_{x\to 0}\frac{1-\cos 3x}{x^2}\) vale:</p>
+<ul>
+<li><strong>(a)</strong> \(\dfrac{1}{2}\)</li>
+<li><strong>(b)</strong> \(\dfrac{3}{2}\)</li>
+<li><strong>(c)</strong> \(\dfrac{9}{2}\)</li>
+<li><strong>(d)</strong> \(0\)</li>
+</ul>
+<hr />
+<h1 id="simulacro-de-examen">🔴 SIMULACRO DE EXAMEN</h1>
+<blockquote>
+<p><strong>15 preguntas · tiempo sugerido: 90 minutos · hazlo el día 12 o 13 del plan</strong></p>
+<p><strong>Reglas:</strong> sin formulario, sin calculadora salvo en las preguntas 7 y 15 (donde se indica), cronómetro corriendo. Cada pregunta vale 1 punto. Meta mínima: 11/15.</p>
+</blockquote>
+<p><strong>S1.</strong> Convierte \(225^\circ\) a radianes y halla \(\operatorname{sen} 225^\circ\) y \(\cos 225^\circ\) exactos.</p>
+<p><strong>S2.</strong> Si \(\operatorname{sen}\theta = -\dfrac{7}{25}\) y \(\theta\) está en QIII, halla las otras cinco razones.</p>
+<p><strong>S3.</strong> Demuestra que \(\dfrac{\sec x - 1}{\sec x + 1} = \dfrac{1-\cos x}{1+\cos x}\).</p>
+<p><strong>S4.</strong> Halla el valor exacto de \(\operatorname{sen}\dfrac{\pi}{8}\).</p>
+<p><strong>S5.</strong> Resuelve en \([0, 2\pi)\): \(\;2\operatorname{sen}^2 x - 3\cos x - 3 = 0\).</p>
+<p><strong>S6.</strong> Escribe la solución general de \(\cos 2x = \dfrac{1}{2}\).</p>
+<p><strong>S7.</strong> En un triángulo, \(A = 40^\circ\), \(B = 75^\circ\) y \(a = 12\). Halla \(C\), \(b\) y \(c\) a dos decimales. <em>(calculadora permitida)</em></p>
+<p><strong>S8.</strong> Para \(y = 2\operatorname{sen}(4x + \pi) - 1\) halla amplitud, periodo, desfase y rango.</p>
+<p><strong>S9.</strong> Evalúa exactamente \(\operatorname{arcsen}\left(\operatorname{sen}\dfrac{4\pi}{3}\right)\).</p>
+<p><strong>S10.</strong> Calcula \(\displaystyle\lim_{x\to 0}\frac{x + \operatorname{sen} 3x}{2x}\).</p>
+<p><strong>S11.</strong> Deriva \(y = \sec(x^2+1)\).</p>
+<p><strong>S12.</strong> Deriva \(y = \cot\sqrt{x}\).</p>
+<p><strong>S13.</strong> Deriva \(y = \arctan(\operatorname{sen} x)\).</p>
+<p><strong>S14.</strong> Halla \(\dfrac{dy}{dx}\) si \(x\operatorname{sen} y + y\cos x = 0\).</p>
+<p><strong>S15.</strong> Halla la ecuación de la recta tangente a \(y = \tan x\) en \(x = \dfrac{\pi}{4}\). <em>(calculadora permitida)</em></p>
+<hr />
+<h1 id="soluciones">SOLUCIONES</h1>
+<hr />
+<h2 id="soluciones--sección-a">Soluciones — Sección A</h2>
+<p><strong>A1.</strong> Multiplica por \(\dfrac{\pi}{180^\circ}\).</p>
+<p>\[30^\circ = \frac{\pi}{6},\qquad 135^\circ = \frac{3\pi}{4},\qquad 225^\circ = \frac{5\pi}{4},\qquad 300^\circ = \frac{5\pi}{3},\qquad 15^\circ = \frac{\pi}{12}\]</p>
+<p><strong>A2.</strong> Multiplica por \(\dfrac{180^\circ}{\pi}\).</p>
+<p>\[\frac{\pi}{5} = 36^\circ,\quad \frac{3\pi}{10} = 54^\circ,\quad \frac{7\pi}{9} = 140^\circ,\quad \frac{11\pi}{12} = 165^\circ,\quad \frac{5\pi}{8} = 112{,}5^\circ\]</p>
+<p><strong>A3.</strong> El ángulo de referencia es el ángulo agudo entre el lado terminal y el eje \(x\).</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Ángulo</th>
+<th style="text-align: left;">Coterminal en \([0^\circ,360^\circ)\)</th>
+<th style="text-align: left;">Cuadrante</th>
+<th style="text-align: left;">Referencia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">\(210^\circ\)</td>
+<td style="text-align: left;">\(210^\circ\)</td>
+<td style="text-align: left;">III</td>
+<td style="text-align: left;">\(210 - 180 = 30^\circ\)</td>
+</tr>
+<tr>
+<td style="text-align: left;">\(315^\circ\)</td>
+<td style="text-align: left;">\(315^\circ\)</td>
+<td style="text-align: left;">IV</td>
+<td style="text-align: left;">\(360 - 315 = 45^\circ\)</td>
+</tr>
+<tr>
+<td style="text-align: left;">\(120^\circ\)</td>
+<td style="text-align: left;">\(120^\circ\)</td>
+<td style="text-align: left;">II</td>
+<td style="text-align: left;">\(180 - 120 = 60^\circ\)</td>
+</tr>
+<tr>
+<td style="text-align: left;">\(-150^\circ\)</td>
+<td style="text-align: left;">\(-150 + 360 = 210^\circ\)</td>
+<td style="text-align: left;">III</td>
+<td style="text-align: left;">\(30^\circ\)</td>
+</tr>
+<tr>
+<td style="text-align: left;">\(660^\circ\)</td>
+<td style="text-align: left;">\(660 - 360 = 300^\circ\)</td>
+<td style="text-align: left;">IV</td>
+<td style="text-align: left;">\(60^\circ\)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>A4.</strong> \(\dfrac{7\pi}{6}\) está en QIII (referencia \(\dfrac{\pi}{6}\)). En QIII: seno negativo, coseno negativo, tangente positiva.</p>
+<p>\[\operatorname{sen}\frac{7\pi}{6} = -\frac{1}{2},\qquad \cos\frac{7\pi}{6} = -\frac{\sqrt{3}}{2},\qquad \tan\frac{7\pi}{6} = \frac{-1/2}{-\sqrt{3}/2} = \frac{1}{\sqrt{3}} = \frac{\sqrt{3}}{3}\]</p>
+<p><strong>A5.</strong> Hipotenusa: \(\sqrt{5^2+12^2} = 13\). Para el ángulo opuesto al cateto \(5\): opuesto \(=5\), adyacente \(=12\).</p>
+<p>\[\operatorname{sen}\theta = \frac{5}{13},\quad \cos\theta = \frac{12}{13},\quad \tan\theta = \frac{5}{12},\quad \cot\theta = \frac{12}{5},\quad \sec\theta = \frac{13}{12},\quad \csc\theta = \frac{13}{5}\]</p>
+<p><strong>A6.</strong> En QIII, \(x<0\) y \(y<0\).</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: center;">\(\operatorname{sen}\)</th>
+<th style="text-align: center;">\(\cos\)</th>
+<th style="text-align: center;">\(\tan\)</th>
+<th style="text-align: center;">\(\cot\)</th>
+<th style="text-align: center;">\(\sec\)</th>
+<th style="text-align: center;">\(\csc\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">\(-\)</td>
+<td style="text-align: center;">\(-\)</td>
+<td style="text-align: center;">\(+\)</td>
+<td style="text-align: center;">\(+\)</td>
+<td style="text-align: center;">\(-\)</td>
+<td style="text-align: center;">\(-\)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>A7.</strong></p>
+<ul>
+<li>\(\operatorname{sen}\left(-\dfrac{\pi}{3}\right) = -\operatorname{sen}\dfrac{\pi}{3} = -\dfrac{\sqrt{3}}{2}\) (seno es impar).</li>
+<li>\(\cos\dfrac{7\pi}{3} = \cos\left(\dfrac{7\pi}{3} - 2\pi\right) = \cos\dfrac{\pi}{3} = \dfrac{1}{2}\) (periodo \(2\pi\)).</li>
+<li>\(\tan\left(-\dfrac{5\pi}{4}\right) = -\tan\dfrac{5\pi}{4} = -\tan\left(\dfrac{5\pi}{4}-\pi\right) = -\tan\dfrac{\pi}{4} = -1\).</li>
+</ul>
+<p><strong>A8.</strong> \(\operatorname{sen}\theta = \dfrac{3}{5}\), QII \(\Rightarrow \cos\theta < 0\). De \(\cos^2\theta = 1 - \dfrac{9}{25} = \dfrac{16}{25}\) se sigue \(\cos\theta = -\dfrac{4}{5}\).</p>
+<p>\[\tan\theta = -\frac{3}{4},\qquad \cot\theta = -\frac{4}{3},\qquad \sec\theta = -\frac{5}{4},\qquad \csc\theta = \frac{5}{3}\]</p>
+<p><strong>A9.</strong> \(\tan\theta = -\dfrac{5}{12}\), QIV \(\Rightarrow \cos\theta > 0\), \(\operatorname{sen}\theta < 0\). Con el triángulo de referencia \(5\)–\(12\)–\(13\):</p>
+<p>\[\operatorname{sen}\theta = -\frac{5}{13},\quad \cos\theta = \frac{12}{13},\quad \cot\theta = -\frac{12}{5},\quad \sec\theta = \frac{13}{12},\quad \csc\theta = -\frac{13}{5}\]</p>
+<p><strong>A10.</strong> \(s = r\theta\) y \(A = \tfrac{1}{2}r^2\theta\), con \(\theta\) <strong>en radianes</strong>.</p>
+<p>\[s = 6\cdot\frac{2\pi}{3} = 4\pi\ \text{cm},\qquad A = \frac{1}{2}(36)\frac{2\pi}{3} = 12\pi\ \text{cm}^2\]</p>
+<p><strong>A11.</strong> Primero \(54^\circ = \dfrac{3\pi}{10}\).</p>
+<p>\[s = 10\cdot\frac{3\pi}{10} = 3\pi\ \text{cm},\qquad A = \frac{1}{2}(100)\frac{3\pi}{10} = 15\pi\ \text{cm}^2\]</p>
+<p><strong>A12.</strong></p>
+<ul>
+<li>\(\dfrac{11\pi}{6}\) está en QIV, referencia \(\dfrac{\pi}{6}\): \(\cos = \dfrac{\sqrt{3}}{2}\), luego \(\sec\dfrac{11\pi}{6} = \dfrac{2}{\sqrt{3}} = \dfrac{2\sqrt{3}}{3}\).</li>
+<li>\(\dfrac{5\pi}{4}\) está en QIII: \(\operatorname{sen} = -\dfrac{\sqrt{2}}{2}\), luego \(\csc\dfrac{5\pi}{4} = -\sqrt{2}\).</li>
+<li>\(\dfrac{2\pi}{3}\) está en QII: \(\tan = -\sqrt{3}\), luego \(\cot\dfrac{2\pi}{3} = -\dfrac{\sqrt{3}}{3}\).</li>
+</ul>
+<p><strong>A13.</strong></p>
+<ul>
+<li>\(\cos\left(-\dfrac{13\pi}{6}\right) = \cos\dfrac{13\pi}{6}\) (par) \(= \cos\left(\dfrac{13\pi}{6}-2\pi\right) = \cos\dfrac{\pi}{6} = \dfrac{\sqrt{3}}{2}\).</li>
+<li>\(\operatorname{sen}\dfrac{8\pi}{3} = \operatorname{sen}\left(\dfrac{8\pi}{3}-2\pi\right) = \operatorname{sen}\dfrac{2\pi}{3} = \dfrac{\sqrt{3}}{2}\).</li>
+<li>\(\tan\left(-\dfrac{11\pi}{3}\right) = \tan\left(-\dfrac{11\pi}{3}+4\pi\right) = \tan\dfrac{\pi}{3} = \sqrt{3}\).</li>
+</ul>
+<p><strong>A14.</strong> \(r = \sqrt{(-8)^2+15^2} = \sqrt{289} = 17\). El punto está en QII.</p>
+<p>\[\operatorname{sen}\theta = \frac{15}{17},\ \cos\theta = -\frac{8}{17},\ \tan\theta = -\frac{15}{8},\ \cot\theta = -\frac{8}{15},\ \sec\theta = -\frac{17}{8},\ \csc\theta = \frac{17}{15}\]</p>
+<p><strong>A15.</strong> \(\cos\theta\) es la coordenada \(x\) del punto del círculo unitario. \(x = -\dfrac{\sqrt{2}}{2}\) es negativo, así que el punto está en QII o QIII. El ángulo de referencia con \(\cos = \dfrac{\sqrt{2}}{2}\) es \(\dfrac{\pi}{4}\). Entonces:</p>
+<p>\[\theta = \pi - \frac{\pi}{4} = \frac{3\pi}{4}\ \text{(QII)}\qquad\text{y}\qquad \theta = \pi + \frac{\pi}{4} = \frac{5\pi}{4}\ \text{(QIII)}\]</p>
+<p><strong>A16.</strong> \(\tan 58^\circ = \dfrac{h}{40}\), luego \(h = 40\tan 58^\circ\).</p>
+<p>\[h \approx 40 (1{,}600335) \approx 64{,}01\ \text{m}\]</p>
+<p><strong>A17.</strong> En el círculo unitario, un punto \(P(x,y)\) sobre la circunferencia satisface \(x^2+y^2 = 1\) por definición (radio 1). Como \(\cos\theta = x\) y \(\operatorname{sen}\theta = y\), sustituyendo se obtiene \(\cos^2\theta + \operatorname{sen}^2\theta = 1\). No es un teorema aparte: <strong>es la ecuación del círculo escrita con otros nombres.</strong></p>
+<p>Con \(\operatorname{sen}\theta = -\dfrac{7}{25}\): \(\cos^2\theta = 1 - \dfrac{49}{625} = \dfrac{576}{625}\), luego \(\cos\theta = \pm\dfrac{24}{25}\). Como \(\theta\) está en QIII, el coseno es negativo:</p>
+<p>\[\cos\theta = -\frac{24}{25}\]</p>
+<p><strong>A18.</strong> \(\dfrac{3\pi}{2}\approx 4{,}712 < 5 < 2\pi \approx 6{,}283\), luego <strong>\(5\) rad está en el cuarto cuadrante</strong>. Ángulo de referencia:</p>
+<p>\[2\pi - 5 \approx 6{,}283185 - 5 = 1{,}283\ \text{rad}\]</p>
+<p>En QIV: \(\operatorname{sen} 5 < 0\), \(\cos 5 > 0\), \(\tan 5 < 0\).</p>
+<hr />
+<h2 id="soluciones--sección-b">Soluciones — Sección B</h2>
+<p><strong>B1.</strong> \((1-\cos^2 x)\csc x = \operatorname{sen}^2 x\cdot\dfrac{1}{\operatorname{sen} x} = \boxed{\operatorname{sen} x}\)</p>
+<p><strong>B2.</strong> \(\sec^2 x - 1 = \tan^2 x\), y \(\tan^2 x\cot^2 x = \tan^2 x\cdot\dfrac{1}{\tan^2 x} = \boxed{1}\)</p>
+<p><strong>B3.</strong> Por cofunción, \(\operatorname{sen}\left(\dfrac{\pi}{2}-x\right) = \cos x\). Entonces \(\cos x\sec x = \boxed{1}\)</p>
+<p><strong>B4.</strong> \(\cos(\pi - x) = \cos\pi\cos x + \operatorname{sen}\pi\operatorname{sen} x = -\cos x\). Luego \(-\cos x + \cos x = \boxed{0}\)</p>
+<p><strong>B5.</strong> \(\cos\left(\dfrac{\pi}{3}-\dfrac{\pi}{4}\right) = \cos\dfrac{\pi}{3}\cos\dfrac{\pi}{4} + \operatorname{sen}\dfrac{\pi}{3}\operatorname{sen}\dfrac{\pi}{4}\)</p>
+<p>\[= \frac{1}{2}\cdot\frac{\sqrt2}{2} + \frac{\sqrt3}{2}\cdot\frac{\sqrt2}{2} = \frac{\sqrt2 + \sqrt6}{4} \approx 0{,}9659\]</p>
+<p><strong>B6.</strong> \(\dfrac{5\pi}{12} = \dfrac{\pi}{6}+\dfrac{\pi}{4}\):</p>
+<p>\[\operatorname{sen}\frac{5\pi}{12} = \operatorname{sen}\frac{\pi}{6}\cos\frac{\pi}{4} + \cos\frac{\pi}{6}\operatorname{sen}\frac{\pi}{4} = \frac{1}{2}\frac{\sqrt2}{2} + \frac{\sqrt3}{2}\frac{\sqrt2}{2} = \frac{\sqrt2+\sqrt6}{4}\]</p>
+<p>(Coincide con B5 porque \(\operatorname{sen} 75^\circ = \cos 15^\circ\): son cofunciones.)</p>
+<p><strong>B7.</strong> \(\dfrac{7\pi}{12} = \dfrac{\pi}{3}+\dfrac{\pi}{4}\):</p>
+<p>\[\tan\frac{7\pi}{12} = \frac{\tan\frac{\pi}{3}+\tan\frac{\pi}{4}}{1-\tan\frac{\pi}{3}\tan\frac{\pi}{4}} = \frac{\sqrt3+1}{1-\sqrt3}\]</p>
+<p>Racionalizando (multiplicando arriba y abajo por \(1+\sqrt3\)):</p>
+<p>\[= \frac{(\sqrt3+1)(1+\sqrt3)}{(1-\sqrt3)(1+\sqrt3)} = \frac{4+2\sqrt3}{-2} = -2-\sqrt3 \approx -3{,}732\]</p>
+<p><strong>B8.</strong> \(\operatorname{sen} x = \dfrac{1}{2}\). Referencia \(\dfrac{\pi}{6}\); seno positivo en QI y QII:</p>
+<p>\[x = \frac{\pi}{6},\ \frac{5\pi}{6}\]</p>
+<p><strong>B9.</strong> Desarrollo el cuadrado:</p>
+<p>\[(\operatorname{sen} x+\cos x)^2 - 1 = \operatorname{sen}^2x + 2\operatorname{sen} x\cos x + \cos^2 x - 1\]</p>
+<p>Uso \(\operatorname{sen}^2x+\cos^2x = 1\):</p>
+<p>\[= 1 + 2\operatorname{sen} x\cos x - 1 = 2\operatorname{sen} x\cos x = \operatorname{sen} 2x \quad\blacksquare\]</p>
+<p><strong>B10.</strong> Parto del lado izquierdo y multiplico por el conjugado \(1+\cos x\):</p>
+<p>\[\frac{1-\cos x}{\operatorname{sen} x}\cdot\frac{1+\cos x}{1+\cos x} = \frac{1-\cos^2 x}{\operatorname{sen} x(1+\cos x)} = \frac{\operatorname{sen}^2 x}{\operatorname{sen} x(1+\cos x)} = \frac{\operatorname{sen} x}{1+\cos x}\quad\blacksquare\]</p>
+<p><strong>B11.</strong> Paso todo a seno y coseno:</p>
+<p>\[\tan x + \cot x = \frac{\operatorname{sen} x}{\cos x} + \frac{\cos x}{\operatorname{sen} x} = \frac{\operatorname{sen}^2x+\cos^2x}{\operatorname{sen} x\cos x} = \frac{1}{\operatorname{sen} x\cos x} = \csc x\sec x\quad\blacksquare\]</p>
+<p><strong>B12.</strong> Multiplico el lado izquierdo por el conjugado \(1+\operatorname{sen} x\):</p>
+<p>\[\frac{\cos x}{1-\operatorname{sen} x}\cdot\frac{1+\operatorname{sen} x}{1+\operatorname{sen} x} = \frac{\cos x(1+\operatorname{sen} x)}{1-\operatorname{sen}^2x} = \frac{\cos x(1+\operatorname{sen} x)}{\cos^2x} = \frac{1+\operatorname{sen} x}{\cos x}\quad\blacksquare\]</p>
+<p><strong>B13.</strong></p>
+<p>\[\csc x - \operatorname{sen} x = \frac{1}{\operatorname{sen} x} - \operatorname{sen} x = \frac{1-\operatorname{sen}^2x}{\operatorname{sen} x} = \frac{\cos^2 x}{\operatorname{sen} x} = \cos x\cdot\frac{\cos x}{\operatorname{sen} x} = \cos x\cot x\quad\blacksquare\]</p>
+<p><strong>B14.</strong> \(\operatorname{sen} A = \dfrac{3}{5}\), QII \(\Rightarrow \cos A = -\dfrac{4}{5}\).</p>
+<p>\[\operatorname{sen} 2A = 2\left(\frac35\right)\left(-\frac45\right) = -\frac{24}{25}\]
+\[\cos 2A = \cos^2A - \operatorname{sen}^2A = \frac{16}{25}-\frac{9}{25} = \frac{7}{25}\]
+\[\tan 2A = \frac{-24/25}{7/25} = -\frac{24}{7}\]</p>
+<p><strong>B15.</strong> \(\cos t = -\dfrac35\) con \(t\) en QIII, es decir \(\pi < t < \dfrac{3\pi}{2}\). Entonces \(\dfrac{\pi}{2} < \dfrac{t}{2} < \dfrac{3\pi}{4}\): <strong>\(\dfrac{t}{2}\) está en QII</strong>, donde el seno es positivo y el coseno negativo.</p>
+<p>\[\operatorname{sen}\frac{t}{2} = +\sqrt{\frac{1-\cos t}{2}} = \sqrt{\frac{1+3/5}{2}} = \sqrt{\frac{4}{5}} = \frac{2\sqrt5}{5}\]
+\[\cos\frac{t}{2} = -\sqrt{\frac{1+\cos t}{2}} = -\sqrt{\frac{1-3/5}{2}} = -\sqrt{\frac{1}{5}} = -\frac{\sqrt5}{5}\]
+\[\tan\frac{t}{2} = \frac{2\sqrt5/5}{-\sqrt5/5} = -2\]</p>
+<p><strong>B16.</strong> \(\operatorname{sen} A = \dfrac35\), QII \(\Rightarrow \cos A = -\dfrac45\). \(\cos B = \dfrac{5}{13}\), QIV \(\Rightarrow \operatorname{sen} B = -\dfrac{12}{13}\).</p>
+<p>\[\operatorname{sen}(A+B) = \operatorname{sen} A\cos B + \cos A\operatorname{sen} B = \frac35\cdot\frac{5}{13} + \left(-\frac45\right)\left(-\frac{12}{13}\right) = \frac{15}{65}+\frac{48}{65} = \frac{63}{65}\]
+\[\cos(A-B) = \cos A\cos B + \operatorname{sen} A\operatorname{sen} B = -\frac{20}{65} - \frac{36}{65} = -\frac{56}{65}\]
+\[\cos(A+B) = \cos A\cos B - \operatorname{sen} A\operatorname{sen} B = -\frac{20}{65}+\frac{36}{65} = \frac{16}{65} \;\Rightarrow\; \tan(A+B) = \frac{63/65}{16/65} = \frac{63}{16}\]</p>
+<p><strong>B17.</strong> Es cuadrática en \(u = \operatorname{sen} x\): \(2u^2 - u - 1 = 0 \Rightarrow (2u+1)(u-1) = 0\).</p>
+<ul>
+<li>\(u = 1\): \(\operatorname{sen} x = 1 \Rightarrow x = \dfrac{\pi}{2}\).</li>
+<li>\(u = -\dfrac12\): \(\operatorname{sen} x = -\dfrac12\), referencia \(\dfrac{\pi}{6}\), seno negativo en QIII y QIV \(\Rightarrow x = \dfrac{7\pi}{6},\ \dfrac{11\pi}{6}\).</li>
+</ul>
+<p>\[x = \frac{\pi}{2},\ \frac{7\pi}{6},\ \frac{11\pi}{6}\]</p>
+<p><strong>B18.</strong> <strong>Nunca dividas por \(\operatorname{sen} x\)</strong>: perderías soluciones. Factoriza.</p>
+<p>\[2\operatorname{sen} x\cos x - \operatorname{sen} x = 0 \;\Rightarrow\; \operatorname{sen} x(2\cos x - 1) = 0\]</p>
+<ul>
+<li>\(\operatorname{sen} x = 0 \Rightarrow x = 0,\ \pi\).</li>
+<li>\(\cos x = \dfrac12 \Rightarrow x = \dfrac{\pi}{3},\ \dfrac{5\pi}{3}\).</li>
+</ul>
+<p>\[x = 0,\ \frac{\pi}{3},\ \pi,\ \frac{5\pi}{3}\]</p>
+<p><strong>B19.</strong> Escribo \(3x = 2x + x\) y aplico suma de ángulos:</p>
+<p>\[\operatorname{sen} 3x = \operatorname{sen} 2x\cos x + \cos 2x\operatorname{sen} x\]</p>
+<p>Sustituyo \(\operatorname{sen} 2x = 2\operatorname{sen} x\cos x\) y \(\cos 2x = 1-2\operatorname{sen}^2x\):</p>
+<p>\[= 2\operatorname{sen} x\cos^2 x + (1-2\operatorname{sen}^2x)\operatorname{sen} x\]</p>
+<p>Reemplazo \(\cos^2x = 1-\operatorname{sen}^2x\):</p>
+<p>\[= 2\operatorname{sen} x(1-\operatorname{sen}^2x) + \operatorname{sen} x - 2\operatorname{sen}^3x = 2\operatorname{sen} x - 2\operatorname{sen}^3x + \operatorname{sen} x - 2\operatorname{sen}^3x\]
+\[= 3\operatorname{sen} x - 4\operatorname{sen}^3 x\quad\blacksquare\]</p>
+<p><strong>B20.</strong> El denominador es \(1+\tan^2x = \sec^2 x\). Entonces:</p>
+<p>\[\frac{1-\tan^2x}{1+\tan^2x} = \frac{1-\tan^2x}{\sec^2x} = (1-\tan^2x)\cos^2x = \cos^2 x - \frac{\operatorname{sen}^2x}{\cos^2x}\cos^2x\]
+\[= \cos^2x - \operatorname{sen}^2 x = \cos 2x\quad\blacksquare\]</p>
+<p><strong>B21.</strong> Desarrollo ambos factores:</p>
+<p>\[\operatorname{sen}(x+y)\operatorname{sen}(x-y) = (\operatorname{sen} x\cos y + \cos x\operatorname{sen} y)(\operatorname{sen} x\cos y - \cos x\operatorname{sen} y)\]</p>
+<p>Es una diferencia de cuadrados:</p>
+<p>\[= \operatorname{sen}^2x\cos^2y - \cos^2x\operatorname{sen}^2y\]</p>
+<p>Sustituyo \(\cos^2y = 1-\operatorname{sen}^2y\) y \(\cos^2x = 1-\operatorname{sen}^2x\):</p>
+<p>\[= \operatorname{sen}^2x(1-\operatorname{sen}^2y) - (1-\operatorname{sen}^2x)\operatorname{sen}^2y = \operatorname{sen}^2x - \operatorname{sen}^2x\operatorname{sen}^2y - \operatorname{sen}^2y + \operatorname{sen}^2x\operatorname{sen}^2y\]
+\[= \operatorname{sen}^2x - \operatorname{sen}^2y\quad\blacksquare\]</p>
+<p><strong>B22.</strong> Todo a seno con \(\cos^2x = 1-\operatorname{sen}^2x\):</p>
+<p>\[2(1-\operatorname{sen}^2x) + 3\operatorname{sen} x - 3 = 0 \;\Rightarrow\; -2\operatorname{sen}^2x + 3\operatorname{sen} x - 1 = 0 \;\Rightarrow\; 2\operatorname{sen}^2x - 3\operatorname{sen} x + 1 = 0\]
+\[(2\operatorname{sen} x - 1)(\operatorname{sen} x - 1) = 0\]</p>
+<ul>
+<li>\(\operatorname{sen} x = \dfrac12 \Rightarrow x = \dfrac{\pi}{6},\ \dfrac{5\pi}{6}\).</li>
+<li>\(\operatorname{sen} x = 1 \Rightarrow x = \dfrac{\pi}{2}\).</li>
+</ul>
+<p>\[x = \frac{\pi}{6},\ \frac{\pi}{2},\ \frac{5\pi}{6}\]</p>
+<p><strong>B23.</strong></p>
+<p><strong>(a)</strong> \(\operatorname{sen} 2x + \cos x = 2\operatorname{sen} x\cos x + \cos x = \cos x(2\operatorname{sen} x + 1) = 0\).</p>
+<ul>
+<li>\(\cos x = 0 \Rightarrow x = \dfrac{\pi}{2},\ \dfrac{3\pi}{2}\).</li>
+<li>\(\operatorname{sen} x = -\dfrac12 \Rightarrow x = \dfrac{7\pi}{6},\ \dfrac{11\pi}{6}\).</li>
+</ul>
+<p>\[x = \frac{\pi}{2},\ \frac{7\pi}{6},\ \frac{3\pi}{2},\ \frac{11\pi}{6}\]</p>
+<p><strong>(b)</strong> La tangente tiene periodo \(\pi\), así que basta <strong>una</strong> familia:</p>
+<p>\[2x = \frac{\pi}{4} + k\pi \;\Rightarrow\; x = \frac{\pi}{8} + \frac{k\pi}{2},\qquad k\in\mathbb{Z}\]</p>
+<p><strong>B24.</strong> Ley de cosenos para el lado opuesto al ángulo conocido:</p>
+<p>\[c^2 = 7^2+9^2 - 2(7)(9)\cos 60^\circ = 49+81 - 126\cdot\frac12 = 130 - 63 = 67\]
+\[c = \sqrt{67} \approx 8{,}19\]</p>
+<p>Ley de senos para \(A\): \(\dfrac{\operatorname{sen} A}{7} = \dfrac{\operatorname{sen} 60^\circ}{\sqrt{67}}\), luego \(\operatorname{sen} A = \dfrac{7\sqrt3/2}{\sqrt{67}} \approx 0{,}74063\), y como \(a<c\), \(A\) es agudo:</p>
+<p>\[A \approx 47{,}78^\circ,\qquad B = 180^\circ - 60^\circ - 47{,}78^\circ \approx 72{,}22^\circ\]</p>
+<p>Área \(= \dfrac12 ab\operatorname{sen} C = \dfrac12(7)(9)\dfrac{\sqrt3}{2} = \dfrac{63\sqrt3}{4} \approx 27{,}28\).</p>
+<p><strong>B25.</strong> Ley de senos: \(\dfrac{\operatorname{sen} B}{12} = \dfrac{\operatorname{sen} 35^\circ}{8}\), luego</p>
+<p>\[\operatorname{sen} B = \frac{12\operatorname{sen} 35^\circ}{8} \approx 0{,}86036\]</p>
+<p>Como \(0{,}86036 < 1\) y \(a < b\), hay <strong>dos soluciones</strong>:</p>
+<p><strong>Solución 1:</strong> \(B_1 \approx 59{,}36^\circ\), \(C_1 = 180 - 35 - 59{,}36 = 85{,}64^\circ\),</p>
+<p>\[c_1 = \frac{8\operatorname{sen} 85{,}64^\circ}{\operatorname{sen} 35^\circ} \approx 13{,}91\]</p>
+<p><strong>Solución 2:</strong> \(B_2 = 180 - 59{,}36 = 120{,}64^\circ\), \(C_2 = 180 - 35 - 120{,}64 = 24{,}36^\circ\),</p>
+<p>\[c_2 = \frac{8\operatorname{sen} 24{,}36^\circ}{\operatorname{sen} 35^\circ} \approx 5{,}75\]</p>
+<hr />
+<h2 id="soluciones--sección-c">Soluciones — Sección C</h2>
+<p>Recordatorio de la forma \(y = A\operatorname{sen}(Bx - C) + D\): amplitud \(|A|\), periodo \(\dfrac{2\pi}{|B|}\), desfase \(\dfrac{C}{B}\), rango \([D-|A|,\ D+|A|]\).</p>
+<p><strong>C1.</strong> \(A = 3\), \(B = 2\), \(C = \pi\), \(D = -1\).</p>
+<p>\[\text{amplitud} = 3,\quad T = \frac{2\pi}{2} = \pi,\quad \text{desfase} = \frac{\pi}{2}\ \text{(derecha)},\quad \text{rango} = [-4,\ 2]\]</p>
+<p><strong>C2.</strong> \(A = -2\), \(B = \dfrac12\), \(C = \dfrac{\pi}{2}\), \(D = 0\).</p>
+<p>\[\text{amplitud} = 2,\quad T = \frac{2\pi}{1/2} = 4\pi,\quad \text{desfase} = \frac{\pi/2}{1/2} = \pi,\quad \text{rango} = [-2,\ 2]\]</p>
+<p>El signo negativo de \(A\) <strong>no</strong> cambia la amplitud: refleja la gráfica sobre el eje horizontal.</p>
+<p><strong>C3.</strong> \(A = 4\), \(B = 3\), \(C = \dfrac{\pi}{4}\), \(D = 2\).</p>
+<p>\[\text{amplitud} = 4,\quad T = \frac{2\pi}{3},\quad \text{desfase} = \frac{\pi/4}{3} = \frac{\pi}{12},\quad \text{rango} = [-2,\ 6]\]</p>
+<p><strong>C4.</strong> \(\tan u\) tiene asíntotas donde \(u = \dfrac{\pi}{2}+k\pi\). Con \(u = 2x\):</p>
+<p>\[2x = \frac{\pi}{2}+k\pi \;\Rightarrow\; x = \frac{\pi}{4}+\frac{k\pi}{2},\qquad k\in\mathbb{Z}\]</p>
+<p><strong>C5.</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Función</th>
+<th style="text-align: left;">Dominio</th>
+<th style="text-align: left;">Rango</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">\(\operatorname{arcsen} x\)</td>
+<td style="text-align: left;">\([-1,1]\)</td>
+<td style="text-align: left;">\(\left[-\dfrac{\pi}{2},\dfrac{\pi}{2}\right]\)</td>
+</tr>
+<tr>
+<td style="text-align: left;">\(\arccos x\)</td>
+<td style="text-align: left;">\([-1,1]\)</td>
+<td style="text-align: left;">\([0,\pi]\)</td>
+</tr>
+<tr>
+<td style="text-align: left;">\(\arctan x\)</td>
+<td style="text-align: left;">\(\mathbb{R}\)</td>
+<td style="text-align: left;">\(\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)\)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>C6.</strong> \(\sec u\) tiene asíntotas donde \(\cos u = 0\), es decir \(u = \dfrac{\pi}{2}+k\pi\). Con \(u = x - \dfrac{\pi}{3}\):</p>
+<p>\[x - \frac{\pi}{3} = \frac{\pi}{2}+k\pi \;\Rightarrow\; x = \frac{5\pi}{6}+k\pi,\qquad k\in\mathbb{Z}\]</p>
+<p><strong>C7.</strong> \(\cot u\) tiene asíntotas donde \(\operatorname{sen} u = 0\), es decir \(u = k\pi\). Con \(u = \dfrac{x}{2}\):</p>
+<p>\[\frac{x}{2} = k\pi \;\Rightarrow\; x = 2k\pi,\qquad k\in\mathbb{Z}\]</p>
+<p><strong>C8.</strong> Hay que respetar el rango de cada inversa.</p>
+<ul>
+<li>\(\operatorname{arcsen}\left(-\dfrac12\right)\): busco en \(\left[-\dfrac\pi2,\dfrac\pi2\right]\) \(\Rightarrow -\dfrac{\pi}{6}\).</li>
+<li>\(\arccos\left(-\dfrac{\sqrt3}{2}\right)\): busco en \([0,\pi]\), coseno negativo \(\Rightarrow\) QII \(\Rightarrow \dfrac{5\pi}{6}\).</li>
+<li>\(\arctan(-\sqrt3)\): busco en \(\left(-\dfrac\pi2,\dfrac\pi2\right)\) \(\Rightarrow -\dfrac{\pi}{3}\).</li>
+</ul>
+<p><strong>C9.</strong> Cuidado: \(\operatorname{arcsen}(\operatorname{sen} u) = u\) <strong>solo si</strong> \(u\) está en el rango de la inversa.</p>
+<ul>
+<li>\(\operatorname{sen}\dfrac{5\pi}{6} = \dfrac12\), y \(\operatorname{arcsen}\dfrac12 = \dfrac{\pi}{6}\). (No es \(\dfrac{5\pi}{6}\), que está fuera de \(\left[-\dfrac\pi2,\dfrac\pi2\right]\).)</li>
+<li>\(\cos\dfrac{7\pi}{4} = \dfrac{\sqrt2}{2}\), y \(\arccos\dfrac{\sqrt2}{2} = \dfrac{\pi}{4}\).</li>
+<li>\(\tan\dfrac{3\pi}{4} = -1\), y \(\arctan(-1) = -\dfrac{\pi}{4}\).</li>
+</ul>
+<p><strong>C10.</strong> Uso un triángulo de referencia en cada caso.</p>
+<ul>
+<li>\(\cos(\operatorname{arcsen} x)\): si \(\theta = \operatorname{arcsen} x\), entonces \(\operatorname{sen}\theta = x\), opuesto \(x\), hipotenusa \(1\), adyacente \(\sqrt{1-x^2}\). Como \(\theta\in\left[-\dfrac\pi2,\dfrac\pi2\right]\), el coseno es \(\ge 0\):</li>
+</ul>
+<p>\[\cos(\operatorname{arcsen} x) = \sqrt{1-x^2}\]</p>
+<ul>
+<li>\(\tan(\arccos x)\): \(\cos\theta = x\), adyacente \(x\), hipotenusa \(1\), opuesto \(\sqrt{1-x^2}\):</li>
+</ul>
+<p>\[\tan(\arccos x) = \frac{\sqrt{1-x^2}}{x},\qquad x\neq 0\]</p>
+<ul>
+<li>\(\sec(\arctan x)\): \(\tan\theta = x\), opuesto \(x\), adyacente \(1\), hipotenusa \(\sqrt{1+x^2}\). En \(\left(-\dfrac\pi2,\dfrac\pi2\right)\) la secante es positiva:</li>
+</ul>
+<p>\[\sec(\arctan x) = \sqrt{1+x^2}\]</p>
+<p><strong>C11.</strong> \(f(x) = 3\operatorname{sen}\left(2x-\dfrac{\pi}{3}\right)+1\).</p>
+<p><strong>Máximo</strong> \(= 1+3 = 4\), cuando \(\operatorname{sen}(\cdot) = 1\):</p>
+<p>\[2x - \frac{\pi}{3} = \frac{\pi}{2} \;\Rightarrow\; 2x = \frac{5\pi}{6} \;\Rightarrow\; x = \frac{5\pi}{12}\]</p>
+<p><strong>Mínimo</strong> \(= 1-3 = -2\), cuando \(\operatorname{sen}(\cdot) = -1\):</p>
+<p>\[2x - \frac{\pi}{3} = \frac{3\pi}{2} \;\Rightarrow\; 2x = \frac{11\pi}{6} \;\Rightarrow\; x = \frac{11\pi}{12}\]</p>
+<p>\[f(0) = 3\operatorname{sen}\left(-\frac{\pi}{3}\right)+1 = 3\left(-\frac{\sqrt3}{2}\right)+1 = 1 - \frac{3\sqrt3}{2} \approx -1{,}598\]</p>
+<p><strong>C12.</strong> Amplitud \(5 \Rightarrow A = 5\). Periodo \(\dfrac{\pi}{2} = \dfrac{2\pi}{B} \Rightarrow B = 4\). Desfase \(\dfrac{C}{B} = \dfrac{\pi}{8} \Rightarrow C = 4\cdot\dfrac{\pi}{8} = \dfrac{\pi}{2}\). \(D = -3\).</p>
+<p>\[y = 5\operatorname{sen}\left(4x - \frac{\pi}{2}\right) - 3\]</p>
+<p><strong>C13.</strong></p>
+<ul>
+<li>\(\operatorname{sen}\left(\arccos\dfrac35\right)\): triángulo \(3\)–\(4\)–\(5\), \(\arccos\dfrac35 \in [0,\pi]\) con coseno positivo \(\Rightarrow\) QI \(\Rightarrow\) seno positivo: \(\dfrac{4}{5}\).</li>
+<li>\(\cos(\arctan 2)\): opuesto \(2\), adyacente \(1\), hipotenusa \(\sqrt5\): \(\dfrac{1}{\sqrt5} = \dfrac{\sqrt5}{5}\).</li>
+<li>\(\tan\left(\operatorname{arcsen}\left(-\dfrac13\right)\right)\): opuesto \(-1\), hipotenusa \(3\), adyacente \(\sqrt{8} = 2\sqrt2\): \(\dfrac{-1}{2\sqrt2} = -\dfrac{\sqrt2}{4}\).</li>
+</ul>
+<p><strong>C14.</strong> Sea \(\alpha = \operatorname{arcsen}\dfrac45\) (triángulo \(3\)–\(4\)–\(5\): \(\operatorname{sen}\alpha = \dfrac45\), \(\cos\alpha = \dfrac35\)) y \(\beta = \arctan\dfrac34\) (triángulo \(3\)–\(4\)–\(5\): \(\operatorname{sen}\beta = \dfrac35\), \(\cos\beta = \dfrac45\)).</p>
+<p>\[\cos(\alpha+\beta) = \cos\alpha\cos\beta - \operatorname{sen}\alpha\operatorname{sen}\beta = \frac35\cdot\frac45 - \frac45\cdot\frac35 = \frac{12}{25}-\frac{12}{25} = 0\]</p>
+<p>(Tiene sentido: \(\alpha + \beta = \dfrac{\pi}{2}\), son ángulos complementarios del mismo triángulo.)</p>
+<p><strong>C15.</strong> Sea \(\alpha = \operatorname{arcsen}\dfrac35\), entonces \(\operatorname{sen}\alpha = \dfrac35\) y \(\cos\alpha = \dfrac45\) (positivo, porque \(\alpha\in\left[-\dfrac\pi2,\dfrac\pi2\right]\)).</p>
+<p>\[\operatorname{sen} 2\alpha = 2\operatorname{sen}\alpha\cos\alpha = 2\cdot\frac35\cdot\frac45 = \frac{24}{25}\]</p>
+<hr />
+<h2 id="soluciones--sección-d">Soluciones — Sección D</h2>
+<p>Los dos límites notables que se usan una y otra vez:</p>
+<p>\[\lim_{u\to 0}\frac{\operatorname{sen} u}{u} = 1,\qquad \lim_{u\to 0}\frac{1-\cos u}{u} = 0,\qquad \lim_{u\to 0}\frac{1-\cos u}{u^2} = \frac12\]</p>
+<p><strong>D1.</strong> Multiplico y divido por \(7\) para armar \(\dfrac{\operatorname{sen} 7x}{7x}\):</p>
+<p>\[\lim_{x\to 0}\frac{\operatorname{sen} 7x}{x} = \lim_{x\to 0} 7\cdot\frac{\operatorname{sen} 7x}{7x} = 7\cdot 1 = 7\]</p>
+<p><strong>D2.</strong> Divido numerador y denominador por \(x\) y ajusto constantes:</p>
+<p>\[\frac{\operatorname{sen} 3x}{\operatorname{sen} 5x} = \frac{\dfrac{\operatorname{sen} 3x}{3x}\cdot 3x}{\dfrac{\operatorname{sen} 5x}{5x}\cdot 5x} = \frac{3}{5}\cdot\frac{\operatorname{sen} 3x/3x}{\operatorname{sen} 5x/5x} \xrightarrow[x\to0]{} \frac{3}{5}\cdot\frac{1}{1} = \frac{3}{5}\]</p>
+<p><strong>D3.</strong> Multiplico por el conjugado \(1+\cos x\):</p>
+<p>\[\frac{1-\cos x}{x^2}\cdot\frac{1+\cos x}{1+\cos x} = \frac{1-\cos^2x}{x^2(1+\cos x)} = \frac{\operatorname{sen}^2x}{x^2(1+\cos x)} = \left(\frac{\operatorname{sen} x}{x}\right)^2\frac{1}{1+\cos x}\]
+\[\xrightarrow[x\to0]{} 1^2\cdot\frac{1}{1+1} = \frac{1}{2}\]</p>
+<p><strong>D4.</strong> Escribo \(\tan 4x = \dfrac{\operatorname{sen} 4x}{\cos 4x}\):</p>
+<p>\[\frac{\tan 4x}{3x} = \frac{4}{3}\cdot\frac{\operatorname{sen} 4x}{4x}\cdot\frac{1}{\cos 4x} \xrightarrow[x\to0]{} \frac43\cdot 1\cdot 1 = \frac{4}{3}\]</p>
+<p><strong>D5.</strong> Reescribo separando las dos piezas notables:</p>
+<p>\[\frac{1-\cos 4x}{x\operatorname{sen} 2x} = \frac{\dfrac{1-\cos 4x}{(4x)^2}\cdot 16x^2}{x\cdot\dfrac{\operatorname{sen} 2x}{2x}\cdot 2x} = \frac{16}{2}\cdot\frac{\dfrac{1-\cos 4x}{(4x)^2}}{\dfrac{\operatorname{sen} 2x}{2x}} \xrightarrow[x\to0]{} 8\cdot\frac{1/2}{1} = 4\]</p>
+<p><strong>D6.</strong></p>
+<p>\[\frac{\operatorname{sen} 5x}{\tan 2x} = \frac{\operatorname{sen} 5x}{\operatorname{sen} 2x}\cos 2x = \frac{5}{2}\cdot\frac{\operatorname{sen} 5x/5x}{\operatorname{sen} 2x/2x}\cdot\cos 2x \xrightarrow[x\to0]{} \frac52\cdot 1\cdot 1 = \frac{5}{2}\]</p>
+<p><strong>D7.</strong> Para que \(f\) sea continua en \(0\) se necesita \(k = \displaystyle\lim_{x\to0}\frac{\operatorname{sen} 3x}{x} = 3\).</p>
+<p>\[\boxed{k = 3}\]</p>
+<p><strong>D8.</strong></p>
+<p>\[\lim_{x\to0}\frac{1-\cos x}{\operatorname{sen} x} = \lim_{x\to0}\frac{\dfrac{1-\cos x}{x}}{\dfrac{\operatorname{sen} x}{x}} = \frac{0}{1} = 0\]</p>
+<p>Para el segundo, sustituyo \(u = \dfrac1x\); cuando \(x\to\infty\), \(u\to 0^+\):</p>
+<p>\[\lim_{x\to\infty}x\operatorname{sen}\frac1x = \lim_{u\to 0^+}\frac{\operatorname{sen} u}{u} = 1\]</p>
+<hr />
+<h3 id="derivadas--la-regla-de-la-cadena-marcada-paso-a-paso">Derivadas — la regla de la cadena marcada paso a paso</h3>
+<p>Notación: si \(y = f(u)\) y \(u = g(x)\), entonces \(y' = f'(u)\cdot u'\). <strong>El factor \(u'\) es la cadena.</strong></p>
+<p><strong>D9.</strong> \(y = \operatorname{sen} 3x\). Aquí \(u = 3x\), \(u' = 3\) ← <strong>cadena</strong>.</p>
+<p>\[y' = \cos(3x)\cdot 3 = 3\cos 3x\]</p>
+<p><strong>D10.</strong> \(y = \cos(x^2)\). \(u = x^2\), \(u' = 2x\) ← <strong>cadena</strong>.</p>
+<p>\[y' = -\operatorname{sen}(x^2)\cdot 2x = -2x\operatorname{sen}(x^2)\]</p>
+<p><strong>D11.</strong> \(y = \tan 5x\). \(u = 5x\), \(u' = 5\) ← <strong>cadena</strong>.</p>
+<p>\[y' = \sec^2(5x)\cdot 5 = 5\sec^2 5x\]</p>
+<p><strong>D12.</strong> \(y = \operatorname{sen}^3 x = (\operatorname{sen} x)^3\). Potencia externa, \(u = \operatorname{sen} x\), \(u' = \cos x\) ← <strong>cadena</strong>.</p>
+<p>\[y' = 3(\operatorname{sen} x)^2\cdot\cos x = 3\operatorname{sen}^2x\cos x\]</p>
+<p><strong>D13.</strong> \(y = x^2\cos x\). Regla del producto (sin cadena):</p>
+<p>\[y' = 2x\cos x + x^2(-\operatorname{sen} x) = 2x\cos x - x^2\operatorname{sen} x\]</p>
+<p><strong>D14.</strong> \(y = \dfrac{\operatorname{sen} x}{x}\). Regla del cociente:</p>
+<p>\[y' = \frac{x\cos x - \operatorname{sen} x\cdot 1}{x^2} = \frac{x\cos x - \operatorname{sen} x}{x^2}\]</p>
+<p><strong>D15.</strong> \(y = \sec 4x\). \(u = 4x\), \(u' = 4\) ← <strong>cadena</strong>.</p>
+<p>\[y' = \sec(4x)\tan(4x)\cdot 4 = 4\sec 4x\tan 4x\]</p>
+<p><strong>D16.</strong> \(y = \cot(x^3)\). \(u = x^3\), \(u' = 3x^2\) ← <strong>cadena</strong>.</p>
+<p>\[y' = -\csc^2(x^3)\cdot 3x^2 = -3x^2\csc^2(x^3)\]</p>
+<p><strong>D17.</strong> \(y = \csc(2x+1)\). \(u = 2x+1\), \(u' = 2\) ← <strong>cadena</strong>.</p>
+<p>\[y' = -\csc(2x+1)\cot(2x+1)\cdot 2 = -2\csc(2x+1)\cot(2x+1)\]</p>
+<p><strong>D18.</strong> \(y = \sqrt{\tan x} = (\tan x)^{1/2}\). \(u = \tan x\), \(u' = \sec^2 x\) ← <strong>cadena</strong>.</p>
+<p>\[y' = \frac12(\tan x)^{-1/2}\cdot\sec^2 x = \frac{\sec^2 x}{2\sqrt{\tan x}}\]</p>
+<p><strong>D19.</strong> \(y = \operatorname{sen}(\cos x)\). <strong>Doble capa.</strong> Externa: seno. \(u = \cos x\), \(u' = -\operatorname{sen} x\) ← <strong>cadena</strong>.</p>
+<p>\[y' = \cos(\cos x)\cdot(-\operatorname{sen} x) = -\operatorname{sen} x\cos(\cos x)\]</p>
+<p><strong>D20.</strong> \(y = \tan^4 x = (\tan x)^4\). \(u = \tan x\), \(u' = \sec^2 x\) ← <strong>cadena</strong>.</p>
+<p>\[y' = 4(\tan x)^3\cdot\sec^2 x = 4\tan^3x\sec^2x\]</p>
+<p><strong>D21.</strong> \(y = \cos\sqrt{x}\). \(u = \sqrt x = x^{1/2}\), \(u' = \dfrac{1}{2\sqrt x}\) ← <strong>cadena</strong>.</p>
+<p>\[y' = -\operatorname{sen}\sqrt{x}\cdot\frac{1}{2\sqrt x} = -\frac{\operatorname{sen}\sqrt{x}}{2\sqrt{x}}\]</p>
+<p><strong>D22.</strong> \(y = \operatorname{sen}^5(2x) = \left(\operatorname{sen}(2x)\right)^5\). <strong>Cadena doble</strong>: potencia \(\to\) seno \(\to\) \(2x\).</p>
+<p>\[y' = 5\left(\operatorname{sen} 2x\right)^4\cdot\underbrace{\cos(2x)}_{\text{cadena 1}}\cdot\underbrace{2}_{\text{cadena 2}} = 10\operatorname{sen}^4(2x)\cos 2x\]</p>
+<p><strong>D23.</strong> \(y = \dfrac{\cos 3x}{1+\operatorname{sen} 3x}\). Cociente, con <strong>cadena</strong> (\(u = 3x\), \(u' = 3\)) en ambas derivadas:</p>
+<p>\[y' = \frac{(-3\operatorname{sen} 3x)(1+\operatorname{sen} 3x) - \cos 3x\,(3\cos 3x)}{(1+\operatorname{sen} 3x)^2} = \frac{-3\operatorname{sen} 3x - 3\operatorname{sen}^23x - 3\cos^23x}{(1+\operatorname{sen} 3x)^2}\]</p>
+<p>Uso \(\operatorname{sen}^23x+\cos^23x = 1\):</p>
+<p>\[= \frac{-3\operatorname{sen} 3x - 3}{(1+\operatorname{sen} 3x)^2} = \frac{-3(1+\operatorname{sen} 3x)}{(1+\operatorname{sen} 3x)^2} = \frac{-3}{1+\operatorname{sen} 3x}\]</p>
+<p><strong>D24.</strong> \(y = x\tan x - \sec x\). Producto en el primer término:</p>
+<p>\[y' = \left(1\cdot\tan x + x\sec^2x\right) - \sec x\tan x = \tan x + x\sec^2 x - \sec x\tan x\]</p>
+<p><strong>D25.</strong> \(y = \sqrt{1+\operatorname{sen}^2x} = (1+\operatorname{sen}^2x)^{1/2}\). <strong>Cadena doble</strong>: raíz \(\to\) \(\operatorname{sen}^2x\) \(\to\) \(\operatorname{sen} x\).</p>
+<p>\[y' = \frac{1}{2\sqrt{1+\operatorname{sen}^2x}}\cdot\underbrace{2\operatorname{sen} x\cos x}_{\text{derivada de }\operatorname{sen}^2x} = \frac{\operatorname{sen} x\cos x}{\sqrt{1+\operatorname{sen}^2x}} = \frac{\operatorname{sen} 2x}{2\sqrt{1+\operatorname{sen}^2x}}\]</p>
+<p><strong>D26.</strong> \(y = \operatorname{sen} 3x\cos 2x\). Producto, con <strong>cadena</strong> en cada factor:</p>
+<p>\[y' = \underbrace{3\cos 3x}_{\text{cadena}}\cos 2x + \operatorname{sen} 3x\underbrace{(-2\operatorname{sen} 2x)}_{\text{cadena}} = 3\cos 3x\cos 2x - 2\operatorname{sen} 3x\operatorname{sen} 2x\]</p>
+<p><strong>D27.</strong> \(y = \operatorname{arcsen}(2x)\). Fórmula \(\dfrac{u'}{\sqrt{1-u^2}}\) con \(u = 2x\), \(u' = 2\) ← <strong>cadena</strong>.</p>
+<p>\[y' = \frac{2}{\sqrt{1-(2x)^2}} = \frac{2}{\sqrt{1-4x^2}}\]</p>
+<p><strong>D28.</strong> \(y = \arccos(x^2)\). Fórmula \(\dfrac{-u'}{\sqrt{1-u^2}}\) con \(u = x^2\), \(u' = 2x\) ← <strong>cadena</strong>.</p>
+<p>\[y' = \frac{-2x}{\sqrt{1-(x^2)^2}} = \frac{-2x}{\sqrt{1-x^4}}\]</p>
+<p><strong>D29.</strong> \(y = \arctan\sqrt{x}\). Fórmula \(\dfrac{u'}{1+u^2}\) con \(u = \sqrt x\), \(u' = \dfrac{1}{2\sqrt x}\) ← <strong>cadena</strong>.</p>
+<p>\[y' = \frac{1/(2\sqrt x)}{1+(\sqrt x)^2} = \frac{1}{2\sqrt{x}\,(1+x)}\]</p>
+<hr />
+<p><strong>D30.</strong> \(\operatorname{sen}(xy) = x^2\). Derivo ambos lados respecto de \(x\), tratando \(y = y(x)\). <strong>Cadena</strong> en el seno y <strong>producto</strong> dentro:</p>
+<p>\[\cos(xy)\cdot\underbrace{\left(y + x\frac{dy}{dx}\right)}_{\text{derivada de }xy} = 2x\]
+\[y + x\frac{dy}{dx} = \frac{2x}{\cos(xy)} = 2x\sec(xy)\]
+\[\frac{dy}{dx} = \frac{2x\sec(xy) - y}{x}\]</p>
+<p><strong>D31.</strong> \(\cos y + xy = 1\):</p>
+<p>\[-\operatorname{sen} y\cdot\frac{dy}{dx} + \left(y + x\frac{dy}{dx}\right) = 0\]
+\[\frac{dy}{dx}\left(x - \operatorname{sen} y\right) = -y \;\Rightarrow\; \frac{dy}{dx} = \frac{-y}{x-\operatorname{sen} y} = \frac{y}{\operatorname{sen} y - x}\]</p>
+<p><strong>D32.</strong> \(\tan(x+y) = x\). <strong>Cadena</strong> con \(u = x+y\), \(u' = 1 + \dfrac{dy}{dx}\):</p>
+<p>\[\sec^2(x+y)\left(1+\frac{dy}{dx}\right) = 1 \;\Rightarrow\; 1+\frac{dy}{dx} = \cos^2(x+y)\]
+\[\frac{dy}{dx} = \cos^2(x+y) - 1 = -\operatorname{sen}^2(x+y)\]</p>
+<p><strong>D33.</strong> Sea \(x\) la distancia de la base a la pared. Entonces \(x = 10\cos\theta\) y \(\dfrac{dx}{dt} = 0{,}5\) m/s.</p>
+<p>Derivo respecto de \(t\) (<strong>cadena</strong>, porque \(\theta = \theta(t)\)):</p>
+<p>\[\frac{dx}{dt} = -10\operatorname{sen}\theta\cdot\frac{d\theta}{dt} \;\Rightarrow\; \frac{d\theta}{dt} = \frac{-1}{20\operatorname{sen}\theta}\]</p>
+<p>En \(\theta = \dfrac{\pi}{3}\), \(\operatorname{sen}\theta = \dfrac{\sqrt3}{2}\):</p>
+<p>\[\frac{d\theta}{dt} = \frac{-1}{20\cdot\frac{\sqrt3}{2}} = \frac{-1}{10\sqrt3} = -\frac{\sqrt3}{30} \approx -0{,}0577\ \text{rad/s}\]</p>
+<p>El signo negativo confirma que el ángulo <strong>disminuye</strong>: la escalera se está acostando.</p>
+<p><strong>D34.</strong> Si \(h\) es la altura del globo, \(\tan\theta = \dfrac{h}{150}\), es decir \(h = 150\tan\theta\), con \(\dfrac{dh}{dt} = 8\) m/s.</p>
+<p>\[\frac{dh}{dt} = 150\sec^2\theta\cdot\frac{d\theta}{dt} \;\Rightarrow\; \frac{d\theta}{dt} = \frac{8\cos^2\theta}{150} = \frac{4\cos^2\theta}{75}\]</p>
+<p>En \(\theta = \dfrac{\pi}{4}\), \(\cos^2\theta = \dfrac12\):</p>
+<p>\[\frac{d\theta}{dt} = \frac{4}{75}\cdot\frac12 = \frac{2}{75} \approx 0{,}0267\ \text{rad/s}\]</p>
+<p><strong>D35.</strong> Área \(= \dfrac12(6)(6)\operatorname{sen}\theta = 18\operatorname{sen}\theta\).</p>
+<p>\[A'(\theta) = 18\cos\theta = 0 \;\Rightarrow\; \theta = \frac{\pi}{2}\]</p>
+<p>Como \(A''(\theta) = -18\operatorname{sen}\theta\) y \(A''\!\left(\dfrac\pi2\right) = -18 < 0\), es máximo.</p>
+<p>\[\theta = \frac{\pi}{2},\qquad A_{\max} = 18\]</p>
+<p>Es decir: el triángulo de área máxima con dos lados fijos es el <strong>rectángulo en el vértice entre ellos</strong>.</p>
+<hr />
+<h2 id="soluciones--sección-e">Soluciones — Sección E</h2>
+<p><strong>E1.</strong> \(f(x) = \operatorname{sen} x + \cos x\), \(f'(x) = \cos x - \operatorname{sen} x\).</p>
+<p>\[f\!\left(\frac\pi4\right) = \frac{\sqrt2}{2}+\frac{\sqrt2}{2} = \sqrt2,\qquad f'\!\left(\frac\pi4\right) = \frac{\sqrt2}{2}-\frac{\sqrt2}{2} = 0\]</p>
+<p>La recta tangente es horizontal:</p>
+<p>\[y = \sqrt{2}\]</p>
+<p><strong>Interpretación:</strong> en \(x=\dfrac\pi4\) la función alcanza su valor máximo (\(\sqrt2\) es la amplitud de \(\operatorname{sen} x + \cos x\)).</p>
+<p><strong>E2.</strong> \(f(x) = x\operatorname{sen} x\), \(f'(x) = \operatorname{sen} x + x\cos x\).</p>
+<p>\[f(\pi) = \pi\cdot 0 = 0,\qquad f'(\pi) = 0 + \pi(-1) = -\pi\]
+\[y - 0 = -\pi(x-\pi) \;\Rightarrow\; y = -\pi x + \pi^2\]</p>
+<p><strong>E3.</strong> \(y = \operatorname{sen}(x^2)\). Primera derivada (<strong>cadena</strong>, \(u' = 2x\)):</p>
+<p>\[y' = 2x\cos(x^2)\]</p>
+<p>Segunda derivada: <strong>producto</strong> más <strong>cadena</strong> otra vez:</p>
+<p>\[y'' = 2\cos(x^2) + 2x\cdot\left(-\operatorname{sen}(x^2)\cdot 2x\right) = 2\cos(x^2) - 4x^2\operatorname{sen}(x^2)\]</p>
+<p><strong>E4.</strong> \(f(x) = \operatorname{sen}^2x\cos 3x\). Producto; en el primer factor hay <strong>cadena</strong> (potencia sobre seno) y en el segundo también (\(u = 3x\)):</p>
+<p>\[f'(x) = \underbrace{2\operatorname{sen} x\cos x}_{\text{cadena}}\cos 3x + \operatorname{sen}^2x\underbrace{(-3\operatorname{sen} 3x)}_{\text{cadena}}\]
+\[= 2\operatorname{sen} x\cos x\cos 3x - 3\operatorname{sen}^2x\operatorname{sen} 3x\]</p>
+<p><strong>E5.</strong> \(y = x\operatorname{arcsen} x + \sqrt{1-x^2}\).</p>
+<p>Primer término, producto:</p>
+<p>\[\frac{d}{dx}\left[x\operatorname{arcsen} x\right] = \operatorname{arcsen} x + \frac{x}{\sqrt{1-x^2}}\]</p>
+<p>Segundo término, <strong>cadena</strong> con \(u = 1-x^2\), \(u' = -2x\):</p>
+<p>\[\frac{d}{dx}\sqrt{1-x^2} = \frac{-2x}{2\sqrt{1-x^2}} = \frac{-x}{\sqrt{1-x^2}}\]</p>
+<p>Sumo: los dos términos con raíz se cancelan.</p>
+<p>\[y' = \operatorname{arcsen} x\]</p>
+<p><strong>E6.</strong> Multiplico y divido para armar el límite notable con \(u = 3x\):</p>
+<p>\[\frac{1-\cos 3x}{x^2} = 9\cdot\frac{1-\cos 3x}{(3x)^2} \xrightarrow[x\to0]{} 9\cdot\frac12 = \frac{9}{2}\]</p>
+<p>Para que \(g\) sea continua en \(0\) hay que definir \(g(0) = \dfrac{9}{2}\).</p>
+<p><strong>E7.</strong> \(A(\theta) = 100\operatorname{sen}\theta(1+\cos\theta)\).</p>
+<p>\[A'(\theta) = 100\left[\cos\theta(1+\cos\theta) + \operatorname{sen}\theta(-\operatorname{sen}\theta)\right] = 100\left[\cos\theta + \cos^2\theta - \operatorname{sen}^2\theta\right]\]</p>
+<p>Sustituyo \(\operatorname{sen}^2\theta = 1-\cos^2\theta\):</p>
+<p>\[A'(\theta) = 100\left[2\cos^2\theta + \cos\theta - 1\right] = 100(2\cos\theta - 1)(\cos\theta + 1)\]</p>
+<p>En \((0,\pi/2)\), \(\cos\theta + 1 > 0\), así que \(A' = 0\) exige \(\cos\theta = \dfrac12\), es decir \(\theta = \dfrac{\pi}{3}\).</p>
+<p>\[A\!\left(\frac\pi3\right) = 100\cdot\frac{\sqrt3}{2}\left(1+\frac12\right) = 100\cdot\frac{\sqrt3}{2}\cdot\frac32 = 75\sqrt{3} \approx 129{,}90\ \text{cm}^2\]</p>
+<p><strong>E8.</strong> \(L(\theta) = 3\csc\theta + 4\sec\theta\).</p>
+<p>\[L'(\theta) = -3\csc\theta\cot\theta + 4\sec\theta\tan\theta = -\frac{3\cos\theta}{\operatorname{sen}^2\theta} + \frac{4\operatorname{sen}\theta}{\cos^2\theta}\]</p>
+<p>Igualo a cero y multiplico por \(\operatorname{sen}^2\theta\cos^2\theta\):</p>
+<p>\[4\operatorname{sen}^3\theta = 3\cos^3\theta \;\Rightarrow\; \tan^3\theta = \frac34 \;\Rightarrow\; \tan\theta = \left(\frac34\right)^{1/3}\]</p>
+<p>Con el triángulo de referencia (opuesto \(3^{1/3}\), adyacente \(4^{1/3}\), hipotenusa \(\sqrt{3^{2/3}+4^{2/3}}\)):</p>
+<p>\[L_{\min} = \left(3^{2/3}+4^{2/3}\right)^{3/2} \approx 9{,}87\ \text{m}\]</p>
+<p><strong>E9.</strong> \(f(x) = 2\cos^2 x - \cos x - 1\).</p>
+<p><strong>(a) Ceros.</strong> Cuadrática en \(u = \cos x\): \(2u^2 - u - 1 = (2u+1)(u-1) = 0\).</p>
+<ul>
+<li>\(\cos x = 1 \Rightarrow x = 0\).</li>
+<li>\(\cos x = -\dfrac12 \Rightarrow x = \dfrac{2\pi}{3},\ \dfrac{4\pi}{3}\).</li>
+</ul>
+<p>\[x = 0,\ \frac{2\pi}{3},\ \frac{4\pi}{3}\]</p>
+<p><strong>(b) Puntos críticos.</strong> Derivo (<strong>cadena</strong> en \(\cos^2x\)):</p>
+<p>\[f'(x) = 2\cdot 2\cos x(-\operatorname{sen} x) + \operatorname{sen} x = \operatorname{sen} x\left(1 - 4\cos x\right)\]</p>
+<ul>
+<li>\(\operatorname{sen} x = 0 \Rightarrow x = 0,\ \pi\).</li>
+<li>\(\cos x = \dfrac14 \Rightarrow x = \arccos\dfrac14 \approx 1{,}3181\) y \(x = 2\pi - 1{,}3181 \approx 4{,}9651\).</li>
+</ul>
+<p><strong>E10.</strong> El ángulo mayor está frente al lado mayor (\(11\)). Ley de cosenos:</p>
+<p>\[\cos C = \frac{5^2+8^2-11^2}{2(5)(8)} = \frac{25+64-121}{80} = \frac{-32}{80} = -\frac{2}{5}\]
+\[C = \arccos\left(-\frac25\right) \approx 113{,}58^\circ\]</p>
+<p>Área \(= \dfrac12(5)(8)\operatorname{sen} C\), y \(\operatorname{sen} C = \sqrt{1-\frac{4}{25}} = \dfrac{\sqrt{21}}{5}\):</p>
+<p>\[\text{Área} = 20\cdot\frac{\sqrt{21}}{5} = 4\sqrt{21} \approx 18{,}33\]</p>
+<p>(Se confirma con Herón: \(s = 12\), \(\sqrt{12\cdot7\cdot4\cdot1} = \sqrt{336} = 4\sqrt{21}\).)</p>
+<hr />
+<h2 id="soluciones--opción-múltiple">Soluciones — Opción múltiple</h2>
+<p><strong>OM1. Respuesta: (b) \(3\cos 3x\).</strong></p>
+<p>\(u = 3x\), \(u' = 3\), luego \(y' = \cos(3x)\cdot 3\).</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Opción</th>
+<th style="text-align: left;">Por qué está mal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">(a) \(\cos 3x\)</td>
+<td style="text-align: left;">Olvidó el factor de la cadena \(u' = 3\). Es el error más frecuente del tema.</td>
+</tr>
+<tr>
+<td style="text-align: left;">(c) \(3\cos x\)</td>
+<td style="text-align: left;">Aplicó la cadena pero también "derivó" el argumento dentro del coseno. El argumento <strong>se conserva</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;">(d) \(-3\cos 3x\)</td>
+<td style="text-align: left;">Le puso el signo negativo que corresponde a la derivada del <strong>coseno</strong>, no del seno.</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>OM2. Respuesta: (c) \(-\operatorname{sen} 2x\).</strong></p>
+<p>\(y = (\cos x)^2 \Rightarrow y' = 2\cos x\cdot(-\operatorname{sen} x) = -2\operatorname{sen} x\cos x = -\operatorname{sen} 2x\).</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Opción</th>
+<th style="text-align: left;">Por qué está mal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">(a) \(-2\cos x\)</td>
+<td style="text-align: left;">Aplicó la regla de la potencia y se detuvo: falta multiplicar por \(u' = -\operatorname{sen} x\).</td>
+</tr>
+<tr>
+<td style="text-align: left;">(b) \(2\cos x\operatorname{sen} x\)</td>
+<td style="text-align: left;">Correcta en magnitud, pero perdió el signo negativo de \((\cos x)' = -\operatorname{sen} x\).</td>
+</tr>
+<tr>
+<td style="text-align: left;">(d) \(-2\operatorname{sen} x\)</td>
+<td style="text-align: left;">Derivó el coseno pero olvidó dejar el factor \(\cos x\) de la potencia.</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>OM3. Respuesta: (c) \(\dfrac{5}{3}\).</strong></p>
+<p>\(\dfrac{\operatorname{sen} 5x}{3x} = \dfrac{5}{3}\cdot\dfrac{\operatorname{sen} 5x}{5x} \to \dfrac53\).</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Opción</th>
+<th style="text-align: left;">Por qué está mal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">(a) \(1\)</td>
+<td style="text-align: left;">Aplicó \(\lim\frac{\operatorname{sen} u}{u}=1\) sin verificar que el argumento del seno y el denominador coincidan.</td>
+</tr>
+<tr>
+<td style="text-align: left;">(b) \(\dfrac35\)</td>
+<td style="text-align: left;">Invirtió la fracción: puso el coeficiente del denominador arriba.</td>
+</tr>
+<tr>
+<td style="text-align: left;">(d) \(0\)</td>
+<td style="text-align: left;">Concluyó que el numerador tiende a \(0\) e ignoró que el denominador también. Es indeterminación \(\frac00\).</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>OM4. Respuesta: (a) \(\dfrac{3}{1+9x^2}\).</strong></p>
+<p>\((\arctan u)' = \dfrac{u'}{1+u^2}\) con \(u = 3x\), \(u^2 = 9x^2\), \(u' = 3\).</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Opción</th>
+<th style="text-align: left;">Por qué está mal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">(b) \(\dfrac{1}{1+9x^2}\)</td>
+<td style="text-align: left;">Elevó bien el argumento pero olvidó el factor de la cadena \(u' = 3\).</td>
+</tr>
+<tr>
+<td style="text-align: left;">(c) \(\dfrac{3}{1+3x^2}\)</td>
+<td style="text-align: left;">Puso \(u'\) pero escribió \(u^2 = 3x^2\) en vez de \((3x)^2 = 9x^2\).</td>
+</tr>
+<tr>
+<td style="text-align: left;">(d) \(\dfrac{3}{\sqrt{1-9x^2}}\)</td>
+<td style="text-align: left;">Usó la fórmula del <strong>arcoseno</strong>. La del arcotangente no lleva raíz.</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>OM5. Respuesta: (b) \(2x\sec^2(x^2)\).</strong></p>
+<p>\(u = x^2\), \(u' = 2x\), y \((\tan u)' = \sec^2 u\cdot u'\).</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Opción</th>
+<th style="text-align: left;">Por qué está mal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">(a) \(\sec^2(x^2)\)</td>
+<td style="text-align: left;">Olvidó la cadena.</td>
+</tr>
+<tr>
+<td style="text-align: left;">(c) \(2x\sec^2(2x)\)</td>
+<td style="text-align: left;">Reemplazó el argumento por su derivada dentro de la secante. El argumento no cambia.</td>
+</tr>
+<tr>
+<td style="text-align: left;">(d) \(2x\tan(x^2)\sec(x^2)\)</td>
+<td style="text-align: left;">Usó la derivada de la <strong>secante</strong> en lugar de la de la tangente.</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>OM6. Respuesta: (c) \(\dfrac{2\pi}{3}\).</strong></p>
+<p>El rango de \(\arccos\) es \([0,\pi]\); con coseno negativo, la respuesta está en QII.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Opción</th>
+<th style="text-align: left;">Por qué está mal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">(a) \(-\dfrac{\pi}{3}\)</td>
+<td style="text-align: left;">Usó el rango del <strong>arcoseno</strong> o del arcotangente. \(\arccos\) nunca es negativo.</td>
+</tr>
+<tr>
+<td style="text-align: left;">(b) \(\dfrac{\pi}{3}\)</td>
+<td style="text-align: left;">Ignoró el signo menos: ese es \(\arccos\left(\frac12\right)\).</td>
+</tr>
+<tr>
+<td style="text-align: left;">(d) \(\dfrac{4\pi}{3}\)</td>
+<td style="text-align: left;">Es un ángulo con coseno \(-\frac12\), pero está fuera de \([0,\pi]\): no es el valor principal.</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>OM7. Respuesta: (b) \(\dfrac{2\pi}{3}\).</strong></p>
+<p>\(T = \dfrac{2\pi}{|B|} = \dfrac{2\pi}{3}\).</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Opción</th>
+<th style="text-align: left;">Por qué está mal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">(a) \(2\pi\)</td>
+<td style="text-align: left;">Es el periodo de \(\operatorname{sen} x\); ignoró el factor \(B = 3\).</td>
+</tr>
+<tr>
+<td style="text-align: left;">(c) \(6\pi\)</td>
+<td style="text-align: left;">Multiplicó por \(B\) en vez de dividir.</td>
+</tr>
+<tr>
+<td style="text-align: left;">(d) \(\dfrac{\pi}{3}\)</td>
+<td style="text-align: left;">Dividió \(\pi\) entre \(B\); el numerador correcto es \(2\pi\) (ese sería el periodo de una tangente).</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>OM8. Respuesta: (c) \(\dfrac{9}{2}\).</strong></p>
+<p>\(\dfrac{1-\cos 3x}{x^2} = 9\cdot\dfrac{1-\cos 3x}{(3x)^2} \to 9\cdot\dfrac12\).</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Opción</th>
+<th style="text-align: left;">Por qué está mal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">(a) \(\dfrac12\)</td>
+<td style="text-align: left;">Aplicó el límite notable sin ajustar por el \(3\) del argumento.</td>
+</tr>
+<tr>
+<td style="text-align: left;">(b) \(\dfrac32\)</td>
+<td style="text-align: left;">Multiplicó por \(3\) en vez de por \(3^2 = 9\): el ajuste va al cuadrado porque el denominador es \(x^2\).</td>
+</tr>
+<tr>
+<td style="text-align: left;">(d) \(0\)</td>
+<td style="text-align: left;">Confundió con \(\lim\frac{1-\cos u}{u}=0\). Con \(u^2\) en el denominador el límite es \(\frac12\), no \(0\).</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="soluciones--simulacro">Soluciones — Simulacro</h2>
+<p><strong>S1.</strong> \(225^\circ\cdot\dfrac{\pi}{180^\circ} = \dfrac{5\pi}{4}\). Está en QIII, referencia \(\dfrac{\pi}{4}\), ambos negativos:</p>
+<p>\[\operatorname{sen} 225^\circ = -\frac{\sqrt2}{2},\qquad \cos 225^\circ = -\frac{\sqrt2}{2}\]</p>
+<p><strong>S2.</strong> \(\operatorname{sen}\theta = -\dfrac{7}{25}\), QIII \(\Rightarrow\cos\theta<0\). \(\cos^2\theta = 1-\dfrac{49}{625} = \dfrac{576}{625}\).</p>
+<p>\[\cos\theta = -\frac{24}{25},\quad \tan\theta = \frac{7}{24},\quad \cot\theta = \frac{24}{7},\quad \sec\theta = -\frac{25}{24},\quad \csc\theta = -\frac{25}{7}\]</p>
+<p><strong>S3.</strong> Escribo \(\sec x = \dfrac{1}{\cos x}\) y opero:</p>
+<p>\[\frac{\sec x - 1}{\sec x + 1} = \frac{\dfrac{1}{\cos x}-1}{\dfrac{1}{\cos x}+1} = \frac{\dfrac{1-\cos x}{\cos x}}{\dfrac{1+\cos x}{\cos x}} = \frac{1-\cos x}{1+\cos x}\quad\blacksquare\]</p>
+<p><strong>S4.</strong> Ángulo mitad con \(\dfrac{\pi}{8} = \dfrac{1}{2}\cdot\dfrac{\pi}{4}\). Como \(\dfrac\pi8\) está en QI, tomo la raíz positiva:</p>
+<p>\[\operatorname{sen}\frac\pi8 = \sqrt{\frac{1-\cos\frac\pi4}{2}} = \sqrt{\frac{1-\frac{\sqrt2}{2}}{2}} = \sqrt{\frac{2-\sqrt2}{4}} = \frac{\sqrt{2-\sqrt2}}{2} \approx 0{,}3827\]</p>
+<p><strong>S5.</strong> Sustituyo \(\operatorname{sen}^2x = 1-\cos^2x\):</p>
+<p>\[2(1-\cos^2x) - 3\cos x - 3 = 0 \;\Rightarrow\; -2\cos^2x - 3\cos x - 1 = 0 \;\Rightarrow\; 2\cos^2x+3\cos x+1 = 0\]
+\[(2\cos x + 1)(\cos x + 1) = 0\]</p>
+<ul>
+<li>\(\cos x = -\dfrac12 \Rightarrow x = \dfrac{2\pi}{3},\ \dfrac{4\pi}{3}\)</li>
+<li>\(\cos x = -1 \Rightarrow x = \pi\)</li>
+</ul>
+<p>\[x = \frac{2\pi}{3},\ \pi,\ \frac{4\pi}{3}\]</p>
+<p><strong>S6.</strong> \(\cos 2x = \dfrac12 \Rightarrow 2x = \pm\dfrac{\pi}{3}+2k\pi\):</p>
+<p>\[x = \pm\frac{\pi}{6} + k\pi,\qquad k\in\mathbb{Z}\]</p>
+<p>Equivalente: \(x = \dfrac{\pi}{6}+k\pi\) o \(x = \dfrac{5\pi}{6}+k\pi\).</p>
+<p><strong>S7.</strong> \(C = 180^\circ - 40^\circ - 75^\circ = 65^\circ\). Ley de senos con \(\dfrac{a}{\operatorname{sen} A} = \dfrac{12}{\operatorname{sen} 40^\circ}\):</p>
+<p>\[b = \frac{12\operatorname{sen} 75^\circ}{\operatorname{sen} 40^\circ} \approx 18{,}03,\qquad c = \frac{12\operatorname{sen} 65^\circ}{\operatorname{sen} 40^\circ} \approx 16{,}92\]</p>
+<p><strong>S8.</strong> \(y = 2\operatorname{sen}(4x+\pi)-1\). En la forma \(A\operatorname{sen}(Bx-C)+D\) se tiene \(C = -\pi\).</p>
+<p>\[\text{amplitud} = 2,\quad T = \frac{2\pi}{4} = \frac{\pi}{2},\quad \text{desfase} = \frac{C}{B} = -\frac{\pi}{4}\ \text{(izquierda)},\quad \text{rango} = [-3,\ 1]\]</p>
+<p><strong>S9.</strong> \(\operatorname{sen}\dfrac{4\pi}{3} = -\dfrac{\sqrt3}{2}\). Luego \(\operatorname{arcsen}\left(-\dfrac{\sqrt3}{2}\right) = -\dfrac{\pi}{3}\) (está en \(\left[-\dfrac\pi2,\dfrac\pi2\right]\)).</p>
+<p>\[-\frac{\pi}{3}\]</p>
+<p><strong>S10.</strong> Separo la fracción:</p>
+<p>\[\frac{x+\operatorname{sen} 3x}{2x} = \frac{1}{2} + \frac{3}{2}\cdot\frac{\operatorname{sen} 3x}{3x} \xrightarrow[x\to0]{} \frac12+\frac32 = 2\]</p>
+<p><strong>S11.</strong> \(u = x^2+1\), \(u' = 2x\) ← <strong>cadena</strong>.</p>
+<p>\[y' = \sec(x^2+1)\tan(x^2+1)\cdot 2x = 2x\sec(x^2+1)\tan(x^2+1)\]</p>
+<p><strong>S12.</strong> \(u = \sqrt x\), \(u' = \dfrac{1}{2\sqrt x}\) ← <strong>cadena</strong>.</p>
+<p>\[y' = -\csc^2\!\sqrt{x}\cdot\frac{1}{2\sqrt x} = -\frac{\csc^2\sqrt{x}}{2\sqrt{x}}\]</p>
+<p><strong>S13.</strong> \((\arctan u)' = \dfrac{u'}{1+u^2}\) con \(u = \operatorname{sen} x\), \(u' = \cos x\) ← <strong>cadena</strong>.</p>
+<p>\[y' = \frac{\cos x}{1+\operatorname{sen}^2 x}\]</p>
+<p><strong>S14.</strong> Derivo \(x\operatorname{sen} y + y\cos x = 0\) término a término (producto en ambos):</p>
+<p>\[\operatorname{sen} y + x\cos y\cdot\frac{dy}{dx} + \frac{dy}{dx}\cos x - y\operatorname{sen} x = 0\]
+\[\frac{dy}{dx}\left(x\cos y + \cos x\right) = y\operatorname{sen} x - \operatorname{sen} y\]
+\[\frac{dy}{dx} = \frac{y\operatorname{sen} x - \operatorname{sen} y}{x\cos y + \cos x}\]</p>
+<p><strong>S15.</strong> \(f(x) = \tan x\), \(f'(x) = \sec^2 x\).</p>
+<p>\[f\!\left(\frac\pi4\right) = 1,\qquad f'\!\left(\frac\pi4\right) = \sec^2\frac\pi4 = (\sqrt2)^2 = 2\]
+\[y - 1 = 2\left(x-\frac\pi4\right) \;\Rightarrow\; y = 2x + 1 - \frac{\pi}{2}\]</p>
+<h3 id="barema-del-simulacro">Barema del simulacro</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th style="text-align: center;">Puntaje</th>
+<th style="text-align: left;">Lectura</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">14–15</td>
+<td style="text-align: left;">Listo para el bloque. Repasa solo lo que fallaste.</td>
+</tr>
+<tr>
+<td style="text-align: center;">11–13</td>
+<td style="text-align: left;">Bien. Refuerza el bloque temático de los errores antes del 25.</td>
+</tr>
+<tr>
+<td style="text-align: center;">8–10</td>
+<td style="text-align: left;">Vuelve a la sección D completa y repite el simulacro al día siguiente.</td>
+</tr>
+<tr>
+<td style="text-align: center;">\(\le 7\)</td>
+<td style="text-align: left;">Repite las secciones A y B desde cero: el problema está en la base, no en las derivadas.</td>
+</tr>
+</tbody>
+</table></div>
+</main>
+</body>
+</html>

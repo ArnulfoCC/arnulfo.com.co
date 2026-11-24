@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resúmenes teóricos — Cálculo Diferencial</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ 05 - Cálculo Diferencial / 3. Resúmenes teóricos</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="resúmenes-teóricos--cálculo-diferencial">Resúmenes teóricos — Cálculo Diferencial</h1>
+<p><strong>Apuntes de consulta permanente.</strong> Organizados por escenario, con definiciones precisas, formularios completos, ejemplos resueltos paso a paso y una sección final de errores frecuentes.</p>
+<blockquote>
+<p>Contenido esperado de la asignatura. La organización por escenarios está <strong>por verificar en el aula virtual</strong>.</p>
+</blockquote>
+<hr />
+<h2 id="índice">Índice</h2>
+<ol>
+<li><a href="#escenario-1--funciones">Escenario 1 — Funciones</a></li>
+<li><a href="#escenario-2--límites-noción-y-leyes">Escenario 2 — Límites: noción y leyes</a></li>
+<li><a href="#escenario-3--indeterminaciones-infinito-y-asíntotas">Escenario 3 — Indeterminaciones, infinito y asíntotas</a></li>
+<li><a href="#escenario-4--continuidad-y-derivada-por-definición">Escenario 4 — Continuidad y derivada por definición</a></li>
+<li><a href="#escenario-5--reglas-de-derivación">Escenario 5 — Reglas de derivación</a></li>
+<li><a href="#escenario-6--regla-de-la-cadena-implícita-y-orden-superior">Escenario 6 — Regla de la cadena, implícita y orden superior</a></li>
+<li><a href="#escenario-7--aplicaciones-de-la-derivada">Escenario 7 — Aplicaciones de la derivada</a></li>
+<li><a href="#formularios">FORMULARIOS</a></li>
+<li><a href="#errores-frecuentes">Errores frecuentes</a></li>
+</ol>
+<hr />
+<h2 id="escenario-1--funciones">Escenario 1 — Funciones</h2>
+<h3 id="definición">Definición</h3>
+<p>Una <strong>función</strong> \(f\) de un conjunto \(A\) en un conjunto \(B\) es una regla que asigna a <strong>cada</strong> elemento \(x\in A\) <strong>exactamente un</strong> elemento \(f(x)\in B\).</p>
+<ul>
+<li><strong>Dominio</strong> \(\text{Dom}(f)\): los \(x\) para los cuales \(f(x)\) está definida.</li>
+<li><strong>Rango</strong> o recorrido: el conjunto de todos los valores \(f(x)\) que efectivamente se alcanzan.</li>
+<li><strong>Prueba de la recta vertical:</strong> una gráfica representa una función si y solo si ninguna recta vertical la corta en más de un punto.</li>
+</ul>
+<h3 id="las-tres-restricciones-de-dominio-memorízalas">Las tres restricciones de dominio (memorízalas)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Estructura</th>
+<th>Restricción</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Denominador \(\dfrac{p(x)}{q(x)}\)</td>
+<td>\(q(x)\neq 0\)</td>
+<td>\(\dfrac{1}{x-4}\): \(x\neq 4\)</td>
+</tr>
+<tr>
+<td>Raíz de índice <strong>par</strong> \(\sqrt[2n]{g(x)}\)</td>
+<td>\(g(x)\ge 0\)</td>
+<td>\(\sqrt{x-2}\): \(x\ge 2\)</td>
+</tr>
+<tr>
+<td>Logaritmo \(\ln g(x)\)</td>
+<td>\(g(x)>0\) <strong>estricto</strong></td>
+<td>\(\ln(3-x)\): \(x<3\)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Las raíces de índice impar y las exponenciales \(a^x\) no restringen nada: su dominio es \(\mathbb{R}\).</p>
+<p><strong>Ejemplo.</strong> \(f(x)=\dfrac{\sqrt{x-2}}{x^2-9}\). Se necesita \(x-2\ge0\) (es decir \(x\ge2\)) <strong>y</strong> \(x^2-9\neq0\) (es decir \(x\neq\pm3\)). Como \(x\ge2\), el \(-3\) ya está excluido. Dominio: \([2,3)\cup(3,\infty)\).</p>
+<p><strong>Ejemplo.</strong> \(g(x)=\ln(x^2-5x+6)\). Se necesita \(x^2-5x+6>0\), o sea \((x-2)(x-3)>0\). La parábola abre hacia arriba, así que es positiva fuera de las raíces. Dominio: \((-\infty,2)\cup(3,\infty)\).</p>
+<h3 id="álgebra-de-funciones-y-composición">Álgebra de funciones y composición</h3>
+<p>\[(f\pm g)(x)=f(x)\pm g(x),\qquad (fg)(x)=f(x)g(x),\qquad \left(\frac{f}{g}\right)(x)=\frac{f(x)}{g(x)},\ g(x)\neq0\]</p>
+<p>\[(f\circ g)(x)=f\big(g(x)\big)\]</p>
+<p><strong>La composición no es conmutativa.</strong> Con \(f(x)=2x-3\) y \(g(x)=x^2+1\):</p>
+<p>\[(f\circ g)(x)=2(x^2+1)-3=2x^2-1, \qquad (g\circ f)(x)=(2x-3)^2+1=4x^2-12x+10\]</p>
+<p>Son funciones distintas. Reconocer la composición es exactamente lo que necesitarás en el escenario 6.</p>
+<h3 id="función-inversa">Función inversa</h3>
+<p>\(f\) tiene inversa si y solo si es <strong>inyectiva</strong> (prueba de la recta horizontal). Entonces:</p>
+<p>\[f\big(f^{-1}(x)\big)=x \qquad\text{y}\qquad f^{-1}\big(f(x)\big)=x\]</p>
+<p>Las gráficas de \(f\) y \(f^{-1}\) son reflejos respecto a la recta \(y=x\).</p>
+<p><strong>Procedimiento:</strong> escribe \(y=f(x)\), despeja \(x\) en términos de \(y\), intercambia los nombres.</p>
+<p><strong>Ejemplo.</strong> \(f(x)=\dfrac{x+1}{x-2}\). De \(y=\dfrac{x+1}{x-2}\): \(y(x-2)=x+1 \Rightarrow yx-2y=x+1 \Rightarrow x(y-1)=2y+1 \Rightarrow x=\dfrac{2y+1}{y-1}\).
+Por tanto \(f^{-1}(x)=\dfrac{2x+1}{x-1}\).</p>
+<blockquote>
+<p>⚠️ \(f^{-1}(x)\) <strong>no</strong> es \(\dfrac{1}{f(x)}\). Es un abuso de notación histórico. Nunca los confundas.</p>
+</blockquote>
+<hr />
+<h2 id="escenario-2--límites-noción-y-leyes">Escenario 2 — Límites: noción y leyes</h2>
+<h3 id="definición-intuitiva">Definición intuitiva</h3>
+<p>\[\lim_{x\to a}f(x)=L\]</p>
+<p>significa: <em>los valores de \(f(x)\) se acercan tanto como se quiera a \(L\) cuando \(x\) se acerca a \(a\), sin llegar a valer \(a\).</em></p>
+<p><strong>El punto que casi todos pierden:</strong> el límite <strong>no depende de \(f(a)\)</strong>. La función puede no estar definida en \(a\), o valer allí otra cosa completamente distinta, y el límite seguir siendo \(L\). El límite describe el comportamiento <em>alrededor</em> del punto, no <em>en</em> el punto.</p>
+<h3 id="límites-laterales">Límites laterales</h3>
+<p>\[\lim_{x\to a^-}f(x)=L_1 \quad (\text{por la izquierda}), \qquad \lim_{x\to a^+}f(x)=L_2 \quad (\text{por la derecha})\]</p>
+<p><strong>Criterio de existencia:</strong></p>
+<p>\[\lim_{x\to a}f(x)=L \iff \lim_{x\to a^-}f(x)=\lim_{x\to a^+}f(x)=L\]</p>
+<p><strong>Ejemplo.</strong> \(f(x)=\dfrac{|x|}{x}\). Para \(x<0\), \(|x|=-x\) y \(f(x)=-1\); para \(x>0\), \(f(x)=1\). Entonces
+\[\lim_{x\to 0^-}f(x)=-1 \neq 1=\lim_{x\to 0^+}f(x)\]
+El límite en 0 <strong>no existe</strong> (discontinuidad de salto).</p>
+<h3 id="leyes-de-los-límites">Leyes de los límites</h3>
+<p>Si \(\lim_{x\to a}f(x)=L\) y \(\lim_{x\to a}g(x)=M\), ambos existen y son finitos:</p>
+<p>\[\lim(f\pm g)=L\pm M \qquad \lim(cf)=cL \qquad \lim(fg)=LM\]
+\[\lim\frac{f}{g}=\frac{L}{M}\ (M\neq0) \qquad \lim f^n=L^n \qquad \lim\sqrt[n]{f}=\sqrt[n]{L}\]</p>
+<p><strong>Sustitución directa:</strong> si \(f\) es polinómica, racional (con denominador no nulo en \(a\)), radical, exponencial, logarítmica o trigonométrica, y \(a\) está en el dominio, entonces \(\lim_{x\to a}f(x)=f(a)\). Simplemente evalúas.</p>
+<p>Cuando la sustitución directa produce \(\frac{0}{0}\), \(\frac{\infty}{\infty}\), \(0\cdot\infty\), \(\infty-\infty\), \(1^\infty\), \(0^0\) o \(\infty^0\), tienes una <strong>indeterminación</strong>: el resultado no está decidido y hay que trabajar la expresión. Ese es el escenario 3.</p>
+<blockquote>
+<p><strong>Ojo:</strong> \(\frac{5}{0}\) <strong>no</strong> es indeterminación. Es un límite infinito (asíntota vertical). \(\frac{0}{5}=0\) tampoco: es simplemente 0.</p>
+</blockquote>
+<hr />
+<h2 id="escenario-3--indeterminaciones-infinito-y-asíntotas">Escenario 3 — Indeterminaciones, infinito y asíntotas</h2>
+<h3 id="diagrama-de-decisión">Diagrama de decisión</h3>
+<p>Ante \(\frac{0}{0}\), mira la expresión y elige:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Lo que ves</th>
+<th>Técnica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Polinomios</td>
+<td><strong>Factorizar</strong> y cancelar el factor común</td>
+</tr>
+<tr>
+<td>Alguna raíz</td>
+<td><strong>Racionalizar</strong> multiplicando por el conjugado</td>
+</tr>
+<tr>
+<td>Fracciones dentro de fracciones</td>
+<td><strong>Simplificar</strong> el complejo primero</td>
+</tr>
+<tr>
+<td>\(\sin\), \(\cos\), \(\tan\) con \(x\to0\)</td>
+<td><strong>Límites notables</strong></td>
+</tr>
+<tr>
+<td>Nada de lo anterior funciona</td>
+<td>L'Hôpital (escenario 7)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Ante \(x\to\pm\infty\): <strong>divide numerador y denominador por la mayor potencia del denominador</strong>.</p>
+<h3 id="ejemplo-resuelto-1--factorización">Ejemplo resuelto 1 — Factorización</h3>
+<p>\[\lim_{x\to 2}\frac{x^3-8}{x^2-4}\]</p>
+<p><strong>Paso 1. Verificar la indeterminación.</strong> Sustituyendo \(x=2\): numerador \(8-8=0\), denominador \(4-4=0\). Es \(\frac{0}{0}\). ✓</p>
+<p><strong>Paso 2. Factorizar.</strong> Diferencia de cubos arriba, diferencia de cuadrados abajo:
+\[x^3-8=(x-2)(x^2+2x+4), \qquad x^2-4=(x-2)(x+2)\]</p>
+<p><strong>Paso 3. Cancelar.</strong> Como \(x\to2\) pero \(x\neq2\), el factor \((x-2)\) es distinto de cero y se puede cancelar:
+\[\lim_{x\to2}\frac{(x-2)(x^2+2x+4)}{(x-2)(x+2)}=\lim_{x\to2}\frac{x^2+2x+4}{x+2}\]</p>
+<p><strong>Paso 4. Sustituir.</strong>
+\[=\frac{4+4+4}{4}=\frac{12}{4}=\boxed{3}\]</p>
+<p><em>Por qué siempre funciona:</em> si sustituir \(a\) anula numerador y denominador, entonces \((x-a)\) es factor de ambos (teorema del factor). Cancelarlo es garantizado.</p>
+<h3 id="ejemplo-resuelto-2--racionalización">Ejemplo resuelto 2 — Racionalización</h3>
+<p>\[\lim_{x\to 0}\frac{\sqrt{x+4}-2}{x}\]</p>
+<p><strong>Paso 1.</strong> Sustituyendo: \(\frac{\sqrt4-2}{0}=\frac{0}{0}\). ✓</p>
+<p><strong>Paso 2. Multiplicar por el conjugado del numerador</strong>, \(\sqrt{x+4}+2\), arriba y abajo:
+\[\frac{\sqrt{x+4}-2}{x}\cdot\frac{\sqrt{x+4}+2}{\sqrt{x+4}+2}=\frac{(\sqrt{x+4})^2-2^2}{x\left(\sqrt{x+4}+2\right)}=\frac{(x+4)-4}{x\left(\sqrt{x+4}+2\right)}\]</p>
+<p><strong>Paso 3. Simplificar.</strong>
+\[=\frac{x}{x\left(\sqrt{x+4}+2\right)}=\frac{1}{\sqrt{x+4}+2}\]</p>
+<p><strong>Paso 4. Sustituir.</strong>
+\[\lim_{x\to0}\frac{1}{\sqrt{x+4}+2}=\frac{1}{2+2}=\boxed{\frac14}\]</p>
+<blockquote>
+<p><strong>Nunca expandas el conjugado en el denominador.</strong> El chiste es que arriba se cancele la raíz y abajo se conserve factorizado para poder cancelar la \(x\).</p>
+</blockquote>
+<h3 id="ejemplo-resuelto-3--límite-trigonométrico-notable">Ejemplo resuelto 3 — Límite trigonométrico notable</h3>
+<p>\[\lim_{x\to 0}\frac{1-\cos 2x}{x\sin x}\]</p>
+<p><strong>Paso 1.</strong> Sustituyendo: \(\frac{1-1}{0}=\frac{0}{0}\). ✓</p>
+<p><strong>Paso 2. Usar la identidad</strong> \(\cos 2x = 1-2\sin^2x\), de donde \(1-\cos2x=2\sin^2x\):
+\[\frac{1-\cos2x}{x\sin x}=\frac{2\sin^2x}{x\sin x}=\frac{2\sin x}{x}\]</p>
+<p><strong>Paso 3. Aplicar el notable</strong> \(\displaystyle\lim_{x\to0}\frac{\sin x}{x}=1\):
+\[\lim_{x\to0}\frac{2\sin x}{x}=2\cdot1=\boxed{2}\]</p>
+<h3 id="ejemplo-resuelto-4--límite-al-infinito-con-radical">Ejemplo resuelto 4 — Límite al infinito con radical</h3>
+<p>\[\lim_{x\to\infty}\left(\sqrt{x^2+3x}-x\right)\]</p>
+<p>Es \(\infty-\infty\): indeterminado. Se racionaliza igual que antes:</p>
+<p>\[\left(\sqrt{x^2+3x}-x\right)\cdot\frac{\sqrt{x^2+3x}+x}{\sqrt{x^2+3x}+x}=\frac{(x^2+3x)-x^2}{\sqrt{x^2+3x}+x}=\frac{3x}{\sqrt{x^2+3x}+x}\]</p>
+<p>Ahora divido arriba y abajo por \(x\) (y como \(x\to+\infty\), \(x>0\), así que \(x=\sqrt{x^2}\)):</p>
+<p>\[=\frac{3}{\sqrt{\dfrac{x^2+3x}{x^2}}+1}=\frac{3}{\sqrt{1+\dfrac{3}{x}}+1}\xrightarrow[x\to\infty]{}\frac{3}{\sqrt{1}+1}=\boxed{\frac32}\]</p>
+<h3 id="límites-al-infinito-de-racionales--regla-rápida">Límites al infinito de racionales — regla rápida</h3>
+<p>Sea \(f(x)=\dfrac{a_nx^n+\cdots}{b_mx^m+\cdots}\):</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Comparación</th>
+<th>\(\lim_{x\to\pm\infty}f(x)\)</th>
+<th>Asíntota</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(n<m\)</td>
+<td>\(0\)</td>
+<td>Horizontal \(y=0\)</td>
+</tr>
+<tr>
+<td>\(n=m\)</td>
+<td>\(\dfrac{a_n}{b_m}\)</td>
+<td>Horizontal \(y=a_n/b_m\)</td>
+</tr>
+<tr>
+<td>\(n=m+1\)</td>
+<td>\(\pm\infty\)</td>
+<td><strong>Oblicua</strong> (haz la división)</td>
+</tr>
+<tr>
+<td>\(n>m+1\)</td>
+<td>\(\pm\infty\)</td>
+<td>Ninguna</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="asíntotas">Asíntotas</h3>
+<ul>
+<li><strong>Vertical</strong> en \(x=a\): si \(\lim_{x\to a^\pm}f(x)=\pm\infty\). En racionales, donde el denominador se anula <strong>y el numerador no</strong>. Si ambos se anulan, primero simplifica: puede ser un hueco (discontinuidad evitable), no una asíntota.</li>
+<li><strong>Horizontal</strong> \(y=L\): si \(\lim_{x\to\pm\infty}f(x)=L\) finito. Una función puede tener hasta dos horizontales distintas (una por cada lado).</li>
+<li><strong>Oblicua</strong> \(y=mx+b\): cuando el grado del numerador supera en exactamente 1 al del denominador. Se obtiene por división de polinomios.</li>
+</ul>
+<p><strong>Ejemplo.</strong> \(f(x)=\dfrac{x^2+1}{x-1}\). División: \(\dfrac{x^2+1}{x-1}=x+1+\dfrac{2}{x-1}\). Como \(\frac{2}{x-1}\to0\), la asíntota oblicua es \(y=x+1\), y la vertical es \(x=1\).</p>
+<p><strong>Ejemplo con hueco.</strong> \(f(x)=\dfrac{2x^2-3x+1}{x^2-1}=\dfrac{(2x-1)(x-1)}{(x-1)(x+1)}=\dfrac{2x-1}{x+1}\).
+Hay asíntota vertical solo en \(x=-1\). En \(x=1\) hay un <strong>hueco</strong> de altura \(\frac{2(1)-1}{1+1}=\frac12\). Horizontal: \(y=2\).</p>
+<hr />
+<h2 id="escenario-4--continuidad-y-derivada-por-definición">Escenario 4 — Continuidad y derivada por definición</h2>
+<h3 id="continuidad-en-un-punto">Continuidad en un punto</h3>
+<p>\(f\) es continua en \(x=a\) si se cumplen <strong>las tres</strong>:</p>
+<ol>
+<li>\(f(a)\) existe.</li>
+<li>\(\lim_{x\to a}f(x)\) existe (los dos laterales coinciden).</li>
+<li>\(\lim_{x\to a}f(x)=f(a)\).</li>
+</ol>
+<h3 id="tipos-de-discontinuidad">Tipos de discontinuidad</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Qué pasa</th>
+<th>Ejemplo</th>
+<th>¿Se arregla?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Evitable (removible)</strong></td>
+<td>El límite existe pero \(\neq f(a)\), o \(f(a)\) no existe</td>
+<td>\(\dfrac{x^2-4}{x-2}\) en \(x=2\)</td>
+<td>Sí: redefinir \(f(2)=4\)</td>
+</tr>
+<tr>
+<td><strong>De salto (finita)</strong></td>
+<td>Los laterales existen pero son distintos</td>
+<td>\(\dfrac{\lvert x\rvert}{x}\) en \(x=0\)</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Infinita (asintótica)</strong></td>
+<td>Al menos un lateral es \(\pm\infty\)</td>
+<td>\(\dfrac{1}{x-4}\) en \(x=4\)</td>
+<td>No</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Ejemplo con parámetro.</strong> Hallar \(k\) para que sea continua
+\[f(x)=\begin{cases}x^2, & x\le2\\ kx+1, & x>2\end{cases}\]
+Lateral izquierdo: \(\lim_{x\to2^-}x^2=4\). Lateral derecho: \(\lim_{x\to2^+}(kx+1)=2k+1\). Igualando: \(2k+1=4 \Rightarrow \boxed{k=\dfrac32}\). Y \(f(2)=4\) coincide, así que es continua.</p>
+<h3 id="teorema-del-valor-intermedio-tvi">Teorema del valor intermedio (TVI)</h3>
+<p>Si \(f\) es <strong>continua</strong> en \([a,b]\) y \(N\) está entre \(f(a)\) y \(f(b)\), entonces existe al menos un \(c\in(a,b)\) con \(f(c)=N\).</p>
+<p>Uso típico: garantizar raíces. Para \(f(x)=x^3-x-1\) en \([1,2]\): \(f(1)=-1<0\) y \(f(2)=5>0\). Como \(f\) es continua (polinomio), existe \(c\in(1,2)\) con \(f(c)=0\). (Numéricamente \(c\approx1{,}3247\); el TVI garantiza la existencia, no da el valor.)</p>
+<blockquote>
+<p>El TVI <strong>exige continuidad</strong>. Sin ella el teorema es falso: \(f(x)=1/x\) pasa de \(-1\) en \(x=-1\) a \(1\) en \(x=1\) sin valer nunca 0.</p>
+</blockquote>
+<h3 id="la-derivada-definición">La derivada: definición</h3>
+<p>\[f'(a)=\lim_{h\to 0}\frac{f(a+h)-f(a)}{h} \qquad\text{o, equivalentemente,}\qquad f'(a)=\lim_{x\to a}\frac{f(x)-f(a)}{x-a}\]</p>
+<p>Como función:
+\[f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\]</p>
+<p><strong>Notaciones equivalentes:</strong> \(f'(x)\), \(\dfrac{dy}{dx}\), \(\dfrac{d}{dx}f(x)\), \(D_xf\), \(\dot y\).</p>
+<h3 id="las-dos-interpretaciones">Las dos interpretaciones</h3>
+<p><strong>Geométrica.</strong> \(\dfrac{f(x+h)-f(x)}{h}\) es la pendiente de la recta <strong>secante</strong> entre dos puntos de la gráfica. Al hacer \(h\to0\), el segundo punto se desliza hacia el primero y la secante se convierte en la recta <strong>tangente</strong>. Por tanto \(f'(a)\) = pendiente de la tangente en \(x=a\).</p>
+<p><strong>Física.</strong> Si \(s(t)\) es la posición, \(\dfrac{s(t+h)-s(t)}{h}\) es la velocidad <strong>promedio</strong> en el intervalo. Al hacer \(h\to0\) se obtiene la velocidad <strong>instantánea</strong>: \(v(t)=s'(t)\). En general, \(f'\) es la razón de cambio instantánea de \(f\).</p>
+<p><em>Traducción a tu trabajo:</em> si comparas el valor ejecutado de un contrato mes contra mes, calculas una razón de cambio promedio. La derivada es esa misma razón cuando el intervalo se vuelve infinitesimal.</p>
+<h3 id="derivada-por-definición-resuelta">Derivada por definición, resuelta</h3>
+<p><strong>\(f(x)=\sqrt{x}\):</strong>
+\[f'(x)=\lim_{h\to0}\frac{\sqrt{x+h}-\sqrt{x}}{h}=\lim_{h\to0}\frac{\sqrt{x+h}-\sqrt{x}}{h}\cdot\frac{\sqrt{x+h}+\sqrt{x}}{\sqrt{x+h}+\sqrt{x}}\]
+\[=\lim_{h\to0}\frac{(x+h)-x}{h\left(\sqrt{x+h}+\sqrt{x}\right)}=\lim_{h\to0}\frac{h}{h\left(\sqrt{x+h}+\sqrt{x}\right)}=\lim_{h\to0}\frac{1}{\sqrt{x+h}+\sqrt{x}}=\boxed{\frac{1}{2\sqrt{x}}}\]</p>
+<p>Observa: es <strong>exactamente</strong> la racionalización del escenario 3. Por eso el escenario 3 es cuello de botella.</p>
+<p><strong>\(f(x)=\dfrac1x\):</strong>
+\[f'(x)=\lim_{h\to0}\frac{\frac{1}{x+h}-\frac{1}{x}}{h}=\lim_{h\to0}\frac{\frac{x-(x+h)}{x(x+h)}}{h}=\lim_{h\to0}\frac{-h}{h\,x(x+h)}=\lim_{h\to0}\frac{-1}{x(x+h)}=\boxed{-\frac{1}{x^2}}\]</p>
+<h3 id="derivabilidad-y-continuidad">Derivabilidad y continuidad</h3>
+<p>\[f \text{ derivable en } a \implies f \text{ continua en } a\]</p>
+<p><strong>El recíproco es falso.</strong> \(f(x)=|x|\) es continua en 0 pero no derivable allí: las derivadas laterales son \(-1\) y \(+1\), distintas. Hay un pico (punto anguloso).</p>
+<p>Una función <strong>no</strong> es derivable donde haya: (a) un pico, (b) una discontinuidad, (c) una tangente vertical (como \(x^{1/3}\) en 0).</p>
+<hr />
+<h2 id="escenario-5--reglas-de-derivación">Escenario 5 — Reglas de derivación</h2>
+<h3 id="las-reglas-básicas">Las reglas básicas</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Regla</th>
+<th>Fórmula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Constante</td>
+<td>\(\dfrac{d}{dx}[c]=0\)</td>
+</tr>
+<tr>
+<td>Potencia</td>
+<td>\(\dfrac{d}{dx}\left[x^n\right]=nx^{n-1}\) (para todo \(n\) real)</td>
+</tr>
+<tr>
+<td>Múltiplo</td>
+<td>\(\dfrac{d}{dx}[c\,f]=c\,f'\)</td>
+</tr>
+<tr>
+<td>Suma / resta</td>
+<td>\((f\pm g)'=f'\pm g'\)</td>
+</tr>
+<tr>
+<td><strong>Producto</strong></td>
+<td>\((fg)'=f'g+fg'\)</td>
+</tr>
+<tr>
+<td><strong>Cociente</strong></td>
+<td>\(\left(\dfrac{f}{g}\right)'=\dfrac{f'g-fg'}{g^2}\)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Mnemotecnia del cociente:</strong> <em>"bajo por derivada de arriba, menos arriba por derivada de abajo, todo sobre bajo al cuadrado"</em>. El orden importa: hay un signo menos.</p>
+<h3 id="antes-de-derivar-reescribe">Antes de derivar, reescribe</h3>
+<p>La regla de la potencia sirve para cualquier exponente real, así que conviene convertir todo a potencias:</p>
+<p>\[\sqrt{x}=x^{1/2} \qquad \sqrt[3]{x^2}=x^{2/3} \qquad \frac{1}{x^5}=x^{-5} \qquad \frac{1}{\sqrt{x}}=x^{-1/2}\]</p>
+<p><strong>Ejemplo.</strong> \(f(x)=\dfrac{3}{x^4}+2\sqrt{x}=3x^{-4}+2x^{1/2}\)
+\[f'(x)=3(-4)x^{-5}+2\cdot\tfrac12 x^{-1/2}=-\frac{12}{x^5}+\frac{1}{\sqrt{x}}\]</p>
+<h3 id="ejemplos-con-producto-y-cociente">Ejemplos con producto y cociente</h3>
+<p><strong>Producto.</strong> \(f(x)=x^2\sin x\):
+\[f'(x)=\underbrace{2x}_{f'}\cdot\underbrace{\sin x}_{g}+\underbrace{x^2}_{f}\cdot\underbrace{\cos x}_{g'}=2x\sin x+x^2\cos x\]</p>
+<p><strong>Cociente.</strong> \(f(x)=\dfrac{2x+1}{x^2+3}\):
+\[f'(x)=\frac{2(x^2+3)-(2x+1)(2x)}{(x^2+3)^2}=\frac{2x^2+6-4x^2-2x}{(x^2+3)^2}=\frac{-2x^2-2x+6}{(x^2+3)^2}\]</p>
+<p><strong>Cociente donde conviene no usar la regla.</strong> \(f(x)=\dfrac{\ln x}{x}\) sí requiere la regla:
+\[f'(x)=\frac{\frac1x\cdot x-\ln x\cdot 1}{x^2}=\frac{1-\ln x}{x^2}\]
+Pero \(f(x)=\dfrac{x^3+2x}{x}=x^2+2\) (para \(x\neq0\)) se deriva mucho más fácil simplificando primero: \(f'=2x\). <strong>Simplifica antes de derivar, siempre.</strong></p>
+<p><strong>Producto triple.</strong> Se aplica la regla dos veces. Para \(f(x)=x^3e^x\cos x\):
+\[f'(x)=3x^2e^x\cos x+x^3e^x\cos x-x^3e^x\sin x=x^2e^x\big[3\cos x+x\cos x-x\sin x\big]\]</p>
+<hr />
+<h2 id="escenario-6--regla-de-la-cadena-implícita-y-orden-superior">Escenario 6 — Regla de la cadena, implícita y orden superior</h2>
+<h3 id="regla-de-la-cadena">Regla de la cadena</h3>
+<p>\[\frac{d}{dx}\Big[f\big(g(x)\big)\Big]=f'\big(g(x)\big)\cdot g'(x)\]</p>
+<p>En notación de Leibniz, si \(y=f(u)\) y \(u=g(x)\):</p>
+<p>\[\frac{dy}{dx}=\frac{dy}{du}\cdot\frac{du}{dx}\]</p>
+<p><strong>Protocolo obligatorio (la regla del \(u\) explícito):</strong></p>
+<ol>
+<li>Identifica lo de <strong>adentro</strong>: llámalo \(u\). Escríbelo.</li>
+<li>Deriva lo de <strong>afuera</strong>, dejando \(u\) intacto.</li>
+<li><strong>Multiplica por \(u'\).</strong> Este es el paso que se olvida.</li>
+<li>Si \(u\) es a su vez compuesto, repite dentro.</li>
+</ol>
+<h3 id="ejemplo-resuelto-1--cadena-anidada-doble">Ejemplo resuelto 1 — Cadena anidada doble</h3>
+<p>\[y=\sin\left(\sqrt{x^2+1}\right)\]</p>
+<p>Tres capas: seno (externa) → raíz (media) → \(x^2+1\) (interna).</p>
+<p>Sea \(u=\sqrt{x^2+1}\) y, dentro, \(v=x^2+1\), de modo que \(u=\sqrt{v}\).</p>
+<p>\[\frac{dy}{dx}=\cos(u)\cdot\frac{du}{dx}\]</p>
+<p>Ahora \(\dfrac{du}{dx}=\dfrac{1}{2\sqrt{v}}\cdot v'=\dfrac{1}{2\sqrt{x^2+1}}\cdot 2x=\dfrac{x}{\sqrt{x^2+1}}\).</p>
+<p>Sustituyendo:
+\[\boxed{\frac{dy}{dx}=\frac{x\cos\left(\sqrt{x^2+1}\right)}{\sqrt{x^2+1}}}\]</p>
+<h3 id="ejemplo-resuelto-2--logaritmo-de-trigonométrica">Ejemplo resuelto 2 — Logaritmo de trigonométrica</h3>
+<p>\[y=\ln\big(\cos(3x^2+1)\big)\]</p>
+<p>Capas: \(\ln\) → \(\cos\) → \(3x^2+1\).</p>
+<p>\[\frac{dy}{dx}=\frac{1}{\cos(3x^2+1)}\cdot\Big[-\sin(3x^2+1)\Big]\cdot 6x = -6x\cdot\frac{\sin(3x^2+1)}{\cos(3x^2+1)}\]</p>
+<p>\[\boxed{\frac{dy}{dx}=-6x\tan(3x^2+1)}\]</p>
+<p>Fíjate en la limpieza del final: reconocer \(\frac{\sin}{\cos}=\tan\) ahorra medio renglón y evita errores.</p>
+<h3 id="ejemplo-resuelto-3--cadena-combinada-con-producto">Ejemplo resuelto 3 — Cadena combinada con producto</h3>
+<p>\[y=(3x^2+2)^4\sin(5x)\]</p>
+<p>Es un <strong>producto</strong>, y cada factor requiere <strong>cadena</strong>.</p>
+<p>\[y'=\underbrace{4(3x^2+2)^3\cdot 6x}_{\text{derivada del primero}}\cdot\sin(5x)+(3x^2+2)^4\cdot\underbrace{5\cos(5x)}_{\text{derivada del segundo}}\]</p>
+<p>\[y'=24x(3x^2+2)^3\sin(5x)+5(3x^2+2)^4\cos(5x)\]</p>
+<p>Factorizando \((3x^2+2)^3\):</p>
+<p>\[\boxed{y'=(3x^2+2)^3\Big[24x\sin(5x)+5(3x^2+2)\cos(5x)\Big]}\]</p>
+<p>o, expandiendo el corchete, \((3x^2+2)^3\big[24x\sin 5x+(15x^2+10)\cos 5x\big]\).</p>
+<p><strong>Factoriza siempre al final.</strong> En el escenario 7 vas a igualar derivadas a cero, y una derivada factorizada da los puntos críticos de inmediato.</p>
+<h3 id="otras-cadenas-útiles-ya-resueltas">Otras cadenas útiles, ya resueltas</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Función</th>
+<th>Derivada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\((e^{2x}+1)^5\)</td>
+<td>\(10e^{2x}(e^{2x}+1)^4\)</td>
+</tr>
+<tr>
+<td>\(\sqrt{\tan(x^3)}\)</td>
+<td>\(\dfrac{3x^2\sec^2(x^3)}{2\sqrt{\tan(x^3)}}\)</td>
+</tr>
+<tr>
+<td>\(e^{\sin(\ln x)}\)</td>
+<td>\(\dfrac{e^{\sin(\ln x)}\cos(\ln x)}{x}\)</td>
+</tr>
+<tr>
+<td>\(\cos\big(\sin(x^2)\big)\)</td>
+<td>\(-2x\sin\big(\sin(x^2)\big)\cos(x^2)\)</td>
+</tr>
+<tr>
+<td>\(\ln\sqrt{x^2+1}\)</td>
+<td>\(\dfrac{x}{x^2+1}\)</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="derivación-implícita">Derivación implícita</h3>
+<p>Cuando \(y\) no está despejada, se deriva toda la ecuación respecto a \(x\) recordando que <strong>\(y\) es función de \(x\)</strong>, de modo que cada vez que derivas una \(y\) aparece un factor \(\dfrac{dy}{dx}\) (regla de la cadena).</p>
+<p><strong>Ejemplo resuelto — el folium de Descartes.</strong> Hallar \(\dfrac{dy}{dx}\) para</p>
+<p>\[x^3+y^3=6xy\]</p>
+<p>y evaluar en el punto \((3,3)\).</p>
+<p><strong>Paso 1. Derivar ambos lados respecto a \(x\).</strong></p>
+<ul>
+<li>\(\dfrac{d}{dx}[x^3]=3x^2\)</li>
+<li>\(\dfrac{d}{dx}[y^3]=3y^2\dfrac{dy}{dx}\) ← aquí entra la cadena</li>
+<li>\(\dfrac{d}{dx}[6xy]=6\left(1\cdot y+x\dfrac{dy}{dx}\right)=6y+6x\dfrac{dy}{dx}\) ← regla del producto</li>
+</ul>
+<p>\[3x^2+3y^2\frac{dy}{dx}=6y+6x\frac{dy}{dx}\]</p>
+<p><strong>Paso 2. Agrupar los términos con \(\frac{dy}{dx}\) a un lado.</strong></p>
+<p>\[3y^2\frac{dy}{dx}-6x\frac{dy}{dx}=6y-3x^2\]</p>
+<p><strong>Paso 3. Factorizar y despejar.</strong></p>
+<p>\[\frac{dy}{dx}\left(3y^2-6x\right)=6y-3x^2 \implies \frac{dy}{dx}=\frac{6y-3x^2}{3y^2-6x}=\boxed{\frac{2y-x^2}{y^2-2x}}\]</p>
+<p><strong>Paso 4. Evaluar en \((3,3)\).</strong></p>
+<p>\[\frac{dy}{dx}\bigg|_{(3,3)}=\frac{2(3)-9}{9-2(3)}=\frac{6-9}{9-6}=\frac{-3}{3}=-1\]</p>
+<p>La recta tangente en \((3,3)\) tiene pendiente \(-1\): \(y-3=-1(x-3)\), es decir \(y=-x+6\).</p>
+<blockquote>
+<p>Nota: en derivación implícita la respuesta normalmente contiene tanto \(x\) como \(y\). Eso es correcto y esperado, no es un error.</p>
+</blockquote>
+<h3 id="derivadas-de-orden-superior">Derivadas de orden superior</h3>
+<p>\[f''=(f')' \qquad f'''=(f'')' \qquad f^{(n)}=\frac{d^n f}{dx^n}\]</p>
+<p><strong>Ejemplo.</strong> \(f(x)=x^5-3x^4+2x-1\):</p>
+<p>\[f'=5x^4-12x^3+2 \quad f''=20x^3-36x^2 \quad f'''=60x^2-72x \quad f^{(4)}=120x-72\]</p>
+<p><strong>Interpretaciones de \(f''\):</strong></p>
+<ul>
+<li>En física: si \(s(t)\) es posición, \(s'=v\) es velocidad y \(s''=a\) es <strong>aceleración</strong>.</li>
+<li>En geometría: el signo de \(f''\) da la <strong>concavidad</strong>.</li>
+</ul>
+<p><strong>Ejemplo de movimiento.</strong> \(s(t)=t^3-6t^2+9t\). Entonces \(v(t)=3t^2-12t+9=3(t-1)(t-3)\) y \(a(t)=6t-12\).
+La partícula se detiene (\(v=0\)) en \(t=1\) y \(t=3\). En \(t=1\), \(a=-6<0\) (desacelerando); en \(t=3\), \(a=6>0\).</p>
+<hr />
+<h2 id="escenario-7--aplicaciones-de-la-derivada">Escenario 7 — Aplicaciones de la derivada</h2>
+<h3 id="71-recta-tangente-y-normal">7.1 Recta tangente y normal</h3>
+<p>\[\text{Tangente en } x=a:\quad y-f(a)=f'(a)(x-a)\]
+\[\text{Normal en } x=a:\quad y-f(a)=-\frac{1}{f'(a)}(x-a)\]</p>
+<p><strong>Ejemplo.</strong> \(f(x)=x^3-2x+1\) en \(x=2\). \(f(2)=8-4+1=5\); \(f'(x)=3x^2-2\), \(f'(2)=10\).
+Tangente: \(y-5=10(x-2)\Rightarrow y=10x-15\). Normal: \(y-5=-\frac{1}{10}(x-2)\).</p>
+<h3 id="72-aproximación-lineal-y-diferenciales">7.2 Aproximación lineal y diferenciales</h3>
+<p>\[L(x)=f(a)+f'(a)(x-a) \qquad\qquad dy=f'(x)\,dx\]</p>
+<p><strong>Ejemplo.</strong> Aproximar \(\sqrt{25{,}3}\). Tomo \(f(x)=\sqrt x\), \(a=25\), \(f(25)=5\), \(f'(x)=\frac{1}{2\sqrt x}\), \(f'(25)=\frac{1}{10}\).</p>
+<p>\[L(x)=5+\tfrac{1}{10}(x-25) \implies L(25{,}3)=5+\tfrac{0{,}3}{10}=5{,}03\]</p>
+<p>El valor real es \(5{,}0299105\ldots\): error menor a \(0{,}0001\). La aproximación lineal es buenísima <strong>cerca</strong> del punto y pésima lejos.</p>
+<p><strong>Diferenciales para estimar error.</strong> Un cubo de arista 20 cm medida con error de \(\pm0{,}1\) cm. \(V=a^3\), \(dV=3a^2\,da=3(400)(0{,}1)=120\) cm³. (El cambio exacto es \(20{,}1^3-20^3=120{,}601\) cm³.)</p>
+<h3 id="73-razones-de-cambio-relacionadas--protocolo">7.3 Razones de cambio relacionadas — protocolo</h3>
+<ol>
+<li><strong>Dibuja</strong> la situación.</li>
+<li><strong>Nombra las variables</strong> y anota qué razones conoces y cuál buscas (todas son derivadas respecto al <strong>tiempo</strong>).</li>
+<li><strong>Escribe la ecuación</strong> que relaciona las variables geométrica o físicamente.</li>
+<li><strong>Deriva implícitamente respecto a \(t\).</strong></li>
+<li><strong>Sustituye los valores numéricos AL FINAL.</strong></li>
+</ol>
+<blockquote>
+<p>⚠️ El error número uno de este tema es sustituir los valores en el paso 3. Si lo haces, conviertes variables en constantes y sus derivadas se vuelven cero. <strong>Los números entran solo después de derivar.</strong></p>
+</blockquote>
+<p><strong>Ejemplo resuelto — la escalera.</strong></p>
+<p><em>Una escalera de 10 m está apoyada contra un muro vertical. La base se desliza alejándose del muro a razón de 1 m/s. ¿Con qué rapidez desciende el extremo superior cuando la base está a 6 m del muro?</em></p>
+<p><strong>Paso 1–2.</strong> Sea \(x\) la distancia de la base al muro y \(y\) la altura del extremo superior. Dato: \(\dfrac{dx}{dt}=1\) m/s. Buscamos \(\dfrac{dy}{dt}\) cuando \(x=6\).</p>
+<p><strong>Paso 3.</strong> Teorema de Pitágoras (la escalera es la hipotenusa, y mide 10 siempre):</p>
+<p>\[x^2+y^2=100\]</p>
+<p><strong>Paso 4.</strong> Derivo respecto a \(t\):</p>
+<p>\[2x\frac{dx}{dt}+2y\frac{dy}{dt}=0 \implies \frac{dy}{dt}=-\frac{x}{y}\cdot\frac{dx}{dt}\]</p>
+<p><strong>Paso 5.</strong> Ahora sí, los números. Cuando \(x=6\): \(y=\sqrt{100-36}=8\).</p>
+<p>\[\frac{dy}{dt}=-\frac{6}{8}\cdot 1=\boxed{-\frac34 \text{ m/s}}\]</p>
+<p><strong>Interpretación:</strong> el signo negativo dice que \(y\) <strong>disminuye</strong>: el extremo superior baja a 0,75 m/s. La respuesta completa incluye la interpretación del signo, no solo el número.</p>
+<h3 id="74-análisis-de-funciones">7.4 Análisis de funciones</h3>
+<p><strong>Punto crítico:</strong> \(c\) del dominio donde \(f'(c)=0\) o \(f'(c)\) no existe.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Criterio</th>
+<th>Cómo se usa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Monotonía</strong></td>
+<td>\(f'>0\) en un intervalo ⟹ \(f\) crece allí. \(f'<0\) ⟹ decrece.</td>
+</tr>
+<tr>
+<td><strong>1ª derivada</strong></td>
+<td>Si \(f'\) cambia de \(+\) a \(-\) en \(c\): <strong>máximo local</strong>. De \(-\) a \(+\): <strong>mínimo local</strong>. Si no cambia: no es extremo.</td>
+</tr>
+<tr>
+<td><strong>2ª derivada</strong></td>
+<td>Si \(f'(c)=0\) y \(f''(c)<0\): <strong>máximo local</strong>. Si \(f''(c)>0\): <strong>mínimo local</strong>. Si \(f''(c)=0\): <strong>no concluye</strong>, usa la primera.</td>
+</tr>
+<tr>
+<td><strong>Concavidad</strong></td>
+<td>\(f''>0\) ⟹ cóncava hacia arriba (⌣). \(f''<0\) ⟹ cóncava hacia abajo (⌢).</td>
+</tr>
+<tr>
+<td><strong>Inflexión</strong></td>
+<td>Punto donde \(f''\) <strong>cambia de signo</strong>. No basta con \(f''=0\).</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Ejemplo resuelto completo.</strong> \(f(x)=x^3-3x^2-9x+5\).</p>
+<p><em>Primera derivada:</em> \(f'(x)=3x^2-6x-9=3(x^2-2x-3)=3(x-3)(x+1)\). Críticos: \(x=-1\) y \(x=3\).</p>
+<p><em>Signos de \(f'\):</em></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Intervalo</th>
+<th>\((x-3)\)</th>
+<th>\((x+1)\)</th>
+<th>\(f'\)</th>
+<th>\(f\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\((-\infty,-1)\)</td>
+<td>\(-\)</td>
+<td>\(-\)</td>
+<td>\(+\)</td>
+<td>crece</td>
+</tr>
+<tr>
+<td>\((-1,3)\)</td>
+<td>\(-\)</td>
+<td>\(+\)</td>
+<td>\(-\)</td>
+<td>decrece</td>
+</tr>
+<tr>
+<td>\((3,\infty)\)</td>
+<td>\(+\)</td>
+<td>\(+\)</td>
+<td>\(+\)</td>
+<td>crece</td>
+</tr>
+</tbody>
+</table></div>
+<p>Máximo local en \(x=-1\): \(f(-1)=-1-3+9+5=10\). Mínimo local en \(x=3\): \(f(3)=27-27-27+5=-22\).</p>
+<p><em>Segunda derivada:</em> \(f''(x)=6x-6=6(x-1)\). Se anula en \(x=1\) y cambia de signo allí.</p>
+<ul>
+<li>\(f''<0\) en \((-\infty,1)\): cóncava hacia abajo.</li>
+<li>\(f''>0\) en \((1,\infty)\): cóncava hacia arriba.</li>
+<li><strong>Punto de inflexión:</strong> \((1,\,f(1))=(1,-6)\).</li>
+</ul>
+<p><em>Verificación con el criterio de la 2ª derivada:</em> \(f''(-1)=-12<0\) ⟹ máximo ✓. \(f''(3)=12>0\) ⟹ mínimo ✓.</p>
+<p><strong>Un caso donde la 2ª derivada falla.</strong> \(g(x)=x^4-4x^3\): \(g'=4x^3-12x^2=4x^2(x-3)\), críticos \(x=0\) y \(x=3\). \(g''=12x^2-24x=12x(x-2)\), y \(g''(0)=0\): no concluye. Con la primera derivada, \(4x^2(x-3)\) es negativa tanto antes como después de 0 (porque \(4x^2\ge0\) siempre), así que <strong>\(x=0\) no es extremo</strong>: es solo una tangente horizontal. En \(x=3\), \(g''(3)=36>0\): mínimo local, \(g(3)=-27\). Inflexiones en \(x=0\) y \(x=2\).</p>
+<h3 id="75-optimización--protocolo">7.5 Optimización — protocolo</h3>
+<ol>
+<li>Lee y <strong>dibuja</strong>.</li>
+<li>Identifica la <strong>función objetivo</strong>: lo que se maximiza o minimiza.</li>
+<li>Identifica la <strong>restricción</strong>: la condición que ata las variables.</li>
+<li>Usa la restricción para dejar el objetivo <strong>en una sola variable</strong>, y anota su <strong>dominio realista</strong>.</li>
+<li>Deriva, iguala a cero, halla críticos.</li>
+<li><strong>Justifica</strong> que es máximo o mínimo (2ª derivada, o 1ª derivada, o comparar extremos del intervalo).</li>
+<li><strong>Responde la pregunta que hicieron</strong>, con unidades.</li>
+</ol>
+<p><strong>Ejemplo resuelto completo — contexto contractual.</strong></p>
+<p><em>La entidad requiere 20.000 resmas de papel al año, con consumo uniforme. Cada orden de compra genera un costo administrativo fijo de $100.000 (trámite, verificación, recepción), independientemente de la cantidad pedida. Mantener una resma en almacén cuesta $1.000 al año, y el inventario promedio es la mitad del tamaño del pedido. ¿Cuántas resmas debe pedir en cada orden para minimizar el costo anual total, y cuál es ese costo?</em></p>
+<p><strong>Paso 1–2. Función objetivo.</strong> Sea \(q\) el tamaño de cada pedido (resmas por orden).</p>
+<ul>
+<li>Número de órdenes al año: \(\dfrac{20{.}000}{q}\). Costo de ordenar: \(100{.}000\cdot\dfrac{20{.}000}{q}=\dfrac{2\times10^9}{q}\).</li>
+<li>Inventario promedio: \(\dfrac{q}{2}\). Costo de almacenar: \(1{.}000\cdot\dfrac{q}{2}=500q\).</li>
+</ul>
+<p>\[C(q)=\frac{2\times10^{9}}{q}+500q, \qquad q>0\]</p>
+<p><strong>Paso 3–4.</strong> La restricción (demanda anual de 20.000) ya está incorporada. Dominio: \(q\in(0,\,20{.}000]\).</p>
+<p><strong>Paso 5. Derivar e igualar a cero.</strong></p>
+<p>\[C'(q)=-\frac{2\times10^{9}}{q^{2}}+500=0 \implies q^{2}=\frac{2\times10^{9}}{500}=4\times10^{6} \implies q=2{.}000\]</p>
+<p>(Se descarta \(q=-2.000\) por estar fuera del dominio.)</p>
+<p><strong>Paso 6. Justificar que es mínimo.</strong></p>
+<p>\[C''(q)=\frac{4\times10^{9}}{q^{3}}>0 \ \text{ para todo } q>0\]</p>
+<p>La función es cóncava hacia arriba en todo el dominio, así que \(q=2.000\) es <strong>mínimo absoluto</strong>.</p>
+<p><strong>Paso 7. Responder.</strong></p>
+<p>\[C(2{.}000)=\frac{2\times10^{9}}{2{.}000}+500(2{.}000)=1{.}000{.}000+1{.}000{.}000=\$2{.}000{.}000\]</p>
+<p><strong>Respuesta:</strong> pedidos de <strong>2.000 resmas</strong>, es decir <strong>10 órdenes al año</strong>, con costo anual mínimo de <strong>$2.000.000</strong>.</p>
+<p><em>Comprobación de plausibilidad:</em> con \(q=1.000\) el costo sería $2.500.000 y con \(q=4.000\) también $2.500.000. Ambos mayores. ✓</p>
+<p><em>Observación elegante:</em> en el óptimo, el costo de ordenar ($1.000.000) es exactamente igual al de almacenar ($1.000.000). No es coincidencia: es una propiedad general de este modelo. Un buen resultado de optimización casi siempre revela una simetría así.</p>
+<h3 id="76-regla-de-lhôpital">7.6 Regla de L'Hôpital</h3>
+<p>Si \(\displaystyle\lim_{x\to a}\frac{f(x)}{g(x)}\) produce \(\dfrac{0}{0}\) o \(\dfrac{\infty}{\infty}\), y \(f\), \(g\) son derivables cerca de \(a\) con \(g'\neq0\), entonces:</p>
+<p>\[\lim_{x\to a}\frac{f(x)}{g(x)}=\lim_{x\to a}\frac{f'(x)}{g'(x)}\]</p>
+<p>siempre que este último límite exista.</p>
+<blockquote>
+<p>⚠️ <strong>Se derivan numerador y denominador POR SEPARADO. No es la regla del cociente.</strong>
+⚠️ <strong>Solo aplica si hay indeterminación.</strong> Verifica siempre antes. Aplicarla a un límite determinado da respuestas falsas.</p>
+</blockquote>
+<p><strong>Ejemplo.</strong> \(\displaystyle\lim_{x\to0}\frac{e^{x}-1-x}{x^{2}}\). Es \(\frac{0}{0}\). Derivando: \(\displaystyle\lim_{x\to0}\frac{e^{x}-1}{2x}\), que sigue siendo \(\frac00\). Otra vez: \(\displaystyle\lim_{x\to0}\frac{e^{x}}{2}=\frac12\).</p>
+<p><strong>Otras formas indeterminadas, y cómo convertirlas:</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Forma</th>
+<th>Transformación</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(0\cdot\infty\)</td>
+<td>Pasa un factor al denominador</td>
+<td>\(\lim_{x\to0^+}x\ln x=\lim\frac{\ln x}{1/x}=0\)</td>
+</tr>
+<tr>
+<td>\(\infty-\infty\)</td>
+<td>Combina en una sola fracción</td>
+<td>\(\lim_{x\to0}\left(\frac{1}{\sin x}-\frac1x\right)=0\)</td>
+</tr>
+<tr>
+<td>\(1^\infty,\ 0^0,\ \infty^0\)</td>
+<td>Toma \(\ln\), resuelve, exponencia</td>
+<td>\(\lim_{x\to\infty}\left(1+\frac{3}{x}\right)^{x}=e^{3}\)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Límites de referencia útiles:</strong> \(\displaystyle\lim_{x\to\infty}\frac{\ln x}{x}=0\), \(\displaystyle\lim_{x\to\infty}\frac{x^{2}}{e^{x}}=0\), \(\displaystyle\lim_{x\to0}\frac{\sin x-x}{x^{3}}=-\frac16\), \(\displaystyle\lim_{x\to0}\frac{\tan x-x}{x^{3}}=\frac13\), \(\displaystyle\lim_{x\to0^+}x^{x}=1\).</p>
+<p>Moraleja de los dos primeros: <strong>la exponencial le gana a cualquier potencia, y cualquier potencia le gana al logaritmo.</strong> Esa jerarquía resuelve muchos límites de un vistazo.</p>
+<hr />
+<h2 id="formularios">FORMULARIOS</h2>
+<h3 id="formulario-de-derivadas">Formulario de derivadas</h3>
+<p><strong>Básicas</strong></p>
+<p>\[\frac{d}{dx}[c]=0 \qquad \frac{d}{dx}[x]=1 \qquad \frac{d}{dx}\left[x^{n}\right]=nx^{n-1} \qquad \frac{d}{dx}\left[\sqrt{x}\right]=\frac{1}{2\sqrt{x}}\]</p>
+<p><strong>Reglas de combinación</strong></p>
+<p>\[(cf)'=cf' \qquad (f\pm g)'=f'\pm g' \qquad (fg)'=f'g+fg' \qquad \left(\frac fg\right)'=\frac{f'g-fg'}{g^{2}}\]</p>
+<p>\[\big[f(g(x))\big]'=f'(g(x))\cdot g'(x)\]</p>
+<p><strong>Trigonométricas</strong></p>
+<p>\[\frac{d}{dx}[\sin x]=\cos x \qquad \frac{d}{dx}[\cos x]=-\sin x \qquad \frac{d}{dx}[\tan x]=\sec^{2}x\]</p>
+<p>\[\frac{d}{dx}[\cot x]=-\csc^{2}x \qquad \frac{d}{dx}[\sec x]=\sec x\tan x \qquad \frac{d}{dx}[\csc x]=-\csc x\cot x\]</p>
+<p><strong>Trigonométricas inversas</strong></p>
+<p>\[\frac{d}{dx}[\arcsin x]=\frac{1}{\sqrt{1-x^{2}}} \qquad \frac{d}{dx}[\arccos x]=-\frac{1}{\sqrt{1-x^{2}}} \qquad \frac{d}{dx}[\arctan x]=\frac{1}{1+x^{2}}\]</p>
+<p><strong>Exponenciales y logarítmicas</strong></p>
+<p>\[\frac{d}{dx}\left[e^{x}\right]=e^{x} \qquad \frac{d}{dx}\left[a^{x}\right]=a^{x}\ln a \qquad \frac{d}{dx}[\ln x]=\frac1x \qquad \frac{d}{dx}\left[\log_{a}x\right]=\frac{1}{x\ln a}\]</p>
+<p><strong>Versiones con cadena</strong> (con \(u=u(x)\)) — estas son las que realmente usarás:</p>
+<p>\[\frac{d}{dx}\left[u^{n}\right]=nu^{n-1}u' \qquad \frac{d}{dx}\left[e^{u}\right]=e^{u}u' \qquad \frac{d}{dx}[\ln u]=\frac{u'}{u}\]</p>
+<p>\[\frac{d}{dx}[\sin u]=u'\cos u \qquad \frac{d}{dx}[\cos u]=-u'\sin u \qquad \frac{d}{dx}[\tan u]=u'\sec^{2}u\]</p>
+<p>\[\frac{d}{dx}\left[\sqrt{u}\right]=\frac{u'}{2\sqrt{u}} \qquad \frac{d}{dx}\left[a^{u}\right]=a^{u}u'\ln a\]</p>
+<h3 id="formulario-de-trigonometría">Formulario de trigonometría</h3>
+<p><strong>Ángulos notables</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>\(\theta\)</th>
+<th>\(0\)</th>
+<th>\(\frac{\pi}{6}\)</th>
+<th>\(\frac{\pi}{4}\)</th>
+<th>\(\frac{\pi}{3}\)</th>
+<th>\(\frac{\pi}{2}\)</th>
+<th>\(\pi\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(\sin\theta\)</td>
+<td>\(0\)</td>
+<td>\(\frac12\)</td>
+<td>\(\frac{\sqrt2}{2}\)</td>
+<td>\(\frac{\sqrt3}{2}\)</td>
+<td>\(1\)</td>
+<td>\(0\)</td>
+</tr>
+<tr>
+<td>\(\cos\theta\)</td>
+<td>\(1\)</td>
+<td>\(\frac{\sqrt3}{2}\)</td>
+<td>\(\frac{\sqrt2}{2}\)</td>
+<td>\(\frac12\)</td>
+<td>\(0\)</td>
+<td>\(-1\)</td>
+</tr>
+<tr>
+<td>\(\tan\theta\)</td>
+<td>\(0\)</td>
+<td>\(\frac{\sqrt3}{3}\)</td>
+<td>\(1\)</td>
+<td>\(\sqrt3\)</td>
+<td>no def.</td>
+<td>\(0\)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Identidades fundamentales</strong></p>
+<p>\[\sin^{2}x+\cos^{2}x=1 \qquad 1+\tan^{2}x=\sec^{2}x \qquad 1+\cot^{2}x=\csc^{2}x\]</p>
+<p>\[\tan x=\frac{\sin x}{\cos x} \qquad \cot x=\frac{\cos x}{\sin x} \qquad \sec x=\frac{1}{\cos x} \qquad \csc x=\frac{1}{\sin x}\]</p>
+<p><strong>Ángulo doble</strong> (las que más se usan en límites)</p>
+<p>\[\sin 2x=2\sin x\cos x\]
+\[\cos 2x=\cos^{2}x-\sin^{2}x=1-2\sin^{2}x=2\cos^{2}x-1\]</p>
+<p>De la tercera forma sale la identidad estrella del escenario 3: \(\;1-\cos 2x=2\sin^{2}x\).</p>
+<p><strong>Suma de ángulos</strong></p>
+<p>\[\sin(a\pm b)=\sin a\cos b\pm\cos a\sin b \qquad \cos(a\pm b)=\cos a\cos b\mp\sin a\sin b\]</p>
+<p><strong>Límites trigonométricos notables</strong></p>
+<p>\[\lim_{x\to0}\frac{\sin x}{x}=1 \qquad \lim_{x\to0}\frac{\tan x}{x}=1 \qquad \lim_{x\to0}\frac{1-\cos x}{x}=0 \qquad \lim_{x\to0}\frac{1-\cos x}{x^{2}}=\frac12\]</p>
+<p>Generalización útil: \(\displaystyle\lim_{x\to0}\frac{\sin(kx)}{kx}=1\), de donde \(\displaystyle\lim_{x\to0}\frac{\sin 5x}{3x}=\frac53\) y \(\displaystyle\lim_{x\to0}\frac{\sin3x}{\sin7x}=\frac37\).</p>
+<h3 id="formulario-de-logaritmos-y-exponenciales">Formulario de logaritmos y exponenciales</h3>
+<p>\[\ln(ab)=\ln a+\ln b \qquad \ln\!\left(\frac ab\right)=\ln a-\ln b \qquad \ln\left(a^{r}\right)=r\ln a\]</p>
+<p>\[\ln 1=0 \qquad \ln e=1 \qquad e^{\ln x}=x \ (x>0) \qquad \ln\left(e^{x}\right)=x\]</p>
+<p>\[\log_{a}x=\frac{\ln x}{\ln a} \quad\text{(cambio de base)} \qquad a^{x}=e^{x\ln a}\]</p>
+<p>\[a^{m}a^{n}=a^{m+n} \qquad \frac{a^{m}}{a^{n}}=a^{m-n} \qquad \left(a^{m}\right)^{n}=a^{mn} \qquad a^{-n}=\frac{1}{a^{n}} \qquad a^{m/n}=\sqrt[n]{a^{m}}\]</p>
+<blockquote>
+<p><strong>Truco de oro:</strong> antes de derivar un logaritmo complicado, <strong>descomponlo con las propiedades</strong>. Derivar \(\ln\!\left(\frac{x^{2}\sqrt{x+1}}{x-3}\right)\) directamente es un suplicio; reescribirlo como \(2\ln x+\frac12\ln(x+1)-\ln(x-3)\) lo vuelve trivial: \(\frac{2}{x}+\frac{1}{2(x+1)}-\frac{1}{x-3}\).</p>
+</blockquote>
+<h3 id="factorizaciones-que-salvan-límites">Factorizaciones que salvan límites</h3>
+<p>\[a^{2}-b^{2}=(a-b)(a+b)\]
+\[a^{3}-b^{3}=(a-b)\left(a^{2}+ab+b^{2}\right) \qquad a^{3}+b^{3}=(a+b)\left(a^{2}-ab+b^{2}\right)\]
+\[(a\pm b)^{2}=a^{2}\pm2ab+b^{2} \qquad (a\pm b)^{3}=a^{3}\pm3a^{2}b+3ab^{2}\pm b^{3}\]</p>
+<hr />
+<h2 id="errores-frecuentes">Errores frecuentes</h2>
+<h3 id="en-límites">En límites</h3>
+<p><strong>1. Creer que \(\lim_{x\to a}f(x)=f(a)\) siempre.</strong> Solo si \(f\) es continua en \(a\). Todo el escenario 3 trata precisamente de los casos donde no lo es.</p>
+<p><strong>2. Confundir \(\frac{0}{0}\) con \(\frac{k}{0}\).</strong> El primero es indeterminado (hay que trabajarlo); el segundo, con \(k\neq0\), es un límite infinito: asíntota vertical. Son situaciones opuestas.</p>
+<p><strong>3. Cancelar términos en vez de factores.</strong> En \(\frac{x+3}{x}\) <strong>no</strong> se cancela la \(x\). Solo se cancelan factores que multiplican a toda la expresión.</p>
+<p><strong>4. Expandir el conjugado en el denominador al racionalizar.</strong> El objetivo es cancelar arriba; abajo hay que dejarlo factorizado.</p>
+<p><strong>5. Aplicar el límite notable sin que los argumentos coincidan.</strong> \(\frac{\sin 5x}{3x}\) no es \(\frac53\cdot1\) por magia: hay que reescribirlo como \(\frac53\cdot\frac{\sin5x}{5x}\) para que el argumento del seno y el denominador sean el mismo.</p>
+<p><strong>6. Olvidar que \(\sqrt{x^{2}}=|x|\)</strong>, que vale \(-x\) cuando \(x\to-\infty\). Es la causa clásica de que un límite al infinito por la izquierda salga con el signo cambiado.</p>
+<h3 id="en-derivadas">En derivadas</h3>
+<p><strong>7. Olvidar el factor interno de la regla de la cadena.</strong> El error número uno del curso. \(\frac{d}{dx}\sin(3x)\) es \(3\cos(3x)\), no \(\cos(3x)\).</p>
+<p><strong>8. Derivar producto como producto de derivadas.</strong> \((fg)'\neq f'g'\). Nunca.</p>
+<p><strong>9. Invertir el orden en la regla del cociente.</strong> Lleva signo menos, así que \(\frac{f'g-fg'}{g^2}\) y \(\frac{fg'-f'g}{g^2}\) difieren en todo el signo.</p>
+<p><strong>10. Tratar \(e^x\) como potencia.</strong> \(\frac{d}{dx}e^{x}=e^{x}\), <strong>no</strong> \(xe^{x-1}\). La regla de la potencia es para base variable y exponente constante; aquí es al revés.</p>
+<p><strong>11. Confundir \(x^{n}\) con \(n^{x}\).</strong> \(\frac{d}{dx}x^{3}=3x^{2}\), pero \(\frac{d}{dx}3^{x}=3^{x}\ln 3\).</p>
+<p><strong>12. En derivación implícita, olvidar el \(\frac{dy}{dx}\).</strong> Cada vez que derivas una expresión con \(y\), aparece ese factor. Sin él la respuesta es sistemáticamente falsa.</p>
+<p><strong>13. Aplicar L'Hôpital sin verificar la indeterminación</strong>, o aplicarla como si fuera regla del cociente. Ambos errores producen resultados incorrectos que parecen razonables.</p>
+<h3 id="en-aplicaciones">En aplicaciones</h3>
+<p><strong>14. Sustituir los valores numéricos antes de derivar, en razones relacionadas.</strong> Convierte variables en constantes y anula sus derivadas. Los números entran al final.</p>
+<p><strong>15. Confundir \(f''(c)=0\) con "hay punto de inflexión".</strong> Se necesita que \(f''\) <strong>cambie de signo</strong>. En \(f(x)=x^{4}\), \(f''(0)=0\) pero no hay inflexión.</p>
+<p><strong>16. En optimización, no justificar que el crítico es el óptimo.</strong> Un problema resuelto sin justificación está incompleto y pierde puntos.</p>
+<p><strong>17. En optimización, olvidar el dominio realista.</strong> Una longitud no puede ser negativa, una cantidad de resmas no puede exceder la demanda anual. El dominio elimina soluciones espurias.</p>
+<p><strong>18. En optimización, responder con el valor de \(x\) cuando preguntaron por el costo</strong> (o al revés). Lee la pregunta final antes de escribir la respuesta.</p>
+<p><strong>19. Olvidar las unidades y la interpretación del signo.</strong> "\(-3/4\)" no es una respuesta; "\(-0{,}75\) m/s, es decir, el extremo desciende a 0,75 m/s" sí lo es.</p>
+<p><strong>20. Igualar la derivada a cero olvidando los puntos donde no existe.</strong> Los puntos críticos incluyen ambos casos. En \(f(x)=|x|\) el mínimo está en \(x=0\), donde \(f'\) ni siquiera existe.</p>
+</main>
+</body>
+</html>

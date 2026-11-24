@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guía de estudio — Cálculo Diferencial</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ 05 - Cálculo Diferencial / 1. Guía de estudio</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="guía-de-estudio--cálculo-diferencial">Guía de estudio — Cálculo Diferencial</h1>
+<p><strong>Bloque A: 25 de agosto – 19 de octubre de 2026 · 8 escenarios · 4 créditos</strong></p>
+<blockquote>
+<p><strong>Por verificar en el aula virtual.</strong> La estructura de 8 escenarios, la distribución de temas y los productos evaluables aquí descritos son una reconstrucción a partir del contenido esperado de la asignatura y de fuentes públicas sobre el modelo virtual del Politécnico Grancolombiano. No es el syllabus oficial. La primera semana, contrasta esta guía con el plan de trabajo del aula y ajústala.</p>
+</blockquote>
+<hr />
+<h2 id="cómo-leer-esta-guía">Cómo leer esta guía</h2>
+<p>Cada escenario trae seis campos:</p>
+<ul>
+<li><strong>Tema</strong> — el título del bloque conceptual.</li>
+<li><strong>Objetivos</strong> — qué debes ser capaz de <em>hacer</em> al final (no de "conocer": de hacer).</li>
+<li><strong>Conceptos clave</strong> — el vocabulario mínimo. Si no puedes explicar cada uno en voz alta, no lo tienes.</li>
+<li><strong>Qué practicar</strong> — el tipo y volumen de ejercicio.</li>
+<li><strong>Entregable esperado</strong> — lo que probablemente pida el aula (por verificar).</li>
+<li><strong>Listo para avanzar</strong> — un criterio verificable, en primera persona, con números. No es "entendí los límites": es "resuelvo 8 de 10 en 20 minutos".</li>
+</ul>
+<hr />
+<h2 id="escenario-1--repaso-de-funciones">Escenario 1 — Repaso de funciones</h2>
+<p><strong>Semana 1 · 25–31 de agosto</strong></p>
+<h3 id="tema">Tema</h3>
+<p>Funciones: definición, dominio, rango, gráfica y catálogo de familias básicas. Álgebra de funciones, composición y función inversa.</p>
+<h3 id="objetivos">Objetivos</h3>
+<ul>
+<li>Determinar el dominio de funciones polinómicas, racionales, radicales, exponenciales, logarítmicas y por tramos, justificando cada restricción.</li>
+<li>Reconocer y bosquejar de memoria las gráficas de las familias básicas: \(y=x\), \(y=x^2\), \(y=x^3\), \(y=\sqrt{x}\), \(y=1/x\), \(y=|x|\), \(y=e^x\), \(y=\ln x\), \(y=\sin x\), \(y=\cos x\).</li>
+<li>Aplicar transformaciones (traslación, reflexión, dilatación) a una gráfica conocida.</li>
+<li>Calcular \(f+g\), \(fg\), \(f/g\), \(f\circ g\) y \(g\circ f\), y determinar el dominio del resultado.</li>
+<li>Determinar si una función es inyectiva y, si lo es, hallar su inversa.</li>
+</ul>
+<h3 id="conceptos-clave">Conceptos clave</h3>
+<p>Función · dominio · rango · variable independiente y dependiente · prueba de la recta vertical · prueba de la recta horizontal · función por tramos · composición · función inyectiva · función inversa · relación \(f(f^{-1}(x))=x\) · simetría de \(f\) y \(f^{-1}\) respecto a \(y=x\).</p>
+<h3 id="qué-practicar">Qué practicar</h3>
+<p>Entre 20 y 25 ejercicios de dominio (la mitad con radicales y logaritmos combinados), 10 de composición, 8 de inversa. <strong>Bosqueja las 10 gráficas básicas a mano hasta que salgan sin pensar.</strong> Es el capital gráfico de todo el curso.</p>
+<h3 id="entregable-esperado">Entregable esperado</h3>
+<p>Taller de reconocimiento / foro de presentación. Normalmente el escenario 1 no tiene nota fuerte, pero <strong>no lo trates como semana de calentamiento</strong>: es la semana donde reparas el álgebra.</p>
+<h3 id="listo-para-avanzar">Listo para avanzar</h3>
+<ul>
+<li>Determino el dominio de \(f(x)=\dfrac{\sqrt{x-2}}{x^2-9}\) y de \(g(x)=\ln(x^2-5x+6)\) sin consultar nada, y escribo la respuesta en notación de intervalos.</li>
+<li>Dibujo las 10 gráficas básicas de memoria en menos de 5 minutos.</li>
+<li>Calculo \(f\circ g\) y \(g\circ f\) para \(f(x)=2x-3\), \(g(x)=x^2+1\) y noto que <strong>no</strong> son iguales.</li>
+<li>Hallo la inversa de \(f(x)=\dfrac{x+1}{x-2}\) y verifico componiendo.</li>
+</ul>
+<hr />
+<h2 id="escenario-2--límites-noción-intuitiva-laterales-y-leyes">Escenario 2 — Límites: noción intuitiva, laterales y leyes</h2>
+<p><strong>Semana 2 · 1–7 de septiembre</strong></p>
+<span id="tema"></span><h3 id="tema_1">Tema</h3>
+<p>Idea intuitiva de límite. Límites laterales. Existencia del límite. Leyes de los límites y cálculo por sustitución directa.</p>
+<span id="objetivos"></span><h3 id="objetivos_1">Objetivos</h3>
+<ul>
+<li>Estimar un límite a partir de una tabla de valores y de una gráfica.</li>
+<li>Distinguir \(\lim_{x\to a^-}f(x)\) de \(\lim_{x\to a^+}f(x)\) y aplicar el criterio: el límite existe si y solo si ambos laterales existen y coinciden.</li>
+<li>Entender que \(\lim_{x\to a}f(x)\) <strong>no depende</strong> del valor \(f(a)\) (puede no existir \(f(a)\) y el límite existir).</li>
+<li>Aplicar las leyes de los límites (suma, producto, cociente, potencia, raíz) con justificación.</li>
+<li>Reconocer cuándo la sustitución directa es válida y cuándo produce una indeterminación.</li>
+</ul>
+<span id="conceptos-clave"></span><h3 id="conceptos-clave_1">Conceptos clave</h3>
+<p>Límite · límite lateral izquierdo y derecho · existencia del límite · leyes de los límites · sustitución directa · indeterminación \(\frac{0}{0}\) · límite infinito vs. límite en el infinito (no confundirlos).</p>
+<span id="qué-practicar"></span><h3 id="qué-practicar_1">Qué practicar</h3>
+<p>15 límites por sustitución directa, 10 de límites laterales con funciones por tramos y con valor absoluto, 8 de lectura de gráfica. Este es el escenario donde <strong>debes construir la intuición</strong>; luego ya casi todo es técnica.</p>
+<span id="entregable-esperado"></span><h3 id="entregable-esperado_1">Entregable esperado</h3>
+<p><strong>Actividad de puntos evaluables – Escenario 2.</strong> Cuenta para el Primer Bloque (30 %). Prepárala con tiempo.</p>
+<span id="listo-para-avanzar"></span><h3 id="listo-para-avanzar_1">Listo para avanzar</h3>
+<ul>
+<li>Explico en voz alta, sin fórmulas, qué significa \(\lim_{x\to 3}f(x)=5\) y por qué eso no dice nada sobre \(f(3)\).</li>
+<li>Dada \(f(x)=\begin{cases}x^2 & x\le 2\\ 3x-1 & x>2\end{cases}\), calculo los dos laterales en \(x=2\) y decido si el límite existe. (Sí: ambos dan 4.)</li>
+<li>Resuelvo 8 de 10 límites por sustitución directa en menos de 15 minutos.</li>
+<li>Reconozco a primera vista si un límite dado va a producir indeterminación antes de calcularlo.</li>
+</ul>
+<hr />
+<h2 id="escenario-3--indeterminaciones-límites-al-infinito-y-asíntotas">Escenario 3 — Indeterminaciones, límites al infinito y asíntotas</h2>
+<p><strong>Semana 3 · 8–14 de septiembre</strong> ⚠️ <strong>CUELLO DE BOTELLA</strong></p>
+<span id="tema"></span><h3 id="tema_2">Tema</h3>
+<p>Técnicas de solución de indeterminaciones: factorización, racionalización, simplificación de fracciones complejas, límites trigonométricos notables. Límites al infinito, asíntotas horizontales, verticales y oblicuas.</p>
+<span id="objetivos"></span><h3 id="objetivos_2">Objetivos</h3>
+<ul>
+<li>Resolver \(\frac{0}{0}\) por <strong>factorización</strong> (diferencia de cuadrados, diferencia/suma de cubos, trinomios).</li>
+<li>Resolver \(\frac{0}{0}\) con radicales por <strong>racionalización</strong> (multiplicar por el conjugado).</li>
+<li>Resolver \(\frac{0}{0}\) con fracciones dentro de fracciones simplificando primero.</li>
+<li>Aplicar los límites notables \(\displaystyle\lim_{x\to 0}\frac{\sin x}{x}=1\) y \(\displaystyle\lim_{x\to 0}\frac{1-\cos x}{x}=0\).</li>
+<li>Calcular \(\lim_{x\to\pm\infty}\) de racionales comparando grados, y con radicales dividiendo por la potencia dominante.</li>
+<li>Identificar asíntotas verticales (donde el denominador se anula y el numerador no), horizontales (límite al infinito finito) y oblicuas (división de polinomios cuando el grado del numerador supera en 1 al del denominador).</li>
+</ul>
+<span id="conceptos-clave"></span><h3 id="conceptos-clave_2">Conceptos clave</h3>
+<p>Indeterminación · factor común · conjugado · límite notable trigonométrico · grado dominante · asíntota vertical / horizontal / oblicua · discontinuidad evitable.</p>
+<span id="qué-practicar"></span><h3 id="qué-practicar_2">Qué practicar</h3>
+<p><strong>Volumen alto: mínimo 30 límites indeterminados</strong>, repartidos entre las cuatro técnicas. Este es el escenario que separa a quien pasa de quien no. Que el 100 % de tu tiempo de práctica de esta semana sea esto.</p>
+<span id="entregable-esperado"></span><h3 id="entregable-esperado_2">Entregable esperado</h3>
+<p><strong>Quiz – Escenario 3.</strong> Primer Bloque.</p>
+<span id="listo-para-avanzar"></span><h3 id="listo-para-avanzar_2">Listo para avanzar</h3>
+<ul>
+<li>Ante un límite indeterminado, <strong>identifico la técnica correcta en menos de 10 segundos</strong> solo mirando la expresión (¿hay raíz? conjugado. ¿hay polinomios? factorizo. ¿hay seno o coseno? notable. ¿hay \(x\to\infty\)? divido por la mayor potencia).</li>
+<li>Resuelvo estos cuatro sin ayuda: \(\lim_{x\to 3}\frac{x^2-9}{x-3}=6\); \(\lim_{x\to 0}\frac{\sqrt{x+4}-2}{x}=\frac14\); \(\lim_{x\to 0}\frac{\sin 5x}{3x}=\frac53\); \(\lim_{x\to\infty}\left(\sqrt{x^2+3x}-x\right)=\frac32\).</li>
+<li>Doy las asíntotas completas de \(f(x)=\frac{3x+2}{x-4}\) (vertical \(x=4\), horizontal \(y=3\)) y de \(f(x)=\frac{x^2+1}{x-1}\) (vertical \(x=1\), oblicua \(y=x+1\)).</li>
+<li>Acierto 8 de 10 límites indeterminados en 25 minutos.</li>
+</ul>
+<hr />
+<h2 id="escenario-4--continuidad-y-la-derivada-por-definición">Escenario 4 — Continuidad y la derivada por definición</h2>
+<p><strong>Semana 4 · 15–21 de septiembre</strong></p>
+<span id="tema"></span><h3 id="tema_3">Tema</h3>
+<p>Continuidad en un punto y en un intervalo. Tipos de discontinuidad. Teorema del valor intermedio. Definición de derivada como límite; interpretación geométrica y física. Derivabilidad y su relación con la continuidad.</p>
+<span id="objetivos"></span><h3 id="objetivos_3">Objetivos</h3>
+<ul>
+<li>Verificar las tres condiciones de continuidad en un punto: que exista \(f(a)\), que exista \(\lim_{x\to a}f(x)\), y que coincidan.</li>
+<li>Clasificar discontinuidades: evitable (removible), de salto (finita) e infinita (asintótica).</li>
+<li>Hallar el valor del parámetro que hace continua una función por tramos.</li>
+<li>Enunciar y aplicar el teorema del valor intermedio para garantizar la existencia de una raíz en un intervalo.</li>
+<li>Calcular \(f'(a)=\lim_{h\to 0}\frac{f(a+h)-f(a)}{h}\) <strong>a mano</strong>, sin reglas.</li>
+<li>Interpretar \(f'(a)\) como pendiente de la recta tangente y como razón de cambio instantánea.</li>
+<li>Explicar por qué derivable \(\Rightarrow\) continua, pero continua \(\not\Rightarrow\) derivable (caso \(|x|\) en 0).</li>
+</ul>
+<span id="conceptos-clave"></span><h3 id="conceptos-clave_3">Conceptos clave</h3>
+<p>Continuidad puntual · discontinuidad evitable / de salto / infinita · teorema del valor intermedio · cociente incremental · recta secante y recta tangente · razón de cambio promedio vs. instantánea · derivada lateral · punto anguloso · tangente vertical.</p>
+<span id="qué-practicar"></span><h3 id="qué-practicar_3">Qué practicar</h3>
+<p>10 de continuidad (incluidos 4 con parámetro), 5 de TVI, y <strong>10 derivadas por definición</strong>. Sí, por definición, sin reglas: es tedioso y es exactamente el punto. Las reglas del escenario 5 solo tienen sentido si sufriste estas diez.</p>
+<span id="entregable-esperado"></span><h3 id="entregable-esperado_3">Entregable esperado</h3>
+<p>Taller / cierre del Primer Bloque (30 %). Aquí se consolida la nota de los escenarios 1–4.</p>
+<span id="listo-para-avanzar"></span><h3 id="listo-para-avanzar_3">Listo para avanzar</h3>
+<ul>
+<li>Calculo por definición las derivadas de \(x^2-3x\), \(1/x\) y \(\sqrt{x}\) y obtengo \(2x-3\), \(-1/x^2\) y \(\frac{1}{2\sqrt{x}}\).</li>
+<li>Determino \(k\) para que \(f(x)=\begin{cases}x^2 & x\le 2\\ kx+1 & x>2\end{cases}\) sea continua. (Respuesta: \(k=3/2\).)</li>
+<li>Clasifico correctamente la discontinuidad de \(\frac{x^2-4}{x-2}\) en \(x=2\) (evitable), de \(\frac{|x|}{x}\) en \(x=0\) (salto) y de \(\frac{1}{x-4}\) en \(x=4\) (infinita).</li>
+<li>Explico con mis palabras por qué \(f(x)=|x-3|\) es continua pero no derivable en \(x=3\).</li>
+</ul>
+<hr />
+<h2 id="escenario-5--reglas-de-derivación">Escenario 5 — Reglas de derivación</h2>
+<p><strong>Semana 5 · 22–28 de septiembre</strong></p>
+<span id="tema"></span><h3 id="tema_4">Tema</h3>
+<p>Reglas de derivación: constante, potencia, múltiplo, suma y resta, producto, cociente. Derivadas de funciones trigonométricas, exponenciales y logarítmicas.</p>
+<span id="objetivos"></span><h3 id="objetivos_4">Objetivos</h3>
+<ul>
+<li>Aplicar la regla de la potencia incluyendo exponentes negativos y fraccionarios (reescribiendo \(\sqrt[n]{x^m}\) y \(1/x^n\) como potencias antes de derivar).</li>
+<li>Aplicar producto y cociente con soltura, y saber cuándo <strong>no</strong> usarlas (simplificar primero suele ser más rápido).</li>
+<li>Memorizar el bloque trigonométrico: \((\sin x)'=\cos x\), \((\cos x)'=-\sin x\), \((\tan x)'=\sec^2 x\), \((\sec x)'=\sec x\tan x\), \((\csc x)'=-\csc x\cot x\), \((\cot x)'=-\csc^2 x\).</li>
+<li>Memorizar el bloque exponencial-logarítmico: \((e^x)'=e^x\), \((a^x)'=a^x\ln a\), \((\ln x)'=1/x\), \((\log_a x)'=\frac{1}{x\ln a}\).</li>
+<li>Derivar combinaciones de tres o más factores.</li>
+</ul>
+<span id="conceptos-clave"></span><h3 id="conceptos-clave_4">Conceptos clave</h3>
+<p>Regla de la potencia · regla del producto ("el primero por la derivada del segundo, más el segundo por la derivada del primero") · regla del cociente ("bajo por derivada de arriba, menos arriba por derivada de abajo, sobre bajo al cuadrado") · derivadas notables.</p>
+<span id="qué-practicar"></span><h3 id="qué-practicar_4">Qué practicar</h3>
+<p><strong>Volumen alto y ritmo diario.</strong> Mínimo 40 derivadas esta semana, 8 diarias. Cronométralas. Empieza cada sesión con 5 de calentamiento sin mirar el formulario.</p>
+<span id="entregable-esperado"></span><h3 id="entregable-esperado_4">Entregable esperado</h3>
+<p><strong>Actividad de puntos evaluables – Escenario 5.</strong> Segundo Bloque (30 %).</p>
+<span id="listo-para-avanzar"></span><h3 id="listo-para-avanzar_4">Listo para avanzar</h3>
+<ul>
+<li>Escribo el formulario completo (12 derivadas notables) de memoria, en hoja en blanco, en menos de 3 minutos.</li>
+<li>Derivo \(\frac{2x+1}{x^2+3}\) y obtengo \(\frac{-2x^2-2x+6}{(x^2+3)^2}\).</li>
+<li>Derivo \(x^2\sin x\) y obtengo \(2x\sin x+x^2\cos x\).</li>
+<li>Hago 10 derivadas mixtas en 15 minutos con 9 correctas.</li>
+</ul>
+<hr />
+<h2 id="escenario-6--regla-de-la-cadena-derivación-implícita-y-orden-superior">Escenario 6 — Regla de la cadena, derivación implícita y orden superior</h2>
+<p><strong>Semana 6 · 29 de septiembre – 5 de octubre</strong> ⚠️ <strong>CUELLO DE BOTELLA</strong></p>
+<span id="tema"></span><h3 id="tema_5">Tema</h3>
+<p>Regla de la cadena, incluida la composición anidada. Derivación implícita. Derivadas de orden superior.</p>
+<span id="objetivos"></span><h3 id="objetivos_5">Objetivos</h3>
+<ul>
+<li>Identificar la función "de afuera" y la "de adentro" antes de derivar. Este paso de identificación es el 80 % del problema.</li>
+<li>Aplicar \(\big(f(g(x))\big)'=f'(g(x))\cdot g'(x)\) con dos y tres niveles de anidamiento.</li>
+<li>Combinar regla de la cadena con producto y cociente en la misma expresión.</li>
+<li>Derivar implícitamente: derivar ambos lados respecto a \(x\), recordando que cada \(y\) arrastra un factor \(\frac{dy}{dx}\), y despejar.</li>
+<li>Hallar la recta tangente a una curva definida implícitamente.</li>
+<li>Calcular \(f''\), \(f'''\) y \(f^{(n)}\); interpretar \(f''\) como aceleración y como concavidad.</li>
+</ul>
+<span id="conceptos-clave"></span><h3 id="conceptos-clave_5">Conceptos clave</h3>
+<p>Función compuesta · función externa e interna · factor de la cadena · derivación implícita · notación \(\frac{dy}{dx}\) y \(y'\) · derivada de orden superior · aceleración.</p>
+<span id="qué-practicar"></span><h3 id="qué-practicar_5">Qué practicar</h3>
+<p>30 derivadas con regla de la cadena (10 simples, 12 anidadas dobles, 8 combinadas con producto/cociente), 8 implícitas, 6 de orden superior.</p>
+<p><strong>Truco de estudio:</strong> antes de derivar, escribe explícitamente \(u=\text{(lo de adentro)}\). Suena elemental y es lo que evita el error más común del curso.</p>
+<span id="entregable-esperado"></span><h3 id="entregable-esperado_5">Entregable esperado</h3>
+<p><strong>Quiz – Escenario 6.</strong> Segundo Bloque.</p>
+<span id="listo-para-avanzar"></span><h3 id="listo-para-avanzar_5">Listo para avanzar</h3>
+<ul>
+<li>Derivo \(\sin\!\big(\sqrt{x^2+1}\big)\) y obtengo \(\dfrac{x\cos\!\big(\sqrt{x^2+1}\big)}{\sqrt{x^2+1}}\).</li>
+<li>Derivo \(\ln(\cos(3x^2+1))\) y obtengo \(-6x\tan(3x^2+1)\).</li>
+<li>Derivo implícitamente \(x^3+y^3=6xy\) y obtengo \(\dfrac{dy}{dx}=\dfrac{2y-x^2}{y^2-2x}\); evalúo en \((3,3)\) y da \(-1\).</li>
+<li>Nunca se me olvida multiplicar por la derivada interna. (Verifícalo: haz 10 cadenas seguidas y cuenta cuántas veces se te olvidó. Si es más de una, sigue practicando.)</li>
+</ul>
+<hr />
+<h2 id="escenario-7--aplicaciones-de-la-derivada">Escenario 7 — Aplicaciones de la derivada</h2>
+<p><strong>Semana 7 · 6–12 de octubre</strong> ⚠️ <strong>CUELLO DE BOTELLA (optimización)</strong></p>
+<span id="tema"></span><h3 id="tema_6">Tema</h3>
+<p>Razones de cambio relacionadas. Rectas tangente y normal. Aproximación lineal y diferenciales. Análisis de funciones: puntos críticos, monotonía, criterios de primera y segunda derivada, concavidad, inflexión, trazado de curvas. Optimización aplicada. Regla de L'Hôpital.</p>
+<span id="objetivos"></span><h3 id="objetivos_6">Objetivos</h3>
+<ul>
+<li>Resolver problemas de razones relacionadas siguiendo el protocolo: dibujar, nombrar variables, escribir la ecuación que las relaciona, derivar <strong>respecto al tiempo</strong>, sustituir al final (nunca antes).</li>
+<li>Hallar la recta tangente y la normal en un punto.</li>
+<li>Usar \(L(x)=f(a)+f'(a)(x-a)\) para aproximar valores, y \(dy=f'(x)\,dx\) para estimar errores.</li>
+<li>Hallar puntos críticos, intervalos de crecimiento y decrecimiento, máximos y mínimos locales (criterios de primera y segunda derivada), concavidad y puntos de inflexión.</li>
+<li>Trazar la curva completa integrando toda esa información.</li>
+<li>Resolver problemas de optimización: definir la función objetivo, usar la restricción para dejarla en <strong>una sola variable</strong>, derivar, hallar el crítico, justificar que es máximo o mínimo, y responder la pregunta original.</li>
+<li>Aplicar L'Hôpital a \(\frac{0}{0}\) y \(\frac{\infty}{\infty}\), y transformar \(0\cdot\infty\), \(\infty-\infty\), \(1^\infty\), \(0^0\), \(\infty^0\) a una de esas dos formas.</li>
+</ul>
+<span id="conceptos-clave"></span><h3 id="conceptos-clave_6">Conceptos clave</h3>
+<p>Razones relacionadas · recta normal · linealización · diferencial · punto crítico · máximo/mínimo local y absoluto · criterio de la primera derivada · criterio de la segunda derivada · concavidad · punto de inflexión · función objetivo · restricción · teorema del valor extremo · regla de L'Hôpital.</p>
+<span id="qué-practicar"></span><h3 id="qué-practicar_6">Qué practicar</h3>
+<p>Es la semana más cargada del curso. 6 de razones relacionadas, 10 de análisis completo de funciones, <strong>8 de optimización</strong> (los de optimización toman 20 minutos cada uno; presupuéstalo), 10 de L'Hôpital, 5 de aproximación lineal.</p>
+<span id="entregable-esperado"></span><h3 id="entregable-esperado_6">Entregable esperado</h3>
+<p>Taller / cierre del Segundo Bloque (30 %).</p>
+<span id="listo-para-avanzar"></span><h3 id="listo-para-avanzar_6">Listo para avanzar</h3>
+<ul>
+<li>Resuelvo el problema de la escalera: una escalera de 10 m apoyada en un muro, la base se aleja a 1 m/s; cuando la base está a 6 m, el extremo superior baja a \(-3/4\) m/s.</li>
+<li>Analizo por completo \(f(x)=x^3-3x^2-9x+5\): críticos en \(x=-1\) (máximo local, \(f=10\)) y \(x=3\) (mínimo local, \(f=-22\)), inflexión en \(x=1\) (\(f=-6\)), cóncava hacia abajo en \((-\infty,1)\) y hacia arriba en \((1,\infty)\).</li>
+<li>Resuelvo un problema de optimización completo <strong>de principio a fin, incluyendo la justificación</strong> de que el crítico es efectivamente el óptimo. Un problema sin justificación pierde puntos.</li>
+<li>Aplico L'Hôpital a \(\lim_{x\to 0}\frac{e^x-1-x}{x^2}=\frac12\) y sé por qué <strong>no</strong> puedo aplicarla a \(\lim_{x\to 0}\frac{\sin x}{x+1}\) (no es indeterminada; da 0).</li>
+</ul>
+<hr />
+<h2 id="escenario-8--integración-y-examen-final">Escenario 8 — Integración y examen final</h2>
+<p><strong>Semana 8 · 13–19 de octubre</strong></p>
+<span id="tema"></span><h3 id="tema_7">Tema</h3>
+<p>Repaso integrado de los siete escenarios. Examen final acumulativo (40 %).</p>
+<span id="objetivos"></span><h3 id="objetivos_7">Objetivos</h3>
+<ul>
+<li>Reconocer, a partir del enunciado, qué herramienta pide cada problema. En el examen nadie te dice "esto es regla de la cadena".</li>
+<li>Ejecutar sin consultar el formulario.</li>
+<li>Administrar el tiempo del examen.</li>
+</ul>
+<span id="conceptos-clave"></span><h3 id="conceptos-clave_7">Conceptos clave</h3>
+<p>Todos. En particular las cuatro rutas que más se preguntan: (1) límite indeterminado, (2) derivada con cadena, (3) análisis de función completa, (4) optimización.</p>
+<span id="qué-practicar"></span><h3 id="qué-practicar_7">Qué practicar</h3>
+<p>Simulacros cronometrados. Toma la sección "tipo examen" de cada escenario del banco de ejercicios, arma un examen de 12 problemas y resuélvelo en 90 minutos <strong>sin apuntes</strong>. Repite dos veces con problemas distintos.</p>
+<span id="entregable-esperado"></span><h3 id="entregable-esperado_7">Entregable esperado</h3>
+<p><strong>Examen final – Escenario 8.</strong> 40 % de la nota.</p>
+<span id="listo-para-avanzar"></span><h3 id="listo-para-avanzar_7">Listo para avanzar</h3>
+<p>(Aquí ya no hay "avanzar", hay "presentar".)</p>
+<ul>
+<li>Hago un simulacro de 12 problemas mixtos en 90 minutos, sin apuntes, con al menos 9 correctos.</li>
+<li>Escribo el formulario completo de memoria en 5 minutos.</li>
+<li>Clasifico 20 enunciados por herramienta requerida en menos de 5 minutos, sin resolverlos.</li>
+</ul>
+<hr />
+<h2 id="mapa-de-dependencias">Mapa de dependencias</h2>
+<p>Lee esto como un diagrama de red de contratos: si un nodo se cae, todo lo aguas abajo se cae con él.</p>
+<pre><code>E1 Funciones ─────────────┐
+  (dominio, gráficas)     │
+                          ▼
+E2 Límites intuitivos ──► E3 INDETERMINACIONES ⚠️ ──► E4 Continuidad
+  (laterales, leyes)       (factorización,             + DERIVADA POR DEFINICIÓN
+                            racionalización,                    │
+                            notables, ∞)                        ▼
+                                                        E5 Reglas de derivación
+                                                                │
+                                                                ▼
+                                                    E6 REGLA DE LA CADENA ⚠️
+                                                       + implícita + orden superior
+                                                                │
+                        ┌───────────────────────────────────────┤
+                        ▼                                       ▼
+              E7a Razones relacionadas              E7b Análisis de funciones
+              E7c Aproximación lineal                     (1ª y 2ª derivada)
+              E7e L'Hôpital                                     │
+                                                                ▼
+                                                    E7d OPTIMIZACIÓN ⚠️
+                                                                │
+                                                                ▼
+                                                    E8 Examen final (40 %)
+</code></pre>
+<h3 id="los-tres-cuellos-de-botella-y-por-qué">Los tres cuellos de botella, y por qué</h3>
+<p><strong>⚠️ 1. Límites indeterminados (Escenario 3).</strong>
+Es el primer punto donde la materia deja de ser "repaso de bachillerato". Si no dominas factorización y racionalización aquí, el escenario 4 es literalmente imposible: la derivada por definición <strong>es</strong> un límite indeterminado \(0/0\), y toda su resolución consiste en factorizar o racionalizar. Un estudiante que llega al escenario 4 sin dominar el 3 no puede calcular ni una sola derivada por definición, y a partir de ahí solo memoriza reglas sin entenderlas.
+<em>Contramedida:</em> dedica el 100 % de la semana 3 a esto y no avances hasta acertar 8 de 10 en 25 minutos.</p>
+<p><strong>⚠️ 2. Regla de la cadena (Escenario 6).</strong>
+Es la regla más usada del resto de tu carrera (y, como dice el README, es <em>backpropagation</em>). Es también donde más error humano se acumula, porque el fallo es de omisión: uno deriva lo de afuera y <strong>olvida multiplicar por la derivada de adentro</strong>. Todo el escenario 7 (razones relacionadas, implícitas, optimización con funciones compuestas) depende de que la cadena sea automática.
+<em>Contramedida:</em> la regla del \(u\) explícito. Escribe siempre qué es "lo de adentro" antes de tocar el lápiz. Y práctica diaria: 10 cadenas al día durante la semana 6.</p>
+<p><strong>⚠️ 3. Optimización (Escenario 7).</strong>
+Es el cuello de botella distinto: aquí el problema no es técnico, es de <strong>modelado</strong>. Derivar ya lo sabes; lo difícil es traducir un párrafo en español a una función objetivo y una restricción. Es también lo que más pesa en el examen final, porque integra todo. Y es lo más cercano a lo que hará un científico de datos: minimizar una función de costo <em>es</em> un problema de optimización.
+<em>Contramedida:</em> practica el modelado por separado de la derivación. Toma 10 enunciados y, sin resolverlos, escribe solo la función objetivo y la restricción de cada uno. Eso entrena el músculo correcto.</p>
+<h3 id="reglas-de-tránsito-del-mapa">Reglas de tránsito del mapa</h3>
+<ul>
+<li><strong>Nunca saltes el escenario 3.</strong> Es el único que no admite deuda técnica.</li>
+<li>Si vas atrasado, la parte comprimible es el trazado detallado de curvas (E7b): entiéndelo bien, pero no hagas 20 gráficas.</li>
+<li>La parte <strong>no</strong> comprimible es la práctica diaria de derivadas del E5 y E6.</li>
+<li>El escenario 8 no es "una semana más": es la semana donde recuperas lo que se te olvidó del 1 al 7. Protégela.</li>
+</ul>
+<hr />
+<h2 id="diagnóstico-previo-de-álgebra-y-trigonometría">Diagnóstico previo de álgebra y trigonometría</h2>
+<p><strong>Hazlo ahora, antes del 25 de agosto.</strong> 10 preguntas, 30 minutos, sin calculadora ni apuntes. Es el filtro que detecta el vacío que va a doler en la semana 3.</p>
+<p><strong>Interpretación del resultado</strong></p>
+<ul>
+<li><strong>9–10 correctas:</strong> vas bien. Arranca el curso normal.</li>
+<li><strong>7–8:</strong> repasa específicamente los temas donde fallaste, una tarde por tema.</li>
+<li><strong>5–6:</strong> dedica las tardes previas al inicio de clases a nivelar. Usa la carpeta <code>00 - Nivelación</code>.</li>
+<li><strong>Menos de 5:</strong> este es el hallazgo más valioso que vas a tener este semestre. Nivela en serio antes de empezar; de lo contrario la semana 3 te va a atropellar. No es un juicio sobre tu capacidad: es óxido, y el óxido se quita.</li>
+</ul>
+<h3 id="preguntas">Preguntas</h3>
+<p><strong>1.</strong> Factoriza completamente \(x^3-8\).</p>
+<p><strong>2.</strong> Factoriza \(6x^2-x-2\).</p>
+<p><strong>3.</strong> Racionaliza el numerador y simplifica: \(\dfrac{\sqrt{x+4}-2}{x}\) (deja el resultado sin indeterminación en \(x=0\)).</p>
+<p><strong>4.</strong> Simplifica \(\dfrac{x^2-5x+6}{x^2-9}\) e indica para qué valores de \(x\) la simplificación es válida.</p>
+<p><strong>5.</strong> Simplifica la fracción compleja \(\dfrac{\frac{1}{x}-\frac{1}{3}}{x-3}\).</p>
+<p><strong>6.</strong> Calcula sin calculadora: (a) \(8^{2/3}\), (b) \(27^{-1/3}\), (c) \(\left(\frac{1}{16}\right)^{3/4}\).</p>
+<p><strong>7.</strong> Resuelve para \(x\): (a) \(e^{2x}=7\), (b) \(\log_2(32)=x\), (c) \(\ln(x)+\ln(x-3)=\ln(4)\).</p>
+<p><strong>8.</strong> Da los valores exactos: \(\sin\frac{\pi}{6}\), \(\cos\frac{\pi}{4}\), \(\tan\frac{\pi}{3}\), \(\cos\frac{2\pi}{3}\), \(\sin\pi\).</p>
+<p><strong>9.</strong> Verifica la identidad y simplifica: \(\dfrac{1-\cos 2x}{\sin x}\) (usa \(\cos 2x = 1-2\sin^2 x\)).</p>
+<p><strong>10.</strong> Resuelve la desigualdad \(|2x-1|<5\) y escribe la solución en notación de intervalo.</p>
+<hr />
+<h3 id="respuestas-del-diagnóstico">Respuestas del diagnóstico</h3>
+<p><strong>1.</strong> \(x^3-8=(x-2)(x^2+2x+4)\).
+Diferencia de cubos: \(a^3-b^3=(a-b)(a^2+ab+b^2)\) con \(a=x\), \(b=2\). El trinomio \(x^2+2x+4\) <strong>no</strong> se factoriza más en los reales (discriminante \(4-16=-12<0\)). Error frecuente: escribir \((x-2)^3\) o \((x-2)(x^2-2x+4)\).
+<em>Se usa en:</em> límites del escenario 3.</p>
+<p><strong>2.</strong> \(6x^2-x-2=(2x+1)(3x-2)\).
+Verifica expandiendo: \(6x^2-4x+3x-2=6x^2-x-2\). ✓</p>
+<p><strong>3.</strong> Multiplicando por el conjugado \(\sqrt{x+4}+2\):
+\[\frac{\sqrt{x+4}-2}{x}\cdot\frac{\sqrt{x+4}+2}{\sqrt{x+4}+2}=\frac{(x+4)-4}{x(\sqrt{x+4}+2)}=\frac{x}{x(\sqrt{x+4}+2)}=\frac{1}{\sqrt{x+4}+2}\]
+En \(x=0\) vale \(\frac{1}{4}\). <strong>Esta es, palabra por palabra, la técnica del escenario 3.</strong></p>
+<p><strong>4.</strong> \(\dfrac{(x-2)(x-3)}{(x-3)(x+3)}=\dfrac{x-2}{x+3}\), válida para \(x\ne 3\) (y \(x\ne -3\) por el dominio original).
+Detalle que importa: la función original no está definida en \(x=3\) aunque la simplificada sí lo esté. Eso es exactamente una <strong>discontinuidad evitable</strong> (escenario 4).</p>
+<p><strong>5.</strong> \(\dfrac{1}{x}-\dfrac{1}{3}=\dfrac{3-x}{3x}\). Entonces
+\[\frac{\frac{3-x}{3x}}{x-3}=\frac{3-x}{3x(x-3)}=\frac{-(x-3)}{3x(x-3)}=-\frac{1}{3x}\]
+En \(x=3\) vale \(-\frac19\). Truco clave: reconocer que \(3-x=-(x-3)\).</p>
+<p><strong>6.</strong> (a) \(8^{2/3}=(\sqrt[3]{8})^2=2^2=4\). (b) \(27^{-1/3}=\frac{1}{\sqrt[3]{27}}=\frac13\). (c) \(\left(\frac{1}{16}\right)^{3/4}=\left(\frac{1}{2}\right)^{3}=\frac18\).</p>
+<p><strong>7.</strong> (a) \(2x=\ln 7\Rightarrow x=\frac{\ln 7}{2}\approx 0{,}973\).
+(b) \(2^x=32=2^5\Rightarrow x=5\).
+(c) \(\ln\big(x(x-3)\big)=\ln 4\Rightarrow x^2-3x-4=0\Rightarrow (x-4)(x+1)=0\). Las candidatas son \(x=4\) y \(x=-1\), pero \(x=-1\) <strong>se descarta</strong> porque \(\ln(-1)\) no existe. Respuesta: \(x=4\). (Verificar el dominio al final es obligatorio en ecuaciones logarítmicas.)</p>
+<p><strong>8.</strong> \(\sin\frac{\pi}{6}=\frac12\) · \(\cos\frac{\pi}{4}=\frac{\sqrt2}{2}\) · \(\tan\frac{\pi}{3}=\sqrt3\) · \(\cos\frac{2\pi}{3}=-\frac12\) · \(\sin\pi=0\).
+Si fallaste esta, <strong>construye la tabla de ángulos notables y pégala en el escritorio</strong>. En el escenario 7 vas a evaluar derivadas trigonométricas en estos ángulos todo el tiempo.</p>
+<p><strong>9.</strong> \(1-\cos 2x = 1-(1-2\sin^2 x)=2\sin^2 x\). Entonces
+\[\frac{1-\cos 2x}{\sin x}=\frac{2\sin^2 x}{\sin x}=2\sin x \quad (\sin x\neq 0)\]</p>
+<p><strong>10.</strong> \(|2x-1|<5 \iff -5<2x-1<5 \iff -4<2x<6 \iff -2<x<3\). Solución: \((-2,\,3)\).</p>
+<hr />
+<h3 id="mapa-de-fallos-qué-repasar-según-qué-fallaste">Mapa de fallos: qué repasar según qué fallaste</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Fallaste</th>
+<th>Repasa</th>
+<th>Te va a doler en</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1, 2</td>
+<td>Factorización: productos notables, cubos, trinomios</td>
+<td>Escenario 3 (límites \(0/0\)), escenario 7 (críticos)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Racionalización con conjugado</td>
+<td>Escenario 3, escenario 4 (derivada de \(\sqrt{x}\) por definición)</td>
+</tr>
+<tr>
+<td>4, 5</td>
+<td>Simplificación de racionales y fracciones complejas</td>
+<td>Escenarios 3, 4, 5 (regla del cociente)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Leyes de exponentes y radicales como potencias</td>
+<td>Escenario 5 (regla de la potencia con exponente fraccionario)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Propiedades de logaritmos y exponenciales</td>
+<td>Escenarios 1, 5, 7 (L'Hôpital)</td>
+</tr>
+<tr>
+<td>8, 9</td>
+<td>Trigonometría: ángulos notables e identidades</td>
+<td>Escenarios 3 (límites notables), 5, 6, 7</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Desigualdades y valor absoluto</td>
+<td>Escenarios 1 (dominios), 7 (intervalos de crecimiento)</td>
+</tr>
+</tbody>
+</table></div>
+</main>
+</body>
+</html>

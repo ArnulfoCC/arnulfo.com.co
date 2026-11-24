@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Herramientas del semestre</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ _Recursos comunes / Herramientas</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="herramientas-del-semestre">Herramientas del semestre</h1>
+<p>Guía práctica de las herramientas transversales del primer semestre. Ninguna es obligatoria por sí sola: la obligatoria es la que te haga entender más rápido y verificar mejor.</p>
+<p><strong>La regla que atraviesa todo el documento:</strong> estas herramientas sirven para <strong>verificar</strong> tu trabajo, no para reemplazarlo. Si WolframAlpha deriva y tú no, en el quiz cronometrado a libro cerrado no vas a tener a WolframAlpha. El orden correcto es siempre: <em>lo intento → lo resuelvo → lo verifico → entiendo la diferencia</em>.</p>
+<p>Sobre enlaces: no te doy URLs profundas porque cambian. Te doy el nombre del sitio o del canal y tú lo buscas; todas estas herramientas aparecen en la primera posición al buscar su nombre.</p>
+<hr />
+<h2 id="1-excel--de-la-contratación-al-pensamiento-de-datos">1. Excel — de la contratación al pensamiento de datos</h2>
+<p><strong>Qué es.</strong> Lo que ya usas todos los días. Lo que cambia este semestre es <em>para qué</em> lo usas: dejas de verlo como una herramienta de reporte y empiezas a verlo como tu primer entorno de análisis de datos.</p>
+<p><strong>Dónde sirve.</strong> Razonamiento Cuantitativo, Estadística Descriptiva, Álgebra Lineal. Marginalmente en Cálculo (tablas de valores para intuir límites).</p>
+<p><strong>Tu ventaja real.</strong> Cuando en Estadística Descriptiva te expliquen media, mediana, cuartiles y desviación estándar, tú ya has hecho eso con series de IPC y con cifras de contratos. No estás aprendiendo el concepto desde cero: le estás poniendo el nombre técnico a algo que ya calculas. Aprovéchalo, pero no te confíes: la asignatura te va a pedir <em>interpretar</em> y <em>justificar</em>, no solo calcular.</p>
+<p><strong>Cómo empezar en 5 minutos.</strong> Abre cualquier hoja tuya con una columna numérica y calcula en celdas contiguas: <code>PROMEDIO</code>, <code>MEDIANA</code>, <code>MODA.UNO</code>, <code>DESVEST.M</code>, <code>VAR.M</code>, <code>CUARTIL.INC</code>, <code>PERCENTIL.INC</code>, <code>COEF.DE.CORREL</code>. Ya usaste ocho funciones estadísticas del programa de Estadística Descriptiva sobre datos que entiendes.</p>
+<p><strong>Los tres frentes que debes desarrollar:</strong></p>
+<ul>
+<li><strong>Funciones estadísticas.</strong> Además de las anteriores: <code>CONTAR.SI</code>, <code>SUMAR.SI.CONJUNTO</code>, <code>FRECUENCIA</code>, <code>PENDIENTE</code>, <code>INTERSECCION.EJE</code>, <code>COEFICIENTE.R2</code>, <code>NORMALIZACION</code> (el puntaje z). Y para Álgebra Lineal: <code>MMULT</code> (producto de matrices), <code>MDETERM</code> (determinante), <code>MINVERSA</code> (inversa), <code>TRANSPONER</code>. Se ingresan como fórmulas matriciales; en Excel 365 basta con Enter porque hay derrame automático.</li>
+<li><strong>Tablas dinámicas.</strong> Son un <code>GROUP BY</code> con interfaz. Cuando en Estadística Descriptiva veas tablas de frecuencia por categoría, es exactamente una tabla dinámica con "Cuenta" en valores. Entender esa equivalencia te ahorra medio curso.</li>
+<li><strong>Power Query.</strong> Este es el puente importante. Power Query es un <strong>ETL</strong> (extraer, transformar, cargar) con botones: importas de varias fuentes, quitas duplicados, cambias tipos, pivotas, unes tablas, y —lo clave— <strong>queda registrado como una secuencia de pasos repetible</strong>. Ese es exactamente el concepto de <em>pipeline de datos</em> que vas a ver en semestres siguientes con pandas. Cuando llegues a <code>pd.read_csv()</code> y <code>df.merge()</code>, vas a estar traduciendo, no aprendiendo.</li>
+</ul>
+<p><strong>Caso de uso concreto.</strong> Toma el <code>Resumen Pagos Nuevos.xlsx</code> del contrato 089. Con Power Query, cárgalo, normaliza tipos y elimina filas vacías. Con tabla dinámica, saca el valor promedio y la mediana por mes. Compara ambos y explica por qué difieren: acabas de hacer un análisis de asimetría con datos reales, y ese es un aporte de foro de nota alta.</p>
+<p><strong>La advertencia.</strong> Excel te va a tentar a resolverlo todo con arrastrar fórmulas. En Álgebra Lineal, <code>MINVERSA</code> te da la inversa en un segundo, pero el examen te va a pedir invertir una matriz 3×3 a mano por Gauss-Jordan. Usa <code>MINVERSA</code> <strong>después</strong> de hacerlo a mano, para verificar. Y en Estadística, el número que te da la función no es la respuesta: la respuesta es qué significa ese número para los datos.</p>
+<hr />
+<h2 id="2-google-colab">2. Google Colab</h2>
+<p><strong>Qué es.</strong> Un cuaderno de Python que corre en el navegador, sin instalar nada. Mezcla celdas de texto y celdas de código ejecutable. Gratuito con cuenta de Google.</p>
+<p><strong>Dónde sirve.</strong> Pensamiento Algorítmico (después de PSeInt), Estadística Descriptiva, Álgebra Lineal. Es la herramienta que más te va a servir en los semestres siguientes, así que vale la pena la curva.</p>
+<p><strong>Cómo empezar en 5 minutos.</strong> Busca "Google Colab", entra con tu cuenta, "Nuevo cuaderno". En la primera celda escribe <code>print("hola")</code> y presiona Shift+Enter. En la segunda:</p>
+<pre><code class="language-python">import numpy as np
+A = np.array([[2, 1], [1, 3]])
+print(np.linalg.det(A))
+print(np.linalg.inv(A))
+</code></pre>
+<p>Eso es Álgebra Lineal ejecutable en tu tercer minuto de vida como programador.</p>
+<p><strong>Caso de uso concreto.</strong> En Estadística Descriptiva, sube un CSV con una serie de IPC mensual, cárgalo con pandas y calcula media, mediana, desviación y coeficiente de variación. Después grafica el histograma. Compara los resultados con los que obtuviste en Excel: si coinciden, aprendiste dos herramientas para lo mismo; si no coinciden, encontraste un error en una de las dos y eso vale más que el ejercicio.</p>
+<p><strong>La advertencia.</strong> Colab tiene autocompletado y ejecución instantánea, y eso te puede llevar a "programar por ensayo y error": cambiar cosas hasta que deje de dar error, sin entender por qué funciona. En Pensamiento Algorítmico eso es fatal, porque la evaluación es de <strong>lógica</strong>, no de sintaxis. Antes de escribir código en Colab, escribe el pseudocódigo en papel. Siempre.</p>
+<hr />
+<h2 id="3-pseint">3. PSeInt</h2>
+<p><strong>Qué es.</strong> Un entorno para escribir pseudocódigo <strong>en español</strong> y ejecutarlo. Gratuito, se instala en Windows. Existe además la posibilidad de generar el diagrama de flujo del algoritmo automáticamente.</p>
+<p><strong>Dónde sirve.</strong> Pensamiento Algorítmico. Es tu herramienta principal en esa asignatura.</p>
+<p><strong>Por qué es la correcta para ti.</strong> Nunca has programado. PSeInt elimina de un golpe el 70 % de la fricción inicial: no hay punto y coma, no hay <code>import</code>, no hay entorno que configurar, y las palabras clave están en español (<code>Escribir</code>, <code>Leer</code>, <code>Si</code>, <code>Mientras</code>, <code>Para</code>). Te deja concentrarte en lo único que importa al principio: <strong>la lógica</strong>.</p>
+<p><strong>Cómo empezar en 5 minutos.</strong> Busca "PSeInt", descárgalo del sitio del proyecto (está alojado en SourceForge; verifica que sea el sitio oficial antes de descargar). Al abrirlo te pregunta por un "perfil de lenguaje": escoge el que te indique el docente, o "Flexible" mientras tanto. Escribe:</p>
+<pre><code>Algoritmo Saludo
+    Definir nombre Como Caracter
+    Escribir &quot;¿Cómo se llama?&quot;
+    Leer nombre
+    Escribir &quot;Hola, &quot;, nombre
+FinAlgoritmo
+</code></pre>
+<p>F9 para ejecutar. Luego busca el botón de diagrama de flujo y mira tu algoritmo dibujado.</p>
+<p><strong>Caso de uso concreto.</strong> Escribe un algoritmo que reciba el valor de un contrato y el porcentaje de un amparo, y calcule el valor asegurado. Después extiéndelo con un ciclo <code>Para</code> que lo haga para los cuatro amparos del 089 (cumplimiento 20 %, calidad 20 %, salarios 10 %, RCE 5 %) y acumule el total. Ahí practicaste variable, condicional, ciclo y acumulador —cuatro conceptos evaluables— en un problema que entiendes de memoria.</p>
+<p><strong>La advertencia.</strong> PSeInt ejecuta, y por eso puedes caer en la trampa de "lo corro a ver si sale". El examen te va a pedir <strong>prueba de escritorio</strong>: seguir el algoritmo a mano, con una tabla de valores de cada variable en cada iteración, y decir qué imprime. Haz la prueba de escritorio en papel <strong>antes</strong> de ejecutar, y usa la ejecución solo para verificar tu tabla. Si empiezas al revés, nunca vas a desarrollar la habilidad que califican.</p>
+<hr />
+<h2 id="4-geogebra">4. GeoGebra</h2>
+<p><strong>Qué es.</strong> Un sistema de matemática dinámica: graficador, geometría, álgebra simbólica, hoja de cálculo y vistas 3D en un solo entorno. Gratuito, disponible en navegador y en aplicaciones de escritorio y móviles.</p>
+<p><strong>Dónde sirve.</strong> Cálculo Diferencial (fuerte) y Álgebra Lineal (fuerte). Algo en Estadística Descriptiva.</p>
+<p><strong>Cómo empezar en 5 minutos.</strong> Busca "GeoGebra", abre la calculadora gráfica en el navegador. Escribe <code>f(x)=x^3-3x</code> y Enter. Luego escribe <code>f'(x)</code> y Enter: te dibuja la derivada encima. Mueve la vista y observa que donde la derivada cruza el eje x, la función original tiene un máximo o un mínimo. Acabas de ver el concepto de punto crítico en dos minutos.</p>
+<p><strong>Caso de uso concreto.</strong></p>
+<ul>
+<li><em>Cálculo:</em> grafica una función, su derivada primera y su derivada segunda a la vez. Identifica visualmente los intervalos de crecimiento (f' &gt; 0) y la concavidad (f'' &gt; 0). Esa imagen mental es lo que te va a salvar en los problemas de optimización.</li>
+<li><em>Álgebra Lineal:</em> en la vista 3D, dibuja dos vectores y su suma. Luego aplica una matriz 2×2 a un cuadrado unitario y observa cómo se deforma. Eso es una transformación lineal, y el determinante es el factor por el que cambia el área. Ese concepto entra en el examen y es dificilísimo de entender solo con fórmulas.</li>
+</ul>
+<p><strong>La advertencia.</strong> GeoGebra deriva simbólicamente. Si le pides <code>f'(x)</code> te la da resuelta, y es muy fácil hacer todo el taller así. Úsala para <strong>ver</strong> el concepto y para <strong>verificar</strong> tu derivada, nunca para producirla. La regla de la cadena se aprende haciéndola treinta veces a mano, no viéndola.</p>
+<hr />
+<h2 id="5-desmos">5. Desmos</h2>
+<p><strong>Qué es.</strong> Un graficador en línea, muy rápido y muy limpio, con deslizadores para parámetros. Es más ligero que GeoGebra para lo puramente gráfico.</p>
+<p><strong>Dónde sirve.</strong> Cálculo Diferencial, Razonamiento Cuantitativo (crecimiento exponencial, interés compuesto), Estadística Descriptiva (regresión).</p>
+<p><strong>Cómo empezar en 5 minutos.</strong> Busca "Desmos" y abre la calculadora gráfica. Escribe <code>y=ax^2+bx+c</code>; te ofrece crear deslizadores para <code>a</code>, <code>b</code> y <code>c</code>. Muévelos y observa cómo cambia la parábola. Esa manipulación en vivo es lo que hace que Desmos sea insustituible para construir intuición.</p>
+<p><strong>Caso de uso concreto.</strong> En Razonamiento Cuantitativo, grafica <code>y = 1000000*(1+r)^x</code> con un deslizador para <code>r</code>. Mueve <code>r</code> entre 0,03 y 0,12 y mira cómo cambia el valor futuro a 10 años. Ahí ves de golpe por qué el interés compuesto no es intuitivo y por qué la diferencia entre 5 % y 8 % es enorme a largo plazo. En Estadística, ingresa una tabla de puntos y pide una regresión lineal con <code>y_1 ~ mx_1+b</code>: te devuelve la pendiente, el intercepto y el R².</p>
+<p><strong>La advertencia.</strong> Ver la gráfica no es entender la función. Si en el examen te piden calcular el límite de una función cuando x tiende a 2 y tú solo has visto que "la curva se acerca a 5", no vas a poder mostrar el procedimiento algebraico que califican. Grafica <strong>después</strong> de resolver, para confirmar que tu respuesta tiene sentido.</p>
+<hr />
+<h2 id="6-wolframalpha">6. WolframAlpha</h2>
+<p><strong>Qué es.</strong> Un motor de conocimiento computacional: le escribes una pregunta matemática en lenguaje casi natural y la resuelve, con gráficas y datos asociados. La versión gratuita da el resultado; los pasos detallados están en la versión de pago.</p>
+<p><strong>Dónde sirve.</strong> Cálculo Diferencial, Álgebra Lineal, Razonamiento Cuantitativo.</p>
+<p><strong>Cómo empezar en 5 minutos.</strong> Busca "WolframAlpha" y escribe, sin más ceremonia:</p>
+<ul>
+<li><code>derivative of (3x^2+1)/(x-4)</code></li>
+<li><code>limit of sin(x)/x as x approaches 0</code></li>
+<li><code>eigenvalues {{2,1},{1,3}}</code></li>
+<li><code>inverse {{1,2,3},{0,1,4},{5,6,0}}</code></li>
+</ul>
+<p>Funciona mejor en inglés, y sirve como práctica del vocabulario técnico que vas a encontrar en toda la bibliografía de ciencia de datos.</p>
+<p><strong>Caso de uso concreto.</strong> Terminas un taller de 12 derivadas. En vez de esperar la retroalimentación del docente, verificas las 12 en WolframAlpha en cinco minutos. Las que no coincidan las rehaces buscando <strong>dónde</strong> te desviaste, no copiando la respuesta. Ese ciclo de retroalimentación inmediata es probablemente el mayor acelerador de aprendizaje disponible en un curso asincrónico, donde el docente puede tardar días en calificar.</p>
+<p><strong>La advertencia.</strong> Esta es la herramienta más peligrosa de la lista, porque resuelve prácticamente todo lo que te van a pedir en Cálculo y Álgebra. La distinción es tajante: <strong>verificar un resultado propio es estudiar; generar el resultado y transcribirlo es entregar trabajo que no es tuyo.</strong> Lo segundo, además de ser un problema de integridad académica, te va a estrellar en el examen final, que vale 40 % y donde vas a estar solo con un papel.</p>
+<hr />
+<h2 id="7-symbolab">7. Symbolab</h2>
+<p><strong>Qué es.</strong> Similar a WolframAlpha pero orientado a mostrar el procedimiento paso a paso. Tiene un nivel gratuito con límites diarios y una versión de pago.</p>
+<p><strong>Dónde sirve.</strong> Cálculo Diferencial, Álgebra Lineal.</p>
+<p><strong>Cómo empezar en 5 minutos.</strong> Busca "Symbolab", entra a la calculadora de derivadas, ingresa una función con el teclado matemático y pide "solución". Te muestra la secuencia de reglas aplicadas.</p>
+<p><strong>Caso de uso concreto.</strong> Estás atascado en una derivada con regla de la cadena anidada dos veces y no logras ver dónde te equivocas. Resuelves con Symbolab, y en lugar de copiar la respuesta, comparas paso a paso con tu desarrollo hasta encontrar la línea exacta donde divergen. Anotas ese error específico en la sección "Errores típicos" de tu nota Cornell. Ese error concreto vale más que la derivada.</p>
+<p><strong>La advertencia.</strong> Ver un procedimiento correcto produce una sensación fortísima de comprensión que no corresponde a nada. Es el mismo fenómeno de la relectura: reconoces cada paso y crees que sabrías hacerlo. <strong>Después de mirar la solución, cierra todo y rehaz el ejercicio completo desde cero.</strong> Si no puedes, no lo entendiste: lo leíste. Regla operativa: nunca abras Symbolab antes de haber intentado el ejercicio 10 minutos.</p>
+<hr />
+<h2 id="8-drawio-diagramsnet">8. draw.io (diagrams.net)</h2>
+<p><strong>Qué es.</strong> Un editor de diagramas gratuito, en navegador o aplicación de escritorio. Diagramas de flujo, mapas conceptuales, esquemas de proceso.</p>
+<p><strong>Dónde sirve.</strong> Pensamiento Algorítmico (diagramas de flujo), Cultura Política y Sociedad (mapas conceptuales de lecturas), y para tus propios esquemas de repaso en cualquier asignatura.</p>
+<p><strong>Cómo empezar en 5 minutos.</strong> Busca "draw.io" o "diagrams.net", escoge guardar el archivo en tu equipo, y crea un diagrama en blanco. En el panel izquierdo busca la categoría de diagramas de flujo: óvalo (inicio/fin), rectángulo (proceso), rombo (decisión), paralelogramo (entrada/salida). Arrastra, conecta, listo.</p>
+<p><strong>Caso de uso concreto.</strong> Antes de escribir un algoritmo en PSeInt, dibuja el diagrama de flujo en draw.io. Te obliga a decidir la estructura antes de escribir, que es justo la habilidad que evalúa la asignatura. Y para Cultura Política, un mapa conceptual de una lectura densa —conceptos como nodos, relaciones como flechas etiquetadas— es una forma de práctica de recuperación disfrazada de dibujo, y sirve de material de repaso para el final.</p>
+<p><strong>La advertencia.</strong> Es la herramienta más fácil de convertir en procrastinación productiva. Puedes pasar dos horas alineando cajas y escogiendo colores sin aprender nada. Ponle cronómetro: 20 minutos por diagrama, feo pero terminado. Y el diagrama debe salir de tu cabeza; si lo copias del material, no procesaste.</p>
+<hr />
+<h2 id="9-zotero-gestor-de-referencias">9. Zotero (gestor de referencias)</h2>
+<p><strong>Qué es.</strong> Un gestor de referencias bibliográficas gratuito y de código abierto. Guarda las fuentes que consultas, extrae automáticamente sus datos y genera citas y bibliografías en el formato que escojas (APA, entre otros). Tiene extensión para navegador y complemento para Word.</p>
+<p><strong>Dónde sirve.</strong> Cultura Política y Sociedad sobre todo, donde hay ensayos y foros con exigencia de citación. También en cualquier trabajo escrito de las demás asignaturas.</p>
+<p><strong>Cómo empezar en 5 minutos.</strong> Busca "Zotero", descarga el programa de escritorio y el conector para tu navegador. Abre una lectura del curso en el navegador y haz clic en el ícono del conector: la referencia queda guardada con su PDF. En Zotero, selecciónala, clic derecho, "Crear bibliografía", escoge el estilo y pega en tu documento.</p>
+<p><strong>Caso de uso concreto.</strong> Desde la primera semana de Cultura Política, guarda en una colección todas las lecturas del curso. Cuando llegue el ensayo final, la bibliografía se genera en 30 segundos y sin errores de formato, en vez de la hora habitual de reconstruir de dónde salió cada cita. Como bono: Zotero te deja anotar y resaltar los PDF dentro del programa, así que tus notas quedan pegadas a la fuente.</p>
+<p><strong>La advertencia.</strong> Zotero formatea, no verifica. Si guardas mal los datos de una fuente, la cita sale mal formateada correctamente. Y hay una tentación adyacente: acumular 40 referencias que no leíste para que la bibliografía se vea robusta. Los docentes preguntan por lo que citaste. <strong>Cita solo lo que leíste.</strong> Verifica además el estilo de citación que exija cada docente antes de entregar; no asumas APA por defecto.</p>
+<hr />
+<h2 id="10-editor-de-markdown-vs-code-u-obsidian">10. Editor de Markdown: VS Code u Obsidian</h2>
+<p><strong>Qué es.</strong> Markdown es texto plano con marcas mínimas de formato (<code>#</code> para títulos, <code>**</code> para negrilla, <code>-</code> para listas). Los archivos son <code>.md</code>, pesan nada, se abren en cualquier parte y nunca se corrompen. Es el formato en el que está escrito este documento.</p>
+<ul>
+<li><strong>VS Code</strong> es un editor de código gratuito de Microsoft. Sirve para Markdown <strong>y</strong> para Python, así que aprendes una sola herramienta para todo el programa.</li>
+<li><strong>Obsidian</strong> es un editor de notas sobre Markdown, gratuito para uso personal, con enlaces entre notas y vista de grafo. Es más cómodo para apuntes puros.</li>
+</ul>
+<p><strong>Dónde sirve.</strong> Las seis asignaturas. Es tu sistema de notas.</p>
+<p><strong>Cómo empezar en 5 minutos.</strong></p>
+<ul>
+<li><em>VS Code:</em> búscalo, instálalo, abre la carpeta <code>semestre1</code> completa (Archivo → Abrir carpeta). Crea un <code>.md</code>, escribe, y presiona Ctrl+Shift+V para ver la vista previa. Ctrl+Shift+F busca en <strong>todos</strong> los archivos: así encuentras todos tus <code>??</code> de la semana en un segundo.</li>
+<li><em>Obsidian:</em> búscalo, instálalo, y cuando pida una "bóveda" (vault) apúntala a la carpeta <code>semestre1</code>. Ya tienes tus notas indexadas y enlazables con <code>[[nombre de nota]]</code>.</li>
+</ul>
+<p><strong>Caso de uso concreto.</strong> Usa la plantilla Cornell de <code>Método de estudio.md</code> para cada escenario. Como todo es texto, puedes buscar "regla de la cadena" en las seis asignaturas y encontrar cada vez que la mencionaste. En Obsidian, además, enlaza la nota de "derivada" con la de "descenso de gradiente" cuando aparezca en Estadística: ver esas conexiones es exactamente lo que te va a servir en semestres avanzados.</p>
+<p><strong>La advertencia.</strong> El riesgo aquí no es hacer trampa, es el sistema perfecto. Se pueden perder tardes enteras configurando complementos, temas y plantillas sin escribir una sola nota de contenido. <strong>Instálalo en 10 minutos, con la configuración por defecto, y empieza a escribir.</strong> Ajustas después, si acaso.</p>
+<hr />
+<h2 id="11-tabla-resumen-herramienta--asignatura">11. Tabla resumen: herramienta × asignatura</h2>
+<p>Bloque A: Razonamiento Cuantitativo (RC), Pensamiento Algorítmico (PA), Cálculo Diferencial (CD).
+Bloque B: Cultura Política y Sociedad (CPS), Álgebra Lineal (AL), Estadística Descriptiva (ED).</p>
+<p>Leyenda: ● principal · ○ útil · — no aplica</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Herramienta</th>
+<th style="text-align: center;">RC</th>
+<th style="text-align: center;">PA</th>
+<th style="text-align: center;">CD</th>
+<th style="text-align: center;">CPS</th>
+<th style="text-align: center;">AL</th>
+<th style="text-align: center;">ED</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Excel (funciones, dinámicas, Power Query)</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">●</td>
+</tr>
+<tr>
+<td>Google Colab</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+</tr>
+<tr>
+<td>PSeInt</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td>GeoGebra</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">○</td>
+</tr>
+<tr>
+<td>Desmos</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">○</td>
+</tr>
+<tr>
+<td>WolframAlpha</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">○</td>
+</tr>
+<tr>
+<td>Symbolab</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td>draw.io</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">○</td>
+</tr>
+<tr>
+<td>Zotero</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">○</td>
+</tr>
+<tr>
+<td>VS Code / Obsidian</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+<td style="text-align: center;">●</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Orden de adopción sugerido.</strong> No instales las diez de una vez.</p>
+<ol>
+<li><strong>Antes del 25 de agosto:</strong> el editor de Markdown y PSeInt. Son los dos con curva de aprendizaje y los necesitas desde la semana 1.</li>
+<li><strong>Semana 1 del Bloque A:</strong> Desmos y GeoGebra, cuando empiece Cálculo.</li>
+<li><strong>Semana 3 o 4:</strong> WolframAlpha y Symbolab, cuando ya tengas talleres que verificar. No antes, o los vas a usar como muleta desde el principio.</li>
+<li><strong>Cuando el curso de Pensamiento Algorítmico pase de pseudocódigo a código:</strong> Google Colab.</li>
+<li><strong>Antes del 20 de octubre (Bloque B):</strong> Zotero, y el módulo de Power Query de Excel.</li>
+<li><strong>draw.io:</strong> el día que lo necesites. No tiene curva.</li>
+</ol>
+<hr />
+<h2 id="12-asistentes-de-inteligencia-artificial">12. Asistentes de inteligencia artificial</h2>
+<p>Esta sección va sin rodeos, porque es la herramienta que más te puede ayudar y la única que te puede costar la materia.</p>
+<h3 id="lo-que-sí">Lo que sí</h3>
+<ul>
+<li><strong>Explicar un concepto de otra manera.</strong> Cuando la cartilla no te entra, pedir la misma idea con otra analogía, o desde un nivel más básico, funciona muy bien. Ejemplo: "explícame qué es un valor propio como si administrara contratos y no supiera álgebra".</li>
+<li><strong>Generar ejercicios adicionales.</strong> Los cursos traen pocos ejercicios y tú necesitas volumen. Pedir 10 problemas parecidos al ejemplo 3, resolverlos tú, y luego pedir las respuestas para verificar, es un uso excelente y legítimo.</li>
+<li><strong>Revisar tu razonamiento.</strong> "Este es mi desarrollo completo, dime en qué paso me equivoqué y por qué" —sin que te dé la solución— es probablemente el mejor uso posible. Es tutoría, y aprovecha el momento exacto en que estás atascado.</li>
+<li><strong>Traducir código y pseudocódigo.</strong> "¿Qué hace este código línea por línea?" o "traduce este pseudocódigo de PSeInt a Python y explícame qué cambió" acelera enormemente el paso de una sintaxis a otra.</li>
+<li><strong>Descifrar el vocabulario.</strong> Mucha bibliografía de ciencia de datos está en inglés y con jerga. Preguntar qué significa un término en contexto te ahorra horas.</li>
+<li><strong>Interrogarte.</strong> "Hazme 10 preguntas de opción múltiple sobre medidas de dispersión, una a la vez, y no me des la respuesta hasta que conteste." Eso es práctica de recuperación automatizada.</li>
+</ul>
+<h3 id="lo-que-no">Lo que no</h3>
+<ul>
+<li><strong>Entregar como propio lo que produjo la IA.</strong> Un foro, un ensayo, un taller o un código generados y pegados con tu nombre son fraude académico, con independencia de lo bien que suenen. Además se detecta: el registro de estilo cambia de golpe y los docentes lo ven.</li>
+<li><strong>Saltarte la práctica.</strong> Aunque no lo entregues, si le pides que resuelva los 12 ejercicios del taller y tú solo lees, no practicaste. En el examen final —40 % de la nota, cronometrado, sin ayudas— vas a estar exactamente igual que si no hubieras abierto el material.</li>
+<li><strong>Usarla como fuente sin verificar.</strong> Los asistentes producen con toda naturalidad artículos de ley que no existen, autores inventados, fechas equivocadas y referencias falsas. Para Cultura Política, donde vas a citar normas y autores, <strong>todo dato debe verificarse en la fuente original.</strong> Esto lo sabes de tu trabajo: nadie firma un concepto con una norma que no leyó.</li>
+<li><strong>Meter información sensible.</strong> No cargues documentos contractuales, datos personales ni información reservada de la entidad en herramientas externas. Eso ya no es un problema académico.</li>
+</ul>
+<h3 id="la-regla-de-una-línea">La regla de una línea</h3>
+<p><strong>Si la usas para entender más rápido, súmate. Si la usas para producir sin entender, réstate.</strong> La prueba de fuego es simple: ¿podría explicar esto en el tablero, sin ayudas, en dos minutos? Si no, no es tuyo todavía.</p>
+<h3 id="y-lo-que-manda">Y lo que manda</h3>
+<p>Nada de lo anterior sustituye el <strong>reglamento estudiantil y las políticas de integridad académica del Politécnico Grancolombiano</strong>, ni las instrucciones específicas de cada docente. La institución define qué usos de asistentes de IA están permitidos, cuáles deben declararse y cuáles constituyen falta; y esas reglas pueden cambiar de un curso a otro y de un semestre a otro.</p>
+<p><strong>Búscalas y léelas antes de la primera entrega.</strong> Están en el portal del estudiante (reglamento estudiantil y normativa académica) y suelen repetirse en el sílabo o en la sección de información general de cada aula virtual. Si en algún punto una asignatura exige declarar el uso de IA, decláralo: es gratis y te blinda. Ante duda, pregunta al docente por el canal oficial y guarda la respuesta.</p>
+</main>
+</body>
+</html>

@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Banco de ejercicios — Pensamiento Algorítmico</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ 03 - Pensamiento Algorítmico / 4. Banco de ejercicios</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="banco-de-ejercicios--pensamiento-algorítmico">Banco de ejercicios — Pensamiento Algorítmico</h1>
+<p><strong>24 ejercicios progresivos</strong>, organizados por escenario y clasificados en tres niveles:</p>
+<ul>
+<li>🟢 <strong>Nivel 1 — Básico:</strong> aplicar directamente lo del escenario. Debe salir en 10–15 minutos.</li>
+<li>🟡 <strong>Nivel 2 — Intermedio:</strong> combinar dos o tres conceptos. 20–30 minutos.</li>
+<li>🔴 <strong>Nivel 3 — Reto:</strong> integrar y decidir el diseño. 30–45 minutos. Si no sale, mira la solución <strong>después</strong> de haber intentado en papel.</li>
+</ul>
+<p><strong>Cómo trabajarlos, en este orden y sin saltarse pasos:</strong></p>
+<ol>
+<li>Lee el enunciado y escribe en papel: entrada, proceso, salida.</li>
+<li>Escribe el pseudocódigo y córrelo en PSeInt.</li>
+<li>Hazle la prueba de escritorio (obligatoria en todos los de ciclos).</li>
+<li>Tradúcelo a Python en Colab.</li>
+<li><strong>Solo entonces</strong> compara con la solución.</li>
+</ol>
+<p>Las soluciones están al final, en la sección <a href="#soluciones">Soluciones</a>, seguidas de <a href="#pruebas-de-escritorio">cuatro pruebas de escritorio</a> y de <a href="#preguntas-tipo-quiz">5 preguntas tipo quiz</a>.</p>
+<blockquote>
+<p>Varios ejercicios usan contextos reales de la División de Supervisión de Contratos. Las cifras son ilustrativas y no corresponden necesariamente a los expedientes reales.</p>
+</blockquote>
+<p><strong>Reparto por escenario:</strong> E1 → 1–3 · E2 → 4–6 · E3 → 7–8 · E4 → 9–12 · E5 → 13–15 · E6 → 16–19 · E7 → 20–22 · E8 → 23–24.</p>
+<hr />
+<h2 id="escenario-1--algoritmos-y-pensamiento-computacional">Escenario 1 — Algoritmos y pensamiento computacional</h2>
+<h3 id="ejercicio-1">Ejercicio 1 🟢</h3>
+<p>Para el problema <em>"calcular el valor total a pagar de una factura que trae valor base e IVA del 19 %"</em>, escribe explícitamente:</p>
+<ul>
+<li>las <strong>entradas</strong>,</li>
+<li>los <strong>pasos del proceso</strong>,</li>
+<li>las <strong>salidas</strong>.</li>
+</ul>
+<p>No escribas código todavía. Luego haz lo mismo con un procedimiento cotidiano tuyo (preparar un café, por ejemplo) y verifica que cumpla las cinco propiedades de un algoritmo.</p>
+<h3 id="ejercicio-2">Ejercicio 2 🟡</h3>
+<p>Este "algoritmo" tiene cuatro defectos. Encuéntralos y clasifícalos según la propiedad que violan (finitud, precisión, determinismo, entradas o salidas definidas):</p>
+<ol>
+<li>Tome un contrato cualquiera del archivo.</li>
+<li>Revise que la póliza esté correcta.</li>
+<li>Si no está correcta, vuelva al paso 2.</li>
+<li>Fin.</li>
+</ol>
+<p>Luego reescríbelo para que sí sea un algoritmo.</p>
+<h3 id="ejercicio-3">Ejercicio 3 🔴</h3>
+<p><strong>Descomposición aplicada.</strong> Descompón el proceso <em>"tramitar el pago mensual de un contrato de servicios"</em> en al menos cinco subproblemas, y para <strong>uno</strong> de ellos escribe el sub-algoritmo completo con entradas, pasos y salidas. Luego señala qué parte del proceso se <strong>repite igual</strong> en todos los pagos (reconocimiento de patrones) y qué detalles descartaste por irrelevantes (abstracción).</p>
+<hr />
+<h2 id="escenario-2--lógica-proposicional">Escenario 2 — Lógica proposicional</h2>
+<h3 id="ejercicio-4">Ejercicio 4 🟢</h3>
+<p>Construye la tabla de verdad completa de <strong>¬(p ∧ q) ∨ r</strong>. Son 8 filas. Indica si es tautología, contradicción o contingencia.</p>
+<h3 id="ejercicio-5">Ejercicio 5 🟡</h3>
+<p>Traduce a expresión lógica, usando paréntesis:</p>
+<ul>
+<li>a) "El pago procede si la factura está aprobada <strong>y</strong> hay RP vigente."</li>
+<li>b) "El pago procede si la factura está aprobada <strong>y además</strong> hay RP vigente <strong>o</strong> hay autorización expresa del ordenador."</li>
+<li>c) "La garantía se rechaza si el amparo de cumplimiento es insuficiente <strong>o</strong> la vigencia no cubre el plazo, <strong>o ambas</strong>."</li>
+<li>d) "Se aprueba solo si <strong>ninguna</strong> de las tres causales de rechazo se presenta."</li>
+</ul>
+<p>En b), discute por qué el resultado cambia según dónde pongas los paréntesis. En d), aplica De Morgan para reescribir la expresión sin el <code>NO</code> externo.</p>
+<h3 id="ejercicio-6">Ejercicio 6 🔴</h3>
+<p>Demuestra con tabla de verdad que <strong>p → q ≡ ¬q → ¬p</strong> (contrarrecíproco). Luego, con esa equivalencia, reescribe la frase <em>"Si el contrato es CSF, entonces hay que solicitar PAC mensual"</em> en su forma contrarrecíproca, y explica por qué dice lo mismo y por qué "si el contrato no es CSF, no hay que solicitar PAC" <strong>no</strong> es equivalente.</p>
+<hr />
+<h2 id="escenario-3--representación-de-algoritmos">Escenario 3 — Representación de algoritmos</h2>
+<h3 id="ejercicio-7">Ejercicio 7 🟢</h3>
+<p>Escribe en <strong>pseudocódigo PSeInt</strong> y describe el <strong>diagrama de flujo</strong> de: leer un número y decir si es positivo, negativo o cero. Dibújalo también en draw.io.</p>
+<p>Después, revisa este diagrama descrito en texto y encuentra sus errores de forma:</p>
+<blockquote>
+<p>Óvalo <code>Inicio</code> → rectángulo <code>Leer edad</code> → rombo <code>¿edad &gt;= 18?</code> con una sola flecha de salida hacia un rectángulo <code>Escribir "Mayor"</code> → flecha de vuelta al rombo. No hay óvalo de fin.</p>
+</blockquote>
+<h3 id="ejercicio-8">Ejercicio 8 🔴</h3>
+<p>Toma este pseudocódigo, tradúcelo a Python <strong>y</strong> describe en texto su diagrama de flujo:</p>
+<pre><code class="language-pseudocodigo">Algoritmo MayorDeTres
+    Definir a, b, c Como Real
+    Leer a, b, c
+    Si a &gt; b Entonces
+        Si a &gt; c Entonces
+            Escribir a
+        SiNo
+            Escribir c
+        FinSi
+    SiNo
+        Si b &gt; c Entonces
+            Escribir b
+        SiNo
+            Escribir c
+        FinSi
+    FinSi
+FinAlgoritmo
+</code></pre>
+<hr />
+<h2 id="escenario-4--variables-tipos-y-expresiones">Escenario 4 — Variables, tipos y expresiones</h2>
+<h3 id="ejercicio-9">Ejercicio 9 🟢</h3>
+<p>Evalúa <strong>a mano</strong>, sin calculadora, mostrando cada paso:</p>
+<ul>
+<li>a) <code>10 + 4 * 3 ^ 2 - 8 / 4</code></li>
+<li>b) <code>(2 + 3) * 4 ^ 2 / 8</code></li>
+<li>c) <code>17 div 5</code> y <code>17 MOD 5</code></li>
+<li>d) <code>(5 &gt; 3) Y (2 + 2 = 5)</code></li>
+</ul>
+<h3 id="ejercicio-10">Ejercicio 10 🟢</h3>
+<p><strong>Contexto DEAJ.</strong> Escribe un programa que lea el <strong>valor base de un contrato</strong> y muestre el <strong>IVA (19 %)</strong> y el <strong>valor total</strong>. Pruébalo con <code>8263759012.55</code> y verifica el resultado en Excel: deben coincidir al centavo.</p>
+<h3 id="ejercicio-11">Ejercicio 11 🟡</h3>
+<p><strong>Contexto DEAJ.</strong> Un ítem de factura llega con el <strong>IVA ya incluido</strong>. Escribe un programa que lea ese valor, calcule la <strong>base antes de impuestos</strong> (dividiendo entre 1,19) y sobre esa base aplique la <strong>comisión de intermediación del 8,37 %</strong>. Muestra los tres valores. Pruébalo con <code>11900000</code>.</p>
+<h3 id="ejercicio-12">Ejercicio 12 🔴</h3>
+<p>Escribe un programa que lea un número entero de tres dígitos y muestre <strong>cada dígito por separado</strong>, usando solo <code>div</code> y <code>MOD</code> (nada de convertir a texto). Ejemplo: con 258 debe mostrar 2, 5, 8.</p>
+<hr />
+<h2 id="escenario-5--estructuras-de-decisión">Escenario 5 — Estructuras de decisión</h2>
+<h3 id="ejercicio-13">Ejercicio 13 🟢</h3>
+<p><strong>Contexto DEAJ.</strong> Escribe un programa que lea el valor de un pago y lo clasifique así:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Rango</th>
+<th>Categoría</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>menor a $5.000.000</td>
+<td>Menor</td>
+</tr>
+<tr>
+<td>de $5.000.000 a menos de $50.000.000</td>
+<td>Medio</td>
+</tr>
+<tr>
+<td>de $50.000.000 a menos de $500.000.000</td>
+<td>Mayor</td>
+</tr>
+<tr>
+<td>$500.000.000 o más</td>
+<td>Grande</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Pruébalo obligatoriamente con los valores frontera:</strong> 4.999.999, 5.000.000, 49.999.999, 50.000.000, 499.999.999 y 500.000.000.</p>
+<h3 id="ejercicio-14">Ejercicio 14 🟡</h3>
+<p><strong>Contexto DEAJ.</strong> Un pago procede si la <strong>factura está aprobada</strong> y además <strong>hay RP vigente</strong> o <strong>hay autorización expresa</strong>. Escribe un programa que lea tres valores lógicos y responda "Procede" o "No procede". Prueba las 8 combinaciones posibles.</p>
+<h3 id="ejercicio-15">Ejercicio 15 🔴</h3>
+<p><strong>Contexto DEAJ.</strong> Menú con <code>Segun</code> / <code>match</code>:</p>
+<ol>
+<li>Calcular valor con IVA</li>
+<li>Calcular base sin IVA</li>
+<li>Calcular comisión de intermediación (8,37 % sobre base)</li>
+<li>Salir</li>
+</ol>
+<p>Lee la opción, pide el valor que corresponda y muestra el resultado. Cualquier otra opción muestra "Opción inválida".</p>
+<hr />
+<h2 id="escenario-6--estructuras-de-repetición">Escenario 6 — Estructuras de repetición</h2>
+<h3 id="ejercicio-16">Ejercicio 16 🟢</h3>
+<p>Lee un número N y calcula la <strong>suma de 1 hasta N</strong> con un ciclo <code>Para</code>. Verifica con la fórmula <code>N × (N+1) / 2</code>. Prueba con N = 10 (resultado 55) y N = 100 (resultado 5050). Después escribe el mismo programa con <code>Mientras</code> y con <code>Repetir-Hasta</code>.</p>
+<h3 id="ejercicio-17">Ejercicio 17 🟡</h3>
+<p><strong>Contexto DEAJ.</strong> Lee cuántas facturas hay, luego lee cada valor, y muestra: <strong>total</strong>, <strong>promedio</strong> y <strong>valor de la factura mayor</strong>. Protege el programa contra el caso de cero facturas.</p>
+<h3 id="ejercicio-18">Ejercicio 18 🟡</h3>
+<p><strong>Contexto DEAJ.</strong> Se tiene una lista de meses de vencimiento de las pólizas de un portafolio (números del 1 al 12). Lee el mes que se quiere consultar y <strong>cuenta cuántas pólizas vencen en ese mes</strong>. Muestra también el porcentaje que representan sobre el total.</p>
+<h3 id="ejercicio-19">Ejercicio 19 🔴</h3>
+<p>Escribe un programa que <strong>valide la entrada</strong>: pide un número entre 1 y 10, y si el usuario digita algo fuera de rango, se lo vuelve a pedir hasta que acierte (<code>Repetir-Hasta</code>). Con el número válido, imprime su tabla de multiplicar del 1 al 10.</p>
+<hr />
+<h2 id="escenario-7--arreglos">Escenario 7 — Arreglos</h2>
+<h3 id="ejercicio-20">Ejercicio 20 🟡</h3>
+<p>Carga un arreglo con <strong>10 números enteros</strong> y calcula, todo en un solo programa: suma, promedio, mayor, menor, cuántos superan el promedio, y el arreglo <strong>ordenado de mayor a menor</strong> con el método burbuja (escrito a mano, sin <code>sorted</code>).</p>
+<h3 id="ejercicio-21">Ejercicio 21 🟡</h3>
+<p><strong>Contexto DEAJ.</strong> Se tienen dos arreglos paralelos: <code>contratos</code> (números de contrato, texto) y <code>valores</code> (valor de cada uno). Lee un número de contrato y, mediante <strong>búsqueda lineal con bandera</strong>, muestra su valor o el mensaje "El contrato no existe en el portafolio".</p>
+<h3 id="ejercicio-22">Ejercicio 22 🔴</h3>
+<p><strong>Contexto DEAJ.</strong> Una <strong>matriz</strong> de 3 contratos × 3 meses guarda el valor pagado. Calcula e imprime:</p>
+<ul>
+<li>el total pagado por cada contrato (suma por filas),</li>
+<li>el total pagado en cada mes (suma por columnas),</li>
+<li>el gran total,</li>
+<li>y en qué mes se pagó más.</li>
+</ul>
+<hr />
+<h2 id="escenario-8--modularidad">Escenario 8 — Modularidad</h2>
+<h3 id="ejercicio-23">Ejercicio 23 🟡</h3>
+<p><strong>Contexto DEAJ.</strong> Reescribe el ejercicio 11 usando <strong>tres funciones</strong>: <code>valor_con_iva(monto)</code>, <code>base_sin_iva(monto)</code> y <code>comision(base)</code>. El programa principal solo lee, llama y muestra.</p>
+<h3 id="ejercicio-24">Ejercicio 24 🔴</h3>
+<p><strong>Contexto DEAJ — integrador.</strong> Dada una lista de pagos, donde cada pago tiene número de contrato y monto:</p>
+<ul>
+<li>muestra el <strong>total pagado por cada contrato</strong>,</li>
+<li><strong>cuántos pagos</strong> hay en cada categoría (Menor, Medio, Mayor, Grande, reutilizando la clasificación del ejercicio 13),</li>
+<li>y el <strong>pago de mayor valor</strong> con su contrato.</li>
+</ul>
+<p>Usa al menos dos funciones. Este ejercicio es el mejor simulacro de examen final que hay en este archivo.</p>
+<hr />
+<h1 id="soluciones">Soluciones</h1>
+<blockquote>
+<p>Intenta primero. Una solución leída sin haber luchado con el problema no deja nada.</p>
+</blockquote>
+<hr />
+<h2 id="solución-1---e-p-s-de-la-factura">Solución 1 🟢 — E-P-S de la factura</h2>
+<ul>
+<li><strong>Entrada:</strong> <code>valor_base</code> (real, positivo).</li>
+<li><strong>Proceso:</strong>
+  1. <code>iva ← valor_base × 0,19</code>
+  2. <code>total ← valor_base + iva</code></li>
+<li><strong>Salida:</strong> <code>iva</code> y <code>total</code>.</li>
+</ul>
+<p><strong>Para el café, versión ambigua</strong> (la que casi todo el mundo escribe): poner agua a calentar, echar café, esperar, servir. <strong>Defectos:</strong> "echar café" no dice cuánto; "esperar" no dice hasta cuándo; no hay entradas ni salidas explícitas.</p>
+<p><strong>Versión algorítmica:</strong></p>
+<ol>
+<li>Inicio.</li>
+<li>Entradas: número de tazas (n), gramos de café por taza (g = 10).</li>
+<li>Medir n × 200 ml de agua y verterlos en la olla.</li>
+<li>Calentar el agua hasta que alcance 92 °C.</li>
+<li>Medir n × g gramos de café molido y depositarlos en el filtro.</li>
+<li>Verter el agua sobre el filtro durante 3 minutos.</li>
+<li>Retirar el filtro.</li>
+<li>Salida: n tazas servidas.</li>
+<li>Fin.</li>
+</ol>
+<p>Cumple finitud, precisión, determinismo, y tiene entradas y salidas definidas.</p>
+<h2 id="solución-2---defectos-del-algoritmo">Solución 2 🟡 — Defectos del algoritmo</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Paso</th>
+<th>Defecto</th>
+<th>Propiedad violada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>"un contrato cualquiera"</td>
+<td><strong>Determinismo</strong> (y entradas definidas): distintas ejecuciones dan resultados distintos</td>
+</tr>
+<tr>
+<td>2</td>
+<td>"que la póliza esté correcta"</td>
+<td><strong>Precisión</strong>: no dice qué se verifica ni contra qué criterio</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Vuelve al paso 2 sin que nada cambie</td>
+<td><strong>Finitud</strong>: ciclo infinito</td>
+</tr>
+<tr>
+<td>—</td>
+<td>No produce ningún resultado</td>
+<td><strong>Salidas definidas</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Corregido:</strong></p>
+<ol>
+<li>Inicio.</li>
+<li>Entrada: número de contrato, valor del contrato, valor asegurado del amparo de cumplimiento.</li>
+<li>Calcular <code>minimo ← valor_contrato × 0,20</code>.</li>
+<li>Si <code>valor_asegurado ≥ minimo</code>, entonces <code>resultado ← "Cumple"</code>; si no, <code>resultado ← "Rechazar por insuficiencia del amparo de cumplimiento"</code>.</li>
+<li>Salida: <code>resultado</code>.</li>
+<li>Fin.</li>
+</ol>
+<h2 id="solución-3---descomposición-del-trámite-de-pago">Solución 3 🔴 — Descomposición del trámite de pago</h2>
+<p><strong>Subproblemas:</strong></p>
+<ol>
+<li>Recibir y radicar los documentos del contratista.</li>
+<li>Verificar que la factura cumpla requisitos formales.</li>
+<li>Cotejar la factura contra el concepto técnico.</li>
+<li>Verificar la existencia y saldo del RP.</li>
+<li>Calcular el valor a pagar (incluida la comisión, si aplica).</li>
+<li>Elaborar el ALFC y radicarlo.</li>
+</ol>
+<p><strong>Sub-algoritmo del subproblema 5:</strong></p>
+<ul>
+<li><strong>Entrada:</strong> valor de cada ítem, indicador de si el ítem trae IVA incluido, indicador de si el ítem es equipo de trabajo.</li>
+<li><strong>Proceso:</strong>
+  1. Para cada ítem: si trae IVA incluido, <code>base ← valor / 1,19</code>; si no, <code>base ← valor</code>.
+  2. Si el ítem <strong>no</strong> es equipo de trabajo, <code>comision ← base × 0,0837</code>; si lo es, <code>comision ← 0</code>.
+  3. Acumular <code>total ← total + valor + comision</code>.</li>
+<li><strong>Salida:</strong> total a pagar y comisión total.</li>
+</ul>
+<p><strong>Patrón que se repite:</strong> los pasos 1 a 6 son idénticos en los 298 pagos; solo cambian los valores. Eso es exactamente lo que justifica escribir un programa en vez de repetir el trámite a mano.</p>
+<p><strong>Abstracción:</strong> se descartaron el formato del membrete, el color de la factura y el nombre de quien radicó. No afectan el resultado.</p>
+<h2 id="solución-4---tabla-de-p--q--r">Solución 4 🟢 — Tabla de ¬(p ∧ q) ∨ r</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>p</th>
+<th>q</th>
+<th>r</th>
+<th>p ∧ q</th>
+<th>¬(p ∧ q)</th>
+<th>¬(p ∧ q) ∨ r</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>F</td>
+<td><strong>V</strong></td>
+</tr>
+<tr>
+<td>V</td>
+<td>V</td>
+<td>F</td>
+<td>V</td>
+<td>F</td>
+<td><strong>F</strong></td>
+</tr>
+<tr>
+<td>V</td>
+<td>F</td>
+<td>V</td>
+<td>F</td>
+<td>V</td>
+<td><strong>V</strong></td>
+</tr>
+<tr>
+<td>V</td>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+<td>V</td>
+<td><strong>V</strong></td>
+</tr>
+<tr>
+<td>F</td>
+<td>V</td>
+<td>V</td>
+<td>F</td>
+<td>V</td>
+<td><strong>V</strong></td>
+</tr>
+<tr>
+<td>F</td>
+<td>V</td>
+<td>F</td>
+<td>F</td>
+<td>V</td>
+<td><strong>V</strong></td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>V</td>
+<td>F</td>
+<td>V</td>
+<td><strong>V</strong></td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+<td>V</td>
+<td><strong>V</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Es una <strong>contingencia</strong>: es falsa solo en la segunda fila.</p>
+<p>Verificación en Python:</p>
+<pre><code class="language-python">print(f&quot;{'p':&lt;7}{'q':&lt;7}{'r':&lt;7}{'p^q':&lt;7}{'~(p^q)':&lt;9}{'resultado':&lt;10}&quot;)
+for p in [True, False]:
+    for q in [True, False]:
+        for r in [True, False]:
+            conj = p and q
+            neg = not conj
+            final = neg or r
+            print(f&quot;{str(p):&lt;7}{str(q):&lt;7}{str(r):&lt;7}{str(conj):&lt;7}{str(neg):&lt;9}{str(final):&lt;10}&quot;)
+</code></pre>
+<h2 id="solución-5---traducción-a-expresiones-lógicas">Solución 5 🟡 — Traducción a expresiones lógicas</h2>
+<ul>
+<li>a) <code>factura_aprobada Y rp_vigente</code></li>
+<li>b) <code>factura_aprobada Y (rp_vigente O autorizacion_expresa)</code></li>
+<li>c) <code>amparo_insuficiente O vigencia_corta</code> (la disyunción es <strong>inclusiva</strong>: el "o ambas" ya está incluido)</li>
+<li>d) <code>NO (causal_1 O causal_2 O causal_3)</code>, que por De Morgan es <code>(NO causal_1) Y (NO causal_2) Y (NO causal_3)</code></li>
+</ul>
+<p><strong>Sobre los paréntesis en b):</strong> si escribes <code>(factura_aprobada Y rp_vigente) O autorizacion_expresa</code>, estás diciendo que <strong>una autorización expresa por sí sola</strong> basta, aunque la factura no esté aprobada. Con <code>factura_aprobada Y (rp_vigente O autorizacion_expresa)</code> estás exigiendo la factura aprobada <strong>siempre</strong>. Son reglas de negocio distintas, y el paréntesis es lo único que las separa. Por eso se ponen paréntesis aunque la precedencia ya los implique.</p>
+<p><strong>De Morgan aplicado a otras condiciones, para practicar:</strong></p>
+<ul>
+<li><code>NO(tiene_rp Y factura_aprobada)</code> ≡ <code>NO tiene_rp O NO factura_aprobada</code> ("falta el RP <strong>o</strong> falta la aprobación").</li>
+<li><code>NO(poliza_vencida O valor_insuficiente)</code> ≡ <code>NO poliza_vencida Y NO valor_insuficiente</code>.</li>
+<li><code>NO((a &gt; 0) Y (b &gt; 0))</code> ≡ <code>(a &lt;= 0) O (b &lt;= 0)</code>. Ojo: la negación de <code>&gt;</code> es <code>&lt;=</code>, no <code>&lt;</code>.</li>
+</ul>
+<pre><code class="language-python">def procede(rp, aprobada, autorizacion):
+    return aprobada and (rp or autorizacion)
+
+print(procede(True, True, False))    # True
+print(procede(False, True, False))   # False
+print(procede(False, True, True))    # True
+print(procede(True, False, True))    # False
+</code></pre>
+<h2 id="solución-6---contrarrecíproco">Solución 6 🔴 — Contrarrecíproco</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>p</th>
+<th>q</th>
+<th>¬p</th>
+<th>¬q</th>
+<th>p → q</th>
+<th>¬q → ¬p</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V</td>
+<td>V</td>
+<td>F</td>
+<td>F</td>
+<td><strong>V</strong></td>
+<td><strong>V</strong></td>
+</tr>
+<tr>
+<td>V</td>
+<td>F</td>
+<td>F</td>
+<td>V</td>
+<td><strong>F</strong></td>
+<td><strong>F</strong></td>
+</tr>
+<tr>
+<td>F</td>
+<td>V</td>
+<td>V</td>
+<td>F</td>
+<td><strong>V</strong></td>
+<td><strong>V</strong></td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>V</td>
+<td>V</td>
+<td><strong>V</strong></td>
+<td><strong>V</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Las columnas <code>p → q</code> y <code>¬q → ¬p</code> son idénticas: son equivalentes.</p>
+<p><strong>Aplicación:</strong> "Si el contrato es CSF, entonces hay que solicitar PAC mensual" tiene como contrarrecíproco: <strong>"Si no hay que solicitar PAC mensual, entonces el contrato no es CSF."</strong> Dice exactamente lo mismo.</p>
+<p><strong>Lo que NO es equivalente:</strong> "si el contrato no es CSF, entonces no hay que solicitar PAC". Eso es la <em>inversa</em> (¬p → ¬q), y no se deduce del original. Compruébalo en la tabla: en la fila 3 (p = F, q = V), <code>p → q</code> es verdadero pero <code>¬p → ¬q</code> es falso. Confundir el contrarrecíproco con la inversa es el error lógico más común, y aparece en los quices con contextos legales, que es donde más engaña.</p>
+<h2 id="solución-7---signo-del-número-y-errores-del-diagrama">Solución 7 🟢 — Signo del número y errores del diagrama</h2>
+<pre><code class="language-pseudocodigo">Algoritmo SignoNumero
+    Definir n Como Real
+    Escribir &quot;Digite un número:&quot;
+    Leer n
+    Si n &gt; 0 Entonces
+        Escribir &quot;Positivo&quot;
+    SiNo
+        Si n &lt; 0 Entonces
+            Escribir &quot;Negativo&quot;
+        SiNo
+            Escribir &quot;Cero&quot;
+        FinSi
+    FinSi
+FinAlgoritmo
+</code></pre>
+<pre><code class="language-python">n = float(input(&quot;Digite un número: &quot;))
+if n &gt; 0:
+    print(&quot;Positivo&quot;)
+elif n &lt; 0:
+    print(&quot;Negativo&quot;)
+else:
+    print(&quot;Cero&quot;)
+</code></pre>
+<p><strong>Diagrama:</strong> óvalo <code>Inicio</code> → paralelogramo <code>Leer n</code> → rombo <code>¿n &gt; 0?</code>; Sí → <code>Escribir "Positivo"</code>; No → rombo <code>¿n &lt; 0?</code>; Sí → <code>Escribir "Negativo"</code>, No → <code>Escribir "Cero"</code>. Las tres salidas convergen en el óvalo <code>Fin</code>.</p>
+<p><strong>Errores del diagrama de la edad:</strong></p>
+<ol>
+<li><strong><code>Leer edad</code> está en un rectángulo</strong> (proceso). La entrada de datos va en <strong>paralelogramo</strong>.</li>
+<li><strong>El rombo tiene una sola salida.</strong> Toda decisión tiene exactamente dos, rotuladas Sí y No.</li>
+<li><strong>La flecha de vuelta al rombo crea un ciclo infinito</strong>, porque <code>edad</code> no cambia dentro del ciclo: si era ≥ 18, lo seguirá siendo para siempre.</li>
+<li><strong>No hay óvalo de Fin.</strong> Todo diagrama debe terminar.</li>
+</ol>
+<h2 id="solución-8---mayor-de-tres">Solución 8 🔴 — Mayor de tres</h2>
+<pre><code class="language-python">a = float(input(&quot;a: &quot;))
+b = float(input(&quot;b: &quot;))
+c = float(input(&quot;c: &quot;))
+
+if a &gt; b:
+    if a &gt; c:
+        print(a)
+    else:
+        print(c)
+else:
+    if b &gt; c:
+        print(b)
+    else:
+        print(c)
+</code></pre>
+<p>Versión más limpia con condiciones compuestas:</p>
+<pre><code class="language-python">if a &gt;= b and a &gt;= c:
+    print(a)
+elif b &gt;= a and b &gt;= c:
+    print(b)
+else:
+    print(c)
+</code></pre>
+<p><strong>Diagrama:</strong> <code>Inicio</code> → <code>Leer a, b, c</code> → rombo <code>¿a &gt; b?</code>. Rama <strong>Sí</strong> → rombo <code>¿a &gt; c?</code> (Sí → <code>Escribir a</code>; No → <code>Escribir c</code>). Rama <strong>No</strong> → rombo <code>¿b &gt; c?</code> (Sí → <code>Escribir b</code>; No → <code>Escribir c</code>). Las cuatro salidas convergen en <code>Fin</code>.</p>
+<h2 id="solución-9---precedencia">Solución 9 🟢 — Precedencia</h2>
+<p><strong>a) <code>10 + 4 * 3 ^ 2 - 8 / 4</code></strong></p>
+<ol>
+<li>Potencia: <code>3 ^ 2 = 9</code> → <code>10 + 4 * 9 - 8 / 4</code></li>
+<li><code>*</code> y <code>/</code> de izquierda a derecha: <code>4 * 9 = 36</code>, <code>8 / 4 = 2</code> → <code>10 + 36 - 2</code></li>
+<li><code>+</code> y <code>-</code>: <code>46 - 2</code> = <strong>44</strong></li>
+</ol>
+<p><strong>b) <code>(2 + 3) * 4 ^ 2 / 8</code></strong></p>
+<ol>
+<li>Paréntesis: <code>5</code></li>
+<li>Potencia: <code>16</code> → <code>5 * 16 / 8</code></li>
+<li>Izquierda a derecha: <code>80 / 8</code> = <strong>10</strong></li>
+</ol>
+<p><strong>c)</strong> <code>17 div 5</code> = <strong>3</strong> (cuántas veces cabe el 5 completo) · <code>17 MOD 5</code> = <strong>2</strong> (lo que sobra). Comprobación: 3 × 5 + 2 = 17.</p>
+<p><strong>d)</strong> <code>(5 &gt; 3) Y (2 + 2 = 5)</code> → <code>Verdadero Y Falso</code> = <strong>Falso</strong>.</p>
+<pre><code class="language-python">print(10 + 4 * 3 ** 2 - 8 / 4)    # 44.0
+print((2 + 3) * 4 ** 2 / 8)       # 10.0
+print(17 // 5, 17 % 5)            # 3 2
+print((5 &gt; 3) and (2 + 2 == 5))   # False
+</code></pre>
+<h2 id="solución-10---valor-con-iva">Solución 10 🟢 — Valor con IVA</h2>
+<pre><code class="language-pseudocodigo">Algoritmo ValorConIVA
+    Definir base, iva, total Como Real
+    Escribir &quot;Valor base del contrato:&quot;
+    Leer base
+    iva &lt;- base * 0.19
+    total &lt;- base + iva
+    Escribir &quot;IVA: &quot;, iva
+    Escribir &quot;Total: &quot;, total
+FinAlgoritmo
+</code></pre>
+<pre><code class="language-python">base = float(input(&quot;Valor base del contrato: &quot;))
+iva = base * 0.19
+total = base + iva
+print(&quot;IVA:&quot;, round(iva, 2))
+print(&quot;Total:&quot;, round(total, 2))
+</code></pre>
+<p>Con <code>base = 8263759012.55</code>: <strong>IVA = 1.570.114.212,38</strong> y <strong>total = 9.833.873.224,93</strong>.</p>
+<h2 id="solución-11---base-sin-iva-e-intermediación">Solución 11 🟡 — Base sin IVA e intermediación</h2>
+<pre><code class="language-pseudocodigo">Algoritmo Intermediacion
+    Definir valor_con_iva, base, comision Como Real
+    Escribir &quot;Valor del ítem (IVA incluido):&quot;
+    Leer valor_con_iva
+    base &lt;- valor_con_iva / 1.19
+    comision &lt;- base * 0.0837
+    Escribir &quot;Base antes de impuestos: &quot;, base
+    Escribir &quot;Comisión (8,37%): &quot;, comision
+    Escribir &quot;Total del ítem con comisión: &quot;, valor_con_iva + comision
+FinAlgoritmo
+</code></pre>
+<pre><code class="language-python">valor_con_iva = float(input(&quot;Valor del ítem (IVA incluido): &quot;))
+base = valor_con_iva / 1.19
+comision = base * 0.0837
+print(&quot;Base antes de impuestos:&quot;, round(base, 2))
+print(&quot;Comisión (8,37 %):&quot;, round(comision, 2))
+print(&quot;Total del ítem con comisión:&quot;, round(valor_con_iva + comision, 2))
+</code></pre>
+<p>Con <code>11900000</code>: base = <strong>10.000.000,00</strong>, comisión = <strong>837.000,00</strong>.</p>
+<blockquote>
+<p>Recuerda la regla del contrato 089: el 8,37 % se calcula sobre la base <strong>antes</strong> de impuestos, y el resultado <strong>ya incluye</strong> el IVA de la comisión. No se le vuelve a sumar IVA. Y <strong>no aplica sobre el equipo de trabajo</strong>.</p>
+</blockquote>
+<h2 id="solución-12---separar-los-dígitos">Solución 12 🔴 — Separar los dígitos</h2>
+<pre><code class="language-pseudocodigo">Algoritmo TresDigitos
+    Definir n, centenas, decenas, unidades Como Entero
+    Escribir &quot;Digite un número de tres dígitos:&quot;
+    Leer n
+    centenas &lt;- n div 100
+    decenas &lt;- (n MOD 100) div 10
+    unidades &lt;- n MOD 10
+    Escribir centenas, &quot; &quot;, decenas, &quot; &quot;, unidades
+FinAlgoritmo
+</code></pre>
+<pre><code class="language-python">n = int(input(&quot;Digite un número de tres dígitos: &quot;))
+centenas = n // 100
+decenas = (n % 100) // 10
+unidades = n % 10
+print(centenas, decenas, unidades)
+</code></pre>
+<p>Con 258: <code>258 // 100 = 2</code>; <code>258 % 100 = 58</code>, y <code>58 // 10 = 5</code>; <code>258 % 10 = 8</code>. Salida: <code>2 5 8</code>.</p>
+<h2 id="solución-13---clasificar-pagos-por-rango">Solución 13 🟢 — Clasificar pagos por rango</h2>
+<pre><code class="language-pseudocodigo">Algoritmo ClasificarPago
+    Definir monto Como Real
+    Definir categoria Como Caracter
+    Escribir &quot;Valor del pago:&quot;
+    Leer monto
+    Si monto &lt; 5000000 Entonces
+        categoria &lt;- &quot;Menor&quot;
+    SiNo
+        Si monto &lt; 50000000 Entonces
+            categoria &lt;- &quot;Medio&quot;
+        SiNo
+            Si monto &lt; 500000000 Entonces
+                categoria &lt;- &quot;Mayor&quot;
+            SiNo
+                categoria &lt;- &quot;Grande&quot;
+            FinSi
+        FinSi
+    FinSi
+    Escribir &quot;Categoría: &quot;, categoria
+FinAlgoritmo
+</code></pre>
+<pre><code class="language-python">def clasificar(monto):
+    if monto &lt; 5_000_000:
+        return &quot;Menor&quot;
+    elif monto &lt; 50_000_000:
+        return &quot;Medio&quot;
+    elif monto &lt; 500_000_000:
+        return &quot;Mayor&quot;
+    else:
+        return &quot;Grande&quot;
+
+for m in [4_999_999, 5_000_000, 49_999_999, 50_000_000, 499_999_999, 500_000_000]:
+    print(m, &quot;-&gt;&quot;, clasificar(m))
+</code></pre>
+<p>Salida:</p>
+<pre><code class="language-text">4999999 -&gt; Menor
+5000000 -&gt; Medio
+49999999 -&gt; Medio
+50000000 -&gt; Mayor
+499999999 -&gt; Mayor
+500000000 -&gt; Grande
+</code></pre>
+<p><strong>Lo importante de este ejercicio son las fronteras.</strong> 5.000.000 debe caer en "Medio" porque el enunciado dice "de 5.000.000 a menos de 50.000.000". Si hubieras escrito <code>monto &lt;= 5_000_000</code> en la primera condición, 5.000.000 caería en "Menor" y estaría mal. Ese error solo aparece si pruebas el valor exacto del límite.</p>
+<h2 id="solución-14---procede-el-pago">Solución 14 🟡 — ¿Procede el pago?</h2>
+<pre><code class="language-python">def procede(factura_aprobada, rp_vigente, autorizacion):
+    return factura_aprobada and (rp_vigente or autorizacion)
+
+print(f&quot;{'aprob.':&lt;8}{'rp':&lt;8}{'autoriz.':&lt;10}{'resultado'}&quot;)
+for aprobada in [True, False]:
+    for rp in [True, False]:
+        for aut in [True, False]:
+            r = &quot;Procede&quot; if procede(aprobada, rp, aut) else &quot;No procede&quot;
+            print(f&quot;{str(aprobada):&lt;8}{str(rp):&lt;8}{str(aut):&lt;10}{r}&quot;)
+</code></pre>
+<p>De las 8 combinaciones, solo 3 dan "Procede": las que tienen la factura aprobada <strong>y</strong> al menos uno de los otros dos.</p>
+<h2 id="solución-15---menú">Solución 15 🔴 — Menú</h2>
+<pre><code class="language-pseudocodigo">Algoritmo MenuCalculos
+    Definir opcion Como Entero
+    Definir valor Como Real
+    Escribir &quot;1. Valor con IVA&quot;
+    Escribir &quot;2. Base sin IVA&quot;
+    Escribir &quot;3. Comisión de intermediación&quot;
+    Escribir &quot;4. Salir&quot;
+    Leer opcion
+    Segun opcion Hacer
+        1:
+            Escribir &quot;Valor base:&quot;
+            Leer valor
+            Escribir &quot;Total: &quot;, valor * 1.19
+        2:
+            Escribir &quot;Valor con IVA:&quot;
+            Leer valor
+            Escribir &quot;Base: &quot;, valor / 1.19
+        3:
+            Escribir &quot;Base antes de impuestos:&quot;
+            Leer valor
+            Escribir &quot;Comisión: &quot;, valor * 0.0837
+        4:
+            Escribir &quot;Hasta luego&quot;
+        De Otro Modo:
+            Escribir &quot;Opción inválida&quot;
+    FinSegun
+FinAlgoritmo
+</code></pre>
+<pre><code class="language-python">print(&quot;1. Valor con IVA&quot;)
+print(&quot;2. Base sin IVA&quot;)
+print(&quot;3. Comisión de intermediación&quot;)
+print(&quot;4. Salir&quot;)
+opcion = int(input(&quot;Opción: &quot;))
+
+if opcion == 1:
+    valor = float(input(&quot;Valor base: &quot;))
+    print(&quot;Total:&quot;, round(valor * 1.19, 2))
+elif opcion == 2:
+    valor = float(input(&quot;Valor con IVA: &quot;))
+    print(&quot;Base:&quot;, round(valor / 1.19, 2))
+elif opcion == 3:
+    valor = float(input(&quot;Base antes de impuestos: &quot;))
+    print(&quot;Comisión:&quot;, round(valor * 0.0837, 2))
+elif opcion == 4:
+    print(&quot;Hasta luego&quot;)
+else:
+    print(&quot;Opción inválida&quot;)
+</code></pre>
+<h2 id="solución-16---suma-de-1-a-n-con-las-tres-estructuras">Solución 16 🟢 — Suma de 1 a N con las tres estructuras</h2>
+<pre><code class="language-pseudocodigo">// Con PARA
+suma &lt;- 0
+Para i &lt;- 1 Hasta n Con Paso 1 Hacer
+    suma &lt;- suma + i
+FinPara
+
+// Con MIENTRAS
+suma &lt;- 0
+i &lt;- 1
+Mientras i &lt;= n Hacer
+    suma &lt;- suma + i
+    i &lt;- i + 1
+FinMientras
+
+// Con REPETIR-HASTA
+suma &lt;- 0
+i &lt;- 1
+Repetir
+    suma &lt;- suma + i
+    i &lt;- i + 1
+Hasta Que i &gt; n
+</code></pre>
+<pre><code class="language-python">n = 100
+
+# for
+suma = 0
+for i in range(1, n + 1):
+    suma += i
+print(suma)                 # 5050
+
+# while
+suma = 0
+i = 1
+while i &lt;= n:
+    suma += i
+    i += 1
+print(suma)                 # 5050
+
+# repetir-hasta emulado
+suma = 0
+i = 1
+while True:
+    suma += i
+    i += 1
+    if i &gt; n:
+        break
+print(suma)                 # 5050
+
+print(n * (n + 1) // 2)     # 5050 (fórmula de comprobación)
+</code></pre>
+<p><strong>Ojo con <code>range(1, n + 1)</code>:</strong> si escribes <code>range(1, n)</code> te falta el último término y el resultado da 4950 en vez de 5050.</p>
+<h2 id="solución-17---total-promedio-y-mayor-de-facturas">Solución 17 🟡 — Total, promedio y mayor de facturas</h2>
+<pre><code class="language-pseudocodigo">Algoritmo ResumenFacturas
+    Definir n, i Como Entero
+    Definir valor, suma, mayor Como Real
+    suma &lt;- 0
+    Escribir &quot;¿Cuántas facturas?&quot;
+    Leer n
+    Si n &lt;= 0 Entonces
+        Escribir &quot;No hay facturas para procesar&quot;
+    SiNo
+        Para i &lt;- 1 Hasta n Con Paso 1 Hacer
+            Escribir &quot;Valor de la factura &quot;, i, &quot;:&quot;
+            Leer valor
+            suma &lt;- suma + valor
+            Si i = 1 Entonces
+                mayor &lt;- valor
+            SiNo
+                Si valor &gt; mayor Entonces
+                    mayor &lt;- valor
+                FinSi
+            FinSi
+        FinPara
+        Escribir &quot;Total: &quot;, suma
+        Escribir &quot;Promedio: &quot;, suma / n
+        Escribir &quot;Mayor: &quot;, mayor
+    FinSi
+FinAlgoritmo
+</code></pre>
+<pre><code class="language-python">facturas = [1250000.0, 890000.0, 3400000.0, 275000.0, 1980000.0]
+
+if len(facturas) == 0:
+    print(&quot;No hay facturas para procesar&quot;)
+else:
+    suma = 0
+    mayor = facturas[0]          # inicializar con el primero, nunca con 0
+    for f in facturas:
+        suma += f
+        if f &gt; mayor:
+            mayor = f
+    print(&quot;Total:&quot;, suma)                       # 7795000.0
+    print(&quot;Promedio:&quot;, suma / len(facturas))    # 1559000.0
+    print(&quot;Mayor:&quot;, mayor)                      # 3400000.0
+</code></pre>
+<p>El <code>if len(facturas) == 0</code> no es paranoia: sin él, la división del promedio revienta con <code>ZeroDivisionError</code>.</p>
+<h2 id="solución-18---pólizas-que-vencen-en-el-mes">Solución 18 🟡 — Pólizas que vencen en el mes</h2>
+<pre><code class="language-pseudocodigo">Algoritmo PolizasDelMes
+    Definir i, mes, cuenta, total Como Entero
+    Dimension vencimientos[7]
+    // ... carga del arreglo ...
+    cuenta &lt;- 0
+    total &lt;- 7
+    Escribir &quot;Mes a consultar (1-12):&quot;
+    Leer mes
+    Para i &lt;- 1 Hasta total Con Paso 1 Hacer
+        Si vencimientos[i] = mes Entonces
+            cuenta &lt;- cuenta + 1
+        FinSi
+    FinPara
+    Escribir &quot;Pólizas que vencen: &quot;, cuenta
+    Escribir &quot;Porcentaje: &quot;, (cuenta / total) * 100, &quot;%&quot;
+FinAlgoritmo
+</code></pre>
+<pre><code class="language-python">vencimientos = [8, 9, 8, 10, 8, 12, 8]     # mes de vencimiento de cada póliza
+mes = 8
+
+cuenta = 0
+for v in vencimientos:
+    if v == mes:
+        cuenta += 1
+
+total = len(vencimientos)
+print(&quot;Pólizas que vencen en el mes&quot;, mes, &quot;:&quot;, cuenta)          # 4
+print(&quot;Porcentaje:&quot;, round(cuenta / total * 100, 2), &quot;%&quot;)        # 57.14 %
+</code></pre>
+<p>Este es el equivalente exacto de <code>=CONTAR.SI(rango; 8)</code> de Excel: un contador dentro de un ciclo, con una condición.</p>
+<h2 id="solución-19---validación-y-tabla-de-multiplicar">Solución 19 🔴 — Validación y tabla de multiplicar</h2>
+<pre><code class="language-pseudocodigo">Algoritmo TablaValidada
+    Definir n, i Como Entero
+    Repetir
+        Escribir &quot;Digite un número entre 1 y 10:&quot;
+        Leer n
+        Si (n &lt; 1) O (n &gt; 10) Entonces
+            Escribir &quot;Fuera de rango. Intente de nuevo.&quot;
+        FinSi
+    Hasta Que (n &gt;= 1) Y (n &lt;= 10)
+    Para i &lt;- 1 Hasta 10 Con Paso 1 Hacer
+        Escribir n, &quot; x &quot;, i, &quot; = &quot;, n * i
+    FinPara
+FinAlgoritmo
+</code></pre>
+<pre><code class="language-python">while True:
+    n = int(input(&quot;Digite un número entre 1 y 10: &quot;))
+    if 1 &lt;= n &lt;= 10:
+        break
+    print(&quot;Fuera de rango. Intente de nuevo.&quot;)
+
+for i in range(1, 11):
+    print(n, &quot;x&quot;, i, &quot;=&quot;, n * i)
+</code></pre>
+<p><code>1 &lt;= n &lt;= 10</code> es una comodidad de Python: encadena dos comparaciones. En otros lenguajes hay que escribir <code>n &gt;= 1 and n &lt;= 10</code>.</p>
+<p><strong>Por qué <code>Repetir-Hasta</code> y no <code>Mientras</code>:</strong> hay que pedir el dato <strong>al menos una vez</strong> antes de poder evaluar si es válido. Con <code>Mientras</code> tocaría leer una vez antes del ciclo y otra dentro, duplicando la línea.</p>
+<h2 id="solución-20---arreglo-de-10-números">Solución 20 🟡 — Arreglo de 10 números</h2>
+<pre><code class="language-python">datos = [12, 45, 7, 23, 56, 89, 3, 34, 67, 21]
+
+suma = 0
+mayor = datos[0]
+menor = datos[0]
+for d in datos:
+    suma += d
+    if d &gt; mayor:
+        mayor = d
+    if d &lt; menor:
+        menor = d
+
+promedio = suma / len(datos)
+
+sobre = 0
+for d in datos:
+    if d &gt; promedio:
+        sobre += 1
+
+print(&quot;Suma:&quot;, suma)                # 357
+print(&quot;Promedio:&quot;, promedio)        # 35.7
+print(&quot;Mayor:&quot;, mayor)              # 89
+print(&quot;Menor:&quot;, menor)              # 3
+print(&quot;Sobre el promedio:&quot;, sobre)  # 4
+
+# Burbuja de MAYOR a MENOR (nótese el &lt; en la comparación)
+copia = datos[:]                    # copia para no dañar el original
+n = len(copia)
+for i in range(n - 1):
+    for j in range(n - 1 - i):
+        if copia[j] &lt; copia[j + 1]:
+            copia[j], copia[j + 1] = copia[j + 1], copia[j]
+
+print(&quot;Ordenado desc.:&quot;, copia)
+# [89, 67, 56, 45, 34, 23, 21, 12, 7, 3]
+</code></pre>
+<p>Para ordenar de <strong>menor a mayor</strong> basta cambiar el <code>&lt;</code> por <code>&gt;</code>. Nada más. Y fíjate en que se necesitan <strong>dos recorridos</strong> para contar los que superan el promedio: no puedes contarlos en el mismo ciclo en que calculas la suma, porque el promedio todavía no existe.</p>
+<h2 id="solución-21---búsqueda-lineal-con-bandera">Solución 21 🟡 — Búsqueda lineal con bandera</h2>
+<pre><code class="language-pseudocodigo">Algoritmo BuscarContrato
+    Definir i Como Entero
+    Definir encontrado Como Logico
+    Definir buscado Como Caracter
+    encontrado &lt;- Falso
+    Escribir &quot;Número de contrato:&quot;
+    Leer buscado
+    Para i &lt;- 1 Hasta 3 Con Paso 1 Hacer
+        Si contratos[i] = buscado Entonces
+            encontrado &lt;- Verdadero
+            Escribir &quot;Valor: &quot;, valores[i]
+        FinSi
+    FinPara
+    Si NO encontrado Entonces
+        Escribir &quot;El contrato no existe en el portafolio&quot;
+    FinSi
+FinAlgoritmo
+</code></pre>
+<pre><code class="language-python">contratos = [&quot;089-2025&quot;, &quot;123-2026&quot;, &quot;258-2025&quot;]
+valores = [26450538569.00, 15000000000.00, 8263759012.55]
+
+buscado = &quot;258-2025&quot;
+encontrado = False
+
+for i in range(len(contratos)):
+    if contratos[i] == buscado:
+        encontrado = True
+        print(&quot;Encontrado en la posición&quot;, i, &quot;- valor:&quot;, valores[i])
+        break
+
+if not encontrado:
+    print(&quot;El contrato no existe en el portafolio&quot;)
+</code></pre>
+<p>Salida: <code>Encontrado en la posición 2 - valor: 8263759012.55</code>.</p>
+<p><strong>Por qué hace falta la bandera:</strong> el mensaje "no existe" no se puede imprimir dentro del ciclo (lo imprimiría en cada vuelta que no coincida). Hay que esperar a que el ciclo termine y consultar la bandera. Ese es el patrón, y se repite en todo el curso.</p>
+<h2 id="solución-22---matriz-de-pagos">Solución 22 🔴 — Matriz de pagos</h2>
+<pre><code class="language-python"># 3 contratos (filas) x 3 meses (columnas)
+pagos = [
+    [1200000, 1350000, 1100000],   # contrato 1
+    [3400000, 3400000, 3400000],   # contrato 2
+    [800000,  950000,  870000],    # contrato 3
+]
+
+gran_total = 0
+
+print(&quot;--- Total por contrato ---&quot;)
+for i in range(len(pagos)):
+    total_fila = 0
+    for j in range(len(pagos[i])):
+        total_fila += pagos[i][j]
+    gran_total += total_fila
+    print(&quot;Contrato&quot;, i + 1, &quot;:&quot;, total_fila)
+
+print(&quot;--- Total por mes ---&quot;)
+mejor_mes = 0
+mejor_total = 0
+for j in range(len(pagos[0])):
+    total_col = 0
+    for i in range(len(pagos)):
+        total_col += pagos[i][j]
+    print(&quot;Mes&quot;, j + 1, &quot;:&quot;, total_col)
+    if total_col &gt; mejor_total:
+        mejor_total = total_col
+        mejor_mes = j + 1
+
+print(&quot;Gran total:&quot;, gran_total)
+print(&quot;Mes con mayor pago:&quot;, mejor_mes, &quot;con&quot;, mejor_total)
+</code></pre>
+<p>Salida:</p>
+<pre><code class="language-text">--- Total por contrato ---
+Contrato 1 : 3650000
+Contrato 2 : 10200000
+Contrato 3 : 2620000
+--- Total por mes ---
+Mes 1 : 5400000
+Mes 2 : 5700000
+Mes 3 : 5370000
+Gran total: 16470000
+Mes con mayor pago: 2 con 5700000
+</code></pre>
+<p>Fíjate en la diferencia entre los dos recorridos: para sumar <strong>por filas</strong>, el ciclo externo es <code>i</code> (fila) y el interno <code>j</code> (columna). Para sumar <strong>por columnas</strong>, se invierten. Ese intercambio de los índices es exactamente lo que se evalúa.</p>
+<h2 id="solución-23---versión-modular">Solución 23 🟡 — Versión modular</h2>
+<pre><code class="language-python">def valor_con_iva(monto, tasa=0.19):
+    &quot;&quot;&quot;Aplica IVA a un monto base.&quot;&quot;&quot;
+    return monto * (1 + tasa)
+
+def base_sin_iva(monto_con_iva, tasa=0.19):
+    &quot;&quot;&quot;Obtiene la base a partir de un valor que ya incluye IVA.&quot;&quot;&quot;
+    return monto_con_iva / (1 + tasa)
+
+def comision(base, porcentaje=0.0837):
+    &quot;&quot;&quot;Comisión de intermediación sobre la base antes de impuestos.&quot;&quot;&quot;
+    return base * porcentaje
+
+# Programa principal
+valor = 11900000.0
+b = base_sin_iva(valor)
+c = comision(b)
+
+print(&quot;Valor con IVA:&quot;, round(valor, 2))       # 11900000.0
+print(&quot;Base:&quot;, round(b, 2))                    # 10000000.0
+print(&quot;Comisión:&quot;, round(c, 2))                # 837000.0
+print(&quot;Total:&quot;, round(valor + c, 2))           # 12737000.0
+</code></pre>
+<p>Cada función hace <strong>una</strong> cosa, tiene nombre descriptivo y devuelve un valor. El programa principal se lee como una frase.</p>
+<h2 id="solución-24---integrador">Solución 24 🔴 — Integrador</h2>
+<pre><code class="language-python">def clasificar(monto):
+    &quot;&quot;&quot;Clasifica un pago según su valor.&quot;&quot;&quot;
+    if monto &lt; 5_000_000:
+        return &quot;Menor&quot;
+    elif monto &lt; 50_000_000:
+        return &quot;Medio&quot;
+    elif monto &lt; 500_000_000:
+        return &quot;Mayor&quot;
+    else:
+        return &quot;Grande&quot;
+
+def resumen(pagos):
+    &quot;&quot;&quot;Devuelve totales por contrato, conteo por categoría y el pago mayor.&quot;&quot;&quot;
+    totales = {}
+    conteo = {}
+    pago_mayor = pagos[0]
+
+    for contrato, monto in pagos:
+        totales[contrato] = totales.get(contrato, 0) + monto
+        categoria = clasificar(monto)
+        conteo[categoria] = conteo.get(categoria, 0) + 1
+        if monto &gt; pago_mayor[1]:
+            pago_mayor = (contrato, monto)
+
+    return totales, conteo, pago_mayor
+
+
+pagos = [
+    (&quot;089-2025&quot;, 4500000.0),
+    (&quot;258-2025&quot;, 62000000.0),
+    (&quot;089-2025&quot;, 1200000.0),
+    (&quot;123-2026&quot;, 780000000.0),
+    (&quot;258-2025&quot;, 3200000.0),
+]
+
+totales, conteo, mayor = resumen(pagos)
+
+print(&quot;--- Total por contrato ---&quot;)
+for contrato in totales:
+    print(contrato, &quot;:&quot;, round(totales[contrato], 2))
+
+print(&quot;--- Pagos por categoría ---&quot;)
+for categoria in conteo:
+    print(categoria, &quot;:&quot;, conteo[categoria])
+
+print(&quot;--- Pago mayor ---&quot;)
+print(mayor[0], &quot;:&quot;, mayor[1])
+</code></pre>
+<p>Salida:</p>
+<pre><code class="language-text">--- Total por contrato ---
+089-2025 : 5700000.0
+258-2025 : 65200000.0
+123-2026 : 780000000.0
+--- Pagos por categoría ---
+Menor : 3
+Mayor : 1
+Grande : 1
+--- Pago mayor ---
+123-2026 : 780000000.0
+</code></pre>
+<p><code>totales.get(contrato, 0)</code> significa "dame lo que ya hay acumulado para ese contrato, y si no hay nada, dame 0". Es la forma limpia de inicializar un acumulador cuando no sabes de antemano cuántas categorías habrá. Un diccionario (<code>dict</code>) es, conceptualmente, una tabla dinámica de Excel: agrupa por una clave y acumula.</p>
+<hr />
+<h1 id="pruebas-de-escritorio">Pruebas de escritorio</h1>
+<p>Cuatro trazas completas. Cópiales el formato para las tuyas.</p>
+<h2 id="prueba-1--ejercicio-16-suma-de-1-a-5">Prueba 1 — Ejercicio 16 (suma de 1 a 5)</h2>
+<pre><code class="language-pseudocodigo">suma &lt;- 0
+Para i &lt;- 1 Hasta 5 Con Paso 1 Hacer
+    suma &lt;- suma + i
+FinPara
+Escribir suma
+</code></pre>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Paso</th>
+<th>i</th>
+<th>¿i ≤ 5?</th>
+<th>suma (antes)</th>
+<th>Operación</th>
+<th>suma (después)</th>
+<th>Salida</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inicialización</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td><code>suma ← 0</code></td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>Vuelta 1</td>
+<td>1</td>
+<td>Sí</td>
+<td>0</td>
+<td>0 + 1</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>Vuelta 2</td>
+<td>2</td>
+<td>Sí</td>
+<td>1</td>
+<td>1 + 2</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>Vuelta 3</td>
+<td>3</td>
+<td>Sí</td>
+<td>3</td>
+<td>3 + 3</td>
+<td>6</td>
+<td></td>
+</tr>
+<tr>
+<td>Vuelta 4</td>
+<td>4</td>
+<td>Sí</td>
+<td>6</td>
+<td>6 + 4</td>
+<td>10</td>
+<td></td>
+</tr>
+<tr>
+<td>Vuelta 5</td>
+<td>5</td>
+<td>Sí</td>
+<td>10</td>
+<td>10 + 5</td>
+<td>15</td>
+<td></td>
+</tr>
+<tr>
+<td>Evaluación</td>
+<td>6</td>
+<td><strong>No</strong></td>
+<td>15</td>
+<td>(sale del ciclo)</td>
+<td>15</td>
+<td></td>
+</tr>
+<tr>
+<td>Escribir</td>
+<td>6</td>
+<td>—</td>
+<td>15</td>
+<td>—</td>
+<td>15</td>
+<td><strong>15</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Verificación:</strong> 5 × 6 / 2 = 15. ✔</p>
+<p><strong>Qué aprender de esta tabla:</strong> al salir del ciclo, <code>i</code> vale <strong>6</strong>, no 5. Muchos exámenes preguntan justamente eso.</p>
+<h2 id="prueba-2--ejercicio-18-contar-pólizas-del-mes-8">Prueba 2 — Ejercicio 18 (contar pólizas del mes 8)</h2>
+<p>Arreglo: <code>vencimientos = [8, 9, 8, 10, 8, 12, 8]</code>, <code>mes = 8</code>.</p>
+<pre><code class="language-pseudocodigo">cuenta &lt;- 0
+Para i &lt;- 1 Hasta 7 Con Paso 1 Hacer
+    Si vencimientos[i] = 8 Entonces
+        cuenta &lt;- cuenta + 1
+    FinSi
+FinPara
+</code></pre>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Vuelta</th>
+<th>i</th>
+<th><code>vencimientos[i]</code></th>
+<th>¿= 8?</th>
+<th>cuenta (antes)</th>
+<th>cuenta (después)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>8</td>
+<td><strong>Sí</strong></td>
+<td>0</td>
+<td><strong>1</strong></td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>9</td>
+<td>No</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3</td>
+<td>8</td>
+<td><strong>Sí</strong></td>
+<td>1</td>
+<td><strong>2</strong></td>
+</tr>
+<tr>
+<td>4</td>
+<td>4</td>
+<td>10</td>
+<td>No</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>5</td>
+<td>5</td>
+<td>8</td>
+<td><strong>Sí</strong></td>
+<td>2</td>
+<td><strong>3</strong></td>
+</tr>
+<tr>
+<td>6</td>
+<td>6</td>
+<td>12</td>
+<td>No</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr>
+<td>7</td>
+<td>7</td>
+<td>8</td>
+<td><strong>Sí</strong></td>
+<td>3</td>
+<td><strong>4</strong></td>
+</tr>
+<tr>
+<td>Fin</td>
+<td>8</td>
+<td>—</td>
+<td>(sale)</td>
+<td>4</td>
+<td><strong>4</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Salida: 4 pólizas.</strong> Porcentaje: 4 / 7 × 100 = 57,14 %.</p>
+<p><strong>Qué aprender:</strong> el contador solo cambia en las vueltas donde la condición es verdadera; en las demás se arrastra igual. Y <strong>si hubieras inicializado <code>cuenta</code> dentro del ciclo</strong>, cada vuelta lo devolvería a 0 y el resultado final sería 1, no 4.</p>
+<h2 id="prueba-3--ejercicio-19-validación-con-repetir-hasta">Prueba 3 — Ejercicio 19 (validación con Repetir-Hasta)</h2>
+<p>Supongamos que el usuario digita, en orden: <strong>15</strong>, <strong>0</strong>, <strong>7</strong>.</p>
+<pre><code class="language-pseudocodigo">Repetir
+    Leer n
+    Si (n &lt; 1) O (n &gt; 10) Entonces
+        Escribir &quot;Fuera de rango&quot;
+    FinSi
+Hasta Que (n &gt;= 1) Y (n &lt;= 10)
+</code></pre>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Iteración</th>
+<th>n leído</th>
+<th>¿n &lt; 1?</th>
+<th>¿n &gt; 10?</th>
+<th>¿Mensaje?</th>
+<th>Condición de salida <code>(n≥1) Y (n≤10)</code></th>
+<th>¿Repite?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>15</td>
+<td>No</td>
+<td><strong>Sí</strong></td>
+<td>"Fuera de rango"</td>
+<td>F Y V → <strong>Falso</strong></td>
+<td><strong>Sí</strong></td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+<td><strong>Sí</strong></td>
+<td>No</td>
+<td>"Fuera de rango"</td>
+<td>F Y V → <strong>Falso</strong></td>
+<td><strong>Sí</strong></td>
+</tr>
+<tr>
+<td>3</td>
+<td>7</td>
+<td>No</td>
+<td>No</td>
+<td>(ninguno)</td>
+<td>V Y V → <strong>Verdadero</strong></td>
+<td><strong>No, sale</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Al salir, <code>n = 7</code> y el programa continúa con la tabla de multiplicar.</p>
+<p><strong>Qué aprender:</strong> en <code>Repetir-Hasta</code> la condición se evalúa <strong>al final</strong> y el ciclo se repite <strong>mientras sea falsa</strong>. Es al revés del <code>Mientras</code>, que se repite mientras sea <strong>verdadera</strong>. Confundir estas dos es el error clásico del escenario 6.</p>
+<h2 id="prueba-4--ejercicio-20-burbuja-ascendente-sobre-5-3-8-1">Prueba 4 — Ejercicio 20 (burbuja ascendente sobre <code>[5, 3, 8, 1]</code>)</h2>
+<pre><code class="language-pseudocodigo">Para i &lt;- 0 Hasta n-2 Hacer
+    Para j &lt;- 0 Hasta n-2-i Hacer
+        Si datos[j] &gt; datos[j+1] Entonces
+            aux &lt;- datos[j]
+            datos[j] &lt;- datos[j+1]
+            datos[j+1] &lt;- aux
+        FinSi
+    FinPara
+FinPara
+</code></pre>
+<p>Con <code>n = 4</code> (índices desde 0, como en Python):</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Pasada (i)</th>
+<th>j</th>
+<th>Compara</th>
+<th>¿Intercambia?</th>
+<th>Arreglo después</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>i = 0</strong></td>
+<td>0</td>
+<td>5 &gt; 3</td>
+<td><strong>Sí</strong></td>
+<td><code>[3, 5, 8, 1]</code></td>
+</tr>
+<tr>
+<td></td>
+<td>1</td>
+<td>5 &gt; 8</td>
+<td>No</td>
+<td><code>[3, 5, 8, 1]</code></td>
+</tr>
+<tr>
+<td></td>
+<td>2</td>
+<td>8 &gt; 1</td>
+<td><strong>Sí</strong></td>
+<td><code>[3, 5, 1, 8]</code></td>
+</tr>
+<tr>
+<td><strong>i = 1</strong></td>
+<td>0</td>
+<td>3 &gt; 5</td>
+<td>No</td>
+<td><code>[3, 5, 1, 8]</code></td>
+</tr>
+<tr>
+<td></td>
+<td>1</td>
+<td>5 &gt; 1</td>
+<td><strong>Sí</strong></td>
+<td><code>[3, 1, 5, 8]</code></td>
+</tr>
+<tr>
+<td><strong>i = 2</strong></td>
+<td>0</td>
+<td>3 &gt; 1</td>
+<td><strong>Sí</strong></td>
+<td><code>[1, 3, 5, 8]</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Resultado final: <code>[1, 3, 5, 8]</code>.</strong> ✔</p>
+<p><strong>Qué aprender, y es lo que se pregunta en el examen:</strong></p>
+<ul>
+<li>Al terminar la pasada <code>i = 0</code>, el <strong>mayor</strong> (8) ya quedó al final y no se vuelve a tocar. Por eso el ciclo interno se acorta: <code>n - 1 - i</code>.</li>
+<li>El número total de comparaciones es 3 + 2 + 1 = 6, es decir n(n−1)/2. De ahí sale la complejidad O(n²).</li>
+<li>El intercambio necesita variable auxiliar en pseudocódigo. Si escribieras <code>datos[j] &lt;- datos[j+1]</code> y luego <code>datos[j+1] &lt;- datos[j]</code>, <strong>perderías</strong> el primer valor y los dos quedarían iguales. En Python, <code>a, b = b, a</code> lo resuelve solo.</li>
+</ul>
+<hr />
+<h1 id="preguntas-tipo-quiz">Preguntas tipo quiz</h1>
+<p>Cinco preguntas de opción múltiple con el estilo de los quices del Poli. Responde antes de mirar la clave.</p>
+<p><strong>1.</strong> ¿Cuál es el valor de la expresión <code>2 + 6 / 3 * 2</code> evaluada con la precedencia estándar?</p>
+<ul>
+<li>a) 2</li>
+<li>b) 4</li>
+<li>c) 6</li>
+<li>d) 5,33</li>
+</ul>
+<p><strong>2.</strong> Considere el siguiente fragmento:</p>
+<pre><code class="language-pseudocodigo">i &lt;- 1
+Mientras i &lt; 5 Hacer
+    Escribir i
+FinMientras
+</code></pre>
+<p>¿Qué ocurre al ejecutarlo?</p>
+<ul>
+<li>a) Imprime 1, 2, 3, 4</li>
+<li>b) Imprime 1, 2, 3, 4, 5</li>
+<li>c) No imprime nada</li>
+<li>d) Imprime 1 indefinidamente (ciclo infinito)</li>
+</ul>
+<p><strong>3.</strong> La condición <code>NO (a &gt; 10 Y b &lt; 5)</code> es equivalente a:</p>
+<ul>
+<li>a) <code>a &lt; 10 Y b &gt; 5</code></li>
+<li>b) <code>a &lt;= 10 O b &gt;= 5</code></li>
+<li>c) <code>a &lt;= 10 Y b &gt;= 5</code></li>
+<li>d) <code>a &lt; 10 O b &gt; 5</code></li>
+</ul>
+<p><strong>4.</strong> En Python, la instrucción <code>for i in range(1, 5):</code> ejecuta el cuerpo del ciclo:</p>
+<ul>
+<li>a) 5 veces, con i de 1 a 5</li>
+<li>b) 4 veces, con i de 1 a 4</li>
+<li>c) 5 veces, con i de 0 a 4</li>
+<li>d) 6 veces, con i de 0 a 5</li>
+</ul>
+<p><strong>5.</strong> Un algoritmo debe calcular el <strong>producto</strong> de los valores de un arreglo. ¿Con qué valor debe inicializarse el acumulador?</p>
+<ul>
+<li>a) 0</li>
+<li>b) 1</li>
+<li>c) Con el último elemento del arreglo</li>
+<li>d) No necesita inicializarse</li>
+</ul>
+<hr />
+<h2 id="clave-y-explicación">Clave y explicación</h2>
+<p><strong>1. → c) 6.</strong> La precedencia dice que <code>/</code> y <code>*</code> van antes que <code>+</code>, y entre ellas se resuelve de <strong>izquierda a derecha</strong>. Entonces <code>6 / 3 = 2</code>, luego <code>2 * 2 = 4</code>, y finalmente <code>2 + 4 = 6</code>. El distractor <strong>d) 5,33</strong> sale de evaluar <code>2 + 6 / (3 * 2)</code>, que sería el resultado si <code>*</code> tuviera precedencia sobre <code>/</code>; no la tiene, están al mismo nivel y manda el orden de aparición. El <strong>b) 4</strong> sale de olvidar sumar el 2.</p>
+<p><strong>2. → d) Ciclo infinito.</strong> La variable <code>i</code> nunca se incrementa dentro del ciclo, así que la condición <code>i &lt; 5</code> es verdadera para siempre e imprime 1 sin parar. El distractor <strong>a)</strong> es lo que el código <em>pretendía</em> hacer, y por eso es tentador: falta la línea <code>i &lt;- i + 1</code>. Esta pregunta, con distintos disfraces, aparece siempre.</p>
+<p><strong>3. → b) <code>a &lt;= 10 O b &gt;= 5</code>.</strong> Por De Morgan, la negación de una conjunción es la disyunción de las negaciones: hay que cambiar <code>Y</code> por <code>O</code> <strong>y</strong> negar cada término. Además, la negación de <code>a &gt; 10</code> es <code>a &lt;= 10</code>, no <code>a &lt; 10</code>: hay que incluir la igualdad. El distractor <strong>c)</strong> niega los términos pero olvida cambiar el conectivo; el <strong>d)</strong> cambia el conectivo pero olvida el "o igual"; el <strong>a)</strong> falla en las dos cosas.</p>
+<p><strong>4. → b) 4 veces, con i de 1 a 4.</strong> <code>range(a, b)</code> <strong>excluye</strong> el límite superior. El distractor <strong>a)</strong> es el hábito de PSeInt, donde <code>Para i &lt;- 1 Hasta 5</code> sí llega a 5; es el error de uno en uno más común al cambiar de herramienta. El <strong>c)</strong> confunde con <code>range(5)</code>, que sí empieza en 0 y va hasta 4.</p>
+<p><strong>5. → b) 1.</strong> El elemento neutro de la multiplicación es 1. Si inicializas en 0, la primera multiplicación da 0 y <strong>todo el producto será 0</strong>, sin importar los datos. El distractor <strong>a)</strong> es la transferencia automática desde el acumulador de suma, donde 0 sí es correcto. La <strong>d)</strong> falla porque una variable sin inicializar produce error (<code>NameError</code> en Python) o arrastra basura.</p>
+<hr />
+<p><em>Todo el código Python de este archivo fue ejecutado y verificado. Contenido esperado, reconstruido: verificar contra el aula virtual a partir del 25 de agosto de 2026.</em></p>
+</main>
+</body>
+</html>

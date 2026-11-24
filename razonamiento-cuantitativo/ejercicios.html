@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Banco de ejercicios — Razonamiento Cuantitativo</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ 01 - Razonamiento Cuantitativo / 4. Banco de ejercicios</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="banco-de-ejercicios--razonamiento-cuantitativo">Banco de ejercicios — Razonamiento Cuantitativo</h1>
+<p><strong>25 ejercicios organizados por escenario, en tres niveles: 🟢 básico · 🟡 intermedio · 🔴 tipo examen.</strong></p>
+<blockquote>
+<p><strong>Cómo usarlo.</strong> Resuelve primero <strong>sin mirar las soluciones</strong>, con papel y calculadora simple. Escribe el planteamiento completo antes de calcular. Solo después baja a la sección "Soluciones", que trae el desarrollo paso a paso.</p>
+<p><strong>Las cifras son ilustrativas.</strong> Están construidas para que el procedimiento sea claro; no son datos oficiales.</p>
+</blockquote>
+<p><strong>Índice de niveles por escenario</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Escenario</th>
+<th>Ejercicios</th>
+<th>Opción múltiple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1.1, 1.2</td>
+<td>—</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2.1, 2.2, 2.3</td>
+<td>—</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3.1, 3.2, 3.3, 3.4</td>
+<td>3.4</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4.1, 4.2, 4.3</td>
+<td>—</td>
+</tr>
+<tr>
+<td>5</td>
+<td>5.1, 5.2, 5.3</td>
+<td>—</td>
+</tr>
+<tr>
+<td>6</td>
+<td>6.1, 6.2, 6.3, 6.4</td>
+<td>6.4</td>
+</tr>
+<tr>
+<td>7</td>
+<td>7.1, 7.2, 7.3</td>
+<td>7.3</td>
+</tr>
+<tr>
+<td>8</td>
+<td>8.1, 8.2, 8.3</td>
+<td>8.3</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h1 id="enunciados">Enunciados</h1>
+<h2 id="escenario-1--interpretación-de-información-cuantitativa">Escenario 1 — Interpretación de información cuantitativa</h2>
+<h3 id="11--escalas-de-medición">🟢 1.1 — Escalas de medición</h3>
+<p>Clasifica cada variable en la escala que le corresponde (nominal, ordinal, de intervalo o de razón) y di si tiene sentido calcular su promedio aritmético.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Variable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>Modalidad de selección del contrato (licitación, mínima cuantía, contratación directa)</td>
+</tr>
+<tr>
+<td>b</td>
+<td>Etapa del contrato en una escala de 1 (planeación) a 5 (novedades)</td>
+</tr>
+<tr>
+<td>c</td>
+<td>Valor del contrato en pesos</td>
+</tr>
+<tr>
+<td>d</td>
+<td>Año de suscripción del contrato</td>
+</tr>
+<tr>
+<td>e</td>
+<td>Nivel de satisfacción del usuario (muy bajo, bajo, medio, alto, muy alto)</td>
+</tr>
+<tr>
+<td>f</td>
+<td>Número de pagos radicados en el mes</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="12--tabla-de-doble-entrada">🟡 1.2 — Tabla de doble entrada</h3>
+<p>La siguiente tabla resume 190 garantías revisadas en un semestre:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Aprobada</th>
+<th>Devuelta</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cumplimiento</td>
+<td>45</td>
+<td>75</td>
+<td>120</td>
+</tr>
+<tr>
+<td>Responsabilidad civil (RCE)</td>
+<td>30</td>
+<td>40</td>
+<td>70</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>75</strong></td>
+<td><strong>115</strong></td>
+<td><strong>190</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Calcula e interpreta en una frase cada uno:</p>
+<p>a) El porcentaje de garantías que fueron devueltas.
+b) El porcentaje de las garantías de RCE que fueron devueltas.
+c) El porcentaje de las garantías devueltas que eran de RCE.
+d) ¿Cuál de los tres anteriores usarías para responder "¿es más riesgoso el amparo de RCE?" y por qué?</p>
+<hr />
+<h2 id="escenario-2--razones-proporciones-y-porcentajes">Escenario 2 — Razones, proporciones y porcentajes</h2>
+<h3 id="21--porcentaje-directo-e-inverso">🟢 2.1 — Porcentaje directo e inverso</h3>
+<p>a) El 35 % de un presupuesto de \(\$46.000.000\) se destina a insumos. ¿Cuántos pesos son?
+b) Un rubro aumentó 15 % y quedó en \(\$92.000.000\). ¿Cuánto valía antes?
+c) Un valor bajó 20 % y quedó en \(\$64.000.000\). ¿Cuánto valía antes?</p>
+<h3 id="22--base-gravable-y-comisión-de-intermediación">🟡 2.2 — Base gravable y comisión de intermediación</h3>
+<p>Un ítem aparece facturado por \(\$3.927.000\), valor que <strong>incluye IVA del 19 %</strong>. Sobre ese ítem se debe liquidar una comisión de intermediación del <strong>8,37 %</strong>, que se calcula sobre la base antes de impuestos y cuyo resultado ya incluye el IVA de la comisión.</p>
+<p>a) Determina la base gravable.
+b) Calcula la comisión.
+c) Un compañero calculó la comisión como \(3.927.000\times 0{,}0837 = \$328.689\). Explica en una frase por qué está mal y cuánto se estaría pagando de más.</p>
+<h3 id="23--promedio-ponderado">🟡 2.3 — Promedio ponderado</h3>
+<p>Tres contratos de un portafolio:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Contrato</th>
+<th>Valor (millones)</th>
+<th>Ejecución financiera</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>26.450</td>
+<td>92 %</td>
+</tr>
+<tr>
+<td>B</td>
+<td>8.264</td>
+<td>55 %</td>
+</tr>
+<tr>
+<td>C</td>
+<td>15.000</td>
+<td>10 %</td>
+</tr>
+</tbody>
+</table></div>
+<p>a) Un informe reporta "ejecución promedio del portafolio: 52,3 %", obtenida como \((92+55+10)/3\). ¿Es correcto?
+b) Calcula la ejecución del portafolio correctamente.
+c) Explica en una frase por qué las dos cifras difieren.</p>
+<hr />
+<h2 id="escenario-3--variación-porcentual-puntos-porcentuales-índices-y-deflactores">Escenario 3 — Variación porcentual, puntos porcentuales, índices y deflactores</h2>
+<h3 id="31--variación-porcentual">🟢 3.1 — Variación porcentual</h3>
+<p>Un valor de referencia pasó de \(\$1.300.000\) a \(\$1.423.500\) de un año a otro.</p>
+<p>a) Calcula la variación porcentual.
+b) Si el año siguiente aumenta la misma cantidad <strong>en pesos</strong>, ¿la variación porcentual será mayor, igual o menor? Justifica sin calcular.</p>
+<h3 id="32--puntos-porcentuales-y-variaciones-encadenadas">🟡 3.2 — Puntos porcentuales y variaciones encadenadas</h3>
+<p>a) El porcentaje de ejecución física de un contrato pasó de 68 % a 74 %. Expresa el cambio (i) en puntos porcentuales y (ii) como variación porcentual.
+b) Un valor contractual se reajustó 6,2 % un año y 5,8 % al siguiente. ¿Cuál es la variación acumulada de los dos años? ¿Por qué no es 12 %?
+c) Un rubro cayó 30 % en un año. ¿Qué porcentaje debe subir al año siguiente para volver al valor original?</p>
+<h3 id="33--índices-y-deflactores">🟡 3.3 — Índices y deflactores</h3>
+<p>El presupuesto de un rubro, en pesos corrientes, fue: 2023 = \(\$320\) mil millones; 2024 = \(\$380\); 2025 = \(\$415\). El índice de precios (base 100 en 2023) fue: 2023 = 100,0; 2024 = 109,4; 2025 = 118,7.</p>
+<p>a) Construye el índice del presupuesto con base 2023 = 100.
+b) Calcula la variación nominal 2024 → 2025.
+c) Expresa el presupuesto de 2025 en pesos constantes de 2023.
+d) ¿El presupuesto creció o se contrajo en términos reales entre 2023 y 2025?</p>
+<h3 id="34--opción-múltiple">🔴 3.4 — Opción múltiple</h3>
+<p>Un informe afirma: <em>"La tasa de rechazo de facturas pasó del 8 % al 10 % entre el primer y el segundo semestre."</em> ¿Cuál de las siguientes afirmaciones es <strong>correcta</strong>?</p>
+<p>A. La tasa de rechazo aumentó 2 %.
+B. La tasa de rechazo aumentó 2 puntos porcentuales, equivalentes a un aumento del 25 %.
+C. La tasa de rechazo aumentó 20 %, porque \(10/8 = 1{,}20\).
+D. La tasa de rechazo aumentó 2 puntos porcentuales, equivalentes a un aumento del 20 %.</p>
+<hr />
+<h2 id="escenario-4--unidades-notación-científica-y-funciones-lineales">Escenario 4 — Unidades, notación científica y funciones lineales</h2>
+<h3 id="41--notación-científica-y-conversiones">🟢 4.1 — Notación científica y conversiones</h3>
+<p>a) Escribe en notación científica: \(\$8.263.759.012{,}55\) y \(0{,}0000372\).
+b) Un presupuesto nacional de \(2{,}4\times 10^{12}\) pesos se reparte entre \(5{,}1\times 10^{7}\) habitantes. ¿Cuánto corresponde por habitante? Da la respuesta en notación decimal y di el orden de magnitud.
+c) Convierte \(54\) km/h a metros por segundo, escribiendo la cadena de factores.</p>
+<h3 id="42--función-afín-en-contexto">🟡 4.2 — Función afín en contexto</h3>
+<p>El costo mensual de un servicio contratado fue de \(\$5.400.000\) en un mes con 30 eventos y de \(\$7.800.000\) en un mes con 60 eventos. Se asume comportamiento lineal.</p>
+<p>a) Halla la pendiente e interprétala <strong>con unidades y en palabras</strong>.
+b) Halla el intercepto e interprétalo.
+c) Escribe \(C(x)\) y calcula el costo de un mes con 45 eventos.
+d) Calcula el costo promedio por evento con 30 y con 60 eventos. ¿Por qué no es constante?</p>
+<h3 id="43--punto-de-equilibrio">🔴 4.3 — Punto de equilibrio</h3>
+<p>Para la prestación de un servicio se evalúan dos esquemas:</p>
+<ul>
+<li><strong>Esquema fijo + variable:</strong> cuota mensual de \(\$2.500.000\) más \(\$45.000\) por evento.</li>
+<li><strong>Esquema por evento:</strong> \(\$95.000\) por evento, sin cuota.</li>
+</ul>
+<p>a) Escribe la función de costo de cada esquema.
+b) Halla el número de eventos en que ambos cuestan lo mismo.
+c) Redacta la recomendación completa para la supervisión (no basta el número).
+d) Si el histórico muestra un promedio de 62 eventos mensuales con desviaciones de ±15, ¿qué recomiendas y con qué advertencia?</p>
+<hr />
+<h2 id="escenario-5--funciones-exponenciales-y-crecimiento">Escenario 5 — Funciones exponenciales y crecimiento</h2>
+<h3 id="51--crecimiento-exponencial">🟢 5.1 — Crecimiento exponencial</h3>
+<p>Un indicador vale 1.200 unidades y crece 3,7 % anual.</p>
+<p>a) ¿Cuánto valdrá en 5 años?
+b) ¿Cuál sería el valor si creciera de forma <strong>lineal</strong> sumando 44,4 unidades por año (que es el 3,7 % del valor inicial)?
+c) Explica la diferencia entre los dos resultados.</p>
+<h3 id="52--logaritmos-y-tiempo-de-duplicación">🟡 5.2 — Logaritmos y tiempo de duplicación</h3>
+<p>Un valor crece 4,3 % anual de manera sostenida.</p>
+<p>a) ¿En cuántos años se duplica? Usa logaritmos.
+b) Compara con la aproximación de la regla del 70.
+c) ¿En cuántos años se triplica?</p>
+<h3 id="53--decrecimiento">🟡 5.3 — Decrecimiento</h3>
+<p>Un saldo por ejecutar de \(\$4.500.000\) se reduce 15 % cada mes.</p>
+<p>a) ¿Cuánto queda después de 4 meses?
+b) ¿Cuántos meses deben pasar para que quede menos del 10 % del saldo inicial?
+c) ¿Por qué el saldo nunca llega exactamente a cero en este modelo?</p>
+<hr />
+<h2 id="escenario-6--matemáticas-financieras">Escenario 6 — Matemáticas financieras</h2>
+<h3 id="61--interés-simple-vs-compuesto">🟢 6.1 — Interés simple vs. compuesto</h3>
+<p>Un capital de \(\$12.000.000\) se coloca al 1,8 % mensual durante 8 meses.</p>
+<p>a) Monto final con interés simple.
+b) Monto final con interés compuesto.
+c) ¿Cuál es la diferencia y por qué existe?</p>
+<h3 id="62--valor-presente">🟡 6.2 — Valor presente</h3>
+<p>Una adición contractual de \(\$850.000.000\) se pagará dentro de 5 meses. La tasa de oportunidad de la entidad es del 0,9 % mensual.</p>
+<p>a) ¿Cuál es el valor presente de ese pago?
+b) ¿Cuánto "cuesta" financieramente aplazar el pago cinco meses?
+c) ¿Tiene sentido sumar directamente este pago con uno que se hace hoy? Justifica.</p>
+<h3 id="63--anualidad">🟡 6.3 — Anualidad</h3>
+<p>Un esquema de pagos contempla 36 cuotas mensuales iguales de \(\$1.200.000\), con una tasa del 1,1 % mensual.</p>
+<p>a) Valor presente de la serie.
+b) Valor futuro al final del mes 36.
+c) Suma nominal de las 36 cuotas. Ordena los tres valores y explica el orden.</p>
+<h3 id="64--opción-múltiple">🔴 6.4 — Opción múltiple</h3>
+<p>Se comparan tres alternativas de financiación. ¿Cuál tiene el <strong>mayor costo efectivo anual</strong>?</p>
+<p>A. 22,5 % nominal anual capitalizable mensualmente.
+B. 24,0 % nominal anual capitalizable trimestralmente.
+C. 24,5 % efectiva anual.
+D. 23,0 % nominal anual capitalizable semestralmente.</p>
+<hr />
+<h2 id="escenario-7--conteo-probabilidad-y-lectura-crítica">Escenario 7 — Conteo, probabilidad y lectura crítica</h2>
+<h3 id="71--conteo">🟢 7.1 — Conteo</h3>
+<p>a) De 12 expedientes se debe seleccionar una muestra de 4 para auditoría. ¿De cuántas formas distintas puede escogerse la muestra?
+b) De 6 profesionales se debe designar un supervisor, un apoyo técnico y un apoyo jurídico (cargos distintos). ¿Cuántas designaciones distintas son posibles?
+c) Explica en una frase por qué en (a) se usa combinación y en (b) permutación.</p>
+<h3 id="72--probabilidad-con-tabla-de-doble-entrada">🟡 7.2 — Probabilidad con tabla de doble entrada</h3>
+<p>Usa la tabla del ejercicio 1.2 (190 garantías). Se selecciona una al azar.</p>
+<p>a) \(P(\text{devuelta})\)
+b) \(P(\text{cumplimiento})\)
+c) \(P(\text{devuelta} \mid \text{cumplimiento})\)
+d) \(P(\text{cumplimiento} \mid \text{devuelta})\)
+e) \(P(\text{devuelta} \cup \text{cumplimiento})\)
+f) ¿Son independientes los eventos "ser de cumplimiento" y "ser devuelta"?</p>
+<h3 id="73--paradoja-de-simpson-opción-múltiple--justificación">🔴 7.3 — Paradoja de Simpson (opción múltiple + justificación)</h3>
+<p>Dos revisores procesaron garantías durante un semestre:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Revisor A</th>
+<th>Revisor B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contratos simples</td>
+<td>18 de 20 aprobadas (90 %)</td>
+<td>150 de 200 aprobadas (75 %)</td>
+</tr>
+<tr>
+<td>Contratos complejos</td>
+<td>40 de 180 aprobadas (22,2 %)</td>
+<td>5 de 50 aprobadas (10 %)</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td>58 de 200 (<strong>29 %</strong>)</td>
+<td>155 de 250 (<strong>62 %</strong>)</td>
+</tr>
+</tbody>
+</table></div>
+<p>¿Cuál es la interpretación <strong>correcta</strong>?</p>
+<p>A. El Revisor B es más eficiente, porque aprueba el 62 % frente al 29 % del Revisor A.
+B. Los datos están mal: es imposible que A gane en los dos grupos y pierda en el total.
+C. El Revisor A tiene mayor tasa de aprobación en ambos tipos de contrato; la diferencia global se explica porque a A se le asignaron casi solo contratos complejos, donde la aprobación es baja.
+D. La comparación no se puede hacer porque los totales de garantías son distintos.</p>
+<p>Además de escoger, <strong>redacta en dos frases</strong> qué recomendarías para que la comparación fuera válida.</p>
+<hr />
+<h2 id="escenario-8--integración">Escenario 8 — Integración</h2>
+<h3 id="81--reajuste-encadenado-y-análisis-real">🟡 8.1 — Reajuste encadenado y análisis real</h3>
+<p>Un contrato se suscribió por \(\$620.000.000\) y se reajustó 5,8 % el primer año y 6,1 % el segundo. La inflación acumulada de los dos años fue del 11,4 %.</p>
+<p>a) Valor del contrato después de los dos reajustes.
+b) Variación porcentual acumulada del valor.
+c) ¿El contrato ganó o perdió poder adquisitivo? Calcula la variación real acumulada.</p>
+<h3 id="82--integrado-índices-deflactor-y-proporción">🔴 8.2 — Integrado: índices, deflactor y proporción</h3>
+<p>El gasto en un rubro fue de \(\$4.800.000.000\) en 2025, con un índice de precios de 121,4 (base 100 = 2022). En 2022 ese mismo rubro costó \(\$3.600.000.000\).</p>
+<p>a) Expresa el gasto de 2025 en pesos constantes de 2022.
+b) ¿Cuál fue la variación real del gasto entre 2022 y 2025?
+c) Si el gasto de 2025 representa el 12 % del presupuesto total de la entidad, ¿cuál es ese presupuesto total?
+d) Un informe titula: <em>"El gasto en este rubro creció 33 % en tres años"</em>. ¿Es engañoso el titular? Justifica en dos frases.</p>
+<h3 id="83--opción-múltiple-integradora">🔴 8.3 — Opción múltiple integradora</h3>
+<p>Una entidad debe pagar una obligación y le ofrecen dos alternativas, con una tasa de oportunidad del <strong>0,8 % mensual</strong>:</p>
+<ul>
+<li><strong>Alternativa 1:</strong> un único pago de \(\$1.750.000.000\) dentro de 6 meses.</li>
+<li><strong>Alternativa 2:</strong> seis cuotas mensuales vencidas de \(\$300.000.000\) cada una.</li>
+</ul>
+<p>Desde el punto de vista de <strong>quien recibe el dinero</strong>, ¿cuál conviene y por qué?</p>
+<p>A. La Alternativa 1, porque \(\$1.750.000.000 > 6\times\$300.000.000 = \$1.800.000.000\) es falso, pero el pago único evita el riesgo.
+B. La Alternativa 2, porque su valor presente (\(\approx\$1.750{,}7\) millones) supera el de la Alternativa 1 (\(\approx\$1.668{,}3\) millones).
+C. Son equivalentes, porque ambas suman aproximadamente lo mismo.
+D. La Alternativa 1, porque su valor presente es mayor al recibirse en un solo momento.</p>
+<hr />
+<h1 id="soluciones">Soluciones</h1>
+<h2 id="escenario-1">Escenario 1</h2>
+<h3 id="11">1.1</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Escala</th>
+<th>¿Promedio?</th>
+<th>Razón</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>Nominal</td>
+<td>No</td>
+<td>Son categorías sin orden</td>
+</tr>
+<tr>
+<td>b</td>
+<td>Ordinal</td>
+<td>No</td>
+<td>Hay orden, pero la distancia entre etapas no es homogénea</td>
+</tr>
+<tr>
+<td>c</td>
+<td>De razón</td>
+<td>Sí</td>
+<td>Hay cero absoluto y los cocientes tienen sentido</td>
+</tr>
+<tr>
+<td>d</td>
+<td>De intervalo</td>
+<td>Técnicamente sí, pero rara vez útil</td>
+<td>Hay distancia, pero el año 0 es convencional: "2024 es el doble de 1012" no significa nada</td>
+</tr>
+<tr>
+<td>e</td>
+<td>Ordinal</td>
+<td>No</td>
+<td>Se usa mediana o moda, no media</td>
+</tr>
+<tr>
+<td>f</td>
+<td>De razón (discreta)</td>
+<td>Sí</td>
+<td>Conteo con cero absoluto</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Idea clave:</strong> el promedio aritmético exige, como mínimo, escala de intervalo. Con variables ordinales se usan mediana y moda.</p>
+<h3 id="12">1.2</h3>
+<p>a) \(\dfrac{115}{190}\times 100 = 60{,}5\%\). <em>De todas las garantías revisadas, el 60,5 % fue devuelto.</em> Denominador: total general.</p>
+<p>b) \(\dfrac{40}{70}\times 100 = 57{,}1\%\). <em>De las garantías de RCE, el 57,1 % fue devuelto.</em> Denominador: total de la fila RCE.</p>
+<p>c) \(\dfrac{40}{115}\times 100 = 34{,}8\%\). <em>De las garantías devueltas, el 34,8 % correspondía a RCE.</em> Denominador: total de la columna "devuelta".</p>
+<p>d) El literal <strong>b</strong>. Para saber si el amparo de RCE es más problemático hay que preguntar <em>qué proporción de las RCE falla</em>, y compararla con la de cumplimiento: \(75/120 = 62{,}5\%\). Con ese criterio, <strong>el amparo de cumplimiento se devuelve en mayor proporción</strong> (62,5 % vs. 57,1 %). El literal (c) responde otra pregunta: cuál es la composición de las devoluciones, que depende de cuántas garantías de cada tipo llegaron.</p>
+<hr />
+<h2 id="escenario-2">Escenario 2</h2>
+<h3 id="21">2.1</h3>
+<p>a) \(46.000.000\times 0{,}35 = \$16.100.000\).</p>
+<p>b) \(V_0 = \dfrac{92.000.000}{1{,}15} = \$80.000.000\). Verificación: \(80.000.000\times1{,}15 = 92.000.000\) ✓.</p>
+<p>c) \(V_0 = \dfrac{64.000.000}{0{,}80} = \$80.000.000\). Verificación: \(80.000.000\times0{,}80 = 64.000.000\) ✓.</p>
+<p><strong>Nota:</strong> en (b) el error típico es restar el 15 % a 92 millones (\(78{,}2\) M). No sirve: el 15 % se aplicó sobre 80, no sobre 92.</p>
+<h3 id="22">2.2</h3>
+<p>a) Base gravable:</p>
+<p>\[\frac{3.927.000}{1{,}19} = \$3.300.000\]</p>
+<p>Verificación: \(3.300.000\times 0{,}19 = 627.000\) de IVA; \(3.300.000+627.000 = 3.927.000\) ✓.</p>
+<p>b) Comisión:</p>
+<p>\[3.300.000\times 0{,}0837 = \$276.210\]</p>
+<p>No se vuelve a multiplicar por 1,19: la tasa del 8,37 % ya contempla el IVA de la comisión.</p>
+<p>c) El compañero aplicó la comisión sobre el valor <strong>con IVA incluido</strong>, no sobre la base gravable. Está liquidando la comisión sobre un IVA que no le corresponde.</p>
+<p>\[328.689 - 276.210 = \$52.479 \text{ de más}\]</p>
+<p>Sobre un solo ítem es poco; sobre cientos de ítems al mes, no.</p>
+<h3 id="23">2.3</h3>
+<p>a) <strong>No.</strong> El promedio simple trata los tres contratos como si pesaran igual, y sus valores son muy distintos (26.450 vs. 15.000 vs. 8.264 millones).</p>
+<p>b) Promedio ponderado por valor:</p>
+<p>\[\bar{x}=\frac{0{,}92(26.450)+0{,}55(8.264)+0{,}10(15.000)}{26.450+8.264+15.000}\]</p>
+<p>\[=\frac{24.334+4.545{,}2+1.500}{49.714}=\frac{30.379{,}2}{49.714}=0{,}6111 = \mathbf{61{,}1\%}\]</p>
+<p>c) Difieren porque el contrato A, que es el más grande y el mejor ejecutado, arrastra el resultado hacia arriba. El promedio simple le da el mismo peso que al contrato C, que vale la mitad y va en 10 %. <strong>Cuando las bases son distintas, el promedio simple no representa el agregado.</strong></p>
+<hr />
+<h2 id="escenario-3">Escenario 3</h2>
+<h3 id="31">3.1</h3>
+<p>a)</p>
+<p>\[\Delta\% = \frac{1.423.500-1.300.000}{1.300.000}\times 100 = \frac{123.500}{1.300.000}\times 100 = 9{,}5\%\]</p>
+<p>b) <strong>Menor.</strong> El mismo aumento absoluto (\(\$123.500\)) se dividiría ahora entre una base mayor (\(1.423.500\) en vez de \(1.300.000\)), así que el cociente es más pequeño. Es el "efecto base": a medida que la base crece, la misma diferencia representa un porcentaje menor.</p>
+<h3 id="32">3.2</h3>
+<p>a) (i) \(74 - 68 = \mathbf{6}\) <strong>puntos porcentuales</strong>.
+(ii) \(\dfrac{74-68}{68}\times100 = \mathbf{8{,}82\%}\) de variación porcentual.</p>
+<p>b)</p>
+<p>\[(1{,}062)(1{,}058) = 1{,}123596 \Rightarrow \Delta\% = \mathbf{12{,}36\%}\]</p>
+<p>No es 12 % porque el segundo reajuste se aplica sobre un valor que <strong>ya incluía</strong> el primero. Los 0,36 puntos de diferencia son el reajuste del segundo año aplicado sobre el aumento del primero.</p>
+<p>c) Si cayó 30 %, quedó en \(0{,}70\) del original. Para volver a 1:</p>
+<p>\[0{,}70\times(1+r)=1 \Rightarrow 1+r = \frac{1}{0{,}70}=1{,}4286 \Rightarrow r = \mathbf{42{,}86\%}\]</p>
+<p><strong>No 30 %.</strong> Las bases son distintas: la caída se calculó sobre el valor original, la recuperación se calcula sobre el valor reducido.</p>
+<h3 id="33">3.3</h3>
+<p>a) Índice del presupuesto (2023 = 100):</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Año</th>
+<th>Valor</th>
+<th>Índice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2023</td>
+<td>320</td>
+<td>\(320/320\times100 = 100{,}0\)</td>
+</tr>
+<tr>
+<td>2024</td>
+<td>380</td>
+<td>\(380/320\times100 = 118{,}8\)</td>
+</tr>
+<tr>
+<td>2025</td>
+<td>415</td>
+<td>\(415/320\times100 = 129{,}7\)</td>
+</tr>
+</tbody>
+</table></div>
+<p>b) Variación nominal 2024 → 2025:</p>
+<p>\[\frac{415-380}{380}\times100 = 9{,}21\%\]</p>
+<p>c) Pesos constantes de 2023:</p>
+<p>\[415\times\frac{100}{118{,}7} = 349{,}6 \text{ mil millones}\]</p>
+<p>d) <strong>Creció en términos reales.</strong> En pesos de 2023, el presupuesto pasó de 320 a 349,6 mil millones:</p>
+<p>\[\frac{349{,}6-320}{320}\times100 = 9{,}25\%\]</p>
+<p>Comprobación por la fórmula del cociente: variación nominal acumulada \(= 415/320 - 1 = 29{,}7\%\); inflación acumulada \(= 18{,}7\%\).</p>
+<p>\[r_{\text{real}}=\frac{1{,}297}{1{,}187}-1 = 9{,}27\%\]</p>
+<p>(La pequeña diferencia con 9,25 % es solo redondeo del índice a un decimal.) <strong>Del 29,7 % de crecimiento nominal, dos terceras partes fueron inflación.</strong></p>
+<h3 id="34">3.4</h3>
+<p><strong>Respuesta correcta: B.</strong></p>
+<ul>
+<li><strong>A</strong> es incorrecta: "aumentó 2 %" significaría pasar de 8 % a 8,16 %. Es la confusión clásica entre porcentaje y punto porcentual.</li>
+<li><strong>C</strong> es incorrecta en el número: \(10/8 = 1{,}25\), es decir 25 %, no 20 %. El distractor está diseñado para quien divide mal o recuerda "20 %" por asociación con la diferencia de 2 sobre 10.</li>
+<li><strong>D</strong> acierta en los puntos porcentuales pero se equivoca en la variación relativa: usa 10 como base en vez de 8. Es el distractor más peligroso porque la primera mitad es correcta.</li>
+<li><strong>B</strong> es la única que acierta en las dos: 2 p.p. de diferencia y 25 % de variación relativa sobre la base inicial.</li>
+</ul>
+<hr />
+<h2 id="escenario-4">Escenario 4</h2>
+<h3 id="41">4.1</h3>
+<p>a) \(8.263.759.012{,}55 = 8{,}26\times 10^{9}\) (3 cifras significativas). \(0{,}0000372 = 3{,}72\times10^{-5}\).</p>
+<p>b)</p>
+<p>\[\frac{2{,}4\times10^{12}}{5{,}1\times10^{7}} = \frac{2{,}4}{5{,}1}\times10^{12-7} = 0{,}4706\times10^{5} = 4{,}71\times10^{4}\]</p>
+<p>Es decir, unos \(\$47.059\) por habitante. <strong>Orden de magnitud: \(10^4\)</strong> (decenas de miles de pesos).</p>
+<p>c)</p>
+<p>\[54\ \frac{\cancel{\text{km}}}{\cancel{\text{h}}}\times\frac{1.000\ \text{m}}{1\ \cancel{\text{km}}}\times\frac{1\ \cancel{\text{h}}}{3.600\ \text{s}} = \frac{54.000}{3.600}=15\ \frac{\text{m}}{\text{s}}\]</p>
+<h3 id="42">4.2</h3>
+<p>a)</p>
+<p>\[m = \frac{7.800.000-5.400.000}{60-30}=\frac{2.400.000}{30}=80.000\ \frac{\text{pesos}}{\text{evento}}\]</p>
+<p><em>Cada evento adicional en el mes cuesta ochenta mil pesos.</em></p>
+<p>b)</p>
+<p>\[b = 5.400.000 - 80.000(30) = 5.400.000-2.400.000 = \$3.000.000\]</p>
+<p><em>Hay un costo fijo mensual de tres millones de pesos que se paga aunque no se realice ningún evento.</em></p>
+<p>c) \(C(x)=80.000x+3.000.000\). Con 45 eventos:</p>
+<p>\[C(45)=80.000(45)+3.000.000 = 3.600.000+3.000.000=\$6.600.000\]</p>
+<p>d) Costo promedio: con 30 eventos, \(5.400.000/30 = \$180.000\); con 60 eventos, \(7.800.000/60 = \$130.000\).</p>
+<p>No es constante porque el <strong>costo fijo se reparte entre más eventos</strong>:</p>
+<p>\[\bar{C}(x)=80.000+\frac{3.000.000}{x}\]</p>
+<p>A medida que \(x\) crece, el segundo término se achica y el costo medio se acerca a \(\$80.000\) sin llegar nunca a serlo. <strong>El costo marginal (80.000) es constante; el medio no.</strong></p>
+<h3 id="43">4.3</h3>
+<p>a) \(C_{\text{fijo}}(x)=2.500.000+45.000x\) ; \(C_{\text{evento}}(x)=95.000x\).</p>
+<p>b)</p>
+<p>\[2.500.000+45.000x = 95.000x \Rightarrow 2.500.000 = 50.000x \Rightarrow x = 50 \text{ eventos}\]</p>
+<p>c) <em>Con menos de 50 eventos mensuales conviene el esquema por evento; con más de 50, el esquema de cuota fija más variable; en exactamente 50 eventos ambos cuestan \(\$4.750.000\) y son indiferentes en costo.</em></p>
+<p>d) Con un promedio de 62 eventos y desviaciones de ±15, el rango típico va de 47 a 77 eventos. <strong>La mayor parte del rango está por encima del punto de equilibrio</strong>, así que se recomienda el esquema de cuota fija más variable. <strong>Advertencia:</strong> en los meses de baja demanda (por debajo de 50 eventos) ese esquema resulta más costoso, y en un mes de 47 eventos se pagarían \(\$4.615.000\) frente a \(\$4.465.000\) del otro esquema. La recomendación es válida en promedio anual, no mes a mes.</p>
+<hr />
+<h2 id="escenario-5">Escenario 5</h2>
+<h3 id="51">5.1</h3>
+<p>a)</p>
+<p>\[y(5)=1.200\,(1{,}037)^5 = 1.200\times 1{,}19921 = \mathbf{1.439{,}0} \text{ unidades}\]</p>
+<p>b) Lineal: \(1.200 + 5(44{,}4) = 1.200+222 = \mathbf{1.422{,}0}\) unidades.</p>
+<p>c) La diferencia (17 unidades) es el <strong>interés sobre el crecimiento</strong>: en el modelo exponencial, el crecimiento del año 2 se calcula sobre el valor ya aumentado del año 1, mientras que en el lineal siempre se suma la misma cantidad calculada sobre el valor inicial. En 5 años la brecha es pequeña; en 30 años sería enorme.</p>
+<h3 id="52">5.2</h3>
+<p>a)</p>
+<p>\[2=(1{,}043)^t \Rightarrow \ln 2 = t\ln(1{,}043) \Rightarrow t = \frac{0{,}69315}{0{,}042101}= \mathbf{16{,}46 \text{ años}}\]</p>
+<p>b) Regla del 70: \(70/4{,}3 = 16{,}28\) años. La aproximación se queda corta en 0,18 años (unos dos meses): suficientemente buena para una verificación mental.</p>
+<p>c)</p>
+<p>\[3=(1{,}043)^t \Rightarrow t = \frac{\ln 3}{\ln 1{,}043}=\frac{1{,}09861}{0{,}042101}=\mathbf{26{,}09 \text{ años}}\]</p>
+<p>Observa que triplicar <strong>no</strong> toma el doble que duplicar (32,9 años), sino menos. Duplicar dos veces (×4) sí tomaría exactamente el doble: 32,9 años.</p>
+<h3 id="53">5.3</h3>
+<p>a)</p>
+<p>\[4.500.000\,(0{,}85)^4 = 4.500.000\times 0{,}52200625 = \mathbf{\$2.349.028{,}13}\]</p>
+<p>b) Se busca \((0{,}85)^t < 0{,}10\):</p>
+<p>\[t > \frac{\ln 0{,}10}{\ln 0{,}85}=\frac{-2{,}302585}{-0{,}162519}=14{,}17\]</p>
+<p>Como \(t\) debe ser entero, <strong>a partir del mes 15</strong>. Verificación: \((0{,}85)^{14}=0{,}1028\) (10,28 %, todavía por encima); \((0{,}85)^{15}=0{,}0874\) (8,74 %, ya por debajo) ✓.</p>
+<p>c) Porque en cada período se retira una <strong>fracción</strong> de lo que queda, no una cantidad fija. Siempre queda el 85 % de algo positivo, así que el saldo tiende a cero pero nunca lo alcanza. Es decrecimiento asintótico.</p>
+<hr />
+<h2 id="escenario-6">Escenario 6</h2>
+<h3 id="61">6.1</h3>
+<p>a) Interés simple:</p>
+<p>\[F = 12.000.000\,(1+0{,}018\times 8) = 12.000.000\times 1{,}144 = \mathbf{\$13.728.000}\]</p>
+<p>b) Interés compuesto:</p>
+<p>\[F = 12.000.000\,(1{,}018)^8 = 12.000.000\times 1{,}1534060 = \mathbf{\$13.840.872{,}57}\]</p>
+<p>c) Diferencia: \(\$112.872{,}57\). Existe porque en el modelo compuesto los intereses generados en cada mes se incorporan al capital y a partir del mes siguiente <strong>también generan intereses</strong>. En el simple, los intereses se calculan siempre sobre los \(\$12.000.000\) iniciales.</p>
+<h3 id="62">6.2</h3>
+<p>a)</p>
+<p>\[P=\frac{850.000.000}{(1{,}009)^5}=\frac{850.000.000}{1{,}0458207}=\mathbf{\$812.761.446{,}40}\]</p>
+<p>b) \(850.000.000-812.761.446{,}40 = \mathbf{\$37.238.553{,}60}\). Ese es el valor que pierde el acreedor (o gana el deudor) por el aplazamiento de cinco meses a la tasa de oportunidad dada.</p>
+<p>c) <strong>No.</strong> Sumar directamente un pago de hoy con uno de dentro de cinco meses viola el principio de que el dinero tiene valor en el tiempo. Primero hay que llevar ambos a la misma fecha focal (por ejemplo, descontar el futuro a valor presente) y solo entonces sumar.</p>
+<h3 id="63">6.3</h3>
+<p>a) Valor presente:</p>
+<p>\[P = 1.200.000\cdot\frac{1-(1{,}011)^{-36}}{0{,}011}=1.200.000\times 29{,}594235 = \mathbf{\$35.513.081{,}73}\]</p>
+<p>b) Valor futuro:</p>
+<p>\[F = 1.200.000\cdot\frac{(1{,}011)^{36}-1}{0{,}011}=1.200.000\times 43{,}878191 = \mathbf{\$52.653.829{,}43}\]</p>
+<p>c) Suma nominal: \(36\times 1.200.000 = \$43.200.000\).</p>
+<p>Orden: \(P < \text{suma nominal} < F\), es decir \(35{,}5 \text{ M} < 43{,}2 \text{ M} < 52{,}7 \text{ M}\).</p>
+<p><strong>Por qué:</strong> el valor presente descuenta cada cuota hacia atrás, así que es menor que la suma. El valor futuro capitaliza cada cuota hacia adelante, así que es mayor. La suma nominal ignora el tiempo y queda en el medio. Si tu resultado no respeta este orden, hay un error de signo en el exponente.</p>
+<h3 id="64">6.4</h3>
+<p><strong>Respuesta correcta: B.</strong></p>
+<p>Se lleva todo a tasa efectiva anual:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Alt.</th>
+<th>Cálculo</th>
+<th>EA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>\((1+0{,}225/12)^{12}-1 = (1{,}01875)^{12}-1\)</td>
+<td>24,97 %</td>
+</tr>
+<tr>
+<td><strong>B</strong></td>
+<td>\((1+0{,}24/4)^{4}-1 = (1{,}06)^{4}-1\)</td>
+<td><strong>26,25 %</strong></td>
+</tr>
+<tr>
+<td>C</td>
+<td>ya está en EA</td>
+<td>24,50 %</td>
+</tr>
+<tr>
+<td>D</td>
+<td>\((1+0{,}23/2)^{2}-1=(1{,}115)^{2}-1\)</td>
+<td>24,32 %</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>El distractor:</strong> la alternativa C tiene la tasa nominal más alta escrita en el papel (24,5 %) y muchos la escogen por lectura directa. Pero es <strong>efectiva</strong>, no nominal, así que no se capitaliza más. La B, con una tasa nominal apenas menor, capitaliza cuatro veces al año y termina siendo la más costosa. <strong>Nunca compares tasas nominales con distinta frecuencia de capitalización: conviértelas primero a EA.</strong></p>
+<hr />
+<h2 id="escenario-7">Escenario 7</h2>
+<h3 id="71">7.1</h3>
+<p>a) El orden en que se escojan los expedientes no cambia la muestra → <strong>combinación</strong>:</p>
+<p>\[C(12,4)=\frac{12!}{4!\,8!}=\frac{12\times11\times10\times9}{4\times3\times2\times1}=\frac{11.880}{24}=\mathbf{495}\]</p>
+<p>b) Los cargos son distintos, así que el orden importa → <strong>permutación</strong>:</p>
+<p>\[P(6,3)=6\times5\times4=\mathbf{120}\]</p>
+<p>c) En (a) el resultado es un conjunto: {exp. 3, 7, 9, 11} es la misma muestra sin importar el orden. En (b) el resultado es una asignación: Ana como supervisora y Luis como apoyo es distinto de Luis como supervisor y Ana como apoyo.</p>
+<h3 id="72">7.2</h3>
+<p>a) \(P(\text{devuelta}) = \dfrac{115}{190}=0{,}605\)</p>
+<p>b) \(P(\text{cumplimiento})=\dfrac{120}{190}=0{,}632\)</p>
+<p>c) \(P(\text{devuelta}\mid\text{cumplimiento})=\dfrac{75}{120}=0{,}625\) — el denominador cambia al total de la fila.</p>
+<p>d) \(P(\text{cumplimiento}\mid\text{devuelta})=\dfrac{75}{115}=0{,}652\) — el denominador cambia al total de la columna.</p>
+<p><strong>Los literales (c) y (d) responden preguntas distintas y dan números distintos. Confundirlos es la falacia de invertir la condicional.</strong></p>
+<p>e)</p>
+<p>\[P(D\cup C)=P(D)+P(C)-P(D\cap C)=\frac{115}{190}+\frac{120}{190}-\frac{75}{190}=\frac{160}{190}=0{,}842\]</p>
+<p>f) Serían independientes si \(P(D\cap C)=P(D)P(C)\):</p>
+<p>\[P(D)P(C)=0{,}605\times0{,}632 = 0{,}382 \qquad\text{vs.}\qquad P(D\cap C)=\frac{75}{190}=0{,}395\]</p>
+<p>No son iguales, así que <strong>no son independientes</strong>: conocer el tipo de amparo cambia (poco, pero cambia) la probabilidad de devolución.</p>
+<h3 id="73">7.3</h3>
+<p><strong>Respuesta correcta: C.</strong></p>
+<ul>
+<li><strong>A</strong> cae de lleno en la paradoja: compara los totales sin mirar la composición.</li>
+<li><strong>B</strong> es falsa. No hay contradicción lógica: la paradoja de Simpson es un fenómeno matemático perfectamente posible cuando los tamaños de los subgrupos son muy desiguales.</li>
+<li><strong>D</strong> es una excusa: totales distintos no impiden comparar proporciones; lo que impide la comparación directa es la <strong>diferente mezcla</strong> de casos.</li>
+<li><strong>C</strong> identifica correctamente el mecanismo: al Revisor A le asignaron 180 de sus 200 casos (90 %) en la categoría difícil, mientras que al B solo 50 de 250 (20 %).</li>
+</ul>
+<p><strong>Recomendación redactada:</strong> <em>Para comparar el desempeño de los dos revisores hay que hacerlo dentro de cada tipo de contrato, o estandarizar ambos a una misma mezcla de casos simples y complejos. Reportar una única tasa global sin controlar la composición de la carga asignada produce una conclusión invertida respecto de lo que muestran los datos.</em></p>
+<hr />
+<h2 id="escenario-8">Escenario 8</h2>
+<h3 id="81">8.1</h3>
+<p>a)</p>
+<p>\[620.000.000\times(1{,}058)\times(1{,}061)=620.000.000\times 1{,}122538 = \mathbf{\$695.973.560}\]</p>
+<p>b)</p>
+<p>\[\Delta\% = 1{,}122538-1 = \mathbf{12{,}25\%}\]</p>
+<p>(No 11,9 %, que es la suma simple de 5,8 + 6,1.)</p>
+<p>c)</p>
+<p>\[r_{\text{real}}=\frac{1{,}12254}{1{,}114}-1 = 0{,}00767 = \mathbf{+0{,}77\%}\]</p>
+<p><strong>Ganó poder adquisitivo, pero apenas.</strong> El valor del contrato creció 12,25 % nominal frente a una inflación del 11,4 %: en términos reales el aumento fue de menos de un punto porcentual. Un titular que dijera "el contrato aumentó 12 %" sería técnicamente cierto y económicamente engañoso.</p>
+<h3 id="82">8.2</h3>
+<p>a)</p>
+<p>\[4.800.000.000\times\frac{100}{121{,}4}=\mathbf{\$3.953.871.499{,}18}\]</p>
+<p>b)</p>
+<p>\[\frac{3.953.871.499{,}18-3.600.000.000}{3.600.000.000}\times100 = \mathbf{9{,}83\%}\]</p>
+<p>Comprobación por el cociente de factores: nominal \(= 4.800/3.600 - 1 = 33{,}33\%\); inflación \(= 21{,}4\%\).</p>
+<p>\[r_{\text{real}}=\frac{1{,}3333}{1{,}214}-1 = 9{,}83\%\ ✓\]</p>
+<p>c) Si \(4.800.000.000\) es el 12 %:</p>
+<p>\[\text{Total}=\frac{4.800.000.000}{0{,}12}=\mathbf{\$40.000.000.000}\]</p>
+<p>d) <strong>Sí es engañoso.</strong> El 33 % es la variación <strong>nominal</strong>, y de esos 33 puntos, 21,4 corresponden únicamente al aumento general de precios. El crecimiento real del gasto —es decir, el aumento en la cantidad de bienes y servicios efectivamente adquiridos— fue del 9,8 %, menos de un tercio de lo que sugiere el titular. Un informe correcto reportaría ambas cifras, o al menos aclararía que el 33 % está en pesos corrientes.</p>
+<h3 id="83">8.3</h3>
+<p><strong>Respuesta correcta: B.</strong></p>
+<p>Alternativa 1 — pago único descontado 6 meses:</p>
+<p>\[P_1=\frac{1.750.000.000}{(1{,}008)^6}=\frac{1.750.000.000}{1{,}0489358}=\$1.668.302.712{,}93\]</p>
+<p>Alternativa 2 — anualidad vencida de 6 cuotas:</p>
+<p>\[P_2=300.000.000\cdot\frac{1-(1{,}008)^{-6}}{0{,}008}=300.000.000\times 5{,}835521 = \$1.750.656.151{,}58\]</p>
+<p>Como \(P_2 > P_1\) por unos \(\$82{,}4\) millones, <strong>a quien recibe el dinero le conviene la Alternativa 2</strong>: aunque la suma nominal de las cuotas (\(\$1.800\) millones) supera al pago único en solo 50 millones, las cuotas llegan antes y por eso valen más hoy.</p>
+<p><strong>Los distractores:</strong></p>
+<ul>
+<li><strong>A</strong> mezcla una comparación nominal mal planteada con un argumento de riesgo que el enunciado no pide evaluar.</li>
+<li><strong>C</strong> es el error central de la unidad: sumar dineros de fechas distintas y concluir equivalencia.</li>
+<li><strong>D</strong> invierte el resultado; es la trampa para quien intuye que "un pago grande vale más" sin descontarlo.</li>
+</ul>
+<hr />
+<h2 id="registro-de-errores">Registro de errores</h2>
+<p>Al terminar cada tanda de ejercicios, anota aquí lo que fallaste. Este registro vale más para el examen final que releer los resúmenes.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Fecha</th>
+<th>Ejercicio</th>
+<th>Qué fallé</th>
+<th>Concepto a repasar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</main>
+</body>
+</html>

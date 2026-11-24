@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resúmenes teóricos — Álgebra Lineal</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ 04 - Álgebra Lineal / 3. Resúmenes teóricos</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="resúmenes-teóricos--álgebra-lineal">Resúmenes teóricos — Álgebra Lineal</h1>
+<p>Apuntes por escenario: definiciones precisas, teoremas, fórmulas y <strong>ejemplos numéricos resueltos
+paso a paso</strong>. Este es tu formulario de consulta permanente.</p>
+<blockquote>
+<p>✅ <strong>Reorganizado el 2 de octubre de 2026 según las ocho Lecturas Fundamentales.</strong> La versión
+anterior seguía el orden de un curso típico (vectores primero, matrices después). El contenido
+se conserva, pero ahora cada sección está en el escenario donde el módulo la ve, y se agregó lo
+que faltaba de las lecturas 3 a 8. Lo que no está en ninguna lectura va marcado como
+<strong>(complemento)</strong>. Todos los resultados numéricos están verificados computacionalmente: si te
+da distinto, revisa tu procedimiento antes de dudar del texto.</p>
+</blockquote>
+<p><strong>Índice</strong></p>
+<ol>
+<li><a href="#escenario-1--matrices-y-sistemas-de-ecuaciones">Escenario 1 — Matrices y sistemas de ecuaciones</a></li>
+<li><a href="#escenario-2--los-sistemas-de-ecuaciones-lineales">Escenario 2 — Los sistemas de ecuaciones lineales</a></li>
+<li><a href="#escenario-3--n-uplas-y-combinación-lineal">Escenario 3 — n-uplas y combinación lineal</a></li>
+<li><a href="#escenario-4--espacios-vectoriales-e-independencia">Escenario 4 — Espacios vectoriales e independencia</a></li>
+<li><a href="#escenario-5--base-y-dimensión">Escenario 5 — Base y dimensión</a></li>
+<li><a href="#escenario-6--transformaciones-lineales">Escenario 6 — Transformaciones lineales</a></li>
+<li><a href="#escenario-7--valores-y-vectores-propios">Escenario 7 — Valores y vectores propios</a></li>
+<li><a href="#escenario-8--aplicando-lo-aprendido">Escenario 8 — Aplicando lo aprendido</a></li>
+<li><a href="#extra--para-tu-programa-de-análisis-de-datos">Extra — Para tu programa de Análisis de Datos</a></li>
+<li><a href="#tablas-comparativas-de-métodos">Tablas comparativas de métodos</a></li>
+<li><a href="#errores-frecuentes">Errores frecuentes</a></li>
+</ol>
+<p><strong>Dónde quedó cada sección de la versión anterior:</strong> Matrices (antes Esc. 2) → Escenario 1 ·
+Sistemas, inversa y determinantes (antes Esc. 3 y 4) → Escenario 2 · Vectores en
+\(\mathbb{R}^n\) (antes Esc. 1) → Escenario 3 · Espacios vectoriales (antes Esc. 5) → Escenarios 4
+y 5 · Regresión, PCA e imágenes (antes Esc. 8) → Extra.</p>
+<hr />
+<h2 id="escenario-1--matrices-y-sistemas-de-ecuaciones">Escenario 1 — Matrices y sistemas de ecuaciones</h2>
+<blockquote>
+<p><strong>Lectura Fundamental 1 · organizar la información.</strong> Apuntes a fondo, ejercicios de la lectura resueltos y erratas: pestaña <strong>Escenario 1</strong> de <code>6. Cuaderno de Matrices.html</code>.</p>
+</blockquote>
+<h3 id="11-definición-y-notación">1.1 Definición y notación</h3>
+<p>Una <strong>matriz</strong> \(A\) de tamaño \(m \times n\) es un arreglo rectangular de \(m\) filas y \(n\) columnas:</p>
+<p>\[
+A = \begin{pmatrix}
+a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
+a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}
+\end{pmatrix}
+\]</p>
+<p>El elemento \(a_{ij}\) está en la <strong>fila \(i\)</strong> y la <strong>columna \(j\)</strong>. <strong>Primero fila, después
+columna</strong> — igual que la referencia de una celda en Excel, pero con el orden invertido respecto a
+la notación A1 (donde primero va la columna).</p>
+<h3 id="12-tipos-de-matrices">1.2 Tipos de matrices</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Definición</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cuadrada</strong></td>
+<td>\(m = n\)</td>
+<td>\(\begin{pmatrix}1&amp;2\\3&amp;4\end{pmatrix}\)</td>
+</tr>
+<tr>
+<td><strong>Identidad</strong> \(I_n\)</td>
+<td>Cuadrada, unos en la diagonal, ceros fuera</td>
+<td>\(\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}\)</td>
+</tr>
+<tr>
+<td><strong>Nula</strong></td>
+<td>Todos los elementos cero</td>
+<td>\(\begin{pmatrix}0&amp;0\\0&amp;0\end{pmatrix}\)</td>
+</tr>
+<tr>
+<td><strong>Diagonal</strong></td>
+<td>Cuadrada, ceros fuera de la diagonal</td>
+<td>\(\begin{pmatrix}2&amp;0\\0&amp;-3\end{pmatrix}\)</td>
+</tr>
+<tr>
+<td><strong>Triangular superior</strong></td>
+<td>Ceros bajo la diagonal</td>
+<td>\(\begin{pmatrix}1&amp;2\\0&amp;4\end{pmatrix}\)</td>
+</tr>
+<tr>
+<td><strong>Triangular inferior</strong></td>
+<td>Ceros sobre la diagonal</td>
+<td>\(\begin{pmatrix}1&amp;0\\3&amp;4\end{pmatrix}\)</td>
+</tr>
+<tr>
+<td><strong>Simétrica</strong></td>
+<td>\(A = A^T\)</td>
+<td>\(\begin{pmatrix}1&amp;2\\2&amp;5\end{pmatrix}\)</td>
+</tr>
+<tr>
+<td><strong>Antisimétrica</strong></td>
+<td>\(A^T = -A\) (diagonal nula)</td>
+<td>\(\begin{pmatrix}0&amp;3\\-3&amp;0\end{pmatrix}\)</td>
+</tr>
+</tbody>
+</table></div>
+<p>La lectura del Escenario 1 incluye también entre los «tipos» la <strong>escalonada</strong> y la
+<strong>escalonada reducida</strong>. Se definen en la sección 2.2, porque existen para resolver sistemas.</p>
+<h3 id="13-suma-y-producto-por-escalar">1.3 Suma y producto por escalar</h3>
+<p>Se hacen <strong>elemento a elemento</strong> y exigen matrices del <strong>mismo tamaño</strong>:</p>
+<p>\[(A + B)_{ij} = a_{ij} + b_{ij}, \qquad (cA)_{ij} = c\,a_{ij}\]</p>
+<h3 id="14-producto-matricial">1.4 Producto matricial</h3>
+<p>\[(AB)_{ij} = \sum_{k=1}^{n} a_{ik}\,b_{kj}\]</p>
+<p><strong>El elemento \((i,j)\) de \(AB\) es el producto punto de la fila \(i\) de \(A\) con la columna \(j\) de \(B\).</strong>
+Esa frase es toda la definición; memorízala así y nunca te vas a perder.</p>
+<p><strong>Condición de dimensiones:</strong></p>
+<p>\[\underbrace{(m \times n)}_{A} \cdot \underbrace{(n \times p)}_{B} = \underbrace{(m \times p)}_{AB}\]</p>
+<p>Las dimensiones "internas" deben coincidir; las "externas" dan el resultado.</p>
+<p><strong>Propiedades que SÍ se cumplen:</strong></p>
+<ul>
+<li>Asociativa: \((AB)C = A(BC)\)</li>
+<li>Distributiva: \(A(B + C) = AB + AC\)</li>
+<li>\(AI = IA = A\)</li>
+<li>\(c(AB) = (cA)B = A(cB)\)</li>
+</ul>
+<p><strong>Propiedades que NO se cumplen (ojo, aquí está la mitad de los errores del curso):</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Falso</th>
+<th>Realidad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(AB = BA\)</td>
+<td>En general <strong>no</strong>. El producto matricial <strong>no es conmutativo</strong>.</td>
+</tr>
+<tr>
+<td>\(AB = 0 \Rightarrow A=0\) o \(B=0\)</td>
+<td>Falso. Existen <strong>divisores de cero</strong>.</td>
+</tr>
+<tr>
+<td>\(AB = AC \Rightarrow B = C\)</td>
+<td>Falso. <strong>No hay ley de cancelación</strong> (salvo que \(A\) sea invertible).</td>
+</tr>
+<tr>
+<td>\((A+B)^2 = A^2 + 2AB + B^2\)</td>
+<td>Falso. Lo correcto: \((A+B)^2 = A^2 + AB + BA + B^2\).</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="15-transpuesta">1.5 Transpuesta</h3>
+<p>\((A^T)_{ij} = a_{ji}\): se intercambian filas por columnas. Si \(A\) es \(m \times n\), entonces \(A^T\)
+es \(n \times m\).</p>
+<p><strong>Propiedades:</strong></p>
+<ul>
+<li>\((A^T)^T = A\)</li>
+<li>\((A + B)^T = A^T + B^T\)</li>
+<li>\((cA)^T = cA^T\)</li>
+<li>\(\boxed{(AB)^T = B^TA^T}\) ← <strong>el orden se invierte</strong></li>
+</ul>
+<p>La última es de las que más se equivoca. Razónala con dimensiones: si \(A\) es \(2\times3\) y \(B\) es
+\(3\times4\), entonces \(AB\) es \(2\times4\) y \((AB)^T\) es \(4\times2\). Ahora, \(A^TB^T\) sería
+\((3\times2)(4\times3)\), que <strong>ni siquiera está definido</strong>. En cambio \(B^TA^T\) es
+\((4\times3)(3\times2) = 4\times2\). ✓</p>
+<p><strong>Traza</strong> (solo para cuadradas): \(\text{tr}(A) = \sum_i a_{ii}\), la suma de la diagonal.</p>
+<h3 id="16-de-la-igualdad-de-matrices-a-zzmath228zz">1.6 De la igualdad de matrices a \(Ax = b\)</h3>
+<p>La lectura llega aquí desde la igualdad de matrices: si \(HX = P\) con \(X\) desconocida, igualar elemento
+a elemento da un sistema de ecuaciones.</p>
+<p>Un sistema de \(m\) ecuaciones con \(n\) incógnitas:</p>
+<p>\[
+\begin{cases}
+a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1 \\
+a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n = b_2 \\
+\qquad\qquad \vdots \\
+a_{m1}x_1 + a_{m2}x_2 + \cdots + a_{mn}x_n = b_m
+\end{cases}
+\]</p>
+<p><strong>Forma matricial:</strong> \(Ax = b\), con \(A\) la matriz de coeficientes, \(x\) el vector de incógnitas y \(b\)
+el de términos independientes.</p>
+<p><strong>Matriz aumentada:</strong> \([A \mid b]\), que es \(A\) con la columna \(b\) pegada a la derecha. Es sobre esta
+matriz que se trabaja.</p>
+<h3 id="-ejemplo-resuelto-11--producto-matricial-y-no-conmutatividad">📌 Ejemplo resuelto 1.1 — Producto matricial y no conmutatividad</h3>
+<p>Sean</p>
+<p>\[A = \begin{pmatrix} 2 &amp; -1 \\ 3 &amp; 4 \end{pmatrix}, \qquad B = \begin{pmatrix} 1 &amp; 0 \\ -2 &amp; 5 \end{pmatrix}\]</p>
+<p><strong>Cálculo de \(AB\):</strong></p>
+<ul>
+<li>\((AB)_{11} = (2)(1) + (-1)(-2) = 2 + 2 = 4\)</li>
+<li>\((AB)_{12} = (2)(0) + (-1)(5) = 0 - 5 = -5\)</li>
+<li>\((AB)_{21} = (3)(1) + (4)(-2) = 3 - 8 = -5\)</li>
+<li>\((AB)_{22} = (3)(0) + (4)(5) = 0 + 20 = 20\)</li>
+</ul>
+<p>\[AB = \begin{pmatrix} 4 &amp; -5 \\ -5 &amp; 20 \end{pmatrix}\]</p>
+<p><strong>Cálculo de \(BA\):</strong></p>
+<ul>
+<li>\((BA)_{11} = (1)(2) + (0)(3) = 2\)</li>
+<li>\((BA)_{12} = (1)(-1) + (0)(4) = -1\)</li>
+<li>\((BA)_{21} = (-2)(2) + (5)(3) = -4 + 15 = 11\)</li>
+<li>\((BA)_{22} = (-2)(-1) + (5)(4) = 2 + 20 = 22\)</li>
+</ul>
+<p>\[BA = \begin{pmatrix} 2 &amp; -1 \\ 11 &amp; 22 \end{pmatrix}\]</p>
+<p><strong>Conclusión:</strong> \(AB \neq BA\). Ni siquiera se parecen.</p>
+<h3 id="-ejemplo-resuelto-12--verificación-de-zzmath251zz">📌 Ejemplo resuelto 1.2 — Verificación de \((AB)^T = B^TA^T\)</h3>
+<p>Con</p>
+<p>\[C = \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix}, \qquad D = \begin{pmatrix} 0 &amp; -1 \\ 2 &amp; 5 \end{pmatrix}\]</p>
+<p>\[CD = \begin{pmatrix} 1\cdot0 + 2\cdot2 &amp; 1\cdot(-1) + 2\cdot5 \\ 3\cdot0 + 4\cdot2 &amp; 3\cdot(-1) + 4\cdot5 \end{pmatrix} = \begin{pmatrix} 4 &amp; 9 \\ 8 &amp; 17 \end{pmatrix}\]</p>
+<p>\[(CD)^T = \begin{pmatrix} 4 &amp; 8 \\ 9 &amp; 17 \end{pmatrix}\]</p>
+<p>Por el otro lado:</p>
+<p>\[D^T = \begin{pmatrix} 0 &amp; 2 \\ -1 &amp; 5 \end{pmatrix}, \qquad C^T = \begin{pmatrix} 1 &amp; 3 \\ 2 &amp; 4 \end{pmatrix}\]</p>
+<p>\[D^TC^T = \begin{pmatrix} 0\cdot1 + 2\cdot2 &amp; 0\cdot3 + 2\cdot4 \\ (-1)\cdot1 + 5\cdot2 &amp; (-1)\cdot3 + 5\cdot4 \end{pmatrix} = \begin{pmatrix} 4 &amp; 8 \\ 9 &amp; 17 \end{pmatrix} \;\checkmark\]</p>
+<h3 id="-ejemplo-resuelto-13--divisores-de-cero">📌 Ejemplo resuelto 1.3 — Divisores de cero</h3>
+<p>\[M = \begin{pmatrix} 1 &amp; -1 \\ -1 &amp; 1 \end{pmatrix}, \qquad N = \begin{pmatrix} 1 &amp; 1 \\ 1 &amp; 1 \end{pmatrix}\]</p>
+<p>\[MN = \begin{pmatrix} 1 - 1 &amp; 1 - 1 \\ -1 + 1 &amp; -1 + 1 \end{pmatrix} = \begin{pmatrix} 0 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}\]</p>
+<p>Ninguna de las dos es la matriz nula, y sin embargo el producto sí lo es. Esto <strong>no puede pasar con
+números reales</strong> y es una de las diferencias esenciales del álgebra matricial.</p>
+<hr />
+<h2 id="escenario-2--los-sistemas-de-ecuaciones-lineales">Escenario 2 — Los sistemas de ecuaciones lineales</h2>
+<blockquote>
+<p><strong>Lectura Fundamental 2 · estudiando lo desconocido.</strong> Apuntes a fondo, ejercicios de la lectura resueltos y erratas: pestaña <strong>Escenario 2</strong> de <code>6. Cuaderno de Matrices.html</code>.</p>
+</blockquote>
+<h3 id="21-operaciones-elementales-de-fila">2.1 Operaciones elementales de fila</h3>
+<p>Solo hay tres, y <strong>solo estas tres</strong> están permitidas:</p>
+<ol>
+<li><strong>Intercambio:</strong> \(F_i \leftrightarrow F_j\)</li>
+<li><strong>Escalamiento:</strong> \(F_i \leftarrow cF_i\), con \(c \neq 0\)</li>
+<li><strong>Combinación:</strong> \(F_i \leftarrow F_i + cF_j\)</li>
+</ol>
+<p>Las tres producen un sistema <strong>equivalente</strong> (con exactamente las mismas soluciones). Anota siempre
+qué operación hiciste antes de hacerla: es tu rastro de auditoría.</p>
+<h3 id="22-formas-escalonadas">2.2 Formas escalonadas</h3>
+<p><strong>Forma escalonada (FE)</strong> — resultado de la eliminación de <strong>Gauss</strong>:</p>
+<ul>
+<li>Las filas nulas van al final.</li>
+<li>El primer elemento no nulo de cada fila (el <strong>pivote</strong>) está estrictamente a la derecha del
+  pivote de la fila anterior.</li>
+</ul>
+<p><strong>Forma escalonada reducida (FER)</strong> — resultado de <strong>Gauss-Jordan</strong>:</p>
+<ul>
+<li>Todo lo anterior, y además:</li>
+<li>cada pivote vale <strong>1</strong>;</li>
+<li>cada pivote es el <strong>único elemento no nulo de su columna</strong> (ceros arriba y abajo).</li>
+</ul>
+<p>La FER es <strong>única</strong> para cada matriz. La FE no lo es.</p>
+<h3 id="23-rango-y-clasificación">2.3 Rango y clasificación</h3>
+<p><strong>Rango</strong> \(\text{rg}(A)\) = número de pivotes de la forma escalonada de \(A\).</p>
+<p><strong>Teorema de Rouché-Frobenius</strong> — el «esquema de decisión» de la lectura, que usa \(R_c\) y \(R_A\)
+para los rangos de \(A\) y de \([A|b]\). Para el sistema \(Ax = b\) con \(n\) incógnitas:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Condición</th>
+<th>Clasificación</th>
+<th>Soluciones</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(\text{rg}(A) &lt; \text{rg}([A\mid b])\)</td>
+<td><strong>Inconsistente</strong></td>
+<td>Ninguna</td>
+</tr>
+<tr>
+<td>\(\text{rg}(A) = \text{rg}([A\mid b]) = n\)</td>
+<td>Consistente <strong>determinado</strong></td>
+<td>Exactamente una</td>
+</tr>
+<tr>
+<td>\(\text{rg}(A) = \text{rg}([A\mid b]) &lt; n\)</td>
+<td>Consistente <strong>indeterminado</strong></td>
+<td>Infinitas, con \(n - \text{rg}(A)\) parámetros</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Señales visuales en la matriz reducida:</strong></p>
+<ul>
+<li>Fila del tipo \((0\;0\;0 \mid k)\) con \(k \neq 0\) → traduce a \(0 = k\), absurdo → <strong>inconsistente</strong>.</li>
+<li>Fila completamente nula \((0\;0\;0 \mid 0)\) → ecuación redundante → posible <strong>indeterminado</strong>.</li>
+</ul>
+<p><strong>Sistemas homogéneos</strong> (\(b = 0\)): siempre son consistentes, porque \(x = 0\) siempre es solución
+(la <strong>solución trivial</strong>). La pregunta interesante es si tienen soluciones no triviales, y las
+tienen exactamente cuando \(\text{rg}(A) &lt; n\).</p>
+<h3 id="24-matriz-inversa">2.4 Matriz inversa</h3>
+<p><strong>Definición.</strong> \(A\) cuadrada es <strong>invertible</strong> (o <strong>no singular</strong>) si existe \(A^{-1}\) con</p>
+<p>\[AA^{-1} = A^{-1}A = I\]</p>
+<p>La inversa, cuando existe, es <strong>única</strong>.</p>
+<p><strong>Teorema.</strong> \(A\) es invertible \(\iff \det(A) \neq 0 \iff \text{rg}(A) = n \iff\) las columnas de \(A\)
+son linealmente independientes \(\iff\) el sistema \(Ax = b\) tiene solución única para todo \(b\).</p>
+<p>Estas cinco condiciones son <strong>la misma cosa dicha de cinco maneras</strong>. Ese teorema (a veces llamado
+"teorema de la matriz invertible") es el hilo conductor de todo el curso.</p>
+<p><strong>Fórmula para 2×2 (memorízala):</strong></p>
+<p>\[\begin{pmatrix} a &amp; b \\ c &amp; d\end{pmatrix}^{-1} = \frac{1}{ad - bc}\begin{pmatrix} d &amp; -b \\ -c &amp; a\end{pmatrix}\]</p>
+<p>Regla mnemotécnica: se intercambian \(a\) y \(d\), se cambia el signo a \(b\) y \(c\), y se divide todo por
+el determinante.</p>
+<p><strong>Propiedades:</strong></p>
+<ul>
+<li>\((A^{-1})^{-1} = A\)</li>
+<li>\(\boxed{(AB)^{-1} = B^{-1}A^{-1}}\) ← otra vez se invierte el orden</li>
+<li>\((A^T)^{-1} = (A^{-1})^T\)</li>
+<li>\(\det(A^{-1}) = 1/\det(A)\)</li>
+</ul>
+<h3 id="25-determinantes">2.5 Determinantes</h3>
+<p><strong>2×2:</strong></p>
+<p>\[\det\begin{pmatrix} a &amp; b \\ c &amp; d\end{pmatrix} = ad - bc\]</p>
+<p><strong>Menor y cofactor.</strong> El <strong>menor</strong> \(M_{ij}\) es el determinante de la matriz que queda al eliminar
+la fila \(i\) y la columna \(j\). El <strong>cofactor</strong> es</p>
+<p>\[C_{ij} = (-1)^{i+j}M_{ij}\]</p>
+<p>El patrón de signos para 3×3:</p>
+<p>\[\begin{pmatrix} + &amp; - &amp; + \\ - &amp; + &amp; - \\ + &amp; - &amp; + \end{pmatrix}\]</p>
+<p><strong>Desarrollo por cofactores</strong> (por la fila \(i\)):</p>
+<p>\[\det(A) = \sum_{j=1}^{n} a_{ij}C_{ij}\]</p>
+<p>Se puede desarrollar por <strong>cualquier fila o columna</strong>. Elige siempre la que tenga más ceros.</p>
+<p><strong>Propiedades del determinante:</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Propiedad</th>
+<th>Enunciado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transpuesta</td>
+<td>\(\det(A^T) = \det(A)\)</td>
+</tr>
+<tr>
+<td>Producto</td>
+<td>\(\det(AB) = \det(A)\det(B)\)</td>
+</tr>
+<tr>
+<td>Escalar</td>
+<td>\(\det(cA) = c^n\det(A)\) para \(A\) de \(n\times n\)</td>
+</tr>
+<tr>
+<td>Inversa</td>
+<td>\(\det(A^{-1}) = 1/\det(A)\)</td>
+</tr>
+<tr>
+<td>Triangular</td>
+<td>Producto de la diagonal</td>
+</tr>
+<tr>
+<td>Fila nula</td>
+<td>Si hay una fila (o columna) de ceros, \(\det = 0\)</td>
+</tr>
+<tr>
+<td>Filas iguales</td>
+<td>Si dos filas (o columnas) son iguales o proporcionales, \(\det = 0\)</td>
+</tr>
+<tr>
+<td>Intercambio</td>
+<td>\(F_i \leftrightarrow F_j\) cambia el <strong>signo</strong> del determinante</td>
+</tr>
+<tr>
+<td>Escalamiento de fila</td>
+<td>\(F_i \leftarrow cF_i\) multiplica el determinante por \(c\)</td>
+</tr>
+<tr>
+<td>Combinación</td>
+<td>\(F_i \leftarrow F_i + cF_j\) <strong>no altera</strong> el determinante</td>
+</tr>
+</tbody>
+</table></div>
+<p>La última es oro: permite crear ceros antes de desarrollar, sin tener que corregir nada.</p>
+<h3 id="26-método-de-la-adjunta">2.6 Método de la adjunta</h3>
+<p>\[A^{-1} = \frac{1}{\det(A)}\,\text{adj}(A), \qquad \text{adj}(A) = C^T\]</p>
+<p>donde \(C\) es la matriz de cofactores. <strong>Sí: la adjunta es la transpuesta de la matriz de
+cofactores.</strong> Olvidar la transposición es el error clásico de este método.</p>
+<h3 id="27-regla-de-cramer">2.7 Regla de Cramer</h3>
+<p>Si \(\det(A) \neq 0\), el sistema \(Ax = b\) tiene solución única dada por</p>
+<p>\[x_i = \frac{\det(A_i)}{\det(A)}\]</p>
+<p>donde \(A_i\) es \(A\) con la columna \(i\) reemplazada por \(b\).</p>
+<p>Es elegante, pero para \(n \geq 4\) es computacionalmente absurda. Sirve para 2×2, 3×3 y para
+demostrar cosas.</p>
+<h3 id="-ejemplo-resuelto-21--sistema-33-por-gauss-jordan-completo">📌 Ejemplo resuelto 2.1 — Sistema 3×3 por Gauss-Jordan (COMPLETO)</h3>
+<p>Resolver:</p>
+<p>\[
+\begin{cases}
+x + 2y - z = 3 \\
+2x - y + 3z = 6 \\
+x + y + 2z = 5
+\end{cases}
+\]</p>
+<p><strong>Paso 0 — Matriz aumentada</strong></p>
+<p>\[
+[A \mid b] = \left(\begin{array}{ccc|c}
+1 &amp; 2 &amp; -1 &amp; 3 \\
+2 &amp; -1 &amp; 3 &amp; 6 \\
+1 &amp; 1 &amp; 2 &amp; 5
+\end{array}\right)
+\]</p>
+<p>El elemento \(a_{11} = 1\) ya es un pivote cómodo. Hacemos ceros debajo.</p>
+<p><strong>Paso 1 — \(F_2 \leftarrow F_2 - 2F_1\)</strong></p>
+<p>Fila 2 nueva: \((2-2\cdot1,\; -1-2\cdot2,\; 3-2\cdot(-1) \mid 6-2\cdot3) = (0,\,-5,\,5 \mid 0)\)</p>
+<p>\[\left(\begin{array}{ccc|c}
+1 &amp; 2 &amp; -1 &amp; 3 \\
+0 &amp; -5 &amp; 5 &amp; 0 \\
+1 &amp; 1 &amp; 2 &amp; 5
+\end{array}\right)\]</p>
+<p><strong>Paso 2 — \(F_3 \leftarrow F_3 - F_1\)</strong></p>
+<p>Fila 3 nueva: \((1-1,\; 1-2,\; 2-(-1) \mid 5-3) = (0,\,-1,\,3 \mid 2)\)</p>
+<p>\[\left(\begin{array}{ccc|c}
+1 &amp; 2 &amp; -1 &amp; 3 \\
+0 &amp; -5 &amp; 5 &amp; 0 \\
+0 &amp; -1 &amp; 3 &amp; 2
+\end{array}\right)\]</p>
+<p><strong>Paso 3 — \(F_2 \leftarrow -\tfrac{1}{5}F_2\)</strong> (normalizar el segundo pivote a 1)</p>
+<p>\[\left(\begin{array}{ccc|c}
+1 &amp; 2 &amp; -1 &amp; 3 \\
+0 &amp; 1 &amp; -1 &amp; 0 \\
+0 &amp; -1 &amp; 3 &amp; 2
+\end{array}\right)\]</p>
+<p><strong>Paso 4 — \(F_1 \leftarrow F_1 - 2F_2\)</strong> (cero <strong>arriba</strong> del segundo pivote)</p>
+<p>Fila 1: \((1,\; 2-2\cdot1,\; -1-2\cdot(-1) \mid 3-2\cdot0) = (1,\,0,\,1 \mid 3)\)</p>
+<p><strong>Paso 5 — \(F_3 \leftarrow F_3 + F_2\)</strong> (cero <strong>abajo</strong> del segundo pivote)</p>
+<p>Fila 3: \((0,\; -1+1,\; 3+(-1) \mid 2+0) = (0,\,0,\,2 \mid 2)\)</p>
+<p>\[\left(\begin{array}{ccc|c}
+1 &amp; 0 &amp; 1 &amp; 3 \\
+0 &amp; 1 &amp; -1 &amp; 0 \\
+0 &amp; 0 &amp; 2 &amp; 2
+\end{array}\right)\]</p>
+<p><strong>Paso 6 — \(F_3 \leftarrow \tfrac{1}{2}F_3\)</strong></p>
+<p>\[\left(\begin{array}{ccc|c}
+1 &amp; 0 &amp; 1 &amp; 3 \\
+0 &amp; 1 &amp; -1 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 1
+\end{array}\right)\]</p>
+<p><strong>Paso 7 — \(F_1 \leftarrow F_1 - F_3\) y \(F_2 \leftarrow F_2 + F_3\)</strong></p>
+<ul>
+<li>\(F_1\): \((1,\,0,\,1-1 \mid 3-1) = (1,\,0,\,0 \mid 2)\)</li>
+<li>\(F_2\): \((0,\,1,\,-1+1 \mid 0+1) = (0,\,1,\,0 \mid 1)\)</li>
+</ul>
+<p>\[\left(\begin{array}{ccc|c}
+1 &amp; 0 &amp; 0 &amp; 2 \\
+0 &amp; 1 &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 1 &amp; 1
+\end{array}\right)\]</p>
+<p><strong>Solución:</strong> \(x = 2\), \(y = 1\), \(z = 1\).</p>
+<p><strong>Verificación (nunca la omitas):</strong></p>
+<ul>
+<li>\(2 + 2(1) - 1 = 3\) ✓</li>
+<li>\(2(2) - 1 + 3(1) = 4 - 1 + 3 = 6\) ✓</li>
+<li>\(2 + 1 + 2(1) = 5\) ✓</li>
+</ul>
+<p>Rango: \(\text{rg}(A) = \text{rg}([A|b]) = 3 = n\) → consistente determinado, como salió.</p>
+<h3 id="-ejemplo-resuelto-22--sistema-inconsistente">📌 Ejemplo resuelto 2.2 — Sistema inconsistente</h3>
+<p>\[
+\begin{cases}
+x + y + 2z = 4 \\
+2x + 3y - z = 1 \\
+3x + 4y + z = 6
+\end{cases}
+\]</p>
+<p>Su forma escalonada reducida es</p>
+<p>\[\left(\begin{array}{ccc|c}
+1 &amp; 0 &amp; 7 &amp; 0 \\
+0 &amp; 1 &amp; -5 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right)\]</p>
+<p>La tercera fila dice \(0x + 0y + 0z = 1\), es decir \(0 = 1\). Absurdo.</p>
+<p>\(\text{rg}(A) = 2\) pero \(\text{rg}([A|b]) = 3\). Como \(2 \neq 3\): <strong>sistema inconsistente, sin
+solución</strong>.</p>
+<p>Observación práctica: nota que la tercera ecuación original es la suma de las dos primeras en el
+lado izquierdo (\(1+2=3\), \(1+3=4\), \(2-1=1\)) pero <strong>no</strong> en el derecho (\(4+1=5 \neq 6\)). Ahí estaba
+la contradicción.</p>
+<h3 id="-ejemplo-resuelto-23--sistema-indeterminado">📌 Ejemplo resuelto 2.3 — Sistema indeterminado</h3>
+<p>\[
+\begin{cases}
+x + y - z = 2 \\
+2x + 3y + z = 9 \\
+3x + 4y = 11
+\end{cases}
+\]</p>
+<p>Forma escalonada reducida:</p>
+<p>\[\left(\begin{array}{ccc|c}
+1 &amp; 0 &amp; -4 &amp; -3 \\
+0 &amp; 1 &amp; 3 &amp; 5 \\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{array}\right)\]</p>
+<p>\(\text{rg}(A) = \text{rg}([A|b]) = 2 &lt; 3 = n\) → <strong>infinitas soluciones</strong>, con \(3 - 2 = 1\) variable
+libre.</p>
+<p>Las columnas 1 y 2 tienen pivote; la columna 3 no. Entonces \(z\) es la <strong>variable libre</strong>. Hacemos
+\(z = t\):</p>
+<ul>
+<li>Fila 1: \(x - 4t = -3 \Rightarrow x = 4t - 3\)</li>
+<li>Fila 2: \(y + 3t = 5 \Rightarrow y = 5 - 3t\)</li>
+</ul>
+<p><strong>Solución general:</strong></p>
+<p>\[(x, y, z) = (4t - 3,\; 5 - 3t,\; t), \qquad t \in \mathbb{R}\]</p>
+<p>O en forma vectorial:</p>
+<p>\[\begin{pmatrix}x\\y\\z\end{pmatrix} = \begin{pmatrix}-3\\5\\0\end{pmatrix} + t\begin{pmatrix}4\\-3\\1\end{pmatrix}\]</p>
+<p><strong>Verificación con \(t = 1\):</strong> \((x,y,z) = (1, 2, 1)\).</p>
+<ul>
+<li>\(1 + 2 - 1 = 2\) ✓</li>
+<li>\(2 + 6 + 1 = 9\) ✓</li>
+<li>\(3 + 8 + 0 = 11\) ✓</li>
+</ul>
+<p><strong>Verificación con \(t = 0\):</strong> \((-3, 5, 0)\).</p>
+<ul>
+<li>\(-3 + 5 - 0 = 2\) ✓</li>
+<li>\(-6 + 15 + 0 = 9\) ✓</li>
+<li>\(-9 + 20 = 11\) ✓</li>
+</ul>
+<h3 id="-ejemplo-resuelto-24--determinante-33-por-cofactores">📌 Ejemplo resuelto 2.4 — Determinante 3×3 por cofactores</h3>
+<p>\[A = \begin{pmatrix} 1 &amp; 2 &amp; -1 \\ 2 &amp; -1 &amp; 3 \\ 1 &amp; 1 &amp; 2 \end{pmatrix}\]</p>
+<p>Desarrollamos por la <strong>primera fila</strong>:</p>
+<p>\[\det(A) = a_{11}C_{11} + a_{12}C_{12} + a_{13}C_{13}\]</p>
+<p><strong>Cofactor \(C_{11}\)</strong> (elimino fila 1, columna 1):</p>
+<p>\[M_{11} = \det\begin{pmatrix} -1 &amp; 3 \\ 1 &amp; 2\end{pmatrix} = (-1)(2) - (3)(1) = -2 - 3 = -5\]
+\[C_{11} = (-1)^{1+1}(-5) = +(-5) = -5\]</p>
+<p><strong>Cofactor \(C_{12}\)</strong> (elimino fila 1, columna 2):</p>
+<p>\[M_{12} = \det\begin{pmatrix} 2 &amp; 3 \\ 1 &amp; 2\end{pmatrix} = (2)(2) - (3)(1) = 4 - 3 = 1\]
+\[C_{12} = (-1)^{1+2}(1) = -1\]</p>
+<p><strong>Cofactor \(C_{13}\)</strong> (elimino fila 1, columna 3):</p>
+<p>\[M_{13} = \det\begin{pmatrix} 2 &amp; -1 \\ 1 &amp; 1\end{pmatrix} = (2)(1) - (-1)(1) = 2 + 1 = 3\]
+\[C_{13} = (-1)^{1+3}(3) = +3\]</p>
+<p><strong>Determinante:</strong></p>
+<p>\[\det(A) = (1)(-5) + (2)(-1) + (-1)(3) = -5 - 2 - 3 = -10\]</p>
+<p><strong>Comprobación desarrollando por la tercera fila</strong> (buen autochequeo):</p>
+<p>\[M_{31} = \det\begin{pmatrix}2 &amp; -1 \\ -1 &amp; 3\end{pmatrix} = 6 - 1 = 5, \quad C_{31} = +5\]
+\[M_{32} = \det\begin{pmatrix}1 &amp; -1 \\ 2 &amp; 3\end{pmatrix} = 3 + 2 = 5, \quad C_{32} = -5\]
+\[M_{33} = \det\begin{pmatrix}1 &amp; 2 \\ 2 &amp; -1\end{pmatrix} = -1 - 4 = -5, \quad C_{33} = -5\]</p>
+<p>\[\det(A) = (1)(5) + (1)(-5) + (2)(-5) = 5 - 5 - 10 = -10 \;\checkmark\]</p>
+<p>Como \(\det(A) = -10 \neq 0\), la matriz es invertible.</p>
+<h3 id="-ejemplo-resuelto-25--inversa-33-por-gauss-jordan">📌 Ejemplo resuelto 2.5 — Inversa 3×3 por Gauss-Jordan</h3>
+<p>Con la misma \(A\), reducimos \([A \mid I]\) hasta \([I \mid A^{-1}]\).</p>
+<p>\[\left(\begin{array}{ccc|ccc}
+1 &amp; 2 &amp; -1 &amp; 1 &amp; 0 &amp; 0 \\
+2 &amp; -1 &amp; 3 &amp; 0 &amp; 1 &amp; 0 \\
+1 &amp; 1 &amp; 2 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right)\]</p>
+<p><strong>\(F_2 \leftarrow F_2 - 2F_1\) y \(F_3 \leftarrow F_3 - F_1\):</strong></p>
+<p>\[\left(\begin{array}{ccc|ccc}
+1 &amp; 2 &amp; -1 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; -5 &amp; 5 &amp; -2 &amp; 1 &amp; 0 \\
+0 &amp; -1 &amp; 3 &amp; -1 &amp; 0 &amp; 1
+\end{array}\right)\]</p>
+<p><strong>\(F_2 \leftarrow -\tfrac{1}{5}F_2\):</strong></p>
+<p>\[\left(\begin{array}{ccc|ccc}
+1 &amp; 2 &amp; -1 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; -1 &amp; \tfrac{2}{5} &amp; -\tfrac{1}{5} &amp; 0 \\
+0 &amp; -1 &amp; 3 &amp; -1 &amp; 0 &amp; 1
+\end{array}\right)\]</p>
+<p><strong>\(F_1 \leftarrow F_1 - 2F_2\) y \(F_3 \leftarrow F_3 + F_2\):</strong></p>
+<p>\[\left(\begin{array}{ccc|ccc}
+1 &amp; 0 &amp; 1 &amp; \tfrac{1}{5} &amp; \tfrac{2}{5} &amp; 0 \\
+0 &amp; 1 &amp; -1 &amp; \tfrac{2}{5} &amp; -\tfrac{1}{5} &amp; 0 \\
+0 &amp; 0 &amp; 2 &amp; -\tfrac{3}{5} &amp; -\tfrac{1}{5} &amp; 1
+\end{array}\right)\]</p>
+<p><strong>\(F_3 \leftarrow \tfrac{1}{2}F_3\):</strong></p>
+<p>\[\left(\begin{array}{ccc|ccc}
+1 &amp; 0 &amp; 1 &amp; \tfrac{1}{5} &amp; \tfrac{2}{5} &amp; 0 \\
+0 &amp; 1 &amp; -1 &amp; \tfrac{2}{5} &amp; -\tfrac{1}{5} &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; -\tfrac{3}{10} &amp; -\tfrac{1}{10} &amp; \tfrac{1}{2}
+\end{array}\right)\]</p>
+<p><strong>\(F_1 \leftarrow F_1 - F_3\) y \(F_2 \leftarrow F_2 + F_3\):</strong></p>
+<p>\[\left(\begin{array}{ccc|ccc}
+1 &amp; 0 &amp; 0 &amp; \tfrac{1}{2} &amp; \tfrac{1}{2} &amp; -\tfrac{1}{2} \\
+0 &amp; 1 &amp; 0 &amp; \tfrac{1}{10} &amp; -\tfrac{3}{10} &amp; \tfrac{1}{2} \\
+0 &amp; 0 &amp; 1 &amp; -\tfrac{3}{10} &amp; -\tfrac{1}{10} &amp; \tfrac{1}{2}
+\end{array}\right)\]</p>
+<p>\[\boxed{A^{-1} = \begin{pmatrix}
+\tfrac{1}{2} &amp; \tfrac{1}{2} &amp; -\tfrac{1}{2} \\[2pt]
+\tfrac{1}{10} &amp; -\tfrac{3}{10} &amp; \tfrac{1}{2} \\[2pt]
+-\tfrac{3}{10} &amp; -\tfrac{1}{10} &amp; \tfrac{1}{2}
+\end{pmatrix}
+= \frac{1}{10}\begin{pmatrix}
+5 &amp; 5 &amp; -5 \\
+1 &amp; -3 &amp; 5 \\
+-3 &amp; -1 &amp; 5
+\end{pmatrix}}\]</p>
+<p><strong>Verificación por el método de la adjunta.</strong> Los cofactores completos de \(A\) son:</p>
+<p>\[C = \begin{pmatrix} -5 &amp; -1 &amp; 3 \\ -5 &amp; 3 &amp; 1 \\ 5 &amp; -5 &amp; -5\end{pmatrix}, \qquad
+\text{adj}(A) = C^T = \begin{pmatrix} -5 &amp; -5 &amp; 5 \\ -1 &amp; 3 &amp; -5 \\ 3 &amp; 1 &amp; -5\end{pmatrix}\]</p>
+<p>\[A^{-1} = \frac{1}{-10}\begin{pmatrix} -5 &amp; -5 &amp; 5 \\ -1 &amp; 3 &amp; -5 \\ 3 &amp; 1 &amp; -5\end{pmatrix}
+= \begin{pmatrix} \tfrac{1}{2} &amp; \tfrac{1}{2} &amp; -\tfrac{1}{2} \\[2pt] \tfrac{1}{10} &amp; -\tfrac{3}{10} &amp; \tfrac{1}{2} \\[2pt] -\tfrac{3}{10} &amp; -\tfrac{1}{10} &amp; \tfrac{1}{2}\end{pmatrix} \;\checkmark\]</p>
+<p>Los dos métodos coinciden.</p>
+<h3 id="-ejemplo-resuelto-26--regla-de-cramer">📌 Ejemplo resuelto 2.6 — Regla de Cramer</h3>
+<p>Resolver</p>
+<p>\[
+\begin{cases}
+2x - y + 3z = 9 \\
+x + 2y - z = 2 \\
+3x + y + z = 8
+\end{cases}
+\]</p>
+<p>\[A = \begin{pmatrix} 2 &amp; -1 &amp; 3 \\ 1 &amp; 2 &amp; -1 \\ 3 &amp; 1 &amp; 1\end{pmatrix}, \qquad b = \begin{pmatrix}9\\2\\8\end{pmatrix}\]</p>
+<p><strong>Determinante principal</strong> (por la primera fila):</p>
+<p>\[\det(A) = 2\begin{vmatrix}2 &amp; -1 \\ 1 &amp; 1\end{vmatrix} - (-1)\begin{vmatrix}1 &amp; -1 \\ 3 &amp; 1\end{vmatrix} + 3\begin{vmatrix}1 &amp; 2 \\ 3 &amp; 1\end{vmatrix}\]
+\[= 2(2+1) + 1(1+3) + 3(1-6) = 6 + 4 - 15 = -5\]</p>
+<p>Como \(\det(A) = -5 \neq 0\), hay solución única.</p>
+<p><strong>\(\det(A_1)\)</strong> (reemplazo la columna 1 por \(b\)):</p>
+<p>\[\det\begin{pmatrix}9 &amp; -1 &amp; 3 \\ 2 &amp; 2 &amp; -1 \\ 8 &amp; 1 &amp; 1\end{pmatrix} = 9(2+1) + 1(2+8) + 3(2-16) = 27 + 10 - 42 = -5\]</p>
+<p>\[x = \frac{-5}{-5} = 1\]</p>
+<p><strong>\(\det(A_2)\):</strong></p>
+<p>\[\det\begin{pmatrix}2 &amp; 9 &amp; 3 \\ 1 &amp; 2 &amp; -1 \\ 3 &amp; 8 &amp; 1\end{pmatrix} = 2(2+8) - 9(1+3) + 3(8-6) = 20 - 36 + 6 = -10\]</p>
+<p>\[y = \frac{-10}{-5} = 2\]</p>
+<p><strong>\(\det(A_3)\):</strong></p>
+<p>\[\det\begin{pmatrix}2 &amp; -1 &amp; 9 \\ 1 &amp; 2 &amp; 2 \\ 3 &amp; 1 &amp; 8\end{pmatrix} = 2(16-2) + 1(8-6) + 9(1-6) = 28 + 2 - 45 = -15\]</p>
+<p>\[z = \frac{-15}{-5} = 3\]</p>
+<p><strong>Solución:</strong> \((x,y,z) = (1,2,3)\).</p>
+<p><strong>Verificación:</strong> \(2(1) - 2 + 9 = 9\) ✓ · \(1 + 4 - 3 = 2\) ✓ · \(3 + 2 + 3 = 8\) ✓</p>
+<hr />
+<h2 id="escenario-3--n-uplas-y-combinación-lineal">Escenario 3 — n-uplas y combinación lineal</h2>
+<blockquote>
+<p><strong>Lectura Fundamental 3 · reconociendo objetos del álgebra lineal y sus relaciones.</strong> Apuntes a fondo, ejercicios de la lectura resueltos y erratas: pestaña <strong>Escenario 3</strong> de <code>6. Cuaderno de Matrices.html</code>.</p>
+</blockquote>
+<h3 id="31-n-uplas-vectores-en-zzmath389zz">3.1 n-uplas (vectores en \(\mathbb{R}^n\))</h3>
+<p>Un <strong>vector</strong> en \(\mathbb{R}^n\) es una lista ordenada de \(n\) números reales:</p>
+<p>\[u = (u_1, u_2, \ldots, u_n)\]</p>
+<p>Se escribe indistintamente como fila \((u_1,\ldots,u_n)\) o como columna</p>
+<p>\[u = \begin{pmatrix} u_1 \\ u_2 \\ \vdots \\ u_n \end{pmatrix}\]</p>
+<p>En álgebra matricial <strong>la convención por defecto es columna</strong>. Cuando escribes \(Ax\), ese \(x\) es un
+vector columna.</p>
+<blockquote>
+<p><strong>Puente con Excel.</strong> Una fila de tu tabla de pagos —número, valor bruto, IVA, comisión— es un
+vector en \(\mathbb{R}^4\). Una columna con los valores de 300 pagos es un vector en
+\(\mathbb{R}^{300}\). Nada más que eso.</p>
+</blockquote>
+<h3 id="32-operaciones">3.2 Operaciones</h3>
+<p><strong>Suma</strong> (componente a componente, exige la misma dimensión):</p>
+<p>\[u + v = (u_1 + v_1,\; u_2 + v_2,\; \ldots,\; u_n + v_n)\]</p>
+<p><strong>Producto por escalar:</strong></p>
+<p>\[cu = (cu_1,\; cu_2,\; \ldots,\; cu_n)\]</p>
+<p><strong>Combinación lineal</strong> de \(v_1,\ldots,v_k\) con escalares \(c_1,\ldots,c_k\):</p>
+<p>\[c_1v_1 + c_2v_2 + \cdots + c_kv_k\]</p>
+<p>Este concepto es el corazón de todo el curso. Repítelo hasta que suene natural.</p>
+<h3 id="33-producto-punto">3.3 Producto punto</h3>
+<p>\[u \cdot v = u_1v_1 + u_2v_2 + \cdots + u_nv_n = \sum_{i=1}^{n} u_iv_i\]</p>
+<p><strong>Es un número, no un vector.</strong> En notación matricial: \(u \cdot v = u^Tv\).
+En Excel: <code>SUMAPRODUCTO(rango_u; rango_v)</code>.</p>
+<p><strong>Propiedades:</strong></p>
+<ul>
+<li>Conmutativo: \(u \cdot v = v \cdot u\)</li>
+<li>Distributivo: \(u \cdot (v + w) = u \cdot v + u \cdot w\)</li>
+<li>\((cu) \cdot v = c(u \cdot v)\)</li>
+<li>\(u \cdot u \geq 0\), y \(u \cdot u = 0\) solo si \(u = 0\)</li>
+</ul>
+<h3 id="34-decidir-si-un-vector-es-combinación-lineal">3.4 Decidir si un vector es combinación lineal</h3>
+<p>¿Existen \(c_1,\dots,c_k\) con \(w = c_1v_1 + \cdots + c_kv_k\)? Se monta la matriz con <strong>los vectores
+\(v_i\) en las columnas</strong> y se resuelve \([\,v_1\;\cdots\;v_k \mid w\,]\):</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Resultado del sistema</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inconsistente</td>
+<td>\(w\) <strong>no</strong> es combinación lineal</td>
+</tr>
+<tr>
+<td>Solución única</td>
+<td>Sí, de una sola manera: los \(c_i\) son únicos</td>
+</tr>
+<tr>
+<td>Infinitas soluciones</td>
+<td>Sí, de infinitas maneras: los \(v_i\) son dependientes (Escenario 4)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Ejemplo.</strong> \((3,5,4) = a(1,1,2) + b(0,1,-1)\) da \(a = 3\), \(a + b = 5\), \(2a - b = 4\): con \(a = 3\),
+\(b = 2\) se cumplen las tres. En cambio \((1,0,0)\) exigiría \(a = 1\), \(b = -1\) y \(2a - b = 3 \neq 0\):
+no es combinación.</p>
+<blockquote>
+<p><strong>(complemento)</strong> Las secciones 3.5 a 3.7 no están en la Lectura 3. Se conservan porque son la
+base de la regresión por mínimos cuadrados (sección Extra).</p>
+</blockquote>
+<h3 id="35-norma">3.5 Norma</h3>
+<p>\[\|u\| = \sqrt{u \cdot u} = \sqrt{u_1^2 + u_2^2 + \cdots + u_n^2}\]</p>
+<p>Es la longitud del vector. <strong>Vector unitario</strong> en la dirección de \(u\):</p>
+<p>\[\hat{u} = \frac{u}{\|u\|}, \qquad \|\hat{u}\| = 1\]</p>
+<p><strong>Distancia entre dos puntos:</strong> \(d(A,B) = \|B - A\|\).</p>
+<h3 id="36-ángulo-entre-vectores">3.6 Ángulo entre vectores</h3>
+<p>\[\cos\theta = \frac{u \cdot v}{\|u\|\,\|v\|}, \qquad 0 \leq \theta \leq \pi\]</p>
+<p>Lectura rápida del signo:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Signo de \(u \cdot v\)</th>
+<th>Ángulo</th>
+<th>Interpretación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(&gt; 0\)</td>
+<td>agudo (\(\theta &lt; 90°\))</td>
+<td>apuntan "hacia el mismo lado"</td>
+</tr>
+<tr>
+<td>\(= 0\)</td>
+<td>recto (\(\theta = 90°\))</td>
+<td><strong>ortogonales</strong></td>
+</tr>
+<tr>
+<td>\(&lt; 0\)</td>
+<td>obtuso (\(\theta &gt; 90°\))</td>
+<td>apuntan en sentidos opuestos</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Desigualdad de Cauchy-Schwarz:</strong> \(|u \cdot v| \leq \|u\|\,\|v\|\).
+<strong>Desigualdad triangular:</strong> \(\|u + v\| \leq \|u\| + \|v\|\).</p>
+<h3 id="37-ortogonalidad-y-proyección">3.7 Ortogonalidad y proyección</h3>
+<p>\[u \perp v \iff u \cdot v = 0\]</p>
+<p><strong>Proyección ortogonal de \(u\) sobre \(v\):</strong></p>
+<p>\[\text{proy}_v u = \frac{u \cdot v}{v \cdot v}\, v = \frac{u \cdot v}{\|v\|^2}\, v\]</p>
+<p>El resultado es un <strong>vector</strong> en la dirección de \(v\). El vector \(u - \text{proy}_v u\) es ortogonal
+a \(v\): esa descomposición es exactamente lo que hay detrás de la regresión por mínimos cuadrados
+(sección Extra).</p>
+<blockquote>
+<p>⚠️ \(\text{proy}_v u \neq \text{proy}_u v\). Son proyecciones sobre direcciones distintas.</p>
+</blockquote>
+<h3 id="-ejemplo-resuelto-31--producto-punto-ángulo-y-proyección">📌 Ejemplo resuelto 3.1 — Producto punto, ángulo y proyección</h3>
+<p>Sean \(u = (1, 2, 2)\) y \(v = (2, -1, 2)\).</p>
+<p><strong>a) Producto punto</strong></p>
+<p>\[u \cdot v = (1)(2) + (2)(-1) + (2)(2) = 2 - 2 + 4 = 4\]</p>
+<p><strong>b) Normas</strong></p>
+<p>\[\|u\| = \sqrt{1^2 + 2^2 + 2^2} = \sqrt{1 + 4 + 4} = \sqrt{9} = 3\]
+\[\|v\| = \sqrt{2^2 + (-1)^2 + 2^2} = \sqrt{4 + 1 + 4} = \sqrt{9} = 3\]</p>
+<p><strong>c) Ángulo</strong></p>
+<p>\[\cos\theta = \frac{4}{3 \cdot 3} = \frac{4}{9} \approx 0{,}4444\]
+\[\theta = \arccos(0{,}4444) \approx 63{,}61°\]</p>
+<p>Como \(u \cdot v = 4 &gt; 0\), el ángulo debía ser agudo. ✓ (Chequeo de coherencia.)</p>
+<p><strong>d) Proyección de \(u\) sobre \(v\)</strong></p>
+<p>\[v \cdot v = \|v\|^2 = 9\]
+\[\text{proy}_v u = \frac{4}{9}(2,-1,2) = \left(\frac{8}{9}, -\frac{4}{9}, \frac{8}{9}\right)\]</p>
+<p><strong>e) Verificación de la ortogonalidad del residuo</strong></p>
+<p>\[u - \text{proy}_v u = \left(1 - \tfrac{8}{9},\; 2 + \tfrac{4}{9},\; 2 - \tfrac{8}{9}\right) = \left(\tfrac{1}{9}, \tfrac{22}{9}, \tfrac{10}{9}\right)\]</p>
+<p>\[\left(\tfrac{1}{9}, \tfrac{22}{9}, \tfrac{10}{9}\right) \cdot (2,-1,2) = \tfrac{2}{9} - \tfrac{22}{9} + \tfrac{20}{9} = \tfrac{0}{9} = 0 \;\checkmark\]</p>
+<p><strong>f) Proyección de \(v\) sobre \(u\) (para comparar)</strong></p>
+<p>\[\text{proy}_u v = \frac{4}{9}(1,2,2) = \left(\frac{4}{9}, \frac{8}{9}, \frac{8}{9}\right)\]</p>
+<p>Distinta de la anterior, como debía ser.</p>
+<p><strong>g) Vector unitario en la dirección de \(u\)</strong></p>
+<p>\[\hat{u} = \frac{1}{3}(1,2,2) = \left(\frac{1}{3}, \frac{2}{3}, \frac{2}{3}\right)\]</p>
+<hr />
+<h2 id="escenario-4--espacios-vectoriales-e-independencia">Escenario 4 — Espacios vectoriales e independencia</h2>
+<blockquote>
+<p><strong>Lectura Fundamental 4 · espacios vectoriales, subespacios, generar.</strong> Apuntes a fondo, ejercicios de la lectura resueltos y erratas: pestaña <strong>Escenario 4</strong> de <code>6. Cuaderno de Matrices.html</code>.</p>
+</blockquote>
+<h3 id="41-espacio-vectorial">4.1 Espacio vectorial</h3>
+<p>Un <strong>espacio vectorial</strong> \(V\) sobre \(\mathbb{R}\) es un conjunto con dos operaciones (suma y producto
+por escalar) que cumple diez axiomas: clausura de ambas operaciones, conmutatividad y asociatividad
+de la suma, existencia de neutro \(0\) y de opuesto, y las cuatro propiedades distributivas y de
+asociatividad del escalar, más \(1 \cdot v = v\).</p>
+<p>Ejemplos: \(\mathbb{R}^n\), el conjunto de matrices \(m\times n\), el conjunto de polinomios de grado
+\(\leq n\), el conjunto de funciones continuas.</p>
+<h3 id="42-subespacio">4.2 Subespacio</h3>
+<p>\(W \subseteq V\) es <strong>subespacio</strong> si:</p>
+<ol>
+<li>\(0 \in W\) (contiene al vector cero);</li>
+<li>\(u, v \in W \Rightarrow u + v \in W\) (cerrado bajo suma);</li>
+<li>\(u \in W,\ c \in \mathbb{R} \Rightarrow cu \in W\) (cerrado bajo producto por escalar).</li>
+</ol>
+<p><strong>Truco de examen:</strong> la condición 1 es el filtro más rápido. Si el conjunto no contiene al origen,
+no es subespacio y ya terminaste. Por ejemplo, \(\{(x,y) : x + y = 1\}\) <strong>no</strong> es subespacio, porque
+\((0,0)\) no cumple \(0 + 0 = 1\). En cambio, \(\{(x,y) : x + y = 0\}\) <strong>sí</strong> lo es.</p>
+<p>Regla práctica: un conjunto definido por ecuaciones lineales <strong>homogéneas</strong> (igualadas a cero) es
+subespacio; si hay término independiente, no.</p>
+<h3 id="43-generar-un-espacio">4.3 Generar un espacio</h3>
+<p>\(v\) es <strong>combinación lineal</strong> de \(v_1,\ldots,v_k\) si existen escalares con
+\(v = c_1v_1 + \cdots + c_kv_k\). Determinarlo es resolver un sistema.</p>
+<p>\(\text{gen}\{v_1,\ldots,v_k\}\) (el <strong>espacio generado</strong>) es el conjunto de todas las combinaciones
+lineales. Siempre es un subespacio.</p>
+<h3 id="44-independencia-lineal">4.4 Independencia lineal</h3>
+<p><strong>Definición.</strong> \(\{v_1, \ldots, v_k\}\) es <strong>linealmente independiente (LI)</strong> si la única solución de</p>
+<p>\[c_1v_1 + c_2v_2 + \cdots + c_kv_k = 0\]</p>
+<p>es \(c_1 = c_2 = \cdots = c_k = 0\). En caso contrario es <strong>linealmente dependiente (LD)</strong>.</p>
+<p><strong>Traducción a lenguaje de datos:</strong> un conjunto LD tiene <strong>información redundante</strong> — al menos uno
+de los vectores se puede reconstruir con los demás. En una tabla, dos columnas dependientes son dos
+formas de decir lo mismo (por ejemplo, "valor en pesos" y "valor en miles de pesos").</p>
+<p><strong>Criterios operativos:</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Situación</th>
+<th>Criterio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(k\) vectores en \(\mathbb{R}^n\)</td>
+<td>Formar la matriz \(A\) con ellos como columnas. LI \(\iff \text{rg}(A) = k\)</td>
+</tr>
+<tr>
+<td>\(n\) vectores en \(\mathbb{R}^n\) (matriz cuadrada)</td>
+<td>LI \(\iff \det(A) \neq 0\)</td>
+</tr>
+<tr>
+<td>\(k &gt; n\) vectores en \(\mathbb{R}^n\)</td>
+<td><strong>Siempre LD</strong> (no hay espacio para tantos)</td>
+</tr>
+<tr>
+<td>Un conjunto que contiene al vector \(0\)</td>
+<td><strong>Siempre LD</strong></td>
+</tr>
+<tr>
+<td>Dos vectores</td>
+<td>LD \(\iff\) uno es múltiplo escalar del otro</td>
+</tr>
+<tr>
+<td>Tres o más vectores</td>
+<td>LD \(\iff\) <strong>alguno es combinación</strong> de los demás (no basta mirar múltiplos)</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>⚠️ <strong>Errata de la Lectura 4 (p. 13).</strong> Dice que son dependientes «si alguno de los vectores es un
+múltiplo escalar de otro». Eso solo vale para <strong>dos</strong> vectores: \(\{(1,0),(0,1),(1,1)\}\) es
+dependiente y ninguno es múltiplo de otro.</p>
+</blockquote>
+<h3 id="-ejemplo-resuelto-41--independencia-lineal-con-relación-explícita">📌 Ejemplo resuelto 4.1 — Independencia lineal con relación explícita</h3>
+<p>¿Son \(v_1 = (1,2,3)\), \(v_2 = (2,-1,0)\), \(v_3 = (0,5,6)\) linealmente independientes?</p>
+<p>Formamos la matriz con ellos como <strong>columnas</strong>:</p>
+<p>\[A = \begin{pmatrix} 1 &amp; 2 &amp; 0 \\ 2 &amp; -1 &amp; 5 \\ 3 &amp; 0 &amp; 6\end{pmatrix}\]</p>
+<p><strong>Determinante</strong> (por la primera fila):</p>
+<p>\[\det(A) = 1\begin{vmatrix}-1 &amp; 5 \\ 0 &amp; 6\end{vmatrix} - 2\begin{vmatrix}2 &amp; 5 \\ 3 &amp; 6\end{vmatrix} + 0 = 1(-6-0) - 2(12-15) = -6 + 6 = 0\]</p>
+<p>Como \(\det(A) = 0\), <strong>son linealmente dependientes</strong>.</p>
+<p><strong>Hallar la relación.</strong> Resolvemos \(Ax = 0\). La forma reducida de \(A\) es</p>
+<p>\[\begin{pmatrix} 1 &amp; 0 &amp; 2 \\ 0 &amp; 1 &amp; -1 \\ 0 &amp; 0 &amp; 0\end{pmatrix}\]</p>
+<p>Con \(c_3 = t\): \(c_1 = -2t\), \(c_2 = t\). Tomando \(t = 1\): \((c_1,c_2,c_3) = (-2, 1, 1)\).</p>
+<p><strong>Relación de dependencia:</strong></p>
+<p>\[-2v_1 + v_2 + v_3 = 0\]</p>
+<p><strong>Verificación componente a componente:</strong></p>
+<ul>
+<li>\(-2(1) + 2 + 0 = 0\) ✓</li>
+<li>\(-2(2) + (-1) + 5 = -4 - 1 + 5 = 0\) ✓</li>
+<li>\(-2(3) + 0 + 6 = -6 + 6 = 0\) ✓</li>
+</ul>
+<p>Equivalentemente, \(v_3 = 2v_1 - v_2\): el tercer vector es redundante.</p>
+<hr />
+<h2 id="escenario-5--base-y-dimensión">Escenario 5 — Base y dimensión</h2>
+<blockquote>
+<p><strong>Lectura Fundamental 5 · extraer, construir y completar una base.</strong> Apuntes a fondo, ejercicios de la lectura resueltos y erratas: pestaña <strong>Escenario 5</strong> de <code>6. Cuaderno de Matrices.html</code>.</p>
+</blockquote>
+<h3 id="51-base-y-dimensión">5.1 Base y dimensión</h3>
+<p><strong>Base</strong> de \(V\): conjunto que es (i) generador de \(V\) y (ii) linealmente independiente.</p>
+<p><strong>Dimensión</strong> \(\dim V\): número de vectores de cualquier base. Está bien definida porque todas las
+bases tienen el mismo número de elementos.</p>
+<p><strong>Base canónica de \(\mathbb{R}^3\):</strong> \(e_1 = (1,0,0)\), \(e_2 = (0,1,0)\), \(e_3 = (0,0,1)\).
+Por tanto \(\dim\mathbb{R}^n = n\).</p>
+<p><strong>Coordenadas.</strong> Si \(B = \{v_1,\ldots,v_n\}\) es base, todo \(v\) se escribe <strong>de manera única</strong> como
+\(v = c_1v_1 + \cdots + c_nv_n\); los \(c_i\) son las coordenadas de \(v\) en la base \(B\).</p>
+<h3 id="52-espacio-nulo-y-espacio-columna">5.2 Espacio nulo y espacio columna</h3>
+<p><strong>Espacio nulo:</strong> \(N(A) = \{x \in \mathbb{R}^n : Ax = 0\}\). Es el conjunto solución del sistema
+homogéneo. Su dimensión se llama <strong>nulidad</strong>. Se calcula resolviendo \(Ax = 0\) por Gauss-Jordan y
+expresando la solución en función de las variables libres.</p>
+<p><strong>Espacio columna:</strong> \(C(A)\) = espacio generado por las columnas de \(A\). Es el conjunto de todos los
+\(b\) para los cuales \(Ax = b\) <strong>sí</strong> tiene solución. \(\dim C(A) = \text{rg}(A)\).</p>
+<p><strong>Base de \(C(A)\)</strong> — es el procedimiento de la lectura para <em>extraer</em> una base de un generador: las columnas de la matriz <strong>original</strong> que corresponden a las columnas pivote
+de la forma reducida. (Ojo: las columnas de la matriz original, no las de la reducida.)</p>
+<p><strong>Teorema del rango-nulidad.</strong> Para \(A\) de \(m \times n\):</p>
+<p>\[\boxed{\text{rg}(A) + \text{nulidad}(A) = n}\]</p>
+<p>donde \(n\) es el <strong>número de columnas</strong>. Este teorema es un autochequeo gratuito en cada ejercicio.</p>
+<h3 id="53-construir-y-completar-una-base">5.3 Construir y completar una base</h3>
+<p><strong>Construir desde una condición.</strong> Se despeja una variable, se escribe el vector general y se
+factoriza por las variables libres: un vector de la base por cada una. Para el plano
+\(3x + 4y - 2z = 0\): \(z = \tfrac{3x + 4y}{2}\), y</p>
+<p>\[(x,\,y,\,z) = x\left(1, 0, \tfrac32\right) + y\,(0, 1, 2) \quad\Longrightarrow\quad \text{base } \{(2,0,3),\,(0,1,2)\}, \quad \dim = 2\]</p>
+<p>(se multiplicó el primero por 2 para quitar la fracción). Comprobación: \(3(2) + 0 - 2(3) = 0\) ✓ y
+\(0 + 4 - 2(2) = 0\) ✓.</p>
+<p><strong>Completar.</strong> Se ponen en columnas los vectores dados <strong>seguidos</strong> de la base canónica, se
+escalona y se toman las columnas pivote. Con \(u_1 = (-1,5,1,0)\) y \(u_2 = (0,1,2,1)\) en
+\(\mathbb{R}^4\), los pivotes de \([\,u_1\;u_2\;e_1\;e_2\;e_3\;e_4\,]\) caen en las columnas 1 a 4: la
+base completada es \(\{u_1, u_2, e_1, e_2\}\). La respuesta no es única: otro orden de los
+canónicos da otra base igual de válida.</p>
+<p><strong>Dimensión.</strong> \(\dim = \) número de variables \(-\) número de condiciones independientes.
+\(\dim\mathbb{R}^n = n\), \(\dim P_n = n + 1\), \(\dim M_{m\times n} = mn\).</p>
+<h3 id="-ejemplo-resuelto-51--espacio-nulo-espacio-columna-y-rango-nulidad">📌 Ejemplo resuelto 5.1 — Espacio nulo, espacio columna y rango-nulidad</h3>
+<p>\[A = \begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 2 &amp; 4 &amp; 6 \\ 1 &amp; 1 &amp; 1\end{pmatrix}\]</p>
+<p><strong>Forma escalonada reducida.</strong> Nota que \(F_2 = 2F_1\), así que \(F_2 \leftarrow F_2 - 2F_1\) la anula:</p>
+<p>\[\begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 0 &amp; 0 &amp; 0 \\ 1 &amp; 1 &amp; 1\end{pmatrix} \xrightarrow{F_3 \leftarrow F_3 - F_1}
+\begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 0 &amp; 0 &amp; 0 \\ 0 &amp; -1 &amp; -2\end{pmatrix} \xrightarrow{F_2 \leftrightarrow F_3}
+\begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 0 &amp; -1 &amp; -2 \\ 0 &amp; 0 &amp; 0\end{pmatrix}\]</p>
+<p>\[\xrightarrow{F_2 \leftarrow -F_2} \begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 0 &amp; 1 &amp; 2 \\ 0 &amp; 0 &amp; 0\end{pmatrix}
+\xrightarrow{F_1 \leftarrow F_1 - 2F_2} \begin{pmatrix} 1 &amp; 0 &amp; -1 \\ 0 &amp; 1 &amp; 2 \\ 0 &amp; 0 &amp; 0\end{pmatrix}\]</p>
+<p><strong>Rango:</strong> hay 2 pivotes (columnas 1 y 2), luego \(\text{rg}(A) = 2\).</p>
+<p><strong>Espacio nulo.</strong> La columna 3 es libre; sea \(z = t\):</p>
+<ul>
+<li>\(x - t = 0 \Rightarrow x = t\)</li>
+<li>\(y + 2t = 0 \Rightarrow y = -2t\)</li>
+</ul>
+<p>\[N(A) = \left\{ t\begin{pmatrix}1\\-2\\1\end{pmatrix} : t \in \mathbb{R}\right\}, \qquad
+\text{base } \{(1,-2,1)\}, \qquad \text{nulidad} = 1\]</p>
+<p><strong>Verificación:</strong> \(A(1,-2,1)^T = (1 - 4 + 3,\; 2 - 8 + 6,\; 1 - 2 + 1) = (0,0,0)\) ✓</p>
+<p><strong>Espacio columna.</strong> Las columnas pivote son la 1 y la 2, así que tomamos esas columnas <strong>de la
+matriz original</strong>:</p>
+<p>\[C(A) = \text{gen}\left\{ \begin{pmatrix}1\\2\\1\end{pmatrix}, \begin{pmatrix}2\\4\\1\end{pmatrix}\right\}, \qquad \dim C(A) = 2\]</p>
+<p><strong>Teorema del rango-nulidad:</strong> \(\text{rg}(A) + \text{nulidad}(A) = 2 + 1 = 3 = n\) ✓</p>
+<h3 id="-ejemplo-resuelto-52--coordenadas-en-una-base">📌 Ejemplo resuelto 5.2 — Coordenadas en una base</h3>
+<p>Sea \(B = \{(1,1,0),\; (1,0,1),\; (0,1,1)\}\). Hallar las coordenadas de \(v = (2,3,5)\) en \(B\).</p>
+<p>Buscamos \(c_1, c_2, c_3\) con \(c_1(1,1,0) + c_2(1,0,1) + c_3(0,1,1) = (2,3,5)\), es decir:</p>
+<p>\[
+\begin{cases}
+c_1 + c_2 = 2 \\
+c_1 + c_3 = 3 \\
+c_2 + c_3 = 5
+\end{cases}
+\]</p>
+<p>De la primera: \(c_1 = 2 - c_2\). Sustituyendo en la segunda: \(2 - c_2 + c_3 = 3 \Rightarrow c_3 = 1 + c_2\).
+Sustituyendo en la tercera: \(c_2 + 1 + c_2 = 5 \Rightarrow 2c_2 = 4 \Rightarrow c_2 = 2\).</p>
+<p>Entonces \(c_1 = 0\) y \(c_3 = 3\).</p>
+<p>\[[v]_B = (0, 2, 3)\]</p>
+<p><strong>Verificación:</strong> \(0(1,1,0) + 2(1,0,1) + 3(0,1,1) = (2, 3, 2+3) = (2,3,5)\) ✓</p>
+<p>(De paso: \(\det\) de la matriz de la base es \(-2 \neq 0\), así que efectivamente es base.)</p>
+<hr />
+<h2 id="escenario-6--transformaciones-lineales">Escenario 6 — Transformaciones lineales</h2>
+<blockquote>
+<p><strong>Lectura Fundamental 6 · transformaciones lineales, núcleo e imagen.</strong> Apuntes a fondo, ejercicios de la lectura resueltos y erratas: pestaña <strong>Escenario 6</strong> de <code>6. Cuaderno de Matrices.html</code>.</p>
+</blockquote>
+<h3 id="61-definición">6.1 Definición</h3>
+<p>\(T: V \to W\) es <strong>transformación lineal</strong> si para todos \(u, v \in V\) y todo escalar \(c\):</p>
+<p>\[T(u + v) = T(u) + T(v) \qquad\text{y}\qquad T(cu) = cT(u)\]</p>
+<p>Ambas se resumen en: \(T(c_1u + c_2v) = c_1T(u) + c_2T(v)\).</p>
+<p><strong>Consecuencia inmediata:</strong> \(T(0) = 0\). Es el filtro más rápido: si \(T(0) \neq 0\), no es lineal.
+Pero el filtro solo descarta: \(T(x,y) = (x, y^2)\) cumple \(T(0) = 0\) y no es lineal.</p>
+<p>Ejemplos de <strong>no</strong> lineales: \(T(x,y) = (x+1, y)\) (término independiente), \(T(x,y) = (x^2, y)\)
+(potencia), \(T(x,y) = (xy, 0)\) (producto de variables).</p>
+<h3 id="62-matriz-asociada">6.2 Matriz asociada</h3>
+<p><strong>Teorema fundamental.</strong> Toda transformación lineal \(T: \mathbb{R}^n \to \mathbb{R}^m\) se escribe
+como \(T(x) = Ax\), donde</p>
+<p>\[A = \big[\; T(e_1) \;\big|\; T(e_2) \;\big|\; \cdots \;\big|\; T(e_n) \;\big]\]</p>
+<p>Es decir: <strong>las columnas de \(A\) son las imágenes de los vectores de la base canónica.</strong> \(A\) es
+\(m \times n\).</p>
+<p><strong>Con otras bases (Ejemplo 4 de la lectura).</strong> Si la entrada tiene base \(B_1\) y la salida base
+\(B_2\), la columna \(j\) de la matriz son las <strong>coordenadas en \(B_2\)</strong> de \(T(b_j)\). Cada columna exige
+resolver un sistema. Escribe las dos bases, en orden, antes de empezar.</p>
+<h3 id="63-núcleo-e-imagen">6.3 Núcleo e imagen</h3>
+<p><strong>Núcleo:</strong> \(\ker(T) = \{v \in V : T(v) = 0\}\). Es exactamente el <strong>espacio nulo</strong> de \(A\).</p>
+<p><strong>Imagen:</strong> \(\text{Im}(T) = \{T(v) : v \in V\}\). Es exactamente el <strong>espacio columna</strong> de \(A\).</p>
+<p><strong>Teorema de la dimensión:</strong></p>
+<p>\[\dim\ker(T) + \dim\text{Im}(T) = \dim V\]</p>
+<p>Es el rango-nulidad con otra ropa. <strong>(complemento:</strong> la lectura no lo enuncia; está en Kolman 10.2.<strong>)</strong></p>
+<ul>
+<li>\(T\) es <strong>inyectiva</strong> \(\iff \ker(T) = \{0\}\).</li>
+<li>\(T\) es <strong>sobreyectiva</strong> \(\iff \text{Im}(T) = W\).</li>
+</ul>
+<h3 id="64-composición-y-transformaciones-geométricas">6.4 Composición y transformaciones geométricas</h3>
+<p>Si \(T_1\) tiene matriz \(A_1\) y \(T_2\) tiene matriz \(A_2\), la composición \(T_2 \circ T_1\) tiene matriz
+\(A_2A_1\). <strong>El orden importa:</strong> se aplica primero la matriz de la derecha.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Transformación en \(\mathbb{R}^2\)</th>
+<th>Matriz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rotación de ángulo \(\theta\) (antihorario)</td>
+<td>\(\begin{pmatrix}\cos\theta &amp; -\sin\theta \\ \sin\theta &amp; \cos\theta\end{pmatrix}\)</td>
+</tr>
+<tr>
+<td>Reflexión sobre el eje \(x\)</td>
+<td>\(\begin{pmatrix}1 &amp; 0 \\ 0 &amp; -1\end{pmatrix}\)</td>
+</tr>
+<tr>
+<td>Reflexión sobre el eje \(y\)</td>
+<td>\(\begin{pmatrix}-1 &amp; 0 \\ 0 &amp; 1\end{pmatrix}\)</td>
+</tr>
+<tr>
+<td>Reflexión sobre la recta \(y = x\)</td>
+<td>\(\begin{pmatrix}0 &amp; 1 \\ 1 &amp; 0\end{pmatrix}\)</td>
+</tr>
+<tr>
+<td>Escalado de factores \(s_1, s_2\)</td>
+<td>\(\begin{pmatrix}s_1 &amp; 0 \\ 0 &amp; s_2\end{pmatrix}\)</td>
+</tr>
+<tr>
+<td>Proyección sobre el eje \(x\)</td>
+<td>\(\begin{pmatrix}1 &amp; 0 \\ 0 &amp; 0\end{pmatrix}\)</td>
+</tr>
+<tr>
+<td>Cizalladura horizontal de factor \(k\)</td>
+<td>\(\begin{pmatrix}1 &amp; k \\ 0 &amp; 1\end{pmatrix}\)</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="-ejemplo-resuelto-61--matriz-asociada-núcleo-e-imagen">📌 Ejemplo resuelto 6.1 — Matriz asociada, núcleo e imagen</h3>
+<p>Sea \(T: \mathbb{R}^2 \to \mathbb{R}^3\) dada por \(T(x,y) = (2x + y,\; x - 3y,\; 4y)\).</p>
+<p><strong>a) Verificar linealidad.</strong> Cada componente es una combinación lineal de \(x\) e \(y\), sin términos
+independientes ni potencias. Es lineal. (Chequeo: \(T(0,0) = (0,0,0)\) ✓)</p>
+<p><strong>b) Matriz asociada.</strong></p>
+<p>\[T(e_1) = T(1,0) = (2,\, 1,\, 0), \qquad T(e_2) = T(0,1) = (1,\, -3,\, 4)\]</p>
+<p>\[A = \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; -3 \\ 0 &amp; 4 \end{pmatrix} \quad (3 \times 2)\]</p>
+<p><strong>c) Calcular \(T(2,-1)\) de dos formas.</strong></p>
+<p>Directo: \(T(2,-1) = (2(2) + (-1),\; 2 - 3(-1),\; 4(-1)) = (3,\, 5,\, -4)\).</p>
+<p>Matricial:</p>
+<p>\[A\begin{pmatrix}2\\-1\end{pmatrix} = \begin{pmatrix} 2(2) + 1(-1) \\ 1(2) + (-3)(-1) \\ 0(2) + 4(-1)\end{pmatrix} = \begin{pmatrix}3 \\ 5 \\ -4\end{pmatrix} \;\checkmark\]</p>
+<p><strong>d) Núcleo.</strong> Resolvemos \(T(x,y) = (0,0,0)\):</p>
+<p>\[
+\begin{cases}
+2x + y = 0 \\
+x - 3y = 0 \\
+4y = 0
+\end{cases}
+\]</p>
+<p>De la tercera, \(y = 0\); de la segunda, \(x = 0\). Luego \(\ker(T) = \{(0,0)\}\) y \(\dim\ker(T) = 0\).
+\(T\) es <strong>inyectiva</strong>.</p>
+<p><strong>e) Imagen.</strong> \(\text{rg}(A) = 2\) (las dos columnas son LI: no son múltiplos una de otra). Entonces
+\(\dim\text{Im}(T) = 2\), generada por \((2,1,0)\) y \((1,-3,4)\).</p>
+<p>\(T\) <strong>no</strong> es sobreyectiva: la imagen es un plano dentro de \(\mathbb{R}^3\), no todo \(\mathbb{R}^3\).</p>
+<p><strong>f) Teorema de la dimensión:</strong> \(0 + 2 = 2 = \dim\mathbb{R}^2\) ✓</p>
+<h3 id="-ejemplo-resuelto-62--composición-el-orden-importa">📌 Ejemplo resuelto 6.2 — Composición: el orden importa</h3>
+<p>Sean \(R\) la rotación de \(90°\) y \(E\) el escalado \((2,3)\):</p>
+<p>\[R = \begin{pmatrix}0 &amp; -1 \\ 1 &amp; 0\end{pmatrix}, \qquad E = \begin{pmatrix}2 &amp; 0 \\ 0 &amp; 3\end{pmatrix}\]</p>
+<p><strong>Primero rotar, luego escalar</strong> (\(E \circ R\), matriz \(ER\)):</p>
+<p>\[ER = \begin{pmatrix}2 &amp; 0 \\ 0 &amp; 3\end{pmatrix}\begin{pmatrix}0 &amp; -1 \\ 1 &amp; 0\end{pmatrix} = \begin{pmatrix}0 &amp; -2 \\ 3 &amp; 0\end{pmatrix}\]</p>
+<p><strong>Primero escalar, luego rotar</strong> (\(R \circ E\), matriz \(RE\)):</p>
+<p>\[RE = \begin{pmatrix}0 &amp; -1 \\ 1 &amp; 0\end{pmatrix}\begin{pmatrix}2 &amp; 0 \\ 0 &amp; 3\end{pmatrix} = \begin{pmatrix}0 &amp; -3 \\ 2 &amp; 0\end{pmatrix}\]</p>
+<p>Aplicándolas al vector \((1,2)\):</p>
+<p>\[ER\begin{pmatrix}1\\2\end{pmatrix} = \begin{pmatrix}-4\\3\end{pmatrix}, \qquad
+RE\begin{pmatrix}1\\2\end{pmatrix} = \begin{pmatrix}-6\\2\end{pmatrix}\]</p>
+<p>Resultados distintos. <strong>La no conmutatividad del producto matricial tiene un significado
+geométrico real</strong>: rotar y luego estirar no es lo mismo que estirar y luego rotar.</p>
+<h3 id="-ejemplo-resuelto-63--matriz-respecto-a-bases-no-estándar-ejemplo-4-de-la-lectura-corregido">📌 Ejemplo resuelto 6.3 — Matriz respecto a bases no estándar (Ejemplo 4 de la lectura, corregido)</h3>
+<p>\(T(x,y) = (x - y,\; 2x + y,\; y)\) con \(B_1 = \{(2,1),(1,2)\}\) y \(B_2 = \{(1,-1,0),(0,2,0),(0,2,5)\}\).</p>
+<p><strong>Paso 1 — Transformar la base de entrada:</strong> \(T(2,1) = (1,5,1)\) y \(T(1,2) = (-1,4,2)\).</p>
+<p><strong>Paso 2 — Coordenadas en \(B_2\).</strong> De \(c_1(1,-1,0) + c_2(0,2,0) + c_3(0,2,5) = (p,q,r)\):
+\(c_1 = p\), \(c_3 = r/5\) y \(-c_1 + 2c_2 + 2c_3 = q\).</p>
+<p>\[(1,5,1) = 1\,(1,-1,0) + \tfrac{14}{5}\,(0,2,0) + \tfrac15\,(0,2,5)\]
+\[(-1,4,2) = -1\,(1,-1,0) + \tfrac{11}{10}\,(0,2,0) + \tfrac25\,(0,2,5)\]</p>
+<p><strong>Paso 3 — Matriz:</strong></p>
+<p>\[\big[A_T\big]_{B_1}^{B_2} = \begin{pmatrix} 1 &amp; -1 \\[2pt] \tfrac{14}{5} &amp; \tfrac{11}{10} \\[2pt] \tfrac15 &amp; \tfrac25 \end{pmatrix}\]</p>
+<blockquote>
+<p>⚠️ <strong>Errata de la Lectura 6 (p. 9).</strong> Imprime la segunda columna como \(\left(1, \tfrac{21}{10}, \tfrac25\right)\):
+esas son las coordenadas de \((1,4,2)\), no de \((-1,4,2)\). Reconstruir el vector con las coordenadas
+halladas lo detecta en segundos.</p>
+</blockquote>
+<hr />
+<h2 id="escenario-7--valores-y-vectores-propios">Escenario 7 — Valores y vectores propios</h2>
+<blockquote>
+<p><strong>Lectura Fundamental 7 · elementos característicos de una transformación lineal.</strong> Apuntes a fondo, ejercicios de la lectura resueltos y erratas: pestaña <strong>Escenario 7</strong> de <code>6. Cuaderno de Matrices.html</code>.</p>
+<p><strong>Notación de la lectura.</strong> Escribe la diagonalización como \(B = C^{-1}AC\): \(C\) es la matriz de
+vectores propios y \(B\) la diagonal. Aquí se usa \(A = PDP^{-1}\), que es lo mismo con \(P = C\) y
+\(D = B\).</p>
+</blockquote>
+<h3 id="71-definición">7.1 Definición</h3>
+<p>\(\lambda \in \mathbb{R}\) es <strong>valor propio</strong> (autovalor) de la matriz cuadrada \(A\) si existe un
+vector <strong>no nulo</strong> \(v\) tal que</p>
+<p>\[Av = \lambda v\]</p>
+<p>Ese \(v\) es un <strong>vector propio</strong> (autovector) asociado a \(\lambda\).</p>
+<p><strong>Interpretación geométrica.</strong> \(A\) transforma el espacio: rota, estira, refleja. Los vectores
+propios son las <strong>direcciones que \(A\) no rota</strong> — solo las estira (si \(\lambda &gt; 1\)), las encoge
+(si \(0 &lt; \lambda &lt; 1\)), las invierte (si \(\lambda &lt; 0\)) o las aplasta a cero (si \(\lambda = 0\)).</p>
+<h3 id="72-cómo-se-calculan">7.2 Cómo se calculan</h3>
+<p>De \(Av = \lambda v\) se sigue \((A - \lambda I)v = 0\). Para que haya solución no nula, la matriz
+\(A - \lambda I\) debe ser <strong>singular</strong> (no la matriz cero, como escribe por error la lectura en la p. 3):</p>
+<p>\[\boxed{\det(A - \lambda I) = 0} \qquad \text{(ecuación característica)}\]</p>
+<p>El polinomio \(p(\lambda) = \det(A - \lambda I)\) es el <strong>polinomio característico</strong>; su grado es \(n\).</p>
+<p><strong>Procedimiento:</strong></p>
+<ol>
+<li>Plantear \(\det(A - \lambda I) = 0\) y resolver para \(\lambda\).</li>
+<li>Para cada \(\lambda_i\), resolver el sistema homogéneo \((A - \lambda_i I)v = 0\) por Gauss-Jordan.</li>
+<li>El espacio solución es el <strong>espacio propio</strong> de \(\lambda_i\); su base son los vectores propios.</li>
+</ol>
+<p><strong>Atajo para 2×2.</strong> El polinomio característico siempre es</p>
+<p>\[\lambda^2 - \text{tr}(A)\,\lambda + \det(A) = 0\]</p>
+<p><strong>Controles de verificación (úsalos SIEMPRE antes de seguir):</strong></p>
+<p>\[\sum_i \lambda_i = \text{tr}(A), \qquad \prod_i \lambda_i = \det(A)\]</p>
+<h3 id="73-multiplicidades-y-diagonalización">7.3 Multiplicidades y diagonalización</h3>
+<ul>
+<li><strong>Multiplicidad algebraica</strong> de \(\lambda\): cuántas veces es raíz del polinomio característico.</li>
+<li><strong>Multiplicidad geométrica</strong>: \(\dim N(A - \lambda I)\), es decir, cuántos vectores propios
+  independientes tiene.</li>
+<li>Siempre: \(1 \leq\) geométrica \(\leq\) algebraica.</li>
+</ul>
+<p><strong>Definición.</strong> \(A\) es <strong>diagonalizable</strong> si existe \(P\) invertible con</p>
+<p>\[A = PDP^{-1}, \qquad D \text{ diagonal}\]</p>
+<p><strong>Teorema.</strong> \(A\) de \(n\times n\) es diagonalizable \(\iff\) tiene \(n\) vectores propios linealmente
+independientes \(\iff\) para cada valor propio, la multiplicidad geométrica es igual a la algebraica.</p>
+<p><strong>Corolario útil:</strong> si \(A\) tiene \(n\) valores propios <strong>distintos</strong>, es diagonalizable. (El recíproco
+es falso: puede ser diagonalizable con valores repetidos.)</p>
+<p><strong>Construcción:</strong> \(P\) = matriz cuyas columnas son los vectores propios; \(D\) = matriz diagonal con
+los valores propios <strong>en el mismo orden</strong>.</p>
+<p><strong>Para qué sirve:</strong> \(A^k = PD^kP^{-1}\), y elevar una diagonal a la \(k\) es elevar cada entrada. Sin
+diagonalizar, calcular \(A^{20}\) es un suplicio; diagonalizando, es trivial.</p>
+<p><strong>Teorema espectral (importante para PCA).</strong> Si \(A\) es <strong>simétrica</strong> (\(A = A^T\)), entonces todos
+sus valores propios son reales y sus vectores propios asociados a valores propios distintos son
+<strong>ortogonales entre sí</strong>. Toda matriz simétrica es diagonalizable.</p>
+<h3 id="74-cuando-no-hay-valores-propios-reales">7.4 Cuando no hay valores propios reales</h3>
+<p>Si el polinomio característico no tiene raíces reales, no hay vectores propios reales y la matriz
+no es diagonalizable sobre \(\mathbb{R}\). Es lo que pasa con las rotaciones: la de \(60^\circ\) del
+ejercicio final de la lectura,</p>
+<p>\[R = \begin{pmatrix}\tfrac12 &amp; -\tfrac{\sqrt3}{2} \\[2pt] \tfrac{\sqrt3}{2} &amp; \tfrac12\end{pmatrix}, \qquad p(\lambda) = \lambda^2 - \lambda + 1, \qquad \Delta = -3 &lt; 0,\]</p>
+<p>tiene \(\lambda = \tfrac12 \pm \tfrac{\sqrt3}{2}i\). Geométricamente, gira <strong>todas</strong> las direcciones.
+(La lectura la llama rotación «en el sentido de las manecillas del reloj»; es antihoraria: lleva
+\((1,0)\) a \(\left(\tfrac12, \tfrac{\sqrt3}{2}\right)\).)</p>
+<p><strong>Triangulares y diagonales.</strong> Los valores propios son los elementos de la diagonal principal,
+sin cuentas.</p>
+<h3 id="-ejemplo-resuelto-71--valores-y-vectores-propios-de-una-22-completo">📌 Ejemplo resuelto 7.1 — Valores y vectores propios de una 2×2 (COMPLETO)</h3>
+<p>\[A = \begin{pmatrix} 4 &amp; 1 \\ 2 &amp; 3\end{pmatrix}\]</p>
+<p><strong>Paso 1 — Polinomio característico</strong></p>
+<p>\[A - \lambda I = \begin{pmatrix} 4-\lambda &amp; 1 \\ 2 &amp; 3-\lambda\end{pmatrix}\]</p>
+<p>\[\det(A - \lambda I) = (4-\lambda)(3-\lambda) - (1)(2) = 12 - 4\lambda - 3\lambda + \lambda^2 - 2 = \lambda^2 - 7\lambda + 10\]</p>
+<p><strong>Chequeo con el atajo:</strong> \(\text{tr}(A) = 4 + 3 = 7\) y \(\det(A) = 12 - 2 = 10\), luego el polinomio
+es \(\lambda^2 - 7\lambda + 10\) ✓</p>
+<p><strong>Paso 2 — Valores propios</strong></p>
+<p>\[\lambda^2 - 7\lambda + 10 = 0 \Rightarrow (\lambda - 5)(\lambda - 2) = 0\]</p>
+<p>\[\lambda_1 = 5, \qquad \lambda_2 = 2\]</p>
+<p><strong>Verificación:</strong> \(5 + 2 = 7 = \text{tr}(A)\) ✓ y \(5 \times 2 = 10 = \det(A)\) ✓</p>
+<p><strong>Paso 3 — Vector propio para \(\lambda_1 = 5\)</strong></p>
+<p>\[(A - 5I)v = 0: \qquad \begin{pmatrix} 4-5 &amp; 1 \\ 2 &amp; 3-5\end{pmatrix}\begin{pmatrix}v_1\\v_2\end{pmatrix} = \begin{pmatrix}-1 &amp; 1 \\ 2 &amp; -2\end{pmatrix}\begin{pmatrix}v_1\\v_2\end{pmatrix} = \begin{pmatrix}0\\0\end{pmatrix}\]</p>
+<p>La primera ecuación da \(-v_1 + v_2 = 0 \Rightarrow v_2 = v_1\). (La segunda, \(2v_1 - 2v_2 = 0\), dice
+lo mismo: si no fuera así, \(\lambda\) estaría mal.)</p>
+<p>Tomando \(v_1 = 1\):</p>
+<p>\[v^{(1)} = \begin{pmatrix}1\\1\end{pmatrix}\]</p>
+<p><strong>Verificación:</strong> \(Av^{(1)} = \begin{pmatrix}4+1 \\ 2+3\end{pmatrix} = \begin{pmatrix}5\\5\end{pmatrix} = 5\begin{pmatrix}1\\1\end{pmatrix}\) ✓</p>
+<p><strong>Paso 4 — Vector propio para \(\lambda_2 = 2\)</strong></p>
+<p>\[(A - 2I)v = 0: \qquad \begin{pmatrix}2 &amp; 1 \\ 2 &amp; 1\end{pmatrix}\begin{pmatrix}v_1\\v_2\end{pmatrix} = \begin{pmatrix}0\\0\end{pmatrix}\]</p>
+<p>\(2v_1 + v_2 = 0 \Rightarrow v_2 = -2v_1\). Tomando \(v_1 = 1\):</p>
+<p>\[v^{(2)} = \begin{pmatrix}1\\-2\end{pmatrix}\]</p>
+<p><strong>Verificación:</strong> \(Av^{(2)} = \begin{pmatrix}4 - 2 \\ 2 - 6\end{pmatrix} = \begin{pmatrix}2\\-4\end{pmatrix} = 2\begin{pmatrix}1\\-2\end{pmatrix}\) ✓</p>
+<p><strong>Paso 5 — Diagonalización</strong></p>
+<p>\[P = \begin{pmatrix}1 &amp; 1 \\ 1 &amp; -2\end{pmatrix}, \qquad D = \begin{pmatrix}5 &amp; 0 \\ 0 &amp; 2\end{pmatrix}\]</p>
+<p>Como \(\det(P) = -2 - 1 = -3 \neq 0\), las columnas son LI y \(A\) es diagonalizable.</p>
+<p>\[P^{-1} = \frac{1}{-3}\begin{pmatrix}-2 &amp; -1 \\ -1 &amp; 1\end{pmatrix} = \begin{pmatrix}\tfrac{2}{3} &amp; \tfrac{1}{3} \\[2pt] \tfrac{1}{3} &amp; -\tfrac{1}{3}\end{pmatrix}\]</p>
+<p><strong>Verificación por \(AP = PD\)</strong> (más cómoda que \(A = PDP^{-1}\), porque evita invertir):</p>
+<p>\[AP = \begin{pmatrix}4 &amp; 1 \\ 2 &amp; 3\end{pmatrix}\begin{pmatrix}1 &amp; 1 \\ 1 &amp; -2\end{pmatrix} = \begin{pmatrix}5 &amp; 2 \\ 5 &amp; -4\end{pmatrix}\]</p>
+<p>\[PD = \begin{pmatrix}1 &amp; 1 \\ 1 &amp; -2\end{pmatrix}\begin{pmatrix}5 &amp; 0 \\ 0 &amp; 2\end{pmatrix} = \begin{pmatrix}5 &amp; 2 \\ 5 &amp; -4\end{pmatrix} \;\checkmark\]</p>
+<p><strong>Aplicación — potencia:</strong> \(A^5 = PD^5P^{-1}\) con \(D^5 = \begin{pmatrix}3125 &amp; 0 \\ 0 &amp; 32\end{pmatrix}\), lo que da</p>
+<p>\[A^5 = \begin{pmatrix}2094 &amp; 1031 \\ 2062 &amp; 1063\end{pmatrix}\]</p>
+<h3 id="-ejemplo-resuelto-72--matriz-no-diagonalizable">📌 Ejemplo resuelto 7.2 — Matriz NO diagonalizable</h3>
+<p>\[A = \begin{pmatrix}2 &amp; 1 \\ 0 &amp; 2\end{pmatrix}\]</p>
+<p>\[\det(A - \lambda I) = (2-\lambda)^2 = 0 \Rightarrow \lambda = 2 \text{ con multiplicidad algebraica } 2\]</p>
+<p>\[(A - 2I) = \begin{pmatrix}0 &amp; 1 \\ 0 &amp; 0\end{pmatrix}\]</p>
+<p>El sistema \(\begin{pmatrix}0&amp;1\\0&amp;0\end{pmatrix}v = 0\) da \(v_2 = 0\), con \(v_1\) libre. El espacio
+propio es \(\text{gen}\{(1,0)\}\): <strong>multiplicidad geométrica 1</strong>.</p>
+<p>Como \(1 &lt; 2\), <strong>\(A\) no es diagonalizable</strong>. Solo hay un vector propio independiente, y necesitamos
+dos.</p>
+<h3 id="-ejemplo-resuelto-73--matriz-simétrica-vectores-propios-ortogonales">📌 Ejemplo resuelto 7.3 — Matriz simétrica (vectores propios ortogonales)</h3>
+<p>\[A = \begin{pmatrix}3 &amp; 1 \\ 1 &amp; 3\end{pmatrix}\]</p>
+<p>\(\text{tr}(A) = 6\), \(\det(A) = 9 - 1 = 8\), luego \(\lambda^2 - 6\lambda + 8 = 0\) y
+\(\lambda_1 = 4\), \(\lambda_2 = 2\).</p>
+<ul>
+<li>Para \(\lambda = 4\): \(\begin{pmatrix}-1 &amp; 1 \\ 1 &amp; -1\end{pmatrix}v = 0 \Rightarrow v = (1,1)\)</li>
+<li>Para \(\lambda = 2\): \(\begin{pmatrix}1 &amp; 1 \\ 1 &amp; 1\end{pmatrix}v = 0 \Rightarrow v = (-1,1)\)</li>
+</ul>
+<p><strong>Ortogonalidad:</strong> \((1,1) \cdot (-1,1) = -1 + 1 = 0\) ✓</p>
+<p>Esto no es casualidad: es el teorema espectral, y es exactamente la razón por la cual las
+componentes principales del PCA salen perpendiculares entre sí (o sea, no correlacionadas).</p>
+<hr />
+<h2 id="escenario-8--aplicando-lo-aprendido">Escenario 8 — Aplicando lo aprendido</h2>
+<blockquote>
+<p><strong>Lectura Fundamental 8 · aplicando conceptos y procesos del álgebra lineal.</strong> Apuntes a fondo, ejercicios de la lectura resueltos y erratas: pestaña <strong>Escenario 8</strong> de <code>6. Cuaderno de Matrices.html</code>.</p>
+</blockquote>
+<h3 id="81-el-proceso-completo-sobre-un-problema-real">8.1 El proceso completo sobre un problema real</h3>
+<p>La lectura recorre el módulo entero en cinco pasos, siempre en este orden:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Paso</th>
+<th>Pregunta</th>
+<th>Herramienta</th>
+<th>Escenario</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Representar</td>
+<td>¿Con qué objeto escribo la información?</td>
+<td>Matrices, \(n\)-uplas, polinomios, funciones</td>
+<td>1 y 3</td>
+</tr>
+<tr>
+<td>Estructura</td>
+<td>¿El conjunto de esos objetos es espacio vectorial?</td>
+<td>Axiomas, subespacios</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Economía</td>
+<td>¿Cuál es el generador mínimo?</td>
+<td>Base, dimensión</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Transformar</td>
+<td>¿El proceso es una transformación lineal?</td>
+<td>Linealidad, matriz, núcleo, imagen</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Predecir</td>
+<td>¿Qué respuesta no depende del caso particular?</td>
+<td>Valores y vectores propios</td>
+<td>7</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="82-vectores-frente-a-transformaciones">8.2 Vectores frente a transformaciones</h3>
+<p>Un polinomio o una función concreta es un <strong>vector</strong> de su espacio; una transformación es una regla
+que convierte vectores en vectores.</p>
+<ul>
+<li>El cable del puente, \(p(x) = b + \tfrac{w}{2T_1}x^2\), es un vector de \(P_2\). Las parábolas
+  \(\{b + kx^2\}\) forman un subespacio de dimensión 2 con base \(\{1, x^2\}\).</li>
+<li>La corriente del circuito, \(i(t) = \tfrac{E_0}{R} + c\,e^{-\frac{R}{L}t}\), es un vector del
+  espacio \(\{a + b\,e^{-kt}\}\), de dimensión 2 y base \(\{1, e^{-kt}\}\) (\(R\): resistencia; \(L\):
+  inductancia).</li>
+<li>La lectura presenta las reglas \(x \mapsto p(x)\) y \(t \mapsto i(t)\) como transformaciones lineales:
+  <strong>no lo son</strong>, porque mandan el \(0\) a algo distinto de \(0\).</li>
+<li>Una transformación lineal que sí aparece es la <strong>derivada</strong> en \(\{a + b\,e^{-kt}\}\): en la base
+  \(\{1, e^{-kt}\}\) su matriz es \(\begin{pmatrix}0 &amp; 0 \\ 0 &amp; -k\end{pmatrix}\). La exponencial es un
+  <strong>vector propio</strong> de la derivada, con \(\lambda = -k\).</li>
+</ul>
+<h3 id="83-es-espacio-vectorial-los-conjuntos-de-los-contextos">8.3 ¿Es espacio vectorial? Los conjuntos de los contextos</h3>
+<ul>
+<li>\(\{(x_1,\dots,x_4) : x_i \geq 0\}\) (tiempos de producción): <strong>no</strong>. \((1,0,0,0)\) no tiene opuesto.</li>
+<li>Matrices \(5\times5\) con entradas en \(\{-1,0,1\}\): <strong>no</strong>. Sumar dos con un 1 en el mismo lugar da 2.</li>
+<li>Soluciones de un sistema homogéneo \(Ax = 0\): <strong>sí</strong>, siempre.</li>
+</ul>
+<p>Lo práctico es trabajar en \(\mathbb{R}^n\) y aplicar las restricciones (no negatividad) al final.</p>
+<h3 id="84-el-buscador-importancia-como-vector-propio">8.4 El buscador: importancia como vector propio</h3>
+<p>Con \(n\) páginas, la <strong>matriz de enlaces</strong> \(L\) tiene en la columna \(j\) el valor \(1/(\text{enlaces que
+salen de } j)\) en cada fila \(i\) a la que \(j\) enlaza. Cada columna suma 1. La importancia es el
+vector que no cambia al repartirse:</p>
+<p>\[Lx = x \quad\Longleftrightarrow\quad x \text{ es vector propio de } L \text{ con } \lambda = 1\]</p>
+<p>Existe siempre, porque \(L^t(1,\dots,1) = (1,\dots,1)\) y \(L\) y \(L^t\) tienen el mismo polinomio
+característico. En la práctica se calcula repartiendo muchas veces, \(x_{k+1} = Lx_k\): los demás
+valores propios tienen módulo menor que 1 y sus potencias se apagan.</p>
+<h3 id="-ejemplo-resuelto-81--el-flujo-de-red-de-la-lectura">📌 Ejemplo resuelto 8.1 — El flujo de red de la lectura</h3>
+<p>Nodos en anillo \(A \to B \to C \to D \to E \to A\); entran 50 en \(A\) y 40 en \(C\); salen 30 en \(B\), 25
+en \(D\) y 35 en \(E\). Una ecuación por nodo (lo que entra = lo que sale):</p>
+<p>\[50 + f_5 = f_1, \quad f_1 = 30 + f_2, \quad 40 + f_2 = f_3, \quad f_3 = 25 + f_4, \quad f_4 = 35 + f_5\]</p>
+<p>La matriz aumentada se reduce a</p>
+<p>\[\left(\begin{array}{ccccc|c}1&amp;0&amp;0&amp;0&amp;-1&amp;50\\0&amp;1&amp;0&amp;0&amp;-1&amp;20\\0&amp;0&amp;1&amp;0&amp;-1&amp;60\\0&amp;0&amp;0&amp;1&amp;-1&amp;35\\0&amp;0&amp;0&amp;0&amp;0&amp;0\end{array}\right)\]</p>
+<p>Rango 4 con 5 incógnitas: una variable libre, \(f_5 = t\).</p>
+<p>\[f = (50,\,20,\,60,\,35,\,0) + t\,(1,1,1,1,1), \qquad t \geq 0\]</p>
+<p>El vector \((1,1,1,1,1)\) genera el <strong>núcleo</strong> (dar una vuelta completa al anillo no cambia el
+balance de ningún nodo) y es el vector propio de \(\lambda = 0\). ⚠️ La lectura dice que ese vector
+«es el generador de todas las soluciones»: lo es solo del sistema <strong>homogéneo</strong>; el sistema real
+necesita además la solución particular.</p>
+<h3 id="-ejemplo-resuelto-82--el-buscador-de-seis-páginas-ejercicio-6-de-la-lectura">📌 Ejemplo resuelto 8.2 — El buscador de seis páginas (ejercicio 6 de la lectura)</h3>
+<p>Enlaces que salen de cada página (Figura 3): \(1 \to \{4,5,6\}\), \(2 \to \{1,3\}\), \(3 \to \{4,5\}\),
+\(4 \to \{1,2,5,6\}\), \(5 \to \{3\}\), \(6 \to \{1,5\}\).</p>
+<p>\[L = \begin{pmatrix} 0&amp;\tfrac12&amp;0&amp;\tfrac14&amp;0&amp;\tfrac12\\ 0&amp;0&amp;0&amp;\tfrac14&amp;0&amp;0\\ 0&amp;\tfrac12&amp;0&amp;0&amp;1&amp;0\\ \tfrac13&amp;0&amp;\tfrac12&amp;0&amp;0&amp;0\\ \tfrac13&amp;0&amp;\tfrac12&amp;\tfrac14&amp;0&amp;\tfrac12\\ \tfrac13&amp;0&amp;0&amp;\tfrac14&amp;0&amp;0 \end{pmatrix}\]</p>
+<p>Resolviendo \((L - I)x = 0\) y normalizando para que sume 1:</p>
+<p>\[x = \tfrac{1}{215}\,(24,\;10,\;64,\;40,\;59,\;18)\]</p>
+<p><strong>Orden:</strong> 3 (29,8 %), 5 (27,4 %), 4 (18,6 %), 1 (11,2 %), 6 (8,4 %), 2 (4,7 %).</p>
+<p><strong>Verificación de una fila:</strong> la página 3 recibe la mitad de la 2 y toda la 5:
+\(\tfrac12 \cdot 10 + 59 = 64\) ✓. La 5 tiene más enlaces de entrada que la 3 y aun así queda
+segunda: importa <strong>quién</strong> te enlaza, no cuántos.</p>
+<hr />
+<h2 id="extra--para-tu-programa-de-análisis-de-datos">Extra — Para tu programa de Análisis de Datos</h2>
+<blockquote>
+<p><strong>(complemento)</strong> Nada de esta sección está en las lecturas del módulo. Es el puente con lo que
+viene en el programa: regresión, PCA, imágenes. Se conserva de la versión anterior, donde
+aparecía por error como «Escenario 8».</p>
+</blockquote>
+<h3 id="x1-datos-como-matrices">X.1 Datos como matrices</h3>
+<p>Una tabla de \(m\) registros y \(n\) variables es una matriz \(X\) de \(m \times n\):</p>
+<p>\[X = \begin{pmatrix} x_{11} &amp; \cdots &amp; x_{1n} \\ \vdots &amp; \ddots &amp; \vdots \\ x_{m1} &amp; \cdots &amp; x_{mn}\end{pmatrix}\]</p>
+<p>Cada fila es una observación; cada columna, una variable. Operaciones cotidianas:</p>
+<ul>
+<li><strong>Media de la columna \(j\):</strong> producto punto de esa columna con el vector \((\tfrac1m,\ldots,\tfrac1m)\).</li>
+<li><strong>Centrar los datos:</strong> restar a cada columna su media, obteniendo \(X_c\).</li>
+<li><strong>Matriz de covarianza:</strong> \(S = \dfrac{1}{m-1}X_c^TX_c\). Es \(n \times n\) y <strong>simétrica</strong>.</li>
+<li><strong>Estandarizar:</strong> además de centrar, dividir cada columna por su desviación estándar.</li>
+</ul>
+<h3 id="x2-regresión-lineal-por-mínimos-cuadrados">X.2 Regresión lineal por mínimos cuadrados</h3>
+<p>Modelo: \(y = X\beta + \varepsilon\), donde \(X\) incluye una <strong>columna de unos</strong> para el intercepto.</p>
+<p>Como en general \(Ax = b\) no tiene solución exacta cuando hay más datos que parámetros, se busca el
+\(\hat\beta\) que minimiza \(\|y - X\beta\|^2\). La condición de mínimo lleva a las <strong>ecuaciones
+normales</strong>:</p>
+<p>\[X^TX\beta = X^Ty \qquad\Longrightarrow\qquad \boxed{\hat\beta = (X^TX)^{-1}X^Ty}\]</p>
+<p><strong>Geometría.</strong> \(\hat{y} = X\hat\beta\) es la <strong>proyección ortogonal</strong> de \(y\) sobre el espacio
+columna \(C(X)\), y el residuo \(e = y - \hat{y}\) es ortogonal a todas las columnas de \(X\)
+(es decir, \(X^Te = 0\)). Es la proyección de la sección 3.7, en dimensión \(m\).</p>
+<p><strong>Multicolinealidad.</strong> Si dos columnas de \(X\) son linealmente dependientes (o casi), \(X^TX\) es
+singular (o casi) y \((X^TX)^{-1}\) no existe o es numéricamente inestable. <strong>Ese es el puente
+directo entre el Escenario 4 y la estadística aplicada.</strong></p>
+<h3 id="-ejemplo-resuelto-x1--regresión-lineal-completa-a-mano">📌 Ejemplo resuelto X.1 — Regresión lineal completa a mano</h3>
+<p>Datos: \((1,3), (2,4), (3,6), (4,7), (5,9)\). Ajustar \(y = \beta_0 + \beta_1 x\).</p>
+<p><strong>Paso 1 — Matriz de diseño</strong></p>
+<p>\[X = \begin{pmatrix} 1 &amp; 1 \\ 1 &amp; 2 \\ 1 &amp; 3 \\ 1 &amp; 4 \\ 1 &amp; 5\end{pmatrix}, \qquad
+y = \begin{pmatrix}3\\4\\6\\7\\9\end{pmatrix}\]</p>
+<p><strong>Paso 2 — \(X^TX\)</strong></p>
+<p>\[X^TX = \begin{pmatrix} 5 &amp; 1+2+3+4+5 \\ 1+2+3+4+5 &amp; 1+4+9+16+25 \end{pmatrix} = \begin{pmatrix}5 &amp; 15 \\ 15 &amp; 55\end{pmatrix}\]</p>
+<p><strong>Paso 3 — \(X^Ty\)</strong></p>
+<p>\[X^Ty = \begin{pmatrix} 3+4+6+7+9 \\ 1(3)+2(4)+3(6)+4(7)+5(9) \end{pmatrix} = \begin{pmatrix}29 \\ 3+8+18+28+45\end{pmatrix} = \begin{pmatrix}29\\102\end{pmatrix}\]</p>
+<p><strong>Paso 4 — Inversa de \(X^TX\)</strong></p>
+<p>\[\det(X^TX) = 5(55) - 15(15) = 275 - 225 = 50\]</p>
+<p>\[(X^TX)^{-1} = \frac{1}{50}\begin{pmatrix}55 &amp; -15 \\ -15 &amp; 5\end{pmatrix} = \begin{pmatrix}\tfrac{11}{10} &amp; -\tfrac{3}{10} \\[2pt] -\tfrac{3}{10} &amp; \tfrac{1}{10}\end{pmatrix}\]</p>
+<p><strong>Paso 5 — Coeficientes</strong></p>
+<p>\[\hat\beta = \begin{pmatrix}\tfrac{11}{10} &amp; -\tfrac{3}{10} \\[2pt] -\tfrac{3}{10} &amp; \tfrac{1}{10}\end{pmatrix}\begin{pmatrix}29\\102\end{pmatrix}
+= \begin{pmatrix} \tfrac{319}{10} - \tfrac{306}{10} \\[2pt] -\tfrac{87}{10} + \tfrac{102}{10}\end{pmatrix}
+= \begin{pmatrix}\tfrac{13}{10} \\[2pt] \tfrac{15}{10}\end{pmatrix} = \begin{pmatrix}1{,}3 \\ 1{,}5\end{pmatrix}\]</p>
+<p><strong>Modelo ajustado:</strong></p>
+<p>\[\hat{y} = 1{,}3 + 1{,}5\,x\]</p>
+<p><strong>Paso 6 — Residuos y bondad de ajuste</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>\(x\)</th>
+<th>\(y\)</th>
+<th>\(\hat{y} = 1{,}3 + 1{,}5x\)</th>
+<th>\(e = y - \hat{y}\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>3</td>
+<td>2,8</td>
+<td>0,2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>4</td>
+<td>4,3</td>
+<td>−0,3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>6</td>
+<td>5,8</td>
+<td>0,2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>7</td>
+<td>7,3</td>
+<td>−0,3</td>
+</tr>
+<tr>
+<td>5</td>
+<td>9</td>
+<td>8,8</td>
+<td>0,2</td>
+</tr>
+</tbody>
+</table></div>
+<p>Suma de residuos: \(0{,}2 - 0{,}3 + 0{,}2 - 0{,}3 + 0{,}2 = 0\) ✓ (siempre debe dar cero cuando hay
+intercepto: eso <em>es</em> la ortogonalidad del residuo con la columna de unos).</p>
+<p>\[\text{SSE} = \sum e_i^2 = 0{,}04 + 0{,}09 + 0{,}04 + 0{,}09 + 0{,}04 = 0{,}30\]</p>
+<p>Con \(\bar{y} = 29/5 = 5{,}8\): \(\text{SST} = 22{,}8\), luego</p>
+<p>\[R^2 = 1 - \frac{0{,}30}{22{,}8} \approx 0{,}9868\]</p>
+<p><strong>Verificación en Excel:</strong> <code>=ESTIMACION.LINEAL(rango_y; rango_x)</code> devuelve la pendiente 1,5 y el
+intercepto 1,3. Es exactamente la misma cuenta que acabas de hacer a mano.</p>
+<h3 id="x3-pca--análisis-de-componentes-principales">X.3 PCA — Análisis de componentes principales</h3>
+<p><strong>Idea.</strong> Buscar direcciones nuevas (combinaciones lineales de las variables originales) que
+capturen la mayor varianza posible, y quedarse con unas pocas.</p>
+<p><strong>Procedimiento:</strong></p>
+<ol>
+<li>Centrar (y usualmente estandarizar) los datos → \(X_c\).</li>
+<li>Calcular la matriz de covarianza \(S = \frac{1}{m-1}X_c^TX_c\) (simétrica, \(n \times n\)).</li>
+<li>Calcular valores y vectores propios de \(S\).</li>
+<li>Ordenar los valores propios de mayor a menor. Los vectores propios correspondientes son las
+   <strong>componentes principales</strong>.</li>
+<li>La <strong>proporción de varianza explicada</strong> por la componente \(i\) es</li>
+</ol>
+<p>\[\frac{\lambda_i}{\sum_{j} \lambda_j}\]</p>
+<p><strong>Por qué funciona:</strong> \(S\) es simétrica, luego por el teorema espectral sus vectores propios son
+ortogonales. Las componentes principales son direcciones <strong>no correlacionadas entre sí</strong>, y cada
+valor propio es la varianza de los datos proyectados en esa dirección.</p>
+<h3 id="-ejemplo-resuelto-x2--pca-con-una-covarianza-22">📌 Ejemplo resuelto X.2 — PCA con una covarianza 2×2</h3>
+<p>Supongamos que, tras centrar los datos de dos variables, la matriz de covarianza es</p>
+<p>\[S = \begin{pmatrix}5 &amp; 2 \\ 2 &amp; 2\end{pmatrix}\]</p>
+<p><strong>Paso 1 — Valores propios</strong></p>
+<p>\(\text{tr}(S) = 7\), \(\det(S) = 10 - 4 = 6\), luego</p>
+<p>\[\lambda^2 - 7\lambda + 6 = 0 \Rightarrow (\lambda - 6)(\lambda - 1) = 0\]</p>
+<p>\[\lambda_1 = 6, \qquad \lambda_2 = 1\]</p>
+<p><strong>Paso 2 — Vectores propios</strong></p>
+<p>Para \(\lambda_1 = 6\):</p>
+<p>\[(S - 6I) = \begin{pmatrix}-1 &amp; 2 \\ 2 &amp; -4\end{pmatrix} \Rightarrow -v_1 + 2v_2 = 0 \Rightarrow v_1 = 2v_2\]</p>
+<p>\[v^{(1)} = \begin{pmatrix}2\\1\end{pmatrix}, \qquad \text{normalizado: } \frac{1}{\sqrt{5}}\begin{pmatrix}2\\1\end{pmatrix} \approx \begin{pmatrix}0{,}894 \\ 0{,}447\end{pmatrix}\]</p>
+<p>Para \(\lambda_2 = 1\):</p>
+<p>\[(S - I) = \begin{pmatrix}4 &amp; 2 \\ 2 &amp; 1\end{pmatrix} \Rightarrow 4v_1 + 2v_2 = 0 \Rightarrow v_2 = -2v_1\]</p>
+<p>\[v^{(2)} = \begin{pmatrix}1\\-2\end{pmatrix}\]</p>
+<p><strong>Ortogonalidad:</strong> \((2,1) \cdot (1,-2) = 2 - 2 = 0\) ✓ (teorema espectral, como debía)</p>
+<p><strong>Paso 3 — Varianza explicada</strong></p>
+<p>\[\text{PC1}: \frac{6}{6+1} = \frac{6}{7} \approx 85{,}7\%, \qquad \text{PC2}: \frac{1}{7} \approx 14{,}3\%\]</p>
+<p><strong>Conclusión.</strong> La primera componente principal, en la dirección \((2,1)\), explica el 85,7% de la
+varianza total. Si tuvieras que reducir estas dos variables a una sola, te quedarías con esa y
+perderías apenas el 14,3% de la información. Eso es todo el PCA.</p>
+<h3 id="x4-transformaciones-de-imágenes">X.4 Transformaciones de imágenes</h3>
+<p>Una imagen en escala de grises de \(m \times n\) píxeles es una matriz de \(m \times n\) con valores
+enteros de 0 (negro) a 255 (blanco). Operaciones habituales:</p>
+<ul>
+<li><strong>Aumentar el brillo:</strong> sumar una constante a todos los elementos.</li>
+<li><strong>Aumentar el contraste:</strong> multiplicar por un escalar \(c &gt; 1\).</li>
+<li><strong>Rotar / escalar / reflejar:</strong> aplicar a las coordenadas \((x,y)\) de cada píxel la matriz de
+  transformación correspondiente (Escenario 6).</li>
+<li><strong>Comprimir:</strong> descomponer la matriz y quedarse con las componentes de mayor valor propio o
+  singular — la misma idea del PCA, aplicada a píxeles.</li>
+</ul>
+<hr />
+<h2 id="tablas-comparativas-de-métodos">Tablas comparativas de métodos</h2>
+<h3 id="métodos-para-resolver-zzmath842zz">Métodos para resolver \(Ax = b\)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Cuándo usarlo</th>
+<th>Ventajas</th>
+<th>Desventajas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gauss (escalonada) + sustitución hacia atrás</strong></td>
+<td>Sistemas de cualquier tamaño</td>
+<td>Menos operaciones que Gauss-Jordan</td>
+<td>Requiere el paso extra de sustitución</td>
+</tr>
+<tr>
+<td><strong>Gauss-Jordan (FER)</strong></td>
+<td>Cualquier sistema; obligatorio si el sistema es indeterminado</td>
+<td>La solución se lee directo; sirve también para rango, inversa y espacio nulo</td>
+<td>Más operaciones</td>
+</tr>
+<tr>
+<td><strong>Matriz inversa</strong> (\(x = A^{-1}b\))</td>
+<td>Solo si \(A\) es cuadrada e invertible, y si hay que resolver con <strong>varios</strong> \(b\)</td>
+<td>Cómodo cuando cambia \(b\) pero no \(A\)</td>
+<td>Muy costoso para un solo sistema</td>
+</tr>
+<tr>
+<td><strong>Regla de Cramer</strong></td>
+<td>Solo cuadrados con \(\det \neq 0\), y \(n \leq 3\)</td>
+<td>Fórmula cerrada; útil para hallar <strong>una sola</strong> incógnita</td>
+<td>Inviable para \(n \geq 4\); no funciona si \(\det = 0\)</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="métodos-para-calcular-la-inversa">Métodos para calcular la inversa</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Mejor para</th>
+<th>Cuidado con</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fórmula 2×2</strong></td>
+<td>Matrices 2×2</td>
+<td>Olvidar dividir por el determinante</td>
+</tr>
+<tr>
+<td><strong>Gauss-Jordan sobre \([A \mid I]\)</strong></td>
+<td>3×3 en adelante. <strong>Es el método por defecto</strong></td>
+<td>Errores de signo acumulados; verifica \(AA^{-1} = I\)</td>
+</tr>
+<tr>
+<td><strong>Adjunta</strong> (\(\frac{1}{\det A}C^T\))</td>
+<td>3×3, y para demostraciones</td>
+<td>Olvidar la <strong>transposición</strong>; olvidar los signos \((-1)^{i+j}\)</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="métodos-para-calcular-el-determinante">Métodos para calcular el determinante</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Mejor para</th>
+<th>Nota</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fórmula directa</strong> \(ad - bc\)</td>
+<td>2×2</td>
+<td>Memorizada</td>
+</tr>
+<tr>
+<td><strong>Regla de Sarrus</strong></td>
+<td>Solo 3×3</td>
+<td><strong>No existe para 4×4</strong>; aplicarla ahí es un error clásico</td>
+</tr>
+<tr>
+<td><strong>Cofactores</strong></td>
+<td>3×3 y 4×4</td>
+<td>Desarrollar por la fila/columna con más ceros</td>
+</tr>
+<tr>
+<td><strong>Reducción a triangular</strong></td>
+<td>4×4 en adelante</td>
+<td>Recordar que \(F_i \leftrightarrow F_j\) cambia el signo y \(F_i \leftarrow cF_i\) multiplica por \(c\)</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="cómo-decidir-independencia-lineal">Cómo decidir independencia lineal</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Situación</th>
+<th>Método más rápido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(n\) vectores en \(\mathbb{R}^n\)</td>
+<td>Determinante: \(\det \neq 0 \Rightarrow\) LI</td>
+</tr>
+<tr>
+<td>\(k \neq n\) vectores en \(\mathbb{R}^n\)</td>
+<td>Rango de la matriz de columnas: \(\text{rg} = k \Rightarrow\) LI</td>
+</tr>
+<tr>
+<td>\(k &gt; n\)</td>
+<td>Ni calcules: son LD por conteo</td>
+</tr>
+<tr>
+<td>Dos vectores</td>
+<td>¿Uno es múltiplo del otro?</td>
+</tr>
+<tr>
+<td>Alguno es el vector cero</td>
+<td>LD inmediato</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="errores-frecuentes">Errores frecuentes</h2>
+<h3 id="aritméticos-y-de-procedimiento">Aritméticos y de procedimiento</h3>
+<ol>
+<li>
+<p><strong>Signos en las operaciones de fila.</strong> \(F_2 \leftarrow F_2 - 2F_1\) resta \(2F_1\) a <strong>toda</strong> la
+   fila, incluida la columna de términos independientes. Es el error número uno del curso.
+   <em>Antídoto:</em> escribe la operación <strong>antes</strong> de ejecutarla y aplícala columna por columna.</p>
+</li>
+<li>
+<p><strong>Olvidar la columna aumentada.</strong> Se opera sobre las columnas de coeficientes y se deja intacta
+   la de \(b\). El resultado es un sistema distinto.</p>
+</li>
+<li>
+<p><strong>Multiplicar matrices "elemento a elemento".</strong> El producto matricial <strong>no</strong> es
+   \(c_{ij} = a_{ij}b_{ij}\). Eso es el producto de Hadamard, que no es lo que pide el curso.
+   <em>Antídoto:</em> repítete "fila por columna, producto punto".</p>
+</li>
+<li>
+<p><strong>Cofactores sin el signo \((-1)^{i+j}\).</strong> El menor no es el cofactor. <em>Antídoto:</em> dibuja el
+   tablero de signos \(+\,-\,+ / -\,+\,- / +\,-\,+\) al margen de la hoja.</p>
+</li>
+<li>
+<p><strong>Adjunta sin transponer.</strong> \(\text{adj}(A) = C^T\), no \(C\).</p>
+</li>
+<li>
+<p><strong>Aplicar Sarrus a matrices 4×4.</strong> La regla de Sarrus vale <strong>exclusivamente</strong> para 3×3.</p>
+</li>
+<li>
+<p><strong>No verificar.</strong> Reemplazar la solución en el sistema original toma 30 segundos y salva un
+   ejercicio completo.</p>
+</li>
+</ol>
+<h3 id="conceptuales">Conceptuales</h3>
+<ol start="8">
+<li>
+<p><strong>Suponer que \(AB = BA\).</strong> Casi nunca lo es. Y en las propiedades donde el orden importa,
+   se invierte: \((AB)^T = B^TA^T\) y \((AB)^{-1} = B^{-1}A^{-1}\).</p>
+</li>
+<li>
+<p><strong>Creer que \(AB = 0\) implica \(A = 0\) o \(B = 0\).</strong> Falso en matrices.</p>
+</li>
+<li>
+<p><strong>Confundir "no tiene solución" con "solución trivial".</strong> Un sistema homogéneo \(Ax = 0\)
+    <strong>siempre</strong> tiene al menos la solución \(x = 0\): nunca es inconsistente.</p>
+</li>
+<li>
+<p><strong>Confundir rango de \(A\) con rango de \([A|b]\).</strong> La clasificación del sistema depende de
+    comparar ambos.</p>
+</li>
+<li>
+<p><strong>Decir "es linealmente dependiente" sin dar la relación.</strong> En los exámenes casi siempre piden
+    la combinación explícita: \(-2v_1 + v_2 + v_3 = 0\).</p>
+</li>
+<li>
+<p><strong>Tomar las columnas de la matriz reducida como base del espacio columna.</strong> La base se toma de
+    las columnas de la matriz <strong>original</strong> (las que corresponden a posiciones pivote). El espacio
+    nulo sí se lee de la reducida; el espacio columna no.</p>
+</li>
+<li>
+<p><strong>Creer que todo conjunto con el número correcto de vectores es base.</strong> Tres vectores en
+    \(\mathbb{R}^3\) son base solo si además son LI.</p>
+</li>
+<li>
+<p><strong>Aceptar el vector cero como vector propio.</strong> Por definición, \(v \neq 0\). El <strong>valor</strong> propio
+    sí puede ser 0; el <strong>vector</strong> propio, nunca.</p>
+</li>
+<li>
+<p><strong>Desordenar \(P\) y \(D\).</strong> Si la primera columna de \(P\) es el vector propio de \(\lambda = 5\),
+    entonces \(d_{11} = 5\). Un desajuste de orden invalida \(A = PDP^{-1}\).</p>
+</li>
+<li>
+<p><strong>Suponer que toda matriz es diagonalizable.</strong> Solo lo es si hay \(n\) vectores propios
+    independientes.</p>
+</li>
+<li>
+<p><strong>Olvidar la columna de unos en la matriz de diseño</strong> (sección Extra). Sin ella, el modelo de regresión no
+    tiene intercepto y pasa forzosamente por el origen.</p>
+</li>
+<li>
+<p><strong>Confundir el número de filas con el número de columnas en rango-nulidad.</strong> El teorema es
+    \(\text{rg}(A) + \text{nulidad}(A) = n\), donde \(n\) es el número de <strong>columnas</strong>.</p>
+</li>
+<li>
+<p><strong>Pensar que "el determinante mide el tamaño de los números".</strong> No: mide cuánto escala los
+    volúmenes la transformación asociada. \(\det = 0\) significa que la transformación aplasta el
+    espacio a una dimensión menor — y por eso no se puede deshacer, o sea, no hay inversa.</p>
+</li>
+</ol>
+<h3 id="sacados-de-las-erratas-de-las-lecturas">Sacados de las erratas de las lecturas</h3>
+<ol start="21">
+<li>
+<p><strong>Decir que tres o más vectores son independientes porque ninguno es múltiplo de otro.</strong>
+    Hay que ver si alguno es <strong>combinación</strong> de los demás (errata de la Lectura 4).</p>
+</li>
+<li>
+<p><strong>Afirmar que \(T\) es lineal solo porque \(T(0) = 0\).</strong> Es necesario, no suficiente.</p>
+</li>
+<li>
+<p><strong>No reconstruir las coordenadas.</strong> Si dices que \([v]_B = (c_1, c_2, c_3)\), multiplica de vuelta
+    y comprueba que sale \(v\) (errata del Ejemplo 4 de la Lectura 6).</p>
+</li>
+<li>
+<p><strong>Exigir \(A - \lambda I = 0\).</strong> La condición es \(\det(A - \lambda I) = 0\) (errata de la Lectura 7).</p>
+</li>
+<li>
+<p><strong>Contar valores propios en vez de vectores propios independientes</strong> para decidir si una
+    matriz es diagonalizable.</p>
+</li>
+<li>
+<p><strong>Buscar valores propios de una transformación \(V \to W\) con \(V \neq W\).</strong> Solo tienen sentido
+    con matriz cuadrada.</p>
+</li>
+</ol>
+</main>
+</body>
+</html>

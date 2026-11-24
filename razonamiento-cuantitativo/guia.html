@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guía de estudio — Razonamiento Cuantitativo</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ 01 - Razonamiento Cuantitativo / 1. Guía de estudio</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="guía-de-estudio--razonamiento-cuantitativo">Guía de estudio — Razonamiento Cuantitativo</h1>
+<p><strong>Bloque A: 25 de agosto – 19 de octubre de 2026 · 8 escenarios, uno por semana.</strong></p>
+<blockquote>
+<p>⚠️ <strong>Contenido esperado, por verificar en el aula virtual.</strong> La distribución de temas por escenario es una reconstrucción a partir de programas equivalentes y de la competencia genérica de razonamiento cuantitativo. Los nombres de las actividades evaluativas ("Actividad de puntos evaluables – Escenario 2", "Quiz – Escenario 3", etc.) corresponden a la nomenclatura habitual del Poli virtual, <strong>no</strong> a un syllabus oficial que yo haya visto. El primer día: entra al aula, compara y corrige este archivo.</p>
+</blockquote>
+<p><strong>Cómo leer cada ficha:</strong> el bloque <em>Señales de alerta</em> es el más importante. Si no puedes hacer lo que dice, no sigas al escenario siguiente; devuélvete. En esta materia los escenarios se apilan: la proporcionalidad del escenario 2 aparece en el 3, en el 5 y en el 6.</p>
+<hr />
+<h2 id="escenario-1--interpretación-y-representación-de-información-cuantitativa">Escenario 1 — Interpretación y representación de información cuantitativa</h2>
+<p><strong>Semana 1: 25 – 31 de agosto de 2026</strong></p>
+<h3 id="tema">Tema</h3>
+<p>Cómo se presenta la información numérica y cómo se lee sin equivocarse: tablas de doble entrada, gráficos de barras, líneas, circulares, histogramas y dispersión; escalas de medición (nominal, ordinal, de intervalo, de razón); ejes, unidades, notas al pie y fuentes.</p>
+<h3 id="objetivos-de-aprendizaje">Objetivos de aprendizaje</h3>
+<p>Al terminar la semana debes poder:</p>
+<ul>
+<li><strong>Identificar</strong> el tipo de escala de una variable (nominal, ordinal, intervalo, razón) y decir qué operaciones son válidas con ella.</li>
+<li><strong>Extraer</strong> un dato puntual, un total y una diferencia de una tabla de doble entrada sin confundir filas con columnas.</li>
+<li><strong>Traducir</strong> la misma información entre representaciones: tabla → gráfico → enunciado verbal.</li>
+<li><strong>Elegir</strong> el gráfico adecuado según el tipo de dato (composición, comparación, evolución, relación).</li>
+<li><strong>Detectar</strong> cuándo un gráfico no permite responder la pregunta que se formula.</li>
+</ul>
+<h3 id="conceptos-clave">Conceptos clave</h3>
+<ul>
+<li>Población, unidad de observación, variable, valor.</li>
+<li>Variable cualitativa vs. cuantitativa; discreta vs. continua.</li>
+<li>Escalas: nominal (categorías sin orden), ordinal (orden sin distancia), de intervalo (distancia sin cero absoluto), de razón (cero absoluto, permite cocientes).</li>
+<li>Frecuencia absoluta, frecuencia relativa, frecuencia acumulada.</li>
+<li>Elementos obligatorios de un gráfico: título, ejes rotulados, unidad, escala, fuente, período.</li>
+<li>Total de fila, total de columna y gran total en tablas de contingencia.</li>
+</ul>
+<h3 id="qué-leer--ver">Qué leer / ver</h3>
+<ul>
+<li>Todo el material del escenario 1 en el aula virtual (lectura fundamental + recursos de apoyo).</li>
+<li><code>3. Resúmenes teóricos.md</code>, sección "Escenario 1".</li>
+<li>Un boletín real del DANE con tablas y gráficos (por ejemplo el boletín del IPC que ya manejas). Léelo esta vez como <em>estudiante</em>: mira el rótulo del eje, la fuente, la nota metodológica al pie.</li>
+</ul>
+<h3 id="qué-practicar">Qué practicar</h3>
+<ul>
+<li>Ejercicios 1.1 a 1.3 del <code>4. Banco de ejercicios.md</code>.</li>
+<li>Toma una tabla de tu trabajo (la matriz de seguimiento de contratos, por ejemplo) y escribe tres afirmaciones verdaderas y dos falsas que se puedan verificar con ella. Es el formato exacto de pregunta de examen.</li>
+</ul>
+<h3 id="entregable-evaluativo-esperado">Entregable evaluativo esperado</h3>
+<p>Semana sin nota propia, típicamente. Suele haber <strong>foro de presentación</strong> o <strong>foro temático</strong> del escenario 1: participa, muchas veces vale puntos del 30 % del primer bloque y se pierde por olvido, no por dificultad.</p>
+<h3 id="señales-de-alerta">Señales de alerta</h3>
+<ul>
+<li>Si no distingues variable ordinal de variable de intervalo → repasa la sección de escalas del resumen antes de seguir. Es la base del escenario 7.</li>
+<li>Si al leer una tabla de doble entrada dudas de cuál es el denominador de un porcentaje → detente aquí. Ese es <em>el</em> error del escenario 2.</li>
+<li>Si no puedes decir qué gráfico usarías para "participación de cada rubro en el presupuesto" (respuesta: circular o barras apiladas, no de líneas) → vuelve al material del aula.</li>
+</ul>
+<hr />
+<h2 id="escenario-2--números-racionales-razones-proporciones-tasas-y-porcentajes">Escenario 2 — Números racionales, razones, proporciones, tasas y porcentajes</h2>
+<p><strong>Semana 2: 1 – 7 de septiembre de 2026</strong></p>
+<span id="tema"></span><h3 id="tema_1">Tema</h3>
+<p>El corazón de la materia. Fracciones, decimales y porcentajes como tres caras del mismo objeto; razón vs. proporción vs. tasa; regla de tres directa e inversa; repartos proporcionales; porcentaje de un total y total a partir del porcentaje.</p>
+<span id="objetivos-de-aprendizaje"></span><h3 id="objetivos-de-aprendizaje_1">Objetivos de aprendizaje</h3>
+<ul>
+<li><strong>Convertir</strong> fluidamente entre fracción, decimal y porcentaje.</li>
+<li><strong>Identificar la base</strong> (el "de qué") de todo porcentaje antes de calcularlo.</li>
+<li><strong>Resolver</strong> problemas de proporcionalidad directa e inversa distinguiendo cuál aplica.</li>
+<li><strong>Calcular</strong> el valor original a partir del valor final y el porcentaje aplicado (el problema inverso, que es el que más se equivoca).</li>
+<li><strong>Justificar</strong> por qué dos porcentajes con bases distintas no se pueden sumar ni promediar directamente.</li>
+</ul>
+<span id="conceptos-clave"></span><h3 id="conceptos-clave_1">Conceptos clave</h3>
+<ul>
+<li>Razón \(a:b\) y su valor \(a/b\); proporción \(\frac{a}{b}=\frac{c}{d}\); propiedad fundamental \(ad = bc\).</li>
+<li>Tasa: razón entre magnitudes de <strong>distinta</strong> naturaleza (km/h, casos por 100.000 habitantes, pesos por evento).</li>
+<li>Porcentaje como razón de base 100: \(p\% = \frac{p}{100}\).</li>
+<li>Base, parte y porcentaje: \(\text{parte} = \text{base}\times p\%\).</li>
+<li>Problema inverso: si \(V_f = V_0(1+r)\) entonces \(V_0 = \dfrac{V_f}{1+r}\).</li>
+<li>Proporcionalidad inversa: \(x\cdot y = k\).</li>
+<li>Promedio ponderado (introducción).</li>
+</ul>
+<span id="qué-leer--ver"></span><h3 id="qué-leer--ver_1">Qué leer / ver</h3>
+<ul>
+<li>Material del escenario 2 en el aula.</li>
+<li><code>3. Resúmenes teóricos.md</code>, sección "Escenario 2".</li>
+<li>Si necesitas refuerzo: video de proporcionalidad directa e inversa en un canal en español (ver <code>5. Recursos.md</code>).</li>
+</ul>
+<span id="qué-practicar"></span><h3 id="qué-practicar_1">Qué practicar</h3>
+<ul>
+<li>Ejercicios 2.1 a 2.4 del banco.</li>
+<li>Ejercicio propio de alto valor: toma la regla de la intermediación del 8,37 % que manejas en el trabajo y escríbela como problema formal — identifica base, tasa, y por qué el resultado ya incluye IVA. Si puedes explicárselo a alguien sin usar Excel, dominaste el escenario.</li>
+</ul>
+<span id="entregable-evaluativo-esperado"></span><h3 id="entregable-evaluativo-esperado_1">Entregable evaluativo esperado</h3>
+<p><strong>Actividad de puntos evaluables – Escenario 2.</strong> Suele ser la primera nota real del curso, con ventana de entrega limitada. Revisa fecha y hora de cierre apenas abra la semana.</p>
+<span id="señales-de-alerta"></span><h3 id="señales-de-alerta_1">Señales de alerta</h3>
+<ul>
+<li>Si te dan "el precio subió 20 % y quedó en \(120.000\)" y respondes que antes valía \(96.000\) → <strong>error grave</strong>. La base del 20 % era el precio anterior, no el final (\(100.000\) es la respuesta). Devuélvete a la sección de problema inverso.</li>
+<li>Si sumas "creció 10 % y luego 10 %" y dices 20 % → devuélvete a la sección de variaciones encadenadas (escenario 3 lo formaliza, pero el error nace aquí).</li>
+<li>Si no distingues razón de tasa → repasa; en el escenario 4 vas a necesitar entender la pendiente como tasa.</li>
+</ul>
+<hr />
+<h2 id="escenario-3--variación-porcentual-puntos-porcentuales-índices-y-deflactores">Escenario 3 — Variación porcentual, puntos porcentuales, índices y deflactores</h2>
+<p><strong>Semana 3: 8 – 14 de septiembre de 2026</strong></p>
+<span id="tema"></span><h3 id="tema_2">Tema</h3>
+<p>El escenario más directamente aplicable a tu trabajo. Cambios relativos, variaciones encadenadas, la diferencia entre porcentaje y punto porcentual, números índice, IPC, y el paso de pesos corrientes a pesos constantes.</p>
+<span id="objetivos-de-aprendizaje"></span><h3 id="objetivos-de-aprendizaje_2">Objetivos de aprendizaje</h3>
+<ul>
+<li><strong>Calcular</strong> la variación porcentual entre dos valores e interpretarla en palabras.</li>
+<li><strong>Encadenar</strong> variaciones porcentuales sucesivas y calcular la variación acumulada.</li>
+<li><strong>Distinguir</strong> con precisión "aumentó 2 %" de "aumentó 2 puntos porcentuales" y usar cada uno donde corresponde.</li>
+<li><strong>Construir</strong> un número índice con base 100 en un período de referencia y cambiar la base.</li>
+<li><strong>Deflactar</strong> una serie monetaria usando el IPC para expresarla en pesos constantes.</li>
+<li><strong>Calcular</strong> una variación real a partir de una variación nominal y la inflación.</li>
+</ul>
+<span id="conceptos-clave"></span><h3 id="conceptos-clave_2">Conceptos clave</h3>
+<ul>
+<li>Variación porcentual: \(\Delta\% = \dfrac{V_f - V_0}{V_0}\times 100\).</li>
+<li>Factor de cambio: \(1+r\). Encadenamiento: \((1+r_1)(1+r_2)\cdots\)</li>
+<li>Variación acumulada \(\ne\) suma de variaciones.</li>
+<li>Punto porcentual (p.p.): diferencia aritmética entre dos porcentajes.</li>
+<li>Número índice: \(I_t = \dfrac{V_t}{V_0}\times 100\); cambio de base.</li>
+<li>Deflactar: \(V^{\text{constante}}_t = V^{\text{corriente}}_t \times \dfrac{IPC_{\text{base}}}{IPC_t}\).</li>
+<li>Variación real: \(1+r_{\text{real}} = \dfrac{1+r_{\text{nominal}}}{1+\pi}\).</li>
+<li>Efecto base y asimetría: bajar 50 % y subir 50 % no devuelve al punto inicial.</li>
+</ul>
+<span id="qué-leer--ver"></span><h3 id="qué-leer--ver_2">Qué leer / ver</h3>
+<ul>
+<li>Material del escenario 3 en el aula.</li>
+<li><code>3. Resúmenes teóricos.md</code>, sección "Escenario 3" — es la sección más larga, tómala en serio.</li>
+<li>Un boletín del IPC del DANE: identifica variación mensual, año corrido y doce meses, y verifica que entiendes qué base usa cada una.</li>
+</ul>
+<span id="qué-practicar"></span><h3 id="qué-practicar_2">Qué practicar</h3>
+<ul>
+<li>Ejercicios 3.1 a 3.4 del banco.</li>
+<li>Ejercicio propio: toma el salario mínimo de tres años consecutivos y calcula (a) variación nominal año a año, (b) variación real usando la inflación de cada año, (c) el índice con base en el primer año.</li>
+</ul>
+<span id="entregable-evaluativo-esperado"></span><h3 id="entregable-evaluativo-esperado_2">Entregable evaluativo esperado</h3>
+<p><strong>Quiz – Escenario 3.</strong> Normalmente con tiempo cronometrado e intentos limitados. Ten a la mano tu formulario de una página y una calculadora. Antes de abrirlo, resuelve al menos ocho ejercicios de este escenario.</p>
+<span id="señales-de-alerta"></span><h3 id="señales-de-alerta_2">Señales de alerta</h3>
+<ul>
+<li>Si dices que pasar de 8 % a 10 % de desempleo es "un aumento del 2 %" → <strong>error conceptual grave y muy penalizado</strong>. Son 2 puntos porcentuales, y un aumento del 25 %. No sigas sin tener esto claro.</li>
+<li>Si al deflactar multiplicas por \(IPC_t/IPC_{base}\) en vez de dividir → estás inflando la serie en vez de deflactarla. Verifica siempre con la pregunta: "¿el resultado en pesos constantes de un año anterior debe ser mayor o menor?".</li>
+<li>Si el escenario 2 (base de un porcentaje) no está sólido, aquí te vas a estrellar. Devuélvete.</li>
+</ul>
+<hr />
+<h2 id="escenario-4--unidades-notación-científica-órdenes-de-magnitud-y-funciones-lineales">Escenario 4 — Unidades, notación científica, órdenes de magnitud y funciones lineales</h2>
+<p><strong>Semana 4: 15 – 21 de septiembre de 2026</strong></p>
+<span id="tema"></span><h3 id="tema_3">Tema</h3>
+<p>Manejo de magnitudes: conversión de unidades por análisis dimensional, notación científica, órdenes de magnitud y estimación (problemas de Fermi). Y el primer modelo formal: la función lineal y afín, con la pendiente leída como tasa de cambio.</p>
+<span id="objetivos-de-aprendizaje"></span><h3 id="objetivos-de-aprendizaje_3">Objetivos de aprendizaje</h3>
+<ul>
+<li><strong>Convertir</strong> unidades encadenando factores de conversión y verificando que las unidades se cancelen.</li>
+<li><strong>Escribir</strong> cantidades muy grandes o muy pequeñas en notación científica y operar con ellas.</li>
+<li><strong>Estimar</strong> una magnitud desconocida por orden de magnitud y justificar los supuestos.</li>
+<li><strong>Construir</strong> la función afín \(y = mx + b\) a partir de un enunciado en contexto e <strong>interpretar</strong> \(m\) y \(b\) en las unidades del problema.</li>
+<li><strong>Resolver</strong> problemas de punto de equilibrio y comparación de dos planes tarifarios.</li>
+</ul>
+<span id="conceptos-clave"></span><h3 id="conceptos-clave_3">Conceptos clave</h3>
+<ul>
+<li>Factor de conversión como fracción igual a 1; análisis dimensional.</li>
+<li>Notación científica \(a\times 10^n\) con \(1\le |a| < 10\); reglas de producto y cociente de potencias.</li>
+<li>Cifras significativas y redondeo.</li>
+<li>Orden de magnitud: la potencia de 10 más cercana.</li>
+<li>Función lineal \(y=mx\) (proporcionalidad directa) vs. función afín \(y = mx+b\).</li>
+<li>Pendiente \(m = \dfrac{y_2-y_1}{x_2-x_1}\), con unidades "unidades de \(y\) por unidad de \(x\)".</li>
+<li>Intercepto \(b\): valor cuando \(x=0\), típicamente el costo fijo.</li>
+<li>Punto de equilibrio: \(x\) donde dos funciones se cruzan, o donde ingreso = costo.</li>
+</ul>
+<span id="qué-leer--ver"></span><h3 id="qué-leer--ver_3">Qué leer / ver</h3>
+<ul>
+<li>Material del escenario 4 en el aula.</li>
+<li><code>3. Resúmenes teóricos.md</code>, sección "Escenario 4".</li>
+<li>Aprovecha que estás viendo Cálculo Diferencial en paralelo: la pendiente aquí es la derivada allá. Estudia los dos temas la misma tarde.</li>
+</ul>
+<span id="qué-practicar"></span><h3 id="qué-practicar_3">Qué practicar</h3>
+<ul>
+<li>Ejercicios 4.1 a 4.3 del banco.</li>
+<li>Ejercicio propio: modela el costo mensual de un contrato con componente fijo (equipo de trabajo) y componente variable (por evento). Escribe \(C(x)=mx+b\), identifica unidades, y calcula cuántos eventos hacen que el costo por evento baje de cierto umbral.</li>
+</ul>
+<span id="entregable-evaluativo-esperado"></span><h3 id="entregable-evaluativo-esperado_3">Entregable evaluativo esperado</h3>
+<p>Cierre del <strong>Primer Bloque (30 %)</strong>. Puede haber taller o entrega integradora de los escenarios 1-4. Verifica en el aula si hay un consolidado del primer bloque con fecha de cierre en esta semana: es el error más común, dejar una entrega abierta.</p>
+<span id="señales-de-alerta"></span><h3 id="señales-de-alerta_3">Señales de alerta</h3>
+<ul>
+<li>Si conviertes unidades "de memoria" sin escribir los factores → vas a fallar en conversiones encadenadas de tres pasos. Escribe siempre la cadena completa.</li>
+<li>Si no puedes decir qué significa la pendiente <strong>en palabras y con unidades</strong> ("cada evento adicional cuesta \(X\) pesos") → no entendiste la función afín, solo memorizaste la fórmula.</li>
+<li>Si \(b\) y \(m\) se te confunden → grafica a mano dos rectas. Cinco minutos de papel resuelven esto.</li>
+</ul>
+<hr />
+<h2 id="escenario-5--funciones-exponenciales-y-crecimiento">Escenario 5 — Funciones exponenciales y crecimiento</h2>
+<p><strong>Semana 5: 22 – 28 de septiembre de 2026</strong></p>
+<span id="tema"></span><h3 id="tema_4">Tema</h3>
+<p>Cuando el cambio es proporcional al tamaño actual: crecimiento y decrecimiento exponencial, comparación con el crecimiento lineal, tiempo de duplicación, y la noción de logaritmo como herramienta para despejar el exponente.</p>
+<span id="objetivos-de-aprendizaje"></span><h3 id="objetivos-de-aprendizaje_4">Objetivos de aprendizaje</h3>
+<ul>
+<li><strong>Distinguir</strong> un fenómeno de crecimiento lineal de uno exponencial a partir de datos o del enunciado.</li>
+<li><strong>Construir</strong> el modelo \(y = y_0(1+r)^t\) a partir de un contexto.</li>
+<li><strong>Calcular</strong> el valor futuro, la tasa o el valor inicial despejando la fórmula.</li>
+<li><strong>Usar</strong> logaritmos para despejar \(t\) y calcular tiempo de duplicación.</li>
+<li><strong>Interpretar</strong> por qué una tasa "pequeña" sostenida produce efectos grandes en horizontes largos.</li>
+</ul>
+<span id="conceptos-clave"></span><h3 id="conceptos-clave_4">Conceptos clave</h3>
+<ul>
+<li>Modelo exponencial: \(y(t) = y_0 (1+r)^t\), con \(r\) tasa por período.</li>
+<li>Decrecimiento: \(r<0\), o \(y(t)=y_0(1-d)^t\).</li>
+<li>Comparación lineal vs. exponencial: diferencia constante vs. razón constante.</li>
+<li>Logaritmo como inverso de la exponencial: si \(a^x = b\) entonces \(x = \log_a b = \dfrac{\ln b}{\ln a}\).</li>
+<li>Tiempo de duplicación: \(t = \dfrac{\ln 2}{\ln(1+r)}\); regla del 70/72 como aproximación.</li>
+<li>Tasa efectiva vs. tasa nominal (puente hacia el escenario 6).</li>
+</ul>
+<span id="qué-leer--ver"></span><h3 id="qué-leer--ver_4">Qué leer / ver</h3>
+<ul>
+<li>Material del escenario 5 en el aula.</li>
+<li><code>3. Resúmenes teóricos.md</code>, sección "Escenario 5".</li>
+<li>Si los logaritmos son nuevos para ti, dedica una sesión completa solo a eso antes de tocar el resto del escenario. Es la única pieza realmente nueva del curso.</li>
+</ul>
+<span id="qué-practicar"></span><h3 id="qué-practicar_4">Qué practicar</h3>
+<ul>
+<li>Ejercicios 5.1 a 5.3 del banco.</li>
+<li>Ejercicio propio: proyecta el valor de un contrato de \(8.263.759.012,55\) ajustado anualmente por una inflación del 5 % durante 4 años. Compara con el resultado de sumar 5 % × 4 = 20 % y explica la diferencia.</li>
+</ul>
+<span id="entregable-evaluativo-esperado"></span><h3 id="entregable-evaluativo-esperado_4">Entregable evaluativo esperado</h3>
+<p><strong>Actividad de puntos evaluables – Escenario 5.</strong> Primera nota del Segundo Bloque (30 %). Suele exigir desarrollo, no solo respuesta: muestra el procedimiento.</p>
+<span id="señales-de-alerta"></span><h3 id="señales-de-alerta_4">Señales de alerta</h3>
+<ul>
+<li>Si \((1+r)^t\) te da un resultado menor que \(y_0\) con \(r>0\) → estás elevando mal o usando \(r\) en porcentaje sin dividir entre 100. Error mecánico, revisa la calculadora.</li>
+<li>Si no puedes despejar \(t\) de \(2 = (1{,}05)^t\) → tienes un vacío en logaritmos. Devuélvete y resuélvelo esta semana; el escenario 6 lo da por sabido.</li>
+<li>Si crees que 5 % anual durante 10 años es 50 % → devuélvete al escenario 3 (variaciones encadenadas).</li>
+</ul>
+<hr />
+<h2 id="escenario-6--matemáticas-financieras-interés-simple-y-compuesto-valor-presente-anualidades">Escenario 6 — Matemáticas financieras: interés simple y compuesto, valor presente, anualidades</h2>
+<p><strong>Semana 6: 29 de septiembre – 5 de octubre de 2026</strong></p>
+<span id="tema"></span><h3 id="tema_5">Tema</h3>
+<p>La aplicación estrella del escenario 5: el valor del dinero en el tiempo. Interés simple vs. compuesto, capitalización, valor futuro y valor presente, tasas equivalentes, y series uniformes de pagos (anualidades).</p>
+<span id="objetivos-de-aprendizaje"></span><h3 id="objetivos-de-aprendizaje_5">Objetivos de aprendizaje</h3>
+<ul>
+<li><strong>Diferenciar</strong> interés simple de compuesto y calcular ambos.</li>
+<li><strong>Calcular</strong> valor futuro y valor presente de un monto único.</li>
+<li><strong>Convertir</strong> entre tasa nominal, tasa periódica y tasa efectiva anual.</li>
+<li><strong>Valorar</strong> una serie uniforme de pagos (anualidad) a valor presente y a valor futuro.</li>
+<li><strong>Comparar</strong> alternativas de pago llevándolas todas a una misma fecha focal.</li>
+</ul>
+<span id="conceptos-clave"></span><h3 id="conceptos-clave_5">Conceptos clave</h3>
+<ul>
+<li>Interés simple: \(I = P\cdot i\cdot n\); monto \(F = P(1+in)\).</li>
+<li>Interés compuesto: \(F = P(1+i)^n\); valor presente \(P = \dfrac{F}{(1+i)^n}\).</li>
+<li>Tasa periódica \(i = \dfrac{j}{m}\) (nominal \(j\) capitalizable \(m\) veces al año).</li>
+<li>Tasa efectiva anual: \(i_{ea} = \left(1+\dfrac{j}{m}\right)^m - 1\).</li>
+<li>Anualidad vencida — valor presente: \(P = A\cdot\dfrac{1-(1+i)^{-n}}{i}\).</li>
+<li>Anualidad vencida — valor futuro: \(F = A\cdot\dfrac{(1+i)^n - 1}{i}\).</li>
+<li>Fecha focal: nunca se suman dineros de fechas distintas.</li>
+<li>Diagrama de flujo de caja como herramienta de planteamiento.</li>
+</ul>
+<span id="qué-leer--ver"></span><h3 id="qué-leer--ver_5">Qué leer / ver</h3>
+<ul>
+<li>Material del escenario 6 en el aula.</li>
+<li><code>3. Resúmenes teóricos.md</code>, sección "Escenario 6".</li>
+<li>Excel: familiarízate con <code>VF</code>, <code>VA</code>, <code>PAGO</code>, <code>TASA</code> — pero solo <strong>después</strong> de haber resuelto a mano.</li>
+</ul>
+<span id="qué-practicar"></span><h3 id="qué-practicar_5">Qué practicar</h3>
+<ul>
+<li>Ejercicios 6.1 a 6.4 del banco.</li>
+<li>Ejercicio propio: si un pago de \(657.751.724,72\) se recibe en 3 meses en vez de hoy, y la tasa de oportunidad es 1 % mensual, ¿cuánto vale hoy? Es exactamente el razonamiento de una vigencia futura.</li>
+</ul>
+<span id="entregable-evaluativo-esperado"></span><h3 id="entregable-evaluativo-esperado_5">Entregable evaluativo esperado</h3>
+<p><strong>Quiz – Escenario 6.</strong> Cronometrado. Aquí el tiempo es el enemigo: practica hasta que el planteamiento sea automático y solo tengas que digitar.</p>
+<span id="señales-de-alerta"></span><h3 id="señales-de-alerta_5">Señales de alerta</h3>
+<ul>
+<li>Si sumas un pago de hoy con un pago de dentro de un año sin descontar → error conceptual central de la unidad. Dibuja siempre el flujo de caja.</li>
+<li>Si confundes tasa nominal con efectiva → vas a fallar la mitad del quiz. Es el punto donde más se pierde nota.</li>
+<li>Si el exponente negativo en \((1+i)^{-n}\) te incomoda → repasa potencias en el escenario 5.</li>
+<li>Si no dominas el escenario 5 (exponenciales), este escenario es imposible. No lo intentes de frente.</li>
+</ul>
+<hr />
+<h2 id="escenario-7--conteo-probabilidad-básica-y-lectura-crítica-de-estadísticas">Escenario 7 — Conteo, probabilidad básica y lectura crítica de estadísticas</h2>
+<p><strong>Semana 7: 6 – 12 de octubre de 2026</strong></p>
+<span id="tema"></span><h3 id="tema_6">Tema</h3>
+<p>Dos mitades. Primera: contar bien (principio multiplicativo, permutaciones, combinaciones) y probabilidad elemental. Segunda, y más importante para ciencia de datos: <strong>falacias cuantitativas</strong> — correlación vs. causalidad, sesgo de selección, gráficos engañosos, paradoja de Simpson.</p>
+<span id="objetivos-de-aprendizaje"></span><h3 id="objetivos-de-aprendizaje_6">Objetivos de aprendizaje</h3>
+<ul>
+<li><strong>Aplicar</strong> el principio multiplicativo y distinguir cuándo importa el orden (permutación) y cuándo no (combinación).</li>
+<li><strong>Calcular</strong> probabilidades por el enfoque clásico (casos favorables / casos posibles).</li>
+<li><strong>Calcular</strong> probabilidad de la unión, del complemento y probabilidad condicional en tablas de doble entrada.</li>
+<li><strong>Identificar</strong> en un texto o gráfico: confusión entre correlación y causalidad, sesgo de selección, base engañosa, eje truncado, escala inconsistente.</li>
+<li><strong>Explicar</strong> la paradoja de Simpson con un ejemplo numérico propio.</li>
+</ul>
+<span id="conceptos-clave"></span><h3 id="conceptos-clave_6">Conceptos clave</h3>
+<ul>
+<li>Principio multiplicativo; factorial \(n!\).</li>
+<li>Permutaciones \(P(n,k)=\dfrac{n!}{(n-k)!}\); combinaciones \(C(n,k)=\dfrac{n!}{k!(n-k)!}\).</li>
+<li>Probabilidad clásica \(P(A)=\dfrac{\#A}{\#\Omega}\); \(0\le P(A)\le 1\).</li>
+<li>Complemento \(P(A^c)=1-P(A)\); unión \(P(A\cup B)=P(A)+P(B)-P(A\cap B)\).</li>
+<li>Probabilidad condicional \(P(A\mid B)=\dfrac{P(A\cap B)}{P(B)}\); independencia.</li>
+<li>Correlación \(\ne\) causalidad; variable de confusión.</li>
+<li>Sesgo de selección y sesgo de supervivencia.</li>
+<li>Gráficos engañosos: eje no iniciado en cero, escalas distintas, áreas vs. longitudes, cherry-picking del período.</li>
+<li>Paradoja de Simpson: una tendencia que se invierte al agregar los grupos.</li>
+</ul>
+<span id="qué-leer--ver"></span><h3 id="qué-leer--ver_6">Qué leer / ver</h3>
+<ul>
+<li>Material del escenario 7 en el aula.</li>
+<li><code>3. Resúmenes teóricos.md</code>, sección "Escenario 7".</li>
+<li>Un ejercicio real: busca en prensa colombiana un titular con un porcentaje y verifica la base. Casi siempre hay algo que corregir.</li>
+</ul>
+<span id="qué-practicar"></span><h3 id="qué-practicar_6">Qué practicar</h3>
+<ul>
+<li>Ejercicios 7.1 a 7.4 del banco.</li>
+<li>Ejercicio propio: construye una tabla 2×2 con datos inventados de dos grupos donde la tendencia se invierta al agregar (Simpson). Si puedes fabricarlo, lo entendiste.</li>
+</ul>
+<span id="entregable-evaluativo-esperado"></span><h3 id="entregable-evaluativo-esperado_6">Entregable evaluativo esperado</h3>
+<p>Cierre del <strong>Segundo Bloque (30 %)</strong>. Puede haber taller, foro argumentativo o entrega integradora de los escenarios 5-7. La parte de lectura crítica suele evaluarse con preguntas de análisis de texto, no de cálculo: practica <strong>redactar</strong> la justificación, no solo escogerla.</p>
+<span id="señales-de-alerta"></span><h3 id="señales-de-alerta_6">Señales de alerta</h3>
+<ul>
+<li>Si al ver "los estudiantes que usan la plataforma sacan mejores notas" concluyes que la plataforma mejora las notas → no has entendido la variable de confusión. Es la pregunta más repetida en este tipo de examen.</li>
+<li>Si confundes \(P(A\mid B)\) con \(P(B\mid A)\) → devuélvete a la tabla de doble entrada del escenario 1. Se resuelve leyendo bien el denominador.</li>
+<li>Si usas permutación donde iba combinación → pregúntate siempre: "¿cambiar el orden produce un resultado distinto?".</li>
+</ul>
+<hr />
+<h2 id="escenario-8--integración-formulación-de-problemas-y-examen-final">Escenario 8 — Integración, formulación de problemas y examen final</h2>
+<p><strong>Semana 8: 13 – 19 de octubre de 2026</strong></p>
+<span id="tema"></span><h3 id="tema_7">Tema</h3>
+<p>No hay tema nuevo. Es la semana de integración: resolver problemas de contexto real que combinan varios escenarios, y presentar el <strong>Examen final (40 %)</strong>.</p>
+<span id="objetivos-de-aprendizaje"></span><h3 id="objetivos-de-aprendizaje_7">Objetivos de aprendizaje</h3>
+<ul>
+<li><strong>Traducir</strong> un enunciado en prosa a un modelo matemático, identificando datos, incógnita y supuestos.</li>
+<li><strong>Combinar</strong> herramientas de varios escenarios en un solo problema (por ejemplo: deflactar una serie, ajustar por porcentaje y traerla a valor presente).</li>
+<li><strong>Verificar</strong> la razonabilidad del resultado por estimación y por unidades.</li>
+<li><strong>Comunicar</strong> la respuesta en una frase completa, con unidad y base explícitas.</li>
+</ul>
+<span id="conceptos-clave"></span><h3 id="conceptos-clave_7">Conceptos clave</h3>
+<p>Todos los anteriores. Los que históricamente concentran más preguntas de examen:</p>
+<ul>
+<li>Variación porcentual y problema inverso (escenarios 2-3).</li>
+<li>Punto porcentual vs. porcentaje (escenario 3).</li>
+<li>Deflactor / pesos constantes (escenario 3).</li>
+<li>Interpretación de la pendiente (escenario 4).</li>
+<li>Interés compuesto y valor presente (escenarios 5-6).</li>
+<li>Probabilidad condicional en tabla de doble entrada (escenario 7).</li>
+<li>Detección de falacias (escenario 7).</li>
+</ul>
+<span id="qué-leer--ver"></span><h3 id="qué-leer--ver_7">Qué leer / ver</h3>
+<ul>
+<li>Nada nuevo. Relee <strong>solo</strong> tu lista de errores acumulados y tu formulario de una página.</li>
+<li>Recorre los ejercicios "tipo examen" del banco.</li>
+</ul>
+<span id="qué-practicar"></span><h3 id="qué-practicar_7">Qué practicar</h3>
+<ul>
+<li>Ejercicios 8.1 a 8.4 del banco (integradores y de opción múltiple), <strong>cronometrados</strong>.</li>
+<li>Simulacro: 90 minutos, sin mirar los resúmenes, con calculadora simple. Corrige después.</li>
+</ul>
+<span id="entregable-evaluativo-esperado"></span><h3 id="entregable-evaluativo-esperado_7">Entregable evaluativo esperado</h3>
+<p><strong>Examen final – Escenario 8 (40 %).</strong> Verifica en el aula: fecha exacta, duración, número de intentos, si permite retroceder entre preguntas y si hay preguntas abiertas además de las de selección.</p>
+<span id="señales-de-alerta"></span><h3 id="señales-de-alerta_7">Señales de alerta</h3>
+<ul>
+<li>Si en el simulacro no alcanzas a terminar → el problema no es que no sepas, es que planteas lento. Practica reconocer el tipo de problema en los primeros 15 segundos.</li>
+<li>Si fallas por cálculo y no por concepto → escribe la expresión completa antes de tocar la calculadora.</li>
+<li>Si un tema del escenario 3 o del 6 sigue flojo a esta altura, priorízalo: son los que más peso tienen en el examen.</li>
+</ul>
+<hr />
+<h2 id="mapa-de-dependencias-entre-escenarios">Mapa de dependencias entre escenarios</h2>
+<pre><code>E1  Interpretación de información
+     │  (escalas, tablas, gráficos)
+     ├──────────────────────────────────────────────┐
+     ▼                                              ▼
+E2  Razones, proporciones, %                      E7  Lectura crítica
+     │  (base de un porcentaje)                       (usa E1 y E2)
+     ▼                                              ▲
+E3  Variación %, p.p., índices, deflactores ───────┘
+     │
+     ├──────────────┐
+     ▼              ▼
+E4  Unidades y    E5  Funciones exponenciales
+    función afín       (usa el factor 1+r de E3)
+     │                 │
+     │                 ▼
+     │            E6  Matemáticas financieras
+     │                 (usa E5 de lleno)
+     ▼                 ▼
+      E8  Integración y examen final
+</code></pre>
+<h3 id="lectura-del-mapa">Lectura del mapa</h3>
+<ul>
+<li><strong>E2 es el cuello de botella.</strong> Si la base de un porcentaje no está clara, fallan E3, E5, E6 y la mitad de E7. Si algo hay que blindar, es esto.</li>
+<li><strong>E3 → E5 → E6 es la cadena crítica.</strong> El factor \((1+r)\) nace en E3, se eleva a potencias en E5 y se usa para descontar en E6. Son la misma idea en tres niveles.</li>
+<li><strong>E1 y E7 son los extremos del mismo eje:</strong> E1 te enseña a leer un gráfico, E7 a desconfiar de él.</li>
+<li><strong>E4 es relativamente independiente.</strong> Si te atrasas, es el escenario que menos daño hace posponer una semana — pero es el que más conecta con Cálculo Diferencial, así que tampoco lo botes.</li>
+<li><strong>E8 no agrega contenido</strong>, solo lo mezcla. Estudiar para el examen final = repasar E2, E3 y E6 con ejercicios, no releer.</li>
+</ul>
+<h3 id="prioridad-si-el-tiempo-se-acorta">Prioridad si el tiempo se acorta</h3>
+<p>Si una semana te quedas con la mitad de las horas, sacrifica en este orden (de lo más prescindible a lo intocable):</p>
+<ol>
+<li>E1 (lo recuperas leyendo tablas en el trabajo).</li>
+<li>E4 conversión de unidades (mecánico, se recupera rápido).</li>
+<li>E7 conteo y permutaciones (es la parte menos evaluada del escenario).</li>
+<li>E5 logaritmos (necesario, pero acotado).</li>
+<li><strong>E2, E3 y E6: nunca.</strong> Son el 60 % del examen y el 100 % de la utilidad práctica.</li>
+</ol>
+</main>
+</body>
+</html>

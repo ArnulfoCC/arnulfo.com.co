@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guía de estudio — Álgebra Lineal</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ 04 - Álgebra Lineal / 1. Guía de estudio</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="guía-de-estudio--álgebra-lineal">Guía de estudio — Álgebra Lineal</h1>
+<p>Recorrido escenario por escenario: qué se ve, qué debes lograr, qué practicar y cómo saber que
+estás listo para avanzar.</p>
+<blockquote>
+<p>✅ <strong>Esta guía ya sigue el módulo real.</strong> La versión anterior reconstruía el temario a partir de
+un curso típico (Escenario 1 = vectores, examen en diciembre, pesos 30/30/40). Las ocho Lecturas
+Fundamentales y el aula la desmienten, así que se reescribió el 2 de octubre de 2026 sobre ellas:
+el módulo corre del <strong>25 de agosto al 20 de octubre</strong>, el Escenario 1 son <strong>matrices</strong> y la nota
+se reparte en <strong>seis entregas de 500 puntos</strong>. Fechas y horas por semana: <code>2. Cronograma.md</code>.
+Apuntes a fondo, ejercicios resueltos y erratas de cada lectura: <code>6. Cuaderno de Matrices.html</code>.</p>
+</blockquote>
+<p><strong>Cómo leer cada escenario.</strong> <em>Tema</em> y <em>Conceptos clave</em> salen de la Lectura Fundamental. Lo que
+va marcado como <strong>(complemento)</strong> no está en la lectura pero conviene saberlo. <em>Listo para
+avanzar si…</em> trae ejercicios con su respuesta, todos verificados con SymPy: si te da otra cosa,
+revisa tu procedimiento antes de dudar del número.</p>
+<hr />
+<h2 id="escenario-1--matrices-y-sistemas-de-ecuaciones">Escenario 1 — Matrices y sistemas de ecuaciones</h2>
+<p><strong>Semana:</strong> mar 25 – lun 31 de agosto · Lectura Fundamental 1 «Organizar la información»</p>
+<h3 id="tema">Tema</h3>
+<p>Matrices como forma de organizar información (los costos de un viaje), tipos de matrices, suma,
+transpuesta, producto, igualdad de matrices y el paso de un sistema de ecuaciones a la forma
+\(AX=B\).</p>
+<h3 id="objetivos">Objetivos</h3>
+<ul>
+<li>Representar una situación con una matriz y decir qué significa cada fila, columna y elemento.</li>
+<li>Decidir, mirando solo los tamaños, si una operación existe y de qué tamaño sale.</li>
+<li>Escribir cualquier sistema lineal como \(AX=B\), poniendo los ceros que faltan.</li>
+</ul>
+<h3 id="conceptos-clave">Conceptos clave</h3>
+<ul>
+<li>Matriz \(m \times n\); elemento \(a_{ij}\): <strong>primero fila, después columna</strong>.</li>
+<li>Tipos: cuadrada, identidad, nula, diagonal, triangular, simétrica, <strong>escalonada</strong> y
+  <strong>escalonada reducida</strong> (la lectura las presenta aquí; se usan en el Escenario 2).</li>
+<li><strong>Suma</strong>: elemento a elemento, exige el <strong>mismo tamaño</strong>. Si no coinciden, la salida de la
+  lectura es rediseñar la representación (fusionar columnas), no forzar la operación.</li>
+<li><strong>Transpuesta</strong> \(A^t\): filas por columnas; \((AB)^t = B^tA^t\).</li>
+<li><strong>Producto</strong>: \((m\times n)(n\times p) = m\times p\); \(c_{ij}\) = fila \(i\) de \(A\) por columna \(j\)
+  de \(B\). <strong>No es conmutativo</strong>, y hay tres niveles de fracaso: \(BA\) no existe, existe con otro
+  tamaño, o existe del mismo tamaño y da distinto.</li>
+<li><strong>Igualdad de matrices</strong> → sistema de ecuaciones → \(AX=B\).</li>
+</ul>
+<h3 id="qué-practicar">Qué practicar</h3>
+<ul>
+<li>Los ejercicios de comprensión y procedimentales de la lectura (resueltos en el Cuaderno,
+  pestaña Escenario 1).</li>
+<li>Antes de cada operación, escribir los tamaños: \((3\times2)(2\times3)=3\times3\).</li>
+<li>Calcular un solo \(c_{ij}\) sin escribir todo el producto.</li>
+<li>Interpretar en contexto el resultado: qué es la fila 2, columna 1 de \(HD\).</li>
+</ul>
+<h3 id="entregable">Entregable</h3>
+<p>Ninguno. Es la semana de entrada; la primera nota llega el 8 de septiembre.</p>
+<h3 id="listo-para-avanzar-si">Listo para avanzar si...</h3>
+<ul>
+<li class="task"><input type="checkbox"> Dadas \(A\) de \(2\times3\) y \(B\) de \(3\times2\), dices sin dudar que \(AB\) es \(2\times2\) y \(BA\) es
+      \(3\times3\).</li>
+<li class="task"><input type="checkbox"> Con \(A=\begin{pmatrix}2&amp;-1\\3&amp;4\end{pmatrix}\) y \(B=\begin{pmatrix}1&amp;0\\-2&amp;5\end{pmatrix}\)
+      obtienes \(AB=\begin{pmatrix}4&amp;-5\\-5&amp;20\end{pmatrix}\) y \(BA=\begin{pmatrix}2&amp;-1\\11&amp;22\end{pmatrix}\).</li>
+<li class="task"><input type="checkbox"> Explicas por qué \((AB)^t = B^tA^t\) y no \(A^tB^t\) (pista: tamaños).</li>
+<li class="task"><input type="checkbox"> Reconoces en \(\begin{pmatrix}1&amp;0&amp;0&amp;3\\0&amp;1&amp;1&amp;2\\0&amp;0&amp;0&amp;3\\0&amp;0&amp;0&amp;0\end{pmatrix}\) (la matriz \(E\)
+      de la lectura) una escalonada que <strong>no</strong> es reducida: el pivote de la fila 3 vale 3, no 1.</li>
+</ul>
+<hr />
+<h2 id="escenario-2--los-sistemas-de-ecuaciones-lineales">Escenario 2 — Los sistemas de ecuaciones lineales</h2>
+<p><strong>Semana:</strong> mar 1 – lun 7 de septiembre · Lectura Fundamental 2 «Estudiando lo desconocido»</p>
+<h3 id="tema_1">Tema</h3>
+<p>Qué significa resolver un sistema, los tres tipos de solución y su geometría, el despeje
+\(X = A^{-1}B\), eliminación de Gauss-Jordan, regla de Cramer y matriz adjunta, el determinante
+como predictor y el esquema de decisión por rangos.</p>
+<h3 id="objetivos_1">Objetivos</h3>
+<ul>
+<li>Decidir si una terna es solución (debe cumplir <strong>todas</strong> las ecuaciones a la vez).</li>
+<li>Resolver un sistema \(3\times3\) por Gauss-Jordan y por la inversa.</li>
+<li>Clasificar un sistema en único, infinitas soluciones o inconsistente, con rangos o con el
+  determinante.</li>
+<li>Escribir la solución general de un sistema con variables libres.</li>
+</ul>
+<h3 id="conceptos-clave_1">Conceptos clave</h3>
+<ul>
+<li><strong>Tres tipos de solución</strong>: única (rectas que se cortan), infinitas (coinciden), ninguna
+  (paralelas).</li>
+<li><strong>Operaciones elementales de fila</strong>: intercambiar, multiplicar por \(c \neq 0\), sumar un múltiplo
+  de otra fila. Producen sistemas equivalentes.</li>
+<li><strong>Gauss-Jordan</strong> sobre \([A \mid B]\) para resolver y sobre \([A \mid I]\) para invertir.</li>
+<li><strong>Inversa</strong>: existe si \(A\) es cuadrada y \(\det A \neq 0\). Siempre comprobar \(A^{-1}A = I\)
+  (así se detectó la errata de la lectura).</li>
+<li><strong>Determinante</strong>: \(\det A \neq 0\) garantiza solución única; \(\det A = 0\) deja abiertas las otras
+  dos posibilidades, <strong>no</strong> significa «sin solución».</li>
+<li><strong>Esquema por rangos</strong> (complemento: el rango se define en Kolman 6.6): \(R_c &lt; R_A\) inconsistente;
+  \(R_c = R_A = n\) única; \(R_c = R_A &lt; n\) infinitas, con \(n - R_A\) variables libres.</li>
+<li>Cramer y adjunta: \(x_i = \det(A_i)/\det(A)\); \(A^{-1} = \frac{1}{\det A}\operatorname{adj}(A)\),
+  con \(\operatorname{adj}(A)\) = <strong>transpuesta</strong> de los cofactores.</li>
+</ul>
+<h3 id="qué-practicar_1">Qué practicar</h3>
+<ul>
+<li>Un sistema de cada tipo (único, infinitas, inconsistente) y reconocer la señal en la rref.</li>
+<li>Una inversa \(3\times3\) completa por Gauss-Jordan, verificada con \(A^{-1}A = I\).</li>
+<li>Determinantes \(3\times3\) por cofactores, desarrollando por dos filas distintas como autochequeo.</li>
+<li>La sección 2 del script de MATLAB (<code>8. MATLAB/algebra_lineal.m</code>).</li>
+</ul>
+<h3 id="entregable_1">Entregable</h3>
+<p><strong>Actividad de puntos evaluables – Escenario 2</strong> · mar 8 de septiembre · <strong>50 puntos (10 %)</strong>.</p>
+<h3 id="listo-para-avanzar-si_1">Listo para avanzar si...</h3>
+<ul>
+<li class="task"><input type="checkbox"> Resuelves por Gauss-Jordan, en papel y en menos de 12 minutos, \(x+2y-z=3\), \(2x-y+3z=6\),
+      \(x+y+2z=5\), y te da \((x,y,z)=(2,1,1)\).</li>
+<li class="task"><input type="checkbox"> Frente a la rref \(\begin{pmatrix}1&amp;0&amp;7&amp;0\\0&amp;1&amp;-5&amp;0\\0&amp;0&amp;0&amp;1\end{pmatrix}\) dices
+      «inconsistente» en diez segundos y explicas por qué.</li>
+<li class="task"><input type="checkbox"> Calculas \(\det\begin{pmatrix}1&amp;2&amp;-1\\2&amp;-1&amp;3\\1&amp;1&amp;2\end{pmatrix} = -10\) y, sin más cuentas,
+      \(\det(2A) = 2^3(-10) = -80\).</li>
+<li class="task"><input type="checkbox"> Explicas por qué \(\det A = 0\) no quiere decir «no tiene solución».</li>
+</ul>
+<hr />
+<h2 id="escenario-3--reconociendo-objetos-y-sus-relaciones">Escenario 3 — Reconociendo objetos y sus relaciones</h2>
+<p><strong>Semana:</strong> mar 8 – lun 14 de septiembre · Lectura Fundamental 3 (Unidad 2)</p>
+<h3 id="tema_2">Tema</h3>
+<p>Los objetos del álgebra lineal (matrices, \(n\)-uplas, polinomios, funciones) en cuatro contextos
+profesionales; adición, multiplicación por escalar, producto punto y <strong>combinación lineal</strong>; el
+paso hacia la idea de espacio vectorial.</p>
+<h3 id="objetivos_2">Objetivos</h3>
+<ul>
+<li>Representar información de un contexto con \(n\)-uplas y operar con ellas.</li>
+<li>Calcular un producto punto e interpretarlo (un costo total, por ejemplo).</li>
+<li>Decidir si un vector es combinación lineal de otros y hallar los coeficientes.</li>
+</ul>
+<h3 id="conceptos-clave_2">Conceptos clave</h3>
+<ul>
+<li>\(n\)-upla \(= (x_1, \dots, x_n)\); suma y escalar componente a componente.</li>
+<li><strong>Producto punto</strong> \(u \cdot v = \sum u_iv_i\): da un <strong>número</strong> (en Excel, <code>SUMAPRODUCTO</code>).</li>
+<li><strong>Combinación lineal</strong> \(c_1v_1 + \cdots + c_kv_k\). Decidir si \(w\) lo es = resolver el sistema
+  con <strong>los vectores en las columnas</strong>: si es consistente, sí.</li>
+<li>Si hay infinitas combinaciones, los vectores son dependientes (anticipo del Escenario 4).</li>
+<li><strong>(complemento)</strong> Norma, ángulo, ortogonalidad y proyección: no están en la lectura, pero son
+  la base de los mínimos cuadrados. Están en <code>3. Resúmenes teóricos.md</code>, sección 3.</li>
+</ul>
+<h3 id="qué-practicar_2">Qué practicar</h3>
+<ul>
+<li>Los ejercicios resueltos de la lectura (consumo familiar, mezclador de color) en el Cuaderno.</li>
+<li>Tres decisiones de combinación lineal: una con solución única, una con infinitas y una sin
+  solución.</li>
+</ul>
+<h3 id="entregable_2">Entregable</h3>
+<p>Arranca el <strong>foro colaborativo de los Escenarios 3, 4 y 5</strong> (cierra el 29 de septiembre).</p>
+<h3 id="listo-para-avanzar-si_2">Listo para avanzar si...</h3>
+<ul>
+<li class="task"><input type="checkbox"> Con \(u = (1,2,2)\) y \(v = (2,-1,2)\) calculas \(u \cdot v = 4\).</li>
+<li class="task"><input type="checkbox"> Muestras que \((3,5,4) = 3(1,1,2) + 2(0,1,-1)\) montando el sistema con los vectores en
+      columnas.</li>
+<li class="task"><input type="checkbox"> Explicas por qué \((1,0,0)\) <strong>no</strong> es combinación de \((1,1,2)\) y \((0,1,-1)\): de la primera
+      componente \(a = 1\), de la segunda \(b = -1\), y la tercera daría \(2a - b = 3 \neq 0\).</li>
+</ul>
+<hr />
+<h2 id="escenario-4--espacios-vectoriales-e-independencia">Escenario 4 — Espacios vectoriales e independencia</h2>
+<p><strong>Semana:</strong> mar 15 – lun 21 de septiembre · Lectura Fundamental 4 (Unidad 2)</p>
+<h3 id="tema_3">Tema</h3>
+<p>Conjunto, operación y estructura; los diez axiomas de espacio vectorial; subespacios y el atajo
+para reconocerlos; generar un espacio; dependencia e independencia lineal; las cinco caras del
+Teorema 6.1.</p>
+<h3 id="objetivos_3">Objetivos</h3>
+<ul>
+<li>Decidir si un conjunto con unas operaciones es espacio vectorial (y dar un contraejemplo si no).</li>
+<li>Probar que un subconjunto es subespacio con el cero y las dos cerraduras.</li>
+<li>Decidir si un conjunto genera un espacio y si es linealmente independiente.</li>
+</ul>
+<h3 id="conceptos-clave_3">Conceptos clave</h3>
+<ul>
+<li><strong>Espacio vectorial</strong>: suma y escalar con diez axiomas. Para decir «no», basta un axioma que
+  falle con un ejemplo concreto.</li>
+<li><strong>Subespacio</strong> \(W \subseteq V\): contiene al \(0\), cerrado bajo suma y bajo escalar. Una condición
+  lineal <strong>homogénea</strong> (igualada a cero) siempre da subespacio.</li>
+<li><strong>Generar</strong>: \(\operatorname{gen}\{v_1,\dots,v_k\}\) son todas las combinaciones; \(S\) genera \(V\)
+  si todo vector de \(V\) es combinación de \(S\).</li>
+<li><strong>Independencia</strong>: \(c_1v_1 + \cdots + c_kv_k = 0\) solo con todos los \(c_i = 0\). Con los vectores
+  en columnas: independiente ⇔ rango \(= k\); si la matriz es cuadrada, ⇔ \(\det \neq 0\).</li>
+<li>⚠️ <strong>Errata de la lectura</strong>: «dependientes si uno es múltiplo de otro» solo vale para <strong>dos</strong>
+  vectores. \(\{(1,0),(0,1),(1,1)\}\) es dependiente y ninguno es múltiplo de otro.</li>
+</ul>
+<h3 id="qué-practicar_3">Qué practicar</h3>
+<ul>
+<li>Los ejercicios de la lectura (Cuaderno, pestaña Escenario 4), incluidas matrices y polinomios
+  escritos como columnas de coeficientes.</li>
+<li>Cuando el conjunto sea dependiente, <strong>escribir la relación</strong> explícita, no solo decir «LD».</li>
+</ul>
+<h3 id="entregable_3">Entregable</h3>
+<p>Avanzar tu parte del foro colaborativo.</p>
+<h3 id="listo-para-avanzar-si_3">Listo para avanzar si...</h3>
+<ul>
+<li class="task"><input type="checkbox"> Explicas en una línea por qué \(\{(x,y) : x+y=1\}\) no es subespacio y \(\{(x,y) : x+y=0\}\) sí.</li>
+<li class="task"><input type="checkbox"> Concluyes que \((1,2,3)\), \((2,-1,0)\), \((0,5,6)\) son dependientes y das la relación
+      \(-2v_1 + v_2 + v_3 = 0\).</li>
+<li class="task"><input type="checkbox"> Explicas sin fórmulas qué significa que un conjunto sea dependiente: hay información
+      redundante; uno se puede construir con los otros.</li>
+</ul>
+<hr />
+<h2 id="escenario-5--base-y-dimensión">Escenario 5 — Base y dimensión</h2>
+<p><strong>Semana:</strong> mar 22 – lun 28 de septiembre · Lectura Fundamental 5 (Unidad 3)</p>
+<h3 id="tema_4">Tema</h3>
+<p>Qué es una base; cómo verificar si un conjunto lo es; extraer una base de un generador; construir
+una base desde una condición; completar una base; dimensión y caracterización de un subespacio.</p>
+<h3 id="objetivos_4">Objetivos</h3>
+<ul>
+<li>Verificar si un conjunto es base, contando primero y calculando después.</li>
+<li>Extraer una base por columnas pivote, construir una despejando y completar una con canónicos.</li>
+<li>Calcular la dimensión de un subespacio.</li>
+</ul>
+<h3 id="conceptos-clave_4">Conceptos clave</h3>
+<ul>
+<li><strong>Base</strong> = genera <strong>y</strong> es independiente. <strong>Dimensión</strong> = número de elementos de cualquier base.</li>
+<li>Atajo: con \(k = \dim V\) vectores, basta verificar una de las dos condiciones.</li>
+<li><strong>Extraer</strong>: vectores en columnas → rref → las columnas pivote <strong>originales</strong> son la base.</li>
+<li><strong>Construir</strong>: despejar la condición y factorizar; un vector por cada variable libre.</li>
+<li><strong>Completar</strong>: poner los vectores dados y luego la base canónica; quedarse con las columnas
+  pivote.</li>
+<li>Dimensión = variables − condiciones independientes. \(\dim \mathbb{R}^n = n\),
+  \(\dim P_n = n+1\), \(\dim M_{m\times n} = mn\).</li>
+</ul>
+<h3 id="qué-practicar_4">Qué practicar</h3>
+<ul>
+<li>Los ejercicios de la lectura y la «Guía para la prueba» del Cuaderno (pestaña Escenario 5).</li>
+<li>La sección 4 del script de MATLAB: <code>rank</code>, <code>rref</code>, <code>null(A,'r')</code>.</li>
+</ul>
+<h3 id="entregable_4">Entregable</h3>
+<p><strong>Foro: desarrollo del trabajo – Escenarios 3, 4 y 5</strong> · mar 29 de septiembre · <strong>150 puntos (30 %)</strong>.</p>
+<h3 id="listo-para-avanzar-si_4">Listo para avanzar si...</h3>
+<ul>
+<li class="task"><input type="checkbox"> Calculas el espacio nulo de \(\begin{pmatrix}1&amp;2&amp;3\\2&amp;4&amp;6\\1&amp;1&amp;1\end{pmatrix}\): dimensión 1,
+      base \(\{(1,-2,1)\}\), y compruebas \(2 + 1 = 3\).</li>
+<li class="task"><input type="checkbox"> Construyes una base del plano \(3x + 4y - 2z = 0\), por ejemplo \(\{(2,0,3), (0,1,2)\}\), y
+      verificas que los dos vectores cumplen la ecuación.</li>
+<li class="task"><input type="checkbox"> Hallas las coordenadas de \((2,3,5)\) en la base \(\{(1,1,0),(1,0,1),(0,1,1)\}\): \((0,2,3)\).</li>
+</ul>
+<hr />
+<h2 id="escenario-6--transformaciones-lineales">Escenario 6 — Transformaciones lineales</h2>
+<p><strong>Semana:</strong> mar 29 de septiembre – lun 5 de octubre · Lectura Fundamental 6 (Unidad 3)</p>
+<h3 id="tema_5">Tema</h3>
+<p>Transformaciones entre espacios vectoriales (entrada, agente de cambio, salida); cuándo son
+lineales; la matriz de una transformación respecto a la base estándar y a bases no estándar;
+núcleo, imagen y rango.</p>
+<h3 id="objetivos_5">Objetivos</h3>
+<ul>
+<li>Verificar si una transformación es lineal (y descartar rápido las que no lo son).</li>
+<li>Construir su matriz con las imágenes de la base en las columnas.</li>
+<li>Hallar núcleo e imagen, con bases y dimensiones.</li>
+</ul>
+<h3 id="conceptos-clave_5">Conceptos clave</h3>
+<ul>
+<li><strong>Lineal</strong>: \(T(u+v) = T(u) + T(v)\) y \(T(\lambda u) = \lambda T(u)\). Filtro: si \(T(0) \neq 0\),
+  no es lineal. Pero \(T(0) = 0\) <strong>no basta</strong> (\(T(x,y) = (x, y^2)\) lo cumple y no es lineal).</li>
+<li><strong>Matriz de \(T\)</strong>: columna \(j\) = coordenadas de \(T(b_j)\) en la base de salida. Escribe las dos
+  bases, <strong>en orden</strong>, antes de llenar la matriz.</li>
+<li><strong>Núcleo</strong>: \(\{v : T(v) = 0\}\) = solución de \(A_Tx = 0\).</li>
+<li><strong>Imagen</strong>: generada por las columnas de \(A_T\); base = columnas pivote originales;
+  \(\rho(T)\) = su dimensión.</li>
+<li><strong>(complemento)</strong> Teorema de la dimensión: \(\dim\operatorname{nu}T + \dim\operatorname{Im}T =
+  \dim V\). Autochequeo gratis.</li>
+<li>⚠️ <strong>Errata de la lectura</strong> (Ejemplo 4, p. 9): la segunda columna de la matriz es
+  \(\left(-1, \tfrac{11}{10}, \tfrac25\right)\), no \(\left(1, \tfrac{21}{10}, \tfrac25\right)\).</li>
+</ul>
+<h3 id="qué-practicar_5">Qué practicar</h3>
+<ul>
+<li>Los ocho ejercicios de la pestaña Escenario 6 del Cuaderno y su calculadora del plano.</li>
+<li>Rehacer el Ejemplo 4 de la lectura reconstruyendo cada vector con las coordenadas halladas.</li>
+<li>La sección 6 del script de MATLAB.</li>
+</ul>
+<h3 id="entregable_5">Entregable</h3>
+<p><strong>Actividad de puntos evaluables – Escenario 6</strong> · mar 6 de octubre · <strong>100 puntos (20 %)</strong>.</p>
+<h3 id="listo-para-avanzar-si_5">Listo para avanzar si...</h3>
+<ul>
+<li class="task"><input type="checkbox"> Para \(T(x,y) = (2x+y,\; x-3y,\; 4y)\) escribes \(A = \begin{pmatrix}2&amp;1\\1&amp;-3\\0&amp;4\end{pmatrix}\),
+      calculas \(T(2,-1) = (3,5,-4)\) y concluyes \(\operatorname{nu}T = \{0\}\) (rango 2; \(0+2=2\)).</li>
+<li class="task"><input type="checkbox"> Explicas por qué \(T(x,y) = (x+1, y)\) no es lineal y por qué \(T(x,y) = (x, y^2)\) tampoco.</li>
+<li class="task"><input type="checkbox"> Hallas para \(A_T = \begin{pmatrix}1&amp;-1&amp;2&amp;3\\0&amp;1&amp;4&amp;3\\1&amp;0&amp;6&amp;6\end{pmatrix}\) el núcleo
+      \(\operatorname{gen}\{(-6,-4,1,0),(-6,-3,0,1)\}\) y la imagen
+      \(\operatorname{gen}\{(1,0,1),(-1,1,0)\}\), y compruebas \(2+2=4\).</li>
+</ul>
+<hr />
+<h2 id="escenario-7--elementos-característicos-de-una-transformación-lineal">Escenario 7 — Elementos característicos de una transformación lineal</h2>
+<p><strong>Semana:</strong> mar 6 – lun 12 de octubre · Lectura Fundamental 7 (Unidad 4)</p>
+<h3 id="tema_6">Tema</h3>
+<p>El supuesto \(Av = \lambda v\); polinomio y ecuación característica; valores y vectores propios;
+multiplicidad algebraica y geométrica; semejanza y diagonalización; potencias de una matriz.</p>
+<h3 id="objetivos_6">Objetivos</h3>
+<ul>
+<li>Calcular valores y vectores propios de matrices \(2\times2\) y \(3\times3\).</li>
+<li>Decidir si una matriz es diagonalizable y construir \(C\) (vectores propios) y \(B\) (diagonal).</li>
+<li>Interpretar geométricamente un vector propio.</li>
+</ul>
+<h3 id="conceptos-clave_6">Conceptos clave</h3>
+<ul>
+<li>\((A - \lambda I)v = 0\) con \(v \neq 0\) exige \(\det(A - \lambda I) = 0\). ⚠️ La lectura escribe
+  «\(A - \lambda I = 0\)»: lo correcto es que sea <strong>singular</strong>, no que sea la matriz cero.</li>
+<li>\(p(\lambda) = \det(A - \lambda I)\), de grado \(n\). En \(2\times2\):
+  \(\lambda^2 - (\operatorname{tr}A)\lambda + \det A\).</li>
+<li><strong>Chequeo</strong> (complemento): suma de valores propios = traza; producto = determinante.</li>
+<li>Triangular o diagonal: los valores propios son la diagonal.</li>
+<li>Multiplicidad algebraica (veces que es raíz) ≥ geométrica (vectores propios independientes).</li>
+<li><strong>Diagonalizable</strong> ⇔ \(n\) vectores propios independientes. \(n\) valores distintos ⇒ sí.
+  Verificar con \(CB = AC\); potencias: \(A^k = CB^kC^{-1}\).</li>
+<li>Una rotación no tiene valores propios reales (los de la lectura son complejos).</li>
+</ul>
+<h3 id="qué-practicar_6">Qué practicar</h3>
+<ul>
+<li>Los ocho ejercicios de la pestaña Escenario 7 del Cuaderno y su calculadora de valores propios.</li>
+<li>Diez matrices \(2\times2\) completas, verificando con traza y determinante <strong>antes</strong> de buscar los
+  vectores.</li>
+<li>La sección 7 del script de MATLAB (<code>eig</code>).</li>
+</ul>
+<h3 id="entregable_6">Entregable</h3>
+<p><strong>Autoevaluación – Escenario 7</strong> (10 puntos) y <strong>Sustentación del trabajo colaborativo</strong>
+(40 puntos) · mar 13 de octubre. La sustentación evalúa lo que entregó todo el grupo, no solo tu
+parte.</p>
+<h3 id="listo-para-avanzar-si_6">Listo para avanzar si...</h3>
+<ul>
+<li class="task"><input type="checkbox"> Para \(A = \begin{pmatrix}4&amp;1\\2&amp;3\end{pmatrix}\) obtienes \(p(\lambda) = \lambda^2 - 7\lambda + 10\),
+      \(\lambda = 5\) con \((1,1)\) y \(\lambda = 2\) con \((1,-2)\), y compruebas \(5+2=7\), \(5\cdot2=10\).</li>
+<li class="task"><input type="checkbox"> Explicas por qué \(\begin{pmatrix}2&amp;1\\0&amp;2\end{pmatrix}\) no es diagonalizable.</li>
+<li class="task"><input type="checkbox"> Explicas en una frase por qué una rotación de \(60^\circ\) no tiene vectores propios reales.</li>
+</ul>
+<hr />
+<h2 id="escenario-8--aplicando-conceptos-y-procesos-del-álgebra-lineal">Escenario 8 — Aplicando conceptos y procesos del álgebra lineal</h2>
+<p><strong>Semana:</strong> mar 13 – lun 19 de octubre · Lectura Fundamental 8 (Unidad 4)</p>
+<h3 id="tema_7">Tema</h3>
+<p>Repaso integral sobre cuatro contextos (flujo de red, producción, puente colgante, circuito) y un
+buscador de internet: representar, decidir si hay estructura de espacio vectorial, buscar bases,
+reconocer transformaciones lineales y predecir con valores y vectores propios.</p>
+<h3 id="objetivos_7">Objetivos</h3>
+<ul>
+<li>Recorrer un problema real con las herramientas de los ocho escenarios, en orden.</li>
+<li>Distinguir un vector (un polinomio, una función) de una transformación.</li>
+<li>Explicar por qué el orden de un buscador es un vector propio con \(\lambda = 1\).</li>
+</ul>
+<h3 id="conceptos-clave_7">Conceptos clave</h3>
+<ul>
+<li><strong>Flujo de red</strong>: una ecuación por nodo; solución general = solución particular + núcleo.</li>
+<li>No todo conjunto de un contexto es espacio vectorial: tiempos o flujos no negativos no tienen
+  opuestos. Se trabaja en \(\mathbb{R}^n\) y las restricciones se imponen al final.</li>
+<li>Solo tiene sentido buscar valores propios si \(T : V \to V\) (matriz cuadrada).</li>
+<li><strong>Buscador</strong>: matriz de enlaces con columnas que suman 1; la importancia es el vector propio de
+  \(\lambda = 1\); repartir muchas veces converge a él (\(A^k = CB^kC^{-1}\)).</li>
+</ul>
+<h3 id="qué-practicar_7">Qué practicar</h3>
+<ul>
+<li>La pestaña Escenario 8 del Cuaderno completa, con su guía para la evaluación final.</li>
+<li><strong>Modo repaso</strong> del Cuaderno: rondas de 10 a 20 ejercicios de los ocho escenarios.</li>
+<li>Un simulacro cronometrado.</li>
+</ul>
+<h3 id="entregable_7">Entregable</h3>
+<p><strong>Evaluación final – Escenario 8</strong> · mar 20 de octubre · <strong>150 puntos (30 %)</strong>. Acumulativa.</p>
+<h3 id="listo-para-avanzar-si_7">Listo para avanzar si...</h3>
+<ul>
+<li class="task"><input type="checkbox"> Planteas el flujo de red de la lectura y llegas a
+      \(f = (50, 20, 60, 35, 0) + t(1,1,1,1,1)\), con \(t \geq 0\).</li>
+<li class="task"><input type="checkbox"> Explicas por qué la página 3 queda primera en el buscador aunque la 5 recibe más enlaces.</li>
+<li class="task"><input type="checkbox"> Explicas por qué \(\{(x_1,\dots,x_4) : x_i \geq 0\}\) no es espacio vectorial.</li>
+<li class="task"><input type="checkbox"> Terminas un simulacro en el tiempo previsto.</li>
+</ul>
+<hr />
+<h2 id="mapa-de-dependencias-entre-escenarios">Mapa de dependencias entre escenarios</h2>
+<pre><code>   E1  Matrices · AX = B
+    │
+    ▼
+  ╔════════════════════════════════════════╗
+  ║ E2  SISTEMAS · GAUSS-JORDAN · det      ║ ◀── CUELLO DE BOTELLA OPERATIVO
+  ╚════════════════════════════════════════╝
+    │                         │
+    ▼                         │
+   E3  n-uplas · combinación lineal
+    │                         │
+    ▼                         │
+  ╔════════════════════════════════════════╗
+  ║ E4  ESPACIOS · INDEPENDENCIA           ║ ◀── CUELLO DE BOTELLA CONCEPTUAL
+  ║ E5  BASE · DIMENSIÓN                   ║
+  ╚════════════════════════════════════════╝
+    │                         │
+    ▼                         │
+   E6  Transformaciones lineales (núcleo = sistema homogéneo de E2)
+    │                         │
+    ▼                         ▼
+   E7  Valores y vectores propios (det de E2 + núcleo de E6)
+    │
+    ▼
+   E8  Aplicación integral · EVALUACIÓN FINAL (150 pts)
+</code></pre>
+<h3 id="lectura-del-mapa">Lectura del mapa</h3>
+<p><strong>Los dos cuellos de botella:</strong></p>
+<ol>
+<li>
+<p><strong>Escenario 2 (Gauss-Jordan y determinante) — cuello de botella <em>operativo</em>.</strong>
+   Es el motor de cálculo del resto del módulo: combinación lineal (E3), independencia y bases
+   (E4–E5), núcleo e imagen (E6) y vectores propios (E7) se resuelven con la misma rref. Y el
+   polinomio característico de E7 es un determinante con parámetro.</p>
+</li>
+<li>
+<p><strong>Escenarios 4 y 5 (independencia, base) — cuello de botella <em>conceptual</em>.</strong>
+   Es la idea que unifica el curso: rango, invertibilidad, dimensión, diagonalización y, más
+   adelante en el programa, multicolinealidad y PCA son la misma idea en contextos distintos.</p>
+</li>
+</ol>
+<p><strong>Otras dependencias que conviene tener presentes:</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>De → hacia</th>
+<th>Qué se arrastra</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E1 → todo</td>
+<td>Producto matricial y tamaños; sin eso no hay nada</td>
+</tr>
+<tr>
+<td>E2 → E3</td>
+<td>Decidir una combinación lineal es resolver un sistema</td>
+</tr>
+<tr>
+<td>E2 → E6</td>
+<td>El núcleo es el conjunto solución de \(A_Tx = 0\)</td>
+</tr>
+<tr>
+<td>E2 → E7</td>
+<td>\(\det(A - \lambda I) = 0\) es la condición de un sistema homogéneo con infinitas soluciones</td>
+</tr>
+<tr>
+<td>E5 → E6</td>
+<td>La matriz de \(T\) se construye con lo que hace a una base</td>
+</tr>
+<tr>
+<td>E5 → E7</td>
+<td>Diagonalizar es encontrar una base de vectores propios</td>
+</tr>
+<tr>
+<td>E6 → E7</td>
+<td>Los vectores propios son las direcciones que la transformación no tuerce</td>
+</tr>
+<tr>
+<td>E7 → E8</td>
+<td>El buscador y el flujo de red se leen con valores propios</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Estado al 2 de octubre:</strong> los escenarios 1 a 5 ya pasaron y sus entregas cerraron. Quedan 300 de
+los 500 puntos: 100 el 6 de octubre, 50 el 13 y 150 el 20.</p>
+</main>
+</body>
+</html>

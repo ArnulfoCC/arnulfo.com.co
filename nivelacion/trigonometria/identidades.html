@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3. Identidades, ecuaciones y triángulos</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ 00 - Nivelación (antes del 25 de agosto)/Trigonometría a fondo / 3. Identidades, ecuaciones y triángulos</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="3-identidades-ecuaciones-y-triángulos">3. Identidades, ecuaciones y triángulos</h1>
+<p><strong>Módulo "Trigonometría a fondo" — archivo 3 de 8.</strong></p>
+<p>En el archivo 2 quedó instalada la idea central: seno y coseno son coordenadas de un punto
+que gira. Aquí viene la maquinaria algebraica que se construye encima. Este archivo es el
+más "de fórmulas" del módulo, y por eso mismo hay que trabajarlo distinto: cada identidad
+viene con su deducción, porque una fórmula deducida se recupera y una fórmula memorizada se
+pierde.</p>
+<blockquote>
+<p><strong>Notación.</strong> Igual que en el archivo 2: \(\operatorname{sen}\), \(\cos\), \(\tan\), \(\cot\),
+\(\sec\), \(\csc\). Y \(\operatorname{sen}^2 x\) significa \((\operatorname{sen} x)^2\).
+Cuando escriba \(k\) en una solución general, siempre es \(k \in \mathbb{Z}\) (cualquier
+entero, positivo, negativo o cero).</p>
+</blockquote>
+<p><strong>Advertencia sobre la palabra "identidad".</strong> Una <strong>identidad</strong> es una igualdad cierta para
+<strong>todo</strong> valor de la variable donde ambos lados existan: $\operatorname{sen}^2 x +
+\cos^2 x = 1$ vale siempre. Una <strong>ecuación</strong> es una igualdad cierta solo para <strong>algunos</strong>
+valores, y resolverla es encontrar cuáles: \(\operatorname{sen} x = \frac12\) solo vale para
+ciertos \(x\). Son dos tareas opuestas y se confunden todo el tiempo. En una identidad se
+<strong>demuestra</strong>; en una ecuación se <strong>despeja</strong>. Nunca pases términos de un lado a otro
+cuando estés demostrando una identidad.</p>
+<hr />
+<h2 id="1-la-identidad-pitagórica-y-sus-dos-hijas">§1. La identidad pitagórica y sus dos hijas</h2>
+<h3 id="la-madre">La madre</h3>
+<p>Un punto del círculo unitario tiene coordenadas \((\cos x, \operatorname{sen} x)\) y está a
+distancia 1 del origen. La distancia al origen es \(\sqrt{x_P^2 + y_P^2}\), así que:</p>
+<p>\[\boxed{\operatorname{sen}^2 x + \cos^2 x = 1}\]</p>
+<p>No es una fórmula nueva: es Pitágoras aplicado al radio. Por eso se llama identidad
+pitagórica. Y por eso vale para <strong>todo</strong> \(x\) real, sin excepciones ni restricciones de
+dominio.</p>
+<p>De ella salen las dos formas despejadas que usarás a cada rato:</p>
+<p>\[\operatorname{sen}^2 x = 1 - \cos^2 x \qquad\qquad \cos^2 x = 1 - \operatorname{sen}^2 x\]</p>
+<span id="primera-hija-1--tan2-x--sec2-x"></span><h3 id="primera-hija-math77">Primera hija: \(1 + \tan^2 x = \sec^2 x\)</h3>
+<p>Esta <strong>no se memoriza</strong>: se deduce en cinco segundos. Toma la identidad madre y divide todo
+entre \(\cos^2 x\) (válido siempre que \(\cos x \neq 0\)):</p>
+<p>\[\frac{\operatorname{sen}^2 x}{\cos^2 x} + \frac{\cos^2 x}{\cos^2 x} = \frac{1}{\cos^2 x}\]</p>
+<p>Ahora reconoce cada pedazo: \(\frac{\operatorname{sen}^2 x}{\cos^2 x} = \tan^2 x\), el del
+medio es 1, y \(\frac{1}{\cos^2 x} = \sec^2 x\). Queda:</p>
+<p>\[\boxed{\tan^2 x + 1 = \sec^2 x}\]</p>
+<span id="segunda-hija-1--cot2-x--csc2-x"></span><h3 id="segunda-hija-math82">Segunda hija: \(1 + \cot^2 x = \csc^2 x\)</h3>
+<p>Exactamente lo mismo, pero dividiendo entre \(\operatorname{sen}^2 x\) (con
+\(\operatorname{sen} x \neq 0\)):</p>
+<p>\[\frac{\operatorname{sen}^2 x}{\operatorname{sen}^2 x} + \frac{\cos^2 x}{\operatorname{sen}^2 x} = \frac{1}{\operatorname{sen}^2 x}
+\quad\Longrightarrow\quad \boxed{1 + \cot^2 x = \csc^2 x}\]</p>
+<blockquote>
+<p><strong>Cómo recordar cuál es cuál sin confundirlas.</strong> Fíjate en que la función "co-" acompaña
+a la función "co-": <strong>cot</strong> va con <strong>csc</strong>. Y <strong>tan</strong> va con <strong>sec</strong>. Además, la que está
+sola al cuadrado del lado derecho es siempre la secante o cosecante, porque son las que
+pueden crecer sin límite. Pero de verdad: no las memorices. Divide la madre entre
+\(\cos^2\) o entre \(\operatorname{sen}^2\) según lo que necesites y sale sola.</p>
+</blockquote>
+<p>Nota sobre restricciones: la madre vale para todo \(x\); las dos hijas no, porque involucran
+divisiones. \(1+\tan^2 x = \sec^2 x\) falla en \(x = \frac{\pi}{2} + k\pi\) simplemente porque
+ahí no existen ni la tangente ni la secante. Cuando en cálculo te digan "válido en el
+dominio de la expresión", es a esto a lo que se refieren.</p>
+<hr />
+<h2 id="2-suma-y-diferencia-de-ángulos">§2. Suma y diferencia de ángulos</h2>
+<p>Estas cuatro son las únicas que sí conviene tener en memoria, porque de ellas se deriva casi
+todo lo demás (ángulo doble, ángulo mitad, reducción, e incluso la derivada del seno en el
+archivo 5).</p>
+<p>\[\operatorname{sen}(a+b) = \operatorname{sen}a\,\cos b + \cos a\,\operatorname{sen}b\]
+\[\operatorname{sen}(a-b) = \operatorname{sen}a\,\cos b - \cos a\,\operatorname{sen}b\]
+\[\cos(a+b) = \cos a\,\cos b - \operatorname{sen}a\,\operatorname{sen}b\]
+\[\cos(a-b) = \cos a\,\cos b + \operatorname{sen}a\,\operatorname{sen}b\]</p>
+<p>Y para la tangente, que sale de dividir las dos anteriores:</p>
+<p>\[\tan(a+b) = \frac{\tan a + \tan b}{1 - \tan a \tan b} \qquad\qquad
+\tan(a-b) = \frac{\tan a - \tan b}{1 + \tan a \tan b}\]</p>
+<p><strong>Las tres cosas que hay que notar para no equivocarse:</strong></p>
+<ol>
+<li><strong>El seno mezcla, el coseno no.</strong> En \(\operatorname{sen}(a+b)\) cada término tiene un
+   seno y un coseno. En \(\cos(a+b)\) los términos son "puros": coseno-coseno y seno-seno.</li>
+<li><strong>El coseno invierte el signo.</strong> \(\cos(a+b)\) lleva un <strong>menos</strong>; \(\cos(a-b)\) lleva un
+   <strong>más</strong>. Es contraintuitivo y por eso se equivoca tanta gente. El seno, en cambio,
+   respeta el signo que trae.</li>
+<li><strong>En la tangente, el denominador también invierte.</strong> \(\tan(a+b)\) lleva \(1 - \tan a\tan b\)
+   abajo.</li>
+</ol>
+<p><strong>Verificación rápida de que las recuerdas bien.</strong> Haz \(b = a\) en \(\cos(a-b)\):
+\(\cos(0) = \cos^2 a + \operatorname{sen}^2 a = 1\). Correcto. Si te hubieras equivocado de
+signo habrías obtenido \(\cos 0 = \cos^2 a - \operatorname{sen}^2 a\), que no es 1. Ese
+chequeo de dos segundos te salva en un parcial.</p>
+<h3 id="para-qué-sirven-valores-exactos-de-ángulos-no-notables">Para qué sirven: valores exactos de ángulos "no notables"</h3>
+<p>La tabla del archivo 2 solo tiene múltiplos de 30° y 45°. Con estas identidades puedes
+sacar el valor <strong>exacto</strong> de cualquier ángulo que sea suma o resta de dos notables.</p>
+<p><strong>Ejemplo 1: \(\operatorname{sen} 15°\).</strong> Escribe \(15° = 45° - 30°\):</p>
+<p>\[\operatorname{sen}15° = \operatorname{sen}45°\cos30° - \cos45°\operatorname{sen}30°
+= \frac{\sqrt2}{2}\cdot\frac{\sqrt3}{2} - \frac{\sqrt2}{2}\cdot\frac{1}{2}
+= \frac{\sqrt6}{4} - \frac{\sqrt2}{4}\]</p>
+<p>\[\boxed{\operatorname{sen}15° = \frac{\sqrt6 - \sqrt2}{4}} \approx 0{,}2588\]</p>
+<p>Y ese \(0{,}2588\) es razonable: 15° es un ángulo pequeño, su seno debe estar cerca de 0.</p>
+<p><strong>Ejemplo 2: \(\cos 15°\).</strong> Con \(15° = 45° - 30°\) y la fórmula de \(\cos(a-b)\) (que lleva
+<strong>más</strong>):</p>
+<p>\[\cos15° = \cos45°\cos30° + \operatorname{sen}45°\operatorname{sen}30°
+= \frac{\sqrt6}{4} + \frac{\sqrt2}{4} = \frac{\sqrt6+\sqrt2}{4} \approx 0{,}9659\]</p>
+<p><strong>Ejemplo 3: \(\operatorname{sen}75°\).</strong> Con \(75° = 45° + 30°\):</p>
+<p>\[\operatorname{sen}75° = \frac{\sqrt2}{2}\cdot\frac{\sqrt3}{2} + \frac{\sqrt2}{2}\cdot\frac12
+= \frac{\sqrt6+\sqrt2}{4} \approx 0{,}9659\]</p>
+<p>Que dé lo mismo que \(\cos 15°\) no es casualidad: \(75°\) y \(15°\) son complementarios, y ya
+sabes que el seno de uno es el coseno del otro (§4).</p>
+<p><strong>Ejemplo 4: \(\tan 15°\).</strong> Con la fórmula de la tangente y \(\tan45° = 1\),
+\(\tan30° = \frac{\sqrt3}{3}\):</p>
+<p>\[\tan15° = \frac{1 - \frac{\sqrt3}{3}}{1 + \frac{\sqrt3}{3}}
+= \frac{3-\sqrt3}{3+\sqrt3}\]</p>
+<p>Racionalizando (multiplicando arriba y abajo por \(3-\sqrt3\)):
+\(\frac{(3-\sqrt3)^2}{9-3} = \frac{12-6\sqrt3}{6} = 2 - \sqrt3 \approx 0{,}268\). Y para
+\(75°\), análogamente, \(\tan 75° = 2+\sqrt3 \approx 3{,}732\).</p>
+<hr />
+<h2 id="3-ángulo-doble-y-ángulo-mitad">§3. Ángulo doble y ángulo mitad</h2>
+<h3 id="ángulo-doble">Ángulo doble</h3>
+<p>No son fórmulas nuevas: son las de suma con \(b = a\). Hazlo tú y compruébalo.</p>
+<p>\[\operatorname{sen}(2x) = 2\operatorname{sen}x\,\cos x\]</p>
+<p>\[\tan(2x) = \frac{2\tan x}{1 - \tan^2 x}\]</p>
+<p>Y el coseno del ángulo doble, que tiene <strong>tres formas equivalentes</strong>:</p>
+<p>\[\cos(2x) = \cos^2 x - \operatorname{sen}^2 x \qquad \text{(forma A, la directa)}\]
+\[\cos(2x) = 2\cos^2 x - 1 \qquad\qquad\;\; \text{(forma B, solo cosenos)}\]
+\[\cos(2x) = 1 - 2\operatorname{sen}^2 x \qquad\;\, \text{(forma C, solo senos)}\]</p>
+<p>Las tres salen de la A sustituyendo \(\operatorname{sen}^2 x = 1-\cos^2 x\) o
+\(\cos^2 x = 1-\operatorname{sen}^2 x\). Son la misma identidad escrita de tres maneras.</p>
+<p><strong>Cuándo conviene cada una.</strong> Esto es lo que separa a quien entiende de quien memoriza:</p>
+<ul>
+<li><strong>Forma A</strong> (\(\cos^2 - \operatorname{sen}^2\)): cuando quieres ver la estructura o
+  factorizar como diferencia de cuadrados, $(\cos x - \operatorname{sen} x)(\cos x +
+  \operatorname{sen} x)$.</li>
+<li><strong>Forma B</strong> (\(2\cos^2 x - 1\)): cuando el resto del problema está escrito en <strong>cosenos</strong> y
+  quieres que todo quede en una sola función. También es la que se despeja para obtener
+  \(\cos^2 x\).</li>
+<li><strong>Forma C</strong> (\(1 - 2\operatorname{sen}^2 x\)): cuando el resto del problema está en
+  <strong>senos</strong>. Es la que usarás en la ecuación 5 de §6, y la que se despeja para obtener
+  \(\operatorname{sen}^2 x\).</li>
+</ul>
+<blockquote>
+<p><strong>La regla práctica:</strong> mira qué función aparece en el resto de la ecuación y escoge la
+forma que deje todo en esa función. Si la ecuación tiene \(\operatorname{sen} x\) suelto,
+usa la forma C y te queda una cuadrática limpia en seno.</p>
+</blockquote>
+<h3 id="ángulo-mitad">Ángulo mitad</h3>
+<p>Despejando de las formas B y C, y luego cambiando \(x\) por \(x/2\):</p>
+<p>\[\operatorname{sen}\frac{x}{2} = \pm\sqrt{\frac{1-\cos x}{2}} \qquad\qquad
+\cos\frac{x}{2} = \pm\sqrt{\frac{1+\cos x}{2}}\]</p>
+<p>\[\tan\frac{x}{2} = \frac{1-\cos x}{\operatorname{sen}x} = \frac{\operatorname{sen}x}{1+\cos x}\]</p>
+<blockquote>
+<p><strong>El signo \(\pm\) no es opcional ni ambiguo.</strong> No se escoge "el que quede bonito": lo
+determina el <strong>cuadrante donde cae \(x/2\)</strong>, no el cuadrante de \(x\). Es el error clásico.
+Las dos últimas expresiones de la tangente, en cambio, no tienen ese problema porque no
+hay raíz: el signo sale solo.</p>
+</blockquote>
+<p><strong>Ejemplo.</strong> Si \(\cos x = \frac35\) con \(x\) en el primer cuadrante, entonces \(x/2\) también
+está en el primer cuadrante (si \(0 < x < \frac{\pi}{2}\), entonces $0 &lt; \frac x2 &lt;
+\frac{\pi}{4}$), así que ambos signos son positivos:</p>
+<p>\[\operatorname{sen}\frac x2 = \sqrt{\frac{1-3/5}{2}} = \sqrt{\frac{2/5}{2}} = \sqrt{\frac15}
+= \frac{\sqrt5}{5} \approx 0{,}4472\]</p>
+<p>\[\cos\frac x2 = \sqrt{\frac{1+3/5}{2}} = \sqrt{\frac45} = \frac{2\sqrt5}{5} \approx 0{,}8944\]</p>
+<p>Chequeo: \((0{,}4472)^2 + (0{,}8944)^2 = 0{,}2 + 0{,}8 = 1\). Cuadra.</p>
+<p>Como aplicación, \(\cos\frac{\pi}{8} = \frac{\sqrt{2+\sqrt2}}{2}\) y
+\(\operatorname{sen}\frac{\pi}{8} = \frac{\sqrt{2-\sqrt2}}{2}\), que salen de tomar
+\(x = \frac{\pi}{4}\).</p>
+<hr />
+<h2 id="4-reducción-complementarios-y-suplementarios">§4. Reducción, complementarios y suplementarios</h2>
+<h3 id="ángulos-complementarios-de-dónde-viene-el-co">Ángulos complementarios: de dónde viene el "co"</h3>
+<p>Dos ángulos son complementarios si suman \(90° = \frac{\pi}{2}\). Aplicando la fórmula de la
+diferencia con \(a = \frac{\pi}{2}\):</p>
+<p>\[\operatorname{sen}\!\left(\frac{\pi}{2}-x\right) = \operatorname{sen}\frac\pi2\cos x -
+\cos\frac\pi2\operatorname{sen}x = 1\cdot\cos x - 0\cdot\operatorname{sen}x = \cos x\]</p>
+<p>Y análogamente:</p>
+<p>\[\operatorname{sen}\!\left(\frac{\pi}{2}-x\right) = \cos x \qquad
+\cos\!\left(\frac{\pi}{2}-x\right) = \operatorname{sen}x \qquad
+\tan\!\left(\frac{\pi}{2}-x\right) = \cot x\]</p>
+<p>Ahí está el origen del prefijo: <strong>coseno significa "seno del complementario"</strong>. Lo mismo
+cotangente y cosecante. Esta es también la razón de que la tabla del archivo 2 se lea al
+derecho para el seno y al revés para el coseno.</p>
+<span id="ángulos-suplementarios-y-desplazamientos-de-pi"></span><h3 id="ángulos-suplementarios-y-desplazamientos-de-math142">Ángulos suplementarios y desplazamientos de \(\pi\)</h3>
+<p>\[\operatorname{sen}(\pi - x) = \operatorname{sen}x \qquad\qquad \cos(\pi-x) = -\cos x\]
+\[\operatorname{sen}(\pi + x) = -\operatorname{sen}x \qquad\quad\; \cos(\pi+x) = -\cos x\]</p>
+<p>La primera es importantísima para las ecuaciones: <strong>dos ángulos suplementarios tienen el
+mismo seno</strong>. Por eso, cuando resuelves \(\operatorname{sen} x = c\), hay siempre dos
+soluciones por vuelta, y la segunda es \(\pi\) menos la primera.</p>
+<p>Y las de paridad, que ya viste en el archivo 2:</p>
+<p>\[\operatorname{sen}(-x) = -\operatorname{sen}x \qquad \cos(-x) = \cos x \qquad \tan(-x) = -\tan x\]</p>
+<p><strong>No memorices esta lista.</strong> Todas salen de dibujar el punto en el círculo y ver a dónde se
+mueve, o de aplicar la fórmula de suma. Si alguna vez dudas, evalúa en un valor concreto:
+¿\(\operatorname{sen}(\pi - x)\) es \(+\operatorname{sen}x\) o \(-\operatorname{sen}x\)? Prueba
+\(x = \frac{\pi}{6}\): \(\operatorname{sen}\frac{5\pi}{6} = \frac12\) y
+\(\operatorname{sen}\frac{\pi}{6} = \frac12\). Mismo signo. Listo.</p>
+<h3 id="reducción-de-potencias">Reducción de potencias</h3>
+<p>Despeja \(\cos^2 x\) de la forma B del ángulo doble y \(\operatorname{sen}^2 x\) de la forma C:</p>
+<p>\[\boxed{\operatorname{sen}^2 x = \frac{1 - \cos 2x}{2}} \qquad\qquad
+\boxed{\cos^2 x = \frac{1 + \cos 2x}{2}}\]</p>
+<blockquote>
+<p><strong>Presta atención a estas dos.</strong> Son, con diferencia, las identidades más rentables de
+todo el archivo, y la razón es de futuro: en <strong>Cálculo Integral</strong>, el semestre entrante,
+te vas a topar con integrales de \(\operatorname{sen}^2 x\) y \(\cos^2 x\) que son
+<strong>imposibles</strong> de resolver directamente. El truco estándar es reemplazar por estas
+expresiones, porque un \(\cos 2x\) sí se integra de una. No voy a desarrollar integrales
+aquí (no es el tema de este módulo), pero cuando llegues allá y el profesor las use sin
+explicar de dónde salen, vas a saber: salen de despejar el coseno del ángulo doble.</p>
+</blockquote>
+<p>Fíjate en la lógica de la maniobra: cambias una función <strong>al cuadrado</strong> por una función de
+<strong>grado uno</strong> con el ángulo duplicado. Bajas el exponente a costa de subir el ángulo. Ese
+canje es el que hace tratable el problema.</p>
+<p>Un chequeo de que las tienes bien: en \(x = 0\), \(\operatorname{sen}^2 0 = 0\) y
+\(\frac{1-\cos 0}{2} = \frac{1-1}{2} = 0\). Cuadra. Si hubieras cambiado los signos habrías
+obtenido 1, que es falso.</p>
+<hr />
+<h2 id="5-cómo-demostrar-una-identidad">§5. Cómo demostrar una identidad</h2>
+<p>Demostrar una identidad es distinto de resolver una ecuación, y la diferencia es una regla
+de oro:</p>
+<blockquote>
+<p><strong>Trabaja un solo lado a la vez.</strong> No pases términos de un lado al otro, no multipliques
+ambos lados por algo, no eleves ambos lados al cuadrado. Si haces eso estás <strong>suponiendo</strong>
+que la igualdad es cierta, que es justamente lo que hay que probar. Empieza por un lado y
+transfórmalo hasta que sea idéntico al otro.</p>
+</blockquote>
+<h3 id="la-estrategia-en-orden">La estrategia, en orden</h3>
+<ol>
+<li><strong>Empieza por el lado más complicado.</strong> Es más fácil simplificar que complicar. Si un
+   lado tiene tres términos y el otro uno, arranca por el de tres.</li>
+<li><strong>Pasa todo a seno y coseno.</strong> Cuando no se te ocurra nada, esta jugada funciona el 80%
+   de las veces. Tangentes, secantes y cotangentes se vuelven fracciones de seno y coseno, y
+   de repente ves qué se cancela.</li>
+<li><strong>Busca la pitagórica.</strong> Si aparece \(1 - \cos^2\), \(1 - \operatorname{sen}^2\),
+   \(\sec^2 - 1\) o \(1 + \tan^2\), reemplázalo. Casi siempre está escondida.</li>
+<li><strong>Multiplica por el conjugado.</strong> Si ves \(1 - \operatorname{sen}x\) en un denominador,
+   multiplica arriba y abajo por \(1 + \operatorname{sen}x\): el producto da
+   \(1 - \operatorname{sen}^2 x = \cos^2 x\), y ahí se destraba todo. Es el mismo truco de
+   racionalizar del álgebra.</li>
+<li><strong>Factoriza.</strong> Diferencia de cuadrados, diferencia de cubos, factor común. Muchas
+   identidades feas son un producto notable disfrazado.</li>
+<li><strong>Si te atascas, trabaja los dos lados por separado</strong> hasta llegar a una misma
+   expresión intermedia. Eso sí es legítimo (no estás moviendo términos entre lados).</li>
+</ol>
+<span id="demostración-1-básica-tan-x--cot-x--sec-xcsc-x"></span><h3 id="demostración-1-básica-math166">Demostración 1 (básica): \(\tan x + \cot x = \sec x\,\csc x\)</h3>
+<p>Lado izquierdo, aplicando la estrategia 2 (todo a seno y coseno):</p>
+<p>\[\tan x + \cot x = \frac{\operatorname{sen}x}{\cos x} + \frac{\cos x}{\operatorname{sen}x}\]</p>
+<p>Común denominador \(\operatorname{sen}x\cos x\):</p>
+<p>\[= \frac{\operatorname{sen}^2 x + \cos^2 x}{\operatorname{sen}x\,\cos x}\]</p>
+<p>Ahí apareció la pitagórica (estrategia 3). El numerador es 1:</p>
+<p>\[= \frac{1}{\operatorname{sen}x\,\cos x} = \frac{1}{\cos x}\cdot\frac{1}{\operatorname{sen}x}
+= \sec x\,\csc x \qquad \blacksquare\]</p>
+<span id="demostración-2-conjugado-dfraccos-x1---operatornamesenx--sec-x--tan-x"></span><h3 id="demostración-2-conjugado-math168">Demostración 2 (conjugado): \(\dfrac{\cos x}{1 - \operatorname{sen}x} = \sec x + \tan x\)</h3>
+<p>El lado izquierdo tiene un denominador de la forma \(1 - (\text{algo})\): eso pide conjugado
+(estrategia 4). Multiplico arriba y abajo por \(1 + \operatorname{sen}x\):</p>
+<p>\[\frac{\cos x}{1-\operatorname{sen}x}\cdot\frac{1+\operatorname{sen}x}{1+\operatorname{sen}x}
+= \frac{\cos x\,(1+\operatorname{sen}x)}{1 - \operatorname{sen}^2 x}\]</p>
+<p>El denominador es diferencia de cuadrados y por la pitagórica vale \(\cos^2 x\):</p>
+<p>\[= \frac{\cos x\,(1+\operatorname{sen}x)}{\cos^2 x} = \frac{1+\operatorname{sen}x}{\cos x}\]</p>
+<p>Separo la fracción en dos:</p>
+<p>\[= \frac{1}{\cos x} + \frac{\operatorname{sen}x}{\cos x} = \sec x + \tan x \qquad \blacksquare\]</p>
+<span id="demostración-3-factorización-dfracoperatornamesen3-x---cos3-xoperatornamesenx---cos-x--1--operatornamesenxcos-x"></span><h3 id="demostración-3-factorización-math172">Demostración 3 (factorización): \(\dfrac{\operatorname{sen}^3 x - \cos^3 x}{\operatorname{sen}x - \cos x} = 1 + \operatorname{sen}x\cos x\)</h3>
+<p>Aquí lo trigonométrico es lo de menos: lo que hay es una <strong>diferencia de cubos</strong>, del
+álgebra de siempre, \(a^3 - b^3 = (a-b)(a^2+ab+b^2)\), con \(a = \operatorname{sen}x\) y
+\(b = \cos x\):</p>
+<p>\[\frac{(\operatorname{sen}x - \cos x)(\operatorname{sen}^2 x + \operatorname{sen}x\cos x + \cos^2 x)}{\operatorname{sen}x - \cos x}\]</p>
+<p>Cancelo el factor \((\operatorname{sen}x - \cos x)\), que es legítimo mientras
+\(\operatorname{sen}x \neq \cos x\) (es decir, fuera de \(x = \frac{\pi}{4}+k\pi\), donde el
+lado izquierdo ni siquiera está definido):</p>
+<p>\[= \operatorname{sen}^2 x + \operatorname{sen}x\cos x + \cos^2 x\]</p>
+<p>Reagrupo poniendo juntos los cuadrados y aplico la pitagórica:</p>
+<p>\[= (\operatorname{sen}^2 x + \cos^2 x) + \operatorname{sen}x\cos x = 1 + \operatorname{sen}x\cos x \qquad \blacksquare\]</p>
+<blockquote>
+<p><strong>Moraleja de esta demostración.</strong> La mitad de las identidades trigonométricas difíciles
+son ejercicios de factorización del bachillerato con nombres raros. Si el álgebra la
+tienes sólida —y la tienes—, esto es terreno conocido.</p>
+</blockquote>
+<span id="demostración-4-ángulo-doble-dfracoperatornamesen2x1--cos-2x--tan-x"></span><h3 id="demostración-4-ángulo-doble-math179">Demostración 4 (ángulo doble): \(\dfrac{\operatorname{sen}2x}{1 + \cos 2x} = \tan x\)</h3>
+<p>Empiezo por el lado izquierdo y expando el ángulo doble. Para el numerador uso
+\(\operatorname{sen}2x = 2\operatorname{sen}x\cos x\). Para el denominador tengo que
+<strong>escoger entre las tres formas del coseno doble</strong>, y aquí es donde la §3 paga: como el
+denominador es \(1 + \cos 2x\), me conviene la forma que tenga un \(-1\) para que se cancele
+con ese \(1\). Esa es la <strong>forma B</strong>, \(\cos 2x = 2\cos^2 x - 1\):</p>
+<p>\[\frac{\operatorname{sen}2x}{1+\cos 2x} = \frac{2\operatorname{sen}x\cos x}{1 + (2\cos^2 x - 1)}
+= \frac{2\operatorname{sen}x\cos x}{2\cos^2 x}\]</p>
+<p>Cancelo el \(2\) y un \(\cos x\):</p>
+<p>\[= \frac{\operatorname{sen}x}{\cos x} = \tan x \qquad \blacksquare\]</p>
+<p>Si hubieras escogido la forma A o la C, el denominador te habría quedado
+\(1 + \cos^2 x - \operatorname{sen}^2 x\) o \(2 - 2\operatorname{sen}^2 x\), y aunque también se
+llega, das más vueltas. <strong>Escoger bien la forma es la mitad del trabajo.</strong></p>
+<hr />
+<h2 id="6-ecuaciones-trigonométricas">§6. Ecuaciones trigonométricas</h2>
+<h3 id="lo-que-cambia-respecto-a-una-ecuación-algebraica">Lo que cambia respecto a una ecuación algebraica</h3>
+<p>Una ecuación algebraica como \(x^2 = 4\) tiene dos soluciones. Una ecuación trigonométrica
+como \(\operatorname{sen} x = \frac12\) tiene <strong>infinitas</strong>, porque las funciones son
+periódicas: si \(x\) es solución, \(x\) más cualquier número de vueltas también lo es.</p>
+<p>Por eso resolver tiene <strong>dos etapas</strong>:</p>
+<ol>
+<li><strong>Solución en un periodo.</strong> Encuentra todas las soluciones en \([0, 2\pi)\). Aquí es donde
+   usas el ángulo de referencia y los cuadrantes del archivo 2.</li>
+<li><strong>Solución general.</strong> Extiende con el periodo correcto.</li>
+</ol>
+<h3 id="la-regla-del-periodo-donde-todo-el-mundo-se-equivoca">La regla del periodo (donde todo el mundo se equivoca)</h3>
+<p>\[\text{Para } \operatorname{sen} \text{ y } \cos: \quad +\,2k\pi \qquad\qquad
+\text{Para } \tan \text{ y } \cot: \quad +\,k\pi\]</p>
+<p>La tangente lleva \(k\pi\) porque su periodo es \(\pi\), no \(2\pi\) (archivo 2, §5). Si le pones
+\(2k\pi\) a una ecuación de tangente, pierdes la mitad de las soluciones.</p>
+<p>Formas estándar, con \(c\) una constante en el rango válido:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Ecuación</th>
+<th>Solución general</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(\operatorname{sen}x = c\)</td>
+<td>\(x = \alpha + 2k\pi\) <strong>y</strong> \(x = \pi - \alpha + 2k\pi\)</td>
+</tr>
+<tr>
+<td>\(\cos x = c\)</td>
+<td>\(x = \pm\alpha + 2k\pi\)</td>
+</tr>
+<tr>
+<td>\(\tan x = c\)</td>
+<td>\(x = \alpha + k\pi\)</td>
+</tr>
+</tbody>
+</table></div>
+<p>donde \(\alpha\) es una solución particular. Nota la asimetría: el seno usa el
+<strong>suplementario</strong> (\(\pi - \alpha\)) y el coseno usa el <strong>opuesto</strong> (\(-\alpha\)). Eso sale
+directo de las simetrías del círculo: dos puntos con el mismo seno están a la misma altura
+(simétricos respecto al eje vertical), y dos puntos con el mismo coseno están en la misma
+vertical (simétricos respecto al eje horizontal).</p>
+<h3 id="la-advertencia-más-importante-de-este-archivo">La advertencia más importante de este archivo</h3>
+<blockquote>
+<p><strong>NUNCA dividas ambos lados por una función trigonométrica.</strong></p>
+<p>Si de \(\operatorname{sen}x\,\tan x = \operatorname{sen}x\) "cancelas" \(\operatorname{sen}x\)
+a lado y lado, estás dividiendo por algo que <strong>puede valer cero</strong>. Y cada valor de \(x\)
+donde \(\operatorname{sen}x = 0\) era una solución perfectamente válida que acabas de
+borrar. En el ejemplo 3 de abajo esa maniobra te hace perder <strong>la mitad</strong> de las
+respuestas.</p>
+<p><strong>Qué hacer en vez de eso:</strong> pasa todo a un lado, deja cero al otro y <strong>factoriza</strong>.
+Después aplica que un producto es cero si y solo si alguno de sus factores es cero. Así
+no se pierde nada. Es exactamente la misma regla que ya conoces del álgebra: de
+\(x^2 = x\) no se concluye \(x = 1\); se factoriza \(x(x-1)=0\) y salen \(x=0\) y \(x=1\).</p>
+</blockquote>
+<span id="ecuación-1-básica-2cos-x---sqrt3--0"></span><h3 id="ecuación-1-básica-math218">Ecuación 1 (básica): \(2\cos x - \sqrt3 = 0\)</h3>
+<p>Despejo la función:</p>
+<p>\[\cos x = \frac{\sqrt3}{2}\]</p>
+<p>¿Dónde vale el coseno \(\frac{\sqrt3}{2}\)? El ángulo de referencia es \(\frac{\pi}{6}\) (30°).
+El coseno es positivo en los cuadrantes <strong>I y IV</strong>.</p>
+<ul>
+<li>Cuadrante I: \(x = \frac{\pi}{6}\)</li>
+<li>Cuadrante IV: \(x = 2\pi - \frac{\pi}{6} = \frac{11\pi}{6}\)</li>
+</ul>
+<p><strong>En \([0,2\pi)\):</strong> \(\;x = \dfrac{\pi}{6},\ \dfrac{11\pi}{6}\).</p>
+<p><strong>General:</strong> \(\;x = \pm\dfrac{\pi}{6} + 2k\pi\). (Nota que $-\frac{\pi}{6} + 2\pi =
+\frac{11\pi}{6}$, así que las dos formas dicen lo mismo.)</p>
+<span id="ecuación-2-cuadrática-en-seno-2operatornamesen2-x---operatornamesenx---1--0"></span><h3 id="ecuación-2-cuadrática-en-seno-math226">Ecuación 2 (cuadrática en seno): \(2\operatorname{sen}^2 x - \operatorname{sen}x - 1 = 0\)</h3>
+<p>Truco de lectura: sustituye mentalmente \(u = \operatorname{sen}x\) y mira lo que queda:
+\(2u^2 - u - 1 = 0\). Es una cuadrática común y corriente. Factorizo:</p>
+<p>\[(2u+1)(u-1) = 0 \quad\Longrightarrow\quad (2\operatorname{sen}x + 1)(\operatorname{sen}x - 1) = 0\]</p>
+<p>Dos casos:</p>
+<p><strong>Caso A:</strong> \(\operatorname{sen}x = -\dfrac12\). Referencia \(\frac{\pi}{6}\); el seno es
+negativo en los cuadrantes III y IV:</p>
+<p>\[x = \pi + \frac{\pi}{6} = \frac{7\pi}{6} \qquad\text{y}\qquad x = 2\pi - \frac{\pi}{6} = \frac{11\pi}{6}\]</p>
+<p><strong>Caso B:</strong> \(\operatorname{sen}x = 1\). Esto pasa en un solo punto de la vuelta, el más alto
+del círculo:</p>
+<p>\[x = \frac{\pi}{2}\]</p>
+<p><strong>En \([0,2\pi)\):</strong> \(\;x = \dfrac{\pi}{2},\ \dfrac{7\pi}{6},\ \dfrac{11\pi}{6}\) (tres
+soluciones).</p>
+<p><strong>General:</strong> \(x = \frac{\pi}{2} + 2k\pi\), \(\;x = \frac{7\pi}{6} + 2k\pi\), $\;x =
+\frac{11\pi}{6} + 2k\pi$.</p>
+<blockquote>
+<p><strong>Nota de método.</strong> Verifiqué esta ecuación con SymPy y su rutina automática devolvió
+<strong>solo</strong> \(\frac{\pi}{2}\), omitiendo las otras dos, que son correctas (sustitúyelas y
+comprueba). Sirve de recordatorio: el software se equivoca, y el que responde por el
+resultado eres tú. Sustituir la solución en la ecuación original toma diez segundos y es
+innegociable.</p>
+</blockquote>
+<span id="ecuación-3-factorización-con-soluciones-que-se-pierden-operatornamesenxtan-x--operatornamesenx"></span><h3 id="ecuación-3-factorización-con-soluciones-que-se-pierden-math237">Ecuación 3 (factorización, con soluciones que se pierden): \(\operatorname{sen}x\,\tan x = \operatorname{sen}x\)</h3>
+<p><strong>Lo que NO se debe hacer:</strong> dividir entre \(\operatorname{sen}x\) para obtener
+\(\tan x = 1\). Eso da \(x = \frac{\pi}{4}, \frac{5\pi}{4}\) y <strong>pierde la mitad de las
+soluciones</strong>.</p>
+<p><strong>Lo correcto:</strong> todo a un lado y factorizar.</p>
+<p>\[\operatorname{sen}x\,\tan x - \operatorname{sen}x = 0 \quad\Longrightarrow\quad
+\operatorname{sen}x\,(\tan x - 1) = 0\]</p>
+<p>Un producto es cero si algún factor es cero:</p>
+<p><strong>Caso A:</strong> \(\operatorname{sen}x = 0 \;\Rightarrow\; x = 0,\ \pi\) (en \([0,2\pi)\)).</p>
+<p><strong>Caso B:</strong> \(\tan x = 1 \;\Rightarrow\;\) referencia \(\frac{\pi}{4}\), tangente positiva en I
+y III \(\;\Rightarrow\; x = \frac{\pi}{4},\ \frac{5\pi}{4}\).</p>
+<p><strong>Dominio:</strong> hay que descartar \(x = \frac{\pi}{2}\) y \(x = \frac{3\pi}{2}\), donde
+\(\tan x\) no existe. Ninguna de nuestras soluciones cae ahí, así que todas sobreviven.</p>
+<p><strong>En \([0,2\pi)\):</strong> \(\;x = 0,\ \dfrac{\pi}{4},\ \pi,\ \dfrac{5\pi}{4}\) (cuatro soluciones,
+no dos).</p>
+<p><strong>General:</strong> \(\;x = k\pi\;\) y \(\;x = \dfrac{\pi}{4} + k\pi\).</p>
+<span id="ecuación-4-ángulo-doble-operatornamesen2x--cos-x"></span><h3 id="ecuación-4-ángulo-doble-math253">Ecuación 4 (ángulo doble): \(\operatorname{sen}2x = \cos x\)</h3>
+<p>El primer movimiento obligatorio es <strong>quitar el ángulo doble</strong>, porque no se puede operar
+mezclando ángulos \(2x\) y \(x\):</p>
+<p>\[2\operatorname{sen}x\cos x = \cos x\]</p>
+<p>De nuevo la tentación es dividir entre \(\cos x\). <strong>No.</strong> Factorizo:</p>
+<p>\[2\operatorname{sen}x\cos x - \cos x = 0 \quad\Longrightarrow\quad \cos x\,(2\operatorname{sen}x - 1) = 0\]</p>
+<p><strong>Caso A:</strong> \(\cos x = 0 \;\Rightarrow\; x = \dfrac{\pi}{2},\ \dfrac{3\pi}{2}\).</p>
+<p><strong>Caso B:</strong> \(\operatorname{sen}x = \dfrac12 \;\Rightarrow\;\) referencia \(\frac{\pi}{6}\),
+seno positivo en I y II \(\;\Rightarrow\; x = \dfrac{\pi}{6},\ \dfrac{5\pi}{6}\).</p>
+<p><strong>En \([0,2\pi)\):</strong> \(\;x = \dfrac{\pi}{6},\ \dfrac{\pi}{2},\ \dfrac{5\pi}{6},\ \dfrac{3\pi}{2}\).</p>
+<p><strong>General:</strong> \(\;x = \dfrac{\pi}{2} + k\pi\;\) y $\;x = \dfrac{\pi}{6}+2k\pi,\;
+\dfrac{5\pi}{6}+2k\pi$.</p>
+<span id="ecuación-5-ángulo-doble-que-se-vuelve-cuadrática-cos-2x--3operatornamesenx---2--0"></span><h3 id="ecuación-5-ángulo-doble-que-se-vuelve-cuadrática-math264">Ecuación 5 (ángulo doble que se vuelve cuadrática): \(\cos 2x + 3\operatorname{sen}x - 2 = 0\)</h3>
+<p>Hay dos ángulos distintos (\(2x\) y \(x\)) y dos funciones distintas. Hay que unificar ambas
+cosas. Como el término suelto es un <strong>seno</strong>, escojo la forma del coseno doble que deja
+todo en senos: la <strong>forma C</strong>, \(\cos 2x = 1 - 2\operatorname{sen}^2 x\).</p>
+<p>\[(1 - 2\operatorname{sen}^2 x) + 3\operatorname{sen}x - 2 = 0\]</p>
+<p>\[-2\operatorname{sen}^2 x + 3\operatorname{sen}x - 1 = 0\]</p>
+<p>Multiplico por \(-1\) para dejar el coeficiente principal positivo:</p>
+<p>\[2\operatorname{sen}^2 x - 3\operatorname{sen}x + 1 = 0\]</p>
+<p>Cuadrática en \(u = \operatorname{sen}x\): \(2u^2 - 3u + 1 = (2u-1)(u-1) = 0\).</p>
+<p><strong>Caso A:</strong> $\operatorname{sen}x = \dfrac12 \;\Rightarrow\; x = \dfrac{\pi}{6},\
+\dfrac{5\pi}{6}$.</p>
+<p><strong>Caso B:</strong> \(\operatorname{sen}x = 1 \;\Rightarrow\; x = \dfrac{\pi}{2}\).</p>
+<p><strong>En \([0,2\pi)\):</strong> \(\;x = \dfrac{\pi}{6},\ \dfrac{\pi}{2},\ \dfrac{5\pi}{6}\).</p>
+<p><strong>Verificación en \(x = \frac{\pi}{6}\):</strong> $\cos\frac{\pi}{3} + 3\cdot\frac12 - 2 =
+\frac12 + \frac32 - 2 = 0$. Correcto.</p>
+<p><strong>General:</strong> \(\;x = \dfrac{\pi}{6}+2k\pi,\;\dfrac{5\pi}{6}+2k\pi,\;\dfrac{\pi}{2}+2k\pi\).</p>
+<h3 id="el-procedimiento-resumido">El procedimiento, resumido</h3>
+<ol>
+<li>Si hay ángulos distintos (\(2x\), \(x/2\)), <strong>unifícalos</strong> con las identidades de ángulo
+   doble o mitad.</li>
+<li>Si hay funciones distintas, <strong>unifícalas</strong> con la pitagórica o pasando todo a seno y
+   coseno.</li>
+<li>Lleva todo a un lado, deja cero al otro y <strong>factoriza</strong>. Jamás dividas.</li>
+<li>Resuelve cada factor por separado usando referencia + cuadrante.</li>
+<li><strong>Descarta</strong> los valores que salgan del dominio (donde una tangente o secante no exista).</li>
+<li>Extiende con \(+2k\pi\) o \(+k\pi\) según la función.</li>
+<li><strong>Sustituye y verifica</strong> al menos una solución.</li>
+</ol>
+<hr />
+<h2 id="7-ley-de-senos-y-ley-de-cosenos">§7. Ley de senos y ley de cosenos</h2>
+<p>Hasta aquí todo fue triángulos rectángulos. Estas dos leyes sirven para triángulos
+<strong>cualesquiera</strong> (oblicuángulos). Convención estándar: los vértices se llaman \(A\), \(B\), \(C\)
+y el lado opuesto a cada uno se llama \(a\), \(b\), \(c\) con la minúscula correspondiente.</p>
+<h3 id="ley-de-senos">Ley de senos</h3>
+<p>\[\frac{a}{\operatorname{sen}A} = \frac{b}{\operatorname{sen}B} = \frac{c}{\operatorname{sen}C}\]</p>
+<p><strong>Cuándo usarla:</strong> cuando tienes un <strong>lado y su ángulo opuesto</strong> emparejados, más un dato
+más. Los dos casos típicos son ALA/AAL (dos ángulos y un lado) y LLA (dos lados y un ángulo
+no comprendido, que es el caso problemático).</p>
+<p><strong>Ejemplo resuelto.</strong> Triángulo con \(A = 35°\), \(B = 68°\), \(a = 12\). Halla \(C\), \(b\) y \(c\).</p>
+<p>Primero el ángulo que falta, que es gratis:</p>
+<p>\[C = 180° - 35° - 68° = 77°\]</p>
+<p>Ahora la ley de senos, con la pareja completa \((a, A)\) como referencia:</p>
+<p>\[b = \frac{a\,\operatorname{sen}B}{\operatorname{sen}A} = \frac{12\cdot\operatorname{sen}68°}{\operatorname{sen}35°}
+= \frac{12 \cdot 0{,}92718}{0{,}57358} \approx 19{,}398\]</p>
+<p>\[c = \frac{a\,\operatorname{sen}C}{\operatorname{sen}A} = \frac{12\cdot\operatorname{sen}77°}{\operatorname{sen}35°}
+\approx 20{,}385\]</p>
+<p><strong>Chequeo de sensatez:</strong> el lado más grande debe oponerse al ángulo más grande. Aquí
+\(C = 77°\) es el mayor y \(c \approx 20{,}39\) es el mayor. Cuadra. Ese chequeo detecta casi
+cualquier error de digitación.</p>
+<h3 id="el-caso-ambiguo-lla-la-trampa">El caso ambiguo (LLA): la trampa</h3>
+<blockquote>
+<p>Cuando conoces <strong>dos lados y un ángulo NO comprendido entre ellos</strong> (caso LLA), la ley de
+senos puede dar <strong>dos triángulos válidos, uno solo, o ninguno</strong>. La calculadora solo te
+muestra uno, porque \(\arcsen\) devuelve siempre un ángulo agudo. El otro hay que buscarlo
+a mano.</p>
+</blockquote>
+<p>La razón: si \(\operatorname{sen}B = 0{,}9183\), tanto \(B = 66{,}67°\) como su suplementario
+\(B = 180° - 66{,}67° = 113{,}33°\) tienen ese seno (§4). Ambos pueden formar triángulo.</p>
+<p><strong>Ejemplo.</strong> \(a = 7\), \(b = 10\), \(A = 40°\).</p>
+<p>\[\operatorname{sen}B = \frac{b\operatorname{sen}A}{a} = \frac{10\cdot 0{,}64279}{7} = 0{,}91827\]</p>
+<p>Como está entre 0 y 1, hay al menos una solución. Los dos candidatos:</p>
+<ul>
+<li>\(B_1 = 66{,}674°\) \(\;\Rightarrow\;\) \(C_1 = 180 - 40 - 66{,}674 = 73{,}326°\), y
+  \(c_1 = \frac{7\operatorname{sen}C_1}{\operatorname{sen}40°} \approx 10{,}432\)</li>
+<li>\(B_2 = 113{,}326°\) \(\;\Rightarrow\;\) \(C_2 = 180 - 40 - 113{,}326 = 26{,}674°\), y
+  \(c_2 \approx 4{,}889\)</li>
+</ul>
+<p><strong>Los dos son triángulos legítimos</strong>, porque en ambos casos los ángulos suman 180° y todos
+son positivos. La respuesta correcta es "hay dos triángulos", y omitir uno es media
+respuesta.</p>
+<p><strong>El criterio rápido.</strong> Calcula la altura \(h = b\operatorname{sen}A\) y compárala con \(a\):</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Condición</th>
+<th>Cuántos triángulos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(a < h\)</td>
+<td>ninguno</td>
+</tr>
+<tr>
+<td>\(a = h\)</td>
+<td>uno (rectángulo)</td>
+</tr>
+<tr>
+<td>\(h < a < b\)</td>
+<td><strong>dos</strong></td>
+</tr>
+<tr>
+<td>\(a \ge b\)</td>
+<td>uno</td>
+</tr>
+</tbody>
+</table></div>
+<p>En nuestro ejemplo: \(h = 10\operatorname{sen}40° = 6{,}428\), y \(6{,}428 < 7 < 10\), así que
+estamos en el caso de <strong>dos</strong> triángulos. Coincide.</p>
+<blockquote>
+<p><strong>Cuándo no hay ambigüedad:</strong> si conoces dos ángulos (casos ALA/AAL) el triángulo es
+único, porque los tres ángulos quedan determinados. La ambigüedad es exclusiva del caso
+LLA.</p>
+</blockquote>
+<h3 id="ley-de-cosenos">Ley de cosenos</h3>
+<p>\[c^2 = a^2 + b^2 - 2ab\cos C\]</p>
+<p>(y sus dos gemelas, \(a^2 = b^2+c^2-2bc\cos A\) y \(b^2 = a^2+c^2-2ac\cos B\); es la misma
+fórmula rotando las letras).</p>
+<p><strong>Es el teorema de Pitágoras generalizado.</strong> Si \(C = 90°\), entonces \(\cos C = 0\), el último
+término desaparece y queda \(c^2 = a^2+b^2\). El término \(-2ab\cos C\) es exactamente la
+corrección que hay que aplicar cuando el ángulo no es recto: si \(C\) es agudo el coseno es
+positivo y \(c\) sale más corto que en el caso recto; si \(C\) es obtuso el coseno es negativo,
+el término suma, y \(c\) sale más largo. Tiene todo el sentido geométrico.</p>
+<p><strong>Cuándo usarla:</strong> cuando <strong>no</strong> tienes ninguna pareja lado-ángulo opuesto completa. Los dos
+casos son LAL (dos lados y el ángulo comprendido) y LLL (los tres lados).</p>
+<p><strong>Ejemplo resuelto (LAL).</strong> \(a = 8\), \(b = 11\), \(C = 37°\). Halla \(c\) y los otros ángulos.</p>
+<p>\[c^2 = 8^2 + 11^2 - 2(8)(11)\cos 37° = 64 + 121 - 176(0{,}79864) = 185 - 140{,}56 = 44{,}440\]</p>
+<p>\[c = \sqrt{44{,}440} \approx 6{,}666\]</p>
+<p>Para los ángulos, la ley de cosenos <strong>despejada</strong> (más segura que la de senos aquí, porque
+el arcocoseno distingue solo entre agudo y obtuso y no deja ambigüedad):</p>
+<p>\[\cos A = \frac{b^2+c^2-a^2}{2bc} = \frac{121 + 44{,}440 - 64}{2(11)(6{,}666)} \approx 0{,}69167
+\;\Rightarrow\; A \approx 46{,}237°\]</p>
+<p>Y el último por resta: \(B = 180° - 37° - 46{,}237° = 96{,}763°\).</p>
+<p><strong>Chequeo:</strong> el lado menor es \(c = 6{,}67\) y el ángulo menor es \(C = 37°\); el lado mayor es
+\(b = 11\) y el ángulo mayor es \(B = 96{,}76°\). Consistente.</p>
+<p><strong>Ejemplo LLL.</strong> Lados 5, 7 y 9: para el ángulo opuesto al 9 (el mayor),</p>
+<p>\[\cos\theta = \frac{25+49-81}{2(5)(7)} = \frac{-7}{70} = -\frac{1}{10}
+\;\Rightarrow\; \theta \approx 95{,}739°\]</p>
+<p>El coseno salió negativo, lo que significa ángulo obtuso: el triángulo 5-7-9 es
+obtusángulo. Ese signo es información gratis.</p>
+<h3 id="cuál-usar-decisión-en-dos-segundos">Cuál usar: decisión en dos segundos</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Datos que tienes</th>
+<th>Ley</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ALA / AAL (dos ángulos y un lado)</td>
+<td>Senos</td>
+</tr>
+<tr>
+<td>LLA (dos lados, ángulo no comprendido)</td>
+<td>Senos — <strong>revisar el caso ambiguo</strong></td>
+</tr>
+<tr>
+<td>LAL (dos lados y el ángulo entre ellos)</td>
+<td>Cosenos</td>
+</tr>
+<tr>
+<td>LLL (tres lados)</td>
+<td>Cosenos</td>
+</tr>
+</tbody>
+</table></div>
+<p>Regla mental: <strong>si tienes una pareja lado-ángulo opuesto completa, senos; si no, cosenos.</strong></p>
+<hr />
+<h2 id="8-errores-frecuentes">§8. Errores frecuentes</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>El error</th>
+<th>La corrección</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Dividir ambos lados de una ecuación por \(\operatorname{sen}x\) o \(\cos x\).</td>
+<td>Se pierden todas las soluciones donde esa función vale cero. <strong>Factoriza</strong> en vez de dividir. En la ecuación 3 de §6 esa maniobra bota 2 de las 4 soluciones.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Poner \(+2k\pi\) en una ecuación de tangente.</td>
+<td>El periodo de la tangente es \(\pi\): va \(+k\pi\). Con \(2k\pi\) pierdes la mitad de las soluciones.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Confundir el signo en \(\cos(a\pm b)\).</td>
+<td>\(\cos(a+b) = \cos a\cos b - \operatorname{sen}a\operatorname{sen}b\): el signo <strong>se invierte</strong>. Verifícalo haciendo \(b=a\): debe dar \(\cos 0 = 1\).</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Al resolver \(\operatorname{sen}x = c\), dar solo la solución de la calculadora.</td>
+<td>Hay <strong>dos</strong> por vuelta. La segunda es el suplementario, \(\pi - \alpha\), no \(-\alpha\). Para el coseno sí es \(-\alpha\).</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Pasar términos de un lado a otro al <strong>demostrar</strong> una identidad.</td>
+<td>Eso supone lo que quieres probar. Trabaja <strong>un solo lado</strong> hasta convertirlo en el otro.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Escoger el signo del ángulo mitad "por gusto".</td>
+<td>El \(\pm\) lo decide el cuadrante donde cae \(\dfrac{x}{2}\), no el de \(x\).</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Olvidar el caso ambiguo en la ley de senos (LLA).</td>
+<td>Si \(h < a < b\), hay <strong>dos</strong> triángulos. La calculadora solo muestra el agudo; el otro es su suplementario.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Usar la ley de senos para hallar un ángulo cuando ya se puede usar la de cosenos.</td>
+<td>El arcoseno no distingue agudo de obtuso; el arcocoseno sí. Para hallar ángulos con los tres lados conocidos, usa <strong>cosenos</strong>: no hay ambigüedad.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Escribir \(\cos 2x = 2\cos x\) o \(\operatorname{sen}\frac x2 = \frac12\operatorname{sen}x\).</td>
+<td>El factor está <strong>dentro</strong> del ángulo. Se necesitan las identidades de §3; no se puede sacar afuera.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>No verificar las soluciones contra el dominio.</td>
+<td>Si la ecuación tiene \(\tan x\) o \(\sec x\), hay que descartar \(x = \frac{\pi}{2}+k\pi\) aunque salgan de la factorización. Una "solución" donde la ecuación no está definida no es solución.</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Confundir identidad con ecuación.</td>
+<td>En una identidad se demuestra que vale <strong>siempre</strong>; en una ecuación se busca <strong>para qué valores</strong> vale. Métodos opuestos.</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Confiar ciegamente en la calculadora o en el software.</td>
+<td>Verificado en este archivo: SymPy devolvió una solución de tres en la ecuación 2 de §6. <strong>Sustituye siempre</strong> la respuesta en la ecuación original.</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="9-autoevaluación-12-preguntas">§9. Autoevaluación (12 preguntas)</h2>
+<p>Papel y lápiz. Calculadora solo en las preguntas 10 y 11. Máximo 45 minutos.</p>
+<ol>
+<li>Simplifica a una sola expresión: \((1 - \cos^2 x)(1 + \cot^2 x)\).</li>
+<li>Halla el valor exacto de \(\operatorname{sen}15°\) usando \(15° = 45° - 30°\).</li>
+<li>Halla el valor exacto de \(\cos 75°\).</li>
+<li>Si \(\operatorname{sen}x = \dfrac35\) con \(x\) en el primer cuadrante, halla \(\cos x\),
+   \(\operatorname{sen}2x\), \(\cos 2x\) y \(\tan 2x\).</li>
+<li>Demuestra la identidad \(\;\sec x - \cos x = \operatorname{sen}x\,\tan x\).</li>
+<li>Resuelve \(2\operatorname{sen}x + 1 = 0\) en \([0,2\pi)\) y escribe la solución general.</li>
+<li>Resuelve \(2\cos^2 x + \cos x - 1 = 0\) en \([0,2\pi)\).</li>
+<li>Simplifica \(\tan\left(\dfrac{\pi}{2} - x\right)\) y explica por qué.</li>
+<li>Escribe \(\cos^2 x\) en términos de \(\cos 2x\) y di para qué sirve.</li>
+<li>Un triángulo tiene \(a = 6\), \(b = 9\) y \(C = 60°\). Halla \(c\) exacto y aproximado.</li>
+<li>En un triángulo, \(a = 7\), \(b = 10\), \(A = 40°\). ¿Cuántos triángulos hay? Justifica con
+    el criterio de la altura.</li>
+<li>Simplifica \(\dfrac{\operatorname{sen}2x}{2\operatorname{sen}x}\).</li>
+</ol>
+<hr />
+<h3 id="respuestas">Respuestas</h3>
+<ol>
+<li>
+<p>\((1-\cos^2 x) = \operatorname{sen}^2 x\) y $(1+\cot^2 x) = \csc^2 x =
+   \dfrac{1}{\operatorname{sen}^2 x}$. El producto es
+   \(\operatorname{sen}^2 x \cdot \dfrac{1}{\operatorname{sen}^2 x} = \boxed{1}\).</p>
+</li>
+<li>
+<p>$\operatorname{sen}(45°-30°) = \frac{\sqrt2}{2}\cdot\frac{\sqrt3}{2} -
+   \frac{\sqrt2}{2}\cdot\frac12 = \boxed{\dfrac{\sqrt6-\sqrt2}{4}} \approx 0{,}2588$.</p>
+</li>
+<li>
+<p>$\cos(45°+30°) = \frac{\sqrt2}{2}\cdot\frac{\sqrt3}{2} - \frac{\sqrt2}{2}\cdot\frac12 =
+   \boxed{\dfrac{\sqrt6-\sqrt2}{4}} \approx 0{,}2588$. (Igual a \(\operatorname{sen}15°\),
+   porque 75° y 15° son complementarios.)</p>
+</li>
+<li>
+<p>\(\cos x = \sqrt{1-\frac{9}{25}} = \dfrac45\) (positivo, cuadrante I).
+   \(\operatorname{sen}2x = 2\cdot\frac35\cdot\frac45 = \dfrac{24}{25}\).
+   \(\cos 2x = 1 - 2\left(\frac35\right)^2 = 1-\frac{18}{25} = \dfrac{7}{25}\).
+   \(\tan 2x = \dfrac{24/25}{7/25} = \dfrac{24}{7}\).</p>
+</li>
+<li>
+<p>Lado izquierdo, común denominador: $\sec x - \cos x = \dfrac{1}{\cos x} - \cos x =
+   \dfrac{1-\cos^2 x}{\cos x} = \dfrac{\operatorname{sen}^2 x}{\cos x}$. Y esto se separa
+   como $\operatorname{sen}x\cdot\dfrac{\operatorname{sen}x}{\cos x} =
+   \operatorname{sen}x\tan x$. \(\blacksquare\)</p>
+</li>
+<li>
+<p>\(\operatorname{sen}x = -\frac12\); referencia \(\frac{\pi}{6}\), seno negativo en III y IV:
+   \(x = \dfrac{7\pi}{6},\ \dfrac{11\pi}{6}\). General: \(x = \frac{7\pi}{6}+2k\pi\) y
+   \(x = \frac{11\pi}{6}+2k\pi\).</p>
+</li>
+<li>
+<p>Con \(u = \cos x\): \(2u^2+u-1 = (u+1)(2u-1) = 0\). Entonces $\cos x = -1 \Rightarrow x =
+   \pi$; y \(\cos x = \frac12 \Rightarrow x = \dfrac{\pi}{3},\ \dfrac{5\pi}{3}\).
+   <strong>Soluciones:</strong> \(\dfrac{\pi}{3},\ \pi,\ \dfrac{5\pi}{3}\) (o sea 60°, 180°, 300°).</p>
+</li>
+<li>
+<p>\(\tan\left(\frac{\pi}{2}-x\right) = \boxed{\cot x}\). Porque
+   \(\operatorname{sen}(\frac\pi2 - x) = \cos x\) y $\cos(\frac\pi2-x) =
+   \operatorname{sen}x$, así que el cociente se invierte. Es el mismo motivo por el que la
+   función se llama <strong>co</strong>-tangente: es la tangente del complementario.</p>
+</li>
+<li>
+<p>\(\cos^2 x = \dfrac{1+\cos 2x}{2}\). Sirve para bajar el exponente a costa de duplicar el
+   ángulo; es la maniobra estándar para integrar potencias pares de seno y coseno en
+   Cálculo Integral.</p>
+</li>
+<li>
+<p>Ley de cosenos (caso LAL): $c^2 = 36+81-2(6)(9)\cos 60° = 117 - 108\cdot\frac12 =
+    117-54 = 63$. Luego \(c = \sqrt{63} = \boxed{3\sqrt7} \approx 7{,}937\).</p>
+</li>
+<li>
+<p>\(h = b\operatorname{sen}A = 10\operatorname{sen}40° \approx 6{,}428\). Como
+    \(h < a < b\) (es decir, \(6{,}428 < 7 < 10\)), hay <strong>dos triángulos</strong>: uno con
+    \(B \approx 66{,}67°\) (\(C \approx 73{,}33°\), \(c \approx 10{,}43\)) y otro con
+    \(B \approx 113{,}33°\) (\(C \approx 26{,}67°\), \(c \approx 4{,}89\)).</p>
+</li>
+<li>
+<p>$\dfrac{\operatorname{sen}2x}{2\operatorname{sen}x} =
+    \dfrac{2\operatorname{sen}x\cos x}{2\operatorname{sen}x} = \boxed{\cos x}$
+    (válido donde \(\operatorname{sen}x \neq 0\)).</p>
+</li>
+</ol>
+<hr />
+<p><strong>Criterio.</strong> 10 o más: el módulo de identidades quedó; sigue al archivo 4. Entre 7 y 9:
+repite §5 y §6, que son las que se evalúan de verdad. Menos de 7: rehaz las cuatro
+demostraciones y las cinco ecuaciones <strong>tapando la solución</strong> y escribiéndolas completas
+antes de mirar.</p>
+<p><em>Todas las identidades, valores exactos, soluciones de ecuaciones y resultados de triángulos
+de este archivo fueron verificados con SymPy, incluyendo la comprobación manual de la
+ecuación 2 de §6, donde la rutina automática omitió dos soluciones válidas.</em></p>
+</main>
+</body>
+</html>

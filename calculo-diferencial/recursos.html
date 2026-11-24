@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recursos — Cálculo Diferencial</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ 05 - Cálculo Diferencial / 5. Recursos</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="recursos--cálculo-diferencial">Recursos — Cálculo Diferencial</h1>
+<p><strong>Todo lo listado aquí es gratuito.</strong> Para cada recurso: qué es, para qué escenario sirve y cuánto tiempo toma.</p>
+<blockquote>
+<p><strong>Regla de citación de este archivo.</strong> No incluyo URLs completas, ISBN, números de página ni nombres de docentes o módulos oficiales, porque cambian y porque una referencia inventada es peor que ninguna. Cito <strong>a nivel de sitio o de canal</strong> y te digo exactamente qué buscar. Cuando no estoy seguro de que algo exista con ese nombre, lo digo y explico cómo encontrar el equivalente.</p>
+<p><strong>Y la regla de oro que aplica a todo el archivo:</strong> el material del <strong>aula virtual del Politécnico Grancolombiano es la fuente primaria</strong>. Lo de aquí complementa, no reemplaza. Si el aula dice una cosa y un video de YouTube dice otra, gana el aula: es lo que te van a evaluar.</p>
+</blockquote>
+<hr />
+<h2 id="1-libros-abiertos">1. Libros abiertos</h2>
+<h3 id="openstax--cálculo-volumen-1">OpenStax — <em>Cálculo, volumen 1</em></h3>
+<ul>
+<li><strong>Qué es.</strong> Libro universitario de cálculo publicado por OpenStax, iniciativa de la Universidad Rice. Es de acceso abierto, con licencia libre, y <strong>tiene traducción oficial al español</strong>. El volumen 1 cubre funciones, límites, derivadas y aplicaciones de la derivada: prácticamente todo tu curso. El volumen 2 es cálculo integral (te servirá el próximo semestre).</li>
+<li><strong>Para qué escenarios.</strong> Los ocho. Volumen 1: capítulos de funciones (E1), límites (E2–E3), derivadas (E4–E6) y aplicaciones de la derivada (E7).</li>
+<li><strong>Por qué este y no otro.</strong> Tiene tres cosas que el resto no reúne: está en español, es legalmente gratuito (no una copia pirata), y trae cientos de ejercicios con respuestas de los impares al final.</li>
+<li><strong>Cuánto toma.</strong> Lectura de un capítulo: 45–60 min. Capítulo con ejercicios: 2–3 horas.</li>
+<li><strong>Cómo conseguirlo.</strong> Busca "OpenStax Cálculo volumen 1" en el sitio de OpenStax (openstax.org). Descarga el PDF completo; funciona sin conexión, lo cual importa si estudias en transporte o fuera de casa.</li>
+<li><strong>Cómo usarlo.</strong> No lo leas de corrido. Úsalo como referencia: cuando un tema del aula no te cierre, busca ese tema en el índice, lee la sección y haz cinco ejercicios impares (los impares tienen respuesta).</li>
+</ul>
+<h3 id="otros-libros-abiertos">Otros libros abiertos</h3>
+<ul>
+<li><strong>Repositorios de libros abiertos universitarios.</strong> Existen colecciones de libros de matemáticas con licencia abierta mantenidas por consorcios universitarios en Estados Unidos (la más conocida es LibreTexts, en libretexts.org, con una sección de matemáticas en español). Busca "LibreTexts Cálculo" o "LibreTexts Mathematics español". Sirven igual que OpenStax; el valor de tener dos libros es que cuando una explicación no te sirve, la otra puede servirte.</li>
+<li><strong>Materiales de universidades públicas latinoamericanas.</strong> Muchas facultades de ingeniería publican apuntes completos de Cálculo I en PDF abierto. Búsqueda útil: <code>"cálculo diferencial" apuntes filetype:pdf universidad</code>. <strong>Verifica siempre la fuente institucional</strong> antes de confiar en un PDF suelto: un apunte anónimo con un signo mal puesto te puede costar un quiz.</li>
+<li><strong>Repositorios de la Rama educativa colombiana.</strong> Instituciones como la Universidad Nacional y la Universidad de Antioquia publican notas de clase de Cálculo I en sus repositorios institucionales. Busca por el nombre de la universidad más "repositorio" más "cálculo diferencial".</li>
+</ul>
+<blockquote>
+<p><strong>Advertencia sobre libros clásicos.</strong> Los textos comerciales estándar de cálculo (Stewart, Larson, Thomas, Leithold) son excelentes, pero <strong>no son gratuitos</strong> y las copias que circulan en internet son ilegales. Si quieres uno de esos, la vía correcta es la biblioteca virtual del Politécnico Grancolombiano: como estudiante matriculado probablemente tienes acceso a bases de datos con libros digitales. Revisa el portal de biblioteca del aula virtual apenas te matricules; es un recurso pagado que ya está incluido en tu matrícula y que casi nadie usa.</p>
+</blockquote>
+<hr />
+<h2 id="2-videos-intuición">2. Videos: intuición</h2>
+<h3 id="3blue1brown--serie-essence-of-calculus">3Blue1Brown — serie <em>Essence of Calculus</em></h3>
+<ul>
+<li><strong>Qué es.</strong> Una serie de aproximadamente una docena de videos del canal 3Blue1Brown (Grant Sanderson) que explica <strong>de dónde salen</strong> las ideas del cálculo, con animaciones matemáticas de una calidad que no tiene comparación. No enseña a resolver ejercicios: enseña a entender por qué las reglas son como son. Está en inglés, <strong>con subtítulos en español</strong> disponibles (el canal tiene además un canal hermano en español donde parte del contenido está doblado; búscalo como "3Blue1Brown Español").</li>
+<li><strong>Para qué escenarios.</strong> E4 (qué es realmente una derivada), E5–E6 (por qué la regla del producto y la de la cadena tienen esa forma; la explicación visual de la regla de la cadena es la mejor que vas a encontrar), E7 (L'Hôpital y aproximación lineal).</li>
+<li><strong>Cuánto toma.</strong> Cada video 12–20 min. La serie completa, unas 3–4 horas.</li>
+<li><strong>Cómo usarlo.</strong> <strong>Míralo antes de que empiece el semestre o al inicio de cada tema, no como repaso de última hora.</strong> Su valor es construir la intuición que después hace que las reglas se peguen. Ver el video sobre la regla de la cadena la noche anterior al quiz del escenario 6 no te va a salvar; verlo la semana anterior sí cambia cómo entiendes todo lo que sigue.</li>
+<li><strong>Una advertencia honesta.</strong> Es adictivo y te puede consumir tres horas de estudio en algo que no evalúan. Míralo con presupuesto de tiempo.</li>
+</ul>
+<hr />
+<h2 id="3-canales-de-youtube-en-español-resolución-de-ejercicios">3. Canales de YouTube en español (resolución de ejercicios)</h2>
+<p>Todos estos son canales grandes, activos desde hace años, especializados en matemáticas de nivel universitario en español. Búscalos por nombre en YouTube.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Canal</th>
+<th>Qué ofrece</th>
+<th>Escenarios</th>
+<th>Ritmo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Julio Profe</strong></td>
+<td>El canal de matemáticas en español más conocido de Colombia. Ejercicios resueltos paso a paso, con letra clara y sin apuros. Muy fuerte en álgebra, factorización y límites.</td>
+<td><strong>Nivelación</strong>, E1, E2, E3</td>
+<td>Videos de 8–15 min</td>
+</tr>
+<tr>
+<td><strong>Matemáticas profe Alex</strong></td>
+<td>Explicaciones muy didácticas desde cero, con series completas de derivadas y límites. Excelente si un tema no te cerró en el aula.</td>
+<td>E1–E6</td>
+<td>10–20 min</td>
+</tr>
+<tr>
+<td><strong>Math2me</strong></td>
+<td>Canal mexicano veterano, con listas de reproducción organizadas por tema. Bueno para practicar volumen.</td>
+<td>E3, E5, E6</td>
+<td>5–12 min</td>
+</tr>
+<tr>
+<td><strong>Profesor Particular Powered by Fisicomatematico</strong></td>
+<td>Series largas de ejercicios de cálculo diferencial, incluida derivación implícita y aplicaciones.</td>
+<td>E6, E7</td>
+<td>10–25 min</td>
+</tr>
+<tr>
+<td><strong>Canal de la asignatura en el aula virtual</strong></td>
+<td>Si el Poli publica videotutoriales del curso, <strong>esos van primero</strong>: están alineados con lo que evalúan.</td>
+<td>Todos</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Cómo buscar bien.</strong> No busques "límites". Busca el ejercicio concreto: <code>"límite indeterminado racionalización ejercicios resueltos"</code>, <code>"regla de la cadena anidada ejercicios"</code>, <code>"razones de cambio relacionadas escalera"</code>. Y si un video no te está sirviendo en los primeros 90 segundos, cámbialo: hay cientos.</p>
+<p><strong>Cuánto tiempo dedicarle.</strong> Máximo 30–40 minutos de video por semana. Ver videos se siente productivo y no lo es: <strong>el aprendizaje ocurre cuando haces el ejercicio tú</strong>. Un buen equilibrio es 1 video : 5 ejercicios propios.</p>
+<hr />
+<h2 id="4-herramientas-úsalas-para-verificar-no-para-evadir">4. Herramientas: úsalas para VERIFICAR, no para evadir</h2>
+<p>Esta sección es la más importante del archivo, porque el mal uso de estas herramientas es la forma más eficiente conocida de reprobar cálculo mientras se tiene la sensación de estar estudiando.</p>
+<blockquote>
+<h3 id="el-protocolo-de-uso">El protocolo de uso</h3>
+<ol>
+<li><strong>Resuelve el ejercicio completo a mano, en papel.</strong> Sin excepción.</li>
+<li><strong>Si te atascas, espera 10 minutos más.</strong> Relee la teoría. Busca un ejemplo parecido.</li>
+<li><strong>Solo entonces, verifica con la herramienta.</strong></li>
+<li><strong>Si tu respuesta difiere, no copies la de la máquina: encuentra tu error.</strong> Ese es el momento de mayor aprendizaje de toda la sesión.</li>
+<li><strong>En un examen no tendrás la herramienta.</strong> Cada vez que la usas para producir en lugar de para verificar, estás practicando una habilidad que no te van a evaluar.</li>
+</ol>
+</blockquote>
+<h3 id="geogebra-geogebraorg">GeoGebra (geogebra.org)</h3>
+<ul>
+<li><strong>Qué es.</strong> Suite gratuita de matemática dinámica: calculadora gráfica, CAS (cálculo simbólico), geometría. Hay versión web y aplicación de escritorio que funciona sin conexión.</li>
+<li><strong>Para qué escenarios.</strong> E1 (graficar funciones y ver transformaciones en vivo), E3 (visualizar asíntotas), E4 (ver la secante convertirse en tangente al mover un punto: es la mejor forma de <em>entender</em> la derivada), E7 (ver simultáneamente \(f\), \(f'\) y \(f''\) y confirmar que los ceros de \(f'\) son los extremos de \(f\)).</li>
+<li><strong>Uso que más rinde.</strong> Grafica \(f\), \(f'\) y \(f''\) en la misma ventana y observa la correspondencia: donde \(f'\) cruza el cero, \(f\) tiene un extremo; donde \(f''\) cruza el cero, \(f\) cambia de concavidad. Diez minutos con esto valen más que leer la tabla de criterios cinco veces.</li>
+<li><strong>Cuánto toma.</strong> 20 minutos para aprender lo básico. Después, 2–3 minutos por función.</li>
+</ul>
+<h3 id="desmos-desmoscom">Desmos (desmos.com)</h3>
+<ul>
+<li><strong>Qué es.</strong> Calculadora gráfica en línea, la más rápida y agradable de usar. Funciona en el navegador sin instalar nada.</li>
+<li><strong>Para qué escenarios.</strong> E1, E3, E7. Su función estrella son los <strong>deslizadores</strong>: escribes \(y=a(x-h)^2+k\) y mueves \(a\), \(h\), \(k\) para ver las transformaciones en tiempo real.</li>
+<li><strong>Ventaja frente a GeoGebra.</strong> Es más rápido para graficar y comparar. GeoGebra es más potente para cálculo simbólico.</li>
+<li><strong>Cuánto toma.</strong> 10 minutos para lo esencial. Menos de un minuto por gráfica.</li>
+</ul>
+<h3 id="wolframalpha-wolframalphacom">WolframAlpha (wolframalpha.com)</h3>
+<ul>
+<li><strong>Qué es.</strong> Motor de conocimiento computacional. Escribes <code>derivative of sin(sqrt(x^2+1))</code> o <code>limit (sqrt(x+4)-2)/x as x-&gt;0</code> y te da el resultado, la gráfica y a veces pasos.</li>
+<li><strong>Para qué escenarios.</strong> Todos, como <strong>verificador final</strong>.</li>
+<li><strong>Limitación importante.</strong> Los "pasos" detallados (Step-by-step) son función de pago. La versión gratuita da el resultado, que es exactamente lo que necesitas para verificar.</li>
+<li><strong>Uso correcto.</strong> Terminaste tu derivada a mano, la escribes en Wolfram, comparas. Si coincide, sigues. Si no, buscas tu error.</li>
+<li><strong>Uso incorrecto.</strong> Escribir el ejercicio antes de intentarlo. No hay nada más eficaz para no aprender.</li>
+<li><strong>Cuánto toma.</strong> Segundos por consulta.</li>
+</ul>
+<h3 id="symbolab--photomath-y-similares">Symbolab / Photomath y similares</h3>
+<ul>
+<li><strong>Qué son.</strong> Resolutores paso a paso, algunos con cámara para fotografiar el ejercicio.</li>
+<li><strong>Uso responsable.</strong> Los pasos sí ayudan cuando ya intentaste y quieres ver <strong>dónde</strong> te desviaste. Compara su procedimiento con el tuyo línea por línea.</li>
+<li><strong>Riesgo real, dicho sin rodeos.</strong> Es la herramienta que más gente reprueba. Producen la sensación exacta de haber entendido, sin el entendimiento. Un estudiante que resuelve 50 derivadas con Photomath y otro que resuelve 20 a mano llegan al examen en situaciones opuestas.</li>
+<li><strong>Regla sugerida:</strong> úsalos como máximo en 1 de cada 10 ejercicios, y solo después de haber fallado el tuyo.</li>
+</ul>
+<h3 id="python-con-sympy-opcional-y-muy-conveniente-para-ti">Python con SymPy (opcional, y muy conveniente para ti)</h3>
+<ul>
+<li><strong>Qué es.</strong> Biblioteca de matemática simbólica de Python. <code>sympy.diff(sympy.sin(x**2), x)</code> devuelve la derivada exacta.</li>
+<li><strong>Por qué te conviene específicamente.</strong> Estás cursando Pensamiento Algorítmico en paralelo y nunca has programado. Escribir cinco líneas de Python para verificar tus derivadas mata dos pájaros: practicas programación con un propósito real y verificas cálculo. Es probablemente la mejor sinergia entre dos materias de tu bloque.</li>
+<li><strong>Cómo empezar sin instalar nada.</strong> Busca "Google Colab": es un entorno de Python en el navegador, gratuito, donde SymPy ya viene instalado. Abres un cuaderno nuevo y escribes.</li>
+<li><strong>Cuánto toma.</strong> Una hora para el primer contacto. Después, 30 segundos por verificación.</li>
+<li><strong>Cuándo hacerlo.</strong> No en la semana 3 ni en la 6, que ya están cargadas. La semana 1 o la 2 son buenas.</li>
+</ul>
+<hr />
+<h2 id="5-cursos-abiertos">5. Cursos abiertos</h2>
+<h3 id="khan-academy-eskhanacademyorg">Khan Academy (es.khanacademy.org)</h3>
+<ul>
+<li><strong>Qué es.</strong> Plataforma educativa gratuita sin ánimo de lucro, <strong>con contenido completo en español</strong>. Tiene un curso de cálculo diferencial con videos cortos, ejercicios interactivos con retroalimentación inmediata y seguimiento de dominio por tema.</li>
+<li><strong>Para qué escenarios.</strong> Todos, y especialmente para <strong>nivelación previa</strong>: tiene cursos completos de álgebra, precálculo y trigonometría, que es justo donde el diagnóstico te va a mandar si fallaste más de tres preguntas.</li>
+<li><strong>Por qué es el mejor complemento al aula.</strong> Es el único de esta lista que te hace <em>practicar</em> con corrección automática y te dice qué dominas y qué no. Los videos los ves en cualquier parte; los ejercicios son donde está el valor.</li>
+<li><strong>Cuánto toma.</strong> Cada unidad, 1–3 horas. El curso completo de cálculo diferencial, muchas más horas de las que tienes; <strong>úsalo selectivamente</strong>, unidad por unidad, según lo que necesites.</li>
+<li><strong>Recomendación concreta.</strong> Antes del 25 de agosto, haz las unidades de precálculo relacionadas con lo que fallaste en el diagnóstico. Es la mejor inversión de la semana 0.</li>
+</ul>
+<h3 id="plataformas-de-cursos-masivos-mooc">Plataformas de cursos masivos (MOOC)</h3>
+<ul>
+<li><strong>Qué son.</strong> Coursera, edX y MIT OpenCourseWare ofrecen cursos universitarios de cálculo. En Coursera y edX se puede <strong>auditar</strong> (acceder al contenido sin pagar); el certificado es lo que cuesta. MIT OpenCourseWare publica materiales completos de sus cursos de forma totalmente abierta, incluidos exámenes con solución.</li>
+<li><strong>Para qué escenarios.</strong> Complemento general, sobre todo si quieres profundidad conceptual.</li>
+<li><strong>Advertencia realista.</strong> Un MOOC de cálculo pide de 4 a 6 horas semanales por sí solo. <strong>No tienes ese tiempo</strong>: ya estás usando 4–5 en esta materia. No te matricules en un MOOC completo. Si acaso, usa videos o problemas sueltos de MIT OCW, que están abiertos y bien hechos.</li>
+<li><strong>Cómo buscar.</strong> "MIT OpenCourseWare single variable calculus" (en inglés, con materiales descargables); "Coursera cálculo diferencial español"; "edX cálculo".</li>
+</ul>
+<h3 id="recursos-de-universidades-hispanohablantes">Recursos de universidades hispanohablantes</h3>
+<p>Varias universidades de España y América Latina publican cursos abiertos de Cálculo I con videos y problemarios. Búsquedas útiles: <code>curso abierto cálculo diferencial universidad</code>, <code>MOOC cálculo español</code>. Prioriza los que tengan <strong>problemas con solución</strong>, que es lo escaso; explicaciones hay de sobra.</p>
+<hr />
+<h2 id="6-recursos-internos-de-tu-propio-semestre">6. Recursos internos de tu propio semestre</h2>
+<p>No los pases por alto: son gratuitos, ya están en tu computador y están hechos a tu medida.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Recurso</th>
+<th>Dónde</th>
+<th>Para qué</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Carpeta de nivelación</td>
+<td><code>00 - Nivelación (antes del 25 de agosto)</code></td>
+<td>Reparar álgebra y trigonometría antes de que empiece el bloque</td>
+</tr>
+<tr>
+<td>Recursos comunes del semestre</td>
+<td><code>_Recursos comunes</code></td>
+<td>Material transversal a las seis materias</td>
+</tr>
+<tr>
+<td>Guía, cronograma, resúmenes y banco</td>
+<td>Esta misma carpeta</td>
+<td>Tu material principal fuera del aula</td>
+</tr>
+<tr>
+<td>Compañeros de curso</td>
+<td>Foros del aula virtual</td>
+<td>Explicar un tema a otro es la prueba más dura de si lo entendiste</td>
+</tr>
+<tr>
+<td>Tutorías del Poli</td>
+<td>Aula virtual (por verificar disponibilidad)</td>
+<td>Cuando llevas más de una semana atascado</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="7-ruta-recomendada-por-escenario">7. Ruta recomendada por escenario</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Escenario</th>
+<th>Recurso principal</th>
+<th>Complemento</th>
+<th>Verificación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Semana 0 · Nivelación</strong></td>
+<td>Khan Academy (precálculo y trigonometría)</td>
+<td>Julio Profe (factorización, racionalización)</td>
+<td>Diagnóstico de <code>1. Guía de estudio.md</code></td>
+</tr>
+<tr>
+<td><strong>E1 · Funciones</strong></td>
+<td>Aula + OpenStax cap. de funciones</td>
+<td>Desmos con deslizadores</td>
+<td>GeoGebra</td>
+</tr>
+<tr>
+<td><strong>E2 · Límites</strong></td>
+<td>Aula + OpenStax</td>
+<td>3Blue1Brown (idea de límite)</td>
+<td>Desmos (tablas y gráficas)</td>
+</tr>
+<tr>
+<td><strong>E3 · Indeterminaciones</strong> ⚠️</td>
+<td><strong>Volumen de ejercicios</strong> (banco propio + OpenStax)</td>
+<td>Julio Profe, Math2me</td>
+<td>WolframAlpha</td>
+</tr>
+<tr>
+<td><strong>E4 · Continuidad y derivada</strong></td>
+<td>Aula + OpenStax</td>
+<td><strong>3Blue1Brown</strong>: qué es una derivada</td>
+<td>GeoGebra (secante → tangente)</td>
+</tr>
+<tr>
+<td><strong>E5 · Reglas</strong></td>
+<td>Práctica diaria, banco propio</td>
+<td>Matemáticas profe Alex</td>
+<td>WolframAlpha o SymPy</td>
+</tr>
+<tr>
+<td><strong>E6 · Regla de la cadena</strong> ⚠️</td>
+<td><strong>Volumen de ejercicios</strong></td>
+<td><strong>3Blue1Brown</strong>: regla de la cadena</td>
+<td>SymPy (ideal para las anidadas)</td>
+</tr>
+<tr>
+<td><strong>E7 · Aplicaciones</strong> ⚠️</td>
+<td>Aula + OpenStax (aplicaciones de la derivada)</td>
+<td>Videos de razones relacionadas y optimización</td>
+<td>GeoGebra (\(f\), \(f'\), \(f''\) juntas)</td>
+</tr>
+<tr>
+<td><strong>E8 · Repaso</strong></td>
+<td>Simulacros del banco propio</td>
+<td>Exámenes resueltos de MIT OCW</td>
+<td>Todo, al final</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="8-qué-no-hacer">8. Qué NO hacer</h2>
+<ul>
+<li><strong>No compres nada.</strong> Todo lo que necesitas para aprobar esta materia con buena nota es gratuito y está en esta lista.</li>
+<li><strong>No descargues PDF piratas de libros comerciales.</strong> Además del problema legal, suelen ser escaneos de mala calidad con ejercicios ilegibles. OpenStax es mejor y es legal.</li>
+<li><strong>No acumules recursos.</strong> El error clásico: descargar seis libros, suscribirse a cuatro canales y no abrir ninguno. <strong>Elige uno de cada tipo y úsalo.</strong> Sugerencia mínima viable: OpenStax + un canal de YouTube + Desmos + Khan Academy para nivelación. Con eso sobra.</li>
+<li><strong>No estudies con videos de "cálculo en 10 minutos" o "aprueba tu examen con esto".</strong> No existe.</li>
+<li><strong>No uses la calculadora para lo que debes tener automatizado.</strong> Los valores trigonométricos notables, las factorizaciones básicas y el formulario de derivadas van en la cabeza, no en la máquina.</li>
+<li><strong>No confíes en un solo recurso para un tema que no entiendes.</strong> Si la explicación del aula no te sirvió, el problema puede ser la explicación, no tú. Busca otra. Tres explicaciones distintas del mismo concepto suelen resolver lo que una repetida no resuelve.</li>
+</ul>
+</main>
+</body>
+</html>

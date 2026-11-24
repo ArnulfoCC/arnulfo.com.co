@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guía de estudio — Pensamiento Algorítmico</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ 03 - Pensamiento Algorítmico / 1. Guía de estudio</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="guía-de-estudio--pensamiento-algorítmico">Guía de estudio — Pensamiento Algorítmico</h1>
+<p><strong>Bloque A: 25 de agosto – 19 de octubre de 2026 · 8 escenarios, uno por semana.</strong></p>
+<blockquote>
+<p>⚠️ <strong>Contenido esperado, por verificar en el aula virtual.</strong> Los temas, el orden y los nombres de las actividades son una reconstrucción. Contrasta con el aula el primer día y ajusta lo que haga falta. El supuesto de que la materia va en el Bloque A también está por confirmar.</p>
+</blockquote>
+<p><strong>Cómo usar esta guía:</strong> el domingo antes de cada semana, lee el escenario que viene (10 minutos). Al final de la semana, comprueba el criterio de "listo para avanzar". Si no lo cumples, <strong>no sigas de largo</strong>: dedica una sesión de recuperación. En esta materia los escenarios se apilan, no se turnan.</p>
+<hr />
+<h2 id="escenario-1--algoritmos-y-pensamiento-computacional">Escenario 1 — Algoritmos y pensamiento computacional</h2>
+<p><strong>Semana 1 · 25–31 de agosto</strong></p>
+<h3 id="tema">Tema</h3>
+<p>Qué es un algoritmo, qué lo distingue de una receta o de un instructivo cualquiera, y cuáles son los cuatro pilares del pensamiento computacional.</p>
+<h3 id="objetivos">Objetivos</h3>
+<ul>
+<li>Definir algoritmo y enumerar sus propiedades: precisión, finitud, determinismo, entradas y salidas definidas, efectividad.</li>
+<li>Descomponer un problema grande en subproblemas resolubles.</li>
+<li>Identificar patrones repetidos entre problemas parecidos.</li>
+<li>Abstraer: quedarse con lo esencial y descartar el detalle irrelevante.</li>
+<li>Escribir un algoritmo en lenguaje natural estructurado.</li>
+</ul>
+<h3 id="conceptos-clave">Conceptos clave</h3>
+<ul>
+<li><strong>Algoritmo:</strong> secuencia finita, ordenada y no ambigua de pasos que transforma unas entradas en unas salidas.</li>
+<li><strong>Las cuatro competencias:</strong> descomposición, reconocimiento de patrones, abstracción, diseño de algoritmos.</li>
+<li><strong>Entrada – Proceso – Salida (E-P-S):</strong> el esqueleto de todo programa.</li>
+<li><strong>Ambigüedad:</strong> el enemigo. "Revise que la póliza esté bien" no es un paso algorítmico; "verifique que el valor asegurado sea ≥ 20 % del valor del contrato" sí lo es.</li>
+<li><strong>Determinismo:</strong> con las mismas entradas, el mismo resultado, siempre.</li>
+</ul>
+<h3 id="qué-practicar-en-pseint">Qué practicar en PSeInt</h3>
+<p>Todavía nada de código. Instala PSeInt esta semana (instrucciones al final) y abre un algoritmo de ejemplo solo para ver cómo se ve. Familiarízate con la ventana.</p>
+<h3 id="qué-practicar-en-python">Qué practicar en Python</h3>
+<p>Abre Google Colab, crea tu primer cuaderno y ejecuta:</p>
+<pre><code class="language-python">print(&quot;Hola, Arnulfo&quot;)
+</code></pre>
+<p>Nada más. El objetivo de la semana es que la herramienta funcione, no aprender el lenguaje.</p>
+<h3 id="entregable-esperado">Entregable esperado</h3>
+<p>Foro de presentación o taller corto: describir un procedimiento cotidiano como algoritmo (pasos numerados, entradas, salidas). <strong>Ventaja tuya:</strong> usa un procedimiento real de la División — por ejemplo, la verificación de una garantía o el armado de un expediente de pago.</p>
+<h3 id="listo-para-avanzar-si">Listo para avanzar si…</h3>
+<p>Puedes escribir, en una hoja y sin ayuda, el algoritmo de "calcular el valor total de una factura con IVA": indicando explícitamente cuáles son las <strong>entradas</strong>, cuáles los <strong>pasos</strong> y cuál la <strong>salida</strong>, y que otra persona pueda ejecutarlo sin preguntarte nada.</p>
+<hr />
+<h2 id="escenario-2--lógica-proposicional-y-operadores">Escenario 2 — Lógica proposicional y operadores</h2>
+<p><strong>Semana 2 · 1–7 de septiembre</strong></p>
+<span id="tema"></span><h3 id="tema_1">Tema</h3>
+<p>Proposiciones, conectivos lógicos, tablas de verdad, operadores relacionales y lógicos, y precedencia entre ellos.</p>
+<span id="objetivos"></span><h3 id="objetivos_1">Objetivos</h3>
+<ul>
+<li>Distinguir una proposición (tiene valor de verdad) de una frase cualquiera.</li>
+<li>Construir tablas de verdad completas para negación, conjunción, disyunción, condicional y bicondicional.</li>
+<li>Evaluar expresiones lógicas compuestas respetando la precedencia.</li>
+<li>Traducir condiciones del lenguaje natural a expresiones lógicas.</li>
+<li>Aplicar las leyes de De Morgan para simplificar y para negar condiciones.</li>
+</ul>
+<span id="conceptos-clave"></span><h3 id="conceptos-clave_1">Conceptos clave</h3>
+<ul>
+<li><strong>Proposición:</strong> enunciado que es verdadero o falso, no ambas.</li>
+<li><strong>Conectivos:</strong> ¬ (no), ∧ (y), ∨ (o), → (si… entonces), ↔ (si y solo si).</li>
+<li><strong>Operadores relacionales:</strong> <code>=</code>, <code>&lt;&gt;</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code> (en Python: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>).</li>
+<li><strong>Tautología, contradicción, contingencia.</strong></li>
+<li><strong>De Morgan:</strong> ¬(p ∧ q) ≡ ¬p ∨ ¬q · ¬(p ∨ q) ≡ ¬p ∧ ¬q.</li>
+<li><strong>Precedencia lógica:</strong> <code>no</code> antes que <code>y</code>, y <code>y</code> antes que <code>o</code>.</li>
+</ul>
+<span id="qué-practicar-en-pseint"></span><h3 id="qué-practicar-en-pseint_1">Qué practicar en PSeInt</h3>
+<p>Expresiones booleanas dentro de <code>Escribir</code>:</p>
+<pre><code class="language-pseudocodigo">Escribir (5 &gt; 3) Y (2 &gt; 7)
+</code></pre>
+<p>Comprueba que el resultado es <code>Falso</code> y explica por qué.</p>
+<span id="qué-practicar-en-python"></span><h3 id="qué-practicar-en-python_1">Qué practicar en Python</h3>
+<pre><code class="language-python">p = True
+q = False
+print(not p)        # False
+print(p and q)      # False
+print(p or q)       # True
+print(not (p and q) == ((not p) or (not q)))  # True: De Morgan
+</code></pre>
+<p>Construye una tabla de verdad con dos ciclos anidados (te la dejo lista en <code>3. Resúmenes teóricos.md</code>).</p>
+<span id="entregable-esperado"></span><h3 id="entregable-esperado_1">Entregable esperado</h3>
+<p><strong>"Actividad de puntos evaluables – Escenario 2"</strong> (por verificar). Típicamente: tablas de verdad, equivalencias y traducción de condiciones a expresiones lógicas.</p>
+<span id="listo-para-avanzar-si"></span><h3 id="listo-para-avanzar-si_1">Listo para avanzar si…</h3>
+<p>Construyes de memoria y sin error la tabla de verdad del condicional <code>p → q</code> (cuatro filas) y explicas por qué <code>Verdadero → Falso</code> es la <strong>única</strong> fila falsa. Y traduces sin dudar: "el pago procede si la factura está aprobada <strong>y</strong> además hay RP vigente <strong>o</strong> hay autorización expresa" a una expresión con paréntesis correctos.</p>
+<hr />
+<h2 id="escenario-3--representación-de-algoritmos">Escenario 3 — Representación de algoritmos</h2>
+<p><strong>Semana 3 · 8–14 de septiembre</strong></p>
+<span id="tema"></span><h3 id="tema_2">Tema</h3>
+<p>Las tres formas de representar un algoritmo: lenguaje natural estructurado, pseudocódigo y diagrama de flujo con simbología estándar.</p>
+<span id="objetivos"></span><h3 id="objetivos_2">Objetivos</h3>
+<ul>
+<li>Reconocer y usar la simbología estándar de diagramas de flujo.</li>
+<li>Escribir pseudocódigo con la sintaxis de PSeInt.</li>
+<li>Convertir entre las tres representaciones sin perder la lógica.</li>
+<li>Detectar diagramas mal formados (flechas sueltas, decisiones con una sola salida, ciclos sin salida).</li>
+</ul>
+<span id="conceptos-clave"></span><h3 id="conceptos-clave_2">Conceptos clave</h3>
+<ul>
+<li><strong>Símbolos:</strong> óvalo (inicio/fin), rectángulo (proceso), romboide/paralelogramo (entrada/salida), rombo (decisión), flechas (flujo), círculo pequeño (conector). Descripción completa en <code>3. Resúmenes teóricos.md</code>.</li>
+<li><strong>Regla de oro del diagrama:</strong> un solo inicio, al menos un fin, todo símbolo con exactamente una entrada de flujo (salvo el inicio), y el rombo con exactamente dos salidas rotuladas (Sí / No).</li>
+<li><strong>Pseudocódigo:</strong> independiente del lenguaje, legible por humanos, estructurado.</li>
+</ul>
+<span id="qué-practicar-en-pseint"></span><h3 id="qué-practicar-en-pseint_2">Qué practicar en PSeInt</h3>
+<p>Tu primer algoritmo completo:</p>
+<pre><code class="language-pseudocodigo">Algoritmo SaludoBasico
+    Definir nombre Como Caracter
+    Escribir &quot;Digite su nombre:&quot;
+    Leer nombre
+    Escribir &quot;Buenos días, &quot;, nombre
+FinAlgoritmo
+</code></pre>
+<p>Y usa la función <strong>"Dibujar diagrama de flujo"</strong> de PSeInt (menú <em>Ejecutar</em> / botón del diagrama, según versión): genera el diagrama automáticamente a partir de tu pseudocódigo. Es la mejor forma de ver la correspondencia entre las dos representaciones.</p>
+<span id="qué-practicar-en-python"></span><h3 id="qué-practicar-en-python_2">Qué practicar en Python</h3>
+<pre><code class="language-python">nombre = input(&quot;Digite su nombre: &quot;)
+print(&quot;Buenos días,&quot;, nombre)
+</code></pre>
+<p>Ojo: en Colab, <code>input()</code> abre una cajita de texto debajo de la celda. Debes escribir ahí y dar Enter.</p>
+<span id="entregable-esperado"></span><h3 id="entregable-esperado_2">Entregable esperado</h3>
+<p><strong>"Quiz – Escenario 3"</strong> (por verificar) y/o taller de diagramas de flujo. Para los diagramas a mano usa <strong>draw.io</strong>.</p>
+<span id="listo-para-avanzar-si"></span><h3 id="listo-para-avanzar-si_2">Listo para avanzar si…</h3>
+<p>Tomas un problema en una frase ("leer dos valores y mostrar el mayor") y produces las tres representaciones: lenguaje natural numerado, pseudocódigo que corre en PSeInt, y diagrama de flujo en draw.io. Las tres deben describir exactamente lo mismo.</p>
+<hr />
+<h2 id="escenario-4--variables-tipos-de-datos-y-expresiones">Escenario 4 — Variables, tipos de datos y expresiones</h2>
+<p><strong>Semana 4 · 15–21 de septiembre · CIERRE DEL PRIMER BLOQUE (30 %)</strong></p>
+<span id="tema"></span><h3 id="tema_3">Tema</h3>
+<p>Variables, constantes, tipos de datos, expresiones aritméticas, precedencia de operadores, asignación y entrada/salida.</p>
+<span id="objetivos"></span><h3 id="objetivos_3">Objetivos</h3>
+<ul>
+<li>Declarar variables con el tipo correcto y nombrarlas con criterio.</li>
+<li>Distinguir variable de constante.</li>
+<li>Evaluar expresiones aritméticas aplicando la precedencia correcta.</li>
+<li>Usar la división entera y el módulo (residuo).</li>
+<li>Entender la asignación como "guardar en", no como igualdad matemática.</li>
+</ul>
+<span id="conceptos-clave"></span><h3 id="conceptos-clave_3">Conceptos clave</h3>
+<ul>
+<li><strong>Tipos:</strong> entero, real (decimal), carácter/cadena, lógico (booleano).</li>
+<li><strong>Asignación:</strong> <code>x &lt;- 5</code> significa "meta 5 en la caja x". Por eso <code>contador &lt;- contador + 1</code> no es una ecuación absurda: es "el nuevo contador es el viejo más uno".</li>
+<li><strong>Precedencia aritmética:</strong> paréntesis → potencia → multiplicación/división/módulo (izquierda a derecha) → suma/resta (izquierda a derecha).</li>
+<li><strong>Módulo (<code>MOD</code> / <code>%</code>):</strong> el residuo. <code>17 MOD 5 = 2</code>. Es la herramienta para "¿es par?" (<code>n MOD 2 = 0</code>) y para "¿es múltiplo de?".</li>
+<li><strong>Cadena vs. número:</strong> <code>"5" + "3"</code> no es 8; en Python es <code>"53"</code>. Fuente eterna de errores.</li>
+<li><strong>Constante:</strong> valor que no cambia (el 19 % del IVA, el 8,37 % de intermediación).</li>
+</ul>
+<span id="qué-practicar-en-pseint"></span><h3 id="qué-practicar-en-pseint_3">Qué practicar en PSeInt</h3>
+<pre><code class="language-pseudocodigo">Algoritmo ValorConIVA
+    Definir base, iva, total Como Real
+    Escribir &quot;Digite el valor base del contrato:&quot;
+    Leer base
+    iva &lt;- base * 0.19
+    total &lt;- base + iva
+    Escribir &quot;IVA: &quot;, iva
+    Escribir &quot;Total: &quot;, total
+FinAlgoritmo
+</code></pre>
+<p>Prueba con 8263759012.55 y verifica el resultado en Excel. Deben coincidir.</p>
+<span id="qué-practicar-en-python"></span><h3 id="qué-practicar-en-python_3">Qué practicar en Python</h3>
+<pre><code class="language-python">base = float(input(&quot;Digite el valor base del contrato: &quot;))
+iva = base * 0.19
+total = base + iva
+print(&quot;IVA:&quot;, round(iva, 2))
+print(&quot;Total:&quot;, round(total, 2))
+</code></pre>
+<p>Presta atención al <code>float(...)</code>: sin él, <code>input()</code> devuelve texto y <code>base * 0.19</code> falla o hace algo raro.</p>
+<span id="entregable-esperado"></span><h3 id="entregable-esperado_3">Entregable esperado</h3>
+<p>Taller de expresiones y cierre del <strong>Primer Bloque (30 %)</strong>. Revisa que todas las actividades de los escenarios 1 a 4 estén entregadas antes del 21 de septiembre.</p>
+<span id="listo-para-avanzar-si"></span><h3 id="listo-para-avanzar-si_3">Listo para avanzar si…</h3>
+<p>Evalúas a mano, sin calculadora y sin error, <code>2 + 3 * 4 ^ 2 - 10 / 5</code> (respuesta: 48) y explicas por qué <code>7 / 2</code> y <code>7 div 2</code> dan resultados distintos. Y escribes un programa que lea un valor con IVA incluido y devuelva la base (dividiendo entre 1,19), que es exactamente el cálculo de la intermediación del 089.</p>
+<hr />
+<h2 id="escenario-5--estructuras-de-decisión">Escenario 5 — Estructuras de decisión</h2>
+<p><strong>Semana 5 · 22–28 de septiembre</strong></p>
+<span id="tema"></span><h3 id="tema_4">Tema</h3>
+<p>Condicional simple, condicional doble, decisiones anidadas y selección múltiple (<code>Segun</code> / <code>match</code>-<code>elif</code>).</p>
+<span id="objetivos"></span><h3 id="objetivos_4">Objetivos</h3>
+<ul>
+<li>Escribir condicionales simples y dobles correctamente.</li>
+<li>Anidar decisiones sin perder el hilo (y saber cuándo conviene aplanarlas).</li>
+<li>Usar selección múltiple cuando se compara una variable contra valores fijos.</li>
+<li>Clasificar datos por rangos (el caso más frecuente en la vida real).</li>
+</ul>
+<span id="conceptos-clave"></span><h3 id="conceptos-clave_4">Conceptos clave</h3>
+<ul>
+<li><strong><code>Si</code> simple:</strong> solo hay camino verdadero.</li>
+<li><strong><code>Si-SiNo</code>:</strong> dos caminos excluyentes.</li>
+<li><strong>Anidamiento:</strong> un <code>Si</code> dentro de otro. <strong>Cuidado con el orden de los rangos:</strong> si preguntas <code>Si valor &gt; 1000000</code> antes que <code>Si valor &gt; 100000000</code>, todo cae en el primer caso.</li>
+<li><strong><code>Segun</code> / <code>elif</code>:</strong> para valores discretos (1, 2, 3; "A", "B", "C"), no para rangos.</li>
+<li><strong>Condición compuesta:</strong> <code>Si (a &gt; 0) Y (b &gt; 0) Entonces</code>.</li>
+<li><strong>Bandera (booleana):</strong> variable que guarda un sí/no y se consulta después.</li>
+</ul>
+<span id="qué-practicar-en-pseint"></span><h3 id="qué-practicar-en-pseint_4">Qué practicar en PSeInt</h3>
+<p>Clasificador de pagos por rango:</p>
+<pre><code class="language-pseudocodigo">Algoritmo ClasificarPago
+    Definir monto Como Real
+    Escribir &quot;Valor del pago:&quot;
+    Leer monto
+    Si monto &lt; 5000000 Entonces
+        Escribir &quot;Menor&quot;
+    SiNo
+        Si monto &lt; 50000000 Entonces
+            Escribir &quot;Medio&quot;
+        SiNo
+            Escribir &quot;Mayor&quot;
+        FinSi
+    FinSi
+FinAlgoritmo
+</code></pre>
+<p>Después escríbelo con <code>Si-Sino Si</code> (sin anidar visualmente) y compara cuál se lee mejor.</p>
+<span id="qué-practicar-en-python"></span><h3 id="qué-practicar-en-python_4">Qué practicar en Python</h3>
+<pre><code class="language-python">monto = float(input(&quot;Valor del pago: &quot;))
+if monto &lt; 5_000_000:
+    print(&quot;Menor&quot;)
+elif monto &lt; 50_000_000:
+    print(&quot;Medio&quot;)
+else:
+    print(&quot;Mayor&quot;)
+</code></pre>
+<p>El guion bajo en <code>5_000_000</code> es legal en Python y solo sirve para leer mejor. La <strong>indentación de 4 espacios es obligatoria</strong>: en Python la sangría reemplaza al <code>FinSi</code>.</p>
+<span id="entregable-esperado"></span><h3 id="entregable-esperado_4">Entregable esperado</h3>
+<p><strong>"Actividad de puntos evaluables – Escenario 5"</strong> (por verificar). Típicamente un programa con clasificación por rangos o un menú de opciones.</p>
+<span id="listo-para-avanzar-si"></span><h3 id="listo-para-avanzar-si_4">Listo para avanzar si…</h3>
+<p>Escribes, sin consultar apuntes, un programa que clasifique un pago en cuatro rangos y lo pruebas con los <strong>valores frontera</strong> (justo el límite, uno menos, uno más). Si tu programa da lo correcto en las fronteras, entendiste. El 90 % de los errores de decisión están ahí.</p>
+<hr />
+<h2 id="escenario-6--estructuras-de-repetición">Escenario 6 — Estructuras de repetición</h2>
+<p><strong>Semana 6 · 29 de septiembre – 5 de octubre · SEMANA CRÍTICA</strong></p>
+<span id="tema"></span><h3 id="tema_5">Tema</h3>
+<p><code>Mientras</code>, <code>Repetir-Hasta</code>, <code>Para</code>, y el trío contador / acumulador / bandera.</p>
+<span id="objetivos"></span><h3 id="objetivos_5">Objetivos</h3>
+<ul>
+<li>Elegir el ciclo adecuado según se conozca o no el número de repeticiones.</li>
+<li>Usar contadores y acumuladores correctamente inicializados.</li>
+<li>Controlar ciclos con banderas y con centinelas.</li>
+<li>Detectar y corregir ciclos infinitos.</li>
+<li>Anidar ciclos (preparación para matrices).</li>
+</ul>
+<span id="conceptos-clave"></span><h3 id="conceptos-clave_5">Conceptos clave</h3>
+<ul>
+<li><strong><code>Para</code>:</strong> cuando sabes cuántas veces (recorrer 300 facturas).</li>
+<li><strong><code>Mientras</code>:</strong> cuando no sabes cuántas y la condición se evalúa <strong>antes</strong> (puede no ejecutarse nunca).</li>
+<li><strong><code>Repetir-Hasta</code>:</strong> la condición se evalúa <strong>después</strong> (se ejecuta al menos una vez). Ideal para validar entradas y para menús.</li>
+<li><strong>Contador:</strong> <code>c &lt;- c + 1</code>. Cuenta ocurrencias. Se inicializa en 0.</li>
+<li><strong>Acumulador:</strong> <code>s &lt;- s + valor</code>. Suma valores. Se inicializa en 0 (o en 1 si es producto).</li>
+<li><strong>Bandera:</strong> <code>encontrado &lt;- Falso</code> … <code>encontrado &lt;- Verdadero</code>.</li>
+<li><strong>Centinela:</strong> valor especial que marca el fin de los datos (por ejemplo, digitar 0 para terminar).</li>
+<li><strong>Ciclo infinito:</strong> el contador no avanza o la condición nunca se hace falsa. Es <em>el</em> error de la semana.</li>
+</ul>
+<span id="qué-practicar-en-pseint"></span><h3 id="qué-practicar-en-pseint_5">Qué practicar en PSeInt</h3>
+<pre><code class="language-pseudocodigo">Algoritmo SumarFacturas
+    Definir n, i Como Entero
+    Definir valor, suma Como Real
+    suma &lt;- 0
+    Escribir &quot;¿Cuántas facturas?&quot;
+    Leer n
+    Para i &lt;- 1 Hasta n Con Paso 1 Hacer
+        Escribir &quot;Valor de la factura &quot;, i, &quot;:&quot;
+        Leer valor
+        suma &lt;- suma + valor
+    FinPara
+    Escribir &quot;Total: &quot;, suma
+    Escribir &quot;Promedio: &quot;, suma / n
+FinAlgoritmo
+</code></pre>
+<p>Haz la prueba de escritorio de este algoritmo con n = 3 antes de ejecutarlo.</p>
+<span id="qué-practicar-en-python"></span><h3 id="qué-practicar-en-python_5">Qué practicar en Python</h3>
+<pre><code class="language-python">n = int(input(&quot;¿Cuántas facturas? &quot;))
+suma = 0
+for i in range(1, n + 1):
+    valor = float(input(f&quot;Valor de la factura {i}: &quot;))
+    suma = suma + valor
+print(&quot;Total:&quot;, suma)
+print(&quot;Promedio:&quot;, suma / n)
+</code></pre>
+<p>Fíjate en <code>range(1, n + 1)</code>: <strong><code>range</code> excluye el límite superior</strong>. Es la causa número uno del "error de uno en uno".</p>
+<span id="entregable-esperado"></span><h3 id="entregable-esperado_5">Entregable esperado</h3>
+<p><strong>"Quiz – Escenario 6"</strong> (por verificar) y cierre del <strong>Segundo Bloque (30 %)</strong> entre este escenario y el 7.</p>
+<span id="listo-para-avanzar-si"></span><h3 id="listo-para-avanzar-si_5">Listo para avanzar si…</h3>
+<p>Escribes los tres ciclos (<code>Para</code>, <code>Mientras</code>, <code>Repetir-Hasta</code>) que resuelvan <strong>el mismo</strong> problema: sumar los números del 1 al 100 (respuesta: 5050). Si los tres dan 5050, dominas los ciclos. Y explicas en una frase cuándo usarías cada uno.</p>
+<hr />
+<h2 id="escenario-7--arreglos-unidimensionales-y-bidimensionales">Escenario 7 — Arreglos unidimensionales y bidimensionales</h2>
+<p><strong>Semana 7 · 6–12 de octubre</strong></p>
+<span id="tema"></span><h3 id="tema_6">Tema</h3>
+<p>Vectores y matrices: declaración, carga, recorrido, búsqueda y ordenamiento básico.</p>
+<span id="objetivos"></span><h3 id="objetivos_6">Objetivos</h3>
+<ul>
+<li>Declarar y cargar un arreglo.</li>
+<li>Recorrerlo con un ciclo <code>Para</code> usando el índice.</li>
+<li>Buscar un elemento (búsqueda lineal) con bandera.</li>
+<li>Ordenar por método burbuja o selección.</li>
+<li>Recorrer una matriz con ciclos anidados (filas × columnas).</li>
+</ul>
+<span id="conceptos-clave"></span><h3 id="conceptos-clave_6">Conceptos clave</h3>
+<ul>
+<li><strong>Arreglo (vector):</strong> colección de valores del mismo tipo bajo un nombre, accesibles por índice. Es la columna de Excel.</li>
+<li><strong>Índice:</strong> en PSeInt suele empezar en <strong>1</strong>; en Python empieza en <strong>0</strong>. Esta diferencia te va a morder al menos una vez; que sea barato.</li>
+<li><strong>Matriz:</strong> arreglo bidimensional, <code>m[fila, columna]</code>. Es la tabla de Excel.</li>
+<li><strong>Recorrido:</strong> visitar todos los elementos una vez.</li>
+<li><strong>Búsqueda lineal:</strong> recorrer hasta encontrar; con bandera para saber si se encontró.</li>
+<li><strong>Ordenamiento burbuja:</strong> comparar pares adyacentes e intercambiar; se repite hasta que no haya intercambios.</li>
+<li><strong>Intercambio (swap):</strong> requiere una variable temporal en pseudocódigo (<code>aux &lt;- a; a &lt;- b; b &lt;- aux</code>). En Python basta <code>a, b = b, a</code>.</li>
+</ul>
+<span id="qué-practicar-en-pseint"></span><h3 id="qué-practicar-en-pseint_6">Qué practicar en PSeInt</h3>
+<pre><code class="language-pseudocodigo">Algoritmo MayorFactura
+    Definir i Como Entero
+    Definir facturas Como Real
+    Dimension facturas[5]
+    Para i &lt;- 1 Hasta 5 Con Paso 1 Hacer
+        Escribir &quot;Factura &quot;, i, &quot;:&quot;
+        Leer facturas[i]
+    FinPara
+    Definir mayor Como Real
+    mayor &lt;- facturas[1]
+    Para i &lt;- 2 Hasta 5 Con Paso 1 Hacer
+        Si facturas[i] &gt; mayor Entonces
+            mayor &lt;- facturas[i]
+        FinSi
+    FinPara
+    Escribir &quot;La factura mayor es: &quot;, mayor
+FinAlgoritmo
+</code></pre>
+<span id="qué-practicar-en-python"></span><h3 id="qué-practicar-en-python_6">Qué practicar en Python</h3>
+<pre><code class="language-python">facturas = [1250000.0, 890000.0, 3400000.0, 275000.0, 1980000.0]
+
+mayor = facturas[0]
+for f in facturas:
+    if f &gt; mayor:
+        mayor = f
+
+print(&quot;Mayor:&quot;, mayor)
+print(&quot;Total:&quot;, sum(facturas))
+print(&quot;Ordenadas:&quot;, sorted(facturas))
+</code></pre>
+<p>Escribe <strong>también</strong> el ordenamiento burbuja a mano, aunque <code>sorted()</code> exista: te lo van a preguntar en el examen y es un clásico de entrevista.</p>
+<span id="entregable-esperado"></span><h3 id="entregable-esperado_6">Entregable esperado</h3>
+<p>Taller de arreglos y cierre del <strong>Segundo Bloque (30 %)</strong>.</p>
+<span id="listo-para-avanzar-si"></span><h3 id="listo-para-avanzar-si_6">Listo para avanzar si…</h3>
+<p>Cargas un arreglo de 10 números, y sin ayuda: calculas la suma, el promedio, el mayor, el menor, cuántos superan el promedio, y lo ordenas de mayor a menor con burbuja. Todo en un solo programa. Si eso te sale, el 7 está.</p>
+<hr />
+<h2 id="escenario-8--modularidad-eficiencia-y-paso-a-python">Escenario 8 — Modularidad, eficiencia y paso a Python</h2>
+<p><strong>Semana 8 · 13–19 de octubre · EXAMEN FINAL (40 %)</strong></p>
+<span id="tema"></span><h3 id="tema_7">Tema</h3>
+<p>Subprogramas: funciones y procedimientos; parámetros por valor y por referencia; alcance de variables; nociones de eficiencia; prueba de escritorio; traducción de pseudocódigo a Python.</p>
+<span id="objetivos"></span><h3 id="objetivos_7">Objetivos</h3>
+<ul>
+<li>Descomponer un programa en subprogramas con una responsabilidad cada uno.</li>
+<li>Distinguir función (devuelve un valor) de procedimiento (ejecuta una acción).</li>
+<li>Entender paso por valor vs. paso por referencia.</li>
+<li>Distinguir variable local de variable global.</li>
+<li>Estimar el costo de un algoritmo por el número de operaciones (noción intuitiva de complejidad).</li>
+<li>Traducir un algoritmo de PSeInt a Python.</li>
+</ul>
+<span id="conceptos-clave"></span><h3 id="conceptos-clave_7">Conceptos clave</h3>
+<ul>
+<li><strong>Función:</strong> recibe parámetros y <strong>devuelve</strong> un resultado. <code>total &lt;- calcularIVA(base)</code>.</li>
+<li><strong>Procedimiento (subproceso sin retorno):</strong> hace algo (imprimir, modificar) y no devuelve valor.</li>
+<li><strong>Parámetro por valor:</strong> se pasa una copia; lo que pase adentro no afecta afuera.</li>
+<li><strong>Parámetro por referencia:</strong> se pasa la variable misma; los cambios adentro se ven afuera. En PSeInt se marca con <code>Por Referencia</code>.</li>
+<li><strong>Alcance (scope):</strong> una variable declarada dentro de un subprograma no existe fuera. En Python es igual: las variables de una función son locales salvo declaración <code>global</code>.</li>
+<li><strong>Eficiencia:</strong> un recorrido simple sobre n elementos hace ~n operaciones; dos ciclos anidados hacen ~n². Para n = 1.000, eso es 1.000 contra 1.000.000. Esa es toda la intuición que necesitas ahora.</li>
+<li><strong>Prueba de escritorio:</strong> tabla de seguimiento de variables paso a paso.</li>
+</ul>
+<span id="qué-practicar-en-pseint"></span><h3 id="qué-practicar-en-pseint_7">Qué practicar en PSeInt</h3>
+<pre><code class="language-pseudocodigo">Algoritmo ConIVAModular
+    Definir base, total Como Real
+    Escribir &quot;Valor base:&quot;
+    Leer base
+    total &lt;- valorConIVA(base)
+    Escribir &quot;Total: &quot;, total
+FinAlgoritmo
+
+Funcion resultado &lt;- valorConIVA(monto Por Valor)
+    Definir resultado Como Real
+    resultado &lt;- monto * 1.19
+FinFuncion
+</code></pre>
+<p>Nota: en PSeInt el subprograma va <strong>después</strong> del algoritmo principal, en el mismo archivo.</p>
+<span id="qué-practicar-en-python"></span><h3 id="qué-practicar-en-python_7">Qué practicar en Python</h3>
+<pre><code class="language-python">def valor_con_iva(monto, tasa=0.19):
+    &quot;&quot;&quot;Devuelve el monto con IVA aplicado.&quot;&quot;&quot;
+    return monto * (1 + tasa)
+
+def base_sin_iva(monto_con_iva, tasa=0.19):
+    &quot;&quot;&quot;Devuelve la base a partir de un valor que ya incluye IVA.&quot;&quot;&quot;
+    return monto_con_iva / (1 + tasa)
+
+print(round(valor_con_iva(1000000), 2))       # 1190000.0
+print(round(base_sin_iva(1190000), 2))        # 1000000.0
+</code></pre>
+<p>Ese <code>tasa=0.19</code> es un <strong>parámetro con valor por defecto</strong>: puedes llamarla sin él, o pasarle otro. Es una de las cosas que hace a Python cómodo.</p>
+<span id="entregable-esperado"></span><h3 id="entregable-esperado_7">Entregable esperado</h3>
+<p><strong>"Examen final – Escenario 8" (40 %)</strong>. Típicamente acumulativo: lógica, decisiones, ciclos, arreglos, prueba de escritorio y lectura de código.</p>
+<span id="listo-para-avanzar-si"></span><h3 id="listo-para-avanzar-si_7">Listo para avanzar si…</h3>
+<p>Escribes un programa modular completo: una función que calcule el valor con IVA, otra que clasifique un pago por rango, y un principal que recorra un arreglo de 8 pagos e imprima el total y cuántos hay en cada rango. Y le haces la prueba de escritorio a mano a las primeras tres iteraciones.</p>
+<hr />
+<h2 id="mapa-de-dependencias-entre-escenarios">Mapa de dependencias entre escenarios</h2>
+<p>Qué necesitas tener firme para que el siguiente escenario no se te caiga:</p>
+<pre><code class="language-text">  E1 (algoritmo, E-P-S)
+   │
+   ├──────────────► E3 (representación: pseudocódigo y diagramas)
+   │                 │
+  E2 (lógica) ───────┤
+   │                 │
+   │                 ▼
+   │               E4 (variables, tipos, expresiones)
+   │                 │
+   └────────┬────────┘
+            ▼
+          E5 (decisiones)  ◄── depende fuerte de E2 y E4
+            │
+            ▼
+          E6 (ciclos)      ◄── depende fuerte de E5
+            │
+            ▼
+          E7 (arreglos)    ◄── IMPOSIBLE sin E6
+            │
+            ▼
+          E8 (modularidad, eficiencia, Python)  ◄── integra todo
+</code></pre>
+<p>Lectura práctica de ese mapa:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Si te falla…</th>
+<th>Se te cae…</th>
+<th>Prioridad de recuperación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>E2 (lógica)</strong></td>
+<td>E5, E6, y la materia Herramientas de Lógica Computacional del 2.º semestre</td>
+<td><strong>Alta</strong></td>
+</tr>
+<tr>
+<td><strong>E4 (variables/tipos)</strong></td>
+<td>Todo lo que venga después; los errores de tipo te van a perseguir</td>
+<td><strong>Alta</strong></td>
+</tr>
+<tr>
+<td><strong>E5 (decisiones)</strong></td>
+<td>E6 (los ciclos casi siempre llevan un <code>Si</code> adentro) y E7</td>
+<td><strong>Crítica</strong></td>
+</tr>
+<tr>
+<td><strong>E6 (ciclos)</strong></td>
+<td>E7 completo, E8 y la materia siguiente</td>
+<td><strong>Máxima. Es el cuello de botella de la materia.</strong></td>
+</tr>
+<tr>
+<td>E1 o E3</td>
+<td>Poco, si los demás están bien; se recuperan sobre la marcha</td>
+<td>Media</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>El escenario 6 es la semana crítica.</strong> Si un tema merece horas extra robadas a otra materia, es ese.</p>
+<hr />
+<h2 id="instalación-y-uso-de-las-herramientas-paso-a-paso-sin-capturas">Instalación y uso de las herramientas (paso a paso, sin capturas)</h2>
+<p>Haz esto <strong>antes del 25 de agosto</strong>. Con las herramientas listas, la semana 1 la dedicas a aprender y no a instalar.</p>
+<h3 id="a-pseint-pseudocódigo-en-español">A. PSeInt (pseudocódigo en español)</h3>
+<p>Es el intérprete de pseudocódigo más usado en cursos hispanohablantes. Gratuito y de código abierto. Corre en Windows, Linux y macOS.</p>
+<p><strong>Instalación:</strong></p>
+<ol>
+<li>Busca en un buscador <strong>"PSeInt descargar"</strong> y entra al <strong>sitio oficial del proyecto</strong>, alojado en SourceForge (el proyecto se llama <code>pseint</code>). No descargues de sitios agregadores de descargas; suelen empaquetar publicidad.</li>
+<li>Descarga el instalador para tu sistema operativo. Para Windows es un <code>.exe</code> de unos 30–60 MB.</li>
+<li>Ejecútalo y acepta las opciones por defecto. No requiere permisos de administrador especiales en la mayoría de equipos.</li>
+<li>Si estás en un equipo institucional de la Rama con restricciones de instalación, hay versión <strong>portable</strong> (una carpeta que se descomprime y se ejecuta sin instalar). Búscala en la misma página de descargas.</li>
+</ol>
+<p><strong>Primer uso:</strong></p>
+<ol>
+<li>Abre PSeInt. La primera vez te pregunta por un <strong>perfil de lenguaje</strong>. Elige <strong>"Flexible"</strong> mientras arrancas: acepta variables sin declarar y es más indulgente. Cuando el curso empiece a exigir declaración de tipos, cambia a <strong>"Estricto"</strong> desde <em>Configurar → Opciones del lenguaje (perfiles)</em>. Si el docente indica un perfil, usa ese.</li>
+<li>Crea un archivo nuevo. Verás la plantilla:</li>
+</ol>
+<p>```pseudocodigo
+   Algoritmo sin_titulo</p>
+<p>FinAlgoritmo
+   ```</p>
+<ol start="3">
+<li>Escribe tu código entre esas dos líneas.</li>
+<li><strong>Ejecutar:</strong> tecla <code>F9</code> o el botón de la flecha verde. Se abre una consola donde interactúas con el programa.</li>
+<li><strong>Ejecutar paso a paso:</strong> <code>F5</code> (según versión). Esta es <strong>la joya de PSeInt para ti</strong>: ejecuta línea por línea mostrando el valor de cada variable en un panel lateral. Es una prueba de escritorio automática. Úsala en todos los ejercicios de ciclos.</li>
+<li><strong>Dibujar el diagrama de flujo:</strong> hay un botón/menú que genera el diagrama a partir del pseudocódigo. Sirve para entregas y para verificar tu lógica.</li>
+<li><strong>Guardar:</strong> archivos con extensión <code>.psc</code>. Guárdalos en esta misma carpeta, en una subcarpeta <code>psc/</code> que puedes crear.</li>
+</ol>
+<p><strong>Trampas frecuentes de PSeInt:</strong></p>
+<ul>
+<li>El separador decimal en el código es <strong>punto</strong>, no coma: <code>0.19</code>, no <code>0,19</code>. (En la salida por consola puede mostrarse distinto según configuración regional.)</li>
+<li>Los acentos y la <code>ñ</code> en los <strong>nombres de variables</strong> dan problemas. En los textos entre comillas están bien.</li>
+<li>Si el perfil es Estricto, toda variable debe ir en un <code>Definir ... Como ...</code> antes de usarse.</li>
+<li>El símbolo de asignación es <code>&lt;-</code> (menor seguido de guion). PSeInt también acepta <code>=</code> en perfiles flexibles, pero <strong>acostúmbrate a <code>&lt;-</code></strong>: te evita confundir asignación con comparación, que es el error clásico al pasar a Python.</li>
+</ul>
+<h3 id="b-google-colab-python-sin-instalar-nada">B. Google Colab (Python sin instalar nada)</h3>
+<p>Colab ejecuta Python en los servidores de Google desde el navegador. No instalas nada, no configuras nada, y funciona igual en el equipo del trabajo y en el de la casa.</p>
+<p><strong>Primer uso:</strong></p>
+<ol>
+<li>Entra a <code>colab.research.google.com</code> con tu cuenta de Google. Si el equipo institucional bloquea el acceso, úsalo desde el equipo personal o el celular.</li>
+<li><em>Archivo → Nuevo cuaderno</em>. Se crea un archivo <code>.ipynb</code> en tu Google Drive, en una carpeta llamada <code>Colab Notebooks</code>.</li>
+<li>Un cuaderno son <strong>celdas</strong>. Escribe código en una celda y ejecútala con <strong><code>Ctrl+Enter</code></strong> (ejecuta y se queda) o <strong><code>Shift+Enter</code></strong> (ejecuta y pasa a la siguiente).</li>
+<li>Prueba:</li>
+</ol>
+<p><code>python
+   print("Funciona")
+   2 + 2</code></p>
+<p>Verás <code>Funciona</code> y luego <code>4</code>. Nota: la última expresión de una celda se muestra sola, sin <code>print</code>.
+5. Para texto explicativo (tus apuntes), inserta una <strong>celda de texto</strong>: acepta Markdown, igual que estos archivos.
+6. <strong>Renombra el cuaderno</strong> (clic sobre el título arriba a la izquierda). Sugerencia: <code>PA - Escenario 4 - variables</code>.
+7. Todo se guarda solo en Drive. Para tener copia local: <em>Archivo → Descargar → Descargar .ipynb</em>.</p>
+<p><strong>Cosas útiles de Colab desde el día uno:</strong></p>
+<ul>
+<li><code>Ctrl+M B</code> inserta una celda debajo.</li>
+<li>Si un programa se queda colgado (ciclo infinito), usa el botón de <strong>detener</strong> (el cuadrado) o <em>Entorno de ejecución → Interrumpir ejecución</em>. Te va a pasar en el escenario 6; no entres en pánico.</li>
+<li><em>Entorno de ejecución → Reiniciar entorno de ejecución</em> borra todas las variables y empieza limpio. Úsalo cuando el estado del cuaderno se enrede.</li>
+<li><strong>Orden de ejecución importa.</strong> Una celda de abajo puede usar variables definidas arriba solo si ya la ejecutaste. Si algo "misteriosamente" falla, reinicia y ejecuta todo desde arriba (<em>Entorno de ejecución → Ejecutar todas</em>).</li>
+</ul>
+<h3 id="c-drawio-diagramas-de-flujo">C. draw.io (diagramas de flujo)</h3>
+<p>Editor de diagramas gratuito, funciona en el navegador sin registro.</p>
+<p><strong>Primer uso:</strong></p>
+<ol>
+<li>Entra a <code>app.diagrams.net</code> (es el mismo draw.io). Elige guardar el archivo en tu dispositivo o en Google Drive.</li>
+<li>Crea un diagrama en blanco.</li>
+<li>En el buscador de formas de la izquierda escribe <strong>"flowchart"</strong>: aparecen los símbolos estándar (terminal, proceso, decisión, entrada/salida). Arrástralos al lienzo.</li>
+<li>Para conectar: pon el cursor sobre el borde de una figura hasta que salgan flechas azules y arrastra hasta la siguiente figura.</li>
+<li>Para rotular una flecha (Sí / No en los rombos): doble clic sobre la flecha y escribe.</li>
+<li>Exporta con <em>Archivo → Exportar como → PNG</em> o <strong>PDF</strong> para adjuntar a las entregas.</li>
+</ol>
+<p><strong>Alternativa si el diagrama es simple:</strong> PSeInt te lo dibuja solo a partir del pseudocódigo. Úsalo para verificar y draw.io solo cuando el entregable exija un diagrama hecho por ti.</p>
+<h3 id="d-orden-recomendado-de-trabajo-en-cada-ejercicio">D. Orden recomendado de trabajo en cada ejercicio</h3>
+<p>Esta secuencia, repetida 24 veces, es la materia entera:</p>
+<ol>
+<li><strong>Papel:</strong> entradas, proceso, salida en español.</li>
+<li><strong>Pseudocódigo en PSeInt:</strong> escríbelo y ejecútalo paso a paso (<code>F5</code>).</li>
+<li><strong>Prueba de escritorio:</strong> tabla de variables, al menos tres iteraciones.</li>
+<li><strong>Python en Colab:</strong> traduce lo que ya funciona.</li>
+<li><strong>Rompe algo a propósito:</strong> cambia un <code>&lt;</code> por <code>&lt;=</code>, quita una inicialización, y observa. Luego arréglalo.</li>
+</ol>
+<hr />
+<p><em>Contenido esperado, reconstruido. Verificar contra el aula virtual a partir del 25 de agosto de 2026.</em></p>
+</main>
+</body>
+</html>

@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4. Primeros pasos en programación</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ 00 - Nivelación (antes del 25 de agosto) / 4. Primeros pasos en programación</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="4-primeros-pasos-en-programación">4. Primeros pasos en programación</h1>
+<p><strong>Material de apoyo de los días 12 a 16 del plan.</strong> Escrito para alguien que nunca ha
+escrito una línea de código. No hay conocimientos previos supuestos, salvo uno: que sabes
+usar Excel bien. Y ese es justamente el punto de partida.</p>
+<hr />
+<h2 id="1-el-puente-ya-programas-solo-que-arrastrando">1. El puente: ya programas, solo que arrastrando</h2>
+<p>La palabra "programar" suena a un mundo nuevo. No lo es tanto. Cada vez que armas una
+hoja de cálculo estás describiendo un procedimiento paso a paso para que la máquina lo
+ejecute. Eso es un programa. Lo único que cambia es que en Excel el procedimiento se
+construye con el mouse, y en Python se escribe con palabras.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Lo que haces en Excel</th>
+<th>Cómo se llama en programación</th>
+<th>Qué cambia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>=B2*0,19</code></td>
+<td><strong>Expresión</strong> con variables</td>
+<td>En vez de <code>B2</code> escribes un nombre: <code>base * 0.19</code></td>
+</tr>
+<tr>
+<td><code>=SI(B2&gt;1000000;"Alto";"Bajo")</code></td>
+<td><strong>Condicional</strong> (<code>if / else</code>)</td>
+<td>Igual, pero en varias líneas y legible</td>
+</tr>
+<tr>
+<td><code>SI</code> anidado de cuatro niveles</td>
+<td><strong>Condicional anidado</strong> (<code>if / elif / else</code>)</td>
+<td>Aquí gana Python por goleada: el <code>SI</code> anidado se vuelve ilegible a partir del tercer nivel</td>
+</tr>
+<tr>
+<td>Arrastrar una fórmula por 500 filas</td>
+<td><strong>Ciclo</strong> (<code>for</code>)</td>
+<td>Escribes la operación una vez y le dices cuántas veces repetirla</td>
+</tr>
+<tr>
+<td><code>BUSCARV</code> / <code>CONSULTAV</code></td>
+<td><strong>Búsqueda</strong> en una estructura de datos</td>
+<td>En Python es un diccionario o un <code>merge</code> de tablas</td>
+</tr>
+<tr>
+<td>Filtro con criterio</td>
+<td><strong>Condición dentro de un ciclo</strong></td>
+<td>Recorres los datos y te quedas con los que cumplen</td>
+</tr>
+<tr>
+<td><code>CONTAR.SI</code></td>
+<td><strong>Contador</strong> dentro de un ciclo</td>
+<td><code>if condición: contador = contador + 1</code></td>
+</tr>
+<tr>
+<td><code>SUMAR.SI</code></td>
+<td><strong>Acumulador</strong> dentro de un ciclo</td>
+<td><code>if condición: total = total + valor</code></td>
+</tr>
+<tr>
+<td>Tabla dinámica</td>
+<td><strong>Agrupar y agregar</strong></td>
+<td>Recorres, agrupas por clave y aplicas suma o promedio a cada grupo</td>
+</tr>
+<tr>
+<td>Una hoja con nombre</td>
+<td><strong>Variable</strong> o <strong>archivo</strong></td>
+<td>Un nombre que guarda un valor</td>
+</tr>
+</tbody>
+</table></div>
+<p>Dos diferencias reales, y conviene decirlas de una vez:</p>
+<ol>
+<li><strong>En Excel ves los datos; en código ves el procedimiento.</strong> Al principio se siente
+   como trabajar a ciegas. Se pasa en unos días, y a cambio ganas algo que Excel no
+   da: el procedimiento queda escrito, se lee, se corrige y se repite con otros datos
+   sin rehacer nada.</li>
+<li><strong>El computador hace exactamente lo que escribiste</strong>, no lo que querías escribir.
+   Un error de una coma detiene todo. Eso no es un defecto: es lo que hace que el
+   resultado sea confiable.</li>
+</ol>
+<hr />
+<h2 id="2-qué-es-un-algoritmo-y-para-qué-sirve-el-pseudocódigo">2. Qué es un algoritmo y para qué sirve el pseudocódigo</h2>
+<p>Un <strong>algoritmo</strong> es una secuencia finita y ordenada de pasos que resuelve un problema.
+Tiene tres partes: <strong>entrada</strong> (qué datos recibe), <strong>proceso</strong> (qué hace con ellos) y
+<strong>salida</strong> (qué entrega).</p>
+<p>Tú escribes algoritmos todos los días, solo que en español y sin llamarlos así:</p>
+<blockquote>
+<p>Para verificar si una póliza está vigente: tomo la fecha de vencimiento del amparo; la
+comparo con la fecha de corte; si la fecha de vencimiento es anterior, la póliza está
+vencida; si no, está vigente.</p>
+</blockquote>
+<p>Ese párrafo ya es un algoritmo. El <strong>pseudocódigo</strong> es ese mismo párrafo escrito con una
+estructura fija, para que no quede ambiguo. No es un lenguaje de programación: es un
+lenguaje intermedio entre tu cabeza y el código.</p>
+<p><strong>¿Y para qué sirve, si al final hay que escribirlo en Python?</strong> Para separar los dos
+problemas. Cuando programas sin pseudocódigo estás resolviendo al mismo tiempo <em>qué hacer</em>
+y <em>cómo escribirlo</em>, y eso es exactamente lo que hace que un principiante se bloquee
+frente a la pantalla en blanco. Con pseudocódigo, primero decides qué hacer (en español,
+sin sintaxis que falle) y después lo traduces. La materia Pensamiento Algorítmico se llama
+así precisamente porque evalúa la primera parte, no la segunda.</p>
+<p>Todo pseudocódigo de este material tiene su equivalente en Python al lado. Léelos siempre
+en pareja.</p>
+<hr />
+<h2 id="3-pseint-el-pseudocódigo-que-sí-se-ejecuta">3. PSeInt: el pseudocódigo que sí se ejecuta</h2>
+<p><strong>PSeInt</strong> es un programa gratuito, muy liviano, hecho para aprender a programar en
+español. Escribes pseudocódigo y él lo <strong>ejecuta</strong>, te señala los errores y además genera
+el diagrama de flujo automáticamente. Es la herramienta estándar en cursos de Pensamiento
+Algorítmico en universidades hispanohablantes.</p>
+<p><strong>Cómo conseguirlo.</strong> Búscalo como "PSeInt" y descárgalo desde el sitio oficial del
+proyecto (está alojado en SourceForge desde hace años; no descargues versiones de
+portales de terceros). Hay versión para Windows, macOS y Linux. La instalación es
+siguiente-siguiente y ocupa poco espacio.</p>
+<p><strong>Configuración recomendada la primera vez.</strong> Al abrirlo, en el menú de configuración
+elige el <strong>perfil de lenguaje "Estricto"</strong>. Es más exigente (obliga a declarar los tipos
+de variable), y esa exigencia es justamente lo que te prepara para Python.</p>
+<p><strong>Estructura mínima de un programa en PSeInt:</strong></p>
+<pre><code class="language-pseudocodigo">Algoritmo MiPrimerPrograma
+    Escribir &quot;Hola, este es mi primer algoritmo.&quot;;
+FinAlgoritmo
+</code></pre>
+<p>Se ejecuta con el botón de reproducción. Y con el botón de diagrama de flujo ves el
+mismo algoritmo dibujado en cajas: es la mejor forma de entender qué es un ciclo.</p>
+<hr />
+<h2 id="4-python-y-google-colab-cero-instalación">4. Python y Google Colab: cero instalación</h2>
+<p><strong>Python</strong> es el lenguaje de toda la carrera. Se eligió en Ciencias de Datos porque es
+legible (se parece al inglés), tiene librerías para estadística, gráficas y machine
+learning, y es el estándar de la industria.</p>
+<p><strong>Google Colab</strong> te deja escribir y ejecutar Python <strong>en el navegador</strong>, sin instalar
+nada, con tus archivos guardados en Google Drive. Para el primer semestre es todo lo que
+necesitas.</p>
+<p><strong>Cómo empezar:</strong> entra a Google Colab desde tu cuenta de Google (búscalo como "Google
+Colab"), crea un cuaderno nuevo, y renómbralo. Un cuaderno se compone de <strong>celdas</strong>:</p>
+<ul>
+<li><strong>Celdas de código:</strong> contienen Python y se ejecutan con <code>Shift + Enter</code>.</li>
+<li><strong>Celdas de texto:</strong> contienen Markdown, para tus explicaciones y apuntes.</li>
+</ul>
+<p>Esa mezcla de código y texto es la razón por la que en ciencia de datos se trabaja en
+cuadernos y no en archivos sueltos: el análisis y su explicación viven juntos.</p>
+<p><strong>Regla de oro del cuaderno:</strong> ejecuta las celdas <strong>en orden</strong>. Si saltas una, las
+variables que definía no existen y el error que sale no tiene nada que ver con lo que
+estabas haciendo.</p>
+<hr />
+<h2 id="5-variables-y-tipos">5. Variables y tipos</h2>
+<p>Una <strong>variable</strong> es un nombre que guarda un valor. Es la celda de Excel, pero con nombre
+propio en vez de <code>B2</code>.</p>
+<pre><code class="language-pseudocodigo">Algoritmo Variables
+    Definir contrato Como Caracter;
+    Definir valor Como Real;
+    Definir plazo Como Entero;
+    Definir vigente Como Logico;
+
+    contrato &lt;- &quot;089-2025&quot;;
+    valor &lt;- 26450538569.00;
+    plazo &lt;- 13;
+    vigente &lt;- Verdadero;
+
+    Escribir &quot;Contrato: &quot;, contrato;
+FinAlgoritmo
+</code></pre>
+<pre><code class="language-python">contrato = &quot;089-2025&quot;      # str  -&gt; texto
+valor = 26450538569.00     # float -&gt; número con decimales
+plazo = 13                 # int  -&gt; número entero
+vigente = True             # bool -&gt; verdadero o falso
+
+print(&quot;Contrato:&quot;, contrato)
+print(type(valor))         # &lt;class 'float'&gt;
+</code></pre>
+<p><strong>Los cuatro tipos básicos:</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Tipo en Python</th>
+<th>Qué guarda</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>int</code></td>
+<td>enteros</td>
+<td><code>13</code>, <code>-4</code>, <code>0</code></td>
+</tr>
+<tr>
+<td><code>float</code></td>
+<td>decimales</td>
+<td><code>3.5</code>, <code>0.19</code></td>
+</tr>
+<tr>
+<td><code>str</code></td>
+<td>texto (entre comillas)</td>
+<td><code>"089-2025"</code></td>
+</tr>
+<tr>
+<td><code>bool</code></td>
+<td>verdadero o falso</td>
+<td><code>True</code>, <code>False</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Tres detalles que causan el 80 % de los errores del primer mes:</strong></p>
+<ol>
+<li><strong>El separador decimal en código es el punto</strong>, no la coma. <code>0.19</code>, nunca <code>0,19</code>.
+   Escribir <code>0,19</code> no da error: crea dos valores distintos, y eso es peor que un error.</li>
+<li><strong><code>=</code> asigna, <code>==</code> compara.</strong> <code>x = 5</code> guarda; <code>x == 5</code> pregunta.</li>
+<li><strong><code>"5"</code> no es <code>5</code>.</strong> El primero es texto y el segundo es número. <code>"5" + "5"</code> da
+   <code>"55"</code>, no <code>10</code>. Se convierte con <code>int()</code> o <code>float()</code>.</li>
+</ol>
+<p><strong>Nombres de variable:</strong> en minúsculas, sin tildes ni espacios, descriptivos.
+<code>valor_total</code> sí; <code>vt</code> no; <code>Valor Total</code> es error de sintaxis.</p>
+<hr />
+<h2 id="6-entrada-y-salida">6. Entrada y salida</h2>
+<pre><code class="language-pseudocodigo">Algoritmo EntradaSalida
+    Definir base Como Real;
+    Escribir &quot;Digite el valor base del contrato:&quot;;
+    Leer base;
+    Escribir &quot;Usted digitó: &quot;, base;
+FinAlgoritmo
+</code></pre>
+<pre><code class="language-python">base = float(input(&quot;Digite el valor base del contrato: &quot;))
+print(&quot;Usted digitó:&quot;, base)
+</code></pre>
+<p><strong>El detalle crítico:</strong> <code>input()</code> <strong>siempre devuelve texto</strong>, aunque escribas un número.
+Si necesitas operar, hay que convertir con <code>int()</code> o <code>float()</code>. Sin esa conversión,
+<code>base * 2</code> te devuelve el texto repetido dos veces en vez del doble.</p>
+<p><strong>Formatear la salida con f-strings.</strong> Se pone una <code>f</code> antes de la comilla y las
+variables van entre llaves:</p>
+<pre><code class="language-python">valor = 1234567.891
+print(f&quot;El valor es {valor:,.2f}&quot;)   # El valor es 1,234,567.89
+</code></pre>
+<p>Python usa por defecto la convención anglosajona (coma para miles, punto para decimales).
+Para el formato colombiano se intercambian:</p>
+<pre><code class="language-python">texto = f&quot;{1234567.891:,.2f}&quot;
+print(texto.replace(&quot;,&quot;, &quot;@&quot;).replace(&quot;.&quot;, &quot;,&quot;).replace(&quot;@&quot;, &quot;.&quot;))
+# 1.234.567,89
+</code></pre>
+<hr />
+<h2 id="7-operadores">7. Operadores</h2>
+<p><strong>Aritméticos</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Operador</th>
+<th>Qué hace</th>
+<th>Ejemplo</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+</code> <code>-</code> <code>*</code></td>
+<td>suma, resta, producto</td>
+<td><code>12 * 5</code></td>
+<td><code>60</code></td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>división (siempre decimal)</td>
+<td><code>7 / 2</code></td>
+<td><code>3.5</code></td>
+</tr>
+<tr>
+<td><code>//</code></td>
+<td>división entera</td>
+<td><code>7 // 2</code></td>
+<td><code>3</code></td>
+</tr>
+<tr>
+<td><code>%</code></td>
+<td>resto de la división</td>
+<td><code>7 % 2</code></td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td><code>**</code></td>
+<td>potencia</td>
+<td><code>2 ** 10</code></td>
+<td><code>1024</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>El <code>%</code> parece exótico y no lo es: sirve para saber si un número es par (<code>n % 2 == 0</code>) o
+si algo es múltiplo de otra cosa. Aparece constantemente.</p>
+<p><strong>Relacionales:</strong> <code>&gt;</code> <code>&lt;</code> <code>&gt;=</code> <code>&lt;=</code> <code>==</code> <code>!=</code>. Devuelven <code>True</code> o <code>False</code>.</p>
+<p><strong>Lógicos:</strong> <code>and</code> (ambas), <code>or</code> (al menos una), <code>not</code> (niega). Son los <code>Y</code>, <code>O</code> y <code>NO</code>
+de Excel, y siguen las mismas leyes de De Morgan que viste en §14 del repaso de
+matemáticas.</p>
+<pre><code class="language-python">print(5 &gt; 3 and 2 &gt; 4)   # False
+print(5 &gt; 3 or 2 &gt; 4)    # True
+print(not (5 &gt; 3))       # False
+</code></pre>
+<hr />
+<h2 id="8-condicionales">8. Condicionales</h2>
+<p><strong>Simple</strong> (solo hace algo si se cumple):</p>
+<pre><code class="language-pseudocodigo">Si valor &gt; 100000000 Entonces
+    Escribir &quot;Requiere aprobación adicional&quot;;
+FinSi
+</code></pre>
+<pre><code class="language-python">if valor &gt; 100000000:
+    print(&quot;Requiere aprobación adicional&quot;)
+</code></pre>
+<p><strong>Doble</strong> (dos caminos):</p>
+<pre><code class="language-pseudocodigo">Si dias_restantes &lt; 0 Entonces
+    Escribir &quot;Póliza VENCIDA&quot;;
+SiNo
+    Escribir &quot;Póliza vigente&quot;;
+FinSi
+</code></pre>
+<pre><code class="language-python">if dias_restantes &lt; 0:
+    print(&quot;Póliza VENCIDA&quot;)
+else:
+    print(&quot;Póliza vigente&quot;)
+</code></pre>
+<p><strong>Anidado</strong> (tres o más caminos) — es el <code>SI</code> anidado de Excel, pero legible:</p>
+<pre><code class="language-pseudocodigo">Si valor &lt; 10000000 Entonces
+    categoria &lt;- &quot;Menor&quot;;
+SiNo
+    Si valor &lt; 100000000 Entonces
+        categoria &lt;- &quot;Medio&quot;;
+    SiNo
+        categoria &lt;- &quot;Mayor&quot;;
+    FinSi
+FinSi
+</code></pre>
+<pre><code class="language-python">if valor &lt; 10000000:
+    categoria = &quot;Menor&quot;
+elif valor &lt; 100000000:
+    categoria = &quot;Medio&quot;
+else:
+    categoria = &quot;Mayor&quot;
+</code></pre>
+<p>Compara las dos columnas: el pseudocódigo necesita anidar y cerrar dos <code>FinSi</code>; Python
+resuelve lo mismo plano con <code>elif</code>. Con cinco rangos la diferencia es abismal, y ahí es
+donde se ve por qué un <code>SI</code> anidado de Excel de cinco niveles es inmantenible.</p>
+<blockquote>
+<p><strong>La indentación en Python no es estética: es sintaxis.</strong> Los cuatro espacios que van
+antes de <code>print</code> son los que le dicen a Python "esto está dentro del <code>if</code>". Si los
+quitas, el programa cambia de significado o falla. En PSeInt eso lo hacen las palabras
+<code>FinSi</code>; en Python lo hace el espacio en blanco.</p>
+</blockquote>
+<hr />
+<h2 id="9-ciclos">9. Ciclos</h2>
+<p>Un ciclo repite instrucciones. Es arrastrar la fórmula, pero diciendo cuántas filas.</p>
+<p><strong><code>Mientras</code> / <code>while</code></strong> — cuando no sabes cuántas veces, solo la condición de parada:</p>
+<pre><code class="language-pseudocodigo">Mientras saldo &gt; 0 Hacer
+    saldo &lt;- saldo - 30;
+FinMientras
+</code></pre>
+<pre><code class="language-python">saldo = 100
+while saldo &gt; 0:
+    saldo = saldo - 30
+print(&quot;Saldo final:&quot;, saldo)   # -20
+</code></pre>
+<p><strong><code>Para</code> / <code>for</code></strong> — cuando sabes exactamente cuántas veces:</p>
+<pre><code class="language-pseudocodigo">Para i &lt;- 1 Hasta 10 Con Paso 1 Hacer
+    Escribir 7, &quot; x &quot;, i, &quot; = &quot;, 7*i;
+FinPara
+</code></pre>
+<pre><code class="language-python">for i in range(1, 11):
+    print(f&quot;7 x {i} = {7*i}&quot;)
+</code></pre>
+<p>Ojo con <code>range(1, 11)</code>: <strong>el límite superior no se incluye</strong>, así que <code>range(1, 11)</code> va
+de 1 a 10. Es la fuente número uno de errores "por uno" en todos los lenguajes.</p>
+<p><strong>Recorrer una lista directamente</strong> (lo más frecuente en ciencia de datos):</p>
+<pre><code class="language-python">facturas = [1200000, 3400500, 780000, 15600000]
+for f in facturas:
+    print(f)
+</code></pre>
+<blockquote>
+<p><strong>Cuidado con el ciclo infinito.</strong> Si la condición del <code>while</code> nunca se vuelve falsa, el
+programa no para. En Colab se detiene con el botón de parada de la celda. Provócalo una
+vez a propósito el día 16: entenderlo de golpe vale más que leerlo tres veces.</p>
+</blockquote>
+<hr />
+<h2 id="10-contadores-y-acumuladores">10. Contadores y acumuladores</h2>
+<p>Son los dos patrones más útiles que existen, y ya los conoces con otro nombre.</p>
+<ul>
+<li><strong>Contador:</strong> cuenta cuántos elementos cumplen algo. Es <code>CONTAR.SI</code>.
+  Se inicializa en <code>0</code> y crece de uno en uno.</li>
+<li><strong>Acumulador:</strong> suma valores. Es <code>SUMAR.SI</code>. Se inicializa en <code>0</code> y crece con el valor.</li>
+</ul>
+<pre><code class="language-pseudocodigo">contador &lt;- 0;
+acumulado &lt;- 0;
+Para i &lt;- 1 Hasta n Con Paso 1 Hacer
+    Si valores[i] &gt; umbral Entonces
+        contador &lt;- contador + 1;
+        acumulado &lt;- acumulado + valores[i];
+    FinSi
+FinPara
+</code></pre>
+<pre><code class="language-python">valores = [4500000, 12000000, 8000000, 25000000, 300000]
+umbral = 10000000
+contador = 0
+acumulado = 0
+
+for v in valores:
+    if v &gt; umbral:
+        contador = contador + 1
+        acumulado = acumulado + v
+
+print(f&quot;Superan el umbral: {contador}&quot;)   # 2
+print(f&quot;Suma de esos: {acumulado}&quot;)       # 37000000
+</code></pre>
+<p><strong>El error clásico:</strong> inicializar el contador <strong>dentro</strong> del ciclo. Si <code>contador = 0</code> va
+adentro, se reinicia en cada vuelta y el resultado siempre es 0 o 1. Cuando un conteo dé
+1, revisa primero eso.</p>
+<p><code>contador = contador + 1</code> se abrevia <code>contador += 1</code>. Significa exactamente lo mismo.</p>
+<hr />
+<h2 id="11-diez-mini-retos-con-solución-comentada">11. Diez mini-retos con solución comentada</h2>
+<p>Intenta cada uno <strong>antes</strong> de mirar la solución. Un reto intentado y fallado enseña más
+que tres soluciones leídas.</p>
+<h3 id="reto-1--tu-primer-programa">Reto 1 — Tu primer programa</h3>
+<p>Pide un nombre y saluda.</p>
+<pre><code class="language-python">nombre = input(&quot;¿Cómo te llamas? &quot;)
+print(f&quot;Hola, {nombre}. Este es tu primer programa.&quot;)
+</code></pre>
+<h3 id="reto-2--las-siete-operaciones">Reto 2 — Las siete operaciones</h3>
+<p>Lee dos enteros y muestra suma, resta, producto, división, división entera, resto y
+potencia.</p>
+<pre><code class="language-python">a = int(input(&quot;Primer número: &quot;))
+b = int(input(&quot;Segundo número: &quot;))
+
+print(f&quot;Suma:            {a + b}&quot;)
+print(f&quot;Resta:           {a - b}&quot;)
+print(f&quot;Producto:        {a * b}&quot;)
+print(f&quot;División:        {a / b:.2f}&quot;)   # :.2f = dos decimales
+print(f&quot;División entera: {a // b}&quot;)
+print(f&quot;Resto:           {a % b}&quot;)
+print(f&quot;Potencia:        {a ** b}&quot;)
+</code></pre>
+<p>Con <code>a = 12</code> y <code>b = 5</code>: <code>17</code>, <code>7</code>, <code>60</code>, <code>2.40</code>, <code>2</code>, <code>2</code>, <code>248832</code>.</p>
+<h3 id="reto-3--valor-de-un-contrato-con-iva">Reto 3 — Valor de un contrato con IVA</h3>
+<p>Dada una base gravable, calcular IVA del 19 % y valor total.</p>
+<pre><code class="language-pseudocodigo">Algoritmo ValorConIVA
+    Definir base, iva, total Como Real;
+    Escribir &quot;Digite la base gravable:&quot;;
+    Leer base;
+    iva &lt;- base * 0.19;
+    total &lt;- base + iva;
+    Escribir &quot;IVA: &quot;, iva;
+    Escribir &quot;Total: &quot;, total;
+FinAlgoritmo
+</code></pre>
+<pre><code class="language-python">base = float(input(&quot;Digite la base gravable: &quot;))
+TARIFA_IVA = 0.19          # constante: en MAYÚSCULAS por convención
+
+iva = base * TARIFA_IVA
+total = base + iva
+
+print(f&quot;IVA:   {iva:,.2f}&quot;)
+print(f&quot;Total: {total:,.2f}&quot;)
+# Con base = 1000000 -&gt; IVA 190,000.00 y total 1,190,000.00
+</code></pre>
+<h3 id="reto-4--base-gravable-a-partir-del-total">Reto 4 — Base gravable a partir del total</h3>
+<p>El inverso del anterior, y el que más se equivoca en la vida real: <strong>se divide entre
+1,19; no se resta el 19 %.</strong></p>
+<pre><code class="language-python">total = float(input(&quot;Valor total con IVA incluido: &quot;))
+base = total / 1.19
+iva = total - base
+
+print(f&quot;Base gravable: {base:,.2f}&quot;)
+print(f&quot;IVA:           {iva:,.2f}&quot;)
+# Con total = 297500 -&gt; base 250,000.00 e IVA 47,500.00
+# (restar el 19% daría 240,975.00, que está mal)
+</code></pre>
+<h3 id="reto-5--clasificar-un-pago-por-rango">Reto 5 — Clasificar un pago por rango</h3>
+<p>Menor si es inferior a 10 millones; Medio entre 10 y 100 millones; Mayor de ahí en
+adelante.</p>
+<pre><code class="language-pseudocodigo">Si valor &lt; 10000000 Entonces
+    categoria &lt;- &quot;Menor&quot;;
+SiNo
+    Si valor &lt; 100000000 Entonces
+        categoria &lt;- &quot;Medio&quot;;
+    SiNo
+        categoria &lt;- &quot;Mayor&quot;;
+    FinSi
+FinSi
+</code></pre>
+<pre><code class="language-python">valor = float(input(&quot;Valor del pago: &quot;))
+
+if valor &lt; 10_000_000:              # el _ es solo separador visual: 10_000_000 == 10000000
+    categoria = &quot;Menor&quot;
+elif valor &lt; 100_000_000:
+    categoria = &quot;Medio&quot;
+else:
+    categoria = &quot;Mayor&quot;
+
+print(f&quot;Categoría: {categoria}&quot;)
+</code></pre>
+<p><strong>Por qué el orden importa:</strong> al llegar al <code>elif</code> ya sabes que el valor <strong>no</strong> es menor a
+10 millones, así que basta preguntar por el límite superior. Si escribieras las
+condiciones al revés, todos los pagos caerían en la primera.</p>
+<h3 id="reto-6--la-garantía-cumple-el-amparo-mínimo">Reto 6 — ¿La garantía cumple el amparo mínimo?</h3>
+<p>El amparo de cumplimiento debe ser al menos el 20 % del valor del contrato.</p>
+<pre><code class="language-python">valor_contrato = float(input(&quot;Valor del contrato: &quot;))
+valor_amparo = float(input(&quot;Valor asegurado del amparo: &quot;))
+PORCENTAJE_MINIMO = 0.20
+
+exigido = valor_contrato * PORCENTAJE_MINIMO
+
+if valor_amparo &gt;= exigido:
+    print(f&quot;CUMPLE. Exigido {exigido:,.2f}, presentado {valor_amparo:,.2f}&quot;)
+else:
+    faltante = exigido - valor_amparo
+    print(f&quot;NO CUMPLE. Falta {faltante:,.2f}&quot;)
+</code></pre>
+<p>Con <code>valor_contrato = 26450538569</code> el exigido es <code>5,290,107,713.80</code>. Nota que el programa
+no decide nada normativo: el porcentaje <strong>se toma del anexo de condiciones del contrato</strong>
+y se le entrega al programa. El código automatiza el cálculo, nunca el criterio.</p>
+<h3 id="reto-7--contar-pólizas-vencidas-contador-con-while">Reto 7 — Contar pólizas vencidas (contador con <code>while</code>)</h3>
+<p>Dada una lista de días restantes para el vencimiento (negativo = ya vencida), contar
+cuántas están vencidas.</p>
+<pre><code class="language-pseudocodigo">i &lt;- 1;
+vencidas &lt;- 0;
+Mientras i &lt;= n Hacer
+    Si dias[i] &lt; 0 Entonces
+        vencidas &lt;- vencidas + 1;
+    FinSi
+    i &lt;- i + 1;
+FinMientras
+Escribir &quot;Vencidas: &quot;, vencidas;
+</code></pre>
+<pre><code class="language-python">dias = [30, -5, 12, -40, 0, 90, -1]
+
+i = 0                       # las listas de Python empiezan en 0, no en 1
+vencidas = 0
+
+while i &lt; len(dias):        # len() da la cantidad de elementos
+    if dias[i] &lt; 0:
+        vencidas = vencidas + 1
+    i = i + 1               # sin esta línea el ciclo es infinito
+
+print(&quot;Pólizas vencidas:&quot;, vencidas)   # 3
+</code></pre>
+<p>Fíjate en el <code>0</code>: la póliza que vence hoy no cuenta como vencida, porque la condición es
+estrictamente <code>&lt; 0</code>. Decidir si el límite lleva <code>&lt;</code> o <code>&lt;=</code> es la mitad del trabajo de
+programar bien.</p>
+<h3 id="reto-8--sumar-un-lote-de-facturas-acumulador-con-for">Reto 8 — Sumar un lote de facturas (acumulador con <code>for</code>)</h3>
+<pre><code class="language-python">facturas = [1200000, 3400500, 780000, 15600000]
+
+total = 0
+for f in facturas:
+    total = total + f
+
+promedio = total / len(facturas)
+
+print(f&quot;Cantidad:  {len(facturas)}&quot;)
+print(f&quot;Total:     {total:,}&quot;)           # 20,980,500
+print(f&quot;Promedio:  {promedio:,.2f}&quot;)     # 5,245,125.00
+</code></pre>
+<p>Python trae <code>sum(facturas)</code> y haría lo mismo en una línea. Se escribe el ciclo a mano
+porque el objetivo del día es entender el patrón, no obtener el número.</p>
+<h3 id="reto-9--contador-y-acumulador-a-la-vez">Reto 9 — Contador y acumulador a la vez</h3>
+<p>Contar cuántos valores superan un umbral y sumar solo esos.</p>
+<pre><code class="language-python">valores = [4500000, 12000000, 8000000, 25000000, 300000]
+umbral = 10_000_000
+
+cuantos = 0
+suma = 0
+
+for v in valores:
+    if v &gt; umbral:
+        cuantos += 1        # equivale a cuantos = cuantos + 1
+        suma += v
+
+print(f&quot;Superan el umbral: {cuantos}&quot;)           # 2
+print(f&quot;Suma de los que superan: {suma:,}&quot;)      # 37,000,000
+
+if cuantos &gt; 0:
+    print(f&quot;Promedio de esos: {suma/cuantos:,.2f}&quot;)
+else:
+    print(&quot;Ninguno supera el umbral&quot;)
+</code></pre>
+<p>El <code>if cuantos &gt; 0</code> del final no es adorno: sin él, una lista donde ninguno supere el
+umbral produce una división por cero y el programa se cae. Anticipar el caso vacío es un
+hábito que se paga solo.</p>
+<h3 id="reto-10--promedio-con-centinela-while-que-no-sabe-cuántas-vueltas-dará">Reto 10 — Promedio con centinela (<code>while</code> que no sabe cuántas vueltas dará)</h3>
+<p>Se leen valores hasta que el usuario digite <code>-1</code>, y entonces se muestra el promedio.</p>
+<pre><code class="language-pseudocodigo">suma &lt;- 0;
+cantidad &lt;- 0;
+Escribir &quot;Digite un valor (-1 para terminar):&quot;;
+Leer valor;
+Mientras valor &lt;&gt; -1 Hacer
+    suma &lt;- suma + valor;
+    cantidad &lt;- cantidad + 1;
+    Escribir &quot;Digite un valor (-1 para terminar):&quot;;
+    Leer valor;
+FinMientras
+Si cantidad &gt; 0 Entonces
+    Escribir &quot;Promedio: &quot;, suma / cantidad;
+SiNo
+    Escribir &quot;No se ingresaron datos&quot;;
+FinSi
+</code></pre>
+<pre><code class="language-python">suma = 0
+cantidad = 0
+
+valor = float(input(&quot;Digite un valor (-1 para terminar): &quot;))
+
+while valor != -1:
+    suma += valor
+    cantidad += 1
+    valor = float(input(&quot;Digite un valor (-1 para terminar): &quot;))
+
+if cantidad &gt; 0:
+    print(f&quot;Promedio: {suma/cantidad:.2f}&quot;)
+else:
+    print(&quot;No se ingresaron datos&quot;)
+</code></pre>
+<p>Con los valores <code>3</code>, <code>8</code>, <code>5</code> y luego <code>-1</code>, el promedio es <code>5.33</code>.</p>
+<p><strong>El patrón que hay que ver aquí:</strong> la lectura aparece <strong>dos veces</strong>, una antes del ciclo
+y otra al final del cuerpo. Si solo la pones antes, el ciclo es infinito; si solo la pones
+adentro al principio, el centinela <code>-1</code> entra en la suma. Este esqueleto se llama
+"lectura anticipada" y lo vas a reutilizar todo el semestre.</p>
+<hr />
+<h2 id="12-cómo-leer-un-error-sin-asustarse">12. Cómo leer un error sin asustarse</h2>
+<p>Vas a ver muchos errores. Son información, no fracaso. Python te dice tres cosas: en qué
+línea, de qué tipo y qué encontró.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Mensaje</th>
+<th>Qué significa casi siempre</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SyntaxError: invalid syntax</code></td>
+<td>Falta un <code>:</code> al final del <code>if</code>/<code>for</code>/<code>while</code>, o falta cerrar un paréntesis</td>
+</tr>
+<tr>
+<td><code>IndentationError</code></td>
+<td>La indentación no es consistente. Usa siempre 4 espacios</td>
+</tr>
+<tr>
+<td><code>NameError: name 'x' is not defined</code></td>
+<td>Escribiste mal el nombre, o no ejecutaste la celda que lo definía</td>
+</tr>
+<tr>
+<td><code>TypeError: can only concatenate str</code></td>
+<td>Estás sumando texto con número. Falta <code>int()</code> o <code>float()</code></td>
+</tr>
+<tr>
+<td><code>ValueError: could not convert string to float</code></td>
+<td>Digitaste una coma decimal, o texto donde iba un número</td>
+</tr>
+<tr>
+<td><code>ZeroDivisionError</code></td>
+<td>División entre cero: casi siempre un contador que quedó en 0</td>
+</tr>
+<tr>
+<td><code>IndexError: list index out of range</code></td>
+<td>Pediste el elemento 5 de una lista de 4. Recuerda que empiezan en 0</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Lee siempre la última línea del mensaje primero.</strong> Ahí está la causa; lo de arriba es el
+rastro de cómo se llegó hasta ella.</p>
+<hr />
+<h2 id="13-qué-llevarte-de-estos-cinco-días">13. Qué llevarte de estos cinco días</h2>
+<p>Al terminar el día 16 vas a tener tres cuadernos de Colab y unos ocho archivos de PSeInt.
+No es mucho código, y no importa. Lo que importa es que el 25 de agosto, cuando abras
+Pensamiento Algorítmico, ya hayas escrito programas que corren, ya hayas visto errores y
+los hayas arreglado, y ya sepas que un ciclo es arrastrar una fórmula.</p>
+<p>La mitad de la deserción en primer semestre de Ciencias de Datos ocurre en el primer
+choque con el código. Tú vas a llegar con ese choque ya absorbido, y con una ventaja que
+la mayoría de tus compañeros no tiene: llevas años pensando en datos, reglas y
+excepciones. Eso es exactamente lo que se automatiza. Lo único que faltaba era la sintaxis
+y ya la tienes.</p>
+</main>
+</body>
+</html>

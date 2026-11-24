@@ -1,0 +1,2094 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cuaderno de Razonamiento Cuantitativo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+  svg: { fontCache: 'global' },
+  options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+};
+</script>
+<script id="MathJax-script" defer src="../../_assets/tex-svg.js"></script>
+
+<style>
+/* ---------- tokens (Sistema de diseño · Cuaderno de Matrices) ---------- */
+:root{
+  --paper:#f4f6f3;
+  --surface:#ffffff;
+  --surface-2:#edf1ee;
+  --ink:#17211f;
+  --ink-2:#3d4b47;
+  --muted:#56645f;
+  --rule:#d5deda;
+  --rule-soft:#e4eae7;
+  --rule-strong:#7a8984;
+  --accent:#0e6e62;
+  --accent-soft:#dcede9;
+  --accent-line:#a9d3ca;
+  --on-accent:#ffffff;
+  --warn:#a6421f;
+  --warn-soft:#f6e5de;
+  --warn-line:#e8c2b2;
+  --book:#80560a;
+  --book-soft:#f5ecd9;
+  --book-line:#e3cfa6;
+  --focus:var(--accent);
+  --shadow-raised:0 1px 2px rgba(23,33,31,.05), 0 8px 24px -16px rgba(23,33,31,.30);
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:12px;
+  --space-4:16px;
+  --space-5:20px;
+  --space-6:24px;
+  --space-8:32px;
+  --space-12:48px;
+  --space-16:64px;
+  --radius-sm:5px;
+  --radius-md:8px;
+  --radius-lg:12px;
+  --radius-pill:999px;
+  --measure-content:38rem;
+  --measure-wide:1240px;
+  --measure-toc:250px;
+  --font-display:Fraunces, Georgia, serif;
+  --font-text:"Source Serif 4", "Iowan Old Style", Georgia, serif;
+  --font-mono:"IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f1614;
+    --surface:#161f1d;
+    --surface-2:#1d2825;
+    --ink:#e3ebe7;
+    --ink-2:#bcc8c4;
+    --muted:#9aa8a3;
+    --rule:#2b3835;
+    --rule-soft:#232f2c;
+    --rule-strong:#6b7d77;
+    --accent:#5cc3b2;
+    --accent-soft:#1a3833;
+    --accent-line:#2e5e56;
+    --on-accent:#0f1614;
+    --warn:#e08a63;
+    --warn-soft:#33201a;
+    --warn-line:#5a3324;
+    --book:#ddb062;
+    --book-soft:#2e2615;
+    --book-line:#54431f;
+    --shadow-raised:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -18px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f1614;
+  --surface:#161f1d;
+  --surface-2:#1d2825;
+  --ink:#e3ebe7;
+  --ink-2:#bcc8c4;
+  --muted:#9aa8a3;
+  --rule:#2b3835;
+  --rule-soft:#232f2c;
+  --rule-strong:#6b7d77;
+  --accent:#5cc3b2;
+  --accent-soft:#1a3833;
+  --accent-line:#2e5e56;
+  --on-accent:#0f1614;
+  --warn:#e08a63;
+  --warn-soft:#33201a;
+  --warn-line:#5a3324;
+  --book:#ddb062;
+  --book-soft:#2e2615;
+  --book-line:#54431f;
+  --shadow-raised:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -18px rgba(0,0,0,.8);
+}
+
+
+/* =====================================================================
+   Cuaderno de Matrices — hoja de componentes
+   Conserva los nombres de clase del cuaderno (.def, .note, .ex, .calc…)
+   para que sea un reemplazo directo de su <style>. Todo valor sale de
+   tokens.css: ningún color literal aquí.
+   ===================================================================== */
+
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--font-text);font-size:17px;line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+p{margin:0 0 14px;max-width:68ch}
+strong{font-weight:600}
+em.term{font-style:normal;font-weight:600;color:var(--accent)}
+a{color:var(--accent);text-underline-offset:2px}
+code{font-family:var(--font-mono);font-size:.88em;background:var(--surface-2);padding:1px 5px;border-radius:var(--radius-sm)}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+
+/* ---------- el rótulo: un solo estilo para todas las etiquetas ---------- */
+.eyebrow,.tag,.lab,.map .step .k,thead th,.tnum,.calc label,.v-head,.fig .cap b{
+  font-family:var(--font-mono);font-size:12px;line-height:16px;font-weight:500;
+  letter-spacing:.08em;text-transform:uppercase;
+}
+
+/* ---------- portada ---------- */
+.masthead{padding:56px 0 32px;border-bottom:1px solid var(--rule);display:flex;flex-direction:column;gap:18px}
+.eyebrow{color:var(--accent)}
+.masthead h1{
+  font-family:var(--font-display);font-optical-sizing:auto;font-weight:600;
+  font-size:clamp(2.5rem,6vw,4.8rem);line-height:1.02;letter-spacing:-.02em;margin:0;text-wrap:balance;
+}
+.dek{font-size:19px;line-height:1.55;color:var(--ink-2);max-width:62ch;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px;font-family:var(--font-mono);font-size:13px}
+.meta span{border:1px solid var(--rule);border-radius:var(--radius-pill);padding:4px 12px;color:var(--muted)}
+/* avance del módulo: un segmento por escenario */
+.progress{display:flex;flex-direction:column;gap:6px;max-width:560px}
+.progress .bar{display:grid;grid-template-columns:repeat(var(--total,8),1fr);gap:4px}
+.progress .bar i{height:6px;border-radius:var(--radius-pill);background:var(--rule)}
+.progress .bar i.done{background:var(--accent)}
+.progress .bar i.now{background:var(--accent);opacity:.45}
+.progress .txt{font-family:var(--font-mono);font-size:13px;color:var(--muted)}
+
+/* ---------- riel de escenarios (antes: seis tarjetas grandes) ---------- */
+.tabs{
+  display:flex;gap:4px;overflow-x:auto;scrollbar-width:thin;
+  border-bottom:1px solid var(--rule);margin:24px 0 0;padding:0;
+  position:sticky;top:0;z-index:5;background:var(--paper);
+}
+.tab{
+  font:inherit;cursor:pointer;text-align:left;flex:0 0 auto;
+  background:none;border:0;border-bottom:3px solid transparent;margin-bottom:-1px;
+  padding:12px 14px 10px;display:flex;align-items:center;gap:10px;color:var(--ink-2);
+  border-radius:var(--radius-sm) var(--radius-sm) 0 0;
+}
+.tab .n{
+  flex:0 0 auto;width:26px;height:26px;border-radius:var(--radius-pill);
+  display:grid;place-items:center;font-family:var(--font-mono);font-size:13px;font-weight:600;
+  border:1px solid var(--rule-strong);color:var(--muted);
+}
+.tab .tx{display:flex;flex-direction:column;gap:1px;min-width:0}
+.tab .tnum{color:var(--muted)}
+.tab .ttitle{font-family:var(--font-display);font-size:16px;font-weight:600;line-height:1.25;color:var(--ink);white-space:nowrap}
+.tab .tmeta{display:none}
+.tab:hover{background:var(--surface-2)}
+.tab.is-on,.tab[aria-selected="true"]{border-bottom-color:var(--accent)}
+.tab.is-on .n,.tab[aria-selected="true"] .n{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.tab.is-on .tnum,.tab[aria-selected="true"] .tnum{color:var(--accent)}
+.tab.done .n{border-color:var(--accent);color:var(--accent)}
+.tabs .sep{flex:0 0 1px;background:var(--rule);margin:12px 8px}
+.tab.aside .n{border-style:dashed}
+.scene[hidden]{display:none}
+
+/* ---------- tabla de contenido ---------- */
+nav.toc{font-family:var(--font-mono);font-size:13px}
+nav.toc .toc-h{color:var(--muted);margin:0 0 10px;display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+nav.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1px}
+nav.toc a{
+  display:flex;gap:10px;align-items:baseline;color:var(--muted);text-decoration:none;
+  padding:6px 10px;border-radius:var(--radius-sm);line-height:1.35;
+}
+nav.toc a .n{color:var(--accent);min-width:2ch}
+nav.toc a:hover{color:var(--ink);background:var(--surface-2)}
+nav.toc a[aria-current="true"]{color:var(--ink);background:var(--accent-soft);font-weight:500}
+nav.toc .toc-progress{height:3px;background:var(--rule-soft);border-radius:var(--radius-pill);margin:14px 10px 0;overflow:hidden}
+nav.toc .toc-progress i{display:block;height:100%;background:var(--accent);width:var(--p,0%)}
+
+/* ---------- encabezado de sección ---------- */
+h2,.sec-h{margin:0 0 6px;font-family:var(--font-display);font-weight:600;font-size:clamp(1.6rem,3.2vw,2.15rem);line-height:1.14;letter-spacing:-.015em;text-wrap:balance}
+h2 .num,.sec-h .num{
+  font-family:var(--font-mono);font-size:14px;font-weight:500;letter-spacing:0;color:var(--accent);
+  border:1px solid var(--accent-line);border-radius:var(--radius-pill);padding:2px 9px;display:inline-block;margin-right:14px;vertical-align:.32em;line-height:1.3;
+}
+h3{font-family:var(--font-display);font-weight:600;font-size:20px;line-height:1.3;letter-spacing:-.01em;margin:32px 0 8px}
+.sub{color:var(--muted);font-size:15px;line-height:1.5;margin:0 0 22px;max-width:68ch}
+
+/* ---------- bloques de texto: definición, nota, libro ----------
+   Mismo esqueleto: borde fino completo + rótulo con marca. Sin borde
+   izquierdo de color ni sombra: el color vive en el rótulo y el fondo. */
+.def,.note,.book{border-radius:var(--radius-md);padding:16px 20px;margin:24px 0}
+.def p:last-child,.note p:last-child,.book p:last-child{margin-bottom:0}
+.tag{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.tag::before{content:"";flex:0 0 auto;width:8px;height:8px}
+.def{background:var(--surface);border:1px solid var(--rule)}
+.def .tag{color:var(--accent)}
+.def .tag::before{background:var(--accent)}
+.note{background:var(--warn-soft);border:1px solid var(--warn-line)}
+.note .tag{color:var(--warn)}
+.note .tag::before{background:var(--warn);transform:rotate(45deg) scale(.85)}
+.book{background:var(--book-soft);border:1px solid var(--book-line)}
+.book .tag{color:var(--book)}
+.book .tag::before{border:2px solid var(--book);width:10px;height:8px;border-radius:1px}
+.book .refs{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0}
+.book .refs span,.book .refs a{
+  font-family:var(--font-mono);font-size:13px;border:1px solid var(--book-line);border-radius:var(--radius-sm);
+  padding:3px 9px;color:var(--ink-2);background:var(--surface);text-decoration:none;
+}
+
+/* ---------- mapa del escenario ---------- */
+.map{list-style:none;padding:0;margin:26px 0 34px;display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));counter-reset:paso}
+.map .step{
+  position:relative;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius-md);
+  padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px;counter-increment:paso;
+}
+.map .step .k{color:var(--accent);display:flex;align-items:center;gap:8px}
+.map .step .k::before{
+  content:counter(paso);width:22px;height:22px;border-radius:var(--radius-pill);display:grid;place-items:center;
+  background:var(--accent-soft);color:var(--accent);font-size:12px;letter-spacing:0;
+}
+.map .step .v{font-size:15px;color:var(--ink-2);line-height:1.45}
+.map .step.next{background:transparent;border-style:dashed}
+.map .step.next .k{color:var(--muted)}
+.map .step.next .k::before{background:var(--surface-2);color:var(--muted)}
+
+/* ---------- tablas ---------- */
+.tablewrap{overflow-x:auto;margin:20px 0;border:1px solid var(--rule);border-radius:var(--radius-md);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.5}
+caption{caption-side:top;text-align:left;padding:12px 16px 10px;font-family:var(--font-mono);font-size:13px;line-height:1.45;color:var(--muted);border-bottom:1px solid var(--rule-soft)}
+th,td{padding:9px 16px;text-align:left;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+thead th{color:var(--muted);background:var(--surface-2)}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:0}
+tbody tr:hover{background:var(--surface-2)}
+tbody th{font-weight:600;white-space:nowrap}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--font-mono);font-size:14px}
+.yes{color:var(--accent);font-weight:600}
+.no{color:var(--muted)}
+
+/* ---------- ecuaciones ---------- */
+.eq{overflow-x:auto;overflow-y:hidden;padding:6px 0;margin:16px 0}
+mjx-container{color:inherit}
+mjx-container[display="true"]{margin:0 !important}
+
+/* ---------- ejercicio resuelto ---------- */
+.ex{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius-md);margin:20px 0;overflow:hidden}
+.ex > .head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding:12px 20px;background:var(--surface-2);border-bottom:1px solid var(--rule-soft)}
+.ex > .head .id{
+  font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--accent);
+  border:1px solid var(--accent-line);border-radius:var(--radius-pill);padding:1px 9px;white-space:nowrap;
+}
+.ex > .head .q{font-size:16px;color:var(--ink);flex:1;min-width:200px}
+.ex > .body{padding:16px 20px 0}
+.ex > .body > p{max-width:78ch}
+.ex.undef > .head .id{color:var(--warn);border-color:var(--warn-line)}
+/* la solución: <details class="answer"> la oculta hasta que el estudiante la pide */
+.answer{border-top:1px solid var(--accent-line);margin:8px -20px 0;padding:12px 20px 14px;background:var(--accent-soft)}
+.answer > p{margin:0;max-width:68ch}
+.answer .lab{color:var(--accent);display:block;margin-bottom:4px}
+.ex.undef .answer{background:var(--warn-soft);border-top-color:var(--warn-line)}
+.ex.undef .answer .lab{color:var(--warn)}
+details.answer > summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;
+  font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);
+}
+details.answer > summary::-webkit-details-marker{display:none}
+details.answer > summary::before{content:"+";width:18px;height:18px;display:grid;place-items:center;border:1px solid var(--accent);border-radius:var(--radius-sm);font-size:14px;letter-spacing:0}
+details.answer[open] > summary::before{content:"−"}
+details.answer[open] > summary{margin-bottom:6px}
+details.answer:not([open]){background:var(--surface);border-top-color:var(--rule-soft)}
+.ex.undef details.answer > summary{color:var(--warn)}
+.ex.undef details.answer > summary::before{border-color:var(--warn)}
+.ex-pair{display:grid;gap:20px;align-items:start;margin:20px 0}
+@media (min-width:1200px){.ex-pair{grid-template-columns:1fr 1fr}}
+.ex-pair > .ex{margin:0}
+
+/* ---------- etapa (ruta de lectura, procedimiento) ---------- */
+.stage{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius-md);margin:14px 0;overflow:hidden}
+.stage > .sh{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;padding:12px 20px;background:var(--surface-2);border-bottom:1px solid var(--rule-soft)}
+.stage > .sh .n{font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--accent)}
+.stage > .sh .t{font-family:var(--font-display);font-weight:600;font-size:18px;color:var(--ink);flex:1;min-width:180px}
+.stage > .sh .w{font-family:var(--font-mono);font-size:13px;color:var(--muted)}
+.stage.done > .sh .w::before{content:"✓ ";color:var(--accent)}
+.stage > .sb{padding:14px 20px 16px}
+.stage > .sb p:last-child{margin-bottom:0}
+
+/* ---------- calculadoras ---------- */
+.calc{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius-lg);padding:20px;margin:24px 0;box-shadow:var(--shadow-raised)}
+.calc .row{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end}
+.calc label{display:flex;flex-direction:column;gap:6px;color:var(--muted)}
+.calc select,.calc input[type=number]{
+  font-family:var(--font-mono);font-size:15px;padding:8px 10px;
+  border:1px solid var(--rule-strong);border-radius:var(--radius-sm);background:var(--paper);color:var(--ink);
+}
+.calc select{min-width:190px}
+.calc input[type=number]{width:104px}
+.calc input[type=range]{width:190px;accent-color:var(--accent)}
+.calc .times{font-family:var(--font-display);font-size:26px;color:var(--muted);padding-bottom:6px}
+.verdict{margin-top:18px;padding:14px 16px;border-radius:var(--radius-md);border:1px solid var(--rule);background:var(--surface-2);display:flex;flex-direction:column;gap:4px}
+.verdict .v-head{color:var(--muted);font-weight:600}
+.verdict .v-body{font-size:15px;color:var(--ink-2)}
+.verdict.ok{background:var(--accent-soft);border-color:var(--accent-line)}
+.verdict.ok .v-head{color:var(--accent)}
+.verdict.ok .v-head::before{content:"✓ "}
+.verdict.bad{background:var(--warn-soft);border-color:var(--warn-line)}
+.verdict.bad .v-head{color:var(--warn)}
+.verdict.bad .v-head::before{content:"✕ "}
+
+/* ---------- botones ---------- */
+.btnrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.btn{
+  font:inherit;font-size:15px;line-height:1.3;cursor:pointer;background:var(--surface);
+  border:1px solid var(--rule-strong);color:var(--ink);border-radius:var(--radius-sm);padding:7px 14px;
+}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
+.btn.primary:hover{color:var(--on-accent);filter:brightness(1.08)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+
+/* ---------- lista de chequeo (ahora con casillas reales) ---------- */
+ul.check{list-style:none;padding:0;margin:20px 0;display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.check li{margin:0}
+.check label{
+  background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius-md);
+  padding:11px 14px;font-size:15px;color:var(--ink-2);display:flex;gap:12px;align-items:flex-start;line-height:1.45;cursor:pointer;
+}
+.check input[type=checkbox]{
+  appearance:none;flex:0 0 auto;width:18px;height:18px;margin:2px 0 0;border:1.5px solid var(--rule-strong);
+  border-radius:var(--radius-sm);background:var(--paper);display:grid;place-items:center;cursor:pointer;
+}
+.check input[type=checkbox]:checked{background:var(--accent);border-color:var(--accent)}
+.check input[type=checkbox]:checked::after{content:"";width:5px;height:9px;border:solid var(--on-accent);border-width:0 2px 2px 0;transform:translateY(-1px) rotate(45deg)}
+.check input:checked + span{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--rule-strong)}
+.check-count{font-family:var(--font-mono);font-size:13px;color:var(--muted);margin:0 0 8px}
+
+/* ---------- figuras y diagramas ---------- */
+.figs{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin:22px 0}
+.fig{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius-md);padding:14px 16px;display:flex;flex-direction:column;gap:10px;margin:0}
+.fig > svg,.flow > svg{width:100%;height:auto;display:block}
+.fig .cap{font-size:15px;color:var(--ink-2);line-height:1.45}
+.fig .cap b{display:block;color:var(--accent);margin-bottom:4px;font-weight:500}
+.flow{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius-md);padding:18px;margin:22px 0}
+.flow .cap{font-size:15px;color:var(--muted);margin-top:12px;line-height:1.45}
+.sv-node{fill:var(--surface-2);stroke:var(--rule-strong);stroke-width:1.2}
+.sv-crit{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.2}
+.sv-dec{fill:var(--surface);stroke:var(--warn);stroke-width:1.4}
+.sv-out{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.2}
+.sv-line{stroke:var(--muted);stroke-width:1.3;fill:none}
+.sv-t{fill:var(--ink);font-family:var(--font-mono);font-size:13px}
+.sv-t.b{font-weight:600}
+.sv-lab{fill:var(--muted);font-family:var(--font-mono);font-size:11.5px}
+.sv-ax{stroke:var(--rule-strong);stroke-width:1.2;fill:none}
+.sv-l1{stroke:var(--accent);stroke-width:2.2;fill:none}
+.sv-l2{stroke:var(--warn);stroke-width:2.2;fill:none}
+.sv-pt{fill:var(--accent)}
+
+/* ---------- matriz en HTML (adición): resalta fila × columna ---------- */
+.mx-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-family:var(--font-mono)}
+.mx-row .op{font-family:var(--font-display);font-size:24px;color:var(--muted)}
+.matrix{
+  position:relative;display:inline-grid;grid-template-columns:repeat(var(--cols,3),minmax(2.6em,auto));
+  gap:2px;padding:6px 12px;font-family:var(--font-mono);font-size:15px;font-variant-numeric:tabular-nums;
+}
+.matrix::before,.matrix::after{content:"";position:absolute;top:0;bottom:0;width:7px;border:1.5px solid var(--ink)}
+.matrix::before{left:0;border-right:0}
+.matrix::after{right:0;border-left:0}
+.matrix > span{text-align:right;padding:3px 7px;border-radius:var(--radius-sm);color:var(--ink)}
+.matrix > .r{background:var(--accent-soft)}
+.matrix > .c{background:var(--book-soft)}
+.matrix > .hit{background:var(--accent);color:var(--on-accent);font-weight:600}
+.mx-name{font-family:var(--font-display);font-style:italic;font-size:20px;color:var(--ink)}
+.mx-cap{font-family:var(--font-mono);font-size:13px;color:var(--muted);margin-top:10px}
+.mx-cap .r{background:var(--accent-soft);color:var(--ink);padding:0 5px;border-radius:3px}
+.mx-cap .c{background:var(--book-soft);color:var(--ink);padding:0 5px;border-radius:3px}
+
+/* ---------- pie ---------- */
+footer{border-top:1px solid var(--rule);margin-top:24px;padding-top:20px;font-size:15px;color:var(--muted);max-width:68ch}
+
+/* ---------- impresión: todo visible, sin chrome ---------- */
+@media print{
+  .tabs,nav.toc,.btnrow,.calc{display:none !important}
+  .scene[hidden]{display:block !important}
+  details.answer{display:block}
+  details.answer > *{display:block}
+  .def,.note,.book,.ex,.stage,.fig{break-inside:avoid}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+
+/* ---------- modo repaso: un ejercicio a la vez, al azar ---------- */
+.review{position:fixed;inset:0;z-index:50;background:var(--paper);overflow-y:auto;display:none}
+.review.is-open{display:block}
+body.review-on{overflow:hidden}
+.review .rv-in{max-width:880px;margin:0 auto;padding:0 32px 64px}
+@media (max-width:640px){.review .rv-in{padding:0 16px 48px}}
+.rv-top{position:sticky;top:0;z-index:2;background:var(--paper);padding:16px 0 14px;margin-bottom:24px;border-bottom:1px solid var(--rule)}
+.rv-top .rv-row{display:flex;align-items:center;gap:12px}
+.rv-title{font-family:var(--font-display);font-weight:600;font-size:22px;line-height:1.2;flex:1;margin:0}
+.rv-bar{height:6px;background:var(--rule);border-radius:var(--radius-pill);overflow:hidden;margin-top:12px}
+.rv-bar i{display:block;height:100%;width:var(--p,0%);background:var(--accent)}
+.rv-meta{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;font-family:var(--font-mono);font-size:13px;color:var(--muted);margin:0 0 12px}
+.rv-meta b{color:var(--accent);font-weight:600}
+.rv-meta .rv-sec{font-family:var(--font-display);font-size:17px;font-weight:600;color:var(--ink)}
+.rv-lead{color:var(--ink-2);margin:0 0 24px}
+.rv-setup fieldset{border:0;padding:0;margin:0 0 24px;min-width:0}
+.rv-setup legend{font-family:var(--font-mono);font-size:12px;line-height:16px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:0;margin-bottom:10px}
+.rv-chips{display:flex;flex-wrap:wrap;gap:8px}
+.rv-chip{position:relative;display:inline-flex;align-items:center;gap:8px;cursor:pointer;background:var(--surface);color:var(--ink-2);
+  border:1px solid var(--rule-strong);border-radius:var(--radius-pill);padding:6px 14px;font-size:15px;line-height:1.3}
+.rv-chip input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+.rv-chip .c{font-family:var(--font-mono);font-size:12px;color:var(--muted)}
+.rv-chip:has(input:checked){background:var(--accent-soft);border-color:var(--accent);color:var(--ink)}
+.rv-chip:has(input:checked)::before{content:"✓";color:var(--accent);font-weight:600}
+.rv-chip:has(input:focus-visible){outline:2px solid var(--focus);outline-offset:2px}
+.rv-chip:has(input:disabled){opacity:.5;cursor:not-allowed}
+.rv-card .ex{margin:0}
+.rv-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:20px}
+.rv-actions .sp{flex:1}
+.btn.warn{border-color:var(--warn);color:var(--warn)}
+.btn.warn:hover{background:var(--warn-soft);border-color:var(--warn);color:var(--warn)}
+.btn.link{border-color:transparent;background:none;color:var(--accent);text-decoration:underline;text-underline-offset:2px;padding-inline:6px}
+.rv-hint{font-family:var(--font-mono);font-size:12px;color:var(--muted);margin:16px 0 0}
+.rv-score{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,220px));gap:12px;margin:0 0 24px}
+.rv-score div{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius-md);padding:14px 16px;font-size:15px;color:var(--ink-2)}
+.rv-score b{display:block;font-family:var(--font-display);font-size:40px;line-height:1.05;font-weight:600}
+.rv-score .ok b{color:var(--accent)}
+.rv-score .bad b{color:var(--warn)}
+.rv-list{list-style:none;padding:0;margin:0 0 8px;max-width:none;display:flex;flex-direction:column;gap:6px}
+.rv-list li{margin:0}
+.rv-list button{font:inherit;font-size:15px;text-align:left;width:100%;cursor:pointer;display:flex;gap:12px;align-items:baseline;
+  background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius-md);padding:10px 14px;color:var(--ink)}
+.rv-list button:hover{border-color:var(--accent)}
+.rv-list .k{font-family:var(--font-mono);font-size:13px;color:var(--warn);white-space:nowrap}
+.ex.rv-flash{outline:2px solid var(--focus);outline-offset:4px}
+.rv-title:focus{outline:none}
+
+/* escenarios 6 a 8: planos, grafos y barras */
+.flow > svg.sv-mid{max-width:520px;margin:0 auto}
+.sv-arrow{fill:var(--muted)}
+svg.plane{width:240px;height:240px;flex:0 0 auto;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius-md)}
+.pl-grid{stroke:var(--rule-soft);stroke-width:1}
+.pl-axis{stroke:var(--rule-strong);stroke-width:1.2}
+.pl-orig{fill:none;stroke:var(--muted);stroke-width:1.3;stroke-dasharray:4 3}
+.pl-img{fill:var(--accent-soft);fill-opacity:.8;stroke:var(--accent);stroke-width:1.5}
+.pl-e1{stroke:var(--accent);stroke-width:2.6}
+.pl-e2{stroke:var(--warn);stroke-width:2.6}
+.pl-p1{fill:var(--accent)} .pl-p2{fill:var(--warn)}
+.pl-eig1{stroke:var(--book);stroke-width:2}
+.pl-eig2{stroke:var(--ink-2);stroke-width:2;stroke-dasharray:5 4}
+.plane-key{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--font-mono);font-size:12px;color:var(--muted);margin:0;max-width:none}
+.plane-key span::before{content:"";display:inline-block;width:18px;height:0;border-top:2.5px solid currentColor;vertical-align:middle;margin-right:6px}
+.plane-key .k0::before{border-top:1.5px dashed var(--muted)}
+.plane-key .k1::before{border-top-color:var(--accent)}
+.plane-key .k2::before{border-top-color:var(--warn)}
+.plane-key .k3::before{border-top-color:var(--book)}
+.plane-key .k4::before{border-top:2px dashed var(--ink-2)}
+.pr-bar{display:block;height:8px;min-width:70px;background:var(--rule-soft);border-radius:var(--radius-pill);overflow:hidden}
+.pr-bar i{display:block;height:100%;background:var(--accent);border-radius:var(--radius-pill)}
+
+/* =====================================================================
+   Capa de página del cuaderno: retícula, anchos y widgets propios
+   ===================================================================== */
+html{font-size:16.5px}
+@media (min-width:1400px){ html{font-size:17.5px} }
+@media (min-width:1900px){ html{font-size:18.5px} }
+body{font-size:1rem}
+.wrap{max-width:1640px;margin:0 auto;padding:0 32px 96px}
+@media (max-width:640px){ .wrap{padding:0 16px 64px} }
+
+/* portada: controles */
+.masthead .tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.theme-btn{font-family:var(--font-mono);font-size:13px;cursor:pointer;background:var(--surface);color:var(--ink-2);
+  border:1px solid var(--rule-strong);border-radius:var(--radius-pill);padding:4px 12px}
+.theme-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+/* columnas */
+.cols{display:grid;grid-template-columns:1fr;gap:0}
+nav.toc{display:none}
+@media (min-width:1000px){
+  .cols{grid-template-columns:200px minmax(0,1fr);gap:48px;align-items:start}
+  .cols nav.toc{display:block;position:sticky;top:84px;padding-top:40px;max-height:calc(100vh - 96px);overflow-y:auto}
+}
+@media (min-width:1400px){ .cols{grid-template-columns:var(--measure-toc) minmax(0,1fr);gap:84px} }
+
+/* sistema de anchos */
+main{--content:var(--measure-content);--wide:100%;padding-top:48px;min-width:0}
+@media (min-width:1400px){ main{--wide:var(--measure-wide)} }
+section{margin:0 0 var(--space-16);scroll-margin-top:96px}
+section > h2, section > h3, section > h4, section > p, section > ol, section > ul:not(.check),
+section > .def, section > .note, section > .book, section > .stage, section > .sub, section > footer{
+  max-width:var(--content);margin-inline:auto;
+}
+section > .tablewrap, section > .eq, section > .map, section > .calc, section > .ex, section > .ex-pair,
+section > .figs, section > .flow, section > ul.check, section > .check-count{max-width:var(--wide);margin-inline:auto}
+section > .check-count{margin-bottom:8px}
+.ex .body > p, .ex .body > ul, .ex .body > ol{max-width:78ch;margin-left:auto;margin-right:auto}
+.answer > p{margin-left:auto;margin-right:auto}
+.ex .body > .tablewrap, .ex .body > .eq, .def .eq, .def ul{max-width:none}
+.answer .eq{margin:8px 0 4px}
+section > .answer{max-width:var(--content);margin-inline:auto;overflow-x:auto}
+.answer.standalone{margin-top:16px;margin-bottom:16px;border:1px solid var(--accent-line);border-radius:var(--radius-md)}
+
+h4{font-family:var(--font-mono);font-weight:500;font-size:12px;line-height:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:26px 0 8px}
+ul,ol{max-width:68ch;padding-left:1.2em;margin:0 0 14px}
+li{margin:0 0 7px}
+hr.rule{border:0;border-top:1px solid var(--rule-soft);margin:38px 0}
+
+/* verificador de ternas */
+.scrollx{overflow-x:auto;margin-top:16px}
+.eqcheck{width:100%;min-width:430px;border-collapse:collapse;font-size:15px}
+.eqcheck th,.eqcheck td{padding:8px 10px;border-bottom:1px solid var(--rule-soft);text-align:left}
+.eqcheck thead th{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500;background:none}
+.eqcheck td.n{text-align:right;font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+.eqcheck tr:last-child td,.eqcheck tr:last-child th{border-bottom:0}
+.mark-ok{color:var(--accent);font-weight:600}
+.mark-ok::before{content:"✔ "}
+.mark-no{color:var(--warn);font-weight:600}
+.mark-no::before{content:"✘ "}
+
+
+/* escenarios 6 a 8: planos, grafos y barras */
+.flow > svg.sv-mid{max-width:520px;margin:0 auto}
+.sv-arrow{fill:var(--muted)}
+svg.plane{width:240px;height:240px;flex:0 0 auto;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius-md)}
+.pl-grid{stroke:var(--rule-soft);stroke-width:1}
+.pl-axis{stroke:var(--rule-strong);stroke-width:1.2}
+.pl-orig{fill:none;stroke:var(--muted);stroke-width:1.3;stroke-dasharray:4 3}
+.pl-img{fill:var(--accent-soft);fill-opacity:.8;stroke:var(--accent);stroke-width:1.5}
+.pl-e1{stroke:var(--accent);stroke-width:2.6}
+.pl-e2{stroke:var(--warn);stroke-width:2.6}
+.pl-p1{fill:var(--accent)} .pl-p2{fill:var(--warn)}
+.pl-eig1{stroke:var(--book);stroke-width:2}
+.pl-eig2{stroke:var(--ink-2);stroke-width:2;stroke-dasharray:5 4}
+.plane-key{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--font-mono);font-size:12px;color:var(--muted);margin:0;max-width:none}
+.plane-key span::before{content:"";display:inline-block;width:18px;height:0;border-top:2.5px solid currentColor;vertical-align:middle;margin-right:6px}
+.plane-key .k0::before{border-top:1.5px dashed var(--muted)}
+.plane-key .k1::before{border-top-color:var(--accent)}
+.plane-key .k2::before{border-top-color:var(--warn)}
+.plane-key .k3::before{border-top-color:var(--book)}
+.plane-key .k4::before{border-top:2px dashed var(--ink-2)}
+.pr-bar{display:block;height:8px;min-width:70px;background:var(--rule-soft);border-radius:var(--radius-pill);overflow:hidden}
+.pr-bar i{display:block;height:100%;background:var(--accent);border-radius:var(--radius-pill)}
+
+/* mezclador de color */
+.mixrow{display:flex;gap:20px;align-items:stretch;flex-wrap:wrap;margin-top:20px}
+.swatch{width:150px;min-height:150px;flex:0 0 auto;border-radius:var(--radius-md);border:1px solid var(--rule-strong);background:#000}
+.mixinfo{flex:1;min-width:260px;display:flex;flex-direction:column;gap:12px}
+.mixeq{font-family:var(--font-mono);font-size:13px;line-height:1.6;color:var(--ink-2);background:var(--surface-2);
+  border:1px solid var(--rule-soft);border-radius:var(--radius-sm);padding:11px 13px;overflow-x:auto}
+.mixeq b{color:var(--ink)}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow">Razonamiento Cuantitativo · Unidades 1 a 4 · Apuntes, ejercicios resueltos y erratas</div>
+    <h1>Cuaderno de Razonamiento Cuantitativo</h1>
+    <p class="dek">El módulo no evalúa si sabes operar —eso lo traes de sobra— sino si sabes <strong>leer un número en su contexto, decir de qué tipo es, deducir el que no aparece y dejar escrito el proceso</strong> en el formato del Poli. Cada unidad suma una forma de pensamiento: numérico, algebraico con patrones, algebraico con comparaciones y geométrico.</p>
+    <div class="meta">
+      <span>Politécnico Grancolombiano · Grupo B06</span>
+      <span>Lecturas U1: Sandra Milena Rojas Tolosa</span>
+      <span>Cálculos verificados con Python</span>
+    </div>
+    <div class="progress" style="--total:4">
+      <div class="bar" aria-hidden="true"><i class="done"></i><i></i><i></i><i></i></div>
+      <span class="txt">1 de 4 unidades en el cuaderno · próxima: diagnóstica, sáb 24 – mar 27 oct</span>
+    </div>
+    <div class="tools"><button class="btn primary" id="reviewBtn" type="button">Modo repaso</button><button class="theme-btn" id="themeBtn" type="button">Tema: automático</button></div>
+  </header>
+
+
+<div class="tabs" role="tablist" aria-label="Unidades">
+    <button class="tab is-on" role="tab" id="tab-1" aria-controls="scene-1" aria-selected="true" data-scene="1" title="Pensamiento numérico"><span class="n">1</span><span class="tx"><span class="tnum">Unidad 1</span><span class="ttitle">Pensamiento numérico</span><span class="tmeta">LF 1 y LF 2 · 28 + 14 pp.</span></span></button>
+    <button class="tab" role="tab" id="tab-2" aria-controls="scene-2" aria-selected="false" data-scene="2" title="Patrones y expresiones algebraicas"><span class="n">2</span><span class="tx"><span class="tnum">Unidad 2</span><span class="ttitle">Patrones</span><span class="tmeta">Pendiente · foro de grupo</span></span></button>
+    <button class="tab" role="tab" id="tab-3" aria-controls="scene-3" aria-selected="false" data-scene="3" title="Ecuaciones e inecuaciones"><span class="n">3</span><span class="tx"><span class="tnum">Unidad 3</span><span class="ttitle">Comparaciones</span><span class="tmeta">Pendiente · cuestionario</span></span></button>
+    <button class="tab" role="tab" id="tab-4" aria-controls="scene-4" aria-selected="false" data-scene="4" title="Pensamiento geométrico"><span class="n">4</span><span class="tx"><span class="tnum">Unidad 4</span><span class="ttitle">Geometría</span><span class="tmeta">Pendiente · examen final</span></span></button>
+  </div>
+
+
+  <!-- ==================== UNIDAD 1 ==================== -->
+  <div class="scene" id="scene-1" role="tabpanel" aria-labelledby="tab-1">
+  <div class="cols">
+
+    <nav class="toc" aria-label="Contenido de la Unidad 1">
+      <span class="toc-h">En esta unidad</span>
+      <ol>
+        <li><a href="#u1-mapa"><span class="n">00</span> El hilo de la unidad</a></li>
+        <li><a href="#u1-identificar"><span class="n">01</span> Identificar información numérica</a></li>
+        <li><a href="#u1-conjuntos"><span class="n">02</span> Los conjuntos numéricos</a></li>
+        <li><a href="#u1-operaciones"><span class="n">03</span> Operar en cada conjunto</a></li>
+        <li><a href="#u1-propiedades"><span class="n">04</span> Propiedades de las operaciones</a></li>
+        <li><a href="#u1-plantilla"><span class="n">05</span> La plantilla de análisis cuantitativo</a></li>
+        <li><a href="#u1-esquema"><span class="n">06</span> El esquema de procesos</a></li>
+        <li><a href="#u1-potencias"><span class="n">07</span> Potencias, raíces y logaritmos</a></li>
+        <li><a href="#u1-jerarquia"><span class="n">08</span> Jerarquía de operaciones</a></li>
+        <li><a href="#u1-mental"><span class="n">09</span> Cálculo mental</a></li>
+        <li><a href="#u1-tipo"><span class="n">10</span> Preguntas tipo cuestionario</a></li>
+        <li><a href="#u1-repaso"><span class="n">11</span> Repaso y erratas</a></li>
+        <li><a href="#u1-profundizar"><span class="n">12</span> Para profundizar</a></li>
+      </ol>
+      <div class="toc-progress" aria-hidden="true"><i></i></div>
+    </nav>
+
+    <main>
+
+    <!-- ============ MAPA ============ -->
+    <section id="u1-mapa">
+      <h2><span class="num">00</span>El hilo de la unidad</h2>
+      <p class="sub">Las dos lecturas describen un solo procedimiento: ver un número en un texto, saber qué clase de número es, operarlo con el método correcto y contar el resultado en el contexto. La Unidad 1 lo practica con aritmética; la 2 y la 3 hacen lo mismo con álgebra.</p>
+      <div class="map">
+        <div class="step"><span class="k">Identificar</span><span class="v">¿Qué quiere informar el texto? ¿Qué números aparecen (explícitos) y cuáles se pueden deducir (implícitos)?</span></div>
+        <div class="step"><span class="k">Clasificar</span><span class="v">¿A qué conjunto pertenece cada número: \(\mathbb{N},\mathbb{Z},\mathbb{Q},\mathbb{I},\mathbb{R}\)?</span></div>
+        <div class="step"><span class="k">Relacionar</span><span class="v">Palabras clave → operación. Suma, resta, producto, cociente, porcentaje.</span></div>
+        <div class="step"><span class="k">Orden superior</span><span class="v">Potencias, raíces y logaritmos, con sus propiedades y la jerarquía de operaciones.</span></div>
+        <div class="step"><span class="k">Calcular rápido</span><span class="v">Estrategias de cálculo mental: descomponer, compensar, simplificar antes de multiplicar.</span></div>
+        <div class="step"><span class="k">Comunicar</span><span class="v">Dejar el proceso escrito en la plantilla y en el esquema Descripción | Desarrollo.</span></div>
+        <div class="step next"><span class="k">Unidad 2</span><span class="v">Pensamiento algebraico: patrones, del lenguaje verbal al matemático.</span></div>
+      </div>
+
+      <div class="note">
+        <span class="tag">Qué se califica en esta unidad</span>
+        <p><strong>Evaluación diagnóstica (10 puntos)</strong>, sábado 24 a martes 27 de octubre, 23:55. Además hay un <strong>foro formativo sin nota</strong> (semana 2) que pide dos imágenes: la plantilla de análisis cuantitativo diligenciada para uno de dos contextos (bolsas ecológicas o IPC de diciembre de 2022) y el esquema de procesos para una operación dada. Las secciones 05 y 06 de este cuaderno enseñan las dos herramientas con ejemplos <em>distintos</em> a los de la actividad, para que la hagas tú.</p>
+      </div>
+
+      <div class="book">
+        <span class="tag">Para reforzar: lectura complementaria</span>
+        <p>El Poli propone dos textos en e-Libro (biblioteca virtual):</p>
+        <div class="refs">
+          <span>IPN · Matemáticas 1 (Álgebra) · pp. 34–38</span>
+          <span>Stewart, Redlin y Watson · Precálculo, 6.ª ed. · pp. 31–34 y 39–52 de la plataforma</span>
+        </div>
+        <p style="margin-top:11px">El primero trae situaciones problema con números en contexto; el segundo, operaciones en los conjuntos numéricos, potencias y radicales con muchos ejercicios de práctica. Las páginas de Stewart son las del visor de e-Libro, no las impresas en el libro.</p>
+      </div>
+    </section>
+
+    <!-- ============ IDENTIFICAR ============ -->
+    <section id="u1-identificar">
+      <h2><span class="num">01</span>Identificar información numérica</h2>
+      <p class="sub">LF 1, sección 2.1. Es el primer paso de todo y el que el foro y el cuestionario califican: no se puede operar con un número que no se identificó bien.</p>
+
+      <p>La lectura parte de que las situaciones con números pueden ser <strong>genéricas</strong> (propias de la vida cotidiana y comunes a todas las profesiones: financieras, sociales, de oficios, de divulgación científica) o <strong>no genéricas</strong> (abstractas, propias de la matemática profesional). El módulo trabaja solo con las genéricas.</p>
+
+      <div class="def">
+        <span class="tag">Definición · los tres elementos que se registran</span>
+        <p><strong>Propósito:</strong> qué quiere informar el texto al público, en una frase.</p>
+        <p><strong>Información numérica explícita:</strong> números que aparecen escritos, en forma arábiga (<em>2</em>) o verbal (<em>dos</em>): datos estadísticos, porcentajes, fechas, cantidades, medidas.</p>
+        <p><strong>Información numérica implícita:</strong> datos cuantitativos que <em>no</em> están escritos pero se deducen del contexto con una operación. Ejemplo de la lectura: «paquetes al por mayor con 100 bolsas por $ 500.000» no dice cuánto cuesta una bolsa, pero se obtiene dividiendo.</p>
+      </div>
+
+      <p>Para «identificar» la lectura usa la idea de <em>observar</em> (Sánchez, 1995): fijar la atención en un objeto para reconocer sus características. Aquí el objeto es el número, y su característica principal es su <strong>significado en el contexto</strong>: 7000 no es «siete mil», es «toneladas de material orgánico desperdiciadas por día en Bogotá».</p>
+
+      <h3>El ejemplo de la lectura, completo y corregido</h3>
+      <p>La Figura 1 de la LF 1 es una infografía sobre el desperdicio de alimentos en Bogotá (2022), y la Tabla 1 la organiza. Así queda con las implícitas <strong>calculadas</strong> (la lectura las enuncia pero no las resuelve) y con dos correcciones de significado:</p>
+
+      <div class="tablewrap">
+        <table>
+          <caption>Tabla 1 de la LF 1 — propósito: informar sobre el desperdicio de alimentos en Bogotá y su impacto en la seguridad alimentaria</caption>
+          <thead><tr><th></th><th>Número</th><th>Significado en el contexto</th></tr></thead>
+          <tbody>
+            <tr><th rowspan="5">Explícita</th><td>7000</td><td><strong>Toneladas</strong> de material orgánico desperdiciado por día en Bogotá (la lectura omite la unidad).</td></tr>
+            <tr><td>37,5 %</td><td>Parte del desperdicio nacional que corresponde a Bogotá.</td></tr>
+            <tr><td>0,5</td><td>Kilogramos de comida que consume una persona al día.</td></tr>
+            <tr><td>27,28 millones · 54 %</td><td>Personas en inseguridad alimentaria en Colombia y su peso en la población.</td></tr>
+            <tr><td>14 millones · «mitad»</td><td>Personas que podrían alimentarse con lo que desperdicia Bogotá, que equivalen a <strong>casi la mitad de las 27,28 millones</strong> en inseguridad alimentaria. (La lectura escribe «mitad de 14 millones», que invierte la relación.)</td></tr>
+            <tr><th rowspan="3">Implícita</th><td>\(\approx 18\,667\)</td><td>Toneladas diarias desperdiciadas en todo el país: \(7000 \div 0{,}375\).</td></tr>
+            <tr><td>\(\approx 50{,}5\) millones</td><td>Habitantes de Colombia: \(27{,}28 \div 0{,}54\).</td></tr>
+            <tr><td>46 %</td><td>Población que <em>no</em> está en inseguridad alimentaria: \(100\,\% - 54\,\%\).</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="sub">Comprobación de coherencia de la propia infografía: 7 millones de kg \(\div\) 0,5 kg por persona \(=\) 14 millones de personas, y \(27{,}28/2 = 13{,}64 \approx 14\). Los números cuadran entre sí.</p>
+
+      <div class="note">
+        <span class="tag">La idea que hay que llevarse</span>
+        <p>Una implícita bien hecha tiene tres partes: <strong>qué dato se busca</strong>, <strong>de qué explícitas sale</strong> y <strong>qué operación las une</strong>. Si falta un dato que no está en el texto (por ejemplo, la tasa de cambio para pasar US$ 15 a pesos), la plantilla del Poli pide decir cuál es y de dónde se consultó.</p>
+      </div>
+
+      <div class="ex">
+        <div class="head"><span class="id">1.1</span><span class="q">«En una encuesta a 2400 hogares, el 35 % dijo que compra mercado en tiendas de barrio.» Clasifica cada número y propón una implícita.</span></div>
+        <div class="body">
+          <details class="answer"><summary>Ver respuesta</summary><p><strong>Explícitas:</strong> 2400 (hogares encuestados, natural) y 35 % (proporción de hogares que compra en tiendas de barrio, racional: \(35/100\)). <strong>Implícitas:</strong> hogares que compran en tiendas de barrio \(=0{,}35\times2400=840\); hogares que no lo hacen \(=2400-840=1560\) (o el 65 %).</p></details>
+        </div>
+      </div>
+
+      <div class="ex">
+        <div class="head"><span class="id">1.2</span><span class="q">«Un paquete de 50 bolsas reutilizables cuesta $ 180.000; la bolsa suelta, $ 4.500.» ¿Qué implícitas puedes construir?</span></div>
+        <div class="body">
+          <details class="answer"><summary>Ver respuesta</summary><p>Precio unitario en el paquete: \(180\,000\div50=\$\,3\,600\). Ahorro por comprar el paquete frente a 50 sueltas: \(50\times4500-180\,000=\$\,45\,000\). Ahorro por bolsa: \(4500-3600=\$\,900\), es decir, 20 % menos. Cada una con su operación escrita: eso es lo que el foro pide.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONJUNTOS ============ -->
+    <section id="u1-conjuntos">
+      <h2><span class="num">02</span>Los conjuntos numéricos</h2>
+      <p class="sub">LF 1, sección 2.2 y Tabla 2. En la plantilla del Poli hay una columna «Tipo» que pide justamente esto: el conjunto al que pertenece cada número.</p>
+
+      <div class="def">
+        <span class="tag">Definición · conjunto</span>
+        <p>Colección de objetos que comparten una característica. Se nombra con mayúscula y sus elementos se listan entre llaves \(\{\;\}\); los conjuntos numéricos tienen letras propias.</p>
+      </div>
+
+      <div class="tablewrap">
+        <table>
+          <caption>Los cinco conjuntos de la lectura, con su uso típico en contexto</caption>
+          <thead><tr><th>Conjunto</th><th>Qué contiene</th><th>Se usa para</th><th>Ejemplo en un texto</th></tr></thead>
+          <tbody>
+            <tr><th>Naturales \(\mathbb{N}\)</th><td>\(\{1,2,3,\dots\}\). Empieza en 1 y cada número tiene un sucesor.</td><td>Contar, cuantificar, ordenar (primero, segundo…).</td><td>11.000 padres encuestados; 7000 toneladas.</td></tr>
+            <tr><th>Enteros \(\mathbb{Z}\)</th><td>\(\{\dots,-2,-1,0,1,2,\dots\}\): naturales, sus opuestos y el 0.</td><td>Desplazamientos, temperaturas, ganancias y pérdidas, saldos.</td><td>Un saldo de \(-350\) mil pesos.</td></tr>
+            <tr><th>Racionales \(\mathbb{Q}\)</th><td>Todo lo que se escribe \(\tfrac{a}{b}\) con \(a,b\in\mathbb{Z}\), \(b\neq0\). En decimal: los <strong>finitos</strong> (12,5) <strong>y los periódicos</strong> (0,333…).</td><td>Parte-todo, cociente, razón, tasa, porcentaje, probabilidad.</td><td>61 %; 0,5 kg; \(-13{,}6\,\%\).</td></tr>
+            <tr><th>Irracionales \(\mathbb{I}\)</th><td>Decimales infinitos <strong>no</strong> periódicos: no admiten la forma \(\tfrac{a}{b}\).</td><td>Geometría, física, crecimiento continuo, diseño.</td><td>\(\pi\approx3{,}14159\), \(e\approx2{,}71828\), \(\varphi\approx1{,}61803\), \(\sqrt2\approx1{,}41421\).</td></tr>
+            <tr><th>Reales \(\mathbb{R}\)</th><td>Racionales e irracionales juntos: toda la recta numérica.</td><td>Cualquier medición.</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure class="fig" style="max-width:520px">
+        <svg viewBox="0 0 520 250" role="img" aria-label="Conjuntos numéricos anidados: N dentro de Z dentro de Q; Q e I forman R">
+          <rect x="8" y="8" width="504" height="234" rx="14" class="sv-node"/>
+          <text x="24" y="34" class="sv-t b">ℝ reales</text>
+          <rect x="24" y="48" width="330" height="180" rx="12" class="sv-out"/>
+          <text x="38" y="72" class="sv-t b">ℚ racionales</text>
+          <text x="38" y="92" class="sv-lab">½ · 0,75 · −3/7 · 0,333…</text>
+          <rect x="40" y="104" width="230" height="112" rx="10" class="sv-node"/>
+          <text x="54" y="126" class="sv-t b">ℤ enteros</text>
+          <text x="54" y="146" class="sv-lab">−5 · −1 · 0</text>
+          <rect x="140" y="132" width="116" height="72" rx="9" class="sv-crit"/>
+          <text x="154" y="156" class="sv-t b">ℕ naturales</text>
+          <text x="154" y="178" class="sv-lab">1 · 2 · 3 · …</text>
+          <rect x="368" y="48" width="130" height="180" rx="12" class="sv-dec"/>
+          <text x="382" y="72" class="sv-t b">𝕀 irracionales</text>
+          <text x="382" y="98" class="sv-lab">π</text>
+          <text x="382" y="118" class="sv-lab">e</text>
+          <text x="382" y="138" class="sv-lab">√2</text>
+          <text x="382" y="158" class="sv-lab">φ</text>
+        </svg>
+        <figcaption class="cap"><b>ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ · 𝕀 ⊂ ℝ</b> Racionales e irracionales no comparten ningún número: juntos forman los reales.</figcaption>
+      </figure>
+
+      <h3>Tres precisiones que la lectura deja borrosas</h3>
+      <ul>
+        <li><strong>Los decimales periódicos son racionales.</strong> La Tabla 2 dice que \(\mathbb{Q}\) son «las fracciones y los decimales finitos», pero \(0{,}333\ldots=\tfrac13\) y \(0{,}1818\ldots=\tfrac{18}{99}=\tfrac{2}{11}\) también lo son. Por eso la definición de irracional insiste en «no finitos <em>ni periódicos</em>».</li>
+        <li><strong>Un número pertenece a todos los conjuntos que lo contienen.</strong> 7 es natural, entero, racional y real. En la columna «Tipo» se escribe el conjunto <em>más pequeño</em>: \(\mathbb{N}\).</li>
+        <li><strong>El signo no decide el conjunto.</strong> La propia lectura lo advierte con \(-13{,}6\,\%\): es negativo pero no entero, es racional. Un porcentaje con decimales es siempre \(\mathbb{Q}\) (y un porcentaje entero, como 54 %, también se clasifica \(\mathbb{Q}\) porque significa \(54/100\)).</li>
+      </ul>
+
+      <div class="ex-pair">
+      <div class="ex">
+        <div class="head"><span class="id">2.1</span><span class="q">Clasifica: \(-12\), \(0{,}25\), \(\sqrt{16}\), \(\sqrt{5}\), \(2{,}\overline{3}\), \(\pi/2\).</span></div>
+        <div class="body">
+          <details class="answer"><summary>Ver respuesta</summary><p>\(-12\in\mathbb{Z}\); \(0{,}25=\tfrac14\in\mathbb{Q}\); \(\sqrt{16}=4\in\mathbb{N}\) (¡ojo, la raíz no la vuelve irracional!); \(\sqrt5\in\mathbb{I}\); \(2{,}333\ldots=\tfrac73\in\mathbb{Q}\); \(\pi/2\in\mathbb{I}\).</p></details>
+        </div>
+      </div>
+      <div class="ex">
+        <div class="head"><span class="id">2.2</span><span class="q">¿Qué conjunto pide cada dato? Número de contratos activos; variación del IPC; temperatura en Tunja a las 5 a. m.; lado de un cuadrado de área 2 m².</span></div>
+        <div class="body">
+          <details class="answer"><summary>Ver respuesta</summary><p>Contratos: \(\mathbb{N}\). Variación del IPC (p. ej. 13,12 %): \(\mathbb{Q}\). Temperatura: \(\mathbb{Z}\) si se reporta en grados enteros, \(\mathbb{Q}\) si con decimales. Lado: \(\sqrt2\) m, \(\mathbb{I}\) — el mismo número con el que Hipaso descubrió los irracionales.</p></details>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- ============ OPERACIONES ============ -->
+    <section id="u1-operaciones">
+      <h2><span class="num">03</span>Operar en cada conjunto</h2>
+      <p class="sub">LF 1, sección 3. Nada nuevo para ti en el cálculo; lo que vale es el vocabulario del Poli y las reglas que la lectura pone por escrito, porque el cuestionario las pregunta tal cual.</p>
+
+      <h3>De la palabra a la operación</h3>
+      <div class="tablewrap">
+        <table>
+          <caption>Palabras clave que la lectura asocia a cada operación</caption>
+          <thead><tr><th>Operación</th><th>Palabras que la anuncian</th></tr></thead>
+          <tbody>
+            <tr><th>Suma</th><td>más, adición, agregar, incrementar, aumentar, tanto más, añadir, abonar, recaudar</td></tr>
+            <tr><th>Resta</th><td>diferencia, menos, sustraer, disminuir, restante, quitar, reducir, saldo, déficit</td></tr>
+            <tr><th>Multiplicación</th><td>producto, veces, factor, doble, triple, amplificar</td></tr>
+            <tr><th>División</th><td>cociente, repartir, distribuir, fraccionar</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Por qué existen los conjuntos más grandes</h3>
+      <p>La lectura usa una idea que conviene tener clara para el cuestionario: <strong>una operación «no está definida» en un conjunto si su resultado puede salirse de él</strong>.</p>
+      <ul>
+        <li>En \(\mathbb{N}\), \(5-9\) no tiene resultado natural: por eso la resta no se considera operación en \(\mathbb{N}\), y por eso aparecen los enteros.</li>
+        <li>En \(\mathbb{N}\) y en \(\mathbb{Z}\), \(3\div15\) no da natural ni entero: por eso aparecen los racionales. La división es la operación inversa del producto: \(a\div b=c \iff a=b\cdot c\).</li>
+        <li>En \(\mathbb{Q}\) no hay un número cuyo cuadrado sea 2: por eso aparecen los irracionales.</li>
+      </ul>
+
+      <h3>Enteros: la regla de los signos</h3>
+      <div class="tablewrap">
+        <table>
+          <caption>Signos en \(\mathbb{Z}\) — con los ejemplos de la lectura, ya corregidos</caption>
+          <thead><tr><th>Caso</th><th>Regla</th><th>Ejemplos</th></tr></thead>
+          <tbody>
+            <tr><th>Suma, signos iguales</th><td>Se suman los valores y se conserva el signo.</td><td>\(-7+(-9)=-16\); \(-3+(-2)=-5\)</td></tr>
+            <tr><th>Suma, signos distintos</th><td>Se restan los valores y queda el signo del de mayor valor absoluto.</td><td>\(-7+9=2\); \(-3+2=-1\)</td></tr>
+            <tr><th>Producto o cociente, signos iguales</th><td>Resultado positivo.</td><td>\(-8\cdot(-7)=56\); \(-48\div(-8)=6\)</td></tr>
+            <tr><th>Producto o cociente, signos distintos</th><td>Resultado negativo.</td><td>\(-3\cdot5=-15\); \(8\cdot(-7)=-56\); \(-48\div6=\mathbf{-8}\)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="sub">La lectura escribe \(-48\div6=8\) (p. 13), justo en el ejemplo de la regla «signos distintos da negativo». Es errata.</p>
+
+      <h3>Fracciones: los cuatro procedimientos</h3>
+      <div class="stage">
+        <div class="sh"><span class="n">Suma y resta</span><span class="t">Homogéneas: mismo denominador, se operan los numeradores</span></div>
+        <div class="sb"><p>\(\dfrac14+\left(-\dfrac54\right)+\dfrac34=\dfrac{1-5+3}{4}=-\dfrac14\). Heterogéneas: mínimo común múltiplo, amplificar, sumar, simplificar. \(\dfrac{3}{10}+\dfrac{2}{15}=\dfrac{9}{30}+\dfrac{4}{30}=\dfrac{13}{30}\) (MCM de 10 y 15 = 30).</p></div>
+      </div>
+      <div class="stage">
+        <div class="sh"><span class="n">Multiplicación</span><span class="t">Numerador por numerador, denominador por denominador</span></div>
+        <div class="sb"><p>\(\dfrac67\cdot\left(-\dfrac29\right)=\dfrac{-12}{63}=-\dfrac{4}{21}\). En contexto significa «la parte de una cantidad»: las dos terceras partes de 1200 personas son \(\tfrac23\cdot1200=800\).</p></div>
+      </div>
+      <div class="stage">
+        <div class="sh"><span class="n">División</span><span class="t">Multiplicar por el recíproco del divisor</span></div>
+        <div class="sb"><p>\(\dfrac59\div\left(-\dfrac38\right)=\dfrac59\cdot\left(-\dfrac83\right)=-\dfrac{40}{27}\). Condición: \(b\neq0\), \(c\neq0\) <strong>y</strong> \(d\neq0\) (la lectura omite la última).</p></div>
+      </div>
+      <div class="stage">
+        <div class="sh"><span class="n">Signo</span><span class="t">El menos es de toda la fracción</span></div>
+        <div class="sb"><p>\(-\dfrac{a}{b}=\dfrac{-a}{b}=\dfrac{a}{-b}\). Para operar, se le asigna al numerador.</p></div>
+      </div>
+
+      <h3>Decimales y porcentajes</h3>
+      <p>Producto de decimales: se multiplica como si fueran enteros y al final se corre la coma tantos lugares como decimales sumen los factores: \(213{,}123\times12{,}5=2664{,}0375\) (3 + 1 = 4 decimales). Un porcentaje es una fracción sobre 100 y un decimal a la vez: el 5 % de 25.600 es \(\tfrac{5}{100}\cdot25\,600=0{,}05\cdot25\,600=1280\).</p>
+
+      <div class="ex-pair">
+      <div class="ex">
+        <div class="head"><span class="id">3.1</span><span class="q">Calcula: \(\dfrac25+\dfrac34\) y \(\dfrac{7}{12}-\dfrac58\).</span></div>
+        <div class="body">
+          <details class="answer"><summary>Ver respuesta</summary><p>MCM(5, 4) = 20: \(\tfrac{8}{20}+\tfrac{15}{20}=\tfrac{23}{20}\). MCM(12, 8) = 24: \(\tfrac{14}{24}-\tfrac{15}{24}=-\tfrac{1}{24}\).</p></details>
+        </div>
+      </div>
+      <div class="ex">
+        <div class="head"><span class="id">3.2</span><span class="q">Calcula: \(\left(-\dfrac34\right)\cdot\dfrac89\) y \(\dfrac56\div\dfrac{10}{9}\).</span></div>
+        <div class="body">
+          <details class="answer"><summary>Ver respuesta</summary><p>Simplificando en cruz: \(-\tfrac{3\cdot8}{4\cdot9}=-\tfrac{1\cdot2}{1\cdot3}=-\tfrac23\). Y \(\tfrac56\cdot\tfrac{9}{10}=\tfrac{45}{60}=\tfrac34\).</p></details>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- ============ PROPIEDADES ============ -->
+    <section id="u1-propiedades">
+      <h2><span class="num">04</span>Propiedades de las operaciones</h2>
+      <p class="sub">LF 1, Tabla 3 (pp. 19–20). La tabla de la lectura tiene errores; abajo va corregida y con la propiedad que le falta, la clausura, que es la que de verdad distingue un conjunto de otro.</p>
+
+      <div class="def">
+        <span class="tag">Definiciones · con \(\otimes\) = suma o producto</span>
+        <p><strong>Clausura:</strong> operar dos elementos del conjunto da un elemento del conjunto. <strong>Conmutativa:</strong> \(a\otimes b=b\otimes a\). <strong>Asociativa:</strong> \((a\otimes b)\otimes c=a\otimes(b\otimes c)\). <strong>Neutro:</strong> existe \(e\) <em>en el conjunto</em> con \(a\otimes e=a\) (0 para la suma, 1 para el producto). <strong>Inverso:</strong> para cada \(a\) existe \(a'\) <em>en el conjunto</em> con \(a\otimes a'=e\): el opuesto \(-a\) para la suma, el recíproco \(\tfrac1a\) para el producto (si \(a\neq0\)). <strong>Distributiva:</strong> \(a(b+c)=ab+ac\).</p>
+      </div>
+
+      <div class="tablewrap">
+        <table>
+          <caption>Tabla 3 corregida — suma (+) y producto (·) en cada conjunto</caption>
+          <thead><tr><th>Propiedad</th><th>ℕ +</th><th>ℕ ·</th><th>ℤ +</th><th>ℤ ·</th><th>ℚ +</th><th>ℚ ·</th><th>𝕀 +</th><th>𝕀 ·</th><th>ℝ +</th><th>ℝ ·</th></tr></thead>
+          <tbody>
+            <tr><th>Clausura</th><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td><td class="no">✘</td><td class="no">✘</td><td class="yes">✔</td><td class="yes">✔</td></tr>
+            <tr><th>Conmutativa</th><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td></tr>
+            <tr><th>Asociativa</th><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td></tr>
+            <tr><th>Neutro</th><td class="no">✘</td><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td><td class="yes">✔</td><td class="no">✘</td><td class="no">✘</td><td class="yes">✔</td><td class="yes">✔</td></tr>
+            <tr><th>Inverso</th><td class="no">✘</td><td class="no">✘</td><td class="yes">✔</td><td class="no">✘</td><td class="yes">✔</td><td class="yes">✔*</td><td class="no">✘</td><td class="no">✘</td><td class="yes">✔</td><td class="yes">✔*</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="sub">* Todos menos el 0, que no tiene recíproco. Las tres diferencias con la tabla de la lectura: (1) con \(\mathbb{N}=\{1,2,3,\dots\}\), como lo define la propia LF 1, el 0 no es natural, así que no hay neutro de la suma en \(\mathbb{N}\); (2) 0 y 1 no son irracionales, así que \(\mathbb{I}\) no tiene neutros ni, en consecuencia, inversos; (3) la lectura no incluye la clausura: \(\sqrt2+(-\sqrt2)=0\) y \(\sqrt2\cdot\sqrt2=2\) muestran que \(\mathbb{I}\) no es cerrado. En \(\mathbb{I}\) conmutatividad y asociatividad se cumplen solo porque son reales.</p>
+
+      <div class="note">
+        <span class="tag">Para el cuestionario</span>
+        <p>Si te preguntan «¿en qué conjunto la suma tiene inverso pero el producto no?», la respuesta es \(\mathbb{Z}\): \(-3\) tiene opuesto 3, pero el recíproco de 3, \(\tfrac13\), no es entero. Y si la pregunta sigue la tabla del Poli literalmente, ten presente que su versión marca neutro e inverso en los irracionales: responde con la definición en la mano y, si hay espacio para justificar, justifica.</p>
+      </div>
+    </section>
+
+    <!-- ============ PLANTILLA ============ -->
+    <section id="u1-plantilla">
+      <h2><span class="num">05</span>La plantilla de análisis cuantitativo</h2>
+      <p class="sub">LF 1, Tabla 4, y Tabla 1 del material de trabajo de la U1. Es la herramienta del foro formativo y se repite en la Unidad 3. Aquí se aplica a un contexto de práctica, distinto a los dos de la actividad.</p>
+
+      <div class="tablewrap">
+        <table>
+          <caption>Qué va en cada casilla de la plantilla</caption>
+          <thead><tr><th>Bloque</th><th>Columna</th><th>Qué se escribe</th></tr></thead>
+          <tbody>
+            <tr><th>Encabezado</th><td>Contexto · Propósito</td><td>El texto, gráfico o infografía copiado, y en una frase qué quiere informar.</td></tr>
+            <tr><th rowspan="3">Información explícita</th><td>Número</td><td>Tal como aparece (arábigo o verbal).</td></tr>
+            <tr><td>Tipo</td><td>El conjunto numérico al que pertenece.</td></tr>
+            <tr><td>Significado</td><td>Qué representa en el contexto.</td></tr>
+            <tr><th rowspan="2">Información implícita</th><td>Situación</td><td>Qué dato se obtiene, de qué explícitas sale y, si hace falta un dato externo, cuál.</td></tr>
+            <tr><td>Proceso aritmético</td><td>Pasos con viñetas: representar, operar, simplificar e <strong>interpretar</strong> el resultado.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="sub">Mínimo exigido en el foro: <strong>tres explícitas y dos implícitas</strong>. Ojo: en el material de trabajo el segundo bloque quedó rotulado «Información explícita»; es la implícita.</p>
+
+      <h3>Ejemplo completo con un contexto de práctica</h3>
+      <div class="book">
+        <span class="tag">Contexto de práctica (cifras ilustrativas)</span>
+        <p>«Una entidad pública firmó un contrato de aseo y cafetería por <strong>$ 2.400 millones</strong> con un plazo de <strong>diez meses</strong> y pagos mensuales iguales. Al cierre de julio se habían tramitado <strong>seis</strong> pagos. La supervisión estudia una adición del <strong>20 %</strong> para cubrir dos sedes nuevas.»</p>
+        <p style="margin-top:8px"><strong>Propósito:</strong> informar el estado de ejecución financiera del contrato y el alcance de la adición en estudio.</p>
+      </div>
+
+      <div class="tablewrap">
+        <table>
+          <caption>Información explícita</caption>
+          <thead><tr><th>Número</th><th>Tipo</th><th>Significado</th></tr></thead>
+          <tbody>
+            <tr><td>2.400 millones</td><td>\(\mathbb{N}\)</td><td>Valor total del contrato, en pesos.</td></tr>
+            <tr><td>diez</td><td>\(\mathbb{N}\)</td><td>Plazo de ejecución, en meses (aparece en forma verbal).</td></tr>
+            <tr><td>seis</td><td>\(\mathbb{N}\)</td><td>Pagos tramitados al cierre de julio.</td></tr>
+            <tr><td>20 %</td><td>\(\mathbb{Q}\)</td><td>Proporción del valor inicial que se adicionaría.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tablewrap">
+        <table>
+          <caption>Información implícita</caption>
+          <thead><tr><th>Situación</th><th>Proceso aritmético para hallarla</th></tr></thead>
+          <tbody>
+            <tr><td>Valor de cada pago mensual, a partir del valor total y el plazo.</td><td>• Pagos iguales: se reparte el total entre los meses.<br>• \(2\,400\,000\,000\div10=240\,000\,000\).<br>• Cada pago es de <strong>$ 240 millones</strong>.</td></tr>
+            <tr><td>Saldo por pagar y porcentaje ejecutado, a partir del pago mensual y los seis pagos.</td><td>• Pagado: \(6\times240=1440\) millones.<br>• Saldo: \(2400-1440=960\) millones.<br>• Ejecutado: \(\tfrac{6}{10}=0{,}6=60\,\%\).<br>• Quedan <strong>$ 960 millones</strong> por pagar; va en el 60 %.</td></tr>
+            <tr><td>Valor de la adición y nuevo valor del contrato.</td><td>• \(20\,\%=\tfrac{20}{100}\).<br>• \(\tfrac{20}{100}\cdot2400=480\) millones.<br>• Nuevo valor: \(2400+480=2880\) millones.<br>• La adición equivale a <strong>dos pagos mensuales</strong> (\(480\div240=2\)).</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note">
+        <span class="tag">Lo que se pierde por forma</span>
+        <p>La interpretación final («quedan $ 960 millones por pagar») es parte del proceso, no un adorno: la LF 1 la escribe como último paso en todos sus ejemplos. Y en «Tipo», cantidades de dinero en pesos enteros son \(\mathbb{N}\), pero si el texto dice «4,83 billones» el número escrito es \(\mathbb{Q}\).</p>
+      </div>
+
+      <h3>El segundo ejemplo de la lectura, corregido</h3>
+      <p>En el Contexto 2 de la Tabla 4 (gasto de los hogares en moda, Indexmoda 2022), la lectura comete dos errores de interpretación que vale la pena ver, porque son exactamente los que el foro castiga:</p>
+      <ul>
+        <li><strong>+21 % es frente a 2020, no frente a 2019.</strong> El propio gráfico lo dice («Frente a 2020: +21 %; frente a 2019: +4,8 %») y los datos lo confirman: \(27{,}69/22{,}84=1{,}212\) y \(27{,}69/26{,}42=1{,}048\).</li>
+        <li><strong>Son gastos de los hogares, no ingresos.</strong> La diferencia \(4{,}83-4{,}50=0{,}33\) billones es cuánto <em>más gastaron</em> los hogares en enero-febrero de 2022 que en 2021 (+7,3 %), no «ingresos recibidos».</li>
+      </ul>
+      <p class="sub">Los demás datos del gráfico sí cuadran: \(-13{,}6\,\%\) de 2019 a 2020 (\(22{,}84/26{,}42-1\)) y +6,4 % de 2018 a 2019. Y $ 0,33 billones \(=0{,}33\times10^{12}=\$\,330\,000\,000\,000\).</p>
+    </section>
+
+    <!-- ============ ESQUEMA ============ -->
+    <section id="u1-esquema">
+      <h2><span class="num">06</span>El esquema de procesos</h2>
+      <p class="sub">Figura 1 del material de trabajo (y Figuras 9 a 11 de la LF 1). Es la segunda imagen del foro: una operación resuelta en dos columnas, un cajón por paso.</p>
+
+      <div class="def">
+        <span class="tag">Formato · Descripción | Desarrollo</span>
+        <p>Arriba, la operación. A la izquierda, en cada cajón, <strong>qué se hace</strong> en ese paso; a la derecha, <strong>la expresión resultante</strong>. Se usan tantos cajones como pasos, uno por cada operación de la jerarquía. El material sugiere escribir la matemática con el editor de ecuaciones de Word y guardar el esquema como imagen limpia.</p>
+      </div>
+
+      <h3>Ejemplo resuelto (del mismo tipo que la actividad, con otros números)</h3>
+      <div class="eq">\[ \frac13\left(5^2+(-7)\right)+\left(\frac23\right)^2\left(-\frac94\right)\left(-2+36\div4+1\right) \]</div>
+
+      <div class="tablewrap">
+        <table>
+          <caption>Esquema de procesos</caption>
+          <thead><tr><th>Descripción</th><th>Desarrollo</th></tr></thead>
+          <tbody>
+            <tr><td>Dentro del primer paréntesis, resolver la potencia: \(5^2=25\).</td><td>\(\tfrac13\left(25+(-7)\right)+\left(\tfrac23\right)^2\left(-\tfrac94\right)\left(-2+36\div4+1\right)\)</td></tr>
+            <tr><td>Dentro del último paréntesis, resolver la división: \(36\div4=9\).</td><td>\(\tfrac13\left(25+(-7)\right)+\left(\tfrac23\right)^2\left(-\tfrac94\right)\left(-2+9+1\right)\)</td></tr>
+            <tr><td>Resolver las sumas de ambos paréntesis: \(25-7=18\); \(-2+9+1=8\).</td><td>\(\tfrac13(18)+\left(\tfrac23\right)^2\left(-\tfrac94\right)(8)\)</td></tr>
+            <tr><td>Resolver la potencia de la fracción: \(\left(\tfrac23\right)^2=\tfrac49\).</td><td>\(\tfrac13(18)+\tfrac49\left(-\tfrac94\right)(8)\)</td></tr>
+            <tr><td>Multiplicaciones de izquierda a derecha: \(\tfrac{18}{3}=6\); \(\tfrac49\cdot\left(-\tfrac94\right)=-1\); \(-1\cdot8=-8\).</td><td>\(6+(-8)\)</td></tr>
+            <tr><td>Resolver la suma de enteros con signos distintos.</td><td>\(-2\)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ex">
+        <div class="head"><span class="id">6.1</span><span class="q">Arma el esquema para \(\;2+3\,(8-5)^2\;\) y para \(\;48\div2\,(9+3)\). ¿Por qué el segundo da 288 y no 2?</span></div>
+        <div class="body">
+          <details class="answer"><summary>Ver respuesta</summary><p>Primero: paréntesis \(8-5=3\); potencia \(3^2=9\); producto \(3\cdot9=27\); suma \(2+27=29\). Segundo: paréntesis \(9+3=12\); queda \(48\div2\cdot12\), y división y multiplicación van <strong>de izquierda a derecha</strong>: \(24\cdot12=288\). Daría 2 solo si estuviera escrito \(48\div\left(2\,(9+3)\right)\). Es la trampa clásica de los cuestionarios.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ POTENCIAS ============ -->
+    <section id="u1-potencias">
+      <h2><span class="num">07</span>Potencias, raíces y logaritmos</h2>
+      <p class="sub">LF 2, sección 2. Tres caras de una misma relación \(a^b=c\): la potenciación da \(c\), la radicación recupera la base \(a\), la logaritmación recupera el exponente \(b\).</p>
+
+      <div class="def">
+        <span class="tag">Definición · potencia</span>
+        <p>Multiplicación reiterada: \(a^b=\underbrace{a\cdot a\cdots a}_{b\text{ veces}}\), con \(a\) la <strong>base</strong>, \(b\) el <strong>exponente</strong> y \(c\) la <strong>potencia</strong>. Ejemplo de la lectura: \(7^{10}=282\,475\,249\). El error que la lectura destaca: \(9^4\) no es \(9\cdot4=36\) sino \(9\cdot9\cdot9\cdot9=6561\).</p>
+      </div>
+
+      <div class="tablewrap">
+        <table>
+          <caption>Tabla 1 de la LF 2, corregida</caption>
+          <thead><tr><th>Potenciación</th><th>Radicación</th><th>Logaritmación</th></tr></thead>
+          <tbody>
+            <tr><td>\(a^b=c\): calcula la potencia</td><td>\(\sqrt[b]{c}=a\): calcula la base</td><td>\(\log_a c=b\): calcula el exponente</td></tr>
+            <tr><td>\(4^3=64\)</td><td>\(\sqrt[3]{64}=4\)</td><td>\(\log_4 64=3\)</td></tr>
+            <tr><td>\(5^4=625\)</td><td>\(\sqrt[4]{625}=5\)</td><td>\(\log_5 625=4\)</td></tr>
+            <tr><td>\((-5)^4=625\)</td><td>\(\sqrt[4]{625}=5\), <strong>no</strong> \(-5\)</td><td>\(\log_{-5}\) <strong>no existe</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="sub">La lectura escribe \(\sqrt[4]{625}=-5\) y \(\log_{-5}625=4\). La raíz de índice par de un positivo se define como el valor positivo (la raíz principal), y la base de un logaritmo debe ser positiva y distinta de 1. Que \((-5)^4=625\) sea cierto no hace inversas esas dos expresiones.</p>
+
+      <h3>El signo de una base negativa</h3>
+      <p>La LF 2 lo plantea como pregunta para reflexionar: \((-4)^5=-1024\) pero \(\left(-\tfrac37\right)^6=\tfrac{729}{117\,649}\). Respuesta: cada par de factores negativos da positivo, así que <strong>exponente par → positivo, exponente impar → negativo</strong>. Y cuidado con los paréntesis: \((-2)^4=16\), pero \(-2^4=-(2^4)=-16\), porque la potencia se resuelve antes que el signo.</p>
+
+      <h3>Propiedades (Tabla 2 de la LF 2)</h3>
+      <div class="tablewrap">
+        <table>
+          <caption>Propiedades con su condición y un ejemplo verificado</caption>
+          <thead><tr><th>Potenciación</th><th>Radicación</th><th>Logaritmación (\(a>0,\ a\neq1\); \(c,d>0\))</th></tr></thead>
+          <tbody>
+            <tr><td>\(a^0=1\) si \(a\neq0\)<br>\(1\,234\,123^0=1\)</td><td>\(\sqrt[b]{cd}=\sqrt[b]{c}\,\sqrt[b]{d}\)</td><td>\(\log_a a=1\)<br>\(\log_e e=1\)</td></tr>
+            <tr><td>\(a^n a^m=a^{n+m}\)<br>\(2^3\cdot2^7=2^{10}\)</td><td>\(\sqrt[b]{c/d}=\sqrt[b]{c}/\sqrt[b]{d}\)<br>\(\sqrt[3]{64/27}=4/3\)</td><td>\(\log_a 1=0\)<br>\(\log_\pi 1=0\)</td></tr>
+            <tr><td>\(a^n/a^m=a^{n-m}\)<br>\(2^7/2^3=2^4\)</td><td>\(\sqrt[n]{\sqrt[m]{d}}=\sqrt[nm]{d}\)<br>\(\sqrt{\sqrt{625}}=\sqrt[4]{625}=5\)</td><td>\(\log_a(cd)=\log_a c+\log_a d\)<br>\(\log_6(36\cdot216)=2+3=5\)</td></tr>
+            <tr><td>\((a^n)^m=a^{nm}\)<br>\((2^3)^7=2^{21}\)</td><td>\(\sqrt[b]{c^n}=c^{n/b}\)<br>\(\sqrt[3]{7^6}=7^2=49\)</td><td>\(\log_a(c/d)=\log_a c-\log_a d\)<br>\(\log_7\tfrac{49}{16\,807}=2-5=-3\)</td></tr>
+            <tr><td>\((a/d)^n=a^n/d^n\)<br>\((3/7)^5=3^5/7^5\)</td><td>\(p\sqrt[b]{c}+q\sqrt[b]{c}=(p+q)\sqrt[b]{c}\)<br>\(-5\sqrt[5]{3}-8\sqrt[5]{3}=-13\sqrt[5]{3}\)</td><td>\(\log_a c^n=n\log_a c\)<br>\(\log_8 64^3=3\cdot2=6\)</td></tr>
+            <tr><td>\(a^{-b}=1/a^b\)<br>\((a/d)^{-n}=(d/a)^n\)<br>\((3/4)^{-5}=4^5/3^5=\tfrac{1024}{243}\)</td><td>—</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="sub">La lectura advierte que estas propiedades solo valen para productos y cocientes; por eso \((a+b)^2\neq a^2+b^2\) y \(\sqrt{a+b}\neq\sqrt a+\sqrt b\). La suma de radicales solo se agrupa si tienen el mismo índice y el mismo radicando.</p>
+
+      <div class="ex-pair">
+      <div class="ex">
+        <div class="head"><span class="id">7.1</span><span class="q">Calcula sin calculadora: \(8^{2/3}\), \(27^{-1/3}\), \(\left(\tfrac12\right)^{-3}\).</span></div>
+        <div class="body">
+          <details class="answer"><summary>Ver respuesta</summary><p>\(8^{2/3}=(\sqrt[3]{8})^2=2^2=4\). \(27^{-1/3}=\tfrac{1}{\sqrt[3]{27}}=\tfrac13\). \(\left(\tfrac12\right)^{-3}=2^3=8\).</p></details>
+        </div>
+      </div>
+      <div class="ex">
+        <div class="head"><span class="id">7.2</span><span class="q">Calcula: \(\log_2 32\), \(\log_{10}0{,}001\), \(\log_3 81\). Simplifica \(\sqrt{50}+3\sqrt2\).</span></div>
+        <div class="body">
+          <details class="answer"><summary>Ver respuesta</summary><p>\(\log_2 32=5\) (\(2^5=32\)); \(\log_{10}0{,}001=-3\) (\(10^{-3}\)); \(\log_3 81=4\). Y \(\sqrt{50}=\sqrt{25\cdot2}=5\sqrt2\), así que \(5\sqrt2+3\sqrt2=8\sqrt2\).</p></details>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- ============ JERARQUÍA ============ -->
+    <section id="u1-jerarquia">
+      <h2><span class="num">08</span>Jerarquía de operaciones</h2>
+      <p class="sub">LF 2, sección 2.2. Las reglas existen para que una expresión tenga un único resultado, sin importar quién la lea.</p>
+
+      <div class="stage"><div class="sh"><span class="n">1</span><span class="t">Paréntesis (de adentro hacia afuera)</span></div></div>
+      <div class="stage"><div class="sh"><span class="n">2</span><span class="t">Potencias y raíces</span></div></div>
+      <div class="stage"><div class="sh"><span class="n">3</span><span class="t">Multiplicaciones y divisiones, de izquierda a derecha</span></div></div>
+      <div class="stage"><div class="sh"><span class="n">4</span><span class="t">Sumas y restas, también de izquierda a derecha</span></div><div class="sb"><p>La lectura no dice «de izquierda a derecha» en este último paso; importa en casos como \(10-4+3=9\), no \(3\).</p></div></div>
+
+      <p>Ejemplo sin paréntesis (Figura 2): \(\sqrt{49}+3^2-30\div6+9\times10=7+9-5+90=101\).</p>
+      <p>Ejemplo con paréntesis (Figura 3):</p>
+      <div class="eq">\[ -\frac38\times\frac43\div\left(\frac72+(-4)\right)+\left(-\frac53-\frac43\right)\times\left(-\frac23\right)=-\frac38\times\frac43\div\left(-\frac12\right)+(-3)\times\left(-\frac23\right)=1+2=3 \]</div>
+      <p class="sub">La Figura 3 resuelve primero \(\tfrac43\div\left(-\tfrac12\right)\) y luego multiplica por \(-\tfrac38\), al revés del «izquierda a derecha» que acaba de enunciar. Aquí da igual (dividir es multiplicar por el recíproco, y el producto es asociativo), pero en un cuestionario sigue la regla literal.</p>
+
+      <div class="ex">
+        <div class="head"><span class="id">8.1</span><span class="q">Resuelve: \(18-6\div3\times2+4^2\).</span></div>
+        <div class="body">
+          <details class="answer"><summary>Ver respuesta</summary><p>Potencia: \(4^2=16\). Izquierda a derecha: \(6\div3=2\), \(2\times2=4\). Queda \(18-4+16=30\).</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CÁLCULO MENTAL ============ -->
+    <section id="u1-mental">
+      <h2><span class="num">09</span>Cálculo mental</h2>
+      <p class="sub">LF 2, sección 3. En los cuestionarios del Poli no siempre hay tiempo para la calculadora; estas estrategias se apoyan en las propiedades de la sección 04.</p>
+
+      <div class="tablewrap">
+        <table>
+          <caption>Estrategias de la lectura, con sus ejemplos</caption>
+          <thead><tr><th>Estrategia</th><th>Ejemplo</th><th>Propiedad que la sostiene</th></tr></thead>
+          <tbody>
+            <tr><th>Descomponer en decenas (suma)</th><td>\(125+39=100+(20+30)+(5+9)=164\)</td><td>Conmutativa y asociativa</td></tr>
+            <tr><th>Descomponer el sustraendo</th><td>\(67-31=(67-30)-1=36\)</td><td>Resta como suma del opuesto</td></tr>
+            <tr><th>Descomponer un factor</th><td>\(27\times15=20\times15+7\times15=300+105=405\)</td><td>Distributiva</td></tr>
+            <tr><th>Entero menos fracción</th><td>\(9-\tfrac14=\tfrac{36}{4}-\tfrac14=\tfrac{35}{4}\)</td><td>Amplificar</td></tr>
+            <tr><th>Fracción por entero</th><td>\(\tfrac34\times7=\tfrac{21}{4}\)</td><td>El entero va al numerador</td></tr>
+            <tr><th>Simplificar en cruz</th><td>\(\tfrac54\times\tfrac{16}{15}=\tfrac{1}{1}\times\tfrac43=\tfrac43\)</td><td>Asociativa del producto</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Cuatro más que te van a servir (no están en la lectura)</h3>
+      <ul>
+        <li><strong>Compensar:</strong> \(99\times37=100\times37-37=3663\); \(198+347=200+347-2=545\).</li>
+        <li><strong>Multiplicar por 5 o por 25:</strong> \(\times5=\times10\div2\) (\(36\times5=180\)); \(\times25=\times100\div4\) (\(48\times25=1200\)).</li>
+        <li><strong>Porcentajes por partes:</strong> 15 % = 10 % + 5 %. El 15 % de 840 es \(84+42=126\).</li>
+        <li><strong>Puntos porcentuales vs porcentaje:</strong> si una tasa pasa de 10,7 % a 13,1 %, subió 2,4 <em>puntos porcentuales</em>, que es un aumento del 22,4 % <em>sobre</em> la tasa inicial. Las preguntas tipo Saber Pro viven de esa confusión.</li>
+      </ul>
+    </section>
+
+    <!-- ============ TIPO CUESTIONARIO ============ -->
+    <section id="u1-tipo">
+      <h2><span class="num">10</span>Preguntas tipo cuestionario</h2>
+      <p class="sub">En el estilo de la diagnóstica y de las pruebas de razonamiento cuantitativo: una situación corta, opciones cercanas entre sí, y la justificación que convierte un acierto en aprendizaje.</p>
+
+      <div class="ex">
+        <div class="head"><span class="id">10.1</span><span class="q">Un producto de $ 120.000 sube 13,12 % en diciembre y en enero baja 13,12 %. ¿Cuánto cuesta al final? (A) $ 120.000 (B) $ 117.934 (C) $ 122.066 (D) $ 135.744</span></div>
+        <div class="body">
+          <details class="answer"><summary>Ver respuesta</summary><p><strong>(B).</strong> \(120\,000\times1{,}1312=135\,744\); \(135\,744\times(1-0{,}1312)=117\,934{,}39\). Subir y bajar el mismo porcentaje no devuelve al inicio porque el segundo porcentaje se aplica sobre una base mayor. (D) es la trampa de detenerse en el primer paso.</p></details>
+        </div>
+      </div>
+
+      <div class="ex">
+        <div class="head"><span class="id">10.2</span><span class="q">¿Cuál afirmación es falsa? (A) Todo entero es racional. (B) \(\sqrt{9}\) es irracional. (C) \(0{,}\overline{6}\) es racional. (D) \(\pi\) no puede escribirse como fracción de enteros.</span></div>
+        <div class="body">
+          <details class="answer"><summary>Ver respuesta</summary><p><strong>(B).</strong> \(\sqrt9=3\), un natural. (C) es \(\tfrac23\).</p></details>
+        </div>
+      </div>
+
+      <div class="ex">
+        <div class="head"><span class="id">10.3</span><span class="q">\((-3)^4-3^4\) es igual a: (A) 0 (B) −162 (C) 162 (D) −81</span></div>
+        <div class="body">
+          <details class="answer"><summary>Ver respuesta</summary><p><strong>(A).</strong> \((-3)^4=81\) (exponente par) y \(3^4=81\). Si la expresión fuera \(-3^4-3^4\), daría \(-162\): por eso importan los paréntesis.</p></details>
+        </div>
+      </div>
+
+      <div class="ex">
+        <div class="head"><span class="id">10.4</span><span class="q">En un municipio, 3/8 de los hogares tiene internet fijo. Si son 6400 hogares, ¿cuántos no tienen? (A) 2400 (B) 4000 (C) 3200 (D) 5600</span></div>
+        <div class="body">
+          <details class="answer"><summary>Ver respuesta</summary><p><strong>(B).</strong> Con internet: \(\tfrac38\cdot6400=2400\). Sin internet: \(6400-2400=4000\), o directamente \(\tfrac58\cdot6400\). (A) responde la pregunta contraria.</p></details>
+        </div>
+      </div>
+
+      <div class="ex">
+        <div class="head"><span class="id">10.5</span><span class="q">¿En qué conjunto la resta siempre es posible pero la división no? (A) \(\mathbb{N}\) (B) \(\mathbb{Z}\) (C) \(\mathbb{Q}\) (D) \(\mathbb{R}\)</span></div>
+        <div class="body">
+          <details class="answer"><summary>Ver respuesta</summary><p><strong>(B).</strong> En \(\mathbb{Z}\) toda resta da entero, pero \(3\div15\) no. En \(\mathbb{Q}\) y \(\mathbb{R}\) la división es posible (salvo entre 0); en \(\mathbb{N}\) ni la resta.</p></details>
+        </div>
+      </div>
+
+      <div class="ex">
+        <div class="head"><span class="id">10.6</span><span class="q">\(\log_2 8+\log_2 4\) es igual a: (A) \(\log_2 12\) (B) 5 (C) 6 (D) 32</span></div>
+        <div class="body">
+          <details class="answer"><summary>Ver respuesta</summary><p><strong>(B).</strong> \(3+2=5\), o bien \(\log_2(8\cdot4)=\log_2 32=5\). (A) confunde la suma de logaritmos con el logaritmo de una suma.</p></details>
+        </div>
+      </div>
+
+      <div class="ex">
+        <div class="head"><span class="id">10.7</span><span class="q">La tasa de desempleo pasó de 10 % a 12 %. ¿Qué es correcto? (A) Subió 2 %. (B) Subió 2 puntos porcentuales, un aumento del 20 %. (C) Subió 20 puntos porcentuales. (D) Subió 12 %.</span></div>
+        <div class="body">
+          <details class="answer"><summary>Ver respuesta</summary><p><strong>(B).</strong> \(12-10=2\) puntos porcentuales; \(2/10=20\,\%\) de aumento relativo.</p></details>
+        </div>
+      </div>
+
+      <div class="ex">
+        <div class="head"><span class="id">10.8</span><span class="q">«En Mercado Libre se consiguen paquetes con 100 bolsas por $ 500.000.» El dato implícito más directo es: (A) 100 bolsas (B) $ 5.000 por bolsa (C) $ 500.000 (D) $ 50.000 por bolsa</span></div>
+        <div class="body">
+          <details class="answer"><summary>Ver respuesta</summary><p><strong>(B).</strong> \(500\,000\div100=5000\). (A) y (C) son explícitos: aparecen escritos. Este es el ejemplo con el que la LF 1 define la información implícita.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ REPASO ============ -->
+    <section id="u1-repaso">
+      <h2><span class="num">11</span>Repaso y erratas</h2>
+
+      <h4>Antes de la diagnóstica, confirma que puedes…</h4>
+      <p class="check-count" aria-live="polite"></p>
+      <ul class="check">
+        <li><label><input type="checkbox"><span>Escribir el propósito de un texto con números en una sola frase.</span></label></li>
+        <li><label><input type="checkbox"><span>Separar información explícita de implícita y decir de qué explícitas sale cada implícita.</span></label></li>
+        <li><label><input type="checkbox"><span>Clasificar cualquier número en el conjunto más pequeño que lo contiene, incluidos periódicos y raíces exactas.</span></label></li>
+        <li><label><input type="checkbox"><span>Explicar por qué la resta no es operación en \(\mathbb{N}\) ni la división en \(\mathbb{Z}\).</span></label></li>
+        <li><label><input type="checkbox"><span>Aplicar la regla de los signos sin dudar, incluido \(-2^4\) frente a \((-2)^4\).</span></label></li>
+        <li><label><input type="checkbox"><span>Sumar, restar, multiplicar y dividir fracciones y simplificar en cruz.</span></label></li>
+        <li><label><input type="checkbox"><span>Pasar entre potencia, raíz y logaritmo, y usar sus propiedades con sus condiciones.</span></label></li>
+        <li><label><input type="checkbox"><span>Resolver una expresión con la jerarquía, de izquierda a derecha en cada nivel.</span></label></li>
+        <li><label><input type="checkbox"><span>Diligenciar la plantilla de análisis cuantitativo y el esquema Descripción | Desarrollo.</span></label></li>
+        <li><label><input type="checkbox"><span>Distinguir puntos porcentuales de variación porcentual.</span></label></li>
+      </ul>
+
+      <div class="note">
+        <span class="tag">Erratas detectadas en los PDF (verificadas)</span>
+        <p><strong>LF 1, p. 6 (Tabla 1).</strong> «Mitad de 14 millones» como número de personas en inseguridad alimentaria: la infografía dice que 14 millones es <em>casi la mitad</em> de los 27,28 millones. El 7000 aparece sin su unidad (toneladas).</p>
+        <p><strong>LF 1, p. 8 (Tabla 2).</strong> En \(\mathbb{Z}\) los elementos se listan «…, −20, −21, …»: el orden correcto es −21, −20. En \(\mathbb{Q}\) se lista «0, 1, 1/3, 2/3, 4»: fuera de orden. La definición de racional omite los decimales periódicos.</p>
+        <p><strong>LF 1, p. 9 (Tabla 2).</strong> «π: … su valor aproximado es 1.414213562…». Ese es \(\sqrt2\); \(\pi\approx3{,}14159\).</p>
+        <p><strong>LF 1, p. 10.</strong> «Hipasus encontró que la diagonal de un cuadrado 1 no se podía representar como un <em>irracional</em>»: es como un <em>racional</em>.</p>
+        <p><strong>LF 1, p. 12.</strong> En 3.2.1 (operaciones en los enteros) dice «la suma y resta de los números <em>naturales</em> se puede visualizar como desplazamientos»: son los enteros. En 3.1.2 falta «no es posible» en «sin embargo, 3÷15 ya que…».</p>
+        <p><strong>LF 1, p. 13.</strong> \(-48\div6=8\) en el ejemplo de signos distintos: es \(-8\).</p>
+        <p><strong>LF 1, p. 15 (Figura 10).</strong> El esquema de la multiplicación de fracciones trae un cajón sobrante, «Resolver la suma de fracciones homogéneas: \(\tfrac{9+4}{30}=\tfrac{13}{30}\)», copiado de la Figura 9. En la división falta la condición \(d\neq0\).</p>
+        <p><strong>LF 1, pp. 19–20 (Tabla 3).</strong> Marca neutro de la suma en \(\mathbb{N}\) (que la lectura define sin el 0) y neutros e inversos en \(\mathbb{I}\) (0 y 1 no son irracionales). No incluye la clausura. Ver la tabla corregida en la sección 04.</p>
+        <p><strong>LF 1, p. 24 (Tabla 4, Contexto 2).</strong> «+21 %: crecimiento en 2021 respecto a 2019»: es respecto a 2020 (frente a 2019 fue +4,8 %). La diferencia de $ 0,33 billones se interpreta como «ingresos», pero el gráfico es de gasto de los hogares.</p>
+        <p><strong>LF 2, p. 3.</strong> «Así como la suma se considera como una suma reiterativa»: debe decir la multiplicación.</p>
+        <p><strong>LF 2, p. 5 (Tabla 1).</strong> \(\sqrt[4]{625}=-5\) y \(\log_{-5}625=4\): la raíz principal es 5 y no existen logaritmos de base negativa. En el recuadro «Importante» el error se ilustra con \(9^8\) y la corrección con \(9^4\).</p>
+        <p><strong>LF 2, p. 6 (Tabla 2).</strong> \(\log_{-4}(-4)=1\): base y argumento negativos no son válidos. \(\sqrt{\sqrt{625}}=\sqrt[4]{625}\pm5\): falta el signo igual y el resultado es 5. \(a^0=1\) exige \(a\neq0\).</p>
+        <p><strong>LF 2, pp. 8–9.</strong> La jerarquía no dice «de izquierda a derecha» para sumas y restas, y la Figura 3 divide antes de multiplicar en contra de la regla que enuncia (el resultado, 3, no cambia).</p>
+        <p><strong>Actividad formativa U1, p. 3, y material de trabajo.</strong> Remiten a «la tabla 3» y a «la Tabla 1» de la LF 1 como modelo de análisis de contextos; el modelo es la <strong>Tabla 4</strong>. En la plantilla del material de trabajo el bloque de implícitas está rotulado «Información explícita».</p>
+      </div>
+
+      <footer>
+        <p>Apuntes elaborados sobre la Lectura Fundamental 1 «Pensamiento numérico. Interpretación y representación de información numérica» y la Lectura Fundamental 2 «Operaciones de orden superior y estrategias de cálculo aritmético», Unidad 1 del módulo Razonamiento Cuantitativo, Politécnico Grancolombiano (autora: Sandra Milena Rojas Tolosa); la lectura complementaria de la Unidad 1; la actividad formativa «Interpretación de información numérica», y el material de trabajo «Análisis cuantitativo y procesos matemáticos». El contexto del contrato de la sección 05 es de práctica, con cifras ilustrativas. Todas las cifras del cuaderno se verificaron con Python.</p>
+      </footer>
+    </section>
+
+
+    <section id="u1-profundizar">
+      <h2><span class="num">12</span>Para profundizar</h2>
+      <p class="sub">Material libre y legítimo, del mismo nivel del curso o un paso más allá. Todo gratis y en español; no hace falta registrarse para leer ni para ver los videos (en Khan Academy, la cuenta solo sirve para guardar el avance).</p>
+      <h3>Bibliografía recomendada del módulo (biblioteca del Poli)</h3>
+      <p class="sub">Son los cuatro textos que el tutor indicó para el curso. Se leen gratis desde la biblioteca virtual del Poli: el enlace pide iniciar sesión con la cuenta institucional. Los capítulos señalados son los de esa edición; confírmalos en el índice del visor.</p>
+      <div class="tablewrap"><table style="min-width:640px"><thead><tr><th>Libro</th><th>Qué buscar</th><th>Unidades</th></tr></thead><tbody>
+<tr><td><strong><a href="https://www-ebooks7-24-com.loginbiblio.poligran.edu.co/?il=3735" target="_blank" rel="noopener">Haeussler, Paul y Wood (2015). <em>Matemáticas para administración y economía</em> (13.ª ed.). Pearson</a></strong><br><span class="sub">e-Libro 7-24 · el más completo de los cuatro</span></td><td><strong>Cap. 0, Repaso de álgebra:</strong> conjuntos de números reales y sus propiedades, exponentes y radicales, operaciones con expresiones algebraicas, factorización, fracciones y ecuaciones. <strong>Cap. 1, Aplicaciones y más álgebra:</strong> desigualdades lineales, valor absoluto y sucesiones. Ejercicios con respuestas impares al final.</td><td>U1 · U2 · U3</td></tr>
+<tr><td><strong><a href="https://www-ebooks7-24-com.loginbiblio.poligran.edu.co/?il=3374" target="_blank" rel="noopener">Arya y Lardner (2010). <em>Matemáticas aplicadas a la administración y a la economía</em> (5.ª ed.). Pearson</a></strong><br><span class="sub">e-Libro 7-24</span></td><td><strong>Cap. 1, Álgebra:</strong> los números reales, fracciones, exponentes y exponentes fraccionarios, operaciones algebraicas, factorización y fracciones algebraicas. <strong>Caps. 2 y 3:</strong> ecuaciones de una variable y desigualdades, con aplicaciones de negocios (costos, utilidades, punto de equilibrio).</td><td>U1 · U2 · U3</td></tr>
+<tr><td><strong><a href="https://www-ebooks7-24-com.loginbiblio.poligran.edu.co/?il=329" target="_blank" rel="noopener">Budnick (2007). <em>Matemáticas aplicadas para administración, economía y ciencias sociales</em> (4.ª ed.). McGraw-Hill</a></strong><br><span class="sub">e-Libro 7-24</span></td><td>El capítulo inicial de preliminares (ecuaciones, desigualdades, valor absoluto) y el apéndice de repaso de álgebra. Su estilo es el más pausado de los cuatro: sirve si algún tema de la U3 no queda claro con los otros.</td><td>U1 · U3</td></tr>
+<tr><td><strong><a href="https://elibro.net/es/ereader/poligran/101789?page=44" target="_blank" rel="noopener">IPN (2010). <em>Matemáticas 1 (Álgebra): libro para el estudiante</em>. Instituto Politécnico Nacional</a></strong><br><span class="sub">e-Libro · abre en la p. 44</span></td><td>Problemas de nivel medio superior con números en contexto. Es el mismo texto de la lectura complementaria de la U1 (pp. 34–38) y sigue con lenguaje algebraico y ecuaciones, útil para la U2.</td><td>U1 · U2</td></tr>
+</tbody></table></div>
+      <p class="sub">Ninguno de los cuatro cubre la geometría y las simetrías de la Unidad 4; para esa unidad sirven los recursos libres de su pestaña (Khan Academy y GeoGebra).</p>
+      <h3>Para entender</h3>
+      <div class="tablewrap"><table style="min-width:640px"><thead><tr><th>Recurso</th><th>Por qué vale la pena</th><th>Sección</th><th>Tiempo</th></tr></thead><tbody><tr><td><strong><a href="https://es.khanacademy.org/math/pre-algebra/pre-algebra-arith-prop" target="_blank" rel="noopener">Khan Academy · Preálgebra, Unidad 1: Propiedades aritméticas</a></strong><br><span class="sub">Español · curso interactivo con videos y práctica</span></td><td>Orden de las operaciones y propiedades conmutativa, asociativa y distributiva, con práctica que se corrige sola. Repasa en una tarde lo que la diagnóstica da por sabido.</td><td>04, 08</td><td>3 h</td></tr><tr><td><strong><a href="https://espanol.libretexts.org/Bookshelves/Matematicas/Matematicas_Aplicadas/Matematicas_del_Desarrollo_(NROC)/09%3A_N%C3%BAmeros_reales" target="_blank" rel="noopener">LibreTexts · Matemáticas del Desarrollo (NROC), cap. 9: Números reales</a></strong><br><span class="sub">Español · libro abierto (CC BY-NC-SA)</span></td><td>Enteros, racionales y reales, operaciones con signos, propiedades y orden de operaciones, con ejemplos y ejercicios resueltos. Es el mismo recorrido de la LF 1, sin sus erratas.</td><td>02–04, 08</td><td>2–3 h</td></tr><tr><td><strong><a href="https://es.khanacademy.org/math/algebra/x2f8bb11595b61c86:irrational-numbers" target="_blank" rel="noopener">Khan Academy · Álgebra 1, Unidad 15: Números irracionales</a></strong><br><span class="sub">Español · curso interactivo</span></td><td>Racionales frente a irracionales y la demostración de que \(\sqrt2\) es irracional: justo el hallazgo de Hipaso que la LF 1 cuenta al revés.</td><td>02</td><td>1–2 h</td></tr></tbody></table></div>
+      <h3>Para practicar</h3>
+      <div class="tablewrap"><table style="min-width:640px"><thead><tr><th>Recurso</th><th>Por qué vale la pena</th><th>Sección</th><th>Tiempo</th></tr></thead><tbody><tr><td><strong><a href="https://es.khanacademy.org/math/pre-algebra/pre-algebra-exponents-radicals" target="_blank" rel="noopener">Khan Academy · Preálgebra, Unidad 10: Exponentes, radicales y notación científica</a></strong><br><span class="sub">Español · 19 habilidades + prueba de unidad</span></td><td>Práctica graduada de potencias, raíces y sus propiedades, con cuestionarios cortos. Sirve de termómetro antes de la diagnóstica.</td><td>07</td><td>3 h</td></tr><tr><td><strong><a href="https://espanol.libretexts.org/Bookshelves/Matematicas/Pre-Algebra/Libro%3A_Fundamentos_de_Matematicas_(Burzynski_y_Ellis)/03%3A_Exponentes_raices_y_factorizacion_de_numeros_enteros" target="_blank" rel="noopener">LibreTexts · Fundamentos de Matemáticas (Burzynski y Ellis), cap. 3</a></strong><br><span class="sub">Español · libro abierto (CC BY)</span></td><td>Exponentes, raíces y agrupación con orden de operaciones, y al final un suplemento de ejercicios y un «examen de aptitud» para medirse.</td><td>07, 08</td><td>2 h</td></tr><tr><td><strong><a href="https://espanol.libretexts.org/Bookshelves/Matematicas/Pre-Algebra/Libro%3A_Fundamentos_de_Matematicas_(Burzynski_y_Ellis)/08%3A_Tecnicas_de_Estimacion" target="_blank" rel="noopener">LibreTexts · Fundamentos de Matemáticas (Burzynski y Ellis), cap. 8: Técnicas de estimación</a></strong><br><span class="sub">Español · libro abierto (CC BY)</span></td><td>Estimar por redondeo y por agrupamiento, y aritmética mental con la propiedad distributiva: amplía las estrategias de la LF 2.</td><td>09</td><td>1–1,5 h</td></tr><tr><td><strong><a href="https://es.khanacademy.org/math/pre-algebra/pre-algebra-math-reasoning" target="_blank" rel="noopener">Khan Academy · Preálgebra, Unidad 3: Leer e interpretar datos</a></strong><br><span class="sub">Español · 9 habilidades</span></td><td>Leer tablas y gráficos y sacar de ellos lo que no está escrito: la información implícita de la plantilla, con práctica corta.</td><td>01, 05</td><td>1,5 h</td></tr></tbody></table></div>
+      <h3>Tipo examen: el Saber Pro</h3>
+      <div class="tablewrap"><table style="min-width:640px"><thead><tr><th>Recurso</th><th>Por qué vale la pena</th><th>Sección</th><th>Tiempo</th></tr></thead><tbody><tr><td><strong><a href="https://www.icfes.gov.co/wp-content/uploads/2026/05/guia-de-orientacion-modulos-genericos-saber-pro-2026-2.pdf" target="_blank" rel="noopener">Icfes · Guía de orientación Saber Pro, módulos genéricos 2026-2</a></strong><br><span class="sub">Español · PDF oficial</span></td><td>El módulo de Razonamiento Cuantitativo (pp. 26–33, aprox.) describe las tres competencias que evalúa: interpretar y representar, formular y ejecutar, argumentar. Es la misma competencia de este curso, dicha por quien la mide.</td><td>Todo el cuaderno</td><td>30 min</td></tr><tr><td><strong><a href="https://www.uexternado.edu.co/wp-content/uploads/2021/08/Cuadernillo-de-preguntas-razonamiento-cuantitativo-saber-pro-2018.pdf" target="_blank" rel="noopener">Icfes · Cuadernillo de preguntas de Razonamiento Cuantitativo, Saber Pro (2018)</a><br><a href="https://www.icfes.gov.co/wp-content/uploads/2025/07/cuadernillo_de_Preguntas_Razonamiento_Cuantitativo_Saber_TyT.pdf" target="_blank" rel="noopener">y el de Saber TyT</a></strong><br><span class="sub">Español · PDF · 25 + 25 preguntas con clave</span></td><td>Preguntas reales con porcentajes, tablas, gráficos y presupuestos. Traen la respuesta correcta pero no la explicación: resuélvelas con el esquema Descripción | Desarrollo y verifica. El de Saber Pro es una copia del Icfes publicada por la U. Externado.</td><td>05, 06, 10</td><td>1,5 h c/u</td></tr></tbody></table></div>
+      <h3>Para ir más allá</h3>
+      <div class="tablewrap"><table style="min-width:640px"><thead><tr><th>Recurso</th><th>Por qué vale la pena</th><th>Sección</th><th>Tiempo</th></tr></thead><tbody><tr><td><strong><a href="https://es.khanacademy.org/math/algebra2/x2ec2f6f830c9fb89:logs" target="_blank" rel="noopener">Khan Academy · Álgebra 2, Unidad 8: Logaritmos</a></strong><br><span class="sub">Español · 9 habilidades</span></td><td>Del paso entre potencia y logaritmo a sus propiedades y a resolver ecuaciones exponenciales. Pasa de lo que pide la LF 2 a lo que vas a usar en Cálculo y en series de tiempo.</td><td>07</td><td>2–3 h</td></tr><tr><td><strong><a href="https://espanol.libretexts.org/Bookshelves/Matematicas/Algebra/Algebra_Intermedia_%28OpenStax%29/10%3A_Funciones_exponenciales_y_logar%C3%ADtmicas" target="_blank" rel="noopener">LibreTexts · Álgebra Intermedia (OpenStax), cap. 10</a></strong><br><span class="sub">Español · libro abierto (CC BY)</span></td><td>Funciones exponenciales y logarítmicas con ejercicios por sección: deja claras las condiciones (base positiva y distinta de 1, argumento positivo) que la LF 2 omite.</td><td>07</td><td>3 h</td></tr></tbody></table></div>
+      <div class="note">
+        <span class="tag">Cómo usar esta lista</span>
+        <p>Antes de la diagnóstica bastan Khan «Propiedades aritméticas» y la Unidad 10 de exponentes. Los cuadernillos del Icfes son la mejor práctica para el examen final de diciembre: guárdalos para la semana 8.</p>
+      </div>
+      <footer>
+        <p>Enlaces abiertos y revisados el 22 de octubre de 2026. Las secciones indicadas son las de esta pestaña.</p>
+      </footer>
+    </section>
+    </main>
+  </div>
+  </div>
+
+  <!-- ==================== UNIDAD 2 ==================== -->
+  <div class="scene" id="scene-2" role="tabpanel" aria-labelledby="tab-2" hidden>
+  <div class="cols">
+    <nav class="toc" aria-label="Contenido de la Unidad 2">
+      <span class="toc-h">En esta unidad</span>
+      <ol><li><a href="#u2-pend"><span class="n">00</span> Lo que viene</a></li></ol>
+      <div class="toc-progress" aria-hidden="true"><i></i></div>
+    </nav>
+    <main>
+    <section id="u2-pend">
+      <h2><span class="num">00</span>Pensamiento algebraico: patrones</h2>
+      <p class="sub">Pendiente. Se completa cuando arranque la unidad (semana 3, desde el martes 3 de noviembre).</p>
+      <div class="map">
+        <div class="step"><span class="k">LF 3</span><span class="v">Patrones y regularidades: identificar patrones numéricos y pasar del lenguaje verbal al matemático.</span></div>
+        <div class="step"><span class="k">LF 4</span><span class="v">Profundización en expresiones algebraicas: simplificación y factorización.</span></div>
+        <div class="step"><span class="k">Foro de grupo</span><span class="v">«Colombia en cifras»: pistas con secuencias y datos económicos que dan coordenadas de dos lugares. 80 + 80 puntos.</span></div>
+      </div>
+      <div class="note">
+        <span class="tag">Fecha por confirmar</span>
+        <p>El aula programa el foro del 30 de diciembre al 11 de enero; por su nombre («Semana 3 y 4») corresponde al 3–16 de noviembre, con calificación definitiva el martes 17. Confirmar con el tutor.</p>
+      </div>
+
+      <div class="book">
+        <span class="tag">Para adelantar (recursos libres)</span>
+        <p><a href="https://es.khanacademy.org/math/algebra/x2f8bb11595b61c86:sequences" target="_blank" rel="noopener">Khan Academy · Álgebra 1, Unidad 9: Sucesiones</a> · Español, interactivo. Hallar la expresión del término n-ésimo de una secuencia: la pista 1 del foro «Colombia en cifras» es exactamente eso.</p><p><a href="https://espanol.libretexts.org/Bookshelves/Matematicas/Algebra/Algebra_Intermedia_%28OpenStax%29/06%3A_Factoraje" target="_blank" rel="noopener">LibreTexts · Álgebra Intermedia (OpenStax), cap. 6: Factoraje</a> · Español, libro abierto (CC BY). Factor común, agrupación, trinomios y productos notables con ejercicios por sección, para la LF 4.</p><p><a href="https://www.youtube.com/@julioprofe" target="_blank" rel="noopener">Julioprofe (YouTube)</a> · Español, videos. Canal del ingeniero colombiano Julio Ríos: busca el caso de factorización que se te resista y lo encuentras resuelto paso a paso.</p>
+      <p><strong>De la bibliografía del módulo:</strong> Haeussler, cap. 0 (operaciones con expresiones algebraicas y factorización) y cap. 1 (sucesiones); Arya y Lardner, cap. 1. Ver la tabla en la sección 12 de la Unidad 1.</p>
+      </div>
+    </section>
+    </main>
+  </div>
+  </div>
+
+  <!-- ==================== UNIDAD 3 ==================== -->
+  <div class="scene" id="scene-3" role="tabpanel" aria-labelledby="tab-3" hidden>
+  <div class="cols">
+    <nav class="toc" aria-label="Contenido de la Unidad 3">
+      <span class="toc-h">En esta unidad</span>
+      <ol><li><a href="#u3-pend"><span class="n">00</span> Lo que viene</a></li></ol>
+      <div class="toc-progress" aria-hidden="true"><i></i></div>
+    </nav>
+    <main>
+    <section id="u3-pend">
+      <h2><span class="num">00</span>Pensamiento algebraico: comparaciones</h2>
+      <p class="sub">Pendiente. Semanas 5 y 6, del martes 17 al lunes 30 de noviembre.</p>
+      <div class="map">
+        <div class="step"><span class="k">LF 5</span><span class="v">Relaciones de comparación: construir y resolver ecuaciones y desigualdades en contexto.</span></div>
+        <div class="step"><span class="k">LF 6</span><span class="v">Solución de inecuaciones e interpretación; tecnología para matemáticas.</span></div>
+        <div class="step"><span class="k">Formativa</span><span class="v">Una noticia con información numérica: relaciones de igualdad y desigualdad (usa otra vez la plantilla de la sección 05).</span></div>
+        <div class="step"><span class="k">Cuestionario</span><span class="v">Actividad evaluativa U3: sáb 28 nov – mar 1 dic. 100 puntos.</span></div>
+      </div>
+
+      <div class="book">
+        <span class="tag">Para adelantar (recursos libres)</span>
+        <p><a href="https://es.khanacademy.org/math/algebra/x2f8bb11595b61c86:solve-equations-inequalities" target="_blank" rel="noopener">Khan Academy · Álgebra 1, Unidad 2: Resolver ecuaciones y desigualdades</a> · Español, interactivo. Ecuaciones de varios pasos, desigualdades y desigualdades compuestas, con práctica corregida. Complementa los enlaces de Khan del material de trabajo U3.</p><p><a href="https://espanol.libretexts.org/Bookshelves/Matematicas/Matematicas_Aplicadas/Matematicas_del_Desarrollo_(NROC)/10%3A_Resolver_ecuaciones_y_desigualdades" target="_blank" rel="noopener">LibreTexts · Matemáticas del Desarrollo (NROC), cap. 10</a> · Español, libro abierto. Resolver ecuaciones e inecuaciones, casos especiales, fórmulas y valor absoluto, con aplicaciones en contexto.</p>
+      <p><strong>De la bibliografía del módulo:</strong> Arya y Lardner, caps. 2 y 3 (ecuaciones y desigualdades); Haeussler, cap. 1 (desigualdades lineales y valor absoluto); Budnick, capítulo de preliminares.</p>
+      </div>
+    </section>
+    </main>
+  </div>
+  </div>
+
+  <!-- ==================== UNIDAD 4 ==================== -->
+  <div class="scene" id="scene-4" role="tabpanel" aria-labelledby="tab-4" hidden>
+  <div class="cols">
+    <nav class="toc" aria-label="Contenido de la Unidad 4">
+      <span class="toc-h">En esta unidad</span>
+      <ol><li><a href="#u4-pend"><span class="n">00</span> Lo que viene</a></li></ol>
+      <div class="toc-progress" aria-hidden="true"><i></i></div>
+    </nav>
+    <main>
+    <section id="u4-pend">
+      <h2><span class="num">00</span>Pensamiento geométrico</h2>
+      <p class="sub">Pendiente. Semanas 7 y 8, del martes 1 al lunes 14 de diciembre.</p>
+      <div class="map">
+        <div class="step"><span class="k">LF 7</span><span class="v">Formas y figuras, relaciones y propiedades geométricas, visualización espacial.</span></div>
+        <div class="step"><span class="k">LF 8</span><span class="v">Simetrías y transformaciones; tecnología para matemáticas.</span></div>
+        <div class="step"><span class="k">Examen final</span><span class="v">Sáb 12 – mar 15 dic. 210 puntos (42 % del módulo), sobre las cuatro unidades.</span></div>
+        <div class="step"><span class="k">Autoevaluación</span><span class="v">Misma ventana. 20 puntos.</span></div>
+      </div>
+
+      <div class="book">
+        <span class="tag">Para adelantar (recursos libres)</span>
+        <p><a href="https://es.khanacademy.org/math/geometry/hs-geo-transformations" target="_blank" rel="noopener">Khan Academy · Geometría, Unidad 1: Aplicar transformaciones</a> · Español, interactivo. Traslaciones, rotaciones, reflexiones y homotecias con práctica en el plano: la base de la LF 8.</p><p><a href="https://mat.geogebra.org/material/show/id/us9ez78n" target="_blank" rel="noopener">GeoGebra · Libro «Transformaciones isométricas» (Edgar Ochoa Guillén)</a> · Español, applets interactivos (CC BY-SA). Simetría axial y central, traslación y rotación para manipular con el mouse. Está pensado para colegio: úsalo para visualizar rápido, no como teoría.</p>
+      <p><strong>Bibliografía del módulo:</strong> ninguno de los cuatro libros recomendados trata geometría; para esta unidad, los recursos libres de arriba.</p>
+      </div>
+    </section>
+    </main>
+  </div>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  var MATRICES = [
+    { id: 'H',  label: 'H — hospedaje',        r: 3, c: 3 },
+    { id: 'T',  label: "T — transporte",       r: 3, c: 4 },
+    { id: 'Tp', label: "T' — transporte (ajustada)", r: 3, c: 3 },
+    { id: 'D',  label: 'D — estadía',          r: 3, c: 2 },
+    { id: 'Dt', label: 'Dᵗ — estadía transpuesta', r: 2, c: 3 },
+    { id: 'X',  label: 'X — incógnitas',       r: 3, c: 1 },
+    { id: 'P',  label: 'P — precios unitarios', r: 1, c: 3 },
+    { id: 'M',  label: 'M — servicios públicos', r: 3, c: 4 },
+    { id: 'A',  label: 'A — ejercicio 2',      r: 3, c: 2 },
+    { id: 'B',  label: 'B — ejercicio 2',      r: 2, c: 3 },
+    { id: 'C',  label: 'C — ejercicio 2',      r: 3, c: 3 }
+  ];
+
+  var left = document.getElementById('mLeft');
+  var right = document.getElementById('mRight');
+  var verdict = document.getElementById('verdict');
+  if (!left || !right || !verdict) return;
+
+  MATRICES.forEach(function (m, i) {
+    var o1 = document.createElement('option');
+    o1.value = String(i);
+    o1.textContent = m.label + '  (' + m.r + '×' + m.c + ')';
+    left.appendChild(o1);
+    right.appendChild(o1.cloneNode(true));
+  });
+
+  left.value = '0';   // H
+  right.value = '3';  // D
+
+  function render() {
+    var a = MATRICES[Number(left.value)];
+    var b = MATRICES[Number(right.value)];
+    var head = verdict.querySelector('.v-head');
+    var body = verdict.querySelector('.v-body');
+    var sizes = a.id + ' (' + a.r + '×' + a.c + ')  ·  ' + b.id + ' (' + b.r + '×' + b.c + ')';
+
+    if (a.c === b.r) {
+      verdict.className = 'verdict ok';
+      head.textContent = 'Sí se puede · resultado ' + a.r + '×' + b.c;
+      body.textContent = sizes + '. Las columnas de ' + a.id + ' (' + a.c +
+        ') coinciden con las filas de ' + b.id + ' (' + b.r +
+        '), así que los números de adentro se cancelan y quedan los de afuera: ' +
+        a.r + '×' + b.c + '.';
+    } else {
+      verdict.className = 'verdict bad';
+      head.textContent = 'No está definida';
+      body.textContent = sizes + '. ' + a.id + ' tiene ' + a.c + ' columna(s) pero ' +
+        b.id + ' tiene ' + b.r + ' fila(s). Al emparejar fila con columna sobrarían ' +
+        Math.abs(a.c - b.r) + ' término(s) sin pareja.';
+    }
+  }
+
+  left.addEventListener('change', render);
+  right.addEventListener('change', render);
+  render();
+})();
+
+/* ---------- pestañas de escenario ---------- */
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  if (!tabs.length) return;
+
+  function show(n) {
+    tabs.forEach(function (t) {
+      var on = t.getAttribute('data-scene') === n;
+      t.classList.toggle('is-on', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      var panel = document.getElementById('scene-' + t.getAttribute('data-scene'));
+      if (panel) panel.hidden = !on;
+    });
+    try { history.replaceState(null, '', '#escenario-' + n); } catch (e) {}
+    try { localStorage.setItem('cuaderno-rc', n); } catch (e) {}
+    document.dispatchEvent(new CustomEvent('escenario', { detail: n }));
+  }
+
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      show(t.getAttribute('data-scene'));
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    });
+  });
+
+  var h = (location.hash || '').replace('#', '');
+  var m = /^escenario-(\d+)$/.exec(h);
+  if (m && document.getElementById('scene-' + m[1])) {
+    show(m[1]);
+  } else if (h && document.getElementById(h)) {
+    var owner = document.getElementById(h).closest('.scene');
+    if (owner) show(owner.id.replace('scene-', ''));
+  } else {
+    var last = null;
+    try { last = localStorage.getItem('cuaderno-rc'); } catch (e) {}
+    if (last && document.getElementById('scene-' + last)) show(last);
+  }
+})();
+
+/* ---------- verificador de ternas (escenario 2) ---------- */
+(function () {
+  var A = [[80000, 50000, 70000], [76000, 45000, 63000], [72000, 38000, 56000]];
+  var B = [540000, 494000, 444000];
+  var ix = document.getElementById('vx');
+  var iy = document.getElementById('vy');
+  var iz = document.getElementById('vz');
+  var rows = document.getElementById('v-rows');
+  var verdict = document.getElementById('v-verdict');
+  if (!ix || !rows || !verdict) return;
+
+  var fmt = function (v) {
+    return v.toLocaleString('es-CO', { maximumFractionDigits: 2 });
+  };
+
+  function render() {
+    var v = [Number(ix.value) || 0, Number(iy.value) || 0, Number(iz.value) || 0];
+    var okCount = 0;
+    rows.textContent = '';
+
+    A.forEach(function (row, i) {
+      var lhs = row[0] * v[0] + row[1] * v[1] + row[2] * v[2];
+      var diff = lhs - B[i];
+      var ok = Math.abs(diff) < 0.5;
+      if (ok) okCount++;
+
+      var tr = document.createElement('tr');
+      [
+        ['(' + (i + 1) + ')', ''],
+        [fmt(lhs), 'n'],
+        [fmt(B[i]), 'n'],
+        [(diff > 0 ? '+' : '') + fmt(diff), 'n'],
+        [ok ? 'Sí' : 'No', ok ? 'mark-ok' : 'mark-no']
+      ].forEach(function (cell, j) {
+        var td = document.createElement(j === 0 ? 'th' : 'td');
+        td.textContent = cell[0];
+        if (cell[1]) td.className = cell[1];
+        tr.appendChild(td);
+      });
+      rows.appendChild(tr);
+    });
+
+    var head = verdict.querySelector('.v-head');
+    var body = verdict.querySelector('.v-body');
+    var terna = '(' + fmt(v[0]) + ', ' + fmt(v[1]) + ', ' + fmt(v[2]) + ')';
+
+    if (okCount === 3) {
+      verdict.className = 'verdict ok';
+      head.textContent = 'Es solución del sistema';
+      body.textContent = 'La terna ' + terna + ' satisface las tres ecuaciones a la vez, que es lo que exige la definición.';
+    } else {
+      verdict.className = 'verdict bad';
+      head.textContent = 'No es solución · cumple ' + okCount + ' de 3';
+      body.textContent = 'La terna ' + terna + ' falla en ' + (3 - okCount) +
+        ' ecuación(es). Basta con que una no se cumpla para descartarla: la definición pide todas.';
+    }
+  }
+
+  [ix, iy, iz].forEach(function (el) { el.addEventListener('input', render); });
+
+  Array.prototype.forEach.call(document.querySelectorAll('.btn[data-set]'), function (b) {
+    b.addEventListener('click', function () {
+      var p = b.getAttribute('data-set').split(',');
+      ix.value = p[0]; iy.value = p[1]; iz.value = p[2];
+      render();
+    });
+  });
+
+  render();
+})();
+
+/* ---------- mezclador de color (escenario 3) ---------- */
+(function () {
+  var cr = document.getElementById('cr');
+  var cg = document.getElementById('cg');
+  var cb = document.getElementById('cb');
+  var sw = document.getElementById('cswatch');
+  var eq = document.getElementById('ceq');
+  var vd = document.getElementById('cverdict');
+  if (!cr || !sw || !eq || !vd) return;
+
+  var f = function (x) { return (Math.round(x * 100) / 100).toFixed(2).replace('.', ','); };
+
+  function render() {
+    var a = [Number(cr.value), Number(cg.value), Number(cb.value)];
+    var clipped = a.map(function (x) { return Math.min(1, Math.max(0, x)); });
+    var out = clipped.map(function (x) { return Math.round(x * 255); });
+    sw.style.background = 'rgb(' + out.join(',') + ')';
+
+    eq.innerHTML =
+      '(' + f(a[0]) + '; ' + f(a[1]) + '; ' + f(a[2]) + ') = ' +
+      '<b>' + f(a[0]) + '</b>(1,0,0) + ' +
+      '<b>' + f(a[1]) + '</b>(0,1,0) + ' +
+      '<b>' + f(a[2]) + '</b>(0,0,1)';
+
+    var over = a.filter(function (x) { return x > 1; }).length;
+    var head = vd.querySelector('.v-head');
+    var body = vd.querySelector('.v-body');
+
+    if (over === 0) {
+      vd.className = 'verdict ok';
+      head.textContent = 'Color válido · dentro de [0, 1]';
+      body.textContent = 'Las tres componentes están en el rango, así que la combinación lineal produce un color que el conjunto sí contiene. La clausura se cumple.';
+    } else {
+      vd.className = 'verdict bad';
+      head.textContent = 'Fuera de rango · ' + over + ' component' + (over === 1 ? 'e' : 'es') + ' por encima de 1';
+      body.textContent = 'El resultado ya no es un color válido: el software lo satura en 1 y el muestrario de la izquierda enseña el color recortado, no el calculado. La operación es correcta; el conjunto no es cerrado.';
+    }
+  }
+
+  [cr, cg, cb].forEach(function (el) { el.addEventListener('input', render); });
+
+  Array.prototype.forEach.call(document.querySelectorAll('.btn[data-rgb]'), function (b) {
+    b.addEventListener('click', function () {
+      var p = b.getAttribute('data-rgb').split(',');
+      cr.value = p[0]; cg.value = p[1]; cb.value = p[2];
+      render();
+    });
+  });
+
+  render();
+})();
+
+/* ---------- tema claro / oscuro ---------- */
+(function () {
+  var btn = document.getElementById('themeBtn');
+  if (!btn) return;
+  var modes = ['auto', 'light', 'dark'], names = { auto: 'automático', light: 'claro', dark: 'oscuro' };
+  var mode = 'auto';
+  try { mode = localStorage.getItem('cuaderno-tema') || 'auto'; } catch (e) {}
+  function apply() {
+    if (mode === 'auto') document.documentElement.removeAttribute('data-theme');
+    else document.documentElement.setAttribute('data-theme', mode);
+    btn.textContent = 'Tema: ' + names[mode];
+  }
+  btn.addEventListener('click', function () {
+    mode = modes[(modes.indexOf(mode) + 1) % 3];
+    try { localStorage.setItem('cuaderno-tema', mode); } catch (e) {}
+    apply();
+  });
+  apply();
+})();
+
+/* ---------- listas de chequeo con memoria ---------- */
+(function () {
+  Array.prototype.forEach.call(document.querySelectorAll('ul.check'), function (ul, k) {
+    var scene = ul.closest('.scene'), key = 'cuaderno-rc-check-' + (scene ? scene.id : '') + '-' + k;
+    var boxes = ul.querySelectorAll('input[type=checkbox]');
+    var count = ul.previousElementSibling && ul.previousElementSibling.classList.contains('check-count') ? ul.previousElementSibling : null;
+    var saved = [];
+    try { saved = JSON.parse(localStorage.getItem(key) || '[]'); } catch (e) {}
+    Array.prototype.forEach.call(boxes, function (b, i) { b.checked = !!saved[i]; });
+    function update() {
+      var st = [], n = 0;
+      Array.prototype.forEach.call(boxes, function (b) { st.push(b.checked ? 1 : 0); if (b.checked) n++; });
+      if (count) count.textContent = n + ' de ' + boxes.length + ' dominados';
+      try { localStorage.setItem(key, JSON.stringify(st)); } catch (e) {}
+    }
+    Array.prototype.forEach.call(boxes, function (b) { b.addEventListener('change', update); });
+    update();
+  });
+})();
+
+/* ---------- índice: sección actual y avance de lectura ---------- */
+(function () {
+  function active() { return document.querySelector('.scene:not([hidden])'); }
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var sc = active(); if (!sc) return;
+    var links = sc.querySelectorAll('nav.toc a[href^="#"]');
+    var current = null, y = 120;
+    Array.prototype.forEach.call(links, function (a) {
+      var sec = document.getElementById(a.getAttribute('href').slice(1));
+      if (sec && sec.getBoundingClientRect().top <= y) current = a;
+    });
+    if (!current && links.length) current = links[0];
+    Array.prototype.forEach.call(links, function (a) {
+      if (a === current) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+    });
+    var r = sc.getBoundingClientRect();
+    var p = Math.max(0, Math.min(1, -r.top / Math.max(1, r.height - window.innerHeight)));
+    var bar = sc.querySelector('.toc-progress i');
+    if (bar) bar.style.width = Math.round(p * 100) + '%';
+  }
+  function req() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', req, { passive: true });
+  window.addEventListener('resize', req);
+  document.addEventListener('escenario', req);
+  update();
+})();
+
+/* ---------- impresión: respuestas abiertas ---------- */
+(function () {
+  var opened = [];
+  window.addEventListener('beforeprint', function () {
+    opened = [];
+    Array.prototype.forEach.call(document.querySelectorAll('details.answer:not([open])'), function (d) { d.open = true; opened.push(d); });
+  });
+  window.addEventListener('afterprint', function () { opened.forEach(function (d) { d.open = false; }); });
+})();
+
+/* ---------- modo repaso: ejercicios al azar, uno a la vez ---------- */
+(function () {
+  var SCENES = Array.prototype.map.call(document.querySelectorAll('.tab'), function (t) { var l = t.querySelector('.tnum'); return ['scene-' + t.getAttribute('data-scene'), (l ? l.textContent : t.textContent).trim()]; });
+  var KEY = 'cuaderno-rc-repaso-pendientes';
+  var items = [];
+  SCENES.forEach(function (p) {
+    var sc = document.getElementById(p[0]);
+    if (!sc) return;
+    Array.prototype.forEach.call(sc.querySelectorAll('.ex'), function (ex, i) {
+      var rid = p[0] + '-' + i;
+      ex.setAttribute('data-rid', rid);
+      items.push({ rid: rid, ex: ex, sid: p[0], n: p[1] });
+    });
+  });
+  var btn = document.getElementById('reviewBtn');
+  if (!btn || !items.length) return;
+
+  var pend = [];
+  try { pend = JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) {}
+  function savePend() { try { localStorage.setItem(KEY, JSON.stringify(pend)); } catch (e) {} }
+  function isPend(rid) { return pend.indexOf(rid) !== -1; }
+
+  var ov = document.createElement('div');
+  ov.className = 'review';
+  ov.setAttribute('role', 'dialog');
+  ov.setAttribute('aria-modal', 'true');
+  ov.setAttribute('aria-label', 'Modo repaso');
+  ov.innerHTML = '<div class="rv-in"><div class="rv-top"><div class="rv-row">' +
+    '<h2 class="rv-title" tabindex="-1">Modo repaso</h2>' +
+    '<button type="button" class="btn" data-act="close">Salir</button></div>' +
+    '<div class="rv-bar" hidden><i></i></div></div><div class="rv-body"></div></div>';
+  document.body.appendChild(ov);
+  var body = ov.querySelector('.rv-body'), bar = ov.querySelector('.rv-bar'), title = ov.querySelector('.rv-title');
+
+  var opts = { scenes: SCENES.map(function (p) { return p[1]; }), set: 'all', count: '10' };
+  var queue = [], idx = 0, results = {}, shown = false, lastFocus = null;
+
+  function shuffle(a) {
+    for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; }
+    return a;
+  }
+  function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function secTitle(it) {
+    var sec = it.ex.closest('section'), h = sec && sec.querySelector('h2');
+    if (!h) return '';
+    var c = h.cloneNode(true), n = c.querySelector('.num');
+    if (n) n.remove();
+    return c.innerHTML;
+  }
+  function exId(it) { var s = it.ex.querySelector('.head .id'); return s ? s.textContent : ''; }
+  function setBar(p) { bar.hidden = p === null; if (p !== null) bar.firstChild.style.width = Math.round(p * 100) + '%'; }
+
+  /* --- 1. preparar la ronda --- */
+  function setup() {
+    title.textContent = 'Modo repaso';
+    setBar(null);
+    var chips = SCENES.map(function (p) {
+      var n = items.filter(function (it) { return it.n === p[1]; }).length;
+      var on = opts.scenes.indexOf(p[1]) !== -1;
+      return '<label class="rv-chip"><input type="checkbox" name="sc" value="' + p[1] + '"' + (on ? ' checked' : '') + (n ? '' : ' disabled') +
+        '>' + p[1] + ' <span class="c">' + n + '</span></label>';
+    }).join('');
+    var np = pend.length;
+    body.innerHTML = '<div class="rv-setup">' +
+      '<p class="rv-lead">Los ejercicios del cuaderno salen al azar, uno a la vez y con la respuesta cerrada. Resuélvelo, abre la respuesta y di si lo sabías. Lo que marques para repasar queda guardado para la próxima ronda.</p>' +
+      '<fieldset><legend>Secciones</legend><div class="rv-chips">' + chips + '</div></fieldset>' +
+      '<fieldset><legend>Qué ejercicios</legend><div class="rv-chips">' +
+      '<label class="rv-chip"><input type="radio" name="set" value="all"' + (opts.set === 'all' || !np ? ' checked' : '') + '>Todos</label>' +
+      '<label class="rv-chip"><input type="radio" name="set" value="pend"' + (opts.set === 'pend' && np ? ' checked' : '') + (np ? '' : ' disabled') +
+      '>Solo los pendientes <span class="c">' + np + '</span></label></div></fieldset>' +
+      '<fieldset><legend>Cuántos</legend><div class="rv-chips">' +
+      ['5', '10', '20', 'all'].map(function (v) {
+        return '<label class="rv-chip"><input type="radio" name="count" value="' + v + '"' + (opts.count === v ? ' checked' : '') + '>' + (v === 'all' ? 'Todos' : v) + '</label>';
+      }).join('') + '</div></fieldset>' +
+      '<div class="rv-actions"><button type="button" class="btn primary" data-act="start">Empezar</button>' +
+      (np ? '<button type="button" class="btn link" data-act="clear">Vaciar pendientes</button>' : '') +
+      '<span class="rv-count rv-hint" style="margin:0"></span></div></div>';
+    updateCount();
+  }
+  function readOpts() {
+    opts.scenes = Array.prototype.map.call(body.querySelectorAll('input[name=sc]:checked'), function (i) { return i.value; });
+    var s = body.querySelector('input[name=set]:checked'); opts.set = s ? s.value : 'all';
+    var c = body.querySelector('input[name=count]:checked'); opts.count = c ? c.value : '10';
+  }
+  function pool() {
+    return items.filter(function (it) {
+      return opts.scenes.indexOf(it.n) !== -1 && (opts.set === 'all' || isPend(it.rid));
+    });
+  }
+  function updateCount() {
+    var el = body.querySelector('.rv-count'); if (!el) return;
+    readOpts();
+    var n = pool().length, k = opts.count === 'all' ? n : Math.min(n, Number(opts.count));
+    el.textContent = n ? k + ' de ' + n + ' ejercicios disponibles' : 'No hay ejercicios con esa combinación';
+    body.querySelector('[data-act=start]').disabled = !n;
+  }
+
+  /* --- 2. un ejercicio --- */
+  function start(list) {
+    queue = list;
+    idx = 0; results = {};
+    card();
+  }
+  function card() {
+    if (idx >= queue.length) return summary();
+    var it = queue[idx];
+    shown = false;
+    title.textContent = 'Ejercicio ' + (idx + 1) + ' de ' + queue.length;
+    setBar(idx / queue.length);
+    var c = it.ex.cloneNode(true);
+    c.removeAttribute('data-rid');
+    c.classList.remove('rv-flash');
+    Array.prototype.forEach.call(c.querySelectorAll('details'), function (d) { d.open = false; });
+    body.innerHTML = '<p class="rv-meta"><b>' + it.n + '</b><span class="rv-sec">' + secTitle(it) + '</span>' +
+      (isPend(it.rid) ? '<span>· pendiente</span>' : '') + '</p><div class="rv-card"></div>' +
+      '<div class="rv-actions">' +
+      '<button type="button" class="btn primary" data-act="show">Mostrar respuesta</button>' +
+      '<button type="button" class="btn primary" data-act="ok" hidden>Lo sabía</button>' +
+      '<button type="button" class="btn warn" data-act="bad" hidden>Repasar otra vez</button>' +
+      '<span class="sp"></span>' +
+      '<button type="button" class="btn link" data-act="goto">Ver en el cuaderno</button>' +
+      '<button type="button" class="btn" data-act="skip">Saltar</button></div>' +
+      '<p class="rv-hint">Atajos: R muestra la respuesta · 1 lo sabía · 2 repasar otra vez · S saltar · Esc salir</p>';
+    body.querySelector('.rv-card').appendChild(c);
+    var d = c.querySelector('details.answer');
+    if (d) d.addEventListener('toggle', function () { if (d.open) reveal(); });
+    ov.scrollTop = 0;
+    title.focus();
+  }
+  function reveal() {
+    if (shown) return;
+    shown = true;
+    var d = body.querySelector('.rv-card details.answer');
+    if (d && !d.open) d.open = true;
+    body.querySelector('[data-act=show]').hidden = true;
+    body.querySelector('[data-act=ok]').hidden = false;
+    body.querySelector('[data-act=bad]').hidden = false;
+    body.querySelector('[data-act=ok]').focus();
+    if (d) d.scrollIntoView({ block: 'nearest' });
+  }
+  function grade(r) {
+    var it = queue[idx];
+    results[it.rid] = r;
+    var i = pend.indexOf(it.rid);
+    if (r === 'ok' && i !== -1) pend.splice(i, 1);
+    if (r === 'bad' && i === -1) pend.push(it.rid);
+    savePend();
+    idx++;
+    card();
+  }
+
+  /* --- 3. resultado --- */
+  function summary() {
+    var ok = queue.filter(function (it) { return results[it.rid] === 'ok'; }).length;
+    var bad = queue.filter(function (it) { return results[it.rid] === 'bad'; });
+    var skip = queue.length - ok - bad.length;
+    title.textContent = 'Resultado de la ronda';
+    setBar(1);
+    body.innerHTML = '<div class="rv-score"><div class="ok"><b>' + ok + '</b>lo sabías</div>' +
+      '<div class="bad"><b>' + bad.length + '</b>para repasar</div>' +
+      (skip ? '<div><b>' + skip + '</b>saltados</div>' : '') + '</div>' +
+      (bad.length ? '<h4 style="margin-top:0">Para repasar</h4><ul class="rv-list">' + bad.map(function (it) {
+        return '<li><button type="button" data-goto="' + it.rid + '"><span class="k">Esc. ' + it.n + ' · ' + esc(exId(it)) + '</span><span>' + secTitle(it) + '</span></button></li>';
+      }).join('') + '</ul>' : '<p class="rv-lead">Nada pendiente de esta ronda.</p>') +
+      '<div class="rv-actions">' +
+      (bad.length ? '<button type="button" class="btn primary" data-act="again">Repasar estos otra vez</button>' : '') +
+      '<button type="button" class="btn' + (bad.length ? '' : ' primary') + '" data-act="setup">Nueva ronda</button>' +
+      '<button type="button" class="btn" data-act="close">Volver al cuaderno</button></div>';
+    ov.scrollTop = 0;
+    title.focus();
+  }
+
+  /* --- ir al ejercicio dentro del cuaderno --- */
+  function goto(it) {
+    close();
+    var tab = document.querySelector('.tab[data-scene="' + it.sid.replace('scene-', '') + '"]');
+    if (tab && tab.getAttribute('aria-selected') !== 'true') tab.click();
+    setTimeout(function () {
+      it.ex.scrollIntoView({ block: 'start' });
+      window.scrollBy(0, -100);
+      it.ex.classList.add('rv-flash');
+      setTimeout(function () { it.ex.classList.remove('rv-flash'); }, 2200);
+    }, 60);
+  }
+
+  function open() {
+    lastFocus = document.activeElement;
+    ov.classList.add('is-open');
+    document.body.classList.add('review-on');
+    setup();
+    title.focus();
+  }
+  function close() {
+    ov.classList.remove('is-open');
+    document.body.classList.remove('review-on');
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  btn.addEventListener('click', open);
+  body.addEventListener('change', function (e) { if (e.target.matches('.rv-setup input')) updateCount(); });
+  ov.addEventListener('click', function (e) {
+    var g = e.target.closest('[data-goto]');
+    if (g) { var it = items.filter(function (x) { return x.rid === g.getAttribute('data-goto'); })[0]; if (it) goto(it); return; }
+    var a = e.target.closest('[data-act]'); if (!a) return;
+    var act = a.getAttribute('data-act');
+    if (act === 'close') close();
+    else if (act === 'setup') setup();
+    else if (act === 'clear') { pend = []; savePend(); setup(); }
+    else if (act === 'start') {
+      readOpts();
+      var p = shuffle(pool());
+      start(opts.count === 'all' ? p : p.slice(0, Number(opts.count)));
+    }
+    else if (act === 'again') start(shuffle(queue.filter(function (it) { return results[it.rid] === 'bad'; })));
+    else if (act === 'show') reveal();
+    else if (act === 'ok') grade('ok');
+    else if (act === 'bad') grade('bad');
+    else if (act === 'skip') { idx++; card(); }
+    else if (act === 'goto') goto(queue[idx]);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!ov.classList.contains('is-open')) return;
+    if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+    if (e.ctrlKey || e.metaKey || e.altKey || /^(INPUT|SELECT|TEXTAREA)$/.test(e.target.tagName)) return;
+    if (!body.querySelector('.rv-card')) return;
+    var k = e.key.toLowerCase();
+    if (k === 'r') reveal();
+    else if (k === '1' && shown) grade('ok');
+    else if (k === '2' && shown) grade('bad');
+    else if (k === 's') { idx++; card(); }
+  });
+  /* el foco no se escapa del modo repaso */
+  ov.addEventListener('keydown', function (e) {
+    if (e.key !== 'Tab') return;
+    var f = Array.prototype.filter.call(ov.querySelectorAll('button, input, summary, a[href], [tabindex]'), function (x) { return !x.disabled && !x.hidden && x.offsetParent !== null; });
+    if (!f.length) return;
+    if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length - 1].focus(); }
+    else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
+  });
+})();
+
+/* ---------- planos 2×2: dibujo compartido (escenarios 6 y 7) ---------- */
+var Plane = (function () {
+  var NS = 'http://www.w3.org/2000/svg';
+  function el(tag, attrs, parent) {
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    e.setAttribute('vector-effect', 'non-scaling-stroke');
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  function draw(svg, m, lines) {
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    var g = el('g', { transform: 'scale(1,-1)' }, svg);
+    for (var i = -3; i <= 3; i++) {
+      el('line', { x1: i, y1: -3.4, x2: i, y2: 3.4, 'class': 'pl-grid' }, g);
+      el('line', { x1: -3.4, y1: i, x2: 3.4, y2: i, 'class': 'pl-grid' }, g);
+    }
+    el('line', { x1: -3.4, y1: 0, x2: 3.4, y2: 0, 'class': 'pl-axis' }, g);
+    el('line', { x1: 0, y1: -3.4, x2: 0, y2: 3.4, 'class': 'pl-axis' }, g);
+    (lines || []).forEach(function (L) {
+      var n = Math.hypot(L.v[0], L.v[1]); if (!n) return;
+      var ux = L.v[0] / n * 5, uy = L.v[1] / n * 5;
+      el('line', { x1: -ux, y1: -uy, x2: ux, y2: uy, 'class': L.cls }, g);
+    });
+    el('polygon', { points: '0,0 1,0 1,1 0,1', 'class': 'pl-orig' }, g);
+    var a = m[0], b = m[1], c = m[2], d = m[3];
+    el('polygon', { points: '0,0 ' + a + ',' + c + ' ' + (a + b) + ',' + (c + d) + ' ' + b + ',' + d, 'class': 'pl-img' }, g);
+    el('line', { x1: 0, y1: 0, x2: a, y2: c, 'class': 'pl-e1' }, g);
+    el('line', { x1: 0, y1: 0, x2: b, y2: d, 'class': 'pl-e2' }, g);
+    el('circle', { cx: a, cy: c, r: 0.09, 'class': 'pl-p1' }, g);
+    el('circle', { cx: b, cy: d, r: 0.09, 'class': 'pl-p2' }, g);
+  }
+  return { draw: draw };
+})();
+
+function fmtN(x) {
+  if (Math.abs(x) < 1e-9) x = 0;
+  return (Math.round(x * 1000) / 1000).toLocaleString('es-CO', { maximumFractionDigits: 3 });
+}
+function readM(ids) { return ids.map(function (id) { var v = Number(document.getElementById(id).value); return isFinite(v) ? v : 0; }); }
+function bindM(ids, attr, render) {
+  ids.forEach(function (id) { var e = document.getElementById(id); if (e) e.addEventListener('input', render); });
+  Array.prototype.forEach.call(document.querySelectorAll('[' + attr + ']'), function (b) {
+    b.addEventListener('click', function () {
+      var p = b.getAttribute(attr).split(',');
+      ids.forEach(function (id, i) { document.getElementById(id).value = p[i]; });
+      render();
+    });
+  });
+}
+
+/* ---------- escenario 6: la transformación en el plano ---------- */
+(function () {
+  var ids = ['t6a', 't6b', 't6c', 't6d'];
+  var svg = document.getElementById('t6-svg'), eq = document.getElementById('t6-eq'), vd = document.getElementById('t6-v');
+  if (!svg || !eq || !vd) return;
+  function render() {
+    var m = readM(ids), a = m[0], b = m[1], c = m[2], d = m[3], det = a * d - b * c;
+    Plane.draw(svg, m);
+    eq.innerHTML = 'T(1,0) = (<b>' + fmtN(a) + '</b>; <b>' + fmtN(c) + '</b>) &nbsp;·&nbsp; T(0,1) = (<b>' + fmtN(b) + '</b>; <b>' + fmtN(d) + '</b>)<br>' +
+      'det A = ' + fmtN(a) + '·' + fmtN(d) + ' − ' + fmtN(b) + '·' + fmtN(c) + ' = <b>' + fmtN(det) + '</b>';
+    var head = vd.querySelector('.v-head'), body = vd.querySelector('.v-body');
+    if (Math.abs(det) > 1e-9) {
+      vd.className = 'verdict ok';
+      head.textContent = 'Invertible · núcleo {0}, imagen ℝ²';
+      body.textContent = 'El área del cuadrado se multiplica por ' + fmtN(Math.abs(det)) +
+        (det < 0 ? ' y la figura queda en espejo (det negativo).' : '.') +
+        ' Ninguna dirección se pierde: dos entradas distintas dan salidas distintas.';
+    } else if (a === 0 && b === 0 && c === 0 && d === 0) {
+      vd.className = 'verdict bad';
+      head.textContent = 'Todo va al origen · núcleo ℝ²';
+      body.textContent = 'Es la transformación cero: el núcleo es todo el plano y la imagen es solo {0}. 2 + 0 = 2.';
+    } else {
+      vd.className = 'verdict bad';
+      var nv = (a !== 0 || b !== 0) ? [-b, a] : [-d, c];
+      var iv = (a !== 0 || c !== 0) ? [a, c] : [b, d];
+      head.textContent = 'det = 0 · aplasta el plano sobre una recta';
+      body.textContent = 'El núcleo es la recta generada por (' + fmtN(nv[0]) + '; ' + fmtN(nv[1]) + '), que va a parar al origen. ' +
+        'La imagen es la recta generada por (' + fmtN(iv[0]) + '; ' + fmtN(iv[1]) + '). 1 + 1 = 2: el teorema de la dimensión cuadra.';
+    }
+  }
+  bindM(ids, 'data-t6', render);
+  render();
+})();
+
+/* ---------- escenario 7: valores y vectores propios 2×2 ---------- */
+(function () {
+  var ids = ['g7a', 'g7b', 'g7c', 'g7d'];
+  var svg = document.getElementById('g7-svg'), eq = document.getElementById('g7-eq'), vd = document.getElementById('g7-v');
+  if (!svg || !eq || !vd) return;
+  var E = 1e-9;
+  function clean(v) {
+    var x = v[0], y = v[1];
+    if (Math.abs(x) < E) x = 0; if (Math.abs(y) < E) y = 0;
+    var r = function (t) { return Math.abs(t - Math.round(t)) < 1e-9; };
+    if (r(x) && r(y)) {
+      var g = (function gcd(p, q) { return q ? gcd(q, p % q) : p; })(Math.abs(Math.round(x)), Math.abs(Math.round(y))) || 1;
+      x = Math.round(x) / g; y = Math.round(y) / g;
+    } else { var n = Math.hypot(x, y); x /= n; y /= n; }
+    if (x < 0 || (x === 0 && y < 0)) { x = -x; y = -y; }
+    return [x, y];
+  }
+  function vecFor(l, a, b, c, d) {
+    if (Math.abs(b) > E) return clean([b, l - a]);
+    if (Math.abs(c) > E) return clean([l - d, c]);
+    return Math.abs(l - a) < E ? [1, 0] : [0, 1];
+  }
+  function sgn(x, s) { return (x < 0 ? ' − ' : ' + ') + fmtN(Math.abs(x)) + s; }
+  function render() {
+    var m = readM(ids), a = m[0], b = m[1], c = m[2], d = m[3];
+    var tr = a + d, det = a * d - b * c, disc = tr * tr - 4 * det;
+    var head = vd.querySelector('.v-head'), body = vd.querySelector('.v-body');
+    var html = 'p(λ) = λ²' + sgn(-tr, 'λ') + sgn(det, '') + '<br>Δ = tr² − 4·det = ' + fmtN(disc) + '<br>';
+    var lines = [];
+    if (disc < -E) {
+      var re = tr / 2, im = Math.sqrt(-disc) / 2;
+      html += 'λ = <b>' + fmtN(re) + ' ± ' + fmtN(im) + 'i</b> (complejos)';
+      vd.className = 'verdict bad';
+      head.textContent = 'Sin valores propios reales · no diagonalizable en ℝ';
+      body.textContent = 'Ninguna dirección se conserva: la transformación gira todas. Es lo que pasa con las rotaciones (ejercicio P2).';
+    } else if (Math.abs(disc) <= E) {
+      var l = tr / 2;
+      html += 'λ = <b>' + fmtN(l) + '</b> (doble)';
+      if (Math.abs(b) < E && Math.abs(c) < E) {
+        vd.className = 'verdict ok';
+        head.textContent = 'Diagonalizable · ya es diagonal';
+        body.textContent = 'A = ' + fmtN(l) + '·I: todo vector no nulo es vector propio. Multiplicidad geométrica 2.';
+      } else {
+        var v = vecFor(l, a, b, c, d); lines.push({ v: v, cls: 'pl-eig1' });
+        html += '<br>v = (<b>' + fmtN(v[0]) + '</b>; <b>' + fmtN(v[1]) + '</b>)';
+        vd.className = 'verdict bad';
+        head.textContent = 'No diagonalizable · le falta una dirección';
+        body.textContent = 'λ = ' + fmtN(l) + ' tiene multiplicidad algebraica 2 pero un solo vector propio independiente. Como el Ejemplo 6.';
+      }
+    } else {
+      var s = Math.sqrt(disc), l1 = (tr + s) / 2, l2 = (tr - s) / 2;
+      var v1 = vecFor(l1, a, b, c, d), v2 = vecFor(l2, a, b, c, d);
+      lines.push({ v: v1, cls: 'pl-eig1' }, { v: v2, cls: 'pl-eig2' });
+      html += 'λ₁ = <b>' + fmtN(l1) + '</b> → v₁ = (' + fmtN(v1[0]) + '; ' + fmtN(v1[1]) + ')<br>' +
+        'λ₂ = <b>' + fmtN(l2) + '</b> → v₂ = (' + fmtN(v2[0]) + '; ' + fmtN(v2[1]) + ')';
+      vd.className = 'verdict ok';
+      head.textContent = 'Diagonalizable · dos valores propios distintos';
+      body.textContent = 'C = [v₁ v₂], B = diag(' + fmtN(l1) + '; ' + fmtN(l2) + '). Chequeo: ' + fmtN(l1) + ' + ' + fmtN(l2) + ' = ' + fmtN(tr) +
+        ' = traza y ' + fmtN(l1) + ' · ' + fmtN(l2) + ' = ' + fmtN(det) + ' = det.' +
+        (Math.abs(l1) < E || Math.abs(l2) < E ? ' Un valor propio es 0: esa dirección es el núcleo y A no es invertible.' : '');
+    }
+    eq.innerHTML = html;
+    Plane.draw(svg, m, lines);
+  }
+  bindM(ids, 'data-g7', render);
+  render();
+})();
+
+/* ---------- escenario 8: el buscador, por potencias ---------- */
+(function () {
+  var rows = document.getElementById('pr8-rows'), vd = document.getElementById('pr8-v'), model = document.getElementById('pr8-model');
+  if (!rows || !vd || !model) return;
+  var OUT = { 1: [4, 6, 5], 2: [1, 3], 3: [4, 5], 4: [1, 2, 6, 5], 5: [3], 6: [1, 5] };
+  var N = 6, L = [];
+  for (var i = 0; i < N; i++) { L.push([0, 0, 0, 0, 0, 0]); }
+  Object.keys(OUT).forEach(function (j) { OUT[j].forEach(function (t) { L[t - 1][j - 1] = 1 / OUT[j].length; }); });
+  function M() {
+    if (model.value !== 'google') return L;
+    return L.map(function (r) { return r.map(function (x) { return 0.85 * x + 0.15 / N; }); });
+  }
+  function fixed() {
+    var A = M(), x = [1, 1, 1, 1, 1, 1].map(function () { return 1 / N; });
+    for (var k = 0; k < 500; k++) x = mul(A, x);
+    return x;
+  }
+  function mul(A, x) { return A.map(function (r) { return r.reduce(function (s, a, j) { return s + a * x[j]; }, 0); }); }
+  var x, k, target;
+  function reset() { x = [1, 1, 1, 1, 1, 1].map(function () { return 1 / N; }); k = 0; target = fixed(); render(); }
+  function step(n) { var A = M(); for (var i = 0; i < n; i++) x = mul(A, x); k += n; render(); }
+  function pct(v) { return (v * 100).toLocaleString('es-CO', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' %'; }
+  function render() {
+    var order = x.map(function (v, i) { return i; }).sort(function (p, q) { return x[q] - x[p]; });
+    var rank = []; order.forEach(function (i, r) { rank[i] = r + 1; });
+    var mx = Math.max.apply(null, x);
+    rows.textContent = '';
+    x.forEach(function (v, i) {
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<th>Página ' + (i + 1) + '</th><td class="n">' + pct(v) + '</td>' +
+        '<td><span class="pr-bar"><i style="width:' + (v / mx * 100).toFixed(1) + '%"></i></span></td><td class="n">' + rank[i] + '</td>';
+      rows.appendChild(tr);
+    });
+    var dist = Math.max.apply(null, x.map(function (v, i) { return Math.abs(v - target[i]); }));
+    var head = vd.querySelector('.v-head'), body = vd.querySelector('.v-body');
+    if (k === 0) {
+      vd.className = 'verdict';
+      head.textContent = 'Punto de partida · todas valen lo mismo';
+      body.textContent = 'Cada página arranca con 1/6. Pulsa «Repartir una vez»: cada una entrega su importancia, por partes iguales, a las páginas que enlaza.';
+    } else if (dist < 5e-4) {
+      vd.className = 'verdict ok';
+      head.textContent = 'Convergió en ' + k + ' repartos · es el vector propio de λ = 1';
+      body.textContent = 'Repartir otra vez ya no cambia nada: Lx = x. Orden: ' + order.map(function (i) { return i + 1; }).join(' · ') + '.';
+    } else {
+      vd.className = 'verdict';
+      head.textContent = 'Reparto ' + k + ' · todavía cambia';
+      body.textContent = 'La mayor diferencia con el vector final es ' + (dist * 100).toLocaleString('es-CO', { maximumFractionDigits: 2 }) +
+        ' puntos porcentuales. Los valores propios con módulo menor que 1 se están apagando.';
+    }
+  }
+  document.getElementById('pr8-step').addEventListener('click', function () { step(1); });
+  document.getElementById('pr8-ten').addEventListener('click', function () { step(10); });
+  document.getElementById('pr8-reset').addEventListener('click', reset);
+  model.addEventListener('change', reset);
+  reset();
+})();
+</script>
+
+<a href="/" class="ac-home" style="position:fixed;right:14px;bottom:14px;z-index:9999;font:600 13px/1 -apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:9px 13px;border-radius:20px;background:#1a6fd4;color:#fff;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">&#8962; Inicio</a>
+</body>
+</html>

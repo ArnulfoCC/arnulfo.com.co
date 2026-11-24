@@ -1,0 +1,2234 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cuaderno de Estadística</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+  svg: { fontCache: 'global' },
+  options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+};
+</script>
+<script id="MathJax-script" defer src="../../_assets/tex-svg.js"></script>
+
+<style>
+/* ---------- tokens (Sistema de diseño · Cuaderno de Matrices) ---------- */
+:root{
+  --paper:#f4f6f3;
+  --surface:#ffffff;
+  --surface-2:#edf1ee;
+  --ink:#17211f;
+  --ink-2:#3d4b47;
+  --muted:#56645f;
+  --rule:#d5deda;
+  --rule-soft:#e4eae7;
+  --rule-strong:#7a8984;
+  --accent:#0e6e62;
+  --accent-soft:#dcede9;
+  --accent-line:#a9d3ca;
+  --on-accent:#ffffff;
+  --warn:#a6421f;
+  --warn-soft:#f6e5de;
+  --warn-line:#e8c2b2;
+  --book:#80560a;
+  --book-soft:#f5ecd9;
+  --book-line:#e3cfa6;
+  --focus:var(--accent);
+  --shadow-raised:0 1px 2px rgba(23,33,31,.05), 0 8px 24px -16px rgba(23,33,31,.30);
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:12px;
+  --space-4:16px;
+  --space-5:20px;
+  --space-6:24px;
+  --space-8:32px;
+  --space-12:48px;
+  --space-16:64px;
+  --radius-sm:5px;
+  --radius-md:8px;
+  --radius-lg:12px;
+  --radius-pill:999px;
+  --measure-content:38rem;
+  --measure-wide:1240px;
+  --measure-toc:250px;
+  --font-display:Fraunces, Georgia, serif;
+  --font-text:"Source Serif 4", "Iowan Old Style", Georgia, serif;
+  --font-mono:"IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f1614;
+    --surface:#161f1d;
+    --surface-2:#1d2825;
+    --ink:#e3ebe7;
+    --ink-2:#bcc8c4;
+    --muted:#9aa8a3;
+    --rule:#2b3835;
+    --rule-soft:#232f2c;
+    --rule-strong:#6b7d77;
+    --accent:#5cc3b2;
+    --accent-soft:#1a3833;
+    --accent-line:#2e5e56;
+    --on-accent:#0f1614;
+    --warn:#e08a63;
+    --warn-soft:#33201a;
+    --warn-line:#5a3324;
+    --book:#ddb062;
+    --book-soft:#2e2615;
+    --book-line:#54431f;
+    --shadow-raised:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -18px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f1614;
+  --surface:#161f1d;
+  --surface-2:#1d2825;
+  --ink:#e3ebe7;
+  --ink-2:#bcc8c4;
+  --muted:#9aa8a3;
+  --rule:#2b3835;
+  --rule-soft:#232f2c;
+  --rule-strong:#6b7d77;
+  --accent:#5cc3b2;
+  --accent-soft:#1a3833;
+  --accent-line:#2e5e56;
+  --on-accent:#0f1614;
+  --warn:#e08a63;
+  --warn-soft:#33201a;
+  --warn-line:#5a3324;
+  --book:#ddb062;
+  --book-soft:#2e2615;
+  --book-line:#54431f;
+  --shadow-raised:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -18px rgba(0,0,0,.8);
+}
+
+
+/* =====================================================================
+   Cuaderno de Matrices — hoja de componentes
+   Conserva los nombres de clase del cuaderno (.def, .note, .ex, .calc…)
+   para que sea un reemplazo directo de su <style>. Todo valor sale de
+   tokens.css: ningún color literal aquí.
+   ===================================================================== */
+
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--font-text);font-size:17px;line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+p{margin:0 0 14px;max-width:68ch}
+strong{font-weight:600}
+em.term{font-style:normal;font-weight:600;color:var(--accent)}
+a{color:var(--accent);text-underline-offset:2px}
+code{font-family:var(--font-mono);font-size:.88em;background:var(--surface-2);padding:1px 5px;border-radius:var(--radius-sm)}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+
+/* ---------- el rótulo: un solo estilo para todas las etiquetas ---------- */
+.eyebrow,.tag,.lab,.map .step .k,thead th,.tnum,.calc label,.v-head,.fig .cap b{
+  font-family:var(--font-mono);font-size:12px;line-height:16px;font-weight:500;
+  letter-spacing:.08em;text-transform:uppercase;
+}
+
+/* ---------- portada ---------- */
+.masthead{padding:56px 0 32px;border-bottom:1px solid var(--rule);display:flex;flex-direction:column;gap:18px}
+.eyebrow{color:var(--accent)}
+.masthead h1{
+  font-family:var(--font-display);font-optical-sizing:auto;font-weight:600;
+  font-size:clamp(2.5rem,6vw,4.8rem);line-height:1.02;letter-spacing:-.02em;margin:0;text-wrap:balance;
+}
+.dek{font-size:19px;line-height:1.55;color:var(--ink-2);max-width:62ch;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px;font-family:var(--font-mono);font-size:13px}
+.meta span{border:1px solid var(--rule);border-radius:var(--radius-pill);padding:4px 12px;color:var(--muted)}
+/* avance del módulo: un segmento por escenario */
+.progress{display:flex;flex-direction:column;gap:6px;max-width:560px}
+.progress .bar{display:grid;grid-template-columns:repeat(var(--total,8),1fr);gap:4px}
+.progress .bar i{height:6px;border-radius:var(--radius-pill);background:var(--rule)}
+.progress .bar i.done{background:var(--accent)}
+.progress .bar i.now{background:var(--accent);opacity:.45}
+.progress .txt{font-family:var(--font-mono);font-size:13px;color:var(--muted)}
+
+/* ---------- riel de escenarios (antes: seis tarjetas grandes) ---------- */
+.tabs{
+  display:flex;gap:4px;overflow-x:auto;scrollbar-width:thin;
+  border-bottom:1px solid var(--rule);margin:24px 0 0;padding:0;
+  position:sticky;top:0;z-index:5;background:var(--paper);
+}
+.tab{
+  font:inherit;cursor:pointer;text-align:left;flex:0 0 auto;
+  background:none;border:0;border-bottom:3px solid transparent;margin-bottom:-1px;
+  padding:12px 14px 10px;display:flex;align-items:center;gap:10px;color:var(--ink-2);
+  border-radius:var(--radius-sm) var(--radius-sm) 0 0;
+}
+.tab .n{
+  flex:0 0 auto;width:26px;height:26px;border-radius:var(--radius-pill);
+  display:grid;place-items:center;font-family:var(--font-mono);font-size:13px;font-weight:600;
+  border:1px solid var(--rule-strong);color:var(--muted);
+}
+.tab .tx{display:flex;flex-direction:column;gap:1px;min-width:0}
+.tab .tnum{color:var(--muted)}
+.tab .ttitle{font-family:var(--font-display);font-size:16px;font-weight:600;line-height:1.25;color:var(--ink);white-space:nowrap}
+.tab .tmeta{display:none}
+.tab:hover{background:var(--surface-2)}
+.tab.is-on,.tab[aria-selected="true"]{border-bottom-color:var(--accent)}
+.tab.is-on .n,.tab[aria-selected="true"] .n{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.tab.is-on .tnum,.tab[aria-selected="true"] .tnum{color:var(--accent)}
+.tab.done .n{border-color:var(--accent);color:var(--accent)}
+.tabs .sep{flex:0 0 1px;background:var(--rule);margin:12px 8px}
+.tab.aside .n{border-style:dashed}
+.scene[hidden]{display:none}
+
+/* ---------- tabla de contenido ---------- */
+nav.toc{font-family:var(--font-mono);font-size:13px}
+nav.toc .toc-h{color:var(--muted);margin:0 0 10px;display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+nav.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1px}
+nav.toc a{
+  display:flex;gap:10px;align-items:baseline;color:var(--muted);text-decoration:none;
+  padding:6px 10px;border-radius:var(--radius-sm);line-height:1.35;
+}
+nav.toc a .n{color:var(--accent);min-width:2ch}
+nav.toc a:hover{color:var(--ink);background:var(--surface-2)}
+nav.toc a[aria-current="true"]{color:var(--ink);background:var(--accent-soft);font-weight:500}
+nav.toc .toc-progress{height:3px;background:var(--rule-soft);border-radius:var(--radius-pill);margin:14px 10px 0;overflow:hidden}
+nav.toc .toc-progress i{display:block;height:100%;background:var(--accent);width:var(--p,0%)}
+
+/* ---------- encabezado de sección ---------- */
+h2,.sec-h{margin:0 0 6px;font-family:var(--font-display);font-weight:600;font-size:clamp(1.6rem,3.2vw,2.15rem);line-height:1.14;letter-spacing:-.015em;text-wrap:balance}
+h2 .num,.sec-h .num{
+  font-family:var(--font-mono);font-size:14px;font-weight:500;letter-spacing:0;color:var(--accent);
+  border:1px solid var(--accent-line);border-radius:var(--radius-pill);padding:2px 9px;display:inline-block;margin-right:14px;vertical-align:.32em;line-height:1.3;
+}
+h3{font-family:var(--font-display);font-weight:600;font-size:20px;line-height:1.3;letter-spacing:-.01em;margin:32px 0 8px}
+.sub{color:var(--muted);font-size:15px;line-height:1.5;margin:0 0 22px;max-width:68ch}
+
+/* ---------- bloques de texto: definición, nota, libro ----------
+   Mismo esqueleto: borde fino completo + rótulo con marca. Sin borde
+   izquierdo de color ni sombra: el color vive en el rótulo y el fondo. */
+.def,.note,.book{border-radius:var(--radius-md);padding:16px 20px;margin:24px 0}
+.def p:last-child,.note p:last-child,.book p:last-child{margin-bottom:0}
+.tag{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.tag::before{content:"";flex:0 0 auto;width:8px;height:8px}
+.def{background:var(--surface);border:1px solid var(--rule)}
+.def .tag{color:var(--accent)}
+.def .tag::before{background:var(--accent)}
+.note{background:var(--warn-soft);border:1px solid var(--warn-line)}
+.note .tag{color:var(--warn)}
+.note .tag::before{background:var(--warn);transform:rotate(45deg) scale(.85)}
+.book{background:var(--book-soft);border:1px solid var(--book-line)}
+.book .tag{color:var(--book)}
+.book .tag::before{border:2px solid var(--book);width:10px;height:8px;border-radius:1px}
+.book .refs{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0}
+.book .refs span,.book .refs a{
+  font-family:var(--font-mono);font-size:13px;border:1px solid var(--book-line);border-radius:var(--radius-sm);
+  padding:3px 9px;color:var(--ink-2);background:var(--surface);text-decoration:none;
+}
+
+/* ---------- mapa del escenario ---------- */
+.map{list-style:none;padding:0;margin:26px 0 34px;display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));counter-reset:paso}
+.map .step{
+  position:relative;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius-md);
+  padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px;counter-increment:paso;
+}
+.map .step .k{color:var(--accent);display:flex;align-items:center;gap:8px}
+.map .step .k::before{
+  content:counter(paso);width:22px;height:22px;border-radius:var(--radius-pill);display:grid;place-items:center;
+  background:var(--accent-soft);color:var(--accent);font-size:12px;letter-spacing:0;
+}
+.map .step .v{font-size:15px;color:var(--ink-2);line-height:1.45}
+.map .step.next{background:transparent;border-style:dashed}
+.map .step.next .k{color:var(--muted)}
+.map .step.next .k::before{background:var(--surface-2);color:var(--muted)}
+
+/* ---------- tablas ---------- */
+.tablewrap{overflow-x:auto;margin:20px 0;border:1px solid var(--rule);border-radius:var(--radius-md);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.5}
+caption{caption-side:top;text-align:left;padding:12px 16px 10px;font-family:var(--font-mono);font-size:13px;line-height:1.45;color:var(--muted);border-bottom:1px solid var(--rule-soft)}
+th,td{padding:9px 16px;text-align:left;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+thead th{color:var(--muted);background:var(--surface-2)}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:0}
+tbody tr:hover{background:var(--surface-2)}
+tbody th{font-weight:600;white-space:nowrap}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--font-mono);font-size:14px}
+.yes{color:var(--accent);font-weight:600}
+.no{color:var(--muted)}
+
+/* ---------- ecuaciones ---------- */
+.eq{overflow-x:auto;overflow-y:hidden;padding:6px 0;margin:16px 0}
+mjx-container{color:inherit}
+mjx-container[display="true"]{margin:0 !important}
+
+/* ---------- ejercicio resuelto ---------- */
+.ex{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius-md);margin:20px 0;overflow:hidden}
+.ex > .head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding:12px 20px;background:var(--surface-2);border-bottom:1px solid var(--rule-soft)}
+.ex > .head .id{
+  font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--accent);
+  border:1px solid var(--accent-line);border-radius:var(--radius-pill);padding:1px 9px;white-space:nowrap;
+}
+.ex > .head .q{font-size:16px;color:var(--ink);flex:1;min-width:200px}
+.ex > .body{padding:16px 20px 0}
+.ex > .body > p{max-width:78ch}
+.ex.undef > .head .id{color:var(--warn);border-color:var(--warn-line)}
+/* la solución: <details class="answer"> la oculta hasta que el estudiante la pide */
+.answer{border-top:1px solid var(--accent-line);margin:8px -20px 0;padding:12px 20px 14px;background:var(--accent-soft)}
+.answer > p{margin:0;max-width:68ch}
+.answer .lab{color:var(--accent);display:block;margin-bottom:4px}
+.ex.undef .answer{background:var(--warn-soft);border-top-color:var(--warn-line)}
+.ex.undef .answer .lab{color:var(--warn)}
+details.answer > summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;
+  font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);
+}
+details.answer > summary::-webkit-details-marker{display:none}
+details.answer > summary::before{content:"+";width:18px;height:18px;display:grid;place-items:center;border:1px solid var(--accent);border-radius:var(--radius-sm);font-size:14px;letter-spacing:0}
+details.answer[open] > summary::before{content:"−"}
+details.answer[open] > summary{margin-bottom:6px}
+details.answer:not([open]){background:var(--surface);border-top-color:var(--rule-soft)}
+.ex.undef details.answer > summary{color:var(--warn)}
+.ex.undef details.answer > summary::before{border-color:var(--warn)}
+.ex-pair{display:grid;gap:20px;align-items:start;margin:20px 0}
+@media (min-width:1200px){.ex-pair{grid-template-columns:1fr 1fr}}
+.ex-pair > .ex{margin:0}
+
+/* ---------- etapa (ruta de lectura, procedimiento) ---------- */
+.stage{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius-md);margin:14px 0;overflow:hidden}
+.stage > .sh{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;padding:12px 20px;background:var(--surface-2);border-bottom:1px solid var(--rule-soft)}
+.stage > .sh .n{font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--accent)}
+.stage > .sh .t{font-family:var(--font-display);font-weight:600;font-size:18px;color:var(--ink);flex:1;min-width:180px}
+.stage > .sh .w{font-family:var(--font-mono);font-size:13px;color:var(--muted)}
+.stage.done > .sh .w::before{content:"✓ ";color:var(--accent)}
+.stage > .sb{padding:14px 20px 16px}
+.stage > .sb p:last-child{margin-bottom:0}
+
+/* ---------- calculadoras ---------- */
+.calc{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius-lg);padding:20px;margin:24px 0;box-shadow:var(--shadow-raised)}
+.calc .row{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end}
+.calc label{display:flex;flex-direction:column;gap:6px;color:var(--muted)}
+.calc select,.calc input[type=number]{
+  font-family:var(--font-mono);font-size:15px;padding:8px 10px;
+  border:1px solid var(--rule-strong);border-radius:var(--radius-sm);background:var(--paper);color:var(--ink);
+}
+.calc select{min-width:190px}
+.calc input[type=number]{width:104px}
+.calc input[type=range]{width:190px;accent-color:var(--accent)}
+.calc .times{font-family:var(--font-display);font-size:26px;color:var(--muted);padding-bottom:6px}
+.verdict{margin-top:18px;padding:14px 16px;border-radius:var(--radius-md);border:1px solid var(--rule);background:var(--surface-2);display:flex;flex-direction:column;gap:4px}
+.verdict .v-head{color:var(--muted);font-weight:600}
+.verdict .v-body{font-size:15px;color:var(--ink-2)}
+.verdict.ok{background:var(--accent-soft);border-color:var(--accent-line)}
+.verdict.ok .v-head{color:var(--accent)}
+.verdict.ok .v-head::before{content:"✓ "}
+.verdict.bad{background:var(--warn-soft);border-color:var(--warn-line)}
+.verdict.bad .v-head{color:var(--warn)}
+.verdict.bad .v-head::before{content:"✕ "}
+
+/* ---------- botones ---------- */
+.btnrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.btn{
+  font:inherit;font-size:15px;line-height:1.3;cursor:pointer;background:var(--surface);
+  border:1px solid var(--rule-strong);color:var(--ink);border-radius:var(--radius-sm);padding:7px 14px;
+}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
+.btn.primary:hover{color:var(--on-accent);filter:brightness(1.08)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+
+/* ---------- lista de chequeo (ahora con casillas reales) ---------- */
+ul.check{list-style:none;padding:0;margin:20px 0;display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.check li{margin:0}
+.check label{
+  background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius-md);
+  padding:11px 14px;font-size:15px;color:var(--ink-2);display:flex;gap:12px;align-items:flex-start;line-height:1.45;cursor:pointer;
+}
+.check input[type=checkbox]{
+  appearance:none;flex:0 0 auto;width:18px;height:18px;margin:2px 0 0;border:1.5px solid var(--rule-strong);
+  border-radius:var(--radius-sm);background:var(--paper);display:grid;place-items:center;cursor:pointer;
+}
+.check input[type=checkbox]:checked{background:var(--accent);border-color:var(--accent)}
+.check input[type=checkbox]:checked::after{content:"";width:5px;height:9px;border:solid var(--on-accent);border-width:0 2px 2px 0;transform:translateY(-1px) rotate(45deg)}
+.check input:checked + span{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--rule-strong)}
+.check-count{font-family:var(--font-mono);font-size:13px;color:var(--muted);margin:0 0 8px}
+
+/* ---------- figuras y diagramas ---------- */
+.figs{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin:22px 0}
+.fig{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius-md);padding:14px 16px;display:flex;flex-direction:column;gap:10px;margin:0}
+.fig > svg,.flow > svg{width:100%;height:auto;display:block}
+.fig .cap{font-size:15px;color:var(--ink-2);line-height:1.45}
+.fig .cap b{display:block;color:var(--accent);margin-bottom:4px;font-weight:500}
+.flow{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius-md);padding:18px;margin:22px 0}
+.flow .cap{font-size:15px;color:var(--muted);margin-top:12px;line-height:1.45}
+.sv-node{fill:var(--surface-2);stroke:var(--rule-strong);stroke-width:1.2}
+.sv-crit{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.2}
+.sv-dec{fill:var(--surface);stroke:var(--warn);stroke-width:1.4}
+.sv-out{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.2}
+.sv-line{stroke:var(--muted);stroke-width:1.3;fill:none}
+.sv-t{fill:var(--ink);font-family:var(--font-mono);font-size:13px}
+.sv-t.b{font-weight:600}
+.sv-lab{fill:var(--muted);font-family:var(--font-mono);font-size:11.5px}
+.sv-ax{stroke:var(--rule-strong);stroke-width:1.2;fill:none}
+.sv-l1{stroke:var(--accent);stroke-width:2.2;fill:none}
+.sv-l2{stroke:var(--warn);stroke-width:2.2;fill:none}
+.sv-pt{fill:var(--accent)}
+
+/* ---------- matriz en HTML (adición): resalta fila × columna ---------- */
+.mx-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-family:var(--font-mono)}
+.mx-row .op{font-family:var(--font-display);font-size:24px;color:var(--muted)}
+.matrix{
+  position:relative;display:inline-grid;grid-template-columns:repeat(var(--cols,3),minmax(2.6em,auto));
+  gap:2px;padding:6px 12px;font-family:var(--font-mono);font-size:15px;font-variant-numeric:tabular-nums;
+}
+.matrix::before,.matrix::after{content:"";position:absolute;top:0;bottom:0;width:7px;border:1.5px solid var(--ink)}
+.matrix::before{left:0;border-right:0}
+.matrix::after{right:0;border-left:0}
+.matrix > span{text-align:right;padding:3px 7px;border-radius:var(--radius-sm);color:var(--ink)}
+.matrix > .r{background:var(--accent-soft)}
+.matrix > .c{background:var(--book-soft)}
+.matrix > .hit{background:var(--accent);color:var(--on-accent);font-weight:600}
+.mx-name{font-family:var(--font-display);font-style:italic;font-size:20px;color:var(--ink)}
+.mx-cap{font-family:var(--font-mono);font-size:13px;color:var(--muted);margin-top:10px}
+.mx-cap .r{background:var(--accent-soft);color:var(--ink);padding:0 5px;border-radius:3px}
+.mx-cap .c{background:var(--book-soft);color:var(--ink);padding:0 5px;border-radius:3px}
+
+/* ---------- pie ---------- */
+footer{border-top:1px solid var(--rule);margin-top:24px;padding-top:20px;font-size:15px;color:var(--muted);max-width:68ch}
+
+/* ---------- impresión: todo visible, sin chrome ---------- */
+@media print{
+  .tabs,nav.toc,.btnrow,.calc{display:none !important}
+  .scene[hidden]{display:block !important}
+  details.answer{display:block}
+  details.answer > *{display:block}
+  .def,.note,.book,.ex,.stage,.fig{break-inside:avoid}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+
+/* ---------- modo repaso: un ejercicio a la vez, al azar ---------- */
+.review{position:fixed;inset:0;z-index:50;background:var(--paper);overflow-y:auto;display:none}
+.review.is-open{display:block}
+body.review-on{overflow:hidden}
+.review .rv-in{max-width:880px;margin:0 auto;padding:0 32px 64px}
+@media (max-width:640px){.review .rv-in{padding:0 16px 48px}}
+.rv-top{position:sticky;top:0;z-index:2;background:var(--paper);padding:16px 0 14px;margin-bottom:24px;border-bottom:1px solid var(--rule)}
+.rv-top .rv-row{display:flex;align-items:center;gap:12px}
+.rv-title{font-family:var(--font-display);font-weight:600;font-size:22px;line-height:1.2;flex:1;margin:0}
+.rv-bar{height:6px;background:var(--rule);border-radius:var(--radius-pill);overflow:hidden;margin-top:12px}
+.rv-bar i{display:block;height:100%;width:var(--p,0%);background:var(--accent)}
+.rv-meta{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;font-family:var(--font-mono);font-size:13px;color:var(--muted);margin:0 0 12px}
+.rv-meta b{color:var(--accent);font-weight:600}
+.rv-meta .rv-sec{font-family:var(--font-display);font-size:17px;font-weight:600;color:var(--ink)}
+.rv-lead{color:var(--ink-2);margin:0 0 24px}
+.rv-setup fieldset{border:0;padding:0;margin:0 0 24px;min-width:0}
+.rv-setup legend{font-family:var(--font-mono);font-size:12px;line-height:16px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:0;margin-bottom:10px}
+.rv-chips{display:flex;flex-wrap:wrap;gap:8px}
+.rv-chip{position:relative;display:inline-flex;align-items:center;gap:8px;cursor:pointer;background:var(--surface);color:var(--ink-2);
+  border:1px solid var(--rule-strong);border-radius:var(--radius-pill);padding:6px 14px;font-size:15px;line-height:1.3}
+.rv-chip input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+.rv-chip .c{font-family:var(--font-mono);font-size:12px;color:var(--muted)}
+.rv-chip:has(input:checked){background:var(--accent-soft);border-color:var(--accent);color:var(--ink)}
+.rv-chip:has(input:checked)::before{content:"✓";color:var(--accent);font-weight:600}
+.rv-chip:has(input:focus-visible){outline:2px solid var(--focus);outline-offset:2px}
+.rv-chip:has(input:disabled){opacity:.5;cursor:not-allowed}
+.rv-card .ex{margin:0}
+.rv-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:20px}
+.rv-actions .sp{flex:1}
+.btn.warn{border-color:var(--warn);color:var(--warn)}
+.btn.warn:hover{background:var(--warn-soft);border-color:var(--warn);color:var(--warn)}
+.btn.link{border-color:transparent;background:none;color:var(--accent);text-decoration:underline;text-underline-offset:2px;padding-inline:6px}
+.rv-hint{font-family:var(--font-mono);font-size:12px;color:var(--muted);margin:16px 0 0}
+.rv-score{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,220px));gap:12px;margin:0 0 24px}
+.rv-score div{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius-md);padding:14px 16px;font-size:15px;color:var(--ink-2)}
+.rv-score b{display:block;font-family:var(--font-display);font-size:40px;line-height:1.05;font-weight:600}
+.rv-score .ok b{color:var(--accent)}
+.rv-score .bad b{color:var(--warn)}
+.rv-list{list-style:none;padding:0;margin:0 0 8px;max-width:none;display:flex;flex-direction:column;gap:6px}
+.rv-list li{margin:0}
+.rv-list button{font:inherit;font-size:15px;text-align:left;width:100%;cursor:pointer;display:flex;gap:12px;align-items:baseline;
+  background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius-md);padding:10px 14px;color:var(--ink)}
+.rv-list button:hover{border-color:var(--accent)}
+.rv-list .k{font-family:var(--font-mono);font-size:13px;color:var(--warn);white-space:nowrap}
+.ex.rv-flash{outline:2px solid var(--focus);outline-offset:4px}
+.rv-title:focus{outline:none}
+
+/* escenarios 6 a 8: planos, grafos y barras */
+.flow > svg.sv-mid{max-width:520px;margin:0 auto}
+.sv-arrow{fill:var(--muted)}
+svg.plane{width:240px;height:240px;flex:0 0 auto;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius-md)}
+.pl-grid{stroke:var(--rule-soft);stroke-width:1}
+.pl-axis{stroke:var(--rule-strong);stroke-width:1.2}
+.pl-orig{fill:none;stroke:var(--muted);stroke-width:1.3;stroke-dasharray:4 3}
+.pl-img{fill:var(--accent-soft);fill-opacity:.8;stroke:var(--accent);stroke-width:1.5}
+.pl-e1{stroke:var(--accent);stroke-width:2.6}
+.pl-e2{stroke:var(--warn);stroke-width:2.6}
+.pl-p1{fill:var(--accent)} .pl-p2{fill:var(--warn)}
+.pl-eig1{stroke:var(--book);stroke-width:2}
+.pl-eig2{stroke:var(--ink-2);stroke-width:2;stroke-dasharray:5 4}
+.plane-key{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--font-mono);font-size:12px;color:var(--muted);margin:0;max-width:none}
+.plane-key span::before{content:"";display:inline-block;width:18px;height:0;border-top:2.5px solid currentColor;vertical-align:middle;margin-right:6px}
+.plane-key .k0::before{border-top:1.5px dashed var(--muted)}
+.plane-key .k1::before{border-top-color:var(--accent)}
+.plane-key .k2::before{border-top-color:var(--warn)}
+.plane-key .k3::before{border-top-color:var(--book)}
+.plane-key .k4::before{border-top:2px dashed var(--ink-2)}
+.pr-bar{display:block;height:8px;min-width:70px;background:var(--rule-soft);border-radius:var(--radius-pill);overflow:hidden}
+.pr-bar i{display:block;height:100%;background:var(--accent);border-radius:var(--radius-pill)}
+
+/* =====================================================================
+   Capa de página del cuaderno: retícula, anchos y widgets propios
+   ===================================================================== */
+html{font-size:16.5px}
+@media (min-width:1400px){ html{font-size:17.5px} }
+@media (min-width:1900px){ html{font-size:18.5px} }
+body{font-size:1rem}
+.wrap{max-width:1640px;margin:0 auto;padding:0 32px 96px}
+@media (max-width:640px){ .wrap{padding:0 16px 64px} }
+
+/* portada: controles */
+.masthead .tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.theme-btn{font-family:var(--font-mono);font-size:13px;cursor:pointer;background:var(--surface);color:var(--ink-2);
+  border:1px solid var(--rule-strong);border-radius:var(--radius-pill);padding:4px 12px}
+.theme-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+/* columnas */
+.cols{display:grid;grid-template-columns:1fr;gap:0}
+nav.toc{display:none}
+@media (min-width:1000px){
+  .cols{grid-template-columns:200px minmax(0,1fr);gap:48px;align-items:start}
+  .cols nav.toc{display:block;position:sticky;top:84px;padding-top:40px;max-height:calc(100vh - 96px);overflow-y:auto}
+}
+@media (min-width:1400px){ .cols{grid-template-columns:var(--measure-toc) minmax(0,1fr);gap:84px} }
+
+/* sistema de anchos */
+main{--content:var(--measure-content);--wide:100%;padding-top:48px;min-width:0}
+@media (min-width:1400px){ main{--wide:var(--measure-wide)} }
+section{margin:0 0 var(--space-16);scroll-margin-top:96px}
+section > h2, section > h3, section > h4, section > p, section > ol, section > ul:not(.check),
+section > .def, section > .note, section > .book, section > .stage, section > .sub, section > footer{
+  max-width:var(--content);margin-inline:auto;
+}
+section > .tablewrap, section > .eq, section > .map, section > .calc, section > .ex, section > .ex-pair,
+section > .figs, section > .flow, section > ul.check, section > .check-count{max-width:var(--wide);margin-inline:auto}
+section > .check-count{margin-bottom:8px}
+.ex .body > p, .ex .body > ul, .ex .body > ol{max-width:78ch;margin-left:auto;margin-right:auto}
+.answer > p{margin-left:auto;margin-right:auto}
+.ex .body > .tablewrap, .ex .body > .eq, .def .eq, .def ul{max-width:none}
+.answer .eq{margin:8px 0 4px}
+section > .answer{max-width:var(--content);margin-inline:auto;overflow-x:auto}
+.answer.standalone{margin-top:16px;margin-bottom:16px;border:1px solid var(--accent-line);border-radius:var(--radius-md)}
+
+h4{font-family:var(--font-mono);font-weight:500;font-size:12px;line-height:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:26px 0 8px}
+ul,ol{max-width:68ch;padding-left:1.2em;margin:0 0 14px}
+li{margin:0 0 7px}
+hr.rule{border:0;border-top:1px solid var(--rule-soft);margin:38px 0}
+
+/* verificador de ternas */
+.scrollx{overflow-x:auto;margin-top:16px}
+.eqcheck{width:100%;min-width:430px;border-collapse:collapse;font-size:15px}
+.eqcheck th,.eqcheck td{padding:8px 10px;border-bottom:1px solid var(--rule-soft);text-align:left}
+.eqcheck thead th{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500;background:none}
+.eqcheck td.n{text-align:right;font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+.eqcheck tr:last-child td,.eqcheck tr:last-child th{border-bottom:0}
+.mark-ok{color:var(--accent);font-weight:600}
+.mark-ok::before{content:"✔ "}
+.mark-no{color:var(--warn);font-weight:600}
+.mark-no::before{content:"✘ "}
+
+
+/* escenarios 6 a 8: planos, grafos y barras */
+.flow > svg.sv-mid{max-width:520px;margin:0 auto}
+.sv-arrow{fill:var(--muted)}
+svg.plane{width:240px;height:240px;flex:0 0 auto;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius-md)}
+.pl-grid{stroke:var(--rule-soft);stroke-width:1}
+.pl-axis{stroke:var(--rule-strong);stroke-width:1.2}
+.pl-orig{fill:none;stroke:var(--muted);stroke-width:1.3;stroke-dasharray:4 3}
+.pl-img{fill:var(--accent-soft);fill-opacity:.8;stroke:var(--accent);stroke-width:1.5}
+.pl-e1{stroke:var(--accent);stroke-width:2.6}
+.pl-e2{stroke:var(--warn);stroke-width:2.6}
+.pl-p1{fill:var(--accent)} .pl-p2{fill:var(--warn)}
+.pl-eig1{stroke:var(--book);stroke-width:2}
+.pl-eig2{stroke:var(--ink-2);stroke-width:2;stroke-dasharray:5 4}
+.plane-key{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--font-mono);font-size:12px;color:var(--muted);margin:0;max-width:none}
+.plane-key span::before{content:"";display:inline-block;width:18px;height:0;border-top:2.5px solid currentColor;vertical-align:middle;margin-right:6px}
+.plane-key .k0::before{border-top:1.5px dashed var(--muted)}
+.plane-key .k1::before{border-top-color:var(--accent)}
+.plane-key .k2::before{border-top-color:var(--warn)}
+.plane-key .k3::before{border-top-color:var(--book)}
+.plane-key .k4::before{border-top:2px dashed var(--ink-2)}
+.pr-bar{display:block;height:8px;min-width:70px;background:var(--rule-soft);border-radius:var(--radius-pill);overflow:hidden}
+.pr-bar i{display:block;height:100%;background:var(--accent);border-radius:var(--radius-pill)}
+
+/* mezclador de color */
+.mixrow{display:flex;gap:20px;align-items:stretch;flex-wrap:wrap;margin-top:20px}
+.swatch{width:150px;min-height:150px;flex:0 0 auto;border-radius:var(--radius-md);border:1px solid var(--rule-strong);background:#000}
+.mixinfo{flex:1;min-width:260px;display:flex;flex-direction:column;gap:12px}
+.mixeq{font-family:var(--font-mono);font-size:13px;line-height:1.6;color:var(--ink-2);background:var(--surface-2);
+  border:1px solid var(--rule-soft);border-radius:var(--radius-sm);padding:11px 13px;overflow-x:auto}
+.mixeq b{color:var(--ink)}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow">Estadística Descriptiva · Unidades 1 a 4 · Apuntes, código verificado y erratas</div>
+    <h1>Cuaderno de Estadística</h1>
+    <p class="dek">Antes de calcular una sola media hay tres preguntas que deciden todo lo demás: cómo se recogieron los datos, qué tipo de variable es cada columna y si la base está limpia. La Unidad 1 responde las tres y pone las herramientas —Python y R— con las que el resto del módulo se trabaja.</p>
+    <div class="meta">
+      <span>Politécnico Grancolombiano · Grupo B01</span>
+      <span>Lectura U1: Edwin Hernando Zapata Cifuentes</span>
+      <span>Código verificado en Python (pandas 2.2) y R</span>
+    </div>
+    <div class="progress" style="--total:4">
+      <div class="bar" aria-hidden="true"><i class="done"></i><i></i><i></i><i></i></div>
+      <span class="txt">1 de 4 unidades en el cuaderno · próxima: diagnóstica, sáb 24 – mar 27 oct</span>
+    </div>
+    <div class="tools"><button class="btn primary" id="reviewBtn" type="button">Modo repaso</button><button class="theme-btn" id="themeBtn" type="button">Tema: automático</button></div>
+  </header>
+
+<div class="tabs" role="tablist" aria-label="Unidades">
+    <button class="tab is-on" role="tab" id="tab-1" aria-controls="scene-1" aria-selected="true" data-scene="1" title="La estadística en la investigación y programación con R y Python"><span class="n">1</span><span class="tx"><span class="tnum">Unidad 1</span><span class="ttitle">Investigación y datos</span><span class="tmeta">Recolección, variables, R y Python · 25 pp.</span></span></button>
+    <button class="tab" role="tab" id="tab-2" aria-controls="scene-2" aria-selected="false" data-scene="2" title="Análisis descriptivo univariado"><span class="n">2</span><span class="tx"><span class="tnum">Unidad 2</span><span class="ttitle">Análisis univariado</span><span class="tmeta">Pendiente · Entrega 1 · mar 17 nov</span></span></button>
+    <button class="tab" role="tab" id="tab-3" aria-controls="scene-3" aria-selected="false" data-scene="3" title="Análisis descriptivo multivariado"><span class="n">3</span><span class="tx"><span class="tnum">Unidad 3</span><span class="ttitle">Análisis multivariado</span><span class="tmeta">Pendiente · Cuestionario · mar 1 dic</span></span></button>
+    <button class="tab" role="tab" id="tab-4" aria-controls="scene-4" aria-selected="false" data-scene="4" title="Limpieza de datos y presentación de reportes descriptivos"><span class="n">4</span><span class="tx"><span class="tnum">Unidad 4</span><span class="ttitle">Limpieza y reportes</span><span class="tmeta">Pendiente · Entrega 2 · mar 8 dic</span></span></button>
+  </div>
+
+<style>
+/* bloques de código: añadidos para este cuaderno, con los mismos tokens del diseño */
+.codeblk{max-width:var(--content);margin:16px auto;border:1px solid var(--rule);border-radius:var(--radius-md);background:var(--surface-2);overflow:hidden}
+.codeblk > .lab{display:block;padding:7px 14px;border-bottom:1px solid var(--rule-soft);color:var(--muted)}
+.codeblk.out{background:var(--surface);border-style:dashed}
+.codeblk.out > .lab{color:var(--accent)}
+pre.code{margin:0;padding:12px 14px;overflow-x:auto;font-family:var(--font-mono);font-size:13px;line-height:1.55;color:var(--ink)}
+pre.code code{background:none;padding:0;font-size:inherit;border-radius:0}
+.ex .body .codeblk,.answer .codeblk{max-width:none;margin:12px 0}
+.pend{color:var(--muted)}
+table.res{table-layout:fixed}
+table.res td code{white-space:normal;word-break:break-all}
+table.res th, table.res td{overflow-wrap:anywhere;white-space:normal}
+</style>
+<div class="scene" id="scene-1" role="tabpanel" aria-labelledby="tab-1">
+  <div class="cols">
+    <nav class="toc" aria-label="Contenido de la unidad 1">
+      <span class="toc-h">En esta unidad</span>
+      <ol>
+        <li><a href="#u1-mapa"><span class="n">00</span> El hilo de la unidad</a></li>
+        <li><a href="#u1-recoleccion"><span class="n">01</span> Recolectar datos</a></li>
+        <li><a href="#u1-variables"><span class="n">02</span> Tipos de variables</a></li>
+        <li><a href="#u1-lenguajes"><span class="n">03</span> R y Python</a></li>
+        <li><a href="#u1-estructuras"><span class="n">04</span> Estructuras de datos</a></li>
+        <li><a href="#u1-limpieza"><span class="n">05</span> Limpieza de datos</a></li>
+        <li><a href="#u1-graficos"><span class="n">06</span> Primer vistazo gráfico</a></li>
+        <li><a href="#u1-foro"><span class="n">07</span> El foro de la unidad</a></li>
+        <li><a href="#u1-diagnostica"><span class="n">08</span> Preguntas tipo diagnóstica</a></li>
+        <li><a href="#u1-recursos"><span class="n">09</span> Para profundizar</a></li>
+        <li><a href="#u1-repaso"><span class="n">10</span> Repaso y erratas</a></li>
+      </ol>
+      <div class="toc-progress" aria-hidden="true"><i></i></div>
+    </nav>
+    <main>
+    <section id="u1-mapa">
+      <h2><span class="num">00</span>El hilo de la unidad</h2>
+      <p class="sub">La lectura parece una colección de temas sueltos —métodos de recolección, tipos de variable, instalar R—, pero es una sola cadena: cada paso condiciona el siguiente.</p>
+      <div class="map">
+        <div class="step"><span class="k">Pregunta</span><span class="v">Toda investigación empieza por lo que se quiere responder; los datos se recogen para eso, no al revés.</span></div>
+        <div class="step"><span class="k">Recolección</span><span class="v">Encuesta, censo, observación o experimento. El método decide qué conclusiones son legítimas.</span></div>
+        <div class="step"><span class="k">Variables</span><span class="v">Cualitativa o cuantitativa; discreta o continua. El tipo decide qué cálculos tienen sentido.</span></div>
+        <div class="step"><span class="k">Herramienta</span><span class="v">R o Python: vectores, matrices, dataframes y listas para guardar y manipular la base.</span></div>
+        <div class="step"><span class="k">Limpieza</span><span class="v">Faltantes, espacios, texto sin estandarizar, números guardados como texto. Sin esto, nada de lo anterior sirve.</span></div>
+        <div class="step next"><span class="k">Unidad 2</span><span class="v">Con la base limpia: frecuencias, medidas, estandarización y gráficos de una variable.</span></div>
+      </div>
+      <div class="note">
+        <span class="tag">Cómo usar este cuaderno</span>
+        <p>Cada técnica de código tiene su salida real, copiada de la ejecución. El cuaderno <code>U1_Limpieza_de_datos_Colab.ipynb</code>, en <code>01 - Unidad 1/Mi trabajo</code>, reproduce todos los ejemplos de Python celda por celda: ábrelo en Colab y córrelo mientras lees las secciones 03 a 06. Los equivalentes en R se verificaron con R 4.</p>
+      </div>
+      <div class="book">
+        <span class="tag">Para ampliar</span>
+        <p>La lectura complementaria de la unidad es el e-book del Poli <strong>Castillo Garzón, P. (2023). <em>Conceptos básicos en probabilidad y estadística</em></strong>, páginas 11 a 21. Profundiza en población, muestra y tipos de variable con más ejemplos.</p>
+        <div class="refs"><a href="https://revistas.poligran.edu.co/index.php/mi-books/article/view/3784">revistas.poligran.edu.co · mi-books 3784</a><span>pp. 11–21</span></div>
+      </div>
+    </section>
+
+    <section id="u1-recoleccion">
+      <h2><span class="num">01</span>Recolectar datos: cuatro métodos</h2>
+      <p class="sub">La lectura abre con una advertencia: un estudio sobre tabaco y cáncer con una mala recolección llega a conclusiones equivocadas, por buenos que sean los cálculos. El método de recolección es parte del resultado.</p>
+
+      <p>Cualquier método debe ser <strong>sistemático y organizado</strong>, y responder a lo que los investigadores plantearon. La lectura describe cuatro, que se ordenan por cuánto interviene el investigador:</p>
+
+      <div class="tablewrap">
+        <table>
+          <caption>Métodos de recolección, de menor a mayor intervención</caption>
+          <thead><tr><th>Método</th><th>A quién se mide</th><th>¿Interviene el investigador?</th><th>Ejemplo de la lectura</th></tr></thead>
+          <tbody>
+            <tr><th>Censo</th><td>A <strong>todos</strong> los elementos de la población</td><td>No</td><td>El censo nacional: todos los habitantes de Colombia</td></tr>
+            <tr><th>Encuesta</th><td>A una <strong>muestra</strong>: un subconjunto de la población</td><td>No (solo pregunta)</td><td>Intención de voto de una región</td></tr>
+            <tr><th>Estudio observacional</th><td>A quienes se observa</td><td>No: registra sin alterar el fenómeno</td><td>Suplementos vitamínicos y mortalidad; migración de aves</td></tr>
+            <tr><th>Estudio controlado / experimento</th><td>A grupos que el investigador arma</td><td><strong>Sí</strong>: manipula una o varias variables</td><td>Pilates más antiinflamatorios frente a solo antiinflamatorios</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Población, muestra y por qué se encuesta</h3>
+      <div class="def">
+        <span class="tag">Definición · población y muestra</span>
+        <p>La <em class="term">población</em> es el conjunto completo de elementos que interesa estudiar —personas, pero también objetos, animales o registros—. La <em class="term">muestra</em> es el subconjunto al que efectivamente se le recogen datos.</p>
+      </div>
+      <p>Se encuesta a una muestra cuando llegar a toda la población es imposible, demasiado costoso o demasiado demorado. Con la muestra resumida (estadística descriptiva) y la probabilidad se pueden sacar conclusiones sobre la población <strong>con cierto nivel de confianza</strong>: eso ya es <em class="term">estadística inferencial</em>, que es Estadística Predictiva en el cuarto semestre. Este módulo se queda en describir.</p>
+      <p>Un censo no es solo de personas. La lectura pregunta: <em>¿puede imaginar otros ejemplos donde sea aplicable un censo?</em> En tu trabajo hay uno todos los meses: la revisión de <strong>todos</strong> los pagos de un contrato antes de una modificación es un censo de esa población. Cuando una auditoría revisa solo algunas facturas escogidas, está trabajando con una muestra.</p>
+
+      <h3>Observar no es experimentar</h3>
+      <p>En un <strong>estudio observacional</strong> el investigador recoge lo que pasa sin tocar nada. El ejemplo de la lectura sigue a unas 40.000 personas durante 22 años para relacionar suplementos vitamínicos con mortalidad. Los primeros resultados sugerían que complejo B, vitaminas C, D, E y calcio reducían el riesgo; al <strong>ajustar por variables de confusión</strong>, el zinc, el hierro y el cobre aparecieron asociados a un riesgo <em>mayor</em>, y solo el calcio mantuvo una reducción (≈ 3,8 %).</p>
+      <div class="def">
+        <span class="tag">Definición · variable de confusión</span>
+        <p>Una <em class="term">variable de confusión</em> es un factor que influye a la vez en la «causa» y en el «efecto» que se estudian, y hace aparecer una relación que no existe o esconde una que sí. Quien toma suplementos suele también comer mejor y hacer más ejercicio: si no se ajusta por eso, el suplemento se lleva un mérito que no es suyo.</p>
+      </div>
+      <p>En un <strong>estudio controlado</strong> el investigador manipula la <em class="term">variable independiente</em> (la que se cambia a propósito: hacer o no pilates) y mide la <em class="term">variable dependiente</em> (la que responde: dolor, funcionalidad, calidad de vida). Si además compara dos o más grupos, es un <strong>experimento comparativo</strong>. El ensayo de Natour et al. (2014) es controlado <em>y</em> aleatorizado: a los participantes se les asignó el grupo al azar, que es lo que neutraliza las variables de confusión.</p>
+      <div class="note">
+        <span class="tag">La idea que hay que llevarse</span>
+        <p>Un estudio observacional muestra <strong>asociación</strong>; solo el experimento controlado y aleatorizado permite hablar de <strong>causa</strong>. La estadística descriptiva de este módulo resume lo que hay en los datos, pero no puede arreglar un mal diseño de recolección.</p>
+      </div>
+<div class="ex">
+        <div class="head"><span class="id">1</span><span class="q">Clasifica cada situación como censo, encuesta (muestra), estudio observacional o experimento comparativo. (a) El DANE pregunta cada mes a una muestra de hogares por su situación laboral. (b) La supervisión revisa todos los pagos del contrato 089 antes de una prórroga. (c) Se cuentan las bicicletas que pasan por una ciclorruta entre las 7 y las 8 a. m., sin intervenir. (d) La mitad de los contratistas, elegida al azar, recibe una versión nueva del oficio de lineamientos de facturación y la otra mitad la versión anterior; se comparan las facturas devueltas.</span></div>
+        <div class="body"><details class="answer"><summary>Ver respuesta</summary><p><strong>(a) Encuesta</strong> por muestra: no se llega a todos los hogares del país, y con la muestra se infiere la tasa nacional.</p>
+<p><strong>(b) Censo</strong>: la población son todos los pagos de ese contrato y se revisan todos.</p>
+<p><strong>(c) Estudio observacional</strong>: se registra el fenómeno sin alterarlo.</p>
+<p><strong>(d) Experimento comparativo</strong>, controlado y aleatorizado. Variable independiente: la versión del oficio. Variable dependiente: el número de facturas devueltas. El sorteo evita que, por ejemplo, los contratistas más ordenados terminen todos en un mismo grupo.</p></details></div>
+      </div><div class="ex">
+        <div class="head"><span class="id">2</span><span class="q">Con el estudio de los suplementos, ¿se puede afirmar que el hierro <em>causa</em> mayor mortalidad? Justifica con el tipo de estudio.</span></div>
+        <div class="body"><details class="answer"><summary>Ver respuesta</summary><p><strong>No.</strong> Es un estudio observacional: los investigadores no asignaron quién tomaba hierro. Puede haber variables de confusión —por ejemplo, que quien toma hierro lo haga por una enfermedad previa—. El estudio permite afirmar una <strong>asociación</strong> después de ajustar por las variables medidas, no una causa. Para hablar de causa haría falta un experimento controlado y aleatorizado.</p></details></div>
+      </div>
+    </section>
+
+    <section id="u1-variables">
+      <h2><span class="num">02</span>Tipos de variables</h2>
+      <p class="sub">«No es razonable sacar un promedio al número de cédula». La frase de la lectura resume la sección: el tipo de variable decide qué operaciones tienen sentido, y equivocarse produce números que parecen resultados y no significan nada.</p>
+
+      <div class="def">
+        <span class="tag">Definición · cualitativa y cuantitativa</span>
+        <p>Una variable es <em class="term">cualitativa</em> si sus valores son textos, etiquetas, nombres o adjetivos: describe una cualidad. Es <em class="term">cuantitativa</em> si sus valores son cantidades sobre las que tiene sentido hacer operaciones aritméticas (el prefijo <em>cuan-</em> viene de cantidad).</p>
+      </div>
+      <div class="def">
+        <span class="tag">Definición · discreta y continua</span>
+        <p>Una variable cuantitativa es <em class="term">discreta</em> si solo admite valores enteros —sale de <strong>contar</strong>— y <em class="term">continua</em> si puede tomar cualquier valor real —sale de <strong>medir</strong>, y medir casi siempre produce decimales—.</p>
+      </div>
+
+      <div class="figs">
+        <div class="fig">
+          <svg viewBox="0 0 300 150" role="img" aria-label="Árbol de clasificación de variables">
+            <rect class="sv-node" x="100" y="6" width="100" height="26" rx="5"/><text class="sv-t b" x="150" y="23" text-anchor="middle">Variable</text>
+            <path class="sv-line" d="M150 32 V46 M70 46 H230 M70 46 V58 M230 46 V58"/>
+            <rect class="sv-node" x="18" y="58" width="104" height="26" rx="5"/><text class="sv-t" x="70" y="75" text-anchor="middle">Cualitativa</text>
+            <rect class="sv-node" x="178" y="58" width="104" height="26" rx="5"/><text class="sv-t" x="230" y="75" text-anchor="middle">Cuantitativa</text>
+            <path class="sv-line" d="M230 84 V98 M185 98 H275 M185 98 V110 M275 98 V110"/>
+            <rect class="sv-out" x="145" y="110" width="80" height="26" rx="5"/><text class="sv-t" x="185" y="127" text-anchor="middle">Discreta</text>
+            <rect class="sv-out" x="235" y="110" width="62" height="26" rx="5"/><text class="sv-t" x="266" y="127" text-anchor="middle">Continua</text>
+            <text class="sv-lab" x="70" y="104" text-anchor="middle">etiquetas, nombres,</text>
+            <text class="sv-lab" x="70" y="117" text-anchor="middle">códigos</text>
+            <text class="sv-lab" x="185" y="148" text-anchor="middle">contar</text>
+            <text class="sv-lab" x="266" y="148" text-anchor="middle">medir</text>
+          </svg>
+          <span class="cap"><b>La clasificación de la lectura</b>Primero cualidad o cantidad; si es cantidad, contar o medir.</span>
+        </div>
+      </div>
+
+      <h3>El ejemplo de la lectura: Pelican Stores</h3>
+      <p>Anderson et al. (2007) registran 100 compras de un almacén de ropa el día de una promoción con cupones. La base tiene un identificador y siete variables:</p>
+      <div class="tablewrap">
+        <table>
+          <caption>Base Pelican Stores (Figura 1 de la lectura): cómo se clasifica cada columna</caption>
+          <thead><tr><th>Columna</th><th>Valores de ejemplo</th><th>Tipo</th></tr></thead>
+          <tbody>
+            <tr><th>Cliente</th><td>1, 2, …, 100</td><td><strong>Identificador</strong>: no es una variable, solo numera los registros</td></tr>
+            <tr><th>Tipo de cliente</th><td>Regular, Promocional</td><td>Cualitativa</td></tr>
+            <tr><th>Artículos</th><td>1, 5, 10</td><td>Cuantitativa <strong>discreta</strong> (se cuentan)</td></tr>
+            <tr><th>Ventas netas</th><td>39,50 · 102,40 · 287,59</td><td>Cuantitativa <strong>continua</strong></td></tr>
+            <tr><th>Modo de pago</th><td>Discover, Proprietary Card, MasterCard</td><td>Cualitativa</td></tr>
+            <tr><th>Género</th><td>Masculino, Femenino</td><td>Cualitativa</td></tr>
+            <tr><th>Estado civil</th><td>Casado, Casada</td><td>Cualitativa</td></tr>
+            <tr><th>Edad</th><td>32, 36, 52</td><td>Cuantitativa</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Dos matices que la lectura no desarrolla y que conviene tener claros:</p>
+      <ul>
+        <li><strong>El dinero.</strong> Ventas netas se trata como continua por convención, aunque en la práctica avance en centavos (o en pesos). En un análisis no cambia nada: se le aplican las herramientas de las continuas.</li>
+        <li><strong>La edad.</strong> El tiempo vivido es continuo, pero se registra en años cumplidos, que se cuentan. Por eso aparece tratada de las dos formas en los textos. Lo que importa es decir cuál usas y por qué.</li>
+      </ul>
+
+      <h3>Números que no son cantidades</h3>
+      <p>El recuadro «Para reflexionar» de la lectura pregunta si el número de celular es cualitativo o cuantitativo. Es <strong>cualitativo</strong>: está escrito con dígitos, pero no representa una cantidad y sumarlo o promediarlo no significa nada. Lo mismo pasa con la cédula, el NIT, el número de contrato o el código UNSPSC.</p>
+      <div class="note">
+        <span class="tag">Por qué importa en el código</span>
+        <p>Python y R no saben esto: si una columna de NIT llega como número, <code>describe()</code> te va a calcular su media sin quejarse. Al cargar una base, los identificadores se guardan como texto (<code>dtype=str</code> en pandas). Es el mismo problema que conoces del <code>SUMAR.SI.CONJUNTO</code> cuando un código numérico viene guardado como texto, visto desde el otro lado.</p>
+      </div>
+      <div class="note">
+        <span class="tag">Un paso más allá de la lectura · escalas de medición</span>
+        <p>Muchos textos refinan la clasificación con cuatro <em class="term">escalas</em>: <strong>nominal</strong> (categorías sin orden: modo de pago), <strong>ordinal</strong> (categorías con orden: estrato, nivel de satisfacción), <strong>de intervalo</strong> (cantidades sin cero absoluto: temperatura en °C) y <strong>de razón</strong> (cantidades con cero real: ventas, artículos). La lectura de la U1 no las trae, pero suelen aparecer en las preguntas de diagnóstico, y la diferencia nominal/ordinal reaparece en la Unidad 4 al codificar variables categóricas.</p>
+      </div>
+<div class="ex">
+        <div class="head"><span class="id">3</span><span class="q">Clasifica las columnas de una base de contratos tipo SECOP: número de contrato, NIT del contratista, modalidad de selección, valor del contrato, plazo en días, número de pagos realizados, departamento de ejecución y porcentaje de ejecución física.</span></div>
+        <div class="body"><details class="answer"><summary>Ver respuesta</summary><div class="tablewrap"><table><thead><tr><th>Columna</th><th>Tipo</th><th>Por qué</th></tr></thead><tbody>
+<tr><th>Número de contrato</th><td>Cualitativa (identificador)</td><td>Dígitos que nombran, no cuentan</td></tr>
+<tr><th>NIT</th><td>Cualitativa (identificador)</td><td>Igual que la cédula</td></tr>
+<tr><th>Modalidad de selección</th><td>Cualitativa</td><td>Etiquetas: licitación, mínima cuantía…</td></tr>
+<tr><th>Valor del contrato</th><td>Cuantitativa continua</td><td>Dinero: se trata como continua por convención</td></tr>
+<tr><th>Plazo en días</th><td>Cuantitativa discreta</td><td>Se cuentan días enteros</td></tr>
+<tr><th>Número de pagos</th><td>Cuantitativa discreta</td><td>Conteo</td></tr>
+<tr><th>Departamento</th><td>Cualitativa</td><td>Etiqueta geográfica</td></tr>
+<tr><th>% de ejecución física</th><td>Cuantitativa continua</td><td>Medición con decimales (97,47 %)</td></tr>
+</tbody></table></div></details></div>
+      </div><div class="ex">
+        <div class="head"><span class="id">4</span><span class="q">En la base Pelican, ¿qué significaría calcular el promedio de la columna «Cliente»?</span></div>
+        <div class="body"><details class="answer"><summary>Ver respuesta</summary><p><strong>Nada.</strong> «Cliente» es un identificador que numera los registros del 1 al 100; su promedio (50,5) solo dice que hay 100 filas. No describe a ningún comprador.</p></details></div>
+      </div><div class="ex">
+        <div class="head"><span class="id">5</span><span class="q">¿La estatura de los estudiantes y el número de materias que inscribieron son discretas o continuas?</span></div>
+        <div class="body"><details class="answer"><summary>Ver respuesta</summary><p>La <strong>estatura es continua</strong>: sale de medir y admite decimales (1,72 m; 1,725 m…). El <strong>número de materias es discreto</strong>: sale de contar, y 3,5 materias no existe.</p></details></div>
+      </div>
+    </section>
+
+    <section id="u1-lenguajes">
+      <h2><span class="num">03</span>R y Python: lo esencial</h2>
+      <p class="sub">La lectura justifica el cambio de herramienta con un ejemplo concreto: una base de más de 47.000 ventas de Black Friday. Es exactamente la base de la Entrega 1 de la Unidad 2.</p>
+      <p>Excel sirve para mucho, pero se queda corto con modelos avanzados y volúmenes grandes. <strong>R</strong> lo crearon estadísticos y es fuerte en análisis y gráficos; <strong>Python</strong> es de propósito general, con bibliotecas para datos, <em>machine learning</em> y automatización. El módulo acepta cualquiera de los dos; la lectura recomienda Python en <strong>Google Colab</strong>, porque corre en el navegador sin instalar nada y trae a Gemini como asistente. Tú ya trabajas en Colab y en Jupyter local: quédate en Python, y usa esta sección para leer el código en R que aparezca en el módulo.</p>
+
+      <div class="tablewrap">
+        <table>
+          <caption>Equivalencias que aparecen en la lectura</caption>
+          <thead><tr><th>Concepto</th><th>R</th><th>Python</th></tr></thead>
+          <tbody>
+            <tr><th>Comentario</th><td><code># texto</code></td><td><code># texto</code></td></tr>
+            <tr><th>Asignar</th><td><code>x &lt;- 5</code> o <code>x = 5</code></td><td><code>x = 5</code></td></tr>
+            <tr><th>Imprimir</th><td><code>print(x)</code></td><td><code>print(x)</code></td></tr>
+            <tr><th>Pedir un dato</th><td><code>readline(prompt = "…")</code></td><td><code>input("…")</code></td></tr>
+            <tr><th>Texto a número</th><td><code>as.numeric(x)</code></td><td><code>float(x)</code></td></tr>
+            <tr><th>Potencia y raíz</th><td><code>b^2</code>, <code>sqrt(d)</code></td><td><code>b**2</code>, <code>d**0.5</code></td></tr>
+            <tr><th>Condicional</th><td><code>if (…) { } else { }</code></td><td><code>if …:</code> + sangría, <code>else:</code></td></tr>
+            <tr><th>Unir texto</th><td><code>paste("x1 =", x1)</code></td><td><code>f"x1 = {x1}"</code></td></tr>
+            <tr><th>Función</th><td><code>f &lt;- function(a) { }</code></td><td><code>def f(a):</code></td></tr>
+            <tr><th>Cargar un paquete</th><td><code>library(stringr)</code></td><td><code>import pandas as pd</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Variables y tipos de dato</h3>
+      <div class="def">
+        <span class="tag">Definición · variable (en programación)</span>
+        <p>Una <em class="term">variable</em> es un espacio de memoria con nombre que guarda un valor de algún tipo: número, texto (<em>string</em>, también llamado <em>cadena de caracteres</em>), lógico… Ojo con la doble acepción: en estadística, «variable» es una característica que se mide; en programación, es un nombre para un dato.</p>
+      </div>
+      <p>Lo que llega del teclado (<code>readline</code>, <code>input</code>) o de un archivo mal cargado es texto, aunque se vea como número. Por eso la lectura convierte antes de operar: <code>a = as.numeric(a_string)</code> en R, <code>float(input(…))</code> en Python. Esa conversión es la misma tarea «convertir texto a numérico» que pide el foro de esta unidad.</p>
+
+      <h3>El ejemplo de la lectura: la ecuación cuadrática</h3>
+      <p>La lectura resuelve \(ax^2+bx+c=0\) con la fórmula general en los dos lenguajes. El discriminante \(\Delta=b^2-4ac\) decide el caso: si es negativo no hay raíces reales, y el <code>if</code> lo detecta antes de sacar la raíz. Esta es la versión en Python, ya como función (sección 4.2.3 de la lectura), con los tres casos probados:</p>
+      <div class="codeblk"><span class="lab">Python · celda 7 del cuaderno de Colab</span><pre class="code"><code>import cmath
+
+def resolver_ecuacion_cuadratica(a, b, c):
+    delta = (b**2) - 4*(a*c)
+    if delta &gt; 0:
+        x1 = (-b - delta**0.5) / (2*a)
+        x2 = (-b + delta**0.5) / (2*a)
+        return x1, x2
+    if delta == 0:
+        x = (-b - delta**0.5) / (2*a)
+        return x
+    if delta &lt; 0:
+        x1 = (-b - cmath.sqrt(delta)) / (2 * a)
+        x2 = (-b + cmath.sqrt(delta)) / (2 * a)
+        return x1, x2
+
+print(resolver_ecuacion_cuadratica(1, -2, -35))   # el 'Cómo mejorar' de la lectura: 7 y -5
+print(resolver_ecuacion_cuadratica(1, 2, 35))     # discriminante negativo: raíces complejas
+print(resolver_ecuacion_cuadratica(1, -4, 4))     # discriminante cero: una sola raíz</code></pre></div>
+      <div class="codeblk out"><span class="lab">Salida</span><pre class="code"><code>(-5.0, 7.0)
+((-1-5.830951894845301j), (-1+5.830951894845301j))
+2.0</code></pre></div>
+      <p>La primera línea es el «Cómo mejorar» de la lectura: \(x^2-2x-35=(x-7)(x+5)\), raíces 7 y −5. La segunda, \(x^2+2x+35\), tiene \(\Delta=4-140=-136&lt;0\): no hay raíces reales y la función devuelve las dos complejas \(-1\pm\sqrt{34}\,i\). La versión en R de la lectura, con esa misma ecuación, imprime «La ecuación no tiene solución real».</p>
+      <div class="note">
+        <span class="tag">Detalle de Python</span>
+        <p><code>j</code> es la unidad imaginaria en Python. Y una curiosidad que explica por qué la lectura usa <code>cmath.sqrt</code> en el caso negativo: en Python 3, <code>(-4)**0.5</code> no da error sino un complejo con un residuo de redondeo, <code>(1.2246467991473532e-16+2j)</code>. <code>cmath.sqrt(-4)</code> da exactamente <code>2j</code>.</p>
+      </div>
+<div class="ex">
+        <div class="head"><span class="id">6</span><span class="q">Si en el script de R de la lectura introduces a = 1, b = 2, c = 35, ¿qué imprime y qué línea lo decide?</span></div>
+        <div class="body"><details class="answer"><summary>Ver respuesta</summary><p>Imprime <strong>«La ecuación no tiene solución real»</strong>. Lo decide <code>if (b^2-4*a*c &lt; 0)</code>: con esos valores, \(4-140=-136&lt;0\), así que se ejecuta el primer bloque y nunca se llega a <code>sqrt</code> de un negativo (que en R daría <code>NaN</code> con una advertencia). Verificado con R.</p></details></div>
+      </div><div class="ex">
+        <div class="head"><span class="id">7</span><span class="q">En R, <code>as.numeric("treinta")</code>; en Python, <code>float("treinta")</code>. ¿Qué pasa en cada caso?</span></div>
+        <div class="body"><details class="answer"><summary>Ver respuesta</summary><p>En <strong>R</strong> devuelve <code>NA</code> con la advertencia <em>NAs introduced by coercion</em>: el programa sigue. En <strong>Python</strong>, <code>float("treinta")</code> lanza un <code>ValueError</code> y se detiene. En pandas, <code>pd.to_numeric(col, errors="coerce")</code> se comporta como R: lo que no puede convertir lo deja como <code>NaN</code>. Es la herramienta de la sección 05.</p></details></div>
+      </div>
+    </section>
+
+    <section id="u1-estructuras">
+      <h2><span class="num">04</span>Vectores, matrices, dataframes y listas</h2>
+      <p class="sub">Cuatro formas de guardar datos. Lo que las distingue son dos preguntas: ¿todos los elementos son del mismo tipo? ¿tienen la misma longitud?</p>
+      <div class="tablewrap">
+        <table>
+          <caption>Las cuatro estructuras de la lectura</caption>
+          <thead><tr><th>Estructura</th><th>Forma</th><th>¿Un solo tipo?</th><th>En R</th><th>En Python</th></tr></thead>
+          <tbody>
+            <tr><th>Vector</th><td>Una columna de valores</td><td class="yes">Sí</td><td><code>c(25, 30, 22, 40)</code></td><td>lista <code>[1, 2, 3]</code> · <code>np.array</code> · <code>pd.Series</code></td></tr>
+            <tr><th>Matriz</th><td>Tabla de vectores del mismo tipo y longitud</td><td class="yes">Sí</td><td><code>matrix(…, nrow = 2)</code></td><td>lista de listas · <code>np.array</code> 2D</td></tr>
+            <tr><th>Dataframe</th><td>Tabla: columnas de igual longitud</td><td class="no">No: cada columna con su tipo</td><td><code>data.frame(…)</code></td><td><code>pd.DataFrame(…)</code></td></tr>
+            <tr><th>Lista</th><td>Colección libre, incluso anidada</td><td class="no">No, y longitudes libres</td><td><code>list(…)</code></td><td><code>[3.14, "Python", [1, 2, 3]]</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>La lectura lo ancla en Pelican: cada columna (tipo de cliente, ventas netas…) es un <strong>vector</strong> de 100 elementos, y la base completa, con columnas de texto y de número juntas, es un <strong>dataframe</strong>. Una matriz no podría guardarla, porque exige un solo tipo.</p>
+
+      <h3>En R</h3>
+      <div class="codeblk"><span class="lab">R · lectura, sección 4.1.3</span><pre class="code"><code>edades = c(25, 30, 22, 40)
+matriz = matrix(c(1, 2, 5, 7, 8, 3), nrow = 2, byrow = TRUE)
+print(matriz)
+matriz[2, 1] = -2      # fila 2, columna 1: el 7 pasa a ser -2
+print(matriz)</code></pre></div>
+      <div class="codeblk out"><span class="lab">Salida (verificada con R)</span><pre class="code"><code>     [,1] [,2] [,3]
+[1,]    1    2    5
+[2,]    7    8    3
+     [,1] [,2] [,3]
+[1,]    1    2    5
+[2,]   -2    8    3</code></pre></div>
+      <p><code>byrow = TRUE</code> llena la matriz por filas: los tres primeros valores van a la fila 1. Sin ese argumento R llena por columnas y saldría <code>1 5 8 / 2 7 3</code>. Los índices van entre <strong>corchetes</strong> y empiezan en 1, en orden fila, columna: lo mismo que \(a_{21}\) en Álgebra Lineal.</p>
+
+      <h3>En Python</h3>
+      <div class="codeblk"><span class="lab">Python · celda 3</span><pre class="code"><code>import pandas as pd
+
+# Dataframe: columnas de igual longitud, cada una con su propio tipo
+datos = {'Nombre': ['Ana', 'Juan', 'Pedro'], 'Edad': [23, 35, 29]}
+dataframe = pd.DataFrame(datos)
+print(dataframe)
+print(dataframe.dtypes)</code></pre></div>
+      <div class="codeblk out"><span class="lab">Salida</span><pre class="code"><code>  Nombre  Edad
+0    Ana    23
+1   Juan    35
+2  Pedro    29
+Nombre    object
+Edad       int64
+dtype: object</code></pre></div>
+      <p>Fíjate en la última parte de la salida: pandas guarda <code>Nombre</code> como <code>object</code> (texto) y <code>Edad</code> como <code>int64</code>. Revisar <code>dtypes</code> es el primer paso de cualquier limpieza. Si un número aparece como <code>object</code>, llegó como texto.</p>
+      <div class="codeblk"><span class="lab">Python · celda 4</span><pre class="code"><code># Lista: admite elementos de cualquier tipo, incluso otras listas
+lista = [3.14, "Python", [1, 2, 3]]
+print(lista)
+print([type(x).__name__ for x in lista])</code></pre></div>
+      <div class="codeblk out"><span class="lab">Salida</span><pre class="code"><code>[3.14, 'Python', [1, 2, 3]]
+['float', 'str', 'list']</code></pre></div>
+
+      <h3>NumPy: estadísticas en una línea</h3>
+      <p>La lectura cierra con NumPy calculando promedio, mediana y desviación estándar. Aquí está con una línea extra que la lectura no trae y que te va a ahorrar una confusión en la Unidad 2:</p>
+      <div class="codeblk"><span class="lab">Python · celda 5</span><pre class="code"><code>import numpy as np
+
+# Estadísticas básicas con NumPy (lectura, sección 4.2.3)
+data = np.array([23, 45, 67, 89, 12, 34, 56, 78, 90])
+print("Promedio:", np.mean(data))
+print("Mediana:", np.median(data))
+print("Desviación estándar (np.std, divide entre n):    ", np.std(data))
+print("Desviación estándar (ddof=1, divide entre n - 1):", np.std(data, ddof=1))
+print("Desviación estándar con pandas (.std()):          ", pd.Series(data).std())</code></pre></div>
+      <div class="codeblk out"><span class="lab">Salida</span><pre class="code"><code>Promedio: 54.888888888888886
+Mediana: 56.0
+Desviación estándar (np.std, divide entre n):     26.80980104549016
+Desviación estándar (ddof=1, divide entre n - 1): 28.436088182292426
+Desviación estándar con pandas (.std()):           28.436088182292426</code></pre></div>
+      <div class="note">
+        <span class="tag">Ojo · dos desviaciones estándar</span>
+        <p><code>np.std</code> divide entre \(n\) (desviación <em>poblacional</em>); la función <code>.std()</code> de pandas, Excel con <code>DESVEST</code> y R con <code>sd()</code> dividen entre \(n-1\) (desviación <em>muestral</em>). Con los mismos nueve datos dan 26,81 y 28,44. Cuando compares tu resultado con el de un compañero que usó otra herramienta, esta es la primera sospecha.</p>
+      </div>
+<div class="ex">
+        <div class="head"><span class="id">8</span><span class="q">Sin ejecutar: ¿qué estructura usarías en cada caso? (a) Las 47.000 ventas de Black Friday, con sexo, edad y valor. (b) Los valores de 12 pagos de un contrato. (c) El resultado de una función que devuelve el nombre del contratista, la tabla de sus pagos y un indicador de alerta.</span></div>
+        <div class="body"><details class="answer"><summary>Ver respuesta</summary><p><strong>(a) Dataframe</strong>: columnas de distinto tipo con la misma longitud. <strong>(b) Vector</strong> (una <code>Series</code> o un arreglo de NumPy): un solo tipo, una dimensión. <strong>(c) Lista</strong> (o un diccionario en Python): mezcla un texto, una tabla y un valor lógico, de tamaños distintos.</p></details></div>
+      </div><div class="ex">
+        <div class="head"><span class="id">9</span><span class="q">¿Por qué la matriz <code>matrix(c(1, 2, 5, 7, 8, 3), nrow = 2)</code>, sin <code>byrow</code>, tiene el 7 en otra posición?</span></div>
+        <div class="body"><details class="answer"><summary>Ver respuesta</summary><p>Porque R llena <strong>por columnas</strong> si no se le indica otra cosa: columna 1 = (1, 2), columna 2 = (5, 7), columna 3 = (8, 3). El 7 queda en la fila 2, columna 2, y <code>matriz[2, 1]</code> sería el 2.</p></details></div>
+      </div>
+    </section>
+
+    <section id="u1-limpieza">
+      <h2><span class="num">05</span>Limpieza de datos, paso a paso</h2>
+      <p class="sub">Encuestadores que dejan campos vacíos, estaturas en centímetros donde iban metros, tildes y espacios de más: la lectura enumera los problemas típicos y da en la Tabla 1 los comandos de R. Aquí están los mismos con su equivalente en pandas, aplicados a una base sucia de ejemplo.</p>
+
+      <div class="tablewrap">
+        <table>
+          <caption>Tabla 1 de la lectura, con su equivalente en pandas</caption>
+          <thead><tr><th>Tarea</th><th>R (lectura)</th><th>pandas</th></tr></thead>
+          <tbody>
+            <tr><th>Detectar faltantes</th><td><code>is.na(datos)</code></td><td><code>df.isna()</code> · <code>df.isna().sum()</code></td></tr>
+            <tr><th>Eliminar filas con faltantes</th><td><code>na.omit(datos)</code></td><td><code>df.dropna()</code></td></tr>
+            <tr><th>Eliminar duplicados</th><td><code>datos[!duplicated(datos), ]</code></td><td><code>df.drop_duplicates()</code></td></tr>
+            <tr><th>Quitar espacios al inicio y al final</th><td><code>trimws(datos$var)</code></td><td><code>df['var'].str.strip()</code></td></tr>
+            <tr><th>Quitar <em>todos</em> los espacios ⚠</th><td><code>gsub(" ", "", datos$var)</code></td><td><code>df['var'].str.replace(" ", "")</code></td></tr>
+            <tr><th>Reemplazar un patrón</th><td><code>str_replace(…)</code> (paquete stringr)</td><td><code>df['var'].str.replace(patrón, reemplazo, regex=True)</code></td></tr>
+            <tr><th>Texto a número</th><td><code>as.numeric(datos$var)</code></td><td><code>pd.to_numeric(df['var'], errors='coerce')</code></td></tr>
+            <tr><th>Pasar a minúsculas</th><td><code>tolower(datos$var)</code></td><td><code>df['var'].str.lower()</code></td></tr>
+            <tr><th>Primera letra en mayúscula</th><td><code>str_to_title(…)</code> (stringr)</td><td><code>df['var'].str.title()</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><code>datos$var</code> en R equivale a <code>df['var']</code> en pandas: «la columna var del dataframe». Las dos últimas filas no están en la Tabla 1 de la lectura, pero el foro pide justamente estandarizar a mayúscula inicial.</p>
+
+      <h3>La base de ejemplo</h3>
+      <div class="note">
+        <span class="tag">Base inventada para practicar</span>
+        <p>La base del foro no está en el material de trabajo. Esta tiene seis registros y trae a propósito los cuatro problemas que pide el foro. Cuando tengas la base real, cambia solo la carga: los pasos son los mismos.</p>
+      </div>
+      <div class="codeblk"><span class="lab">Python · celda 9</span><pre class="code"><code># BASE DE EJEMPLO, inventada para practicar. No es la base del foro.
+sucia = pd.DataFrame({
+    'nombre':   ['  ana maría  rojas', 'CARLOS PÉREZ ', 'luisa fernanda gómez', ' Pedro  Díaz', 'MARTA LUCÍA RUIZ', 'jorge  león'],
+    'ciudad':   ['bogotá', ' BOGOTÁ', 'Medellín ', 'cali', '  medellín', 'Bogotá'],
+    'edad':     ['34', ' 41', '29', '', '52', 'treinta'],
+    'valor_mensual': ['$ 2.500.000', '3100000', '1.800.000', '$2.950.000', None, '2.200.000'],
+    'personas_a_cargo': [2, None, 0, 1, 3, None],
+})
+sucia</code></pre></div>
+      <div class="codeblk out"><span class="lab">Salida</span><pre class="code"><code>                 nombre      ciudad     edad valor_mensual  personas_a_cargo
+0      ana maría  rojas      bogotá       34   $ 2.500.000               2.0
+1         CARLOS PÉREZ       BOGOTÁ       41       3100000               NaN
+2  luisa fernanda gómez   Medellín        29     1.800.000               0.0
+3           Pedro  Díaz        cali             $2.950.000               1.0
+4      MARTA LUCÍA RUIZ    medellín       52          None               3.0
+5           jorge  león      Bogotá  treinta     2.200.000               NaN</code></pre></div>
+      <div class="codeblk"><span class="lab">Python · celda 10 · inspeccionar</span><pre class="code"><code># ¿Qué tipo de dato quedó en cada columna y cuántos faltantes hay?
+print(sucia.dtypes)
+print()
+print(sucia.isna().sum())</code></pre></div>
+      <div class="codeblk out"><span class="lab">Salida</span><pre class="code"><code>nombre               object
+ciudad               object
+edad                 object
+valor_mensual        object
+personas_a_cargo    float64
+dtype: object
+
+nombre              0
+ciudad              0
+edad                0
+valor_mensual       1
+personas_a_cargo    2
+dtype: int64</code></pre></div>
+      <p>Dos alarmas en esta salida. <code>edad</code> y <code>valor_mensual</code> son <code>object</code>: llegaron como texto. Y pandas dice que <code>edad</code> tiene <strong>cero</strong> faltantes, aunque la fila 3 está vacía: un texto vacío <code>''</code> no es <code>NaN</code>. Los faltantes escondidos aparecen cuando se convierte a número.</p>
+
+      <div class="stage">
+        <div class="sh"><span class="n">Paso 1</span><span class="t">Eliminar espacios extra</span><span class="w">strip + regex</span></div>
+        <div class="sb">
+          <p><code>.str.strip()</code> quita los espacios de los extremos; la expresión regular <code>\s+</code> («uno o más espacios») los colapsa en uno solo entre palabras.</p>
+          <div class="codeblk"><span class="lab">Python · celda 12</span><pre class="code"><code>limpia = sucia.copy()
+for col in ['nombre', 'ciudad']:
+    limpia[col] = (limpia[col]
+                   .str.strip()                            # espacios al inicio y al final
+                   .str.replace(r'\s+', ' ', regex=True))  # varios espacios seguidos -&gt; uno solo
+limpia[['nombre', 'ciudad']]</code></pre></div>
+          <div class="codeblk out"><span class="lab">Salida</span><pre class="code"><code>                 nombre    ciudad
+0       ana maría rojas    bogotá
+1          CARLOS PÉREZ    BOGOTÁ
+2  luisa fernanda gómez  Medellín
+3            Pedro Díaz      cali
+4      MARTA LUCÍA RUIZ  medellín
+5            jorge león    Bogotá</code></pre></div>
+          <p>En R, en una línea: <code>gsub("\\s+", " ", trimws(x))</code>, o <code>str_squish(x)</code> con stringr.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="sh"><span class="n">Paso 2</span><span class="t">Estandarizar: mayúscula inicial en cada palabra</span><span class="w">.str.title()</span></div>
+        <div class="sb">
+          <div class="codeblk"><span class="lab">Python · celda 14</span><pre class="code"><code>limpia['nombre'] = limpia['nombre'].str.title()
+limpia['ciudad'] = limpia['ciudad'].str.title()
+limpia[['nombre', 'ciudad']]</code></pre></div>
+          <div class="codeblk out"><span class="lab">Salida</span><pre class="code"><code>                 nombre    ciudad
+0       Ana María Rojas    Bogotá
+1          Carlos Pérez    Bogotá
+2  Luisa Fernanda Gómez  Medellín
+3            Pedro Díaz      Cali
+4      Marta Lucía Ruiz  Medellín
+5            Jorge León    Bogotá</code></pre></div>
+          <p>«bogotá», « BOGOTÁ» y «Bogotá» ahora son la misma ciudad. Antes de este paso, un conteo por ciudad habría dado tres Bogotás distintas. Y una advertencia que vale la pena mencionar en el foro:</p>
+          <div class="codeblk"><span class="lab">Python · celda 15</span><pre class="code"><code># Cuidado: .str.title() pone mayúscula a TODAS las palabras, también a 'de' o 'y'
+pd.Series(['contrato de aseo y cafetería', 'MARÍA DE LOS ÁNGELES']).str.title()</code></pre></div>
+          <div class="codeblk out"><span class="lab">Salida</span><pre class="code"><code>0    Contrato De Aseo Y Cafetería
+1            María De Los Ángeles
+dtype: object</code></pre></div>
+          <p><code>.str.title()</code> no conoce la ortografía española: también pone en mayúscula «De», «Y» o «Los». Para nombres de personas y ciudades funciona bien; para textos libres, no. En R, <code>str_to_title()</code> hace lo mismo. Ninguno de los dos corrige tildes faltantes: «Bogota» y «Bogotá» siguen siendo distintas.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="sh"><span class="n">Paso 3</span><span class="t">Convertir texto a numérico</span><span class="w">pd.to_numeric</span></div>
+        <div class="sb">
+          <p>Para los valores en pesos, primero hay que quitar lo que impide leerlos como número —el signo <code>$</code>, los puntos de miles y los espacios— y después convertir. <code>errors='coerce'</code> deja como <code>NaN</code> lo que no se pueda leer, en vez de detener el programa.</p>
+          <div class="codeblk"><span class="lab">Python · celda 17</span><pre class="code"><code># Edad: los valores que no se pueden leer como número quedan como NaN (en lugar de detener el programa)
+limpia['edad'] = pd.to_numeric(limpia['edad'].str.strip(), errors='coerce')
+
+# Valor mensual: quitar el signo $, los puntos de miles y los espacios antes de convertir
+limpia['valor_mensual'] = pd.to_numeric(
+    limpia['valor_mensual'].str.replace(r'[$.\s]', '', regex=True),
+    errors='coerce')
+
+print(limpia[['edad', 'valor_mensual']])
+print()
+print(limpia.dtypes)</code></pre></div>
+          <div class="codeblk out"><span class="lab">Salida</span><pre class="code"><code>   edad  valor_mensual
+0  34.0      2500000.0
+1  41.0      3100000.0
+2  29.0      1800000.0
+3   NaN      2950000.0
+4  52.0            NaN
+5   NaN      2200000.0
+
+nombre               object
+ciudad               object
+edad                float64
+valor_mensual       float64
+personas_a_cargo    float64
+dtype: object</code></pre></div>
+          <p>Ahora sí aparecen los faltantes escondidos: el texto vacío y «treinta» se volvieron <code>NaN</code> en <code>edad</code>. En R: <code>as.numeric(gsub("[$. ]", "", x))</code>; se verificó que da los mismos valores.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="sh"><span class="n">Paso 4</span><span class="t">Manejar los faltantes: eliminar o imputar</span><span class="w">dropna · fillna</span></div>
+        <div class="sb">
+          <div class="codeblk"><span class="lab">Python · celda 19</span><pre class="code"><code>print(limpia.isna().sum())</code></pre></div>
+          <div class="codeblk out"><span class="lab">Salida</span><pre class="code"><code>nombre              0
+ciudad              0
+edad                2
+valor_mensual       1
+personas_a_cargo    2
+dtype: int64</code></pre></div>
+          <p>El foro pide <strong>decidir y justificar</strong>. Primero, mira cuánto se pierde si eliminas:</p>
+          <div class="codeblk"><span class="lab">Python · celda 20</span><pre class="code"><code># Opción A: eliminar las filas con algún faltante
+sin_faltantes = limpia.dropna()
+print(f"Filas antes: {len(limpia)} · filas después de dropna(): {len(sin_faltantes)}")</code></pre></div>
+          <div class="codeblk out"><span class="lab">Salida</span><pre class="code"><code>Filas antes: 6 · filas después de dropna(): 2</code></pre></div>
+          <p>Eliminar dejaría 2 de 6 registros: se pierde dos tercios de la base por cinco celdas vacías. Aquí se justifica <strong>imputar</strong> con la <strong>mediana</strong>, que no se deja arrastrar por valores extremos como la media:</p>
+          <div class="codeblk"><span class="lab">Python · celda 21</span><pre class="code"><code># Opción B: imputar con la mediana de cada columna
+imputada = limpia.copy()
+for col in ['edad', 'valor_mensual']:
+    mediana = imputada[col].median()
+    imputada[col] = imputada[col].fillna(mediana)
+    print(f"{col}: mediana usada = {mediana:,.1f}")
+
+# personas_a_cargo es discreta (se cuenta): su mediana da 1.5, que no es un valor posible
+mediana = imputada['personas_a_cargo'].median()
+print(f"personas_a_cargo: mediana = {mediana} -&gt; se redondea a {round(mediana)}")
+imputada['personas_a_cargo'] = imputada['personas_a_cargo'].fillna(round(mediana)).astype(int)
+imputada</code></pre></div>
+          <div class="codeblk out"><span class="lab">Salida</span><pre class="code"><code>edad: mediana usada = 37.5
+valor_mensual: mediana usada = 2,500,000.0
+personas_a_cargo: mediana = 1.5 -&gt; se redondea a 2
+                 nombre    ciudad  edad  valor_mensual  personas_a_cargo
+0       Ana María Rojas    Bogotá  34.0      2500000.0                 2
+1          Carlos Pérez    Bogotá  41.0      3100000.0                 2
+2  Luisa Fernanda Gómez  Medellín  29.0      1800000.0                 0
+3            Pedro Díaz      Cali  37.5      2950000.0                 1
+4      Marta Lucía Ruiz  Medellín  52.0      2500000.0                 3
+5            Jorge León    Bogotá  37.5      2200000.0                 2</code></pre></div>
+          <p>Fíjate en <code>personas_a_cargo</code>: es una variable <strong>discreta</strong> y su mediana es 1,5, un valor que no puede existir. Por eso se redondea antes de imputar. Es la sección 02 aplicada: el tipo de variable decide qué operaciones valen. La regla general:</p>
+          <ul>
+            <li><strong>Eliminar</strong> cuando los faltantes son pocos, están dispersos al azar y la base es grande.</li>
+            <li><strong>Imputar</strong> (mediana en cuantitativas, moda en cualitativas) cuando eliminar se lleva una parte importante de la base.</li>
+            <li><strong>Dejarlos y reportarlos</strong> cuando el faltante tiene significado («no aplica», «no respondió»).</li>
+          </ul>
+        </div>
+      </div>
+      <div class="codeblk"><span class="lab">Python · celda 22 · resultado</span><pre class="code"><code># Resultado final: tipos correctos y sin faltantes
+print(imputada.dtypes)
+print()
+print(imputada.isna().sum().sum(), "faltantes")</code></pre></div>
+      <div class="codeblk out"><span class="lab">Salida</span><pre class="code"><code>nombre               object
+ciudad               object
+edad                float64
+valor_mensual       float64
+personas_a_cargo      int64
+dtype: object
+
+0 faltantes</code></pre></div>
+<div class="ex">
+        <div class="head"><span class="id">10</span><span class="q">La Tabla 1 de la lectura propone <code>gsub(" ", "", datos$var)</code> para «eliminar los espacios en blanco». ¿Qué le hace a «ana  maría» y por qué no sirve para la tarea del foro?</span></div>
+        <div class="body"><details class="answer"><summary>Ver respuesta</summary><p>Devuelve <strong>«anamaría»</strong>: borra <em>todos</em> los espacios, también el que separa las palabras (verificado en R). El foro pide eliminar espacios <em>innecesarios</em>. Lo correcto es recortar los extremos y colapsar los repetidos: <code>gsub("\\s+", " ", trimws(x))</code> en R o <code>.str.strip().str.replace(r"\s+", " ", regex=True)</code> en pandas, que dan «ana maría».</p></details></div>
+      </div><div class="ex">
+        <div class="head"><span class="id">11</span><span class="q">¿Por qué <code>sucia.isna().sum()</code> reportó cero faltantes en <code>edad</code> si un registro estaba vacío?</span></div>
+        <div class="body"><details class="answer"><summary>Ver respuesta</summary><p>Porque el registro tenía un <strong>texto vacío</strong> (<code>''</code>), que para pandas es un valor válido de tipo texto, no un faltante. Solo al convertir con <code>pd.to_numeric(…, errors="coerce")</code> el vacío (y «treinta») se volvió <code>NaN</code>. Moraleja: cuenta los faltantes <strong>después</strong> de convertir los tipos, o al cargar usa <code>pd.read_excel(…, na_values=["", "NA", "N/A"])</code>.</p></details></div>
+      </div><div class="ex">
+        <div class="head"><span class="id">12</span><span class="q">Un compañero imputa <code>valor_mensual</code> con la media en lugar de la mediana. Con estos datos, ¿cambia mucho? ¿Cuándo cambiaría?</span></div>
+        <div class="body"><details class="answer"><summary>Ver respuesta</summary><p>Con estos cinco valores (1,8; 2,2; 2,5; 2,95 y 3,1 millones) la media es 2,51 millones y la mediana 2,5: casi igual, porque no hay extremos. Cambiaría mucho si hubiera un valor atípico —un contrato de 40 millones entre honorarios de 2 a 3—: la media se iría hacia arriba y la imputación sería poco realista. Por eso la mediana es la opción por defecto.</p></details></div>
+      </div>
+    </section>
+
+    <section id="u1-graficos">
+      <h2><span class="num">06</span>Primer vistazo: resúmenes y gráficos</h2>
+      <p class="sub">Con la base limpia, la lectura recomienda una visualización preliminar antes de cualquier técnica: ver patrones y descartar métodos que no encajan. La Tabla 2 da los comandos en R. Los gráficos se estudian a fondo en la Unidad 2.</p>
+      <div class="tablewrap">
+        <table>
+          <caption>Tabla 2 de la lectura, con su equivalente en pandas/matplotlib</caption>
+          <thead><tr><th>Gráfico</th><th>Para qué tipo de variable</th><th>R</th><th>pandas</th></tr></thead>
+          <tbody>
+            <tr><th>Barras</th><td>Cualitativa</td><td><code>barplot(table(datos$var))</code></td><td><code>df['var'].value_counts().plot.bar()</code></td></tr>
+            <tr><th>Torta</th><td>Cualitativa</td><td><code>pie(table(datos$var))</code></td><td><code>df['var'].value_counts().plot.pie()</code></td></tr>
+            <tr><th>Histograma</th><td>Cuantitativa</td><td><code>hist(datos$var)</code></td><td><code>df['var'].plot.hist()</code></td></tr>
+            <tr><th>Caja y bigotes</th><td>Cuantitativa</td><td><code>boxplot(datos$var)</code></td><td><code>df['var'].plot.box()</code></td></tr>
+            <tr><th>Dispersión</th><td>Dos cuantitativas</td><td><code>plot(datos$var1, datos$var2)</code></td><td><code>df.plot.scatter(x='var1', y='var2')</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Fíjate en la segunda columna: <strong>el gráfico lo elige el tipo de variable</strong>. Un histograma de «ciudad» o un diagrama de barras de «valor mensual» son errores de clasificación antes que de gráfico. Los equivalentes numéricos están a una línea:</p>
+      <div class="codeblk"><span class="lab">Python · celda 24 · cuantitativas</span><pre class="code"><code>imputada.describe().round(1)</code></pre></div>
+      <div class="codeblk out"><span class="lab">Salida</span><pre class="code"><code>       edad  valor_mensual  personas_a_cargo
+count   6.0            6.0               6.0
+mean   38.5      2508333.3               1.7
+std     7.8       477929.6               1.0
+min    29.0      1800000.0               0.0
+25%    34.9      2275000.0               1.2
+50%    37.5      2500000.0               2.0
+75%    40.1      2837500.0               2.0
+max    52.0      3100000.0               3.0</code></pre></div>
+      <div class="codeblk"><span class="lab">Python · celda 25 · cualitativa</span><pre class="code"><code>imputada['ciudad'].value_counts()</code></pre></div>
+      <div class="codeblk out"><span class="lab">Salida</span><pre class="code"><code>ciudad
+Bogotá      3
+Medellín    2
+Cali        1
+Name: count, dtype: int64</code></pre></div>
+      <p><code>describe()</code> resume las columnas cuantitativas (conteo, media, desviación, cuartiles) y <code>value_counts()</code> la cualitativa (frecuencias). Es la frontera con la Unidad 2: allá se aprende a leer cada uno de esos números.</p>
+    </section>
+
+    <section id="u1-foro">
+      <h2><span class="num">07</span>El foro formativo: cómo encararlo</h2>
+      <p class="sub">No tiene nota, pero es el ensayo general de la Entrega 2 (iFood, 210 puntos), que pide exactamente lo mismo con una base más grande. Lo que hagas bien aquí lo reutilizas en diciembre.</p>
+      <div class="stage">
+        <div class="sh"><span class="n">1</span><span class="t">Preparación: mapa mental o infografía</span><span class="w">antes de tocar la base</span></div>
+        <div class="sb"><p>Las cuatro técnicas que vas a usar, <strong>por qué</strong> elegiste cada una y el lenguaje (Python). La sección 05 te da el esqueleto: inspeccionar tipos, espacios, estandarizar, convertir, faltantes. Lo que lo hace bueno es el «por qué»: por ejemplo, mediana en lugar de media, o por qué <code>.str.title()</code> y no <code>.str.upper()</code>.</p></div>
+      </div>
+      <div class="stage">
+        <div class="sh"><span class="n">2</span><span class="t">Desarrollo: limpiar la base del foro</span><span class="w">Colab</span></div>
+        <div class="sb"><p>La actividad dice «descargue la base de datos proporcionada», pero no está en el material de trabajo de la Unidad 1. Búscala en el foro o pregúntala en el foro de consultas. Con ella, el cuaderno <code>U1_Limpieza_de_datos_Colab.ipynb</code> funciona cambiando solo la celda de carga (<code>pd.read_excel(…)</code> o <code>pd.read_csv(…)</code>). Documenta la decisión sobre los faltantes con números: cuántas filas se perderían.</p></div>
+      </div>
+      <div class="stage">
+        <div class="sh"><span class="n">3</span><span class="t">Video de máximo 1 minuto, público</span><span class="w">un solo tópico</span></div>
+        <div class="sb"><p>Escoge <strong>un</strong> tópico, no los cuatro. Una estructura que cabe en 60 segundos: 10 s para el problema en la base (la columna antes), 35 s para el código y la salida (la columna después) y 15 s para la decisión y su porqué. El de los faltantes es el que mejor luce, porque tiene una decisión que justificar. Súbelo a YouTube como <em>público</em> o <em>no listado</em> (la actividad exige que se pueda ver sin cuenta) y publica el enlace en el foro antes del cierre.</p></div>
+      </div>
+      <div class="stage">
+        <div class="sh"><span class="n">4</span><span class="t">Comentar a dos compañeros y responder</span><span class="w">argumentado</span></div>
+        <div class="sb"><p>La actividad pide aportes basados en la lectura o en conceptos del módulo. Material de esta pestaña para comentar sin sonar a profesor: la diferencia entre <code>gsub(" ", "")</code> y <code>trimws</code> (erratas, sección 09), los faltantes escondidos como texto vacío, la mediana frente a la media, o el problema de imputar una variable discreta con un decimal. Responde los comentarios que te hagan, y si alguno te convence, di qué cambiarías.</p></div>
+      </div>
+    </section>
+
+    <section id="u1-diagnostica">
+      <h2><span class="num">08</span>Preguntas tipo diagnóstica</h2>
+      <p class="sub">La evaluación diagnóstica (10 puntos) abre el sábado 24 y cierra el martes 27 de octubre a las 23:55. Estas diez preguntas cubren lo que razonablemente puede preguntar sobre la Unidad 1. Respóndelas antes de abrir la respuesta, o úsalas en el modo repaso.</p>
+      <div class="ex">
+        <div class="head"><span class="id">D1</span><span class="q">Se recoge información de <em>cada</em> elemento de la población. Esto es: (a) una encuesta, (b) un censo, (c) un experimento, (d) una muestra aleatoria.</span></div>
+        <div class="body"><details class="answer"><summary>Ver respuesta</summary><p><strong>(b) Censo.</strong> La encuesta trabaja con una muestra; el experimento manipula variables.</p></details></div>
+      </div>
+<div class="ex">
+        <div class="head"><span class="id">D2</span><span class="q">El número de hijos de una persona es una variable: (a) cualitativa, (b) cuantitativa continua, (c) cuantitativa discreta, (d) un identificador.</span></div>
+        <div class="body"><details class="answer"><summary>Ver respuesta</summary><p><strong>(c) Cuantitativa discreta</strong>: se cuenta, solo admite enteros.</p></details></div>
+      </div>
+<div class="ex">
+        <div class="head"><span class="id">D3</span><span class="q">El estado civil es una variable: (a) cuantitativa discreta, porque se puede codificar 1, 2, 3, (b) cualitativa, (c) continua, (d) ordinal y cuantitativa.</span></div>
+        <div class="body"><details class="answer"><summary>Ver respuesta</summary><p><strong>(b) Cualitativa.</strong> Codificarla con números no la vuelve cantidad: la lectura advierte que no tiene sentido sacarle la media.</p></details></div>
+      </div>
+<div class="ex">
+        <div class="head"><span class="id">D4</span><span class="q">Un investigador asigna al azar a la mitad de los pacientes un tratamiento nuevo y compara su evolución con la otra mitad. Es un estudio: (a) observacional, (b) censal, (c) controlado y comparativo, (d) descriptivo por encuesta.</span></div>
+        <div class="body"><details class="answer"><summary>Ver respuesta</summary><p><strong>(c) Controlado y comparativo</strong>: el investigador manipula la variable independiente (el tratamiento) y compara grupos.</p></details></div>
+      </div>
+<div class="ex">
+        <div class="head"><span class="id">D5</span><span class="q">En R, <code>c(25, 30, 22, 40)</code> crea: (a) una lista, (b) un vector, (c) un dataframe, (d) una matriz 2×2.</span></div>
+        <div class="body"><details class="answer"><summary>Ver respuesta</summary><p><strong>(b) Un vector</strong>: cuatro valores del mismo tipo.</p></details></div>
+      </div>
+<div class="ex">
+        <div class="head"><span class="id">D6</span><span class="q">¿Qué estructura guarda columnas de distinto tipo pero con la misma longitud? (a) Vector, (b) matriz, (c) dataframe, (d) lista.</span></div>
+        <div class="body"><details class="answer"><summary>Ver respuesta</summary><p><strong>(c) Dataframe.</strong> La matriz exige un solo tipo; la lista no exige igual longitud.</p></details></div>
+      </div>
+<div class="ex">
+        <div class="head"><span class="id">D7</span><span class="q">El comando de R que elimina las filas con valores faltantes es: (a) <code>is.na(datos)</code>, (b) <code>na.omit(datos)</code>, (c) <code>trimws(datos)</code>, (d) <code>duplicated(datos)</code>.</span></div>
+        <div class="body"><details class="answer"><summary>Ver respuesta</summary><p><strong>(b) <code>na.omit</code>.</strong> <code>is.na</code> solo identifica; no elimina.</p></details></div>
+      </div>
+<div class="ex">
+        <div class="head"><span class="id">D8</span><span class="q">El número de cédula es: (a) cuantitativa discreta, (b) cuantitativa continua, (c) cualitativa, porque no representa una cantidad, (d) no es una variable.</span></div>
+        <div class="body"><details class="answer"><summary>Ver respuesta</summary><p><strong>(c) Cualitativa</strong>: es numérico pero no representa una cantidad. Si funciona solo como código de registro, también se trata como identificador.</p></details></div>
+      </div>
+<div class="ex">
+        <div class="head"><span class="id">D9</span><span class="q">La estatura medida en metros es: (a) discreta, (b) continua, (c) cualitativa, (d) nominal.</span></div>
+        <div class="body"><details class="answer"><summary>Ver respuesta</summary><p><strong>(b) Continua</strong>: sale de medir y admite decimales.</p></details></div>
+      </div>
+<div class="ex">
+        <div class="head"><span class="id">D10</span><span class="q">En Python, <code>pd.to_numeric(col, errors="coerce")</code>: (a) borra la columna si hay texto, (b) convierte a número y deja como NaN lo que no puede leer, (c) convierte todo a texto, (d) detiene el programa ante el primer error.</span></div>
+        <div class="body"><details class="answer"><summary>Ver respuesta</summary><p><strong>(b).</strong> La opción (d) es lo que pasa <em>sin</em> <code>errors="coerce"</code>.</p></details></div>
+      </div>
+    </section>
+
+    <section id="u1-recursos">
+      <h2><span class="num">09</span>Para profundizar</h2>
+      <p class="sub">Recursos libres y legales, verificados el 22 de octubre de 2026: abren, son gratuitos y tratan lo que dice cada línea. Ninguno es obligatorio; elige según lo que más te haya costado.</p>
+      <h3>Para entender</h3>
+      <div class="tablewrap">
+        <table class="res">
+          <colgroup><col style="width:27%"><col style="width:43%"><col style="width:18%"><col style="width:12%"></colgroup>
+          <caption>Teoría de la unidad</caption>
+          <thead><tr><th>Recurso</th><th>Por qué vale la pena</th><th>Idioma · formato · tiempo</th><th>Conecta con</th></tr></thead>
+          <tbody><tr><th><a href="https://openstax.org/books/introducci%C3%B3n-estad%C3%ADstica/pages/prefacio" target="_blank" rel="noopener">OpenStax · <em>Introducción a la estadística</em></a></th><td>Libro universitario completo, en español y gratuito. El capítulo 1 «Muestreo y datos» cubre tipos de datos, métodos de muestreo y diseño experimental, con ejercicios resueltos al final.</td><td>Español · libro web y PDF (CC BY) · cap. 1: 3–4 h</td><td>01 y 02</td></tr>
+<tr><th><a href="https://openintro-ims.netlify.app/" target="_blank" rel="noopener">OpenIntro · <em>Introduction to Modern Statistics</em></a></th><td>Sus capítulos 1 «Hello data» y 2 «Study design» explican mejor que nadie la diferencia entre estudio observacional y experimento, y por qué solo el segundo permite hablar de causa.</td><td>Inglés · libro web (CC BY-SA) · caps. 1–2: 3 h</td><td>01</td></tr>
+<tr><th><a href="https://conceptos.dane.gov.co/" target="_blank" rel="noopener">DANE · Sistema de consulta de conceptos estandarizados</a></th><td>El glosario oficial de la estadística colombiana: cómo define el DANE población, muestra, unidad de observación o variable. Útil para citar definiciones en las entregas.</td><td>Español · consulta en línea · a demanda</td><td>01 y 02</td></tr></tbody>
+        </table>
+      </div>
+      <h3>Para practicar con código</h3>
+      <div class="tablewrap">
+        <table class="res">
+          <colgroup><col style="width:27%"><col style="width:43%"><col style="width:18%"><col style="width:12%"></colgroup>
+          <caption>Práctica en Python y R</caption>
+          <thead><tr><th>Recurso</th><th>Por qué vale la pena</th><th>Idioma · formato · tiempo</th><th>Conecta con</th></tr></thead>
+          <tbody><tr><th><a href="https://www.kaggle.com/learn/pandas" target="_blank" rel="noopener">Kaggle Learn · Pandas</a></th><td>Microcurso de ejercicios cortos que se resuelven en el navegador, sin instalar nada: crear, leer, indexar, agrupar y tipos de datos en pandas.</td><td>Inglés · curso práctico gratuito · unas 4 h</td><td>04 y 05</td></tr>
+<tr><th><a href="https://www.kaggle.com/learn/data-cleaning" target="_blank" rel="noopener">Kaggle Learn · Data Cleaning</a></th><td>El mismo estilo, dedicado a limpiar datos reales desordenados. Es la práctica más cercana a lo que pide el foro de esta unidad y a la Entrega 2.</td><td>Inglés · curso práctico gratuito · unas 4 h</td><td>05</td></tr>
+<tr><th><a href="https://pandas.pydata.org/docs/user_guide/10min.html" target="_blank" rel="noopener">pandas · <em>10 minutes to pandas</em> y <em>Working with missing data</em></a></th><td>La documentación oficial. La primera página es el recorrido básico (incluye <code>dropna</code>, <code>fillna</code>, <code>isna</code> y métodos <code>.str</code>); la segunda, <a href="https://pandas.pydata.org/docs/user_guide/missing_data.html" target="_blank" rel="noopener">faltantes a fondo</a>. Está en la versión 3.x; lo de esta unidad funciona igual en tu pandas 2.2.</td><td>Inglés · documentación · 1–2 h</td><td>05</td></tr>
+<tr><th><a href="https://es.r4ds.hadley.nz/" target="_blank" rel="noopener"><em>R para Ciencia de Datos</em> (Wickham y Grolemund)</a></th><td>El libro de referencia de R, traducido al español. Capítulos 3 (visualización), 5 (transformación), 11 (importación) y 12 (datos ordenados): el lado R de la lectura, mucho más completo.</td><td>Español · libro web (CC BY-NC-ND) · por capítulo: 1–2 h</td><td>03 y 04</td></tr></tbody>
+        </table>
+      </div>
+      <h3>Datos reales para practicar</h3>
+      <div class="tablewrap">
+        <table class="res">
+          <colgroup><col style="width:27%"><col style="width:43%"><col style="width:18%"><col style="width:12%"></colgroup>
+          <caption>Fuentes de datos abiertos colombianos</caption>
+          <thead><tr><th>Recurso</th><th>Por qué vale la pena</th><th>Idioma · formato · tiempo</th><th>Conecta con</th></tr></thead>
+          <tbody><tr><th><a href="https://www.datos.gov.co/Gastos-Gubernamentales/SECOP-II-Contratos-Electr-nicos/jbjy-vk9h" target="_blank" rel="noopener">SECOP II · Contratos Electrónicos (datos.gov.co)</a></th><td>La base que conoces del trabajo, como dataset abierto con API: <code>pd.read_json("https://www.datos.gov.co/resource/jbjy-vk9h.json?$limit=1000")</code> trae mil contratos. Es perfecta para practicar la sección 02: <code>estado_contrato</code> es nominal, <code>valor_del_contrato</code> continua, <code>documento_proveedor</code> un identificador.</td><td>Español · datos abiertos, CSV y API · a demanda</td><td>02 y 05</td></tr>
+<tr><th><a href="https://microdatos.dane.gov.co/" target="_blank" rel="noopener">DANE · Catálogo de microdatos anonimizados</a></th><td>Microdatos de encuestas oficiales (mercado laboral, educación, pobreza, comercio). Revisa las condiciones de acceso de cada estudio antes de descargar.</td><td>Español · microdatos · a demanda</td><td>01 y 02</td></tr></tbody>
+        </table>
+      </div>
+      <h3>Para ir más allá</h3>
+      <div class="tablewrap">
+        <table class="res">
+          <colgroup><col style="width:27%"><col style="width:43%"><col style="width:18%"><col style="width:12%"></colgroup>
+          <caption>Profundización</caption>
+          <thead><tr><th>Recurso</th><th>Por qué vale la pena</th><th>Idioma · formato · tiempo</th><th>Conecta con</th></tr></thead>
+          <tbody><tr><th><a href="https://jakevdp.github.io/PythonDataScienceHandbook/" target="_blank" rel="noopener">Jake VanderPlas · <em>Python Data Science Handbook</em></a></th><td>Texto completo en línea. El capítulo 3 (pandas, con «Handling Missing Data») profundiza esta unidad; el capítulo 5 trae un PCA a fondo que sirve en la Unidad 3.</td><td>Inglés · libro web y cuadernos Jupyter · por sección: 1 h</td><td>04, 05 y Unidad 3</td></tr></tbody>
+        </table>
+      </div>
+      <div class="note"><span class="tag">Cómo usarlos</span><p>Si tienes una hora libre en la semana 2, la combinación de mayor rendimiento es la lección de faltantes de Kaggle Data Cleaning y luego repetir la sección 05 de este cuaderno con mil contratos del SECOP: es el foro de la unidad con datos que ya entiendes.</p></div>
+    </section>
+
+    <section id="u1-repaso">
+      <h2><span class="num">10</span>Repaso y erratas</h2>
+      <h4>Antes de cerrar la unidad, confirma que puedes…</h4>
+      <p class="check-count" aria-live="polite"></p>
+      <ul class="check">
+        <li><label><input type="checkbox"><span>Distinguir censo, encuesta, estudio observacional y experimento, y decir cuál permite hablar de causa.</span></label></li>
+        <li><label><input type="checkbox"><span>Explicar qué es una variable de confusión con un ejemplo propio.</span></label></li>
+        <li><label><input type="checkbox"><span>Clasificar cualquier columna como cualitativa, discreta o continua, y reconocer un identificador.</span></label></li>
+        <li><label><input type="checkbox"><span>Decir qué estructura (vector, matriz, dataframe, lista) usar para un dato dado.</span></label></li>
+        <li><label><input type="checkbox"><span>Leer el código en R de la lectura y escribir su equivalente en Python.</span></label></li>
+        <li><label><input type="checkbox"><span>Revisar <code>dtypes</code> y <code>isna().sum()</code> y explicar por qué un vacío puede no contar como faltante.</span></label></li>
+        <li><label><input type="checkbox"><span>Aplicar las cuatro tareas del foro en pandas y justificar eliminar o imputar.</span></label></li>
+        <li><label><input type="checkbox"><span>Explicar por qué <code>np.std</code> y <code>.std()</code> de pandas dan resultados distintos.</span></label></li>
+      </ul>
+
+      <h3>Erratas de la lectura fundamental</h3>
+      <p class="sub">Verificadas ejecutando el código de la lectura en R 4 y Python 3, y contrastando la referencia del estudio de suplementos con la publicación original.</p>
+      <div class="tablewrap">
+        <table>
+          <caption>Erratas y precisiones · Lectura fundamental de la Unidad 1</caption>
+          <thead><tr><th>Pág.</th><th>Dice</th><th>Debe decir / precisión</th></tr></thead>
+          <tbody>
+            <tr><th>22</th><td>«En la sección pasada se usó un paquete llamado Numpy, el cual permitió definir un dataframe.»</td><td>El dataframe de la página 21 se crea con <strong>pandas</strong> (<code>import pandas as pd</code>). NumPy no se había usado hasta ese punto.</td></tr>
+            <tr><th>13</th><td>El comentario «#Estos valores se reciben como tipo texto…» continúa en una segunda línea, «numéricos:», sin <code>#</code>.</td><td>Al copiar el código desde el PDF, esa segunda línea queda como instrucción y R se detiene: <code>Error: object 'numéricos' not found</code> (verificado). Hay que borrarla o anteponerle <code>#</code>.</td></tr>
+            <tr><th>14</th><td>«se ejecuta lo que esté dentro de los corchetes ({ })»</td><td>Son <strong>llaves</strong>. Los corchetes son <code>[ ]</code>, los que se usan en <code>matriz[2, 1]</code> una página después.</td></tr>
+            <tr><th>12</th><td>«en muchos lenguajes de programación no sería válido reasignarla más adelante con nombre = 1»</td><td>Cierto para lenguajes de tipado estático, pero <strong>en R y en Python sí es válido</strong>: los dos son de tipado dinámico. Verificado en R: después de <code>nombre = 'Fernando'; nombre = 1</code>, la variable es <code>numeric</code>.</td></tr>
+            <tr><th>17</th><td>Tabla 1: <code>gsub(" ", "", datos$var)</code> «elimina los espacios en blanco dentro de una columna»</td><td>Elimina <strong>todos</strong> los espacios, también entre palabras: «ana maría» → «anamaría». Para quitar solo los sobrantes: <code>gsub("\\s+", " ", trimws(x))</code>.</td></tr>
+            <tr><th>17</th><td>Tabla 1: <code>str_replace(datos$var, patrón, reemplazo)</code> sin más indicación</td><td>No es de R base: requiere <code>library(stringr)</code> (instalado con <code>install.packages("stringr")</code>). Sin el paquete, R responde que la función no existe.</td></tr>
+            <tr><th>4 y 24</th><td>Estudio de suplementos atribuido a «Murso, Kantor, Wiseman y Medovich (2011), <em>Journal of Epidemiological Observations</em>», «aproximadamente 40.000 participantes».</td><td>La publicación que corresponde a esos hallazgos es <strong>Mursu, J., Robien, K., Harnack, L. J., Park, K. y Jacobs, D. R. (2011)</strong>, «Dietary supplements and mortality rate in older women», <em>Archives of Internal Medicine</em>, 171(18), 1625–1633: 38.772 <strong>mujeres</strong> mayores del Iowa Women's Health Study, seguidas en promedio 19 años. Hierro, zinc y cobre asociados a mayor mortalidad; calcio a menor. No se encontró la revista que cita la lectura.</td></tr>
+            <tr><th>20 y 22</th><td>Dos precisiones de código, no errores: el primer script importa <code>cmath</code> sin usarlo, y la función devuelve una tupla en unos casos y un número suelto en otro.</td><td>Si vas a usar la función en otro código, que devuelva siempre una tupla (<code>return (x,)</code> en el caso de raíz doble) simplifica el manejo del resultado.</td></tr>
+            <tr><th>11</th><td>«el tercio superior derecho de la venta llamado Environment»</td><td>«de la <strong>ventana</strong>». Errata tipográfica.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Lo que <strong>sí</strong> está correcto y se verificó: las raíces del «Cómo mejorar» (7 y −5), la matriz de R antes y después de <code>matriz[2, 1] = -2</code>, el dataframe y la lista de R, y las estadísticas de NumPy (promedio 54,89, mediana 56, desviación poblacional 26,81).</p>
+
+      <footer>
+        <p>Apuntes elaborados sobre la Lectura Fundamental de la Unidad 1, «La estadística en la investigación e introducción a la programación estadística con R y Python», módulo de Estadística Descriptiva, Politécnico Grancolombiano (autor: Edwin Hernando Zapata Cifuentes), y sobre la Actividad Formativa «Limpieza de datos» de la misma unidad. Lectura complementaria: Castillo Garzón, P. (2023), <em>Conceptos básicos en probabilidad y estadística</em>, Politécnico Grancolombiano, pp. 11–21. El código de Python se ejecutó con pandas 2.2 (cuaderno <code>U1_Limpieza_de_datos_Colab.ipynb</code>); el de R, con R 4. La base de la sección 05 es de ejemplo.</p>
+      </footer>
+    </section>
+
+    </main>
+  </div>
+  </div>
+
+<div class="scene" id="scene-2" role="tabpanel" aria-labelledby="tab-2" hidden>
+  <div class="cols">
+    <nav class="toc" aria-label="Contenido de la unidad 2">
+      <span class="toc-h">En esta unidad</span>
+      <ol>
+        <li><a href="#u2-pend"><span class="n">00</span> Lo que viene</a></li>
+      </ol>
+      <div class="toc-progress" aria-hidden="true"><i></i></div>
+    </nav>
+    <main>
+    <section id="u2-pend">
+      <h2><span class="num">00</span>Análisis descriptivo univariado</h2>
+      <p class="sub pend">Pendiente: esta pestaña se llena cuando arranque la unidad (semanas 3 y 4, del 3 al 16 de noviembre). El material ya está descargado en <code>02 - Unidad 2/Material del Poli</code>.</p>
+      <div class="def">
+        <span class="tag">Lectura fundamental</span>
+        <p><strong>Análisis descriptivo univariado</strong></p>
+        <ul><li>Frecuencias, medidas y estandarización de datos</li>
+<li>Principios de visualización</li>
+<li>Análisis de varianza (ANOVA)</li></ul>
+      </div>
+      <div class="tablewrap">
+        <table>
+          <caption>Actividades de la Unidad 2</caption>
+          <thead><tr><th>Actividad</th><th>Tipo</th><th>Ventana</th><th>Puntos</th></tr></thead>
+          <tbody><tr><th>Entrega 1 · Black Friday</th><td>Archivo, en grupo</td><td>sáb 14 – mar 17 nov, 23:55</td><td class="num">160</td></tr></tbody>
+        </table>
+      </div>
+      <div class="note"><span class="tag">Desde ya</span><p>La base de la entrega (más de 47.000 ventas, 12 variables) y la guía de Colab del Poli ya están en la carpeta. La pregunta es comparar las compras de hombres y mujeres, también por ciudad. Clasificar sus 12 variables con la sección 02 de la Unidad 1 es el primer paso, y puedes hacerlo hoy.</p></div>
+      <h3>Para adelantar: recursos libres</h3><div class="tablewrap">
+        <table class="res">
+          <colgroup><col style="width:27%"><col style="width:43%"><col style="width:18%"><col style="width:12%"></colgroup>
+          <caption>Recursos verificados para la Unidad 2</caption>
+          <thead><tr><th>Recurso</th><th>Por qué vale la pena</th><th>Idioma · formato · tiempo</th><th>Conecta con</th></tr></thead>
+          <tbody><tr><th><a href="https://openstax.org/books/introducci%C3%B3n-estad%C3%ADstica/pages/prefacio" target="_blank" rel="noopener">OpenStax · <em>Introducción a la estadística</em>, caps. 2 y 13</a></th><td>El capítulo 2 «Estadística descriptiva» (gráficos, medidas de centro, dispersión y posición) y el 13 «Distribución F y ANOVA de una vía»: los tres bloques de la lectura de esta unidad.</td><td>Español · libro web y PDF · 4–5 h</td><td>Entrega 1</td></tr>
+<tr><th><a href="https://www.kaggle.com/learn/data-visualization" target="_blank" rel="noopener">Kaggle Learn · Data Visualization</a></th><td>Gráficos con seaborn en el navegador: barras, histogramas, distribuciones y comparación entre grupos, que es lo que pide la entrega del Black Friday.</td><td>Inglés · curso práctico gratuito · unas 4 h</td><td>Entrega 1</td></tr>
+<tr><th><a href="https://cienciadedatos.net/documentos/19_anova" target="_blank" rel="noopener">Joaquín Amat · ANOVA para comparar múltiples medias</a></th><td>Explicación completa del ANOVA en español, con supuestos, código en R (<code>aov</code>, <code>TukeyHSD</code>) y ejemplos.</td><td>Español · tutorial web (CC BY-NC-SA) · 1–2 h</td><td>ANOVA</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+    </main>
+  </div>
+  </div>
+
+<div class="scene" id="scene-3" role="tabpanel" aria-labelledby="tab-3" hidden>
+  <div class="cols">
+    <nav class="toc" aria-label="Contenido de la unidad 3">
+      <span class="toc-h">En esta unidad</span>
+      <ol>
+        <li><a href="#u3-pend"><span class="n">00</span> Lo que viene</a></li>
+      </ol>
+      <div class="toc-progress" aria-hidden="true"><i></i></div>
+    </nav>
+    <main>
+    <section id="u3-pend">
+      <h2><span class="num">00</span>Análisis descriptivo multivariado</h2>
+      <p class="sub pend">Pendiente: esta pestaña se llena cuando arranque la unidad (semanas 5 y 6, del 17 al 30 de noviembre). El material ya está descargado en <code>03 - Unidad 3/Material del Poli</code>.</p>
+      <div class="def">
+        <span class="tag">Lectura fundamental</span>
+        <p><strong>Análisis descriptivo multivariado</strong></p>
+        <ul><li>Cuadros y medidas estadísticas bidimensionales (covarianza)</li>
+<li>Reducción de dimensiones (PCA)</li>
+<li>Principios de visualización de datos multivariados</li></ul>
+      </div>
+      <div class="tablewrap">
+        <table>
+          <caption>Actividades de la Unidad 3</caption>
+          <thead><tr><th>Actividad</th><th>Tipo</th><th>Ventana</th><th>Puntos</th></tr></thead>
+          <tbody><tr><th>Foro formativo · PCA con un dataset de Kaggle</th><td>Foro, sin nota</td><td>semanas 5 y 6</td><td class="num">—</td></tr>
+<tr><th>Actividad evaluativa</th><td>Cuestionario</td><td>sáb 28 nov – mar 1 dic, 23:55</td><td class="num">100</td></tr></tbody>
+        </table>
+      </div>
+      <div class="note"><span class="tag">Desde ya</span><p>El PCA es Álgebra Lineal aplicada: vectores y valores propios de la matriz de covarianzas, el tema del Escenario 7 del Cuaderno de Matrices.</p></div>
+      <h3>Para adelantar: recursos libres</h3><div class="tablewrap">
+        <table class="res">
+          <colgroup><col style="width:27%"><col style="width:43%"><col style="width:18%"><col style="width:12%"></colgroup>
+          <caption>Recursos verificados para la Unidad 3</caption>
+          <thead><tr><th>Recurso</th><th>Por qué vale la pena</th><th>Idioma · formato · tiempo</th><th>Conecta con</th></tr></thead>
+          <tbody><tr><th><a href="https://www.youtube.com/watch?v=FgakZw6K1QQ" target="_blank" rel="noopener">StatQuest · <em>Principal Component Analysis (PCA), Step-by-Step</em></a></th><td>La explicación visual más clara que hay del PCA: qué es un componente, qué es la varianza explicada y cómo leer el gráfico.</td><td>Inglés · video de 22 min</td><td>PCA</td></tr>
+<tr><th><a href="https://cienciadedatos.net/documentos/py19-pca-python" target="_blank" rel="noopener">Joaquín Amat · PCA con Python</a></th><td>PCA paso a paso con scikit-learn: estandarizar, interpretar las cargas, graficar la varianza explicada. Es casi el procedimiento del foro formativo.</td><td>Español · tutorial web (CC BY-NC-SA) · 1–2 h</td><td>Foro U3</td></tr>
+<tr><th><a href="https://scikit-learn.org/stable/modules/decomposition.html#pca" target="_blank" rel="noopener">scikit-learn · Principal component analysis</a></th><td>La documentación oficial de la clase <code>PCA</code>, con ejemplos enlazados (el de iris es el clásico). Ojo: centra los datos pero no los escala.</td><td>Inglés · documentación · 1 h</td><td>Foro U3</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+    </main>
+  </div>
+  </div>
+
+<div class="scene" id="scene-4" role="tabpanel" aria-labelledby="tab-4" hidden>
+  <div class="cols">
+    <nav class="toc" aria-label="Contenido de la unidad 4">
+      <span class="toc-h">En esta unidad</span>
+      <ol>
+        <li><a href="#u4-pend"><span class="n">00</span> Lo que viene</a></li>
+      </ol>
+      <div class="toc-progress" aria-hidden="true"><i></i></div>
+    </nav>
+    <main>
+    <section id="u4-pend">
+      <h2><span class="num">00</span>Limpieza de datos y presentación de reportes descriptivos</h2>
+      <p class="sub pend">Pendiente: esta pestaña se llena cuando arranque la unidad (semanas 7 y 8, del 1 al 14 de diciembre). El material ya está descargado en <code>04 - Unidad 4/Material del Poli</code>.</p>
+      <div class="def">
+        <span class="tag">Lectura fundamental</span>
+        <p><strong>Limpieza de datos y presentación de reportes descriptivos</strong></p>
+        <ul><li>Ordenamiento de una base de datos y datos perdidos</li>
+<li>Calidad y limpieza de datos categóricos (combinación y transformación)</li>
+<li>Teorías de la comunicación, el diseño y herramientas para el análisis de datos</li></ul>
+      </div>
+      <div class="tablewrap">
+        <table>
+          <caption>Actividades de la Unidad 4</caption>
+          <thead><tr><th>Actividad</th><th>Tipo</th><th>Ventana</th><th>Puntos</th></tr></thead>
+          <tbody><tr><th>Entrega 2 · iFood</th><td>Archivo, en grupo</td><td>sáb 5 – mar 8 dic, 23:55 (festivo)</td><td class="num">210</td></tr>
+<tr><th>Autoevaluación</th><td>Cuestionario</td><td>sáb 12 – mar 15 dic, 23:55</td><td class="num">20</td></tr></tbody>
+        </table>
+      </div>
+      <div class="note"><span class="tag">Desde ya</span><p>La Entrega 2 es la sección 05 de la Unidad 1 a escala: base de iFood con faltantes y errores puestos a propósito, más un informe con gráficos. La base ya está en la carpeta y se puede empezar a explorar desde la semana 5.</p></div>
+      <h3>Para adelantar: recursos libres</h3><div class="tablewrap">
+        <table class="res">
+          <colgroup><col style="width:27%"><col style="width:43%"><col style="width:18%"><col style="width:12%"></colgroup>
+          <caption>Recursos verificados para la Unidad 4</caption>
+          <thead><tr><th>Recurso</th><th>Por qué vale la pena</th><th>Idioma · formato · tiempo</th><th>Conecta con</th></tr></thead>
+          <tbody><tr><th><a href="https://clauswilke.com/dataviz/" target="_blank" rel="noopener">Claus O. Wilke · <em>Fundamentals of Data Visualization</em></a></th><td>Manuscrito completo en línea sobre cómo elegir y diseñar gráficos: proporciones, distribuciones, color, rótulos y contar una historia. La parte de comunicación y diseño de la lectura, a fondo.</td><td>Inglés · libro web (CC BY-NC-ND) · por capítulo: 30 min</td><td>Informe de la Entrega 2</td></tr>
+<tr><th><a href="https://r4ds.hadley.nz/" target="_blank" rel="noopener"><em>R for Data Science</em>, 2.ª ed.</a></th><td>La edición nueva, gratuita, con capítulos dedicados a datos ordenados (5), cadenas de texto (14) y valores faltantes (18): limpieza de categóricos y faltantes en el lado R.</td><td>Inglés · libro web · por capítulo: 1–2 h</td><td>Limpieza</td></tr>
+<tr><th><a href="https://pandas.pydata.org/docs/user_guide/missing_data.html" target="_blank" rel="noopener">pandas · <em>Working with missing data</em></a></th><td>Referencia oficial de <code>isna</code>, <code>dropna</code>, <code>fillna</code> e interpolación, con sus matices por tipo de dato. La que conviene tener abierta mientras se limpia la base de iFood.</td><td>Inglés · documentación · 1 h</td><td>Entrega 2</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+    </main>
+  </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var MATRICES = [
+    { id: 'H',  label: 'H — hospedaje',        r: 3, c: 3 },
+    { id: 'T',  label: "T — transporte",       r: 3, c: 4 },
+    { id: 'Tp', label: "T' — transporte (ajustada)", r: 3, c: 3 },
+    { id: 'D',  label: 'D — estadía',          r: 3, c: 2 },
+    { id: 'Dt', label: 'Dᵗ — estadía transpuesta', r: 2, c: 3 },
+    { id: 'X',  label: 'X — incógnitas',       r: 3, c: 1 },
+    { id: 'P',  label: 'P — precios unitarios', r: 1, c: 3 },
+    { id: 'M',  label: 'M — servicios públicos', r: 3, c: 4 },
+    { id: 'A',  label: 'A — ejercicio 2',      r: 3, c: 2 },
+    { id: 'B',  label: 'B — ejercicio 2',      r: 2, c: 3 },
+    { id: 'C',  label: 'C — ejercicio 2',      r: 3, c: 3 }
+  ];
+
+  var left = document.getElementById('mLeft');
+  var right = document.getElementById('mRight');
+  var verdict = document.getElementById('verdict');
+  if (!left || !right || !verdict) return;
+
+  MATRICES.forEach(function (m, i) {
+    var o1 = document.createElement('option');
+    o1.value = String(i);
+    o1.textContent = m.label + '  (' + m.r + '×' + m.c + ')';
+    left.appendChild(o1);
+    right.appendChild(o1.cloneNode(true));
+  });
+
+  left.value = '0';   // H
+  right.value = '3';  // D
+
+  function render() {
+    var a = MATRICES[Number(left.value)];
+    var b = MATRICES[Number(right.value)];
+    var head = verdict.querySelector('.v-head');
+    var body = verdict.querySelector('.v-body');
+    var sizes = a.id + ' (' + a.r + '×' + a.c + ')  ·  ' + b.id + ' (' + b.r + '×' + b.c + ')';
+
+    if (a.c === b.r) {
+      verdict.className = 'verdict ok';
+      head.textContent = 'Sí se puede · resultado ' + a.r + '×' + b.c;
+      body.textContent = sizes + '. Las columnas de ' + a.id + ' (' + a.c +
+        ') coinciden con las filas de ' + b.id + ' (' + b.r +
+        '), así que los números de adentro se cancelan y quedan los de afuera: ' +
+        a.r + '×' + b.c + '.';
+    } else {
+      verdict.className = 'verdict bad';
+      head.textContent = 'No está definida';
+      body.textContent = sizes + '. ' + a.id + ' tiene ' + a.c + ' columna(s) pero ' +
+        b.id + ' tiene ' + b.r + ' fila(s). Al emparejar fila con columna sobrarían ' +
+        Math.abs(a.c - b.r) + ' término(s) sin pareja.';
+    }
+  }
+
+  left.addEventListener('change', render);
+  right.addEventListener('change', render);
+  render();
+})();
+
+/* ---------- pestañas de escenario ---------- */
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  if (!tabs.length) return;
+
+  function show(n) {
+    tabs.forEach(function (t) {
+      var on = t.getAttribute('data-scene') === n;
+      t.classList.toggle('is-on', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      var panel = document.getElementById('scene-' + t.getAttribute('data-scene'));
+      if (panel) panel.hidden = !on;
+    });
+    try { history.replaceState(null, '', '#unidad-' + n); } catch (e) {}
+    try { localStorage.setItem('cuaderno-ed', n); } catch (e) {}
+    document.dispatchEvent(new CustomEvent('escenario', { detail: n }));
+  }
+
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      show(t.getAttribute('data-scene'));
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    });
+  });
+
+  var h = (location.hash || '').replace('#', '');
+  var m = /^unidad-(\d+)$/.exec(h);
+  if (m && document.getElementById('scene-' + m[1])) {
+    show(m[1]);
+  } else if (h && document.getElementById(h)) {
+    var owner = document.getElementById(h).closest('.scene');
+    if (owner) show(owner.id.replace('scene-', ''));
+  } else {
+    var last = null;
+    try { last = localStorage.getItem('cuaderno-ed'); } catch (e) {}
+    if (last && document.getElementById('scene-' + last)) show(last);
+  }
+})();
+
+/* ---------- verificador de ternas (escenario 2) ---------- */
+(function () {
+  var A = [[80000, 50000, 70000], [76000, 45000, 63000], [72000, 38000, 56000]];
+  var B = [540000, 494000, 444000];
+  var ix = document.getElementById('vx');
+  var iy = document.getElementById('vy');
+  var iz = document.getElementById('vz');
+  var rows = document.getElementById('v-rows');
+  var verdict = document.getElementById('v-verdict');
+  if (!ix || !rows || !verdict) return;
+
+  var fmt = function (v) {
+    return v.toLocaleString('es-CO', { maximumFractionDigits: 2 });
+  };
+
+  function render() {
+    var v = [Number(ix.value) || 0, Number(iy.value) || 0, Number(iz.value) || 0];
+    var okCount = 0;
+    rows.textContent = '';
+
+    A.forEach(function (row, i) {
+      var lhs = row[0] * v[0] + row[1] * v[1] + row[2] * v[2];
+      var diff = lhs - B[i];
+      var ok = Math.abs(diff) < 0.5;
+      if (ok) okCount++;
+
+      var tr = document.createElement('tr');
+      [
+        ['(' + (i + 1) + ')', ''],
+        [fmt(lhs), 'n'],
+        [fmt(B[i]), 'n'],
+        [(diff > 0 ? '+' : '') + fmt(diff), 'n'],
+        [ok ? 'Sí' : 'No', ok ? 'mark-ok' : 'mark-no']
+      ].forEach(function (cell, j) {
+        var td = document.createElement(j === 0 ? 'th' : 'td');
+        td.textContent = cell[0];
+        if (cell[1]) td.className = cell[1];
+        tr.appendChild(td);
+      });
+      rows.appendChild(tr);
+    });
+
+    var head = verdict.querySelector('.v-head');
+    var body = verdict.querySelector('.v-body');
+    var terna = '(' + fmt(v[0]) + ', ' + fmt(v[1]) + ', ' + fmt(v[2]) + ')';
+
+    if (okCount === 3) {
+      verdict.className = 'verdict ok';
+      head.textContent = 'Es solución del sistema';
+      body.textContent = 'La terna ' + terna + ' satisface las tres ecuaciones a la vez, que es lo que exige la definición.';
+    } else {
+      verdict.className = 'verdict bad';
+      head.textContent = 'No es solución · cumple ' + okCount + ' de 3';
+      body.textContent = 'La terna ' + terna + ' falla en ' + (3 - okCount) +
+        ' ecuación(es). Basta con que una no se cumpla para descartarla: la definición pide todas.';
+    }
+  }
+
+  [ix, iy, iz].forEach(function (el) { el.addEventListener('input', render); });
+
+  Array.prototype.forEach.call(document.querySelectorAll('.btn[data-set]'), function (b) {
+    b.addEventListener('click', function () {
+      var p = b.getAttribute('data-set').split(',');
+      ix.value = p[0]; iy.value = p[1]; iz.value = p[2];
+      render();
+    });
+  });
+
+  render();
+})();
+
+/* ---------- mezclador de color (escenario 3) ---------- */
+(function () {
+  var cr = document.getElementById('cr');
+  var cg = document.getElementById('cg');
+  var cb = document.getElementById('cb');
+  var sw = document.getElementById('cswatch');
+  var eq = document.getElementById('ceq');
+  var vd = document.getElementById('cverdict');
+  if (!cr || !sw || !eq || !vd) return;
+
+  var f = function (x) { return (Math.round(x * 100) / 100).toFixed(2).replace('.', ','); };
+
+  function render() {
+    var a = [Number(cr.value), Number(cg.value), Number(cb.value)];
+    var clipped = a.map(function (x) { return Math.min(1, Math.max(0, x)); });
+    var out = clipped.map(function (x) { return Math.round(x * 255); });
+    sw.style.background = 'rgb(' + out.join(',') + ')';
+
+    eq.innerHTML =
+      '(' + f(a[0]) + '; ' + f(a[1]) + '; ' + f(a[2]) + ') = ' +
+      '<b>' + f(a[0]) + '</b>(1,0,0) + ' +
+      '<b>' + f(a[1]) + '</b>(0,1,0) + ' +
+      '<b>' + f(a[2]) + '</b>(0,0,1)';
+
+    var over = a.filter(function (x) { return x > 1; }).length;
+    var head = vd.querySelector('.v-head');
+    var body = vd.querySelector('.v-body');
+
+    if (over === 0) {
+      vd.className = 'verdict ok';
+      head.textContent = 'Color válido · dentro de [0, 1]';
+      body.textContent = 'Las tres componentes están en el rango, así que la combinación lineal produce un color que el conjunto sí contiene. La clausura se cumple.';
+    } else {
+      vd.className = 'verdict bad';
+      head.textContent = 'Fuera de rango · ' + over + ' component' + (over === 1 ? 'e' : 'es') + ' por encima de 1';
+      body.textContent = 'El resultado ya no es un color válido: el software lo satura en 1 y el muestrario de la izquierda enseña el color recortado, no el calculado. La operación es correcta; el conjunto no es cerrado.';
+    }
+  }
+
+  [cr, cg, cb].forEach(function (el) { el.addEventListener('input', render); });
+
+  Array.prototype.forEach.call(document.querySelectorAll('.btn[data-rgb]'), function (b) {
+    b.addEventListener('click', function () {
+      var p = b.getAttribute('data-rgb').split(',');
+      cr.value = p[0]; cg.value = p[1]; cb.value = p[2];
+      render();
+    });
+  });
+
+  render();
+})();
+
+/* ---------- tema claro / oscuro ---------- */
+(function () {
+  var btn = document.getElementById('themeBtn');
+  if (!btn) return;
+  var modes = ['auto', 'light', 'dark'], names = { auto: 'automático', light: 'claro', dark: 'oscuro' };
+  var mode = 'auto';
+  try { mode = localStorage.getItem('cuaderno-tema') || 'auto'; } catch (e) {}
+  function apply() {
+    if (mode === 'auto') document.documentElement.removeAttribute('data-theme');
+    else document.documentElement.setAttribute('data-theme', mode);
+    btn.textContent = 'Tema: ' + names[mode];
+  }
+  btn.addEventListener('click', function () {
+    mode = modes[(modes.indexOf(mode) + 1) % 3];
+    try { localStorage.setItem('cuaderno-tema', mode); } catch (e) {}
+    apply();
+  });
+  apply();
+})();
+
+/* ---------- listas de chequeo con memoria ---------- */
+(function () {
+  Array.prototype.forEach.call(document.querySelectorAll('ul.check'), function (ul, k) {
+    var scene = ul.closest('.scene'), key = 'cuaderno-ed-check-' + (scene ? scene.id : '') + '-' + k;
+    var boxes = ul.querySelectorAll('input[type=checkbox]');
+    var count = ul.previousElementSibling && ul.previousElementSibling.classList.contains('check-count') ? ul.previousElementSibling : null;
+    var saved = [];
+    try { saved = JSON.parse(localStorage.getItem(key) || '[]'); } catch (e) {}
+    Array.prototype.forEach.call(boxes, function (b, i) { b.checked = !!saved[i]; });
+    function update() {
+      var st = [], n = 0;
+      Array.prototype.forEach.call(boxes, function (b) { st.push(b.checked ? 1 : 0); if (b.checked) n++; });
+      if (count) count.textContent = n + ' de ' + boxes.length + ' dominados';
+      try { localStorage.setItem(key, JSON.stringify(st)); } catch (e) {}
+    }
+    Array.prototype.forEach.call(boxes, function (b) { b.addEventListener('change', update); });
+    update();
+  });
+})();
+
+/* ---------- índice: sección actual y avance de lectura ---------- */
+(function () {
+  function active() { return document.querySelector('.scene:not([hidden])'); }
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var sc = active(); if (!sc) return;
+    var links = sc.querySelectorAll('nav.toc a[href^="#"]');
+    var current = null, y = 120;
+    Array.prototype.forEach.call(links, function (a) {
+      var sec = document.getElementById(a.getAttribute('href').slice(1));
+      if (sec && sec.getBoundingClientRect().top <= y) current = a;
+    });
+    if (!current && links.length) current = links[0];
+    Array.prototype.forEach.call(links, function (a) {
+      if (a === current) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+    });
+    var r = sc.getBoundingClientRect();
+    var p = Math.max(0, Math.min(1, -r.top / Math.max(1, r.height - window.innerHeight)));
+    var bar = sc.querySelector('.toc-progress i');
+    if (bar) bar.style.width = Math.round(p * 100) + '%';
+  }
+  function req() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', req, { passive: true });
+  window.addEventListener('resize', req);
+  document.addEventListener('escenario', req);
+  update();
+})();
+
+/* ---------- impresión: respuestas abiertas ---------- */
+(function () {
+  var opened = [];
+  window.addEventListener('beforeprint', function () {
+    opened = [];
+    Array.prototype.forEach.call(document.querySelectorAll('details.answer:not([open])'), function (d) { d.open = true; opened.push(d); });
+  });
+  window.addEventListener('afterprint', function () { opened.forEach(function (d) { d.open = false; }); });
+})();
+
+/* ---------- modo repaso: ejercicios al azar, uno a la vez ---------- */
+(function () {
+  var SCENES = Array.prototype.map.call(document.querySelectorAll('.tab'), function (t) { var l = t.querySelector('.tnum'); return ['scene-' + t.getAttribute('data-scene'), (l ? l.textContent : t.textContent).trim()]; });
+  var KEY = 'cuaderno-ed-repaso-pendientes';
+  var items = [];
+  SCENES.forEach(function (p) {
+    var sc = document.getElementById(p[0]);
+    if (!sc) return;
+    Array.prototype.forEach.call(sc.querySelectorAll('.ex'), function (ex, i) {
+      var rid = p[0] + '-' + i;
+      ex.setAttribute('data-rid', rid);
+      items.push({ rid: rid, ex: ex, sid: p[0], n: p[1] });
+    });
+  });
+  var btn = document.getElementById('reviewBtn');
+  if (!btn || !items.length) return;
+
+  var pend = [];
+  try { pend = JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) {}
+  function savePend() { try { localStorage.setItem(KEY, JSON.stringify(pend)); } catch (e) {} }
+  function isPend(rid) { return pend.indexOf(rid) !== -1; }
+
+  var ov = document.createElement('div');
+  ov.className = 'review';
+  ov.setAttribute('role', 'dialog');
+  ov.setAttribute('aria-modal', 'true');
+  ov.setAttribute('aria-label', 'Modo repaso');
+  ov.innerHTML = '<div class="rv-in"><div class="rv-top"><div class="rv-row">' +
+    '<h2 class="rv-title" tabindex="-1">Modo repaso</h2>' +
+    '<button type="button" class="btn" data-act="close">Salir</button></div>' +
+    '<div class="rv-bar" hidden><i></i></div></div><div class="rv-body"></div></div>';
+  document.body.appendChild(ov);
+  var body = ov.querySelector('.rv-body'), bar = ov.querySelector('.rv-bar'), title = ov.querySelector('.rv-title');
+
+  var opts = { scenes: SCENES.map(function (p) { return p[1]; }), set: 'all', count: '10' };
+  var queue = [], idx = 0, results = {}, shown = false, lastFocus = null;
+
+  function shuffle(a) {
+    for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; }
+    return a;
+  }
+  function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function secTitle(it) {
+    var sec = it.ex.closest('section'), h = sec && sec.querySelector('h2');
+    if (!h) return '';
+    var c = h.cloneNode(true), n = c.querySelector('.num');
+    if (n) n.remove();
+    return c.innerHTML;
+  }
+  function exId(it) { var s = it.ex.querySelector('.head .id'); return s ? s.textContent : ''; }
+  function setBar(p) { bar.hidden = p === null; if (p !== null) bar.firstChild.style.width = Math.round(p * 100) + '%'; }
+
+  /* --- 1. preparar la ronda --- */
+  function setup() {
+    title.textContent = 'Modo repaso';
+    setBar(null);
+    var chips = SCENES.map(function (p) {
+      var n = items.filter(function (it) { return it.n === p[1]; }).length;
+      var on = opts.scenes.indexOf(p[1]) !== -1;
+      return '<label class="rv-chip"><input type="checkbox" name="sc" value="' + p[1] + '"' + (on ? ' checked' : '') + (n ? '' : ' disabled') +
+        '>' + p[1] + ' <span class="c">' + n + '</span></label>';
+    }).join('');
+    var np = pend.length;
+    body.innerHTML = '<div class="rv-setup">' +
+      '<p class="rv-lead">Los ejercicios del cuaderno salen al azar, uno a la vez y con la respuesta cerrada. Resuélvelo, abre la respuesta y di si lo sabías. Lo que marques para repasar queda guardado para la próxima ronda.</p>' +
+      '<fieldset><legend>Secciones</legend><div class="rv-chips">' + chips + '</div></fieldset>' +
+      '<fieldset><legend>Qué ejercicios</legend><div class="rv-chips">' +
+      '<label class="rv-chip"><input type="radio" name="set" value="all"' + (opts.set === 'all' || !np ? ' checked' : '') + '>Todos</label>' +
+      '<label class="rv-chip"><input type="radio" name="set" value="pend"' + (opts.set === 'pend' && np ? ' checked' : '') + (np ? '' : ' disabled') +
+      '>Solo los pendientes <span class="c">' + np + '</span></label></div></fieldset>' +
+      '<fieldset><legend>Cuántos</legend><div class="rv-chips">' +
+      ['5', '10', '20', 'all'].map(function (v) {
+        return '<label class="rv-chip"><input type="radio" name="count" value="' + v + '"' + (opts.count === v ? ' checked' : '') + '>' + (v === 'all' ? 'Todos' : v) + '</label>';
+      }).join('') + '</div></fieldset>' +
+      '<div class="rv-actions"><button type="button" class="btn primary" data-act="start">Empezar</button>' +
+      (np ? '<button type="button" class="btn link" data-act="clear">Vaciar pendientes</button>' : '') +
+      '<span class="rv-count rv-hint" style="margin:0"></span></div></div>';
+    updateCount();
+  }
+  function readOpts() {
+    opts.scenes = Array.prototype.map.call(body.querySelectorAll('input[name=sc]:checked'), function (i) { return i.value; });
+    var s = body.querySelector('input[name=set]:checked'); opts.set = s ? s.value : 'all';
+    var c = body.querySelector('input[name=count]:checked'); opts.count = c ? c.value : '10';
+  }
+  function pool() {
+    return items.filter(function (it) {
+      return opts.scenes.indexOf(it.n) !== -1 && (opts.set === 'all' || isPend(it.rid));
+    });
+  }
+  function updateCount() {
+    var el = body.querySelector('.rv-count'); if (!el) return;
+    readOpts();
+    var n = pool().length, k = opts.count === 'all' ? n : Math.min(n, Number(opts.count));
+    el.textContent = n ? k + ' de ' + n + ' ejercicios disponibles' : 'No hay ejercicios con esa combinación';
+    body.querySelector('[data-act=start]').disabled = !n;
+  }
+
+  /* --- 2. un ejercicio --- */
+  function start(list) {
+    queue = list;
+    idx = 0; results = {};
+    card();
+  }
+  function card() {
+    if (idx >= queue.length) return summary();
+    var it = queue[idx];
+    shown = false;
+    title.textContent = 'Ejercicio ' + (idx + 1) + ' de ' + queue.length;
+    setBar(idx / queue.length);
+    var c = it.ex.cloneNode(true);
+    c.removeAttribute('data-rid');
+    c.classList.remove('rv-flash');
+    Array.prototype.forEach.call(c.querySelectorAll('details'), function (d) { d.open = false; });
+    body.innerHTML = '<p class="rv-meta"><b>' + it.n + '</b><span class="rv-sec">' + secTitle(it) + '</span>' +
+      (isPend(it.rid) ? '<span>· pendiente</span>' : '') + '</p><div class="rv-card"></div>' +
+      '<div class="rv-actions">' +
+      '<button type="button" class="btn primary" data-act="show">Mostrar respuesta</button>' +
+      '<button type="button" class="btn primary" data-act="ok" hidden>Lo sabía</button>' +
+      '<button type="button" class="btn warn" data-act="bad" hidden>Repasar otra vez</button>' +
+      '<span class="sp"></span>' +
+      '<button type="button" class="btn link" data-act="goto">Ver en el cuaderno</button>' +
+      '<button type="button" class="btn" data-act="skip">Saltar</button></div>' +
+      '<p class="rv-hint">Atajos: R muestra la respuesta · 1 lo sabía · 2 repasar otra vez · S saltar · Esc salir</p>';
+    body.querySelector('.rv-card').appendChild(c);
+    var d = c.querySelector('details.answer');
+    if (d) d.addEventListener('toggle', function () { if (d.open) reveal(); });
+    ov.scrollTop = 0;
+    title.focus();
+  }
+  function reveal() {
+    if (shown) return;
+    shown = true;
+    var d = body.querySelector('.rv-card details.answer');
+    if (d && !d.open) d.open = true;
+    body.querySelector('[data-act=show]').hidden = true;
+    body.querySelector('[data-act=ok]').hidden = false;
+    body.querySelector('[data-act=bad]').hidden = false;
+    body.querySelector('[data-act=ok]').focus();
+    if (d) d.scrollIntoView({ block: 'nearest' });
+  }
+  function grade(r) {
+    var it = queue[idx];
+    results[it.rid] = r;
+    var i = pend.indexOf(it.rid);
+    if (r === 'ok' && i !== -1) pend.splice(i, 1);
+    if (r === 'bad' && i === -1) pend.push(it.rid);
+    savePend();
+    idx++;
+    card();
+  }
+
+  /* --- 3. resultado --- */
+  function summary() {
+    var ok = queue.filter(function (it) { return results[it.rid] === 'ok'; }).length;
+    var bad = queue.filter(function (it) { return results[it.rid] === 'bad'; });
+    var skip = queue.length - ok - bad.length;
+    title.textContent = 'Resultado de la ronda';
+    setBar(1);
+    body.innerHTML = '<div class="rv-score"><div class="ok"><b>' + ok + '</b>lo sabías</div>' +
+      '<div class="bad"><b>' + bad.length + '</b>para repasar</div>' +
+      (skip ? '<div><b>' + skip + '</b>saltados</div>' : '') + '</div>' +
+      (bad.length ? '<h4 style="margin-top:0">Para repasar</h4><ul class="rv-list">' + bad.map(function (it) {
+        return '<li><button type="button" data-goto="' + it.rid + '"><span class="k">Esc. ' + it.n + ' · ' + esc(exId(it)) + '</span><span>' + secTitle(it) + '</span></button></li>';
+      }).join('') + '</ul>' : '<p class="rv-lead">Nada pendiente de esta ronda.</p>') +
+      '<div class="rv-actions">' +
+      (bad.length ? '<button type="button" class="btn primary" data-act="again">Repasar estos otra vez</button>' : '') +
+      '<button type="button" class="btn' + (bad.length ? '' : ' primary') + '" data-act="setup">Nueva ronda</button>' +
+      '<button type="button" class="btn" data-act="close">Volver al cuaderno</button></div>';
+    ov.scrollTop = 0;
+    title.focus();
+  }
+
+  /* --- ir al ejercicio dentro del cuaderno --- */
+  function goto(it) {
+    close();
+    var tab = document.querySelector('.tab[data-scene="' + it.sid.replace('scene-', '') + '"]');
+    if (tab && tab.getAttribute('aria-selected') !== 'true') tab.click();
+    setTimeout(function () {
+      it.ex.scrollIntoView({ block: 'start' });
+      window.scrollBy(0, -100);
+      it.ex.classList.add('rv-flash');
+      setTimeout(function () { it.ex.classList.remove('rv-flash'); }, 2200);
+    }, 60);
+  }
+
+  function open() {
+    lastFocus = document.activeElement;
+    ov.classList.add('is-open');
+    document.body.classList.add('review-on');
+    setup();
+    title.focus();
+  }
+  function close() {
+    ov.classList.remove('is-open');
+    document.body.classList.remove('review-on');
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  btn.addEventListener('click', open);
+  body.addEventListener('change', function (e) { if (e.target.matches('.rv-setup input')) updateCount(); });
+  ov.addEventListener('click', function (e) {
+    var g = e.target.closest('[data-goto]');
+    if (g) { var it = items.filter(function (x) { return x.rid === g.getAttribute('data-goto'); })[0]; if (it) goto(it); return; }
+    var a = e.target.closest('[data-act]'); if (!a) return;
+    var act = a.getAttribute('data-act');
+    if (act === 'close') close();
+    else if (act === 'setup') setup();
+    else if (act === 'clear') { pend = []; savePend(); setup(); }
+    else if (act === 'start') {
+      readOpts();
+      var p = shuffle(pool());
+      start(opts.count === 'all' ? p : p.slice(0, Number(opts.count)));
+    }
+    else if (act === 'again') start(shuffle(queue.filter(function (it) { return results[it.rid] === 'bad'; })));
+    else if (act === 'show') reveal();
+    else if (act === 'ok') grade('ok');
+    else if (act === 'bad') grade('bad');
+    else if (act === 'skip') { idx++; card(); }
+    else if (act === 'goto') goto(queue[idx]);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!ov.classList.contains('is-open')) return;
+    if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+    if (e.ctrlKey || e.metaKey || e.altKey || /^(INPUT|SELECT|TEXTAREA)$/.test(e.target.tagName)) return;
+    if (!body.querySelector('.rv-card')) return;
+    var k = e.key.toLowerCase();
+    if (k === 'r') reveal();
+    else if (k === '1' && shown) grade('ok');
+    else if (k === '2' && shown) grade('bad');
+    else if (k === 's') { idx++; card(); }
+  });
+  /* el foco no se escapa del modo repaso */
+  ov.addEventListener('keydown', function (e) {
+    if (e.key !== 'Tab') return;
+    var f = Array.prototype.filter.call(ov.querySelectorAll('button, input, summary, a[href], [tabindex]'), function (x) { return !x.disabled && !x.hidden && x.offsetParent !== null; });
+    if (!f.length) return;
+    if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length - 1].focus(); }
+    else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
+  });
+})();
+
+/* ---------- planos 2×2: dibujo compartido (escenarios 6 y 7) ---------- */
+var Plane = (function () {
+  var NS = 'http://www.w3.org/2000/svg';
+  function el(tag, attrs, parent) {
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    e.setAttribute('vector-effect', 'non-scaling-stroke');
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  function draw(svg, m, lines) {
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    var g = el('g', { transform: 'scale(1,-1)' }, svg);
+    for (var i = -3; i <= 3; i++) {
+      el('line', { x1: i, y1: -3.4, x2: i, y2: 3.4, 'class': 'pl-grid' }, g);
+      el('line', { x1: -3.4, y1: i, x2: 3.4, y2: i, 'class': 'pl-grid' }, g);
+    }
+    el('line', { x1: -3.4, y1: 0, x2: 3.4, y2: 0, 'class': 'pl-axis' }, g);
+    el('line', { x1: 0, y1: -3.4, x2: 0, y2: 3.4, 'class': 'pl-axis' }, g);
+    (lines || []).forEach(function (L) {
+      var n = Math.hypot(L.v[0], L.v[1]); if (!n) return;
+      var ux = L.v[0] / n * 5, uy = L.v[1] / n * 5;
+      el('line', { x1: -ux, y1: -uy, x2: ux, y2: uy, 'class': L.cls }, g);
+    });
+    el('polygon', { points: '0,0 1,0 1,1 0,1', 'class': 'pl-orig' }, g);
+    var a = m[0], b = m[1], c = m[2], d = m[3];
+    el('polygon', { points: '0,0 ' + a + ',' + c + ' ' + (a + b) + ',' + (c + d) + ' ' + b + ',' + d, 'class': 'pl-img' }, g);
+    el('line', { x1: 0, y1: 0, x2: a, y2: c, 'class': 'pl-e1' }, g);
+    el('line', { x1: 0, y1: 0, x2: b, y2: d, 'class': 'pl-e2' }, g);
+    el('circle', { cx: a, cy: c, r: 0.09, 'class': 'pl-p1' }, g);
+    el('circle', { cx: b, cy: d, r: 0.09, 'class': 'pl-p2' }, g);
+  }
+  return { draw: draw };
+})();
+
+function fmtN(x) {
+  if (Math.abs(x) < 1e-9) x = 0;
+  return (Math.round(x * 1000) / 1000).toLocaleString('es-CO', { maximumFractionDigits: 3 });
+}
+function readM(ids) { return ids.map(function (id) { var v = Number(document.getElementById(id).value); return isFinite(v) ? v : 0; }); }
+function bindM(ids, attr, render) {
+  ids.forEach(function (id) { var e = document.getElementById(id); if (e) e.addEventListener('input', render); });
+  Array.prototype.forEach.call(document.querySelectorAll('[' + attr + ']'), function (b) {
+    b.addEventListener('click', function () {
+      var p = b.getAttribute(attr).split(',');
+      ids.forEach(function (id, i) { document.getElementById(id).value = p[i]; });
+      render();
+    });
+  });
+}
+
+/* ---------- escenario 6: la transformación en el plano ---------- */
+(function () {
+  var ids = ['t6a', 't6b', 't6c', 't6d'];
+  var svg = document.getElementById('t6-svg'), eq = document.getElementById('t6-eq'), vd = document.getElementById('t6-v');
+  if (!svg || !eq || !vd) return;
+  function render() {
+    var m = readM(ids), a = m[0], b = m[1], c = m[2], d = m[3], det = a * d - b * c;
+    Plane.draw(svg, m);
+    eq.innerHTML = 'T(1,0) = (<b>' + fmtN(a) + '</b>; <b>' + fmtN(c) + '</b>) &nbsp;·&nbsp; T(0,1) = (<b>' + fmtN(b) + '</b>; <b>' + fmtN(d) + '</b>)<br>' +
+      'det A = ' + fmtN(a) + '·' + fmtN(d) + ' − ' + fmtN(b) + '·' + fmtN(c) + ' = <b>' + fmtN(det) + '</b>';
+    var head = vd.querySelector('.v-head'), body = vd.querySelector('.v-body');
+    if (Math.abs(det) > 1e-9) {
+      vd.className = 'verdict ok';
+      head.textContent = 'Invertible · núcleo {0}, imagen ℝ²';
+      body.textContent = 'El área del cuadrado se multiplica por ' + fmtN(Math.abs(det)) +
+        (det < 0 ? ' y la figura queda en espejo (det negativo).' : '.') +
+        ' Ninguna dirección se pierde: dos entradas distintas dan salidas distintas.';
+    } else if (a === 0 && b === 0 && c === 0 && d === 0) {
+      vd.className = 'verdict bad';
+      head.textContent = 'Todo va al origen · núcleo ℝ²';
+      body.textContent = 'Es la transformación cero: el núcleo es todo el plano y la imagen es solo {0}. 2 + 0 = 2.';
+    } else {
+      vd.className = 'verdict bad';
+      var nv = (a !== 0 || b !== 0) ? [-b, a] : [-d, c];
+      var iv = (a !== 0 || c !== 0) ? [a, c] : [b, d];
+      head.textContent = 'det = 0 · aplasta el plano sobre una recta';
+      body.textContent = 'El núcleo es la recta generada por (' + fmtN(nv[0]) + '; ' + fmtN(nv[1]) + '), que va a parar al origen. ' +
+        'La imagen es la recta generada por (' + fmtN(iv[0]) + '; ' + fmtN(iv[1]) + '). 1 + 1 = 2: el teorema de la dimensión cuadra.';
+    }
+  }
+  bindM(ids, 'data-t6', render);
+  render();
+})();
+
+/* ---------- escenario 7: valores y vectores propios 2×2 ---------- */
+(function () {
+  var ids = ['g7a', 'g7b', 'g7c', 'g7d'];
+  var svg = document.getElementById('g7-svg'), eq = document.getElementById('g7-eq'), vd = document.getElementById('g7-v');
+  if (!svg || !eq || !vd) return;
+  var E = 1e-9;
+  function clean(v) {
+    var x = v[0], y = v[1];
+    if (Math.abs(x) < E) x = 0; if (Math.abs(y) < E) y = 0;
+    var r = function (t) { return Math.abs(t - Math.round(t)) < 1e-9; };
+    if (r(x) && r(y)) {
+      var g = (function gcd(p, q) { return q ? gcd(q, p % q) : p; })(Math.abs(Math.round(x)), Math.abs(Math.round(y))) || 1;
+      x = Math.round(x) / g; y = Math.round(y) / g;
+    } else { var n = Math.hypot(x, y); x /= n; y /= n; }
+    if (x < 0 || (x === 0 && y < 0)) { x = -x; y = -y; }
+    return [x, y];
+  }
+  function vecFor(l, a, b, c, d) {
+    if (Math.abs(b) > E) return clean([b, l - a]);
+    if (Math.abs(c) > E) return clean([l - d, c]);
+    return Math.abs(l - a) < E ? [1, 0] : [0, 1];
+  }
+  function sgn(x, s) { return (x < 0 ? ' − ' : ' + ') + fmtN(Math.abs(x)) + s; }
+  function render() {
+    var m = readM(ids), a = m[0], b = m[1], c = m[2], d = m[3];
+    var tr = a + d, det = a * d - b * c, disc = tr * tr - 4 * det;
+    var head = vd.querySelector('.v-head'), body = vd.querySelector('.v-body');
+    var html = 'p(λ) = λ²' + sgn(-tr, 'λ') + sgn(det, '') + '<br>Δ = tr² − 4·det = ' + fmtN(disc) + '<br>';
+    var lines = [];
+    if (disc < -E) {
+      var re = tr / 2, im = Math.sqrt(-disc) / 2;
+      html += 'λ = <b>' + fmtN(re) + ' ± ' + fmtN(im) + 'i</b> (complejos)';
+      vd.className = 'verdict bad';
+      head.textContent = 'Sin valores propios reales · no diagonalizable en ℝ';
+      body.textContent = 'Ninguna dirección se conserva: la transformación gira todas. Es lo que pasa con las rotaciones (ejercicio P2).';
+    } else if (Math.abs(disc) <= E) {
+      var l = tr / 2;
+      html += 'λ = <b>' + fmtN(l) + '</b> (doble)';
+      if (Math.abs(b) < E && Math.abs(c) < E) {
+        vd.className = 'verdict ok';
+        head.textContent = 'Diagonalizable · ya es diagonal';
+        body.textContent = 'A = ' + fmtN(l) + '·I: todo vector no nulo es vector propio. Multiplicidad geométrica 2.';
+      } else {
+        var v = vecFor(l, a, b, c, d); lines.push({ v: v, cls: 'pl-eig1' });
+        html += '<br>v = (<b>' + fmtN(v[0]) + '</b>; <b>' + fmtN(v[1]) + '</b>)';
+        vd.className = 'verdict bad';
+        head.textContent = 'No diagonalizable · le falta una dirección';
+        body.textContent = 'λ = ' + fmtN(l) + ' tiene multiplicidad algebraica 2 pero un solo vector propio independiente. Como el Ejemplo 6.';
+      }
+    } else {
+      var s = Math.sqrt(disc), l1 = (tr + s) / 2, l2 = (tr - s) / 2;
+      var v1 = vecFor(l1, a, b, c, d), v2 = vecFor(l2, a, b, c, d);
+      lines.push({ v: v1, cls: 'pl-eig1' }, { v: v2, cls: 'pl-eig2' });
+      html += 'λ₁ = <b>' + fmtN(l1) + '</b> → v₁ = (' + fmtN(v1[0]) + '; ' + fmtN(v1[1]) + ')<br>' +
+        'λ₂ = <b>' + fmtN(l2) + '</b> → v₂ = (' + fmtN(v2[0]) + '; ' + fmtN(v2[1]) + ')';
+      vd.className = 'verdict ok';
+      head.textContent = 'Diagonalizable · dos valores propios distintos';
+      body.textContent = 'C = [v₁ v₂], B = diag(' + fmtN(l1) + '; ' + fmtN(l2) + '). Chequeo: ' + fmtN(l1) + ' + ' + fmtN(l2) + ' = ' + fmtN(tr) +
+        ' = traza y ' + fmtN(l1) + ' · ' + fmtN(l2) + ' = ' + fmtN(det) + ' = det.' +
+        (Math.abs(l1) < E || Math.abs(l2) < E ? ' Un valor propio es 0: esa dirección es el núcleo y A no es invertible.' : '');
+    }
+    eq.innerHTML = html;
+    Plane.draw(svg, m, lines);
+  }
+  bindM(ids, 'data-g7', render);
+  render();
+})();
+
+/* ---------- escenario 8: el buscador, por potencias ---------- */
+(function () {
+  var rows = document.getElementById('pr8-rows'), vd = document.getElementById('pr8-v'), model = document.getElementById('pr8-model');
+  if (!rows || !vd || !model) return;
+  var OUT = { 1: [4, 6, 5], 2: [1, 3], 3: [4, 5], 4: [1, 2, 6, 5], 5: [3], 6: [1, 5] };
+  var N = 6, L = [];
+  for (var i = 0; i < N; i++) { L.push([0, 0, 0, 0, 0, 0]); }
+  Object.keys(OUT).forEach(function (j) { OUT[j].forEach(function (t) { L[t - 1][j - 1] = 1 / OUT[j].length; }); });
+  function M() {
+    if (model.value !== 'google') return L;
+    return L.map(function (r) { return r.map(function (x) { return 0.85 * x + 0.15 / N; }); });
+  }
+  function fixed() {
+    var A = M(), x = [1, 1, 1, 1, 1, 1].map(function () { return 1 / N; });
+    for (var k = 0; k < 500; k++) x = mul(A, x);
+    return x;
+  }
+  function mul(A, x) { return A.map(function (r) { return r.reduce(function (s, a, j) { return s + a * x[j]; }, 0); }); }
+  var x, k, target;
+  function reset() { x = [1, 1, 1, 1, 1, 1].map(function () { return 1 / N; }); k = 0; target = fixed(); render(); }
+  function step(n) { var A = M(); for (var i = 0; i < n; i++) x = mul(A, x); k += n; render(); }
+  function pct(v) { return (v * 100).toLocaleString('es-CO', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' %'; }
+  function render() {
+    var order = x.map(function (v, i) { return i; }).sort(function (p, q) { return x[q] - x[p]; });
+    var rank = []; order.forEach(function (i, r) { rank[i] = r + 1; });
+    var mx = Math.max.apply(null, x);
+    rows.textContent = '';
+    x.forEach(function (v, i) {
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<th>Página ' + (i + 1) + '</th><td class="n">' + pct(v) + '</td>' +
+        '<td><span class="pr-bar"><i style="width:' + (v / mx * 100).toFixed(1) + '%"></i></span></td><td class="n">' + rank[i] + '</td>';
+      rows.appendChild(tr);
+    });
+    var dist = Math.max.apply(null, x.map(function (v, i) { return Math.abs(v - target[i]); }));
+    var head = vd.querySelector('.v-head'), body = vd.querySelector('.v-body');
+    if (k === 0) {
+      vd.className = 'verdict';
+      head.textContent = 'Punto de partida · todas valen lo mismo';
+      body.textContent = 'Cada página arranca con 1/6. Pulsa «Repartir una vez»: cada una entrega su importancia, por partes iguales, a las páginas que enlaza.';
+    } else if (dist < 5e-4) {
+      vd.className = 'verdict ok';
+      head.textContent = 'Convergió en ' + k + ' repartos · es el vector propio de λ = 1';
+      body.textContent = 'Repartir otra vez ya no cambia nada: Lx = x. Orden: ' + order.map(function (i) { return i + 1; }).join(' · ') + '.';
+    } else {
+      vd.className = 'verdict';
+      head.textContent = 'Reparto ' + k + ' · todavía cambia';
+      body.textContent = 'La mayor diferencia con el vector final es ' + (dist * 100).toLocaleString('es-CO', { maximumFractionDigits: 2 }) +
+        ' puntos porcentuales. Los valores propios con módulo menor que 1 se están apagando.';
+    }
+  }
+  document.getElementById('pr8-step').addEventListener('click', function () { step(1); });
+  document.getElementById('pr8-ten').addEventListener('click', function () { step(10); });
+  document.getElementById('pr8-reset').addEventListener('click', reset);
+  model.addEventListener('change', reset);
+  reset();
+})();
+</script>
+
+<a href="/" class="ac-home" style="position:fixed;right:14px;bottom:14px;z-index:9999;font:600 13px/1 -apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:9px 13px;border-radius:20px;background:#1a6fd4;color:#fff;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">&#8962; Inicio</a>
+</body>
+</html>

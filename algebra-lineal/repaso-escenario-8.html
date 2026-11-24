@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Repaso Escenario 8</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,700;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+/* Columna única, tres bloques numerados por las tres secciones de la lectura.
+   Cada bloque: qué entra · procedimiento · dónde se cae la gente. */
+:root{
+  --bg:#F6F8FA; --surface:#FFFFFF; --sunken:#EEF2F6;
+  --fg:#16202E; --muted:#5B6B80; --line:#D9E1EA;
+  --accent:#0B6E75; --accent-soft:#E0F0F0;
+  --warn:#8A5206; --warn-soft:#FAF0DD;
+  --display:'Spectral',Georgia,'Times New Roman',serif;
+  --body:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'SFMono-Regular',Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0D151E; --surface:#151F2B; --sunken:#111A24;
+  --fg:#E7EDF4; --muted:#97A8BB; --line:#25313E;
+  --accent:#54C4CA; --accent-soft:#102F33;
+  --warn:#E5B35C; --warn-soft:#2B2211;
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#0D151E; --surface:#151F2B; --sunken:#111A24;
+  --fg:#E7EDF4; --muted:#97A8BB; --line:#25313E;
+  --accent:#54C4CA; --accent-soft:#102F33;
+  --warn:#E5B35C; --warn-soft:#2B2211;
+  color-scheme:dark;
+}
+
+body{background:var(--bg);color:var(--fg);font-family:var(--body);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:52rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:2.4rem 4rem}
+h1,h2,h3{text-wrap:balance;margin:0}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(1.9rem,5.5vw,2.7rem);line-height:1.12;letter-spacing:-.01em}
+h2{font-family:var(--display);font-weight:700;font-size:1.42rem;line-height:1.2}
+h3{font-size:.84rem;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--accent)}
+p{margin:0}
+a{color:var(--accent)}
+
+header{display:flex;flex-direction:column;gap:.9rem;padding-bottom:1.6rem;border-bottom:1px solid var(--line)}
+.kicker{font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.11em;color:var(--muted)}
+.lede{color:var(--muted);font-size:1.03rem;max-width:40rem}
+.chip{display:inline-flex;align-items:center;gap:.5rem;align-self:flex-start;background:var(--warn-soft);color:var(--warn);
+  border:1px solid color-mix(in srgb,var(--warn) 32%,transparent);border-radius:999px;padding:.34rem .8rem;font-size:.84rem;font-weight:600}
+
+.note{background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 .5rem .5rem 0;padding:1rem 1.15rem;margin-top:1.5rem;font-size:.97rem}
+
+section.block{margin-top:3.2rem}
+.head{display:flex;gap:1rem;align-items:baseline}
+.num{font-family:var(--display);font-size:2.6rem;font-weight:700;line-height:1;color:var(--accent);opacity:.55;min-width:0}
+.headtext{display:flex;flex-direction:column;gap:.35rem;min-width:0}
+.sub{color:var(--muted);font-size:.95rem}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:.7rem;padding:1.2rem 1.25rem;margin-top:1.3rem;display:flex;flex-direction:column;gap:.75rem}
+.card > h3 + p{margin-top:-.2rem}
+
+.tablewrap{overflow-x:auto;margin-top:1.1rem;border:1px solid var(--line);border-radius:.7rem;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;min-width:33rem}
+th,td{text-align:left;padding:.7rem .85rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--sunken);font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+tr:last-child td{border-bottom:none}
+td.obj{font-weight:600;white-space:nowrap}
+
+ol.steps{margin:0;padding-left:1.35rem;display:flex;flex-direction:column;gap:.5rem;font-size:.97rem}
+ol.steps li::marker{color:var(--accent);font-weight:600}
+ul.plain{margin:0;padding-left:1.15rem;display:flex;flex-direction:column;gap:.35rem;font-size:.95rem}
+
+.axioms{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.5rem .9rem;margin-top:.3rem;counter-reset:ax}
+.ax{display:flex;gap:.6rem;font-size:.93rem;min-width:0}
+.ax::before{counter-increment:ax;content:counter(ax);font-family:var(--mono);font-size:.78rem;color:var(--accent);padding-top:.18rem;font-variant-numeric:tabular-nums}
+
+.trap{background:var(--warn-soft);border:1px solid color-mix(in srgb,var(--warn) 30%,transparent);border-radius:.7rem;padding:1.1rem 1.2rem;margin-top:1.3rem;display:flex;flex-direction:column;gap:.6rem}
+.trap h3{color:var(--warn)}
+
+.math{overflow-x:auto;padding:.3rem 0}
+.mono{font-family:var(--mono);font-size:.9em}
+
+.errs{display:flex;flex-direction:column;gap:.85rem;margin-top:1.2rem}
+.err{display:grid;grid-template-columns:1.6rem 1fr;gap:.75rem;align-items:start;font-size:.95rem}
+.err .x{color:var(--warn);font-weight:700;font-family:var(--mono)}
+
+.final{margin-top:3.2rem;background:var(--surface);border:1px solid var(--line);border-radius:.7rem;padding:1.4rem 1.3rem}
+.final ul{margin:.8rem 0 0;padding-left:1.15rem;display:flex;flex-direction:column;gap:.5rem;font-size:.97rem}
+footer{margin-top:3rem;padding-top:1.3rem;border-top:1px solid var(--line);color:var(--muted);font-size:.86rem}
+@media (max-width:420px){.num{font-size:2rem}.head{gap:.7rem}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="kicker">Álgebra Lineal · Unidad 4 · Escenario 8</span>
+  <h1>Repaso para la evaluación final</h1>
+  <p class="lede">La Lectura Fundamental 8 se llama «Aplicando conceptos y procesos del álgebra lineal». No trae tema nuevo: retoma todo el módulo y lo muestra aplicado. Por eso la final puede preguntar de cualquier unidad, pero siempre vestida de contexto.</p>
+  <span class="chip">Cierra el martes 20 de octubre, 23:55</span>
+</header>
+
+<div class="note">
+  <strong>El patrón que se repite en toda la lectura.</strong> Ante cualquier contexto, el camino es siempre el mismo y en este orden: identificar las variables y simbolizarlas, escribir las relaciones entre ellas (en matemáticas, igualdades o desigualdades), y reescribir esas relaciones con objetos del álgebra lineal. Si una pregunta le presenta una situación de la vida real y no sabe por dónde empezar, empiece por ahí.
+</div>
+
+<!-- ============ 1 ============ -->
+<section class="block">
+  <div class="head">
+    <span class="num">1</span>
+    <div class="headtext">
+      <h2>Representar información</h2>
+      <p class="sub">Sección 3.1 de la lectura. Cuatro objetos, cuatro contextos.</p>
+    </div>
+  </div>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Objeto</th><th>Contexto de la lectura</th><th>Forma que toma</th></tr></thead>
+      <tbody>
+        <tr><td class="obj">Matrices</td><td>Flujo de red (el flujo que entra es igual al que sale)</td><td>Matriz de incidencia 5×5 con entradas −1, 0 y 1, por el vector de flujos <span class="mono">(f₁…f₅)</span></td></tr>
+        <tr><td class="obj">n-uplas</td><td>Fabricación de televisores: maquinado, electrónico, puesta a punto y prueba</td><td>4-upla de tiempos <span class="mono">(x₁, x₂, x₃, x₄)</span></td></tr>
+        <tr><td class="obj">Polinomios</td><td>Cable parabólico de un puente colgante</td><td>Polinomio de grado 2: <span class="mono">p(x) = b + (w / 2T₁)·x²</span></td></tr>
+        <tr><td class="obj">Funciones</td><td>Corriente de un circuito con inductancia y resistencia</td><td>Exponencial: <span class="mono">i(t) = E₀/R + c·e^(−Rt/L)</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Qué le pueden preguntar</h3>
+    <p>Dado un contexto nuevo, cuál de los cuatro objetos lo representa y cómo se escribe. La pista está en la forma del dato: varias cantidades relacionadas entre sí por ecuaciones lineales piden matriz; una lista de características del mismo tipo pide n-upla; una curva pide polinomio; algo que evoluciona en el tiempo con crecimiento o decaimiento pide función exponencial.</p>
+  </div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section class="block">
+  <div class="head">
+    <span class="num">2</span>
+    <div class="headtext">
+      <h2>Espacios vectoriales, generadores y bases</h2>
+      <p class="sub">Sección 3.2. Es el bloque con más riesgo de la final.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Los diez axiomas</h3>
+    <p class="sub" style="margin-top:-.3rem">Para todo <span class="mono">u, v, w ∈ V</span> y todo <span class="mono">k, j ∈ ℝ</span>.</p>
+    <div class="axioms">
+      <div class="ax"><span>Cerradura bajo la adición</span></div>
+      <div class="ax"><span>Conmutativa de la adición</span></div>
+      <div class="ax"><span>Asociativa de la adición</span></div>
+      <div class="ax"><span>Existe el vector cero (neutro aditivo)</span></div>
+      <div class="ax"><span>Existe el inverso aditivo de cada vector</span></div>
+      <div class="ax"><span>Cerradura bajo la multiplicación por escalar</span></div>
+      <div class="ax"><span>Asociativa en la multiplicación por escalar</span></div>
+      <div class="ax"><span>Distributiva respecto a la suma de vectores</span></div>
+      <div class="ax"><span>Distributiva respecto a la suma de escalares</span></div>
+      <div class="ax"><span>Existe el idéntico multiplicativo (<span class="mono">1·v = v</span>)</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Cómo se verifica rápido</h3>
+    <p>Nunca empiece por los ocho axiomas de en medio: ocho de los diez son propiedades heredadas de los números reales y se cumplen casi siempre. Los que fallan son las <strong>dos cerraduras</strong> y, de cuando en cuando, la existencia del cero o del inverso. Si el conjunto viene con una restricción (entradas acotadas, componentes no negativas, un término fijo), ahí está la trampa.</p>
+    <p>Para negar que algo es espacio vectorial basta <strong>un contraejemplo</strong>. Para afirmarlo hay que verificar los diez.</p>
+  </div>
+
+  <div class="trap">
+    <h3>Ojo: los dos conjuntos de la lectura no son espacios vectoriales</h3>
+    <p>La lectura plantea los conjuntos y deja la verificación «como ejercicio para el lector». Si usted la hace, los dos fallan, y fallan en la cerradura:</p>
+    <ul class="plain">
+      <li><span class="mono">M₅ₓ₅ = {A : aᵢⱼ ∈ {−1, 0, 1}}</span> — no es cerrado bajo la adición: <span class="mono">1 + 1 = 2</span>, que no pertenece a <span class="mono">{−1, 0, 1}</span>. Tampoco bajo el escalar: <span class="mono">2 · 1 = 2</span>.</li>
+      <li><span class="mono">V = {(x₁, x₂, x₃, x₄) : xᵢ ≥ 0}</span> — no es cerrado bajo la multiplicación por escalar: al multiplicar por <span class="mono">−1</span> las componentes se vuelven negativas. Tampoco hay inverso aditivo.</li>
+    </ul>
+    <p>La reparación en ambos casos es la misma: dejar que las entradas recorran todo <span class="mono">ℝ</span>. Entonces sí son espacios vectoriales, de dimensión 25 y 4 respectivamente. Si en la final le preguntan por uno de estos conjuntos, la respuesta correcta es que no lo es, y el contraejemplo de la cerradura.</p>
+  </div>
+
+  <div class="card">
+    <h3>Generador y base: el procedimiento de la lectura</h3>
+    <ol class="steps">
+      <li>Identificar los elementos generadores y formar un conjunto con ellos.</li>
+      <li>Tomar un elemento <em>general</em> del espacio y escribirlo como combinación lineal de ese conjunto.</li>
+      <li>Resolver el sistema que resulta y mirar qué tipo de solución tiene.</li>
+      <li>Si siempre hay solución, el conjunto <strong>genera</strong>. Si además es linealmente independiente, es una <strong>base</strong>.</li>
+    </ol>
+    <p>La independencia se prueba con <span class="mono">c₁v₁ + c₂v₂ + … + cₙvₙ = 0</span>: el conjunto es independiente si la única forma de que se cumpla es con todos los <span class="mono">cᵢ = 0</span>.</p>
+    <p>La base canónica de <span class="mono">M₅ₓ₅</span> son las 25 matrices que tienen un 1 en una posición y 0 en las demás. De ahí que su dimensión sea 25. Para las 4-uplas, los cuatro vectores canónicos, y la dimensión es 4.</p>
+  </div>
+</section>
+
+<!-- ============ 3 ============ -->
+<section class="block">
+  <div class="head">
+    <span class="num">3</span>
+    <div class="headtext">
+      <h2>Transformaciones lineales y valores propios</h2>
+      <p class="sub">Sección 3.3. El otro bloque donde se concentra el riesgo.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Escribir la transformación</h3>
+    <p>Primero se declara de dónde a dónde va, y después la regla. Para el flujo de red:</p>
+    <div class="math">\[ T:\ \mathbb{R}^5 \longrightarrow M_{5\times 1}, \qquad T(f_1,f_2,f_3,f_4,f_5)=\begin{pmatrix}-1&0&0&0&1\\1&-1&0&0&0\\0&1&-1&0&0\\0&0&1&-1&0\\0&0&0&1&-1\end{pmatrix}\begin{pmatrix}f_1\\f_2\\f_3\\f_4\\f_5\end{pmatrix} \]</div>
+    <p>Note que se usa solo la matriz del sistema y el vector de entrada; el vector de resultados no entra en la definición, porque se quiere la respuesta en cualquier caso, no en uno.</p>
+  </div>
+
+  <div class="card">
+    <h3>Verificar que es lineal</h3>
+    <p>Son dos comprobaciones, y hay que hacer las dos:</p>
+    <div class="math">\[ T(\lambda v)=\lambda\,T(v) \qquad\text{y}\qquad T(u+v)=T(u)+T(v) \]</div>
+    <p>Con una transformación matricial <span class="mono">T(v) = Av</span> las dos salen de las propiedades del producto de matrices, pero en la final hay que <em>mostrarlas</em>, no invocarlas: sacar el escalar factor común en el primer caso y usar la distributiva en el segundo.</p>
+  </div>
+
+  <div class="card">
+    <h3>Valores y vectores propios: el procedimiento</h3>
+    <ol class="steps">
+      <li>Formar <span class="mono">A − λI</span>: restar λ solo en la diagonal.</li>
+      <li>Calcular <span class="mono">det(A − λI)</span>. Eso da el polinomio característico.</li>
+      <li>Igualarlo a cero y resolver. Las raíces son los valores propios λ.</li>
+      <li>Para cada λ, resolver el sistema homogéneo <span class="mono">(A − λI)v = 0</span>. Las soluciones no triviales son los vectores propios.</li>
+    </ol>
+    <p>En el ejemplo del flujo de red el polinomio característico es</p>
+    <div class="math">\[ \det(A-\lambda I)=-\lambda^5-5\lambda^4-10\lambda^3-10\lambda^2-5\lambda=\lambda\left(-\lambda^4-5\lambda^3-10\lambda^2-10\lambda-5\right) \]</div>
+    <p>Por la ley del producto nulo, <span class="mono">λ = 0</span> es valor propio; las otras cuatro raíces son complejas. Para <span class="mono">λ = 0</span> el sistema <span class="mono">Av = 0</span> da <span class="mono">f₁ = f₂ = f₃ = f₄ = f₅</span>, es decir el vector propio <span class="mono">(1, 1, 1, 1, 1)</span>, que tiene una lectura bonita: el flujo uniforme por toda la red es el estado que la transformación deja quieto.</p>
+  </div>
+</section>
+
+<!-- ============ errores ============ -->
+<section class="block">
+  <div class="head">
+    <span class="num">!</span>
+    <div class="headtext">
+      <h2>Dónde se cae la gente</h2>
+      <p class="sub">Los seis errores que cuestan puntos sin que uno se dé cuenta.</p>
+    </div>
+  </div>
+  <div class="errs">
+    <div class="err"><span class="x">01</span><span>Declarar que un conjunto es espacio vectorial sin mirar la cerradura. Es el error más caro y el más fácil de evitar: una restricción en el enunciado casi siempre rompe una de las dos cerraduras.</span></div>
+    <div class="err"><span class="x">02</span><span>Confundir generador con base. Todo conjunto generador genera; solo es base si además es linealmente independiente. Una base es un generador sin elementos de sobra.</span></div>
+    <div class="err"><span class="x">03</span><span>Verificar solo una de las dos condiciones de linealidad. Hay transformaciones que cumplen una y fallan la otra.</span></div>
+    <div class="err"><span class="x">04</span><span>Restar λ a toda la matriz en vez de solo a la diagonal. <span class="mono">A − λI</span> no es <span class="mono">A − λ</span>.</span></div>
+    <div class="err"><span class="x">05</span><span>Descartar los valores propios complejos. Son valores propios legítimos; que no sean reales no los anula.</span></div>
+    <div class="err"><span class="x">06</span><span>Dar el vector cero como vector propio. <span class="mono">v = 0</span> siempre resuelve el sistema homogéneo y por eso mismo nunca cuenta: se piden las soluciones <em>no</em> triviales.</span></div>
+  </div>
+</section>
+
+<div class="final">
+  <h3>Media hora antes</h3>
+  <ul>
+    <li>Repase los diez axiomas en voz alta hasta decirlos sin leer. Es lo más barato de memorizar y lo que más rinde.</li>
+    <li>Haga a mano un <span class="mono">det(A − λI)</span> de una matriz 2×2 cualquiera, de principio a fin. Despierta el procedimiento completo en dos minutos.</li>
+    <li>Tenga claro el camino de los tres pasos: variables, relaciones, objetos del álgebra lineal.</li>
+    <li>Recuerde que para negar basta un contraejemplo y para afirmar hay que verificarlo todo.</li>
+  </ul>
+</div>
+
+<footer>
+  Preparado a partir de la Lectura Fundamental 8, «Aplicando conceptos y procesos del álgebra lineal», Unidad 4 · Escenario 8. Politécnico Grancolombiano. El polinomio característico, los valores propios y el vector propio de λ = 0 se verificaron con cálculo simbólico.
+</footer>
+
+</div>
+
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+    svg: { fontCache: 'global' },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script src="../_assets/tex-svg.js" async></script>
+
+<a href="/" class="ac-home" style="position:fixed;right:14px;bottom:14px;z-index:9999;font:600 13px/1 -apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:9px 13px;border-radius:20px;background:#1a6fd4;color:#fff;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">&#8962; Inicio</a>
+</body>
+</html>

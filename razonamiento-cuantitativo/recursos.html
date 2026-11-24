@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recursos — Razonamiento Cuantitativo</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ 01 - Razonamiento Cuantitativo / 5. Recursos</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="recursos--razonamiento-cuantitativo">Recursos — Razonamiento Cuantitativo</h1>
+<p><strong>Todos gratuitos o de acceso libre, salvo donde se indique.</strong></p>
+<blockquote>
+<p>⚠️ <strong>Sobre los enlaces.</strong> Aquí se citan sitios y canales <strong>a nivel de dominio o de canal</strong>, no de video ni de página específica: las URL profundas cambian y no vale la pena copiar algo que va a estar roto en tres meses. Cuando digo "busca X", es literal: escribe eso en el buscador del sitio o de YouTube. <strong>No hay ningún enlace inventado en este archivo.</strong> Si un recurso no aparece donde digo, avísame y lo reviso.</p>
+<p><strong>Antes de usar recursos externos, agota el material del aula virtual.</strong> Los quices se hacen sobre lo que está en el aula. Lo de aquí sirve para <em>entender</em> lo que el aula da por sabido.</p>
+</blockquote>
+<hr />
+<h2 id="1-lo-primero-que-deberías-mirar-30-minutos-bien-invertidos">1. Lo primero que deberías mirar (30 minutos bien invertidos)</h2>
+<h3 id="guías-de-orientación-del-icfes--módulo-de-razonamiento-cuantitativo">Guías de orientación del ICFES — módulo de Razonamiento Cuantitativo</h3>
+<ul>
+<li><strong>Qué es:</strong> el ICFES (icfes.gov.co) publica guías de orientación y ejemplos de preguntas de las pruebas Saber Pro y Saber 11, incluidas las del módulo de <strong>razonamiento cuantitativo</strong>. Son documentos oficiales, gratuitos y descargables.</li>
+<li><strong>Para qué escenario sirve:</strong> para <strong>todos</strong>, y sobre todo para los escenarios 1, 3 y 7. La competencia que evalúa el ICFES en ese módulo es casi exactamente la que evalúa esta materia.</li>
+<li><strong>Cómo encontrarlo:</strong> entra a icfes.gov.co y busca en la sección de evaluaciones "guía de orientación Saber Pro" o "módulos de competencias genéricas". También sirve buscar en Google: <em>guía de orientación módulo razonamiento cuantitativo ICFES</em>.</li>
+<li><strong>Tiempo:</strong> 1 hora para leer la guía del módulo; 2 horas más si resuelves los ejemplos.</li>
+<li><strong>Por qué te conviene:</strong> es el único recurso de esta lista que está calibrado al <strong>formato y nivel exacto</strong> de pregunta que vas a encontrar. Vale más que tres videos.</li>
+</ul>
+<hr />
+<h2 id="2-libros-y-textos-abiertos">2. Libros y textos abiertos</h2>
+<h3 id="openstax--openstaxorg">OpenStax — openstax.org</h3>
+<ul>
+<li><strong>Qué es:</strong> editorial universitaria sin ánimo de lucro (Rice University) con libros de texto completos, gratuitos, en PDF y en línea. Varios títulos tienen <strong>versión en español</strong>; verifica en el sitio cuáles, porque el catálogo traducido cambia.</li>
+<li><strong>Títulos relevantes:</strong> los de matemáticas de nivel introductorio orientadas a contextos reales (buscar en el catálogo por "Contemporary Mathematics", "College Algebra", "Introductory Statistics" y los de finanzas). El de matemáticas contemporáneas es el más cercano a esta materia: trae capítulos de proporciones, funciones lineales y exponenciales, matemáticas financieras, probabilidad y análisis crítico de datos.</li>
+<li><strong>Escenarios:</strong> 2, 3, 4, 5, 6 y 7.</li>
+<li><strong>Tiempo:</strong> un capítulo son 45-90 minutos de lectura activa. No leas el libro completo; úsalo como consulta por tema.</li>
+<li><strong>Cómo usarlo bien:</strong> ve directo al capítulo del escenario que estés viendo y salta a los ejercicios resueltos. La teoría de OpenStax es densa; los ejemplos son excelentes.</li>
+</ul>
+<h3 id="cómo-mentir-con-estadísticas-de-darrell-huff">"Cómo mentir con estadísticas", de Darrell Huff</h3>
+<ul>
+<li><strong>Qué es:</strong> clásico breve (años cincuenta, sigue vigente) sobre manipulación de cifras y gráficos. Hay traducción al español.</li>
+<li><strong>Escenario:</strong> 7, de principio a fin. También afina la lectura del escenario 1.</li>
+<li><strong>Tiempo:</strong> 3-4 horas el libro completo; se lee como divulgación, no como texto de estudio.</li>
+<li><strong>Cómo conseguirlo:</strong> consulta el catálogo de la <strong>biblioteca virtual del Politécnico Grancolombiano</strong> (tienes acceso como estudiante) o bibliotecas públicas. No compres nada antes de revisar el catálogo institucional.</li>
+</ul>
+<h3 id="textos-de-matemáticas-financieras-de-uso-corriente-en-colombia">Textos de matemáticas financieras de uso corriente en Colombia</h3>
+<ul>
+<li><strong>Qué es:</strong> para el escenario 6, los textos colombianos son mejores que los traducidos, porque usan la terminología local (tasa nominal, efectiva anual, mes vencido). Un autor de uso muy extendido en universidades colombianas es <strong>Jhonny de Jesús Meza Orozco</strong> (ECOE Ediciones), con títulos de matemáticas financieras aplicadas.</li>
+<li><strong>Escenario:</strong> 6, y parcialmente 5.</li>
+<li><strong>Cómo conseguirlo:</strong> búscalo en la <strong>biblioteca virtual del Poli</strong> (bases de datos de libros electrónicos que la universidad contrata). No compres: verifica primero si está en el catálogo institucional.</li>
+<li><strong>Tiempo:</strong> los capítulos de interés simple, compuesto y anualidades son unas 4 horas en total.</li>
+<li><strong>Advertencia:</strong> no puedo confirmarte edición ni disponibilidad; verifica en el catálogo.</li>
+</ul>
+<h3 id="biblioteca-virtual-del-politécnico-grancolombiano">Biblioteca virtual del Politécnico Grancolombiano</h3>
+<ul>
+<li><strong>Qué es:</strong> el acceso a bases de datos de libros electrónicos y revistas que pagas con tu matrícula y que casi nadie usa.</li>
+<li><strong>Escenarios:</strong> todos.</li>
+<li><strong>Cómo entrar:</strong> desde el portal del estudiante, sección de biblioteca / recursos electrónicos, con tus credenciales institucionales.</li>
+<li><strong>Tiempo:</strong> 20 minutos la primera vez para entender la navegación. Hazlo la semana 1, no en octubre.</li>
+</ul>
+<hr />
+<h2 id="3-canales-de-youtube-en-español">3. Canales de YouTube en español</h2>
+<p>Todos estos son canales reales y activos con material en español. Busca dentro del canal el tema puntual; no te pongas a ver playlists completas.</p>
+<h3 id="matemáticas-profe-alex">Matemáticas profe Alex</h3>
+<ul>
+<li><strong>Qué es:</strong> canal colombiano, explicaciones paso a paso de aritmética, álgebra y matemáticas financieras, con muchísimos ejercicios resueltos.</li>
+<li><strong>Escenarios:</strong> 2 (proporciones, regla de tres, porcentajes), 3 (variación porcentual), 4 (función lineal), 6 (interés simple y compuesto).</li>
+<li><strong>Tiempo:</strong> videos de 10-20 minutos. Dos o tres por tema es suficiente.</li>
+<li><strong>Fortaleza:</strong> el ritmo es lento y explícito, ideal si un tema no te entró con el material del aula.</li>
+</ul>
+<h3 id="julioprofe">julioprofe</h3>
+<ul>
+<li><strong>Qué es:</strong> canal colombiano veterano, referencia clásica en matemáticas y física de nivel escolar y universitario básico.</li>
+<li><strong>Escenarios:</strong> 2, 4 (funciones y rectas), 5 (exponenciales y logaritmos).</li>
+<li><strong>Tiempo:</strong> videos de 8-15 minutos.</li>
+<li><strong>Fortaleza:</strong> ejercicios tipo examen resueltos con procedimiento completo en tablero.</li>
+</ul>
+<h3 id="math2me">Math2me</h3>
+<ul>
+<li><strong>Qué es:</strong> canal mexicano con un catálogo enorme, organizado por temas.</li>
+<li><strong>Escenarios:</strong> 2, 4, 5 y 7 (probabilidad y conteo).</li>
+<li><strong>Tiempo:</strong> videos de 5-12 minutos.</li>
+<li><strong>Fortaleza:</strong> buscador interno muy completo; casi cualquier tema puntual está cubierto.</li>
+</ul>
+<h3 id="matemóvil">MateMóvil</h3>
+<ul>
+<li><strong>Qué es:</strong> canal peruano (también tiene sitio web) con matemáticas escolares y preuniversitarias, muy fuerte en aritmética y razonamiento.</li>
+<li><strong>Escenarios:</strong> 2 (razones, proporciones, regla de tres, tanto por ciento), 7 (conteo y probabilidad).</li>
+<li><strong>Tiempo:</strong> videos de 10-20 minutos.</li>
+<li><strong>Fortaleza:</strong> el enfoque de "razonamiento matemático" latinoamericano es casi idéntico al de esta materia.</li>
+</ul>
+<h3 id="enseñamates">Enseñamates</h3>
+<ul>
+<li><strong>Qué es:</strong> canal español, explicaciones ordenadas de matemáticas de secundaria y bachillerato.</li>
+<li><strong>Escenarios:</strong> 4 y 5 (funciones, exponenciales, logaritmos).</li>
+<li><strong>Tiempo:</strong> videos de 10-15 minutos.</li>
+</ul>
+<h3 id="3blue1brown">3Blue1Brown</h3>
+<ul>
+<li><strong>Qué es:</strong> canal de animaciones matemáticas de altísima calidad. El canal principal es en inglés; existe un canal de traducciones al español y los videos suelen tener subtítulos.</li>
+<li><strong>Escenarios:</strong> 5 (para entender <em>por qué</em> la exponencial se comporta así) y como cultura general de la carrera.</li>
+<li><strong>Tiempo:</strong> 15-25 minutos por video.</li>
+<li><strong>Advertencia:</strong> es inspirador pero <strong>no</strong> es material de estudio para el examen. Úsalo el domingo, no la noche antes del quiz.</li>
+</ul>
+<h3 id="cómo-buscar-más">Cómo buscar más</h3>
+<p>Si un tema puntual no te entra, busca en YouTube el nombre exacto del concepto en español más la palabra "ejercicios resueltos". Por ejemplo: <em>variación porcentual ejercicios resueltos</em>, <em>deflactar serie IPC ejemplo</em>, <em>anualidad vencida valor presente ejercicios</em>, <em>paradoja de Simpson explicación</em>. Casi siempre el tercer o cuarto resultado es mejor que el primero.</p>
+<hr />
+<h2 id="4-cursos-y-plataformas">4. Cursos y plataformas</h2>
+<h3 id="khan-academy-en-español--khanacademyorg-también-eskhanacademyorg">Khan Academy en español — khanacademy.org (también es.khanacademy.org)</h3>
+<ul>
+<li><strong>Qué es:</strong> plataforma gratuita con cursos completos, ejercicios interactivos con retroalimentación inmediata y seguimiento de progreso. Buena parte del contenido está traducido al español.</li>
+<li><strong>Escenarios y secciones a buscar:</strong></li>
+<li>Escenario 2: "Razones, tasas y porcentajes", "Proporciones".</li>
+<li>Escenario 3: "Porcentajes", "Cambio porcentual".</li>
+<li>Escenario 4: "Funciones lineales", "Pendiente", "Notación científica", "Conversión de unidades".</li>
+<li>Escenario 5: "Funciones exponenciales", "Logaritmos".</li>
+<li>Escenario 6: "Interés simple y compuesto" (en la sección de matemáticas financieras / economía).</li>
+<li>Escenario 7: "Probabilidad", "Combinatoria", "Estudios estadísticos".</li>
+<li><strong>Tiempo:</strong> 20-40 minutos por unidad de ejercicios.</li>
+<li><strong>Por qué es el mejor de la lista para ti:</strong> los ejercicios se corrigen solos y te dicen dónde te equivocaste. Es el recurso con mejor relación tiempo/resultado si tu problema es práctica, no comprensión.</li>
+</ul>
+<h3 id="coursera-y-edx-modalidad-auditar">Coursera y edX (modalidad auditar)</h3>
+<ul>
+<li><strong>Qué es:</strong> plataformas de cursos universitarios. En la mayoría puedes <strong>auditar</strong> el curso gratis (ver videos y lecturas; los certificados y algunas tareas son pagos).</li>
+<li><strong>Qué buscar:</strong> en el buscador de cada plataforma, términos como <em>matemáticas para ciencia de datos</em>, <em>razonamiento cuantitativo</em>, <em>matemáticas financieras</em>, <em>pensamiento estadístico</em>. Filtra por idioma español.</li>
+<li><strong>Escenarios:</strong> 5, 6 y 7 principalmente.</li>
+<li><strong>Tiempo:</strong> un curso completo son 15-25 horas. <strong>No tienes ese tiempo este semestre.</strong> Úsalos solo si necesitas una explicación puntual de un módulo suelto, o guárdalos para vacaciones entre bloques.</li>
+<li><strong>Advertencia honesta:</strong> este es el recurso que más gente colecciona y menos gente termina. Si vas a inscribirte en algo, que sea después del 19 de octubre.</li>
+</ul>
+<hr />
+<h2 id="5-herramientas-de-cálculo-y-verificación">5. Herramientas de cálculo y verificación</h2>
+<h3 id="geogebra--geogebraorg">GeoGebra — geogebra.org</h3>
+<ul>
+<li><strong>Qué es:</strong> software matemático gratuito (web y app) para graficar funciones, ver rectas, exponenciales y sus intersecciones.</li>
+<li><strong>Escenarios:</strong> 4 (visualizar \(y=mx+b\), cambiar \(m\) y \(b\) y ver qué pasa) y 5 (comparar crecimiento lineal vs. exponencial en el mismo plano).</li>
+<li><strong>Tiempo:</strong> 15 minutos para aprender lo básico; después, 2 minutos por gráfica.</li>
+<li><strong>Uso recomendado:</strong> grafica las dos funciones del ejercicio de punto de equilibrio y mira dónde se cruzan. Ver la respuesta te la fija mejor que calcularla.</li>
+</ul>
+<h3 id="desmos--desmoscom">Desmos — desmos.com</h3>
+<ul>
+<li><strong>Qué es:</strong> graficadora en línea, más simple y rápida que GeoGebra para funciones de una variable.</li>
+<li><strong>Escenarios:</strong> 4 y 5.</li>
+<li><strong>Tiempo:</strong> 5 minutos de curva de aprendizaje.</li>
+</ul>
+<h3 id="wolframalpha--wolframalphacom">WolframAlpha — wolframalpha.com</h3>
+<ul>
+<li><strong>Qué es:</strong> motor de cálculo. Escribes la operación en texto y te da el resultado, y a veces los pasos.</li>
+<li><strong>Escenarios:</strong> todos, como <strong>verificador</strong>.</li>
+<li><strong>Tiempo:</strong> segundos por consulta.</li>
+<li><strong>Regla de uso:</strong> úsalo para <strong>comprobar</strong> un resultado que ya calculaste, nunca para obtenerlo. Si lo usas para resolver, en el quiz cronometrado no vas a saber qué hacer.</li>
+</ul>
+<h3 id="excel-o-google-sheets">Excel o Google Sheets</h3>
+<ul>
+<li><strong>Qué es:</strong> lo que ya manejas. Aquí las funciones que te van a servir:</li>
+<li>Escenario 3: fórmulas de variación porcentual y de deflactación armadas a mano en columnas.</li>
+<li>Escenario 6: <code>VF</code>, <code>VA</code>, <code>PAGO</code>, <code>NPER</code>, <code>TASA</code>, <code>TIR</code>, <code>VNA</code>. Son las funciones financieras nativas.</li>
+<li><strong>Escenarios:</strong> 3, 5, 6.</li>
+<li><strong>Tiempo:</strong> una sesión de 45 minutos armando una hoja con las siete fórmulas del escenario 6 te sirve para todo el bloque.</li>
+<li><strong>Advertencia importante:</strong> arma la hoja <strong>después</strong> de haber resuelto los ejercicios a mano. Y ojo con el detalle que ya conoces de tu trabajo: Excel y LibreOffice tratan distinto los números guardados como texto, así que si compartes la hoja, fija los formatos.</li>
+</ul>
+<h3 id="calculadora-científica">Calculadora científica</h3>
+<ul>
+<li><strong>Qué es:</strong> la del celular en modo científico basta, o una calculadora física simple.</li>
+<li><strong>Lo que debes practicar antes del primer quiz:</strong> la tecla de potencia (\(x^y\) o \(\wedge\)), el logaritmo natural (<code>ln</code>), y la memoria. Si en el quiz tienes que averiguar dónde está <code>ln</code>, ya perdiste dos minutos.</li>
+<li><strong>Verifica en el aula</strong> qué tipo de calculadora se permite en el examen final.</li>
+</ul>
+<hr />
+<h2 id="6-fuentes-de-datos-reales-para-ejemplos-propios">6. Fuentes de datos reales (para ejemplos propios)</h2>
+<p>Usar tus propios datos es lo que más rápido fija el contenido. Estas fuentes son oficiales y gratuitas.</p>
+<h3 id="dane--danegovco">DANE — dane.gov.co</h3>
+<ul>
+<li><strong>Qué es:</strong> la fuente oficial de estadísticas de Colombia. Boletines técnicos y anexos estadísticos del <strong>IPC</strong>, del PIB, del mercado laboral y de pobreza.</li>
+<li><strong>Escenarios:</strong> 1 (leer tablas y gráficos bien hechos), 3 (índices, deflactores, variación mensual / año corrido / doce meses), 7 (metodología, muestreo, notas de interpretación).</li>
+<li><strong>Tiempo:</strong> 20 minutos para leer un boletín como estudiante.</li>
+<li><strong>Ventaja para ti:</strong> ya trabajas estos boletines. Reléelos esta vez mirando la construcción del índice y la definición de cada variación. Vas a entender el escenario 3 en la mitad del tiempo que el resto del curso.</li>
+</ul>
+<h3 id="banco-de-la-república--banrepgovco">Banco de la República — banrep.gov.co</h3>
+<ul>
+<li><strong>Qué es:</strong> series estadísticas históricas (inflación, tasas de interés, tasa de cambio) descargables en Excel.</li>
+<li><strong>Escenarios:</strong> 3, 5 y 6.</li>
+<li><strong>Uso:</strong> baja una serie de inflación anual de 10 años y practica deflactar, encadenar variaciones y calcular variaciones reales con datos verdaderos.</li>
+<li><strong>Tiempo:</strong> 30 minutos para bajar y organizar una serie.</li>
+</ul>
+<h3 id="portal-de-datos-abiertos--datosgovco">Portal de datos abiertos — datos.gov.co</h3>
+<ul>
+<li><strong>Qué es:</strong> catálogo de datos abiertos del Estado colombiano, incluidas las bases del SECOP.</li>
+<li><strong>Escenarios:</strong> 1 y 7.</li>
+<li><strong>Uso:</strong> ejercicios de lectura de tablas grandes y de detección de problemas de calidad de datos. También te sirve de puente hacia Estadística Descriptiva en el Bloque B.</li>
+<li><strong>Advertencia de tiempo:</strong> es un pozo sin fondo. Máximo una hora, y solo si ya cumpliste con lo del aula.</li>
+</ul>
+<hr />
+<h2 id="7-ruta-mínima-si-tienes-poco-tiempo">7. Ruta mínima si tienes poco tiempo</h2>
+<p>Si en una semana solo te alcanza para un recurso externo, este es el orden de prioridad:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Prioridad</th>
+<th>Recurso</th>
+<th>Cuándo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Material del aula virtual</td>
+<td>Siempre, primero</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>3. Resúmenes teóricos.md</code> + <code>4. Banco de ejercicios.md</code> de esta carpeta</td>
+<td>Siempre</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Khan Academy en español (ejercicios interactivos del tema)</td>
+<td>Cuando falta práctica</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Un video de Profe Alex, julioprofe o MateMóvil</td>
+<td>Cuando falta comprensión</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Guía del ICFES de razonamiento cuantitativo</td>
+<td>Semana 7 u 8, para el examen final</td>
+</tr>
+<tr>
+<td>6</td>
+<td>OpenStax / biblioteca virtual</td>
+<td>Cuando quieras profundidad, no antes</td>
+</tr>
+</tbody>
+</table></div>
+<p>Todo lo demás es opcional. Coleccionar recursos es una forma cómoda de sentir que se estudia sin estudiar; con 3-4 horas semanales, la práctica de ejercicios gana siempre.</p>
+</main>
+</body>
+</html>

@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resúmenes teóricos — Pensamiento Algorítmico</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ 03 - Pensamiento Algorítmico / 3. Resúmenes teóricos</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="resúmenes-teóricos--pensamiento-algorítmico">Resúmenes teóricos — Pensamiento Algorítmico</h1>
+<p>Apuntes de consulta rápida, escenario por escenario. Todo el pseudocódigo está en sintaxis <strong>PSeInt</strong> y todo el código Python está <strong>probado y es ejecutable</strong> tal como aparece.</p>
+<blockquote>
+<p>⚠️ Contenido esperado, reconstruido. Verificar contra el aula virtual.</p>
+</blockquote>
+<p><strong>Índice</strong></p>
+<ol>
+<li><a href="#1-algoritmos-y-pensamiento-computacional">Algoritmos y pensamiento computacional</a></li>
+<li><a href="#2-lógica-proposicional-y-operadores">Lógica proposicional y operadores</a></li>
+<li><a href="#3-representación-de-algoritmos">Representación de algoritmos</a></li>
+<li><a href="#4-variables-tipos-de-datos-y-expresiones">Variables, tipos de datos y expresiones</a></li>
+<li><a href="#5-estructuras-de-decisión">Estructuras de decisión</a></li>
+<li><a href="#6-estructuras-de-repetición">Estructuras de repetición</a></li>
+<li><a href="#7-arreglos">Arreglos</a></li>
+<li><a href="#8-modularidad-eficiencia-y-prueba-de-escritorio">Modularidad, eficiencia y prueba de escritorio</a></li>
+<li><a href="#9-errores-frecuentes-del-principiante">Errores frecuentes del principiante</a></li>
+<li><a href="#10-chuleta-pseint--python">Chuleta PSeInt ↔ Python</a></li>
+</ol>
+<hr />
+<h2 id="1-algoritmos-y-pensamiento-computacional">1. Algoritmos y pensamiento computacional</h2>
+<h3 id="definición">Definición</h3>
+<p><strong>Algoritmo:</strong> secuencia <strong>finita</strong>, <strong>ordenada</strong> y <strong>no ambigua</strong> de pasos que, partiendo de unas entradas, produce unas salidas en un tiempo finito.</p>
+<p>Las cinco propiedades que debe cumplir (y que se preguntan casi siempre):</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Propiedad</th>
+<th>Qué significa</th>
+<th>Contraejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Finitud</strong></td>
+<td>Termina en algún momento</td>
+<td>"Repita mientras 1 = 1"</td>
+</tr>
+<tr>
+<td><strong>Precisión / no ambigüedad</strong></td>
+<td>Cada paso admite una sola interpretación</td>
+<td>"Revise que la póliza esté bien"</td>
+</tr>
+<tr>
+<td><strong>Determinismo</strong></td>
+<td>Mismas entradas → mismo resultado, siempre</td>
+<td>"Escoja un valor cualquiera"</td>
+</tr>
+<tr>
+<td><strong>Entradas definidas</strong></td>
+<td>Cero o más datos de partida, claramente especificados</td>
+<td>"Tome el valor que corresponda"</td>
+</tr>
+<tr>
+<td><strong>Salidas definidas</strong></td>
+<td>Al menos un resultado</td>
+<td>Un procedimiento que no produce nada</td>
+</tr>
+<tr>
+<td><strong>Efectividad</strong></td>
+<td>Cada paso es realizable con recursos disponibles</td>
+<td>"Calcule el último dígito de π"</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="los-cuatro-pilares-del-pensamiento-computacional">Los cuatro pilares del pensamiento computacional</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Pilar</th>
+<th>Qué es</th>
+<th>Ejemplo con tu trabajo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Descomposición</strong></td>
+<td>Partir un problema grande en subproblemas manejables</td>
+<td>"Tramitar un pago" = validar factura + cotejar con concepto técnico + verificar RP + calcular intermediación + radicar</td>
+</tr>
+<tr>
+<td><strong>Reconocimiento de patrones</strong></td>
+<td>Ver qué se repite entre problemas parecidos</td>
+<td>Los 298 pagos del 089 se tramitan todos igual; solo cambian valores</td>
+</tr>
+<tr>
+<td><strong>Abstracción</strong></td>
+<td>Quedarse con lo esencial e ignorar lo irrelevante</td>
+<td>Para calcular el total no importa el color del logo de la factura, solo el valor y el IVA</td>
+</tr>
+<tr>
+<td><strong>Diseño de algoritmos</strong></td>
+<td>Escribir la solución como pasos ejecutables</td>
+<td>El instructivo de cotejo factura vs. concepto</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="el-esquema-e-p-s">El esquema E-P-S</h3>
+<p>Todo programa cabe en tres preguntas:</p>
+<ol>
+<li><strong>Entrada:</strong> ¿qué datos necesito?</li>
+<li><strong>Proceso:</strong> ¿qué hago con ellos?</li>
+<li><strong>Salida:</strong> ¿qué debo mostrar?</li>
+</ol>
+<p>Antes de escribir una sola línea, responde las tres en español. Si no puedes, no es un problema de programación: es que todavía no entendiste el problema.</p>
+<p><strong>Ejemplo.</strong> "Calcular el valor total de un contrato con IVA."</p>
+<ul>
+<li><strong>Entrada:</strong> valor base del contrato.</li>
+<li><strong>Proceso:</strong> IVA = base × 0,19; total = base + IVA.</li>
+<li><strong>Salida:</strong> IVA y total.</li>
+</ul>
+<hr />
+<h2 id="2-lógica-proposicional-y-operadores">2. Lógica proposicional y operadores</h2>
+<h3 id="proposición">Proposición</h3>
+<p>Enunciado declarativo que es <strong>verdadero (V)</strong> o <strong>falso (F)</strong>, pero no ambos.</p>
+<ul>
+<li>"El contrato 258 está en ejecución." → proposición.</li>
+<li>"¿Ya radicaron el RP?" → no es proposición (pregunta).</li>
+<li>"Radique el oficio." → no es proposición (orden).</li>
+</ul>
+<p>Se nombran con letras: p, q, r.</p>
+<h3 id="los-cinco-conectivos-y-sus-tablas-de-verdad">Los cinco conectivos y sus tablas de verdad</h3>
+<p><strong>Negación (¬p, <code>NO</code>, <code>not</code>):</strong> invierte el valor.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>p</th>
+<th>¬p</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>V</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Conjunción (p ∧ q, <code>Y</code>, <code>and</code>):</strong> verdadera <strong>solo si ambas</strong> son verdaderas.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>p</th>
+<th>q</th>
+<th>p ∧ q</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V</td>
+<td>V</td>
+<td><strong>V</strong></td>
+</tr>
+<tr>
+<td>V</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>V</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Disyunción inclusiva (p ∨ q, <code>O</code>, <code>or</code>):</strong> falsa <strong>solo si ambas</strong> son falsas.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>p</th>
+<th>q</th>
+<th>p ∨ q</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+</tr>
+<tr>
+<td>V</td>
+<td>F</td>
+<td>V</td>
+</tr>
+<tr>
+<td>F</td>
+<td>V</td>
+<td>V</td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td><strong>F</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Disyunción exclusiva (p ⊕ q, XOR):</strong> verdadera cuando son <strong>distintas</strong>.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>p</th>
+<th>q</th>
+<th>p ⊕ q</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V</td>
+<td>V</td>
+<td>F</td>
+</tr>
+<tr>
+<td>V</td>
+<td>F</td>
+<td><strong>V</strong></td>
+</tr>
+<tr>
+<td>F</td>
+<td>V</td>
+<td><strong>V</strong></td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Condicional (p → q, "si p entonces q"):</strong> falso <strong>solo</strong> cuando el antecedente es verdadero y el consecuente falso.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>p</th>
+<th>q</th>
+<th>p → q</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+</tr>
+<tr>
+<td>V</td>
+<td>F</td>
+<td><strong>F</strong></td>
+</tr>
+<tr>
+<td>F</td>
+<td>V</td>
+<td>V</td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>V</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p><strong>La fila que a todo el mundo le cuesta:</strong> cuando p es falso, p → q es <strong>verdadero</strong> siempre. Piénsalo como una promesa: "si radicas antes del 15, te pago". Si no radicaste antes del 15, la promesa no se rompió, pase lo que pase. Solo se rompe si radicaste y no te pagaron.</p>
+</blockquote>
+<p><strong>Bicondicional (p ↔ q, "p si y solo si q"):</strong> verdadero cuando <strong>coinciden</strong>.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>p</th>
+<th>q</th>
+<th>p ↔ q</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V</td>
+<td>V</td>
+<td><strong>V</strong></td>
+</tr>
+<tr>
+<td>V</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>V</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td><strong>V</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="tabla-combinada-de-referencia">Tabla combinada de referencia</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>p</th>
+<th>q</th>
+<th>¬p</th>
+<th>p ∧ q</th>
+<th>p ∨ q</th>
+<th>p ⊕ q</th>
+<th>p → q</th>
+<th>p ↔ q</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V</td>
+<td>V</td>
+<td>F</td>
+<td>V</td>
+<td>V</td>
+<td>F</td>
+<td>V</td>
+<td>V</td>
+</tr>
+<tr>
+<td>V</td>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+<td>V</td>
+<td>V</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>V</td>
+<td>V</td>
+<td>F</td>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>V</td>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+<td>V</td>
+<td>V</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Cuántas filas tiene una tabla de verdad:</strong> 2ⁿ, donde n es el número de proposiciones distintas. Dos variables → 4 filas; tres → 8; cuatro → 16. Y el orden estándar de llenado: la primera columna alterna en bloques de la mitad (VVVV FFFF), la segunda en bloques de la cuarta parte (VVFF VVFF), la tercera de a uno (VFVF VFVF).</p>
+<h3 id="equivalencias-que-hay-que-saber">Equivalencias que hay que saber</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Equivalencia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>De Morgan (1)</strong></td>
+<td>¬(p ∧ q) ≡ ¬p ∨ ¬q</td>
+</tr>
+<tr>
+<td><strong>De Morgan (2)</strong></td>
+<td>¬(p ∨ q) ≡ ¬p ∧ ¬q</td>
+</tr>
+<tr>
+<td><strong>Condicional como disyunción</strong></td>
+<td>p → q ≡ ¬p ∨ q</td>
+</tr>
+<tr>
+<td><strong>Contrarrecíproco</strong></td>
+<td>p → q ≡ ¬q → ¬p</td>
+</tr>
+<tr>
+<td><strong>Doble negación</strong></td>
+<td>¬(¬p) ≡ p</td>
+</tr>
+<tr>
+<td><strong>Bicondicional</strong></td>
+<td>p ↔ q ≡ (p → q) ∧ (q → p)</td>
+</tr>
+<tr>
+<td><strong>Idempotencia</strong></td>
+<td>p ∧ p ≡ p · p ∨ p ≡ p</td>
+</tr>
+<tr>
+<td><strong>Absorción</strong></td>
+<td>p ∧ (p ∨ q) ≡ p</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>De Morgan en la práctica:</strong> para negar "el pago procede si hay RP <strong>y</strong> hay factura aprobada", la negación <strong>no</strong> es "no hay RP y no hay factura aprobada", sino "<strong>no hay RP o no hay factura aprobada</strong>". Basta con que falle una.</p>
+<h3 id="clasificación-de-fórmulas">Clasificación de fórmulas</h3>
+<ul>
+<li><strong>Tautología:</strong> verdadera en todas las filas. Ej.: p ∨ ¬p.</li>
+<li><strong>Contradicción:</strong> falsa en todas las filas. Ej.: p ∧ ¬p.</li>
+<li><strong>Contingencia:</strong> unas verdaderas y otras falsas. La mayoría.</li>
+</ul>
+<h3 id="operadores-relacionales">Operadores relacionales</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Significado</th>
+<th>PSeInt</th>
+<th>Python</th>
+<th>Excel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Igual a</td>
+<td><code>=</code></td>
+<td><code>==</code></td>
+<td><code>=</code></td>
+</tr>
+<tr>
+<td>Distinto de</td>
+<td><code>&lt;&gt;</code></td>
+<td><code>!=</code></td>
+<td><code>&lt;&gt;</code></td>
+</tr>
+<tr>
+<td>Menor que</td>
+<td><code>&lt;</code></td>
+<td><code>&lt;</code></td>
+<td><code>&lt;</code></td>
+</tr>
+<tr>
+<td>Mayor que</td>
+<td><code>&gt;</code></td>
+<td><code>&gt;</code></td>
+<td><code>&gt;</code></td>
+</tr>
+<tr>
+<td>Menor o igual</td>
+<td><code>&lt;=</code></td>
+<td><code>&lt;=</code></td>
+<td><code>&lt;=</code></td>
+</tr>
+<tr>
+<td>Mayor o igual</td>
+<td><code>&gt;=</code></td>
+<td><code>&gt;=</code></td>
+<td><code>&gt;=</code></td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p><strong>La trampa número uno de todo principiante:</strong> en Python <code>=</code> <strong>asigna</strong> y <code>==</code> <strong>compara</strong>. <code>x = 5</code> mete 5 en x; <code>x == 5</code> pregunta si x vale 5. Escribir <code>if x = 5:</code> es un error de sintaxis. En PSeInt, <code>&lt;-</code> asigna y <code>=</code> compara, lo cual hace la distinción más visible: por eso conviene acostumbrarse a <code>&lt;-</code>.</p>
+</blockquote>
+<h3 id="precedencia-completa-de-mayor-a-menor">Precedencia completa (de mayor a menor)</h3>
+<ol>
+<li>Paréntesis <code>( )</code></li>
+<li>Potencia <code>^</code> / <code>**</code></li>
+<li>Multiplicación, división, división entera, módulo: <code>*</code>, <code>/</code>, <code>div</code> (<code>//</code>), <code>MOD</code> (<code>%</code>) — se evalúan de <strong>izquierda a derecha</strong></li>
+<li>Suma y resta: <code>+</code>, <code>-</code> — izquierda a derecha</li>
+<li>Relacionales: <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>=</code>/<code>==</code>, <code>&lt;&gt;</code>/<code>!=</code></li>
+<li><code>NO</code> / <code>not</code></li>
+<li><code>Y</code> / <code>and</code></li>
+<li><code>O</code> / <code>or</code></li>
+</ol>
+<p><strong>Consecuencia importante:</strong> los aritméticos van antes que los relacionales, y los relacionales antes que los lógicos. Por eso <code>a + 1 &gt; b Y c &lt; 5</code> se lee como <code>((a+1) &gt; b) Y (c &lt; 5)</code>. <strong>Aun así, ponle paréntesis.</strong> No cuestan nada y el que lea el código (tu yo del jueves) lo agradece.</p>
+<h3 id="tabla-de-verdad-generada-por-código">Tabla de verdad generada por código</h3>
+<pre><code class="language-python">print(f&quot;{'p':&lt;7}{'q':&lt;7}{'p y q':&lt;8}{'p o q':&lt;8}{'p -&gt; q':&lt;8}&quot;)
+for p in [True, False]:
+    for q in [True, False]:
+        condicional = (not p) or q      # p -&gt; q  equivale a  ¬p ∨ q
+        print(f&quot;{str(p):&lt;7}{str(q):&lt;7}{str(p and q):&lt;8}{str(p or q):&lt;8}{str(condicional):&lt;8}&quot;)
+</code></pre>
+<p>Salida:</p>
+<pre><code class="language-text">p      q      p y q   p o q   p -&gt; q  
+True   True   True    True    True    
+True   False  False   True    False   
+False  True   False   True    True    
+False  False  False   False   True    
+</code></pre>
+<p>Y la verificación de De Morgan para los cuatro casos:</p>
+<pre><code class="language-python">for p in [True, False]:
+    for q in [True, False]:
+        assert (not (p and q)) == ((not p) or (not q))
+        assert (not (p or q)) == ((not p) and (not q))
+print(&quot;De Morgan verificado&quot;)
+</code></pre>
+<p>Si no salta ningún error, las cuatro filas cuadran. (<code>assert</code> es "esto tiene que ser verdad; si no, avísame".)</p>
+<hr />
+<h2 id="3-representación-de-algoritmos">3. Representación de algoritmos</h2>
+<h3 id="las-tres-formas">Las tres formas</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Forma</th>
+<th>Ventaja</th>
+<th>Desventaja</th>
+<th>Cuándo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Lenguaje natural estructurado</strong></td>
+<td>Cualquiera lo entiende</td>
+<td>Ambiguo y verboso</td>
+<td>Primer borrador, en papel</td>
+</tr>
+<tr>
+<td><strong>Pseudocódigo</strong></td>
+<td>Preciso, cercano al código, independiente del lenguaje</td>
+<td>Hay que conocer la convención</td>
+<td>El estándar del curso</td>
+</tr>
+<tr>
+<td><strong>Diagrama de flujo</strong></td>
+<td>Se ve el flujo de un vistazo</td>
+<td>Impráctico si el algoritmo es grande</td>
+<td>Explicar, documentar, entregables</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="simbología-estándar-de-diagramas-de-flujo-descrita-en-texto">Simbología estándar de diagramas de flujo (descrita en texto)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Símbolo</th>
+<th>Forma</th>
+<th>Uso</th>
+<th>Reglas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Terminal</strong></td>
+<td>Óvalo o rectángulo de esquinas redondeadas</td>
+<td><code>Inicio</code> y <code>Fin</code></td>
+<td>Un solo Inicio (sin flecha entrante) y al menos un Fin (sin flecha saliente)</td>
+</tr>
+<tr>
+<td><strong>Proceso</strong></td>
+<td>Rectángulo</td>
+<td>Cálculos y asignaciones: <code>total &lt;- base * 1.19</code></td>
+<td>Una flecha entra, una sale</td>
+</tr>
+<tr>
+<td><strong>Entrada/Salida</strong></td>
+<td>Paralelogramo (romboide inclinado a la derecha)</td>
+<td><code>Leer valor</code>, <code>Escribir total</code></td>
+<td>Una entra, una sale</td>
+</tr>
+<tr>
+<td><strong>Decisión</strong></td>
+<td>Rombo (diamante)</td>
+<td>Pregunta con respuesta sí/no: <code>¿valor &gt; 0?</code></td>
+<td>Una flecha entra, <strong>exactamente dos salen</strong>, rotuladas <strong>Sí</strong> y <strong>No</strong></td>
+</tr>
+<tr>
+<td><strong>Conector en página</strong></td>
+<td>Círculo pequeño con una letra</td>
+<td>Une tramos separados de la misma hoja</td>
+<td>Va en parejas con la misma letra</td>
+</tr>
+<tr>
+<td><strong>Conector fuera de página</strong></td>
+<td>Pentágono apuntando hacia abajo</td>
+<td>Continúa el diagrama en otra hoja</td>
+<td>Igual, en parejas</td>
+</tr>
+<tr>
+<td><strong>Subprograma</strong></td>
+<td>Rectángulo con dos líneas verticales en los lados</td>
+<td>Llamada a una función o procedimiento</td>
+<td>Una entra, una sale</td>
+</tr>
+<tr>
+<td><strong>Flecha de flujo</strong></td>
+<td>Línea recta con punta</td>
+<td>Indica el orden de ejecución</td>
+<td>Nunca queda suelta ni sin destino</td>
+</tr>
+<tr>
+<td><strong>Preparación / ciclo <code>Para</code></strong></td>
+<td>Hexágono</td>
+<td>Inicialización de un ciclo con contador</td>
+<td>Frecuente pero no obligatorio</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Cuatro reglas que se evalúan y que casi siempre se olvidan:</strong></p>
+<ol>
+<li>El flujo va <strong>de arriba abajo y de izquierda a derecha</strong> salvo en los retornos de ciclo.</li>
+<li><strong>Todo símbolo debe estar conectado</strong>: nada de figuras huérfanas.</li>
+<li><strong>El rombo siempre tiene dos salidas</strong>; una sola es error, y tres también.</li>
+<li>Las líneas <strong>no se cruzan</strong> si se puede evitar: para eso están los conectores.</li>
+</ol>
+<h3 id="el-mismo-algoritmo-en-las-tres-formas">El mismo algoritmo en las tres formas</h3>
+<p><strong>Problema:</strong> leer dos valores y mostrar el mayor.</p>
+<p><strong>Lenguaje natural estructurado:</strong></p>
+<ol>
+<li>Inicio.</li>
+<li>Solicitar y leer el primer valor (a).</li>
+<li>Solicitar y leer el segundo valor (b).</li>
+<li>Si a es mayor que b, mostrar a; en caso contrario, mostrar b.</li>
+<li>Fin.</li>
+</ol>
+<p><strong>Pseudocódigo:</strong></p>
+<pre><code class="language-pseudocodigo">Algoritmo Mayor
+    Definir a, b Como Real
+    Escribir &quot;Primer valor:&quot;
+    Leer a
+    Escribir &quot;Segundo valor:&quot;
+    Leer b
+    Si a &gt; b Entonces
+        Escribir &quot;El mayor es &quot;, a
+    SiNo
+        Escribir &quot;El mayor es &quot;, b
+    FinSi
+FinAlgoritmo
+</code></pre>
+<p><strong>Python:</strong></p>
+<pre><code class="language-python">a = float(input(&quot;Primer valor: &quot;))
+b = float(input(&quot;Segundo valor: &quot;))
+if a &gt; b:
+    print(&quot;El mayor es&quot;, a)
+else:
+    print(&quot;El mayor es&quot;, b)
+</code></pre>
+<p><strong>Diagrama de flujo (descrito):</strong> óvalo <code>Inicio</code> → paralelogramo <code>Leer a</code> → paralelogramo <code>Leer b</code> → rombo <code>¿a &gt; b?</code>; de la salida <strong>Sí</strong> un paralelogramo <code>Escribir a</code>, de la salida <strong>No</strong> un paralelogramo <code>Escribir b</code>; ambas flechas convergen en el óvalo <code>Fin</code>.</p>
+<hr />
+<h2 id="4-variables-tipos-de-datos-y-expresiones">4. Variables, tipos de datos y expresiones</h2>
+<h3 id="variable-y-constante">Variable y constante</h3>
+<p><strong>Variable:</strong> espacio de memoria con nombre que guarda un valor <strong>que puede cambiar</strong>.
+<strong>Constante:</strong> igual, pero su valor <strong>no cambia</strong> durante la ejecución (el 19 % del IVA, el 8,37 % de intermediación).</p>
+<p>Analogía de Excel: la variable es una celda; el nombre de la variable es la referencia (<code>B4</code>), pero con un nombre que sí significa algo.</p>
+<h3 id="tipos-de-datos">Tipos de datos</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>PSeInt</th>
+<th>Python</th>
+<th>Ejemplo</th>
+<th>Nota</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Entero</td>
+<td><code>Entero</code></td>
+<td><code>int</code></td>
+<td><code>298</code></td>
+<td>Sin decimales</td>
+</tr>
+<tr>
+<td>Real</td>
+<td><code>Real</code></td>
+<td><code>float</code></td>
+<td><code>8263759012.55</code></td>
+<td>Punto decimal, no coma</td>
+</tr>
+<tr>
+<td>Carácter / cadena</td>
+<td><code>Caracter</code></td>
+<td><code>str</code></td>
+<td><code>"089-2025"</code></td>
+<td>Entre comillas</td>
+</tr>
+<tr>
+<td>Lógico</td>
+<td><code>Logico</code></td>
+<td><code>bool</code></td>
+<td><code>Verdadero</code> / <code>True</code></td>
+<td>Solo dos valores</td>
+</tr>
+</tbody>
+</table></div>
+<p>En Python el tipo se infiere solo; no se declara. <code>type(x)</code> te lo dice.</p>
+<h3 id="reglas-de-nombres">Reglas de nombres</h3>
+<ul>
+<li>Empiezan con letra, no con número ni con símbolo.</li>
+<li>Sin espacios: usa guion bajo (<code>valor_contrato</code>) o mayúsculas intercaladas (<code>valorContrato</code>).</li>
+<li>Sin tildes ni <code>ñ</code> (Python los acepta, PSeInt se atraganta; mejor evitar en ambos).</li>
+<li>No usar palabras reservadas (<code>Si</code>, <code>Para</code>, <code>if</code>, <code>for</code>, <code>print</code>).</li>
+<li><strong>Que digan qué contienen.</strong> <code>vc</code> no; <code>valor_contrato</code> sí.</li>
+<li>Python distingue mayúsculas: <code>Total</code> y <code>total</code> son variables <strong>distintas</strong>.</li>
+</ul>
+<h3 id="asignación">Asignación</h3>
+<pre><code class="language-pseudocodigo">valor &lt;- 8263759012.55
+contador &lt;- contador + 1
+</code></pre>
+<pre><code class="language-python">valor = 8263759012.55
+contador = contador + 1     # o bien: contador += 1
+</code></pre>
+<p><code>contador &lt;- contador + 1</code> <strong>no es una ecuación</strong>: es "calcula lo de la derecha y guárdalo en la variable de la izquierda". Se lee de derecha a izquierda. Es probablemente la línea más importante del curso: es el corazón de todo contador y de todo acumulador.</p>
+<h3 id="operadores-aritméticos">Operadores aritméticos</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Operación</th>
+<th>PSeInt</th>
+<th>Python</th>
+<th><code>7</code> y <code>2</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Suma</td>
+<td><code>+</code></td>
+<td><code>+</code></td>
+<td>9</td>
+</tr>
+<tr>
+<td>Resta</td>
+<td><code>-</code></td>
+<td><code>-</code></td>
+<td>5</td>
+</tr>
+<tr>
+<td>Multiplicación</td>
+<td><code>*</code></td>
+<td><code>*</code></td>
+<td>14</td>
+</tr>
+<tr>
+<td>División real</td>
+<td><code>/</code></td>
+<td><code>/</code></td>
+<td>3.5</td>
+</tr>
+<tr>
+<td>División entera</td>
+<td><code>div</code> o <code>\</code></td>
+<td><code>//</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td>Módulo (residuo)</td>
+<td><code>MOD</code> o <code>%</code></td>
+<td><code>%</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td>Potencia</td>
+<td><code>^</code></td>
+<td><code>**</code></td>
+<td>49</td>
+</tr>
+</tbody>
+</table></div>
+<pre><code class="language-python">print(7 / 2)    # 3.5
+print(7 // 2)   # 3
+print(7 % 2)    # 1
+print(7 ** 2)   # 49
+</code></pre>
+<p><strong>Usos clásicos del módulo:</strong></p>
+<ul>
+<li>¿Es par? → <code>n % 2 == 0</code></li>
+<li>¿Es múltiplo de 5? → <code>n % 5 == 0</code></li>
+<li>Extraer el último dígito → <code>n % 10</code></li>
+<li>Ciclos que se repiten cada k elementos → <code>i % k == 0</code></li>
+</ul>
+<p><strong>Cuidado con <code>//</code> y <code>%</code> sobre negativos en Python:</strong> <code>-7 // 2</code> da <code>-4</code> (redondea hacia abajo, no hacia cero) y <code>-7 % 2</code> da <code>1</code>. Con positivos, que es el 99 % de tus casos, se comporta como esperas.</p>
+<h3 id="precedencia-evaluada-a-mano">Precedencia, evaluada a mano</h3>
+<p>Evalúa <code>2 + 3 * 4 ^ 2 - 10 / 5</code>:</p>
+<ol>
+<li>Potencia: <code>4 ^ 2 = 16</code> → <code>2 + 3 * 16 - 10 / 5</code></li>
+<li>Multiplicación y división (izq. a der.): <code>3 * 16 = 48</code>, <code>10 / 5 = 2</code> → <code>2 + 48 - 2</code></li>
+<li>Suma y resta: <code>50 - 2 = 48</code></li>
+</ol>
+<p><strong>Resultado: 48.</strong> En Python <code>2 + 3 * 4 ** 2 - 10 / 5</code> devuelve <code>48.0</code> (con decimal, porque la división real siempre produce <code>float</code>).</p>
+<h3 id="entrada-y-salida">Entrada y salida</h3>
+<pre><code class="language-pseudocodigo">Escribir &quot;Digite el valor base:&quot;
+Leer base
+Escribir &quot;El total es: &quot;, total
+</code></pre>
+<pre><code class="language-python">base = float(input(&quot;Digite el valor base: &quot;))
+print(&quot;El total es:&quot;, total)
+</code></pre>
+<p><strong>Regla de oro de la entrada en Python:</strong> <code>input()</code> <strong>siempre devuelve texto</strong>. Si vas a hacer cuentas, conviértelo con <code>int()</code> o <code>float()</code>. Sin la conversión, <code>base * 0.19</code> sobre un texto no falla siempre — a veces hace algo peor: <code>"5" * 3</code> da <code>"555"</code>.</p>
+<p><strong>Formato de números:</strong></p>
+<pre><code class="language-python">valor = 8263759012.55
+print(f&quot;Total: ${valor:,.2f}&quot;)                 # Total: $8,263,759,012.55
+</code></pre>
+<p>Para el formato colombiano (punto de miles, coma decimal):</p>
+<pre><code class="language-python">valor = 8263759012.55
+texto = f&quot;{valor:,.2f}&quot;.replace(&quot;,&quot;, &quot;X&quot;).replace(&quot;.&quot;, &quot;,&quot;).replace(&quot;X&quot;, &quot;.&quot;)
+print(&quot;Total: $&quot; + texto)                      # Total: $8.263.759.012,55
+</code></pre>
+<p>Ese truco del <code>"X"</code> intermedio existe porque hay que intercambiar dos símbolos: si reemplazaras directo, el segundo reemplazo deshace el primero.</p>
+<hr />
+<h2 id="5-estructuras-de-decisión">5. Estructuras de decisión</h2>
+<h3 id="comparación-de-las-tres-formas">Comparación de las tres formas</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Estructura</th>
+<th>Cuándo se usa</th>
+<th>PSeInt</th>
+<th>Python</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Simple</strong></td>
+<td>Solo hay acción si se cumple</td>
+<td><code>Si...Entonces...FinSi</code></td>
+<td><code>if:</code></td>
+</tr>
+<tr>
+<td><strong>Doble</strong></td>
+<td>Dos caminos excluyentes</td>
+<td><code>Si...Entonces...SiNo...FinSi</code></td>
+<td><code>if: ... else:</code></td>
+</tr>
+<tr>
+<td><strong>Múltiple por rangos</strong></td>
+<td>Tres o más rangos continuos</td>
+<td><code>Si...SiNo Si...FinSi</code></td>
+<td><code>if: ... elif: ... else:</code></td>
+</tr>
+<tr>
+<td><strong>Múltiple por valores</strong></td>
+<td>Comparar contra valores fijos</td>
+<td><code>Segun...Hacer</code></td>
+<td><code>if/elif</code> o <code>match</code></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="condicional-simple-y-doble">Condicional simple y doble</h3>
+<pre><code class="language-pseudocodigo">Si saldo &gt;= 0 Entonces
+    Escribir &quot;Saldo disponible&quot;
+SiNo
+    Escribir &quot;Saldo agotado&quot;
+FinSi
+</code></pre>
+<pre><code class="language-python">if saldo &gt;= 0:
+    print(&quot;Saldo disponible&quot;)
+else:
+    print(&quot;Saldo agotado&quot;)
+</code></pre>
+<p><strong>Los dos puntos y la indentación de Python no son estética: son la sintaxis.</strong> Lo que en PSeInt cierra con <code>FinSi</code>, en Python lo cierra el hecho de que la sangría vuelva al margen anterior. Usa siempre <strong>4 espacios</strong> y no mezcles espacios con tabulaciones.</p>
+<h3 id="decisiones-anidadas-y-rangos">Decisiones anidadas y rangos</h3>
+<pre><code class="language-pseudocodigo">Si monto &lt; 5000000 Entonces
+    categoria &lt;- &quot;Menor&quot;
+SiNo
+    Si monto &lt; 50000000 Entonces
+        categoria &lt;- &quot;Medio&quot;
+    SiNo
+        Si monto &lt; 500000000 Entonces
+            categoria &lt;- &quot;Mayor&quot;
+        SiNo
+            categoria &lt;- &quot;Grande&quot;
+        FinSi
+    FinSi
+FinSi
+</code></pre>
+<pre><code class="language-python">if monto &lt; 5_000_000:
+    categoria = &quot;Menor&quot;
+elif monto &lt; 50_000_000:
+    categoria = &quot;Medio&quot;
+elif monto &lt; 500_000_000:
+    categoria = &quot;Mayor&quot;
+else:
+    categoria = &quot;Grande&quot;
+</code></pre>
+<p>Las dos versiones hacen lo mismo; la de <code>elif</code> se lee mejor y es la que debes preferir. Los guiones bajos de <code>5_000_000</code> son legales en Python y solo mejoran la lectura.</p>
+<p><strong>Regla de los rangos:</strong> ordénalos de menor a mayor (o de mayor a menor), sin saltarte ninguno. Si preguntas primero por el rango más ancho, todo cae ahí y los demás nunca se ejecutan. Y <strong>prueba siempre los valores frontera</strong>: con el ejemplo de arriba, prueba con 4.999.999, con 5.000.000 y con 5.000.001. Un <code>&lt;</code> que debía ser <code>&lt;=</code> solo se delata en la frontera.</p>
+<h3 id="selección-múltiple">Selección múltiple</h3>
+<pre><code class="language-pseudocodigo">Segun opcion Hacer
+    1:
+        Escribir &quot;Registrar factura&quot;
+    2:
+        Escribir &quot;Consultar pago&quot;
+    3:
+        Escribir &quot;Salir&quot;
+    De Otro Modo:
+        Escribir &quot;Opción inválida&quot;
+FinSegun
+</code></pre>
+<pre><code class="language-python">opcion = 2
+match opcion:
+    case 1:
+        print(&quot;Registrar factura&quot;)
+    case 2:
+        print(&quot;Consultar pago&quot;)
+    case 3:
+        print(&quot;Salir&quot;)
+    case _:
+        print(&quot;Opción inválida&quot;)
+</code></pre>
+<p><code>match</code> existe desde Python 3.10 (Colab lo tiene). Si el docente prefiere lo clásico, <code>if/elif/else</code> hace exactamente lo mismo y funciona en cualquier versión.</p>
+<blockquote>
+<p><strong><code>Segun</code> es para valores discretos, no para rangos.</strong> No sirve para "entre 5 y 50 millones": para eso, <code>elif</code>.</p>
+</blockquote>
+<h3 id="condiciones-compuestas-y-banderas">Condiciones compuestas y banderas</h3>
+<pre><code class="language-pseudocodigo">Si (tiene_rp = Verdadero) Y (factura_aprobada = Verdadero) Entonces
+    Escribir &quot;Procede el pago&quot;
+SiNo
+    Escribir &quot;No procede&quot;
+FinSi
+</code></pre>
+<pre><code class="language-python">tiene_rp = True
+factura_aprobada = False
+if tiene_rp and factura_aprobada:
+    print(&quot;Procede el pago&quot;)
+else:
+    print(&quot;No procede&quot;)
+</code></pre>
+<p>Nota: se escribe <code>if tiene_rp and factura_aprobada:</code>, <strong>no</strong> <code>if tiene_rp == True and ...</code>. Comparar un booleano con <code>True</code> es redundante.</p>
+<p><strong>Evaluación de cortocircuito:</strong> en <code>A and B</code>, si A es falso, Python <strong>ni evalúa B</strong>. En <code>A or B</code>, si A es verdadero, tampoco evalúa B. Esto sirve para proteger operaciones: <code>if n != 0 and total / n &gt; 5:</code> nunca divide por cero.</p>
+<hr />
+<h2 id="6-estructuras-de-repetición">6. Estructuras de repetición</h2>
+<h3 id="las-tres-estructuras-comparadas">Las tres estructuras comparadas</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th><code>Para</code> (<code>for</code>)</th>
+<th><code>Mientras</code> (<code>while</code>)</th>
+<th><code>Repetir-Hasta</code> (<code>do-while</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cuándo</strong></td>
+<td>Se sabe cuántas veces</td>
+<td>No se sabe; depende de una condición</td>
+<td>No se sabe, pero debe correr al menos una vez</td>
+</tr>
+<tr>
+<td><strong>Condición</strong></td>
+<td>Implícita en el rango</td>
+<td><strong>Antes</strong> de cada vuelta</td>
+<td><strong>Después</strong> de cada vuelta</td>
+</tr>
+<tr>
+<td><strong>Mínimo de ejecuciones</strong></td>
+<td>0 (si el rango es vacío)</td>
+<td><strong>0</strong></td>
+<td><strong>1</strong></td>
+</tr>
+<tr>
+<td><strong>Contador</strong></td>
+<td>Automático</td>
+<td>Manual (hay que incrementarlo tú)</td>
+<td>Manual</td>
+</tr>
+<tr>
+<td><strong>Caso típico</strong></td>
+<td>Recorrer 300 facturas</td>
+<td>Leer hasta que digiten un centinela</td>
+<td>Menús, validación de datos</td>
+</tr>
+<tr>
+<td><strong>Python</strong></td>
+<td><code>for i in range(...)</code></td>
+<td><code>while cond:</code></td>
+<td><code>while True: ... if cond: break</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Python no tiene <code>repetir-hasta</code>.</strong> Se emula con <code>while True:</code> y un <code>break</code> al final. Es idiomático y perfectamente aceptable.</p>
+<h3 id="sumar-del-1-al-100-con-las-tres">Sumar del 1 al 100 con las tres</h3>
+<pre><code class="language-pseudocodigo">// PARA
+suma &lt;- 0
+Para i &lt;- 1 Hasta 100 Con Paso 1 Hacer
+    suma &lt;- suma + i
+FinPara
+
+// MIENTRAS
+suma &lt;- 0
+i &lt;- 1
+Mientras i &lt;= 100 Hacer
+    suma &lt;- suma + i
+    i &lt;- i + 1
+FinMientras
+
+// REPETIR-HASTA
+suma &lt;- 0
+i &lt;- 1
+Repetir
+    suma &lt;- suma + i
+    i &lt;- i + 1
+Hasta Que i &gt; 100
+</code></pre>
+<pre><code class="language-python"># for
+suma = 0
+for i in range(1, 101):
+    suma += i
+print(suma)          # 5050
+
+# while
+suma = 0
+i = 1
+while i &lt;= 100:
+    suma += i
+    i += 1
+print(suma)          # 5050
+
+# repetir-hasta emulado
+suma = 0
+i = 1
+while True:
+    suma += i
+    i += 1
+    if i &gt; 100:
+        break
+print(suma)          # 5050
+</code></pre>
+<p>Las tres dan <strong>5050</strong>. Si las tres te salen sin mirar apuntes, dominas los ciclos.</p>
+<h3 id="range-con-lupa"><code>range()</code>, con lupa</h3>
+<p><code>range(inicio, fin, paso)</code> genera números desde <code>inicio</code> <strong>hasta <code>fin - 1</code></strong>. El límite superior <strong>se excluye</strong>. Esta es la fuente principal del error de uno en uno.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Llamada</th>
+<th>Genera</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>range(5)</code></td>
+<td>0, 1, 2, 3, 4</td>
+</tr>
+<tr>
+<td><code>range(1, 5)</code></td>
+<td>1, 2, 3, 4</td>
+</tr>
+<tr>
+<td><code>range(1, 101)</code></td>
+<td>1 … 100</td>
+</tr>
+<tr>
+<td><code>range(0, 10, 2)</code></td>
+<td>0, 2, 4, 6, 8</td>
+</tr>
+<tr>
+<td><code>range(10, 0, -1)</code></td>
+<td>10, 9, 8 … 1</td>
+</tr>
+</tbody>
+</table></div>
+<p>En PSeInt, <code>Para i &lt;- 1 Hasta 100</code> <strong>sí incluye el 100</strong>. Al traducir a Python hay que escribir <code>range(1, 101)</code>. Ténlo presente cada vez.</p>
+<h3 id="contador-acumulador-y-bandera">Contador, acumulador y bandera</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Herramienta</th>
+<th>Para qué</th>
+<th>Inicialización</th>
+<th>Actualización</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Contador</strong></td>
+<td>Contar cuántas veces pasa algo</td>
+<td><code>0</code></td>
+<td><code>c &lt;- c + 1</code> (paso fijo)</td>
+</tr>
+<tr>
+<td><strong>Acumulador (suma)</strong></td>
+<td>Totalizar valores</td>
+<td><code>0</code></td>
+<td><code>s &lt;- s + valor</code> (paso variable)</td>
+</tr>
+<tr>
+<td><strong>Acumulador (producto)</strong></td>
+<td>Multiplicar valores</td>
+<td><strong><code>1</code></strong></td>
+<td><code>p &lt;- p * valor</code></td>
+</tr>
+<tr>
+<td><strong>Bandera</strong></td>
+<td>Recordar si algo ocurrió</td>
+<td><code>Falso</code></td>
+<td><code>bandera &lt;- Verdadero</code></td>
+</tr>
+<tr>
+<td><strong>Máximo</strong></td>
+<td>Guardar el mayor</td>
+<td>primer elemento (o <code>-infinito</code>)</td>
+<td><code>Si x &gt; max Entonces max &lt;- x</code></td>
+</tr>
+<tr>
+<td><strong>Mínimo</strong></td>
+<td>Guardar el menor</td>
+<td>primer elemento (o <code>+infinito</code>)</td>
+<td><code>Si x &lt; min Entonces min &lt;- x</code></td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p><strong>Inicializar el acumulador de producto en 0 lo arruina todo:</strong> cualquier cosa multiplicada por 0 es 0. Va en 1.</p>
+<p><strong>Inicializar el máximo en 0 falla con datos negativos.</strong> Inicialízalo con el primer elemento del arreglo, que siempre es correcto.</p>
+</blockquote>
+<p>Ejemplo con las tres a la vez:</p>
+<pre><code class="language-python">valores = [1250000, -300000, 890000, 3400000, 0, 275000]
+
+contador_positivos = 0
+suma_total = 0
+hubo_negativo = False
+mayor = valores[0]
+
+for v in valores:
+    suma_total += v
+    if v &gt; 0:
+        contador_positivos += 1
+    if v &lt; 0:
+        hubo_negativo = True
+    if v &gt; mayor:
+        mayor = v
+
+print(&quot;Positivos:&quot;, contador_positivos)   # 4
+print(&quot;Total:&quot;, suma_total)               # 5515000
+print(&quot;¿Hubo negativo?&quot;, hubo_negativo)   # True
+print(&quot;Mayor:&quot;, mayor)                    # 3400000
+</code></pre>
+<h3 id="centinela-y-validación">Centinela y validación</h3>
+<pre><code class="language-python">suma = 0
+n = 0
+while True:
+    valor = float(input(&quot;Valor de la factura (0 para terminar): &quot;))
+    if valor == 0:
+        break
+    suma += valor
+    n += 1
+
+if n &gt; 0:
+    print(&quot;Total:&quot;, suma, &quot;| Promedio:&quot;, suma / n)
+else:
+    print(&quot;No se digitaron facturas&quot;)
+</code></pre>
+<p>Ese <code>if n &gt; 0</code> de la salida es la protección contra la división por cero. Se ve tonto hasta el día que el usuario da Enter sin digitar nada.</p>
+<h3 id="ciclos-anidados">Ciclos anidados</h3>
+<pre><code class="language-python">for i in range(1, 4):
+    for j in range(1, 4):
+        print(i, &quot;x&quot;, j, &quot;=&quot;, i * j)
+</code></pre>
+<p>El ciclo interno se ejecuta <strong>completo</strong> por cada vuelta del externo: 3 × 3 = 9 líneas. Este patrón es el que se usa para recorrer matrices y para el ordenamiento burbuja.</p>
+<hr />
+<h2 id="7-arreglos">7. Arreglos</h2>
+<h3 id="vector-unidimensional">Vector (unidimensional)</h3>
+<p>Colección de valores <strong>del mismo tipo</strong>, bajo un solo nombre, accesibles por <strong>índice</strong>.</p>
+<pre><code class="language-pseudocodigo">Definir facturas Como Real
+Dimension facturas[5]
+facturas[1] &lt;- 1250000
+Escribir facturas[1]
+</code></pre>
+<pre><code class="language-python">facturas = [1250000.0, 890000.0, 3400000.0, 275000.0, 1980000.0]
+print(facturas[0])          # 1250000.0  ← el PRIMERO es el índice 0
+print(len(facturas))        # 5
+print(facturas[-1])         # 1980000.0  ← el último
+</code></pre>
+<blockquote>
+<p><strong>Diferencia crítica:</strong> en PSeInt el primer índice es normalmente <strong>1</strong>; en Python es <strong>0</strong>. Un arreglo de 5 elementos va de <code>facturas[1]</code> a <code>facturas[5]</code> en PSeInt y de <code>facturas[0]</code> a <code>facturas[4]</code> en Python. Pasarse del último índice produce <code>IndexError: list index out of range</code>.</p>
+</blockquote>
+<h3 id="operaciones-básicas-sobre-un-vector">Operaciones básicas sobre un vector</h3>
+<pre><code class="language-python">facturas = [1250000.0, 890000.0, 3400000.0, 275000.0, 1980000.0]
+
+# recorrido por elemento (lo más pythónico)
+for f in facturas:
+    print(f)
+
+# recorrido por índice (cuando necesitas la posición)
+for i in range(len(facturas)):
+    print(&quot;Posición&quot;, i, &quot;-&gt;&quot;, facturas[i])
+
+# suma, promedio, mayor, menor
+total = sum(facturas)
+promedio = total / len(facturas)
+print(total, promedio, max(facturas), min(facturas))
+
+# cuántas superan el promedio
+sobre = 0
+for f in facturas:
+    if f &gt; promedio:
+        sobre += 1
+print(&quot;Sobre el promedio:&quot;, sobre)   # 2
+</code></pre>
+<p>Aunque <code>sum</code>, <code>max</code> y <code>min</code> existan, <strong>debes saber escribirlos a mano con un ciclo</strong>: eso es lo que evalúa el curso.</p>
+<h3 id="búsqueda-lineal-con-bandera">Búsqueda lineal con bandera</h3>
+<pre><code class="language-pseudocodigo">encontrado &lt;- Falso
+posicion &lt;- -1
+Para i &lt;- 1 Hasta 4 Con Paso 1 Hacer
+    Si codigos[i] = buscado Entonces
+        encontrado &lt;- Verdadero
+        posicion &lt;- i
+    FinSi
+FinPara
+</code></pre>
+<pre><code class="language-python">codigos = [&quot;089&quot;, &quot;123&quot;, &quot;258&quot;, &quot;268&quot;]
+buscado = &quot;258&quot;
+
+encontrado = False
+posicion = -1
+for i in range(len(codigos)):
+    if codigos[i] == buscado:
+        encontrado = True
+        posicion = i
+        break        # ya lo encontró: no siga buscando
+
+print(encontrado, posicion)   # True 2
+</code></pre>
+<p><code>break</code> sale del ciclo de inmediato. <code>continue</code> salta a la siguiente vuelta sin ejecutar el resto del cuerpo.</p>
+<h3 id="ordenamiento-burbuja">Ordenamiento burbuja</h3>
+<p>Compara elementos adyacentes y los intercambia si están fuera de orden. Después de cada pasada, el mayor "burbujea" hasta el final.</p>
+<pre><code class="language-pseudocodigo">Para i &lt;- 1 Hasta n-1 Con Paso 1 Hacer
+    Para j &lt;- 1 Hasta n-i Con Paso 1 Hacer
+        Si datos[j] &gt; datos[j+1] Entonces
+            aux &lt;- datos[j]
+            datos[j] &lt;- datos[j+1]
+            datos[j+1] &lt;- aux
+        FinSi
+    FinPara
+FinPara
+</code></pre>
+<pre><code class="language-python">datos = [5, 3, 8, 1, 9, 2]
+n = len(datos)
+for i in range(n - 1):
+    for j in range(n - 1 - i):
+        if datos[j] &gt; datos[j + 1]:
+            datos[j], datos[j + 1] = datos[j + 1], datos[j]   # intercambio
+print(datos)      # [1, 2, 3, 5, 8, 9]
+</code></pre>
+<p>En pseudocódigo el intercambio necesita la variable auxiliar <code>aux</code>; <strong>en Python basta <code>a, b = b, a</code></strong>. Sin <code>aux</code>, en pseudocódigo perderías uno de los dos valores.</p>
+<p>Alternativa lista: <code>sorted(datos)</code> devuelve una lista nueva ordenada, <code>datos.sort()</code> ordena en el sitio. Úsalas en la vida real; en el examen, escribe la burbuja.</p>
+<h3 id="matrices-bidimensionales">Matrices (bidimensionales)</h3>
+<pre><code class="language-pseudocodigo">Definir pagos Como Real
+Dimension pagos[3,4]
+pagos[1,1] &lt;- 1500000
+</code></pre>
+<pre><code class="language-python">matriz = [[1, 2, 3],
+          [4, 5, 6],
+          [7, 8, 9]]
+
+print(matriz[0][2])          # 3  → fila 0, columna 2
+
+for fila in range(len(matriz)):
+    total_fila = 0
+    for col in range(len(matriz[fila])):
+        total_fila += matriz[fila][col]
+    print(&quot;Fila&quot;, fila, &quot;suma&quot;, total_fila)
+</code></pre>
+<p>Salida: <code>Fila 0 suma 6</code>, <code>Fila 1 suma 15</code>, <code>Fila 2 suma 24</code>.</p>
+<p>Una matriz es la tabla de Excel: <code>matriz[fila][columna]</code>. <code>len(matriz)</code> da el número de filas y <code>len(matriz[0])</code> el de columnas.</p>
+<hr />
+<h2 id="8-modularidad-eficiencia-y-prueba-de-escritorio">8. Modularidad, eficiencia y prueba de escritorio</h2>
+<h3 id="función-vs-procedimiento">Función vs. procedimiento</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>Función</th>
+<th>Procedimiento (subproceso)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Devuelve valor</strong></td>
+<td>Sí (<code>Retornar</code> / <code>return</code>)</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Se usa</strong></td>
+<td>Dentro de una expresión: <code>t &lt;- iva(b)</code></td>
+<td>Como instrucción: <code>imprimirEncabezado()</code></td>
+</tr>
+<tr>
+<td><strong>Ejemplo</strong></td>
+<td>Calcular el IVA</td>
+<td>Mostrar un menú</td>
+</tr>
+</tbody>
+</table></div>
+<pre><code class="language-pseudocodigo">Funcion resultado &lt;- valorConIVA(monto Por Valor)
+    Definir resultado Como Real
+    resultado &lt;- monto * 1.19
+FinFuncion
+
+SubProceso mostrarMenu()
+    Escribir &quot;1. Registrar&quot;
+    Escribir &quot;2. Consultar&quot;
+FinSubProceso
+</code></pre>
+<pre><code class="language-python">def valor_con_iva(monto, tasa=0.19):
+    &quot;&quot;&quot;Devuelve el monto con IVA aplicado.&quot;&quot;&quot;
+    return monto * (1 + tasa)
+
+def base_sin_iva(monto_con_iva, tasa=0.19):
+    &quot;&quot;&quot;Devuelve la base a partir de un valor que ya incluye IVA.&quot;&quot;&quot;
+    return monto_con_iva / (1 + tasa)
+
+def mostrar_menu():
+    print(&quot;1. Registrar&quot;)
+    print(&quot;2. Consultar&quot;)
+
+print(round(valor_con_iva(1000000), 2))     # 1190000.0
+print(round(base_sin_iva(1190000), 2))      # 1000000.0
+</code></pre>
+<p>Una función en Python sin <code>return</code> devuelve <code>None</code>: eso es un procedimiento.</p>
+<h3 id="por-qué-modularizar">Por qué modularizar</h3>
+<ul>
+<li><strong>Se prueba por partes.</strong> Si el total sale mal, pruebas la función del IVA sola.</li>
+<li><strong>No se repite código.</strong> Un cambio de tasa se hace en un solo lugar.</li>
+<li><strong>Se lee mejor.</strong> <code>total = valor_con_iva(base)</code> dice qué pasa; cuatro líneas de cuentas no.</li>
+<li><strong>Se reutiliza.</strong> La misma función sirve en el siguiente programa.</li>
+</ul>
+<p><strong>Criterio de tamaño:</strong> una función hace <strong>una</strong> cosa y su nombre lo dice. Si necesitas la palabra "y" para describirla, son dos funciones.</p>
+<h3 id="parámetros-por-valor-y-por-referencia">Parámetros por valor y por referencia</h3>
+<ul>
+<li><strong>Por valor:</strong> se pasa una <strong>copia</strong>. Lo que le pase adentro no afecta a la variable original.</li>
+<li><strong>Por referencia:</strong> se pasa la <strong>variable misma</strong>. Los cambios adentro se ven afuera. En PSeInt se marca con <code>Por Referencia</code>.</li>
+</ul>
+<pre><code class="language-python">def duplicar_valor(n):
+    n = n * 2       # solo cambia la copia local
+    return n
+
+x = 10
+duplicar_valor(x)
+print(x)            # 10  ← x no cambió
+
+def agregar(lista):
+    lista.append(99)    # modifica el objeto original
+
+l = [1, 2]
+agregar(l)
+print(l)            # [1, 2, 99]  ← la lista SÍ cambió
+</code></pre>
+<p>Python no tiene exactamente "por valor" y "por referencia", pero el efecto práctico que verás es este: <strong>los números y textos se comportan como por valor; las listas, como por referencia.</strong> Para el curso, esa distinción basta.</p>
+<h3 id="alcance-scope">Alcance (scope)</h3>
+<pre><code class="language-python">total = 100                 # global
+
+def calcular():
+    total = 5               # LOCAL: es otra variable distinta
+    return total
+
+print(calcular())           # 5
+print(total)                # 100
+</code></pre>
+<p>Regla: lo que nace dentro de una función, muere en ella. Si necesitas sacar un resultado, <strong>devuélvelo con <code>return</code></strong>; no uses variables globales. Es la forma de evitar que un programa se vuelva imposible de depurar.</p>
+<h3 id="nociones-de-eficiencia">Nociones de eficiencia</h3>
+<p>Cuenta cuántas operaciones hace el algoritmo en función del tamaño de la entrada, n:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Patrón</th>
+<th>Operaciones</th>
+<th>Nombre</th>
+<th>n = 1.000</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Acceso directo <code>a[i]</code></td>
+<td>1</td>
+<td>constante, O(1)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Un ciclo simple</td>
+<td>~n</td>
+<td>lineal, O(n)</td>
+<td>1.000</td>
+</tr>
+<tr>
+<td>Búsqueda binaria (lista ordenada)</td>
+<td>~log₂ n</td>
+<td>logarítmica, O(log n)</td>
+<td>~10</td>
+</tr>
+<tr>
+<td>Dos ciclos anidados (burbuja)</td>
+<td>~n²</td>
+<td>cuadrática, O(n²)</td>
+<td>1.000.000</td>
+</tr>
+</tbody>
+</table></div>
+<p>La moraleja práctica: <strong>un ciclo anidado sobre datos grandes es caro</strong>. Con 300 facturas da igual; con 3 millones de registros, que es lo que verás en ciencia de datos, la diferencia entre O(n) y O(n²) es entre segundos y días.</p>
+<h3 id="prueba-de-escritorio">Prueba de escritorio</h3>
+<p>Tabla donde sigues, paso a paso, el valor de cada variable. Es la técnica de depuración más antigua y la más confiable.</p>
+<p><strong>Algoritmo:</strong></p>
+<pre><code class="language-pseudocodigo">suma &lt;- 0
+Para i &lt;- 1 Hasta 4 Con Paso 1 Hacer
+    suma &lt;- suma + i
+FinPara
+Escribir suma
+</code></pre>
+<p><strong>Prueba de escritorio:</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Paso</th>
+<th>i</th>
+<th>¿i ≤ 4?</th>
+<th>suma antes</th>
+<th>suma después</th>
+<th>Salida</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inicio</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>Vuelta 1</td>
+<td>1</td>
+<td>Sí</td>
+<td>0</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>Vuelta 2</td>
+<td>2</td>
+<td>Sí</td>
+<td>1</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>Vuelta 3</td>
+<td>3</td>
+<td>Sí</td>
+<td>3</td>
+<td>6</td>
+<td></td>
+</tr>
+<tr>
+<td>Vuelta 4</td>
+<td>4</td>
+<td>Sí</td>
+<td>6</td>
+<td>10</td>
+<td></td>
+</tr>
+<tr>
+<td>Salida del ciclo</td>
+<td>5</td>
+<td>No</td>
+<td>10</td>
+<td>10</td>
+<td><code>10</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Cómo hacerla bien:</strong></p>
+<ol>
+<li>Una columna por variable, más una para la condición y otra para la salida.</li>
+<li>Una fila por vuelta del ciclo.</li>
+<li><strong>No adivines: ejecuta como lo haría la máquina</strong>, línea por línea, sin saltarte nada.</li>
+<li>Si el resultado de la tabla no coincide con el del programa, uno de los dos está mal, y casi siempre es tu entendimiento del programa. Ahí está el aprendizaje.</li>
+</ol>
+<p><strong>Atajo:</strong> PSeInt hace esto solo con <strong>ejecución paso a paso (<code>F5</code>)</strong>, mostrando las variables en un panel. Úsalo para verificar tu tabla, no para reemplazarla: la tabla a mano es la que enseña.</p>
+<hr />
+<h2 id="9-errores-frecuentes-del-principiante">9. Errores frecuentes del principiante</h2>
+<h3 id="1-ciclo-infinito">1. Ciclo infinito</h3>
+<p><strong>Síntoma:</strong> el programa nunca termina; en Colab la celda queda con el círculo girando.
+<strong>Causas:</strong> la variable de control no se incrementa, o la condición nunca se vuelve falsa.</p>
+<pre><code class="language-python"># MAL: i nunca cambia → infinito
+i = 1
+while i &lt;= 10:
+    print(i)
+    # falta i += 1
+
+# BIEN
+i = 1
+while i &lt;= 10:
+    print(i)
+    i += 1
+</code></pre>
+<p><strong>Antídoto:</strong> cada vez que escribas un <code>while</code>, pregúntate en voz alta <em>"¿qué línea hace que esta condición llegue a ser falsa?"</em>. Si no la puedes señalar, tienes un ciclo infinito. Para detenerlo en Colab: botón de detener o <em>Entorno de ejecución → Interrumpir ejecución</em>.</p>
+<h3 id="2-error-de-uno-en-uno-off-by-one">2. Error de uno en uno (off-by-one)</h3>
+<p><strong>Síntoma:</strong> el resultado está desviado exactamente un elemento; o falta el último, o sobra uno, o sale <code>IndexError</code>.
+<strong>Causa:</strong> confundir el límite inclusivo con el exclusivo.</p>
+<pre><code class="language-python">lista = [10, 20, 30]
+
+# MAL: intenta lista[3], que no existe → IndexError
+# for i in range(len(lista) + 1):
+#     print(lista[i])
+
+# BIEN
+for i in range(len(lista)):
+    print(lista[i])
+</code></pre>
+<p><strong>Antídoto:</strong> recuerda que <code>range(a, b)</code> llega hasta <code>b - 1</code>, y que <code>Para i &lt;- 1 Hasta n</code> de PSeInt <strong>sí</strong> incluye n. Y prueba siempre con una lista de 3 elementos: el primero y el último se revisan a ojo.</p>
+<h3 id="3-confundir--con">3. Confundir <code>=</code> con <code>==</code></h3>
+<pre><code class="language-python">x = 5           # asignación
+print(x == 5)   # comparación → True
+
+# if x = 5:     # SyntaxError
+</code></pre>
+<p><strong>Antídoto:</strong> en pseudocódigo usa siempre <code>&lt;-</code> para asignar. En Python, léelo en voz alta: <code>=</code> es "guarde en", <code>==</code> es "¿es igual a?".</p>
+<h3 id="4-no-inicializar-el-acumulador">4. No inicializar el acumulador</h3>
+<pre><code class="language-python">valores = [10, 20, 30]
+
+# MAL: NameError, 'suma' no está definida
+# for v in valores:
+#     suma = suma + v
+
+# BIEN
+suma = 0
+for v in valores:
+    suma = suma + v
+print(suma)     # 60
+</code></pre>
+<p><strong>Variantes de este mismo error:</strong></p>
+<ul>
+<li>Inicializar el acumulador de <strong>producto</strong> en 0 → el resultado siempre es 0. Va en 1.</li>
+<li>Inicializar el acumulador <strong>dentro</strong> del ciclo → se reinicia en cada vuelta y termina valiendo solo el último elemento. Va <strong>antes</strong> del ciclo.</li>
+<li>Inicializar el máximo en 0 con datos negativos → devuelve 0, que no está en los datos. Inicialízalo con el primer elemento.</li>
+</ul>
+<h3 id="5-indentación-en-python">5. Indentación en Python</h3>
+<pre><code class="language-python"># MAL: IndentationError
+# for i in range(3):
+# print(i)
+
+# MAL en la lógica (no en la sintaxis): el print quedó FUERA del ciclo
+suma = 0
+for i in range(1, 4):
+    suma += i
+print(suma)     # imprime 6 una vez
+
+# Si el print estuviera indentado, imprimiría 1, 3, 6
+</code></pre>
+<p><strong>Antídoto:</strong> 4 espacios, siempre; nunca mezclar tabulaciones y espacios (Colab lo maneja bien si usas la tecla Tab, que inserta espacios). Y ojo: <strong>una línea mal indentada casi nunca es un error de sintaxis, es un error de lógica silencioso</strong>, que es peor.</p>
+<h3 id="6-input-devuelve-texto">6. <code>input()</code> devuelve texto</h3>
+<pre><code class="language-python"># MAL: concatena en vez de sumar
+# edad = input(&quot;Edad: &quot;)
+# print(edad + 1)      # TypeError
+
+# BIEN
+# edad = int(input(&quot;Edad: &quot;))
+# print(edad + 1)
+</code></pre>
+<h3 id="7-comparar-decimales-con">7. Comparar decimales con <code>==</code></h3>
+<pre><code class="language-python">print(0.1 + 0.2 == 0.3)                 # False (!)
+print(round(0.1 + 0.2, 10) == 0.3)      # True
+print(abs((0.1 + 0.2) - 0.3) &lt; 1e-9)    # True
+</code></pre>
+<p>Los <code>float</code> guardan aproximaciones en binario. <strong>Nunca compares decimales con <code>==</code></strong>: compara la diferencia contra una tolerancia pequeña. Esto importa en tus cuentas de contratos: el "verificado al centavo" se hace redondeando a 2 decimales, no comparando crudo.</p>
+<h3 id="8-otros-que-te-van-a-pasar">8. Otros que te van a pasar</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Error</th>
+<th>Mensaje típico</th>
+<th>Qué revisar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Falta el <code>:</code></td>
+<td><code>SyntaxError: expected ':'</code></td>
+<td>La línea del <code>if</code>, <code>for</code>, <code>while</code> o <code>def</code></td>
+</tr>
+<tr>
+<td>Variable mal escrita</td>
+<td><code>NameError: name 'contdor' is not defined</code></td>
+<td>Ortografía y mayúsculas</td>
+</tr>
+<tr>
+<td>Índice fuera de rango</td>
+<td><code>IndexError: list index out of range</code></td>
+<td>El límite del ciclo</td>
+</tr>
+<tr>
+<td>Mezclar tipos</td>
+<td><code>TypeError: can only concatenate str (not "int") to str</code></td>
+<td>Falta <code>int()</code>, <code>float()</code> o <code>str()</code></td>
+</tr>
+<tr>
+<td>División por cero</td>
+<td><code>ZeroDivisionError</code></td>
+<td>Validar el divisor antes</td>
+</tr>
+<tr>
+<td>Paréntesis o comilla sin cerrar</td>
+<td><code>SyntaxError</code> (a veces señala la línea <strong>siguiente</strong>)</td>
+<td>La línea anterior a la que marca el error</td>
+</tr>
+<tr>
+<td>Usar <code>Y</code>/<code>O</code> en Python</td>
+<td><code>SyntaxError</code></td>
+<td>Se escriben <code>and</code> / <code>or</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Y una advertencia de método:</strong> cuando Python señala un error en la línea 12, mira también la 11. Un paréntesis sin cerrar en la 11 hace que el intérprete se pierda y se queje de la 12.</p>
+<hr />
+<h2 id="10-chuleta-pseint--python">10. Chuleta PSeInt ↔ Python</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th>PSeInt</th>
+<th>Python</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inicio / fin</td>
+<td><code>Algoritmo X</code> … <code>FinAlgoritmo</code></td>
+<td>(no aplica)</td>
+</tr>
+<tr>
+<td>Declarar</td>
+<td><code>Definir x Como Entero</code></td>
+<td><code>x = 0</code> (opcional)</td>
+</tr>
+<tr>
+<td>Asignar</td>
+<td><code>x &lt;- 5</code></td>
+<td><code>x = 5</code></td>
+</tr>
+<tr>
+<td>Leer</td>
+<td><code>Leer x</code></td>
+<td><code>x = int(input())</code></td>
+</tr>
+<tr>
+<td>Escribir</td>
+<td><code>Escribir "hola", x</code></td>
+<td><code>print("hola", x)</code></td>
+</tr>
+<tr>
+<td>Comentario</td>
+<td><code>// texto</code></td>
+<td><code># texto</code></td>
+</tr>
+<tr>
+<td>Igual</td>
+<td><code>=</code></td>
+<td><code>==</code></td>
+</tr>
+<tr>
+<td>Distinto</td>
+<td><code>&lt;&gt;</code></td>
+<td><code>!=</code></td>
+</tr>
+<tr>
+<td>Y / O / NO</td>
+<td><code>Y</code> <code>O</code> <code>NO</code></td>
+<td><code>and</code> <code>or</code> <code>not</code></td>
+</tr>
+<tr>
+<td>Verdadero/Falso</td>
+<td><code>Verdadero</code> / <code>Falso</code></td>
+<td><code>True</code> / <code>False</code></td>
+</tr>
+<tr>
+<td>Si</td>
+<td><code>Si c Entonces … FinSi</code></td>
+<td><code>if c:</code></td>
+</tr>
+<tr>
+<td>Si-sino</td>
+<td><code>SiNo</code></td>
+<td><code>else:</code></td>
+</tr>
+<tr>
+<td>Sino-si</td>
+<td><code>SiNo Si c Entonces</code></td>
+<td><code>elif c:</code></td>
+</tr>
+<tr>
+<td>Según</td>
+<td><code>Segun x Hacer … FinSegun</code></td>
+<td><code>match x:</code> / <code>if-elif</code></td>
+</tr>
+<tr>
+<td>Para</td>
+<td><code>Para i&lt;-1 Hasta n Hacer … FinPara</code></td>
+<td><code>for i in range(1, n+1):</code></td>
+</tr>
+<tr>
+<td>Mientras</td>
+<td><code>Mientras c Hacer … FinMientras</code></td>
+<td><code>while c:</code></td>
+</tr>
+<tr>
+<td>Repetir-hasta</td>
+<td><code>Repetir … Hasta Que c</code></td>
+<td><code>while True: … if c: break</code></td>
+</tr>
+<tr>
+<td>Arreglo</td>
+<td><code>Dimension a[10]</code>, <code>a[1]</code></td>
+<td><code>a = [0]*10</code>, <code>a[0]</code></td>
+</tr>
+<tr>
+<td>Matriz</td>
+<td><code>Dimension m[3,4]</code>, <code>m[1,1]</code></td>
+<td><code>m[0][0]</code></td>
+</tr>
+<tr>
+<td>Tamaño</td>
+<td><code>Longitud(a)</code></td>
+<td><code>len(a)</code></td>
+</tr>
+<tr>
+<td>Función</td>
+<td><code>Funcion r &lt;- f(x)</code> … <code>FinFuncion</code></td>
+<td><code>def f(x): return r</code></td>
+</tr>
+<tr>
+<td>Procedimiento</td>
+<td><code>SubProceso p()</code> … <code>FinSubProceso</code></td>
+<td><code>def p():</code> (sin <code>return</code>)</td>
+</tr>
+<tr>
+<td>División entera</td>
+<td><code>div</code> o <code>\</code></td>
+<td><code>//</code></td>
+</tr>
+<tr>
+<td>Módulo</td>
+<td><code>MOD</code> o <code>%</code></td>
+<td><code>%</code></td>
+</tr>
+<tr>
+<td>Potencia</td>
+<td><code>^</code></td>
+<td><code>**</code></td>
+</tr>
+<tr>
+<td>Raíz</td>
+<td><code>raiz(x)</code></td>
+<td><code>x ** 0.5</code></td>
+</tr>
+<tr>
+<td>Absoluto</td>
+<td><code>abs(x)</code></td>
+<td><code>abs(x)</code></td>
+</tr>
+<tr>
+<td>Redondear</td>
+<td><code>redon(x)</code></td>
+<td><code>round(x, 2)</code></td>
+</tr>
+<tr>
+<td>Concatenar texto</td>
+<td><code>,</code> en <code>Escribir</code></td>
+<td><code>+</code> entre <code>str</code>, o f-string</td>
+</tr>
+<tr>
+<td>Cierre de bloque</td>
+<td><code>FinSi</code>, <code>FinPara</code>, <code>FinMientras</code></td>
+<td>la <strong>indentación</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<p><em>Contenido esperado, reconstruido. Todo el código Python de este archivo fue ejecutado y verificado. Verificar los temas contra el aula virtual a partir del 25 de agosto de 2026.</em></p>
+</main>
+</body>
+</html>

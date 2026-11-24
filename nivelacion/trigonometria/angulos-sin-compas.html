@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trazar ángulos sin compás</title>
+<style>
+:root{--bg:#0f1115;--panel:#171a21;--panel2:#1e222b;--line:#2a2f3a;--tx:#e7e9ee;
+--tx2:#b3bac8;--tx3:#7b8394;--a:#5aa3ff;--warn:#e0a33a;--code:#ffb3a0}
+@media(prefers-color-scheme:light){:root{--bg:#f6f7f9;--panel:#fff;--panel2:#f0f2f5;
+--line:#e0e3e9;--tx:#171a21;--tx2:#3b4250;--tx3:#7b8394;--a:#1a6fd4;--code:#b4441f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size:16.5px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);
+backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 22px;
+display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap}
+.top a{color:var(--a);text-decoration:none;font-weight:500}
+.top a:hover{text-decoration:underline}
+.top .bc{color:var(--tx3)}
+.top .sp{flex:1}
+.top button{font:inherit;font-size:12px;background:var(--panel2);color:var(--tx2);
+border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.top button:hover{color:var(--tx)}
+main{max-width:880px;margin:0 auto;padding:30px 22px 96px}
+h1{font-size:29px;line-height:1.22;letter-spacing:-.015em;margin:.2em 0 .5em;font-weight:660}
+h2{font-size:22px;line-height:1.3;margin:2em 0 .6em;font-weight:640;letter-spacing:-.01em;
+padding-top:.35em;border-top:1px solid var(--line)}
+h3{font-size:18px;margin:1.7em 0 .5em;font-weight:620}
+h4{font-size:16px;margin:1.4em 0 .4em;font-weight:620;color:var(--tx2)}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.05em;padding-left:1.5em}
+li{margin:.3em 0}
+li>ul,li>ol{margin:.3em 0}
+a{color:var(--a)}
+strong{color:var(--tx);font-weight:640}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+blockquote{margin:1.3em 0;padding:.9em 1.2em;background:var(--panel);
+border-left:3px solid var(--warn);border-radius:0 8px 8px 0;color:var(--tx2)}
+blockquote p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+font-size:.885em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+padding:.1em .38em;color:var(--code)}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.2em 0;line-height:1.5}
+pre code{background:none;border:0;padding:0;color:var(--tx2);font-size:13.5px}
+.tw{overflow-x:auto;margin:1.3em 0;background:var(--panel);
+border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+color:var(--tx3);font-weight:600;padding:10px 13px;background:var(--panel2);
+border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--tx2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+mjx-container[display="true"]{margin:1.15em 0!important;overflow-x:auto;overflow-y:hidden;
+padding:2px 0}
+mjx-container{color:var(--tx)}
+li.task{list-style:none;margin-left:-1.15em}
+li.task input{margin-right:.55em}
+@media print{
+  .top{display:none} body{background:#fff;color:#000;font-size:11pt}
+  main{max-width:none;padding:0} pre,table,blockquote{break-inside:avoid}
+  h2,h3{break-after:avoid} a{color:#000;text-decoration:none}
+}
+@media(max-width:640px){body{font-size:16px} h1{font-size:24px} h2{font-size:20px}}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']],
+         processEscapes: true, tags: 'none' },
+  svg: { fontCache: 'global', scale: 1.02 },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+              ignoreHtmlClass: 'nomath' }
+};
+</script>
+<script defer src="../../_assets/tex-svg.js"></script>
+</head>
+<body>
+<div class="top">
+  <a href="/">&#8592; Inicio</a>
+  <span class="bc">/ 00 - Nivelación (antes del 25 de agosto)/Trigonometría a fondo / 9. Trazar ángulos sin compás</span>
+  <span class="sp"></span>
+  <button onclick="window.print()">Imprimir / PDF</button>
+</div>
+<main>
+<h1 id="trazar-ángulos-sin-compás">Trazar ángulos sin compás</h1>
+<p><strong>Cómo dibujar un ángulo exacto en hoja cuadriculada con solo una regla</strong></p>
+<p>Este archivo nació de una pregunta concreta: <em>¿cómo grafico 30° desde el origen si no tengo compás?</em> La respuesta corta es que el compás nunca fue necesario. La larga es más interesante, porque explica de dónde sale toda la trigonometría.</p>
+<hr />
+<h2 id="la-idea-de-fondo">La idea de fondo</h2>
+<p>Un ángulo no es una abertura que se mide con un instrumento. <strong>Un ángulo es una razón entre longitudes.</strong> Esa frase es el corazón de la materia y conviene tomársela en serio desde el primer día.</p>
+<p>Si desde el origen avanzas una distancia horizontal y subes una distancia vertical, el ángulo que forma esa línea con el eje \(x\) queda completamente determinado por el cociente entre ambas. No hay nada más que decidir:</p>
+<p>\[\tan\theta = \frac{\text{cateto opuesto}}{\text{cateto adyacente}} = \frac{\text{lo que subes}}{\text{lo que avanzas}}\]</p>
+<p>Una hoja cuadriculada ya es una regla en dos direcciones. Contar cuadros <em>es</em> medir. Por eso el papel cuadriculado y la trigonometría se llevan tan bien.</p>
+<hr />
+<h2 id="método-1--el-del-cociente">Método 1 — el del cociente</h2>
+<p>Como \(\tan 30° = \dfrac{1}{\sqrt{3}} \approx 0{,}5774\), necesitas dos números enteros cuyo cociente se acerque a ese valor. Cuanto mejor la aproximación, más fiel el ángulo.</p>
+<div style="background:rgba(139,149,166,.07);border:1px solid rgba(139,149,166,.3);border-radius:10px;padding:14px;margin:18px 0;color:currentColor"><svg viewBox="0 0 580 372" style="display:block;width:100%;height:auto" role="img" aria-label="Rayo de 30 grados sobre cuadrícula: 26 cuadros a la derecha y 15 hacia arriba"><defs><pattern id="cuad" width="18" height="18" patternUnits="userSpaceOnUse"><path d="M18 0 L0 0 0 18" fill="none" stroke="#8b95a6" stroke-opacity=".38" stroke-width="1"/></pattern><marker id="flecha" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#4f9cf9"/></marker></defs><rect x="18" y="18" width="522" height="324" fill="url(#cuad)"/><line x1="18" y1="306" x2="552" y2="306" stroke="#8b95a6" stroke-width="1.6"/><line x1="36" y1="10" x2="36" y2="342" stroke="#8b95a6" stroke-width="1.6"/><line x1="36" y1="306" x2="504" y2="306" stroke="#d99a2b" stroke-width="2.5"/><line x1="504" y1="306" x2="504" y2="36" stroke="#d99a2b" stroke-width="2.5" stroke-dasharray="5 4"/><line x1="36" y1="306" x2="508" y2="33" stroke="#4f9cf9" stroke-width="2.8" marker-end="url(#flecha)"/><path d="M96,306 A60,60 0 0 0 87.96,276" fill="none" stroke="#4f9cf9" stroke-width="2"/><text x="104" y="294" font-size="15" font-weight="700" fill="#4f9cf9">30°</text><circle cx="36" cy="306" r="4" fill="currentColor"/><circle cx="504" cy="36" r="4.5" fill="#4f9cf9"/><text x="16" y="326" font-size="12.5" fill="currentColor" opacity=".65">O (0,0)</text><text x="270" y="330" font-size="13" font-weight="600" fill="#d99a2b" text-anchor="middle">26 cuadros</text><text x="516" y="176" font-size="13" font-weight="600" fill="#d99a2b">15</text><text x="516" y="192" font-size="13" font-weight="600" fill="#d99a2b">cuadros</text><text x="424" y="26" font-size="12.5" fill="currentColor" opacity=".65">P (26, 15)</text></svg></div>
+
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Avanzas</th>
+<th>Subes</th>
+<th>Cociente</th>
+<th>Ángulo real</th>
+<th>Error</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7</td>
+<td>4</td>
+<td>0,5714</td>
+<td>29,75°</td>
+<td>−0,25°</td>
+</tr>
+<tr>
+<td>12</td>
+<td>7</td>
+<td>0,5833</td>
+<td>30,26°</td>
+<td>+0,26°</td>
+</tr>
+<tr>
+<td>19</td>
+<td>11</td>
+<td>0,5789</td>
+<td>30,07°</td>
+<td>+0,07°</td>
+</tr>
+<tr>
+<td><strong>26</strong></td>
+<td><strong>15</strong></td>
+<td><strong>0,5769</strong></td>
+<td><strong>29,98°</strong></td>
+<td><strong>−0,02°</strong> ★</td>
+</tr>
+</tbody>
+</table></div>
+<p>La pareja <strong>26 y 15</strong> es la ganadora: dos centésimas de grado de error, muy por debajo del grosor de la mina del lápiz. Si tu hoja es pequeña, <strong>7 y 4</strong> basta y sobra para un dibujo.</p>
+<p>Y hay una simetría bonita: como \(\tan 60° = \sqrt{3} \approx 1{,}7321\) es el recíproco de \(\tan 30°\), <strong>invertir los números invierte el ángulo</strong>. Quince a la derecha y veintiséis hacia arriba te da 60,02°. Los dos ángulos de la escuadra con la misma pareja de números.</p>
+<hr />
+<h2 id="método-2--el-exacto-con-la-regla">Método 2 — el exacto, con la regla</h2>
+<p>Este no aproxima nada, y es el que más enseña. Se apoya en un valor exacto:</p>
+<p>\[\operatorname{sen} 30° = \frac{1}{2}\]</p>
+<p>Es decir: en un triángulo rectángulo con un ángulo de 30°, <strong>el cateto opuesto mide exactamente la mitad de la hipotenusa</strong>. Si construyes esa proporción, el ángulo aparece solo.</p>
+<div style="background:rgba(139,149,166,.07);border:1px solid rgba(139,149,166,.3);border-radius:10px;padding:14px;margin:18px 0;color:currentColor"><svg viewBox="0 0 480 330" style="display:block;width:100%;height:auto" role="img" aria-label="Regla desde el origen cuya marca de 10 cm cae sobre una recta auxiliar a 5 cm del eje"><rect x="18" y="18" width="444" height="288" fill="url(#cuad)"/><line x1="18" y1="270" x2="462" y2="270" stroke="#8b95a6" stroke-width="1.6"/><line x1="60" y1="18" x2="60" y2="306" stroke="#8b95a6" stroke-width="1.6"/><line x1="24" y1="140" x2="456" y2="140" stroke="#d99a2b" stroke-width="2.5" stroke-dasharray="7 5"/><text x="26" y="132" font-size="12.5" font-weight="600" fill="#d99a2b">recta auxiliar, a 5 cm del eje</text><line x1="60" y1="270" x2="285" y2="140" stroke="#4f9cf9" stroke-width="2.8"/><line x1="285" y1="140" x2="330" y2="114" stroke="#4f9cf9" stroke-width="2.8" stroke-dasharray="4 4" opacity=".45"/><line x1="285" y1="140" x2="285" y2="270" stroke="#35a37f" stroke-width="2" stroke-dasharray="4 4"/><text x="293" y="212" font-size="13" font-weight="600" fill="#35a37f">5 cm</text><path d="M120,270 A60,60 0 0 0 111.96,240" fill="none" stroke="#4f9cf9" stroke-width="2"/><text x="128" y="258" font-size="15" font-weight="700" fill="#4f9cf9">30°</text><circle cx="60" cy="270" r="4" fill="currentColor"/><circle cx="285" cy="140" r="4.5" fill="#4f9cf9"/><text x="24" y="292" font-size="12.5" fill="currentColor" opacity=".65">O</text><text x="150" y="196" font-size="13" font-weight="600" fill="#4f9cf9" transform="rotate(-30 150 196)">10 cm de regla</text></svg></div>
+
+<p><strong>Los tres pasos:</strong></p>
+<ol>
+<li>Traza una recta horizontal a <strong>5 cm</strong> por encima del eje \(x\).</li>
+<li>Apoya el cero de la regla en el origen y gírala hasta que la marca de <strong>10 cm</strong> caiga justo sobre esa recta.</li>
+<li>Traza la línea. Eso es 30°, sin aproximación.</li>
+</ol>
+<p><strong>Por qué funciona.</strong> Estás construyendo la mitad de un triángulo equilátero. Si partes un equilátero de lado 10 por su altura, obtienes dos triángulos de 30-60-90 en los que el lado opuesto al ángulo de 30° mide 5, la mitad del lado original. Por eso \(\operatorname{sen} 30° = 1/2\) no es un dato de tabla que haya que memorizar: es una consecuencia geométrica que puedes reconstruir con la regla en la mano cada vez que la olvides.</p>
+<hr />
+<h2 id="la-receta-general">La receta general</h2>
+<p>Lo anterior no es un truco para 30°. Sirve para <strong>cualquier</strong> ángulo:</p>
+<blockquote>
+<p>Para trazar un ángulo \(\theta\) desde el origen, avanza \(a\) cuadros y sube \(b\) cuadros, donde \(\dfrac{b}{a} \approx \tan\theta\).</p>
+</blockquote>
+<p>Los ángulos que más vas a necesitar:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Ángulo</th>
+<th>\(\tan\theta\)</th>
+<th>Valor</th>
+<th>Avanzas</th>
+<th>Subes</th>
+<th>Ángulo obtenido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>30°</td>
+<td>\(1/\sqrt{3}\)</td>
+<td>0,5774</td>
+<td>26</td>
+<td>15</td>
+<td>29,98°</td>
+</tr>
+<tr>
+<td>45°</td>
+<td>\(1\)</td>
+<td>1,0000</td>
+<td>10</td>
+<td>10</td>
+<td>45,00° <em>(exacto)</em></td>
+</tr>
+<tr>
+<td>60°</td>
+<td>\(\sqrt{3}\)</td>
+<td>1,7321</td>
+<td>15</td>
+<td>26</td>
+<td>60,02°</td>
+</tr>
+<tr>
+<td>15°</td>
+<td>\(2-\sqrt{3}\)</td>
+<td>0,2679</td>
+<td>15</td>
+<td>4</td>
+<td>14,93°</td>
+</tr>
+<tr>
+<td>75°</td>
+<td>\(2+\sqrt{3}\)</td>
+<td>3,7321</td>
+<td>4</td>
+<td>15</td>
+<td>75,07°</td>
+</tr>
+</tbody>
+</table></div>
+<p>El de 45° es exacto y trivial: la diagonal del cuadrado. Los demás son aproximaciones excelentes.</p>
+<p>Para los otros cuadrantes solo cambian los signos. Un ángulo de 150° es el mismo 30° medido desde el eje \(x\) negativo: avanzas 26 <strong>hacia la izquierda</strong> y subes 15. Eso es exactamente lo que significa el <strong>ángulo de referencia</strong> de la sección 4 del archivo 2, y verlo dibujado suele resolverlo de una vez por todas.</p>
+<hr />
+<h2 id="cómo-comprobar-lo-que-dibujaste">Cómo comprobar lo que dibujaste</h2>
+<p>No confíes en el ojo. Mide la hipotenusa con la regla y divide la altura entre ella: si te da 0,50, el ángulo es 30°. Estás calculando el seno con las manos.</p>
+<p>Con el método del cociente: \(\sqrt{26^2 + 15^2} = \sqrt{901} \approx 30{,}02\), y \(15 \div 30{,}02 = 0{,}4997\). Prácticamente un medio.</p>
+<p>También puedes verificar el coseno: mide el cateto horizontal y divídelo entre la hipotenusa. \(26 \div 30{,}02 = 0{,}8661\), y el valor exacto es \(\dfrac{\sqrt{3}}{2} = 0{,}8660\). Cuando llegues a la tabla del círculo unitario en el archivo 2, ya vas a haber verificado dos de sus casillas con una regla.</p>
+<hr />
+<h2 id="por-qué-esto-importa-más-de-lo-que-parece">Por qué esto importa más de lo que parece</h2>
+<p>Hay una tentación natural de tratar la tabla de valores exactos como una lista que hay que memorizar. Este archivo es el argumento en contra: <strong>cada casilla de esa tabla es una proporción que puedes construir físicamente.</strong> El \(1/2\) del seno de 30° sale de partir un triángulo equilátero. El \(\sqrt{2}/2\) de 45° sale de la diagonal de un cuadrado. El \(\sqrt{3}/2\) del coseno de 30° es la altura de ese mismo equilátero.</p>
+<p>Quien entiende eso no necesita memorizar la tabla, la reconstruye. Y quien la reconstruye no la olvida en el examen.</p>
+<hr />
+<p><em>Complemento del archivo <code>2. Fundamentos y círculo unitario</code>, secciones 1 a 4. Los ángulos y errores de las tablas fueron calculados y verificados numéricamente.</em></p>
+</main>
+</body>
+</html>
